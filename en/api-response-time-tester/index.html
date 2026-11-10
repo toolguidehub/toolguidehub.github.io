@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Batch-test API endpoints for latency with concurrent requests, then export the results to CSV.">
+<meta name="keywords" content="APIresponseTimeTesttoolToolsOnlineToolsFree">
+<title>API Response Time Tester - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/api-response-time-tester/">
+<meta property="og:title" content="API Performance Testing Tool - ToolGuideHub">
+<meta property="og:description" content="Batch-test API endpoints for latency with concurrent requests, then export the results to CSV.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/api-response-time-tester/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APIresponseTimeTesttool">
+<meta name="twitter:description" content="Free online api response time tester tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "API Response Time Tester",
+  "description": "Free online API response time tester. Batch test multiple endpoints, concurrent requests, latency analysis, export CSV report. Pure client-side.",
+  "url": "https://adi63586.github.io/Toolguidehub/en/api-response-time-tester/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+h1{color:#f1f5f9}
+.btn{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:500;transition:all .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,182,212,.3)}
+.btn:active{transform:translateY(0)}
+input,textarea,select{background:#1e293b;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:10px 14px;font-size:.95rem;width:100%;transition:border-color .2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:#06b6d4;box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+textarea{
+      background: var(--surface);
+      color: var(--text);min-height:120px;resize:vertical;font-family:monospace}
+label{display:block;margin-bottom:6px;color:#94a3b8;font-size:.9rem;font-weight:500}
+.section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.08)}
+.section h2{font-size:1.15rem;color:#f1f5f9;margin-bottom:16px}
+.hero{text-align:center;padding:16px 0;margin-bottom:8px}
+.hero p{color:#94a3b8;font-size:.95rem;max-width:700px;margin:0 auto}
+.badge{display:inline-block;background:rgba(6,182,212,.1);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:8px;border:1px solid rgba(6,182,212,.15)}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;margin-top:12px;min-height:60px;font-family:monospace;font-size:.9rem;white-space:pre-wrap;word-break:break-all;border:1px solid rgba(148,163,184,.1)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>*{flex:1;min-width:200px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr}.row>*{flex:100%}}
+.faq{margin-top:24px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:1rem;color:#f1f5f9;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b;text-decoration:none}
+.nav-back a:hover{color:#94a3b8}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px;text-decoration:none}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "API Response Time Tester", "item": "https://adi63586.github.io/Toolguidehub/en/api-response-time-tester/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "API Response Time Tester", "description": "Free online API response time tester. Batch test multiple endpoints, concurrent requests, latency analysis, export CSV report. Pure client-side.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"API Response Time Tester FAQ","mainEntity":[{"@type":"Question","name":"How accurate is the API Response Time Tester?","acceptedAnswer":{"@type":"Answer","text":"The tool provides precise test results by processing your input locally in the browser. Enter your test parameters, run the test, and review the detailed report. No data is sent to external servers."}},{"@type":"Question","name":"Is the API Response Time Tester free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Concurrency and Timeout are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I use the API Response Time Tester on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Yes, the tool is fully responsive and works on any device with a modern browser. All testing runs locally, so you get the same accuracy and privacy on mobile as on desktop."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use API Response Time Tester","description":"Step-by-step guide for using API Response Time Tester","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"API Response Time Tester"},"step":[{"@type":"HowToStep","position":1,"name":"Prepare test","text":"Enter test parameters or upload test data"},{"@type":"HowToStep","position":2,"name":"Start test","text":"Click the start button to run the test"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the test results and detailed data"},{"@type":"HowToStep","position":4,"name":"Copy report","text":"Copy or download the test report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/api-response-time-tester/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<div class="header"><h1>API Response Time Tester</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; API Response Time Tester</p>
+<div class="hero"><p>Free online API response time tester. Test multiple API endpoints with concurrent requests, latency analysis, and CSV export. Runs entirely in your browser — no signup required.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+
+<div class="section">
+<h2>API Response Time Tester</h2>
+<p style="color:#94a3b8;margin-bottom:16px">Enter API endpoint URLs (one per line), click Start Test. Supports HTTP/HTTPS, concurrent requests, real-time latency, status code and response body size.</p>
+<div class="row" style="margin-bottom:12px">
+<textarea id="input" placeholder="https://api.github.com/users/octocat&#10;https://jsonplaceholder.typicode.com/posts/1&#10;https://httpbin.org/get" style="min-height:140px"></textarea>
+</div>
+<div class="row" style="margin-bottom:12px;align-items:center">
+<label style="margin:0;white-space:nowrap">Concurrency</label>
+<select id="concurrency" style="width:80px">
+<option value="1">1</option>
+<option value="3" selected>3</option>
+<option value="5">5</option>
+<option value="10">10</option>
+</select>
+<label style="margin:0 0 0 12px;white-space:nowrap">Timeout(ms)</label>
+<select id="timeout" style="width:100px">
+<option value="3000">3000</option>
+<option value="5000" selected>5000</option>
+<option value="10000">10000</option>
+<option value="30000">30000</option>
+</select>
+<button class="btn" onclick="process()">Start Test</button>
+<button class="btn" style="background:#334155" onclick="clearAll()">Clear</button>
+<button class="btn" style="background:#334155" onclick="exportCSV()">Export CSV</button>
+</div>
+<div id="progress" style="display:none;margin-bottom:12px;color:#22d3ee;font-size:.9rem"></div>
+<div id="output" style="margin-top:12px"></div>
+</div>
+
+<div class="section faq">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>Is this tool free?</h3><p>Yes, completely free with no signup or login required.</p></div>
+<div class="faq-item"><h3>Will my data be uploaded to a server?</h3><p>No. All testing runs locally in your browser — nothing is uploaded to any server.</p></div>
+<div class="faq-item"><h3>About API Response Time Tester</h3><p>Free online API response time tester. Batch test multiple endpoints, concurrent requests, latency analysis, export CSV report. Pure client-side.</p></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="//en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="//en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+
+<p>API Response Time Tester | No Signup Required · Data stays in your browser</p>
+
+</main>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">AllTools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../about/">About Us</a>
+<a href="../../en/api-response-time-tester/">中文</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+</footer>
+
+<script>
+var testResults = [];
+
+function process() {
+    var input = document.getElementById('input').value.trim();
+    if (!input) { showToast('Please enter API endpoint URLs'); return; }
+    var urls = input.split('\n').map(function(u){return u.trim();}).filter(function(u){return u.length>0;});
+    if (urls.length === 0) { showToast('Please enter at least one URL'); return; }
+    var concurrency = parseInt(document.getElementById('concurrency').value);
+    var timeout = parseInt(document.getElementById('timeout').value);
+    testResults = [];
+    var output = document.getElementById('output');
+    var progress = document.getElementById('progress');
+    output.innerHTML = '';
+    progress.style.display = 'block';
+    progress.textContent = 'Preparing to test ' + urls.length + ' endpoints...';
+    
+    var idx = 0, completed = 0;
+    function next() {
+        while (idx < urls.length && completed - (idx - completed) < concurrency) {
+            (function(url, i) {
+                testOne(url, timeout, function(res) {
+                    testResults.push(res);
+                    completed++;
+                    progress.textContent = 'Completed ' + completed + '/' + urls.length + ' ...';
+                    renderRow(res, i);
+                    if (completed < urls.length) { next(); }
+                    else { finishTest(); }
+                });
+            })(urls[idx], idx);
+            idx++;
+        }
+    }
+    next();
+}
+
+function testOne(url, timeout, cb) {
+    var start = performance.now();
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, timeout);
+    fetch(url, {method:'GET', signal:controller.signal, redirect:'follow'})
+    .then(function(resp) {
+        return resp.text().then(function(body) {
+            clearTimeout(timer);
+            var elapsed = Math.round(performance.now() - start);
+            cb({url:url, status:resp.status, ok:resp.ok, time:elapsed, size:body.length, error:null});
+        });
+    })
+    .catch(function(err) {
+        clearTimeout(timer);
+        var elapsed = Math.round(performance.now() - start);
+        var msg = err.name === 'AbortError' ? 'Timeout' : err.message;
+        cb({url:url, status:0, ok:false, time:elapsed, size:0, error:msg});
+    });
+}
+
+function statusColor(s) {
+    if (s === 0) return '#ef4444';
+    if (s < 300) return '#22c55e';
+    if (s < 400) return '#22d3ee';
+    if (s < 500) return '#eab308';
+    return '#ef4444';
+}
+
+function timeColor(t) {
+    if (t < 500) return '#22c55e';
+    if (t < 1500) return '#eab308';
+    return '#ef4444';
+}
+
+function renderRow(res, idx) {
+    var output = document.getElementById('output');
+    var div = document.createElement('div');
+    div.className = 'result-box';
+    div.style.cssText = 'display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;padding:12px 16px';
+    var statusHtml = res.error
+        ? '<span style="color:#ef4444;font-weight:bold">❌ ' + escapeHtml(res.error) + '</span>'
+        : '<span style="color:' + statusColor(res.status) + ';font-weight:bold">' + res.status + (res.ok ? ' ✓' : '') + '</span>';
+    var timeHtml = '<span style="color:' + timeColor(res.time) + '">' + res.time + 'ms</span>';
+    var sizeHtml = res.size > 0 ? '<span style="color:#94a3b8">' + formatSize(res.size) + '</span>' : '<span style="color:#64748b">-</span>';
+    div.innerHTML = '<span style="color:#64748b;font-size:.8rem">#' + (idx+1) + '</span>' +
+        '<span style="color:#e2e8f0;font-family:monospace;font-size:.85rem;flex:1;min-width:200px;word-break:break-all">' + escapeHtml(res.url) + '</span>' +
+        statusHtml + timeHtml + sizeHtml;
+    output.appendChild(div);
+}
+
+function finishTest() {
+    var progress = document.getElementById('progress');
+    var times = testResults.filter(function(r){return !r.error;}).map(function(r){return r.time;});
+    var avg = times.length ? Math.round(times.reduce(function(a,b){return a+b;},0) / times.length) : 0;
+    var minT = times.length ? Math.min.apply(null, times) : 0;
+    var maxT = times.length ? Math.max.apply(null, times) : 0;
+    var okCount = testResults.filter(function(r){return r.ok;}).length;
+    var errCount = testResults.filter(function(r){return r.error || !r.ok;}).length;
+    progress.innerHTML = 'Test complete ✓ Success: <b style="color:#22c55e">' + okCount + '</b> Failed: <b style="color:#ef4444">' + errCount + '</b>' +
+        ' | Avg: <b style="color:#22d3ee">' + avg + 'ms</b> Fastest: <b style="color:#22c55e">' + minT + 'ms</b> Slowest: <b style="color:#ef4444">' + maxT + 'ms</b>';
+}
+
+function formatSize(bytes) {
+    if (bytes < 1024) return bytes + 'B';
+    if (bytes < 1048576) return (bytes/1024).toFixed(1) + 'KB';
+    return (bytes/1048576).toFixed(2) + 'MB';
+}
+
+function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function exportCSV() {
+    if (testResults.length === 0) { showToast('No test results to export'); return; }
+    var csv = 'URL,Status,Time(ms),Size(bytes),Error\n';
+    testResults.forEach(function(r) {
+        csv += '"' + r.url.replace(/"/g,'""') + '",' + r.status + ',' + r.time + ',' + r.size + ',"' + (r.error||'').replace(/"/g,'""') + '"\n';
+    });
+    var blob = new Blob(['\ufeff' + csv], {type:'text/csv'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'api-test-results.csv';
+    a.click();
+    showToast('CSV exported');
+}
+
+function clearAll() {
+    document.getElementById('input').value = '';
+    document.getElementById('output').innerHTML = '';
+    document.getElementById('progress').style.display = 'none';
+    testResults = [];
+    showToast('Cleared');
+}
+
+function showToast(msg) {
+    let t = document.querySelector('.toast');
+    if (!t) {
+        t = document.createElement('div');
+        t.className = 'toast';
+        document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+}
+</script>
+
+</body>
+</html>

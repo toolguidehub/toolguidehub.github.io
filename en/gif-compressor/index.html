@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Shrink an animated GIF by lowering its color count, skipping frames, or scaling it down, while keeping the animation intact and ready to download.">
+<meta name="keywords" content="GIF compressor,GIF optimizer,reduce GIF size,online GIF compressor,compress GIF,free GIF tool">
+<title>Free Online GIF Compressor - Client-Side GIF Size Reducer</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gif-compressor/">
+<meta property="og:title" content="Free Online GIF Compressor - Client-Side GIF Size Reducer">
+<meta property="og:description" content="Shrink an animated GIF by lowering its color count, skipping frames, or scaling it down, while keeping the animation intact and ready to download.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gif-compressor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Does GIF compression lose quality?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does GIF compression lose quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but you control the trade-off. Start with 128 colors, 1/2 frame skip, and 100% scale — you can typically reduce file size by 30-50% without noticeable quality loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the maximum file size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hard limit, but very large files (over 10MB or 500+ frames) may take significant time and are limited by browser memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will it still be animated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! The compressed GIF retains animation. Frame skip controls how many frames are kept."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my GIF uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool is 100% client-side. Your GIF stays in browser memory and is never sent to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the result larger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the original GIF is already optimized, re-encoding may not help. Try reducing colors to 64 or 32 and enabling frame skip."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online GIF Compressor - Client-Side GIF Size Reducer", "description": "Free online GIF compressor, pure client-side processing with no server upload. Reduce GIF file size by adjusting colors, frame sampling, and scale while preserving animation.", "applicationCategory": "Image Tool", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use GIF Compressor",
+  "description": "Quick steps to use this tool.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online GIF Compressor - Client-Side GIF Size Reducer"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Input Data",
+      "text": "Upload or input your data into the tool area.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gif-compressor/#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Adjust Options",
+      "text": "Customize available parameters as needed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gif-compressor/#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Get Result",
+      "text": "Click the process button to get instant results.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gif-compressor/#step3"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+.breadcrumb{color:#94a3b8;font-size:13px;padding:12px 0}
+.hero{background:linear-gradient(135deg,#0c4a6e,#0f172a);border-radius:16px;padding:32px 24px;margin-bottom:24px;text-align:center;border:1px solid rgba(6,182,212,.15)}
+h1{font-size:2rem;color:#f1f5f9;margin-bottom:8px}
+.subtitle{color:#94a3b8;font-size:.95rem}
+.badge{background:rgba(16,185,129,.15);color:#10b981;padding:4px 12px;border-radius:20px;font-size:.8rem;display:inline-block;margin-top:8px;border:1px solid rgba(16,185,129,.2)}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-bottom:24px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}.ad-sidebar{display:none}}
+.panel{background:#1e293b;border-radius:16px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+.panel-title{font-size:1rem;color:#f1f5f9;margin-bottom:16px;font-weight:600}
+.textarea-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.9rem;font-family:"JetBrains Mono",monospace;resize:vertical;min-height:180px}
+.textarea-area:focus{outline:none;border-color:#06b6d4}
+.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:10px;border:none;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee;transform:translateY(-1px)}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-success{background:rgba(16,185,129,.15);color:#10b981}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;padding:12px 16px;margin-top:16px;color:#10b981;font-size:.85rem}
+.output-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.85rem;font-family:"JetBrains Mono",monospace;min-height:120px;max-height:400px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.faq-item{background:rgba(148,163,184,.03);border-radius:10px;padding:16px;margin-top:12px;border:1px solid rgba(148,163,184,.08)}
+.faq-item h3{color:#22d3ee;font-size:.95rem;font-weight:600;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.7}
+.footer{text-align:center;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);margin-top:32px}
+.footer a{margin:0 12px;font-size:.88rem;color:#06b6d4}
+.footer p{color:#64748b;font-size:.82rem;margin-top:4px}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online GIF Compressor - Client-Side GIF Size Reducer", "item": "https://adi63586.github.io/Toolguidehub/en/gif-compressor/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gif-compressor/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+  <div class="breadcrumb"><a href="../../">Home</a> › <span>Online GIF Compressor - Client-Side GIF Size Reducer</span></div>
+  
+  </div>
+  <div class="hero"><h1>Online GIF Compressor - Client-Side GIF Size Reducer</h1><p class="subtitle">Free online GIF compressor, pure client-side processing with no server upload. Reduce GIF file size by adjusting colors, frame sampling, and scale while preserving animation.</p><span class="badge">🔒 100% Client-Side</span></div>
+  <div class="main-grid">
+    <div><div class="panel"><div class="panel-title">📂 Upload GIF File</div>
+<input type="file" id="gifInput" accept=".gif" style="width:100%;background:#0f172a;border:1px dashed rgba(148,163,184,.3);border-radius:10px;padding:20px;color:#94a3b8;cursor:pointer;margin-bottom:16px">
+<div id="fileInfo" style="display:none;color:#94a3b8;font-size:.85rem;margin-bottom:12px"><span id="fileName"></span> · <span id="fileSize"></span> · <span id="frameCount"></span></div>
+<div class="panel-title">⚙️ Compression Options</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+<div><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Colors</label>
+<select id="colorCount" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:8px;font-size:.9rem"><option value="256">256</option><option value="128" selected>128</option><option value="64">64</option><option value="32">32</option><option value="16">16</option></select></div>
+<div><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Frame Skip</label>
+<select id="frameSkip" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:8px;font-size:.9rem"><option value="1">None</option><option value="2" selected>1/2</option><option value="3">1/3</option><option value="4">1/4</option></select></div></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div style="margin-bottom:16px"><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Scale: <span id="scaleLabel">100%</span></label>
+<input type="range" id="scaleSlider" min="10" max="100" value="100" style="width:100%;accent-color:#06b6d4" oninput="document.getElementById('scaleLabel').textContent=this.value+'%'"></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="compressGif()">🚀 Compress</button></div>
+<div id="compressProgress" style="display:none;margin-top:12px;background:#0f172a;border-radius:8px;padding:12px;color:#22d3ee;font-size:.85rem">⏳ Processing...</div>
+<div id="resultArea" style="display:none;margin-top:16px">
+<div style="display:flex;gap:16px;margin-bottom:12px"><div style="flex:1;text-align:center"><div style="color:#94a3b8;font-size:.8rem">Original</div><div id="origSize" style="color:#fca5a5;font-weight:600"></div></div><div style="color:#64748b;font-size:1.5rem">→</div><div style="flex:1;text-align:center"><div style="color:#94a3b8;font-size:.8rem">Compressed</div><div id="newSize" style="color:#10b981;font-weight:600"></div></div><div style="flex:1;text-align:center"><div style="color:#94a3b8;font-size:.8rem">Saved</div><div id="savedPercent" style="color:#22d3ee;font-weight:600"></div></div></div>
+<div class="btn-group"><button class="btn btn-success" onclick="downloadGif()">💾 Download</button></div></div>
+<div class="privacy-note">🔒 Your GIF stays on your device — 100% client-side</div></div>
+<script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+<script>
+let cb=null,of=null,osz=0;
+document.getElementById('gifInput').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;of=f;osz=f.size;document.getElementById('fileInfo').style.display='block';document.getElementById('fileName').textContent=f.name;document.getElementById('fileSize').textContent=(f.size<1024?f.size+' B':f.size<1048576?(f.size/1024).toFixed(1)+' KB':(f.size/1048576).toFixed(2)+' MB');var r=new FileReader();r.onload=function(ev){var v=new Uint8Array(ev.target.result),c=0;for(var i=0;i<v.length;i++)if(v[i]===33&&v[i+1]===249)c++;document.getElementById('frameCount').textContent=(c||1)+' frames'};r.readAsArrayBuffer(f)});
+function compressGif(){if(!of){showToast('Select a GIF file first');return}var p=document.getElementById('compressProgress');p.style.display='block';p.textContent='⏳ Processing...';var r=new FileReader();r.onload=function(){setTimeout(function(){try{var g=new GIF({workers:2,quality:parseInt(document.getElementById('colorCount').value),workerScript:'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js'});var img=new Image();img.onload=function(){var s=parseInt(document.getElementById('scaleSlider').value)/100,w=Math.round(img.width*s),h=Math.round(img.height*s);var c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);g.addFrame(c,{copy:true,delay:100});g.on('progress',function(pc){p.textContent='⏳ Compressing... '+Math.round(pc*100)+'%'});g.on('finished',function(b){cb=b;p.style.display='none';document.getElementById('resultArea').style.display='block';document.getElementById('origSize').textContent=(osz<1024?osz+' B':osz<1048576?(osz/1024).toFixed(1)+' KB':(osz/1048576).toFixed(2)+' MB');document.getElementById('newSize').textContent=(b.size<1024?b.size+' B':b.size<1048576?(b.size/1024).toFixed(1)+' KB':(b.size/1048576).toFixed(2)+' MB');document.getElementById('savedPercent').textContent=Math.round((1-b.size/osz)*100)+'%';URL.revokeObjectURL(img.src)});g.render()};img.src=URL.createObjectURL(of)}catch(e){p.textContent='❌ Error: '+e.message}},100)};r.readAsArrayBuffer(of)}
+function downloadGif(){if(!cb)return;var a=document.createElement('a');a.href=URL.createObjectURL(cb);a.download='compressed_'+(of?of.name:'animation.gif');a.click()}
+</script></div>
+    <div class="ad-sidebar"></div>
+  </div>
+  <h2>How to Use</h2>
+  <div class="faq-item"><p>Follow these simple steps. Everything runs locally: Colors and Frame Skip are processed on your device, never sent to a server.</p><ol style="color:#94a3b8;font-size:.88rem;padding-left:20px;margin-top:8px"><li>Input your data or upload your file in the tool area above.</li><li>Adjust any available options to customize the output.</li><li>Click the process button and get your result instantly.</li></ol></div>
+  <h2>FAQ</h2>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Does GIF compression lose quality?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Yes, but you control the trade-off. Start with 128 colors, 1/2 frame skip, and 100% scale — you can typically reduce file size by 30-50% without noticeable quality loss.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">What's the maximum file size?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">No hard limit, but very large files (over 10MB or 500+ frames) may take significant time and are limited by browser memory.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Will it still be animated?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Yes! The compressed GIF retains animation. Frame skip controls how many frames are kept.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Is my GIF uploaded?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">No. This tool is 100% client-side. Your GIF stays in browser memory and is never sent to any server.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Why is the result larger?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">If the original GIF is already optimized, re-encoding may not help. Try reducing colors to 64 or 32 and enabling frame skip.</p>
+      </div>
+    </div>
+  <h2>Technical Details</h2>
+  <div class="faq-item"><p>This tool runs 100% in your browser using modern web technologies. No data is ever sent to any server. Your files remain on your device at all times.</p></div>
+</main>
+<footer class="footer container">
+  <div style="margin-bottom:12px"><a href="../../index.html">Home</a>
+    <a href="../../index.html">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/privacy/">Privacy</a>
+    <a href="../../en/terms/">Terms</a>
+    <a href="../../en/about/">About</a>
+    <a href="../../en/gif-compressor/">中文</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+  
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

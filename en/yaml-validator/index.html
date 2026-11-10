@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Validate YAML syntax with line numbers, format it with custom indentation and convert between YAML and JSON for config files.">
+<meta name="keywords" content="YAML validatorYAML formatterYAML linterYAML checkerYAML to JSONJSON to YAMLYAML parserYAML prettierconfig validatorK8s YAML tool">
+<title>Free Online YAML Validator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/yaml-validator/">
+<meta property="og:title" content="📋 YAML Validator">
+<meta property="og:description" content="Validate YAML syntax with line numbers, format it with custom indentation and convert between YAML and JSON for config files.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/yaml-validator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "YAML Validator", "description": "Free online YAML validator and formatter. Validate YAML syntax, convert between YAML and JSON with syntax highlighting and line numbers. Customizable indentation. Perfect for config files, K8s manifests, and CI/CD pipeline debugging.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free to use. No registration, subscription, or payment is required. All processing happens directly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally: Enter YAML and Indent Spaces are processed on your device, never sent to a server using JavaScript. Your data never leaves your device, ensuring complete privacy and security. The tool works even when offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is fully responsive and works on all modern browsers including Chrome, Safari, Firefox, and Edge on desktop, tablet, and mobile devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an internet connection required to use this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No internet connection is required after the page loads. Since all processing happens in your browser, you can use this tool offline once the page is loaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no server-side file size limit since files are processed locally in your browser. The only limitation is your device's memory (RAM). For very large files, we recommend processing them in smaller chunks."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the YAML Validator",
+  "description": "Simple steps to use the 📋 YAML Validator online tool. Everything runs locally: Enter YAML and Indent Spaces are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📋 YAML Validator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/yaml-validator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/yaml-validator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/yaml-validator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select,.form-group textarea,.form-group input[type="date"],.form-group input[type="range"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:100px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+textarea.code-input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.85rem;font-family:'Fira Code','Consolas','Courier New',monospace;outline:none;min-height:200px;resize:vertical;tab-size:2;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+textarea.code-input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.preview-box pre{text-align:left;width:100%;white-space:pre-wrap;word-break:break-all;font-size:.85rem;color:#e2e8f0;font-family:'Fira Code','Consolas','Courier New',monospace}
+.preview-box pre .key{color:#22d3ee}
+.preview-box pre .string{color:#4ade80}
+.preview-box pre .number{color:#fbbf24}
+.preview-box pre .bool{color:#f87171}
+.preview-box pre .null{color:#94a3b8}
+.split-view{display:flex;gap:12px;min-height:400px}
+.split-view .split-pane{flex:1;display:flex;flex-direction:column}
+.split-pane label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:6px;font-weight:500}
+.split-pane textarea{flex:1;min-height:350px}
+.split-pane .preview-box{flex:1;overflow:auto;min-height:350px;display:flex;align-items:flex-start;justify-content:flex-start}
+.tree-node{cursor:pointer;user-select:none;padding:2px 0}
+.tree-node:hover{background:rgba(148,163,184,.05);border-radius:4px}
+.tree-toggle{display:inline-block;width:16px;color:#64748b;font-size:.8rem}
+.tree-key{color:#22d3ee}
+.tree-string{color:#4ade80}
+.tree-number{color:#fbbf24}
+.tree-bool{color:#f87171}
+.tree-null{color:#94a3b8}
+.tree-bracket{color:#64748b}
+.tree-count{color:#64748b;font-size:.8rem}
+.search-bar{width:100%;margin-bottom:8px}
+.diff-table{width:100%;font-family:'Fira Code','Consolas','Courier New',monospace;font-size:.85rem;border-collapse:collapse}
+.diff-table td{padding:4px 8px;vertical-align:top;white-space:pre}
+.diff-table .line-num{color:#64748b;text-align:right;width:40px;border-right:1px solid rgba(148,163,184,.1)}
+.diff-add{background:rgba(34,197,94,.15)}
+.diff-remove{background:rgba(239,68,68,.15)}
+.diff-mod{background:rgba(251,191,36,.1)}
+.diff-empty{background:transparent}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "YAML Validator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/yaml-validator/"
+    }
+  ],
+  "name": "YAML Validator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/yaml-validator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header"><h1>📋 YAML Validator</h1></div>
+ <p class="nav-back"><a href="../../index.html">&larr; All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+ <div class="section"><p class="info-text">Free online YAML validator and formatter. Validate YAML syntax, convert between YAML and JSON with syntax highlighting and line numbers. Customizable indentation. Perfect for config files, K8s manifests, and CI/CD pipeline debugging.</p>
+ <div class="tool-body">
+
+<div class="form-group">
+ <label>Enter YAML</label>
+ <textarea class="code-input" id="yamlInput" style="min-height:200px" oninput="validateYAML()">server:
+ host: localhost
+ port: 8080
+database:
+ name: myapp
+ user: admin
+ password: secret123
+features:
+ - logging
+ - auth
+ - caching</textarea>
+</div>
+<div class="form-row">
+ <div class="form-group" style="flex:1">
+ <label>Indent Spaces</label>
+ <select id="yamlIndent" onchange="formatYAML()">
+ <option value="2">2 spaces</option>
+ <option value="4">4 spaces</option>
+ </select>
+ </div>
+ <div class="form-group" style="display:flex;align-items:flex-end">
+ <button class="btn btn-primary" onclick="formatYAML()">✨ Format</button>
+ <button class="btn btn-success" onclick="yamlToJSON()">🔄 To JSON</button>
+ <button class="btn btn-secondary" onclick="copyYAMLResult()">📋 Copy Result</button>
+ </div>
+</div>
+<div class="form-group">
+ <label>Result <span id="yamlStatus" style="color:#94a3b8;font-weight:400">waiting</span></label>
+ <textarea class="code-input" id="yamlOutput" readonly style="min-height:200px"></textarea>
+</div>
+<p class="info-text">💡 Tip: YAML is indentation-sensitive. Use spaces, not tabs. Supports comments (#) and multiline strings.</p>
+
+ </div>
+ </div>
+ <div class="seo-content">
+ <h2>How to Use the YAML Validator</h2>
+ <p>Using the YAML Validator is straightforward:</p>
+ <ol style="padding-left:20px;margin-top:12px">
+
+ <li style="margin-bottom:16px">
+ <strong>Enter Your Values</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Input the required numbers and parameters into the calculator fields. Each field is clearly labeled — simply type your values or use the spinner controls to adjust them.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Configure Options</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Select any additional options such as computation mode, currency, time period, or precision level. The calculator updates automatically as you change values.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>View the Results</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">The calculated result is displayed instantly with clear formatting. You can Copy the result to your clipboard or adjust input values to see how different scenarios affect the outcome.</span>
+ </li>
+
+ </ol>
+ </div>
+
+ <div class="section"><h2>FAQ</h2>
+<div class="faq-item"><h3>About Free YAML Validator - Online Tool</h3><p>Free online YAML validator and formatter. Validate YAML syntax, convert between YAML and JSON with syntax highlighting and line numbers. Customizable indentation. Perfect for config files, K8s manifests, and CI/CD pipeline debugging. Try now!</p></div>
+<div class="faq-item"><h3>How to Use Free YAML Validator - Online Tool?</h3><p>Enter your content in the input area, click the action button, and view the result. All computation happens on your device — Enter YAML, Indent Spaces and other inputs stay in your browser.</p></div>
+ 
+ <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+ <h3 itemprop="name">What's the difference between YAML and JSON?</h3>
+ <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+ <p itemprop="text">YAML (YAML Ain't Markup Language) is a human-readable data serialization format defined by the <a href='https://yaml.org/spec/' target='_blank' rel='nofollow'>YAML specification</a>. YAML uses indentation for hierarchy, supports comments, anchors (&) and aliases (*), and is more concise than JSON. All valid JSON is also valid YAML. YAML is commonly used for config files (Docker Compose, Kubernetes, Ansible, etc.).</p>
+ </div>
+ </div></div>
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/yaml-validator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+// Simple YAML parser (basic implementation for validation and conversion)
+function yamlToJS(yaml){
+  var lines=yaml.split('\n');
+  var result={};
+  var stack=[{obj:result,indent:-1,key:null}];
+  var currentList=null;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i];
+    var trimmed=line.trim();
+    if(!trimmed||trimmed.startsWith('#'))continue;
+    var indent=line.length-line.replace(/^ +/,'').length;
+    while(stack.length>1&&indent<=stack[stack.length-1].indent)stack.pop();
+    if(currentList&&indent<=stack[stack.length-1].indent)currentList=null;
+    if(trimmed.startsWith('- ')){
+      var val=trimmed.substring(2).trim();
+      var parent=stack[stack.length-1].obj;
+      if(!currentList){currentList=[];if(!Array.isArray(parent)&&stack.length>0){stack[stack.length-1].obj=currentList;stack[stack.length-1].key=null}}
+      if(val.endsWith(':')){
+        var newObj={};
+        currentList.push(newObj);
+        stack.push({obj:newObj,indent:indent,key:null});
+      }else{
+        currentList.push(parseYAMLValue(val));
+      }
+    }else if(trimmed.endsWith(':')){
+      var key=trimmed.substring(0,trimmed.length-1).trim();
+      var parent=stack[stack.length-1].obj;
+      if(Array.isArray(parent)){parent.push({});parent=parent[parent.length-1];stack.push({obj:parent,indent:indent,key:null})}
+      parent[key]=parent[key]||{};
+      stack.push({obj:parent[key],indent:indent,key:key});
+      currentList=null;
+    }else{
+      var colonPos=trimmed.indexOf(': ');
+      if(colonPos>0){
+        var key=trimmed.substring(0,colonPos).trim();
+        var val=trimmed.substring(colonPos+2).trim();
+        var parent=stack[stack.length-1].obj;
+        if(Array.isArray(parent)&&parent.length>0&&typeof parent[parent.length-1]==='object'){
+          parent[parent.length-1][key]=parseYAMLValue(val);
+        }else{
+          parent[key]=parseYAMLValue(val);
+        }
+      }
+    }
+  }
+  return result;
+}
+function parseYAMLValue(val){
+  if(val==='true'||val==='yes')return true;
+  if(val==='false'||val==='no')return false;
+  if(val==='null'||val==='~')return null;
+  if(!isNaN(val)&&val.trim()!=='')return Number(val);
+  if(val.startsWith('"')&&val.endsWith('"'))return val.slice(1,-1);
+  if(val.startsWith("'")&&val.endsWith("'"))return val.slice(1,-1);
+  return val;
+}
+function jsToYAML(obj,indent,level){
+  if(!level)level=0;
+  if(!indent)indent=2;
+  var sp=' '.repeat(level*indent);
+  var result='';
+  if(obj===null||obj===undefined)return sp+'null\n';
+  if(typeof obj==='string')return sp+JSON.stringify(obj)+'\n';
+  if(typeof obj==='number'||typeof obj==='boolean')return sp+obj+'\n';
+  if(Array.isArray(obj)){
+    for(var i=0;i<obj.length;i++){
+      if(typeof obj[i]==='object'&&obj[i]!==null&&!Array.isArray(obj[i])){
+        result+=sp+'- '+jsToYAML(obj[i],indent,level+1).trimStart();
+      }else{
+        result+=sp+'- '+(typeof obj[i]==='string'?obj[i]:JSON.stringify(obj[i]))+'\n';
+      }
+    }
+    return result;
+  }
+  if(typeof obj==='object'){
+    for(var k in obj){
+      var v=obj[k];
+      if(typeof v==='object'&&v!==null&&!Array.isArray(v)&&Object.keys(v).length>0){
+        result+=sp+k+':\n'+jsToYAML(v,indent,level+1);
+      }else if(Array.isArray(v)&&v.length>0){
+        result+=sp+k+':\n';
+        for(var j=0;j<v.length;j++){
+          if(typeof v[j]==='object'&&v[j]!==null){
+            result+=sp+'-\n'+jsToYAML(v[j],indent,level+2);
+          }else{
+            result+=sp+'- '+v[j]+'\n';
+          }
+        }
+      }else{
+        result+=sp+k+': '+jsToYAML(v,indent,level+1).trimStart();
+      }
+    }
+    return result;
+  }
+  return sp+obj+'\n';
+}
+function validateYAML(){
+  var val=document.getElementById('yamlInput').value;
+  var status=document.getElementById('yamlStatus');
+  if(!val.trim()){status.textContent='';status.style.color='#94a3b8';return}
+  try{
+    var result=yamlToJS(val);
+    status.textContent='';
+    status.style.color='#4ade80';
+    return result;
+  }catch(e){
+    status.textContent=''+e.message;
+    status.style.color='#f87171';
+    return null;
+  }
+}
+function formatYAML(){
+  var val=document.getElementById('yamlInput').value;
+  if(!val.trim())return;
+  var indent=parseInt(document.getElementById('yamlIndent').value);
+  var output=document.getElementById('yamlOutput');
+  try{
+    var obj=yamlToJS(val);
+    output.value=jsToYAML(obj,indent).trimEnd();
+  }catch(e){
+    output.value='❌ Formatfailed: '+e.message;
+  }
+}
+function yamlToJSON(){
+  var val=document.getElementById('yamlInput').value;
+  if(!val.trim())return;
+  var output=document.getElementById('yamlOutput');
+  try{
+    var obj=yamlToJS(val);
+    output.value=JSON.stringify(obj,null,2);
+  }catch(e){
+    output.value='❌ Convertfailed: '+e.message;
+  }
+}
+function copyYAMLResult(){
+  var val=document.getElementById('yamlOutput').value;
+  if(!val){toast('No content to copy');return}
+  navigator.clipboard.writeText(val).then(function(){toast('✅ Copied!')}).catch(function(){toast('❌ Copy failed')});
+}
+
+</script>
+
+<!-- Feedback Widget -->
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+ <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

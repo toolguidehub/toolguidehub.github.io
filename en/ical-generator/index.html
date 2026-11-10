@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iCal Event Generator - .ics File Creator | ToolGuideHub</title>
+  <meta name="description" content="Create a downloadable .ics calendar file with title, start and end time, location, reminder, and recurrence for Google Calendar or Outlook.">
+  <meta property="og:title" content="iCal Event Generator - Free Online .ics File Creator | ToolGuideHub">
+  <meta property="og:description" content="Create a downloadable .ics calendar file with title, start and end time, location, reminder, and recurrence for Google Calendar or Outlook.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ical-generator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "iCal Event Generator",
+    "description": "Free online iCal event generator for creating .ics calendar files",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+  header { background: #1e293b; color: #fff; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  header a { color: #22d3ee; text-decoration: none; }
+  .container{ max-width:960px; margin: 0 auto; padding: 24px 16px; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; color:#e2e8f0; }
+  .subtitle { color: #94a3b8; margin-bottom: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-size: 0.95rem; font-family: inherit; }
+  .form-group textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 80px; resize: vertical; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .row .form-group { flex: 1; min-width: 180px; }
+  .btn { display: inline-block; padding: 10px 20px; background: #22d3ee; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: opacity 0.2s; }
+  .btn:hover { opacity: 0.9; }
+  .btn-secondary { background: #64748b; }
+  .btn-download { background: #059669; }
+  .output-area { background: #f1f5f9; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 16px; margin-top: 16px; font-family: monospace; font-size: 0.85rem; white-space: pre-wrap; word-break: break-all; max-height: 300px; overflow-y: auto; display: none; }
+  .output-area.show { display: block; }
+  .toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 12px; z-index: 9999; opacity: 0; transition: opacity 0.3s; pointer-events: none; font-size: 0.9rem; }
+  .toast.show { opacity: 1; }
+  footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; }
+  footer a { color: #22d3ee; text-decoration: none; }
+  @media (max-width: 375px) { h1 { font-size: 1.3rem; } .row { flex-direction: column; } .row .form-group { min-width: 100%; } }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ical-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "iCal Event Generator - .ics File Creator | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/ical-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Ical Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Ical Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Ical Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Event Title * and Start Time * are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Ical Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Ical Generator","description":"Step-by-step guide for using Ical Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Ical Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ical-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../">🏠 ToolGuideHub</a>
+  <span>iCal Event Generator</span>
+</header>
+<main class="container">
+  <h1>📅 iCal Event Generator</h1>
+  <p class="subtitle">Create .ics calendar files compatible with Google Calendar, Outlook, and Apple Calendar</p>
+
+  <div class="form-group">
+    <label>Event Title *</label>
+    <input type="text" id="title" placeholder="e.g., Weekly Team Meeting" required>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label>Start Time *</label>
+      <input type="datetime-local" id="startTime">
+    </div>
+    <div class="form-group">
+      <label>End Time *</label>
+      <input type="datetime-local" id="endTime">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <input type="text" id="location" placeholder="e.g., Conference Room A / Zoom link">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea id="description" placeholder="Event details..."></textarea>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label>Reminder</label>
+      <select id="alarm">
+        <option value="0">None</option>
+        <option value="5">5 minutes before</option>
+        <option value="15" selected>15 minutes before</option>
+        <option value="30">30 minutes before</option>
+        <option value="60">1 hour before</option>
+        <option value="1440">1 day before</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Recurrence</label>
+      <select id="freq">
+        <option value="">No repeat</option>
+        <option value="DAILY">Daily</option>
+        <option value="WEEKLY">Weekly</option>
+        <option value="MONTHLY">Monthly</option>
+        <option value="YEARLY">Yearly</option>
+      </select>
+    </div>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <button class="btn" id="generateBtn">📄 Generate .ics</button>
+    <button class="btn btn-download" id="downloadBtn" disabled>⬇ Download .ics</button>
+    <button class="btn btn-secondary" id="copyBtn" disabled>📋 Copy Content</button>
+  </div>
+  <div class="output-area" id="output"></div>
+
+<h2>What is iCal Event Generator - .ics File CreatorBase?</h2><p>iCal Event Generator - .ics File CreatorBase is a free online tool that runs entirely in your browser. No download or signup needed — enter Event Title * and Start Time * to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<div class="toast" id="toast">
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/ical-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function(){
+  const titleEl = document.getElementById('title');
+  const startEl = document.getElementById('startTime');
+  const endEl = document.getElementById('endTime');
+  const locationEl = document.getElementById('location');
+  const descEl = document.getElementById('description');
+  const alarmEl = document.getElementById('alarm');
+  const freqEl = document.getElementById('freq');
+  const outputEl = document.getElementById('output');
+  const generateBtn = document.getElementById('generateBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const toastEl = document.getElementById('toast');
+
+  const now = new Date();
+  now.setMinutes(0, 0, 0);
+  const startDefault = new Date(now.getTime() + 3600000);
+  const endDefault = new Date(startDefault.getTime() + 3600000);
+  startEl.value = startDefault.toISOString().slice(0,16);
+  endEl.value = endDefault.toISOString().slice(0,16);
+
+  let icsContent = '';
+
+  function formatICSDate(d) {
+    return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  }
+
+  function escapeICS(s) {
+    return s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+  }
+
+  function showToast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    setTimeout(() => toastEl.classList.remove('show'), 2000);
+  }
+
+  function generate() {
+    const title = titleEl.value.trim();
+    const startVal = startEl.value;
+    const endVal = endEl.value;
+    const location = locationEl.value.trim();
+    const desc = descEl.value.trim();
+    const alarm = parseInt(alarmEl.value);
+    const freq = freqEl.value;
+
+    if (!title) { showToast('Please enter an event title'); return; }
+    if (!startVal || !endVal) { showToast('Please set start and end times'); return; }
+
+    const start = new Date(startVal);
+    const end = new Date(endVal);
+    if (end <= start) { showToast('End time must be after start time'); return; }
+
+    const now = new Date();
+    const uid = Date.now() + '-' + Math.random().toString(36).substr(2,9) + '@freetoolbase.com';
+
+    let lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Toolguidehub//iCal Generator//EN',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      'UID:' + uid,
+      'DTSTART:' + formatICSDate(start),
+      'DTEND:' + formatICSDate(end),
+      'DTSTAMP:' + formatICSDate(now),
+      'SUMMARY:' + escapeICS(title),
+    ];
+
+    if (location) lines.push('LOCATION:' + escapeICS(location));
+    if (desc) lines.push('DESCRIPTION:' + escapeICS(desc));
+
+    if (freq) {
+      lines.push('RRULE:FREQ=' + freq);
+    }
+
+    if (alarm > 0) {
+      lines.push('BEGIN:VALARM');
+      lines.push('TRIGGER:-PT' + alarm + 'M');
+      lines.push('ACTION:DISPLAY');
+      lines.push('DESCRIPTION:Reminder: ' + escapeICS(title));
+      lines.push('END:VALARM');
+    }
+
+    lines.push('END:VEVENT');
+    lines.push('END:VCALENDAR');
+
+    icsContent = lines.join('\r\n');
+    outputEl.textContent = icsContent;
+    outputEl.classList.add('show');
+    downloadBtn.disabled = false;
+    copyBtn.disabled = false;
+    showToast('✅ .ics file generated');
+  }
+
+  function download() {
+    if (!icsContent) return;
+    const blob = new Blob([icsContent], {type: 'text/calendar;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const filename = (titleEl.value.trim() || 'event').replace(/[^a-zA-Z0-9]/g, '_') + '.ics';
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('⬇ Download complete');
+  }
+
+  function copy() {
+    if (!icsContent) return;
+    navigator.clipboard.writeText(icsContent).then(() => showToast('📋 Copied to clipboard'));
+  }
+
+  generateBtn.addEventListener('click', generate);
+  downloadBtn.addEventListener('click', download);
+  copyBtn.addEventListener('click', copy);
+})();
+</script>
+</body>
+</html>

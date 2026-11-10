@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check whether any website is online, see its HTTP status code and response time, and spot redirects or server errors in seconds.">
+<meta name="keywords" content="website status checker,is website down,website uptime checker,check if site is up,website online checker,URL availability test,HTTP status code">
+<title>Website Status Checker - Is This Site Down?</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/website-status-checker/">
+<meta property="og:title" content="Website Status Checker - Is This Site Down?">
+<meta property="og:description" content="Check whether any website is online, see its HTTP status code and response time, and spot redirects or server errors in seconds.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/website-status-checker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/website-status-checker/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Website Status Checker", "description": "Free online website status checker. Check if any website is online or offline. Test URL availability, response time, and HTTP status code. Client-side only.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the Website Status Checker work?", "acceptedAnswer": {"@type": "Answer", "text": "This tool sends an HTTP request from your browser to the target website (using no-cors mode), measures the response time, and determines if the site is reachable. If the request succeeds or returns a response, the site is marked as online. If it times out or encounters a network error, it is marked as offline. All checks happen locally in your browser."}}, {"@type": "Question", "name": "Why does it show CORS instead of HTTP status code?", "acceptedAnswer": {"@type": "Answer", "text": "Due to browser cross-origin security policies (CORS), a pure frontend tool cannot directly read HTTP status codes from other websites. The no-cors mode can detect if a site is reachable, but cannot retrieve detailed HTTP status information. This is a browser security restriction, not a tool limitation."}}, {"@type": "Question", "name": "The site shows offline but I can access it?", "acceptedAnswer": {"@type": "Answer", "text": "Possible reasons: 1) Your network environment restricts cross-origin requests; 2) The target website has strict CORS policies; 3) A firewall or proxy is blocking the request; 4) The website uses special redirect strategies. We recommend cross-checking with other tools."}}, {"@type": "Question", "name": "Does this tool upload my data?", "acceptedAnswer": {"@type": "Answer", "text": "No. All checks happen locally in your browser and do not pass through any intermediate server. The URL you enter is only used to initiate a browser-side request and is never recorded or uploaded. The tool is fully zero-dependency."}}, {"@type": "Question", "name": "Can I check multiple websites at once?", "acceptedAnswer": {"@type": "Answer", "text": "The current version supports checking one website at a time. Enter a URL, check it, then enter another. For batch monitoring, we recommend using a dedicated website monitoring service. This tool is ideal for quick single-site availability checks."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Website Status Checker", "description": "Check if any website is online or offline", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Website Status Checker"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter URL", "text": "Enter the website URL you want to check, e.g. https://example.com"}, {"@type": "HowToStep", "position": 2, "name": "Click Check", "text": "Click the Check Status button to send a request to the target website"}, {"@type": "HowToStep", "position": 3, "name": "View Results", "text": "Results show website status (online/offline), response time, and HTTP status info"}, {"@type": "HowToStep", "position": 4, "name": "Copy Results", "text": "Click the copy button to copy check results to clipboard"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Website Status Checker", "item": "https://adi63586.github.io/Toolguidehub/en/website-status-checker/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],input[type=url],textarea,select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input[type=text]:focus,input[type=url]:focus,textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.row .field{flex:1;min-width:200px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.info-section ul li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.status-container{display:flex;gap:16px;flex-wrap:wrap}
+.status-card{flex:1;min-width:200px;background:#0f172a;border-radius:8px;padding:16px;text-align:center;border:1px solid rgba(148,163,184,.08)}
+.status-card .label{color:#64748b;font-size:.8rem;margin-bottom:4px}
+.status-card .value{font-size:1.5rem;font-weight:700}
+.value.online{color:#4ade80}
+.value.offline{color:#f87171}
+.value.time{color:#22d3ee;font-size:1.2rem}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:600px){.row{flex-direction:column}.row .field{min-width:100%}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Website Status Checker</h1>
+</div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Website Status Checker</p>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-23
+  </span>
+</div>
+
+<div class="input-section">
+<h2>Enter Website URL</h2>
+<div class="row">
+<div class="field" style="flex:4"><input type="url" id="urlInput" placeholder="https://example.com" value="https://example.com"></div>
+<div class="field" style="flex:0 0 auto"><button class="btn btn-primary" id="checkBtn">🔍 Check Status</button></div>
+</div>
+</div>
+
+<div id="resultArea" style="display:none">
+<div class="result-section">
+<h2>Check Results</h2>
+<div class="status-container">
+<div class="status-card"><div class="label">Status</div><div class="value" id="statusValue">-</div></div>
+<div class="status-card"><div class="label">HTTP Status</div><div class="value" id="httpStatus" style="font-size:1.5rem;font-weight:700;color:#22d3ee">-</div></div>
+<div class="status-card"><div class="label">Response Time</div><div class="value time" id="responseTime">-</div></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-success" id="btnCopyResult">📋 Copy Results</button>
+<button class="btn btn-secondary" id="btnClear">🗑️ Clear</button>
+</div>
+</div>
+</div>
+
+<div id="loadingArea" style="display:none">
+<div class="result-section" style="text-align:center;padding:32px">
+<div style="font-size:2rem;margin-bottom:12px">⏳</div>
+<div style="color:#94a3b8">Checking website...</div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>About Website Status Checker</h2>
+<p>Free online website status checker. Quickly check if any website is online or offline. Enter a URL to test availability, response time, and HTTP status code. Everything runs locally: https and other values are processed on your device, never sent to a server. Ideal for web admins, developers, and DevOps professionals.</p>
+<p>This tool uses the browser's Fetch API with no-cors mode to send a lightweight request to the target website. It measures the round-trip time to determine if the server is responding. While browser security policies (CORS) prevent reading the exact HTTP status code, the tool reliably detects whether a website is reachable from your network.</p>
+</div>
+
+<div class="info-section">
+<h2>Common Use Cases</h2>
+<ul>
+<li><strong>Website monitoring</strong>: Quickly verify if your website is accessible from a different network</li>
+<li><strong>Troubleshooting</strong>: Check if a site is down for everyone or just your connection</li>
+<li><strong>Response time benchmarking</strong>: Measure how quickly a website responds to requests</li>
+<li><strong>Development testing</strong>: Verify if your staging or production server is reachable</li>
+<li><strong>API endpoint checks</strong>: Test if your REST API endpoints are responding</li>
+</ul>
+</div>
+
+<div class="info-section">
+<h2>Understanding Website Status Results</h2>
+<p><strong>Online</strong>: The website responded to the request within the timeout period. The response time indicates how quickly the server replied.</p>
+<p><strong>Offline / Unreachable</strong>: The request failed before receiving a response. This could mean the server is down, the domain doesn't resolve, or a firewall is blocking the connection.</p>
+<p><strong>Timeout</strong>: The server didn't respond within 10 seconds. This often indicates server overload or network issues.</p>
+<p><strong>CORS</strong>: Due to browser security policies, the tool cannot read the exact HTTP status code. However, a successful CORS response confirms the website is reachable.</p>
+</div>
+
+<div class="info-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><h3>How does the Website Status Checker work?</h3><p>This tool sends an HTTP request from your browser to the target website (using no-cors mode), measures the response time, and determines if the site is reachable. If the request succeeds or returns a response, the site is marked as online. If it times out or encounters a network error, it is marked as offline. All checks happen locally in your browser.</p></div>
+<div class="faq-item"><h3>Why does it show CORS instead of HTTP status code?</h3><p>Due to browser cross-origin security policies (CORS), a pure frontend tool cannot directly read HTTP status codes from other websites. The no-cors mode can detect if a site is reachable, but cannot retrieve detailed HTTP status information. This is a browser security restriction, not a tool limitation.</p></div>
+<div class="faq-item"><h3>The site shows offline but I can access it?</h3><p>Possible reasons: 1) Your network environment restricts cross-origin requests; 2) The target website has strict CORS policies; 3) A firewall or proxy is blocking the request; 4) The website uses special redirect strategies. We recommend cross-checking with other tools.</p></div>
+<div class="faq-item"><h3>Does this tool upload my data?</h3><p>No. All checks happen locally in your browser and do not pass through any intermediate server. The URL you enter is only used to initiate a browser-side request and is never recorded or uploaded.</p></div>
+<div class="faq-item"><h3>Can I check multiple websites at once?</h3><p>The current version supports checking one website at a time. Enter a URL, check it, then enter another. For batch monitoring, we recommend using a dedicated website monitoring service.</p></div>
+</div>
+
+
+
+<p style="text-align:center;color:#64748b;font-size:.85rem;margin:16px 0">Website Status Checker · Client-side only · No data upload</p>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+document.getElementById('checkBtn').addEventListener('click',function(){
+  var url=document.getElementById('urlInput').value.trim();
+  if(!url){showToast('Please enter a URL');return;}
+  if(!url.startsWith('http')) url='https://'+url;
+  document.getElementById('resultArea').style.display='none';
+  document.getElementById('loadingArea').style.display='block';
+  var st=performance.now();
+  fetch(url,{mode:'no-cors',signal:AbortSignal.timeout(10000)}).then(function(r){
+    var et=performance.now();var t=Math.round(et-st);
+    document.getElementById('loadingArea').style.display='none';
+    document.getElementById('resultArea').style.display='block';
+    document.getElementById('statusValue').textContent='Online';
+    document.getElementById('statusValue').className='value online';
+    document.getElementById('httpStatus').textContent='CORS';
+    document.getElementById('httpStatus').style.color='#facc15';
+    document.getElementById('responseTime').textContent=t+'ms';
+  }).catch(function(e){
+    var et=performance.now();var t=Math.round(et-st);
+    document.getElementById('loadingArea').style.display='none';
+    document.getElementById('resultArea').style.display='block';
+    if(e.name==='TimeoutError'||t>=10000){
+      document.getElementById('statusValue').textContent='Timeout';
+      document.getElementById('statusValue').className='value offline';
+      document.getElementById('httpStatus').textContent='N/A';
+      document.getElementById('responseTime').textContent='>10s';
+    }else{
+      document.getElementById('statusValue').textContent='Offline / Unreachable';
+      document.getElementById('statusValue').className='value offline';
+      document.getElementById('httpStatus').textContent='N/A';
+      document.getElementById('responseTime').textContent=t+'ms';
+    }
+  });
+});
+
+document.getElementById('btnCopyResult').addEventListener('click',function(){
+  var status=document.getElementById('statusValue').textContent;
+  var http=document.getElementById('httpStatus').textContent;
+  var time=document.getElementById('responseTime').textContent;
+  var url=document.getElementById('urlInput').value;
+  var text='URL: '+url+'\nStatus: '+status+'\nHTTP: '+http+'\nResponse Time: '+time;
+  navigator.clipboard.writeText(text).then(function(){showToast('Results copied')}).catch(function(){showToast('Copy failed')});
+});
+
+document.getElementById('btnClear').addEventListener('click',function(){
+  document.getElementById('urlInput').value='';
+  document.getElementById('resultArea').style.display='none';
+  document.getElementById('loadingArea').style.display='none';
+  showToast('Cleared');
+});
+</script>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+</footer>
+</body>
+</html>

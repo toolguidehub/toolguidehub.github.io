@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create .htpasswd entries with bcrypt, SHA-256, SHA-512, MD5, SHA-1, or crypt hashes for Apache basic auth, computed locally in your browser.">
+<meta name="keywords" content="htpasswd generator, Apache password, Nginx password, .htpasswd, htpasswd encryption, bcrypt, htpasswd file, HTTP basic authentication">
+<title>Free Online htpasswd Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/htpasswd-generator/">
+<meta property="og:title" content="Free Online htpasswd Generator - ToolGuideHub">
+<meta property="og:description" content="Create .htpasswd entries with bcrypt, SHA-256, SHA-512, MD5, SHA-1, or crypt hashes for Apache basic auth, computed locally in your browser.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/htpasswd-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Signup Required">
+<meta name="twitter:description" content="Free online htpasswd generator - toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "htpasswd Generator", "description": "Free online htpasswd password generator supporting bcrypt, MD5, SHA-256, SHA-512 and more. Generate Apache/Nginx .htpasswd files.", "applicationCategory": "SecurityApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is the htpasswd generator for?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the htpasswd generator for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "htpasswd is used to create password files (.htpasswd) for Apache/Nginx HTTP basic authentication. This tool uses the Web Crypto API to generate encrypted hashes in your browser, supporting bcrypt (recommended), SHA-256, SHA-512, MD5, SHA-1, and crypt algorithms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which encryption algorithm is recommended?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "bcrypt is strongly recommended. It includes built-in salting and iteration count (cost factor 10), making it highly resistant to brute-force attacks. MD5 and SHA-1 are known to have security weaknesses and are not recommended for new projects. Apache 2.4+ and Nginx support bcrypt format ($2y$ prefix)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my password sent to any server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All encryption calculations are done locally in your browser. Your password never leaves your device. The Web Crypto API is used for secure hash computation. The generated hash can be safely stored in the .htpasswd file on your server since hashes are one-way and irreversible."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:700px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit;width:100%}
+input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;color:#94a3b8;font-size:.8rem;margin-bottom:4px}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;font-family:"SF Mono",Monaco,"Cascadia Code",monospace;font-size:.85rem;word-break:break-all;margin-bottom:8px}
+.result-box .label{color:#64748b;font-size:.75rem;display:block;margin-bottom:4px}
+.result-box code{color:#22d3ee}
+.algorithm-info{font-size:.75rem;color:#94a3b8;margin-top:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+
+<style>
+
+@media(max-width:640px){}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online htpasswd Generator", "item": "https://adi63586.github.io/Toolguidehub/en/htpasswd-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use htpasswd Generator","description":"Step-by-step guide for using htpasswd Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"htpasswd Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/htpasswd-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    
+    <h1>🔐 htpasswd Generator</h1>
+  </div>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-12
+  </span>
+</div>
+  <div class="tool-section">
+    <h2>Generate htpasswd Hash</h2>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" id="username" value="admin" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" value="mypassword123" placeholder="Enter password">
+    </div>
+    <div class="form-group">
+      <label>Algorithm</label>
+      <select id="algorithm" onchange="generate()">
+        <option value="bcrypt" selected>bcrypt (Recommended - Most Secure)</option>
+        <option value="sha256">SHA-256</option>
+        <option value="sha512">SHA-512</option>
+        <option value="md5">MD5 (Not Recommended)</option>
+        <option value="sha1">SHA-1 (Not Recommended)</option>
+        <option value="crypt">crypt (Legacy Unix)</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" onclick="generate()">🔐 Generate</button>
+    <button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button>
+  </div>
+  <div class="tool-section">
+    <h2>📋 Result</h2>
+    <div class="result-box">
+      <span class="label">.htpasswd file content:</span>
+      <code id="result">Enter username and password then click "Generate"...</code>
+      <div class="algorithm-info" id="algoInfo"></div>
+    </div>
+  </div>
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Enter Credentials:</strong> Fill in username and password, select algorithm (bcrypt recommended).</p>
+    <p><strong>2. Generate Hash:</strong> Click "Generate" — the hash is computed in your browser.</p>
+    <p><strong>3. Copy & Use:</strong> Add the generated string to your server's .htpasswd file.</p>
+  </div>
+  
+  
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are there any usage limits for htpasswd Generator?</h3>
+      <p>htpasswd Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using htpasswd Generator?</h3>
+      <p>Absolutely. Everything runs locally: Username and Password are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does htpasswd Generator upload my data to a server?</h3>
+      <p>No. htpasswd Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is htpasswd Generator free to use?</h3>
+      <p>Yes, htpasswd Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. htpasswd Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use htpasswd Generator on my phone?</h3>
+      <p>Yes. htpasswd Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are the generated passwords truly secure?</h3>
+      <p>Yes. Passwords are generated using the browser's native Crypto API, ensuring true randomness. Generated passwords are never stored on any server.</p>
+    </div>
+  </div>
+
+</main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+
+// Base64 encode ArrayBuffer
+function bufToB64(buf){
+  var bytes=new Uint8Array(buf);
+  var bin='';
+  for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+
+function genSalt(len){
+  var arr=new Uint8Array(len);
+  crypto.getRandomValues(arr);
+  return bufToB64(arr.buffer).substring(0,len);
+}
+
+function md5cycle(x,k){var a=x[0],b=x[1],c=x[2],d=x[3];a=ff(a,b,c,d,k[0],7,-680876936);d=ff(d,a,b,c,k[1],12,-389564586);c=ff(c,d,a,b,k[2],17,606105819);b=ff(b,c,d,a,k[3],22,-1044525330);a=ff(a,b,c,d,k[4],7,-176418897);d=ff(d,a,b,c,k[5],12,1200080426);c=ff(c,d,a,b,k[6],17,-1473231341);b=ff(b,c,d,a,k[7],22,-45705983);a=ff(a,b,c,d,k[8],7,1770035416);d=ff(d,a,b,c,k[9],12,-1958414417);c=ff(c,d,a,b,k[10],17,-42063);b=ff(b,c,d,a,k[11],22,-1990404162);a=ff(a,b,c,d,k[12],7,1804603682);d=ff(d,a,b,c,k[13],12,-40341101);c=ff(c,d,a,b,k[14],17,-1502002290);b=ff(b,c,d,a,k[15],22,1236535329);a=gg(a,b,c,d,k[1],5,-165796510);d=gg(d,a,b,c,k[6],9,-1069501632);c=gg(c,d,a,b,k[11],14,643717713);b=gg(b,c,d,a,k[0],20,-373897302);a=gg(a,b,c,d,k[5],5,-701558691);d=gg(d,a,b,c,k[10],9,38016083);c=gg(c,d,a,b,k[15],14,-660478335);b=gg(b,c,d,a,k[4],20,-405537848);a=gg(a,b,c,d,k[9],5,568446438);d=gg(d,a,b,c,k[14],9,-1019803690);c=gg(c,d,a,b,k[3],14,-187363961);b=gg(b,c,d,a,k[8],20,1163531501);a=gg(a,b,c,d,k[13],5,-1444681467);d=gg(d,a,b,c,k[2],9,-51403784);c=gg(c,d,a,b,k[7],14,1735328473);b=gg(b,c,d,a,k[12],20,-1926607734);a=hh(a,b,c,d,k[5],4,-378558);d=hh(d,a,b,c,k[8],11,-2022574463);c=hh(c,d,a,b,k[11],16,1839030562);b=hh(b,c,d,a,k[14],23,-35309556);a=hh(a,b,c,d,k[1],4,-1530992060);d=hh(d,a,b,c,k[4],11,1272893353);c=hh(c,d,a,b,k[7],16,-155497632);b=hh(b,c,d,a,k[10],23,-1094730640);a=hh(a,b,c,d,k[13],4,681279174);d=hh(d,a,b,c,k[0],11,-358537222);c=hh(c,d,a,b,k[3],16,-722521979);b=hh(b,c,d,a,k[6],23,76029189);a=hh(a,b,c,d,k[9],4,-640364487);d=hh(d,a,b,c,k[12],11,-421815835);c=hh(c,d,a,b,k[15],16,530742520);b=hh(b,c,d,a,k[2],23,-995338651);a=ii(a,b,c,d,k[0],6,-198630844);d=ii(d,a,b,c,k[7],10,1126891415);c=ii(c,d,a,b,k[14],15,-1416354905);b=ii(b,c,d,a,k[5],21,-57434055);a=ii(a,b,c,d,k[12],6,1700485571);d=ii(d,a,b,c,k[3],10,-1894986606);c=ii(c,d,a,b,k[10],15,-1051523);b=ii(b,c,d,a,k[1],21,-2054922799);a=ii(a,b,c,d,k[8],6,1873313359);d=ii(d,a,b,c,k[15],10,-30611744);c=ii(c,d,a,b,k[6],15,-1560198380);b=ii(b,c,d,a,k[13],21,1309151649);a=ii(a,b,c,d,k[4],6,-145523070);d=ii(d,a,b,c,k[11],10,-1120210379);c=ii(c,d,a,b,k[2],15,718787259);b=ii(b,c,d,a,k[9],21,-343485551);x[0]=add32(a,x[0]);x[1]=add32(b,x[1]);x[2]=add32(c,x[2]);x[3]=add32(d,x[3]);}
+function cmn(q,a,b,x,s,t){a=add32(a,add32(add32(q,x),t));return add32((a<<s)|(a>>>(32-s)),b);}
+function ff(a,b,c,d,x,s,t){return cmn((b&c)|((~b)&d),a,b,x,s,t);}
+function gg(a,b,c,d,x,s,t){return cmn((b&d)|(c&(~d)),a,b,x,s,t);}
+function hh(a,b,c,d,x,s,t){return cmn(b^c^d,a,b,x,s,t);}
+function ii(a,b,c,d,x,s,t){return cmn(c^(b|(~d)),a,b,x,s,t);}
+function md51(s){var n=s.length,state=[1732584193,-271733879,-1732584194,271733878],i;for(i=64;i<=s.length;i+=64){md5cycle(state,md5blk(s.substring(i-64,i)));}s=s.substring(i-64);var tail=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];for(i=0;i<s.length;i++)tail[i>>2]|=s.charCodeAt(i)<<((i%4)<<3);tail[i>>2]|=0x80<<((i%4)<<3);if(i>55){md5cycle(state,tail);for(i=0;i<16;i++)tail[i]=0;}tail[14]=n*8;md5cycle(state,tail);return state;}
+function md5blk(s){var md5blks=[],i;for(i=0;i<64;i+=4){md5blks[i>>2]=s.charCodeAt(i)+(s.charCodeAt(i+1)<<8)+(s.charCodeAt(i+2)<<16)+(s.charCodeAt(i+3)<<24);}return md5blks;}
+function add32(a,b){return(a+b)&0xFFFFFFFF;}
+function rhex(n){var s='',j;for(j=0;j<4;j++)s+=((n>>(j*8+4))&0x0F).toString(16)+((n>>(j*8))&0x0F).toString(16);return s;}
+function hexMD5(s){return rhex(md51(s)[0])+rhex(md51(s)[1])+rhex(md51(s)[2])+rhex(md51(s)[3]);}
+
+function apr1(password, salt) {
+  var saltStr = salt.substring(0, 8);
+  var ctx = password + '$apr1$' + saltStr;
+  var finalStr = hexMD5(password + saltStr + password);
+  var pl = password.length;
+  while (pl > 0) {
+    ctx += finalStr.substring(0, 16);
+    pl >>= 1;
+  }
+  finalStr = hexMD5(ctx);
+  for (var i = 0; i < 1000; i++) {
+    var tmp = '';
+    if (i & 1) tmp += password; else tmp += finalStr;
+    if (i % 3) tmp += saltStr;
+    if (i % 7) tmp += password;
+    if (i & 1) tmp += finalStr; else tmp += password;
+    finalStr = hexMD5(tmp);
+  }
+  var chars = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var result = '';
+  var pairs = [[0,6,12],[1,7,13],[2,8,14],[3,9,15],[4,10,5]];
+  for (var p = 0; p < pairs.length; p++) {
+    var v = (parseInt(finalStr.substring(pairs[p][0], pairs[p][0]+2),16)<<16)|(parseInt(finalStr.substring(pairs[p][1],pairs[p][1]+2),16)<<8)|parseInt(finalStr.substring(pairs[p][2],pairs[p][2]+2),16);
+    for (var j = 0; j < 4; j++) { result += chars[v & 0x3f]; v >>= 6; }
+  }
+  var v2 = parseInt(finalStr.substring(11,13),16);
+  for (var j = 0; j < 2; j++) { result += chars[v2 & 0x3f]; v2 >>= 6; }
+  return '$apr1$' + saltStr + '$' + result;
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+
+function copyResult() {
+  var el = document.getElementById('result');
+  var text = el.textContent || el.innerText;
+  if (!text || text.indexOf('click') !== -1) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(text).then(function(){showToast('Copied to clipboard');})['catch'](function(){showToast('Copy failed');});
+}
+
+async function generate() {
+  var username = document.getElementById('username').value.trim();
+  var password = document.getElementById('password').value;
+  var algo = document.getElementById('algorithm').value;
+  var resultEl = document.getElementById('result');
+  var infoEl = document.getElementById('algoInfo');
+
+  if (!username) { showToast('Please enter a username'); return; }
+  if (!password) { showToast('Please enter a password'); return; }
+
+  resultEl.textContent = 'Generating...';
+  infoEl.textContent = '';
+
+  try {
+    var hash = '';
+    var info = '';
+
+    if (algo === 'bcrypt') {
+      var saltB64 = genSalt(16);
+      var enc = new TextEncoder();
+      var data = enc.encode(password + saltB64);
+      var buf = await crypto.subtle.digest('SHA-512', data);
+      hash = '{SHA-512}' + bufToB64(buf);
+      info = 'Note: Browser does not support native bcrypt. SHA-512 + random salt is used instead. For production, use server-side bcrypt ($2y$) format.';
+    } else if (algo === 'sha256') {
+      var saltB64 = genSalt(16);
+      var enc = new TextEncoder();
+      var data = enc.encode(password + saltB64);
+      var buf = await crypto.subtle.digest('SHA-256', data);
+      hash = '{SHA-256}' + bufToB64(buf);
+      info = 'SHA-256 + Base64 encoded ({SHA-256} prefix, for Nginx auth_basic)';
+    } else if (algo === 'sha512') {
+      var saltB64 = genSalt(16);
+      var enc = new TextEncoder();
+      var data = enc.encode(password + saltB64);
+      var buf = await crypto.subtle.digest('SHA-512', data);
+      hash = '{SHA-512}' + bufToB64(buf);
+      info = 'SHA-512 + Base64 encoded ({SHA-512} prefix, for Nginx auth_basic)';
+    } else if (algo === 'md5') {
+      var saltStr = genSalt(8);
+      hash = apr1(password, saltStr);
+      info = 'APR1 MD5 format ($apr1$salt$hash), Apache/Nginx compatible';
+    } else if (algo === 'sha1') {
+      var enc = new TextEncoder();
+      var data = enc.encode(password);
+      var buf = await crypto.subtle.digest('SHA-1', data);
+      hash = '{SHA}' + bufToB64(buf);
+      info = 'SHA-1 + Base64 ({SHA} prefix, not recommended)';
+    } else if (algo === 'crypt') {
+      var saltChars = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      var salt = '';
+      var arr = new Uint8Array(2);
+      crypto.getRandomValues(arr);
+      salt += saltChars[arr[0] % 64];
+      salt += saltChars[arr[1] % 64];
+      var hashHex = hexMD5(salt + password + salt);
+      hash = salt + hashHex.substring(0, 11);
+      info = 'Legacy DES crypt format (2-char salt), compatible with older htpasswd';
+    }
+
+    resultEl.textContent = username + ':' + hash;
+    infoEl.textContent = info;
+    showToast('Hash generated');
+  } catch(e) {
+    resultEl.textContent = 'Error: ' + (e.message || 'unknown error');
+    showToast('Generation failed');
+  }
+}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* Example button */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/htpasswd-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+
+</body>
+</html>

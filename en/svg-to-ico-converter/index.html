@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Turn SVG code or files into a multi-resolution ICO favicon right in your browser, with live preview and no upload to any server.">
+<meta name="keywords" content="SVG to ICO, SVG to favicon, favicon generator, ICO converter, website icon maker, SVG to icon">
+<title>Free SVG to ICO Converter - Online Favicon Generator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/svg-to-ico-converter/">
+<meta property="og:title" content="SVG to ICO Converter - Free Online Favicon Generator">
+<meta property="og:description" content="Turn SVG code or files into a multi-resolution ICO favicon right in your browser, with live preview and no upload to any server.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/svg-to-ico-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SVG to ICO Converter", "description": "Free online SVG to ICO favicon converter.", "applicationCategory": "MultimediaConverter", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}.container{max-width:800px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.input-section,.result-section,.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2,.result-section h2,.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+textarea{width:100%;padding:12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;outline:none;resize:vertical;min-height:150px;font-family:"SF Mono","Fira Code","Consolas",monospace;line-height:1.5}
+textarea:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.2);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.result-section{display:none}.result-section.show{display:block}
+.file-upload{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.file-upload input[type="file"]{display:none}
+.file-upload label{padding:8px 16px;background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3);border-radius:6px;cursor:pointer;font-size:.85rem}
+.file-upload .filename{color:#64748b;font-size:.85rem}
+.size-grid{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;justify-content:center}
+.size-item{background:#0f172a;border-radius:8px;padding:12px;text-align:center;border:1px solid rgba(148,163,184,.1);min-width:70px}
+.size-item .icon-preview{width:48px;height:48px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;background:#0f172a;border-radius:4px;padding:4px}
+.size-item .icon-preview img{max-width:100%;max-height:100%}
+.size-item .size-label{font-size:.8rem;color:#64748b}
+
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem;display:flex;justify-content:center;gap:16px}
+.footer a{color:#06b6d4}
+@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is SVG to ICO Converter free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is SVG to ICO Converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SVG to ICO Converter is completely free to use. All features have no usage limits, no registration or login required, and no hidden charges. You can use it with confidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my images uploaded to a server when using SVG to ICO Converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. Your images are never uploaded to any server. All processing happens locally on your device — you can even disconnect from the internet after the page loads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does SVG to ICO Converter work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. After the first load, SVG to ICO Converter works completely offline. All processing happens in your browser locally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SVG to ICO Converter safe to use? Are my files uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it's completely safe. SVG to ICO Converter runs entirely in your browser. None of your data is uploaded to any server. You can disconnect from the internet and still use it."
+      }
+    }
+  ]
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free SVG to ICO Converter - Online Favicon Generator", "item": "https://adi63586.github.io/Toolguidehub/en/svg-to-ico-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use SVG to ICO Converter","description":"Step-by-step guide for using SVG to ICO Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"SVG to ICO Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/svg-to-ico-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>SVG to ICO</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="input-section">
+    <h2>📄 Enter SVG</h2>
+    <div class="file-upload">
+      <label for="svgFileInput">📁 Choose SVG File</label>
+      <input type="file" id="svgFileInput" accept=".svg,image/svg+xml">
+      <span class="filename" id="fileName">No file selected</span>
+    </div>
+    <label for="svgInput">Or paste SVG code</label>
+    <textarea id="svgInput" rows="6" spellcheck="false">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"&gt;
+  &lt;rect width="64" height="64" rx="12" fill="#06b6d4"/&gt;
+  &lt;text x="32" y="42" text-anchor="middle" font-family="sans-serif" font-size="32" font-weight="bold" fill="#fff"&gt;W&lt;/text&gt;
+&lt;/svg&gt;</textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="convertBtn">🔄 Generate ICO</button>
+      <button class="btn btn-secondary" id="exampleBtn">📋 Load Example</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+    <div id="errorMsg" style="color:#ef4444;font-size:.85rem;margin-top:8px;display:none"></div>
+  </div>
+
+  <div class="result-section" id="resultSection">
+    <h2>👁️ Preview</h2>
+    <div class="size-grid" id="previewGrid"></div>
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn" style="width:100%">📥 Download ICO File</button>
+    </div>
+    <p style="color:#64748b;font-size:.8rem;margin-top:8px">Includes: 16x16, 24x24, 32x32, 48x48, 64x64</p>
+  </div>
+
+  <div class="info-section">
+    <h2>📖 How to Use</h2>
+    <p>Convert SVG vector icons to ICO format favicons. The generated ICO file contains multiple sizes for different use cases.</p>
+    <p><strong>Sizes:</strong> 16×16 (browser tab), 32×32 (Windows taskbar), 48×48 (desktop shortcut), 64×64 (HiDPI).</p>
+  </div>
+
+  <div class="info-section">
+    <h2>❓ FAQ</h2>
+    <h3>ICO vs PNG - what's the difference?</h3>
+    <p>ICO is the Windows icon format that can store multiple sizes in one file. PNG holds a single image. Modern browsers support both, but ICO has better legacy compatibility.</p>
+    <h3>How to use ICO in HTML?</h3>
+    <p>Place the file as favicon.ico in your root directory, or add &lt;link rel="icon" type="image/x-icon" href="../../favicon.svg"&gt; to your HTML.</p>
+    <h3>Does it support transparency?</h3>
+    <p>Yes. Transparent areas in the source SVG are preserved in the ICO. For best results at small sizes, use simple solid-color icons.</p>
+  </div>
+
+  <div>
+</div>
+
+
+<script>
+  var svgInput=document.getElementById('svgInput'), svgFileInput=document.getElementById('svgFileInput');
+  var fileName=document.getElementById('fileName'), convertBtn=document.getElementById('convertBtn');
+  var exampleBtn=document.getElementById('exampleBtn'), clearBtn=document.getElementById('clearBtn');
+  var downloadBtn=document.getElementById('downloadBtn'), previewGrid=document.getElementById('previewGrid');
+  var resultSection=document.getElementById('resultSection'), errorMsg=document.getElementById('errorMsg');
+  var SIZES=[16,24,32,48,64];
+  var examples=['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><rect width="64" height="64" rx="12" fill="#06b6d4"/><text x="32" y="42" text-anchor="middle" font-family="sans-serif" font-size="32" font-weight="bold" fill="#fff">W</text></svg>','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="30" fill="#22c55e"/><path d="M20 34 L28 42 L44 24" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'];
+  var exampleIndex=0;
+
+  function getSvg(){var s=svgInput.value.trim();if(!s){errorMsg.textContent='Enter SVG code or upload a file';errorMsg.style.display='block';return null;}errorMsg.style.display='none';return s;}
+
+  function svgToPng(svg,size){
+    return new Promise(function(resolve,reject){
+      var c=document.createElement('canvas');c.width=size;c.height=size;
+      var ctx=c.getContext('2d');var img=new Image();
+      var blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});var url=URL.createObjectURL(blob);
+      img.onload=function(){ctx.clearRect(0,0,size,size);ctx.drawImage(img,0,0,size,size);URL.revokeObjectURL(url);
+        c.toBlob(function(b){resolve({blob:b,dataUrl:c.toDataURL('image/png')});},'image/png');};
+      img.onerror=function(){URL.revokeObjectURL(url);reject(new Error('SVG render failed'));};
+      img.src=url;
+    });
+  }
+
+  function createIco(pngUrls){
+    var sizes=[16,24,32,48,64];var headerSize=6;var d=16;var off=headerSize+sizes.length*d;
+    var parts=[];var dir=[];
+    dir.push(0,0);dir.push(1,0);dir.push(pack16(sizes.length));
+    for(var i=0;i<sizes.length;i++){
+      var b64=pngUrls[i].split(',')[1];var raw=atob(b64);var buf=new ArrayBuffer(raw.length);var v=new Uint8Array(buf);
+      for(var j=0;j<raw.length;j++)v[j]=raw.charCodeAt(j);parts.push(v);
+      var w=sizes[i]===256?0:sizes[i];var h=sizes[i]===256?0:sizes[i];
+      dir.push(w,h,0,0);dir.push(pack16(1)[0],pack16(1)[1]);dir.push(pack16(32)[0],pack16(32)[1]);
+      dir.push(pack32(v.byteLength));dir.push(pack32(off));off+=v.byteLength;
+    }
+    var hdr=new Uint8Array(dir);var total=hdr.length;parts.forEach(function(p){total+=p.byteLength;});
+    var r=new Uint8Array(total);r.set(hdr,0);var pos=hdr.length;
+    parts.forEach(function(p){r.set(p,pos);pos+=p.byteLength;});
+    return r;
+  }
+  function pack16(v){return[v&0xFF,(v>>8)&0xFF];}
+  function pack32(v){return[v&0xFF,(v>>8)&0xFF,(v>>16)&0xFF,(v>>24)&0xFF];}
+
+  convertBtn.addEventListener('click',async function(){
+    var svg=getSvg();if(!svg)return;
+    previewGrid.innerHTML='<div style="color:#94a3b8;padding:20px;text-align:center">⏳ Generating...</div>';resultSection.classList.add('show');
+    try{
+      var urls=[];for(var i=0;i<SIZES.length;i++){var r=await svgToPng(svg,SIZES[i]);urls.push(r.dataUrl);}
+      var html='';SIZES.forEach(function(s,idx){html+='<div class="size-item"><div class="icon-preview"><img src="'+urls[idx]+'" alt="'+s+'x'+s+'"></div><div class="size-label">'+s+'×'+s+'</div></div>';});
+      previewGrid.innerHTML=html;
+      var ico=createIco(urls);var blob=new Blob([ico],{type:'image/x-icon'});var url=URL.createObjectURL(blob);
+      downloadBtn.onclick=function(){var a=document.createElement('a');a.href=url;a.download='favicon.ico';a.click();};
+    }catch(e){errorMsg.textContent='Generation failed: '+(e.message||e);errorMsg.style.display='block';previewGrid.innerHTML='<div style="color:#ef4444;padding:20px">❌ Failed</div>';}
+  });
+
+  exampleBtn.addEventListener('click',function(){svgInput.value=examples[exampleIndex%examples.length];exampleIndex++;resultSection.classList.remove('show');});
+  clearBtn.addEventListener('click',function(){svgInput.value='';resultSection.classList.remove('show');});
+  svgFileInput.addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;fileName.textContent=f.name;var r=new FileReader();r.onload=function(ev){svgInput.value=ev.target.result;};r.readAsText(f);});
+</script>
+
+<!-- Feedback -->
+</main><footer>
+    <p>Contact: <a href="../contact/">Contact</a></p>
+    <p><a href="../privacy-policy/">Privacy Policy</a> · <a href="../terms-of-service/">Terms of Service</a></p>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>
+function toggleFeedback(){var p=document.getElementById('feedback-panel');if(p)p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+  var type=(document.getElementById('feedback-type')||{}).value||'feedback';
+  var labels={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'};var tl=labels[type]||'Feedback';
+  var title=encodeURIComponent(tl+' - '+window.location.pathname);
+  var body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+tl+'\\n\\n'+text);
+  window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+  var fs=document.getElementById('feedback-success');if(fs){fs.style.display='block';setTimeout(function(){fs.style.display='none';},3000);}
+}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

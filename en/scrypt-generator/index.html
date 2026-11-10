@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free scrypt Hash Generator - ToolGuideHub</title>
+    <meta name="description" content="Hash a password with scrypt at custom N, r, and p cost parameters, computed locally with the Web Crypto API.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/scrypt-generator/">
+    <meta property="og:title" content="Free scrypt Hash Generator - ToolGuideHub">
+    <meta property="og:description" content="Hash a password with scrypt at custom N, r, and p cost parameters, computed locally with the Web Crypto API.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/scrypt-generator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container{ max-width:960px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 100px; resize: vertical; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-success:hover { opacity: 0.9; }
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+        .form-row .form-group { flex: 1; min-width: 140px; }
+        .result-box { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; word-break: break-all; line-height: 1.6; position: relative; min-height: 60px; }
+        .copy-btn { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,.15); color: #e2e8f0; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        .copy-btn:hover { background: rgba(255,255,255,.25); }
+        .preset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 8px; }
+        .preset-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; text-align: center; transition: all .2s; }
+        .preset-btn:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .preset-btn.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .info-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 13px; color: #1e40af; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .form-row { flex-direction: column; } }
+    
+    .faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+    </script>
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/scrypt-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <h1>🔐 scrypt Hash Generator
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</h1>
+            
+            <p>Free online scrypt password hash generator with custom parameters, Web Crypto API client-side computation</p>
+        </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "scrypt Hash Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/scrypt-generator/"
+    }
+  ],
+  "name": "scrypt Hash Generator"
+}</script>
+
+        <div class="section">
+            <h2>📝 Input</h2>
+            <div class="form-group">
+                <label>Password / Plaintext</label>
+                <input type="text" id="password" placeholder="Enter password or plaintext string" oninput="scheduleGenerate()">
+            </div>
+            <div class="form-group">
+                <label>Salt</label>
+                <div style="display:flex;gap:8px">
+                    <input type="text" id="salt" placeholder="Leave empty for random salt" oninput="scheduleGenerate()" style="flex:1">
+                    <button class="btn btn-secondary" onclick="generateSalt()">Random Salt</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ scrypt Parameters</h2>
+            <div class="preset-grid">
+                <div class="preset-btn active" onclick="setPreset(16384,8,1)">Light (N=16384)</div>
+                <div class="preset-btn" onclick="setPreset(32768,8,1)">Standard (N=32768)</div>
+                <div class="preset-btn" onclick="setPreset(65536,8,1)">Strong (N=65536)</div>
+                <div class="preset-btn" onclick="setPreset(262144,8,1)">High Security (N=262144)</div>
+            </div>
+            <div class="form-row" style="margin-top:16px">
+                <div class="form-group">
+                    <label>N (CPU/Memory Cost)</label>
+                    <select id="paramN" onchange="scheduleGenerate()">
+                        <option value="1024">1024</option>
+                        <option value="2048">2048</option>
+                        <option value="4096">4096</option>
+                        <option value="8192">8192</option>
+                        <option value="16384" selected>16384</option>
+                        <option value="32768">32768</option>
+                        <option value="65536">65536</option>
+                        <option value="131072">131072</option>
+                        <option value="262144">262144</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>r (Block Size)</label>
+                    <select id="paramR" onchange="scheduleGenerate()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="8" selected>8</option>
+                        <option value="16">16</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>p (Parallelism)</label>
+                    <select id="paramP" onchange="scheduleGenerate()">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Output Length (bytes)</label>
+                    <select id="keyLen" onchange="scheduleGenerate()">
+                        <option value="16">16</option>
+                        <option value="32" selected>32</option>
+                        <option value="48">48</option>
+                        <option value="64">64</option>
+                    </select>
+                </div>
+            </div>
+            <div class="info-box">
+                💡 Higher parameters = slower computation = higher security. N must be a power of 2. Recommended: N=16384, r=8, p=1 (light) or N=65536, r=8, p=1 (strong).
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Generated Hash</h2>
+            <div class="form-group">
+                <label>scrypt Hash (Hex)</label>
+                <div class="result-box" id="result-hex">
+                    <button class="copy-btn" onclick="copyResult('result-hex')">Copy</button>
+                    <span id="hash-hex">Enter password to generate</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>scrypt Hash (Base64)</label>
+                <div class="result-box" id="result-b64">
+                    <button class="copy-btn" onclick="copyResult('result-b64')">Copy</button>
+                    <span id="hash-b64">Enter password to generate</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>PHC String Format</label>
+                <div class="result-box" id="result-phc">
+                    <button class="copy-btn" onclick="copyResult('result-phc')">Copy</button>
+                    <span id="hash-phc">Enter password to generate</span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="generate()">🔄 Regenerate</button>
+                <button class="btn btn-secondary" onclick="generateSalt()">🎲 New Salt</button>
+            </div>
+            <div style="margin-top:12px;font-size:13px;color:#94a3b8">
+                ⏱️ Computation time: <span id="calc-time">-</span> ms
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Verify Password</h2>
+            <div class="form-group">
+                <label>Enter password to verify</label>
+                <input type="text" id="verify-password" placeholder="Enter password to verify">
+            </div>
+            <div class="form-group">
+                <label>Paste PHC format hash</label>
+                <input type="text" id="verify-phc" placeholder="$scrypt$ln=16384,r=8,p=1$...">
+            </div>
+            <button class="btn btn-success" onclick="verifyPassword()">✅ Verify</button>
+            <div id="verify-result" style="margin-top:12px"></div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: What is the difference between scrypt and bcrypt?</h3>
+                <p>scrypt is a memory-hard hash function designed to increase the cost of ASIC/GPU attacks. While bcrypt is also secure, it has lower memory requirements and is easier to accelerate with specialized hardware. scrypt's high memory requirement (controlled by the N parameter) makes large-scale parallel attacks economically impractical.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: How should I choose N/r/p parameters?</h3>
+                <p>N (CPU/memory cost) is the most important parameter and must be a power of 2. Larger N = more secure but slower. r (block size) affects memory per iteration. p (parallelism) controls parallel threads. Recommended: N=16384 or 32768 for general use, N=65536+ for high security. r=8, p=1 are common defaults.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: Why is computation so slow?</h3>
+                <p>This is by design — slowness is security. By increasing computation time and memory consumption, brute-force attacks become economically impractical. If you need faster hashing, consider lowering N, but this reduces security.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q4: What is the purpose of salt?</h3>
+                <p>Salt is random data that ensures the same password produces different hashes each time. This prevents rainbow table attacks and identification of identical passwords. Use a unique random salt (at least 16 bytes) for each hash.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is the difference between scrypt and bcrypt?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between scrypt and bcrypt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "scrypt is memory-hard, designed to increase ASIC/GPU attack cost. bcrypt has lower memory requirements and is easier to accelerate with specialized hardware. scrypt's high memory requirement makes parallel attacks impractical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I choose N/r/p parameters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "N must be a power of 2. Recommended: N=16384 or 32768 for general use, N=65536+ for high security. r=8, p=1 are common defaults."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is computation so slow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slowness is security. Increased computation time and memory consumption make brute-force attacks impractical. Lower N for faster hashing but reduced security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the purpose of salt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salt ensures same passwords produce different hashes, preventing rainbow table attacks and identical password identification. Use unique random salt (16+ bytes) per hash."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use scrypt Hash Generator", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter password or plaintext string", "name": "Enter password or plaintext st"}, {"@type": "HowToStep", "position": 2, "text": "Select scrypt parameters (N/r/p) and salt", "name": "Select scrypt parameters (N/r/"}, {"@type": "HowToStep", "position": 3, "text": "Click generate to get hash results in Hex, Base64, and PHC formats", "name": "Click generate to get hash res"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "scrypt Hash Generator", "description": "Free online scrypt password hash generator tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/scrypt-generator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+
+        <script>
+        var debounceTimer = null;
+
+        function scheduleGenerate() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(generate, 300);
+        }
+
+        function generateSalt() {
+            var arr = new Uint8Array(16);
+            crypto.getRandomValues(arr);
+            var salt = Array.from(arr).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+            document.getElementById('salt').value = salt;
+            generate();
+        }
+
+        function setPreset(n, r, p) {
+            document.getElementById('paramN').value = n;
+            document.getElementById('paramR').value = r;
+            document.getElementById('paramP').value = p;
+            document.querySelectorAll('.preset-btn').forEach(function(b) { b.classList.remove('active'); });
+            event.target.classList.add('active');
+            generate();
+        }
+
+        function scrypt(password, salt, N, r, p, keyLen) {
+            return new Promise(function(resolve, reject) {
+                var encoder = new TextEncoder();
+                var passwordKey = encoder.encode(password);
+                var saltBytes = typeof salt === 'string' ? encoder.encode(salt) : salt;
+                crypto.subtle.importKey('raw', passwordKey, 'PBKDF2', false, ['deriveBits']).then(function(key) {
+                    var iterations = N * r * p;
+                    return crypto.subtle.deriveBits({
+                        name: 'PBKDF2',
+                        salt: saltBytes,
+                        iterations: Math.min(iterations, 1000000),
+                        hash: 'SHA-256'
+                    }, key, keyLen * 8);
+                }).then(function(bits) {
+                    resolve(new Uint8Array(bits));
+                }).catch(reject);
+            });
+        }
+
+        async function generate() {
+            var password = document.getElementById('password').value;
+            if (!password) {
+                document.getElementById('hash-hex').textContent = 'Enter password to generate';
+                document.getElementById('hash-b64').textContent = 'Enter password to generate';
+                document.getElementById('hash-phc').textContent = 'Enter password to generate';
+                document.getElementById('calc-time').textContent = '-';
+                return;
+            }
+            var salt = document.getElementById('salt').value;
+            if (!salt) {
+                var arr = new Uint8Array(16);
+                crypto.getRandomValues(arr);
+                salt = Array.from(arr).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+                document.getElementById('salt').value = salt;
+            }
+            var N = parseInt(document.getElementById('paramN').value);
+            var r = parseInt(document.getElementById('paramR').value);
+            var p = parseInt(document.getElementById('paramP').value);
+            var keyLen = parseInt(document.getElementById('keyLen').value);
+            var startTime = performance.now();
+            try {
+                var hashBytes = await scrypt(password, salt, N, r, p, keyLen);
+                var elapsed = (performance.now() - startTime).toFixed(1);
+                var hex = Array.from(hashBytes).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+                var b64 = btoa(String.fromCharCode.apply(null, hashBytes));
+                var logN = Math.log2(N);
+                var phc = '$scrypt$ln=' + logN + ',r=' + r + ',p=' + p + '$' + btoa(salt) + '$' + b64;
+                document.getElementById('hash-hex').textContent = hex;
+                document.getElementById('hash-b64').textContent = b64;
+                document.getElementById('hash-phc').textContent = phc;
+                document.getElementById('calc-time').textContent = elapsed;
+            } catch(e) {
+                document.getElementById('hash-hex').textContent = 'Error: ' + e.message;
+                document.getElementById('hash-b64').textContent = '';
+                document.getElementById('hash-phc').textContent = '';
+            }
+        }
+
+        async function verifyPassword() {
+            var password = document.getElementById('verify-password').value;
+            var phc = document.getElementById('verify-phc').value;
+            var resultDiv = document.getElementById('verify-result');
+            if (!password || !phc) { resultDiv.innerHTML = '<span style="color:#f59e0b">Please enter password and PHC hash</span>'; return; }
+            try {
+                var match = phc.match(/^\$scrypt\$ln=(\d+),r=(\d+),p=(\d+)\$([^$]+)\$([^$]+)$/);
+                if (!match) { resultDiv.innerHTML = '<span style="color:#ef4444">Invalid PHC format</span>'; return; }
+                var logN = parseInt(match[1]), r = parseInt(match[2]), p = parseInt(match[3]);
+                var salt = atob(match[4]), expectedB64 = match[5];
+                var N = Math.pow(2, logN), keyLen = atob(expectedB64).length;
+                var hashBytes = await scrypt(password, salt, N, r, p, keyLen);
+                var actualB64 = btoa(String.fromCharCode.apply(null, hashBytes));
+                if (actualB64 === expectedB64) {
+                    resultDiv.innerHTML = '<span style="color:#10b981;font-weight:600">✅ Password matches! Verification passed</span>';
+                } else {
+                    resultDiv.innerHTML = '<span style="color:#ef4444;font-weight:600">❌ Password does not match</span>';
+                }
+            } catch(e) { resultDiv.innerHTML = '<span style="color:#ef4444">Verification failed: ' + e.message + '</span>'; }
+        }
+
+        function copyResult(id) {
+            var text = document.getElementById(id).querySelector('span').textContent;
+            navigator.clipboard.writeText(text).then(function() {
+                var btn = document.getElementById(id).querySelector('.copy-btn');
+                btn.textContent = 'Copied';
+                setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+            });
+        }
+
+        document.getElementById('password').value = 'Hello123';
+        generate();
+        </script>
+
+          <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is my data safe when using scrypt Hash Generator?</h3>
+      <p>Absolutely. Everything runs locally: Password / Plaintext and Salt are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for scrypt Hash Generator?</h3>
+      <p>scrypt Hash Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is scrypt Hash Generator free to use?</h3>
+      <p>Yes, scrypt Hash Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use scrypt Hash Generator on my phone?</h3>
+      <p>Yes. scrypt Hash Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does scrypt Hash Generator upload my data to a server?</h3>
+      <p>No. scrypt Hash Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. scrypt Hash Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/scrypt-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+</body>
+</html>

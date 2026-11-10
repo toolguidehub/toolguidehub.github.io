@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postman Collection Generator - ToolGuideHub</title>
+  <meta name="description" content="Define API endpoints visually and export a valid Postman Collection v2.1 JSON file that is ready to import.">
+  <meta property="og:title" content="Postman Collection Generator - ToolGuideHub">
+  <meta property="og:description" content="Define API endpoints visually and export a valid Postman Collection v2.1 JSON file that is ready to import.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Postman Collection Generator","applicationCategory":"DeveloperApplication","operatingSystem":"Any","description":"Online Postman Collection JSON generator","offers":{"@type":"Offer","price":"0"}}</script>
+  <style>:root{--surface:#1e293b;--error:#EF4444;--primary-light:rgba(6,182,212,.15);}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+    header { background: var(--surface); border-bottom: 1px solid rgba(148,163,184,.1); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { font-size: 1.2rem; font-weight: 700; color: #22d3ee; text-decoration: none; }
+    header nav a { color: #94a3b8; text-decoration: none; margin-left: 16px; font-size: .9rem; }
+    header nav a:hover { color: #22d3ee; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+    h1 { font-size: 1.5rem; margin-bottom: 4px; }
+    .subtitle { color: #94a3b8; font-size: .9rem; margin-bottom: 20px; }
+    .config-section { background: var(--surface); border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .config-section h3 { font-size: 1rem; margin-bottom: 12px; color: #22d3ee; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group label { font-size: .8rem; font-weight: 600; color: #94a3b8; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 8px 10px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-size: .85rem; font-family: inherit;
+    }
+    .endpoint-card { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 12px; margin-bottom: 8px; position: relative; }
+    .endpoint-card .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .endpoint-card .row select, .endpoint-card .row input { flex: 1; min-width: 100px; padding: 6px 8px; border: 1px solid rgba(148,163,184,.1); border-radius: 4px; font-size: .82rem; }
+    .endpoint-card .row select { flex: 0 0 auto; width: 100px; }
+    .endpoint-card .remove-btn { position: absolute; top: 8px; right: 8px; background: var(--error); color: #fff; border: none; border-radius: 4px; width: 24px; height: 24px; cursor: pointer; font-size: .75rem; display: flex; align-items: center; justify-content: center; }
+    .btn { padding: 8px 16px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; background: var(--surface); font-size: .85rem; cursor: pointer; }
+    .btn-primary { background: #22d3ee; color: #fff; border-color: #22d3ee; font-weight: 500; }
+    .btn-primary:hover { opacity: .9; }
+    .btn:hover { background: var(--primary-light); }
+    .output-area { margin-top: 12px; }
+    .output-area textarea { width: 100%; min-height: 300px; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-family: 'Fira Code', monospace; font-size: .8rem; background: #1e1e2e; color: #cdd6f4; resize: vertical; }
+    .toast { position: fixed; bottom: 20px; right: 20px; background: #1e293b; color: #fff; padding: 10px 20px; border-radius: 12px; font-size: .85rem; opacity: 0; transform: translateY(10px); transition: all .3s; z-index: 999; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    footer { text-align: center; padding: 20px; color: #94a3b8; font-size: .8rem; border-top: 1px solid rgba(148,163,184,.1); margin-top: 30px; }
+  @media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/postman-collection-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Postman Collection Generator - Online API Collection JSON Builder", "item": "https://adi63586.github.io/Toolguidehub/en/postman-collection-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Postman Collection Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Postman Collection Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Postman Collection Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Collection Name and Version are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Postman Collection Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Postman Collection Generator","description":"Step-by-step guide for using Postman Collection Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Postman Collection Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/postman-collection-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../" class="logo">ToolGuideHub</a>
+  <nav><a href="../../">Home</a><a href="../../">CN</a></nav>
+</header>
+<main class="container">
+  <h1>Postman Collection Generator</h1>
+  <p class="subtitle">Visually configure API endpoints and generate standard Postman Collection v2.1 JSON instantly.</p>
+
+  <div class="config-section">
+    <h3>Collection Info</h3>
+    <div class="form-grid">
+      <div class="form-group"><label>Collection Name</label><input id="colName" value="My API" placeholder="My API"></div>
+      <div class="form-group"><label>Version</label><input id="colVersion" value="1.0.0" placeholder="1.0.0"></div>
+      <div class="form-group"><label>Description</label><input id="colDesc" value="API Collection" placeholder="Description"></div>
+      <div class="form-group"><label>Base URL</label><input id="baseUrl" value="https://api.example.com" placeholder="https://api.example.com"></div>
+    </div>
+  </div>
+
+  <div class="config-section">
+    <h3>Global Headers <button class="btn" onclick="addHeader()" style="margin-left:8px;font-size:.75rem;">+ Add</button></h3>
+    <div id="headersList"></div>
+  </div>
+
+  <div class="config-section">
+    <h3>API Endpoints <button class="btn btn-primary" onclick="addEndpoint()" style="margin-left:8px;">+ Add Endpoint</button></h3>
+    <div id="endpointsList"></div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin:12px 0;">
+    <button class="btn btn-primary" onclick="generate()">Generate JSON</button>
+    <button class="btn" onclick="copyOutput()">Copy</button>
+    <button class="btn" onclick="downloadJSON()">Download .json</button>
+  </div>
+
+  <div class="output-area">
+    <textarea id="output" placeholder='Click "Generate JSON" to see result...' readonly></textarea>
+  </div>
+
+<h2>What is Postman Collection Generator - Online API Collection JSON …?</h2><p>Postman Collection Generator - Online API Collection JSON … is a free online tool that runs entirely in your browser. No download or signup needed — enter Collection Name and Version to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<div class="toast" id="toast">
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/postman-collection-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<script>
+let endpointId = 0;
+let headerId = 0;
+
+function addHeader() {
+  const container = document.getElementById('headersList');
+  const id = headerId++;
+  container.insertAdjacentHTML('beforeend', `<div class="row" style="margin-bottom:4px;gap:6px;" id="hdr-${id}">
+    <input placeholder="Key (e.g. Authorization)" style="flex:1;padding:6px 8px;border:1px solid rgba(148,163,184,.1);border-radius:4px;font-size:.82rem;">
+    <input placeholder="Value (e.g. Bearer token)" style="flex:1;padding:6px 8px;border:1px solid rgba(148,163,184,.1);border-radius:4px;font-size:.82rem;">
+    <button class="btn" onclick="document.getElementById('hdr-${id}').remove()" style="padding:4px 8px;font-size:.7rem;color:var(--error);">✕</button>
+  </div>`);
+}
+
+function addEndpoint() {
+  const container = document.getElementById('endpointsList');
+  const id = endpointId++;
+  container.insertAdjacentHTML('beforeend', `<div class="endpoint-card" id="ep-${id}">
+    <button class="remove-btn" onclick="document.getElementById('ep-${id}').remove()">✕</button>
+    <div class="row">
+      <select><option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option><option>HEAD</option><option>OPTIONS</option></select>
+      <input placeholder="Path (e.g. /users)" value="/users" style="flex:2;">
+      <input placeholder="Name (e.g. Get Users)" value="Get Users" style="flex:2;">
+    </div>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <input placeholder="Description (optional)" style="flex:1;padding:6px 8px;border:1px solid rgba(148,163,184,.1);border-radius:4px;font-size:.8rem;">
+    </div>
+  </div>`);
+}
+
+function getHeaders() {
+  const headers = [];
+  document.querySelectorAll('#headersList > div').forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    if (inputs[0].value.trim()) {
+      headers.push({ key: inputs[0].value.trim(), value: inputs[1].value.trim() });
+    }
+  });
+  return headers;
+}
+
+function getEndpoints() {
+  const endpoints = [];
+  document.querySelectorAll('#endpointsList > div').forEach(card => {
+    const selects = card.querySelectorAll('select');
+    const inputs = card.querySelectorAll('input');
+    endpoints.push({
+      method: selects[0].value,
+      path: inputs[0].value.trim(),
+      name: inputs[1].value.trim(),
+      description: inputs.length > 2 ? inputs[2].value.trim() : ''
+    });
+  });
+  return endpoints;
+}
+
+function generate() {
+  const colName = document.getElementById('colName').value || 'My API';
+  const version = document.getElementById('colVersion').value || '1.0.0';
+  const desc = document.getElementById('colDesc').value || '';
+  const baseUrl = document.getElementById('baseUrl').value || 'https://api.example.com';
+  const headers = getHeaders();
+  const endpoints = getEndpoints();
+
+  const items = endpoints.map((ep, i) => {
+    const url = baseUrl.replace(/\/$/, '') + (ep.path.startsWith('/') ? ep.path : '/' + ep.path);
+    return {
+      name: ep.name || 'Request ' + (i + 1),
+      request: {
+        method: ep.method,
+        header: [
+          ...headers.map(h => ({ key: h.key, value: h.value, type: 'text' })),
+          { key: 'Accept', value: 'application/json', type: 'text' }
+        ],
+        url: {
+          raw: url,
+          protocol: url.startsWith('https') ? 'https' : 'http',
+          host: [url.replace(/https?:\/\//, '').split('/')[0]],
+          path: url.replace(/https?:\/\/[^/]+/, '').split('/').filter(Boolean)
+        },
+        description: ep.description || ''
+      },
+      response: []
+    };
+  });
+
+  const collection = {
+    info: {
+      name: colName,
+      description: desc,
+      schema: 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json',
+      version: { major: parseInt(version.split('.')[0]) || 1, minor: parseInt(version.split('.')[1]) || 0, patch: parseInt(version.split('.')[2]) || 0 }
+    },
+    item: items
+  };
+
+  document.getElementById('output').value = JSON.stringify(collection, null, 2);
+  showToast('Generated! Collection has ' + items.length + ' endpoints');
+}
+
+function copyOutput() {
+  const output = document.getElementById('output').value;
+  if (!output) { showToast('Generate first'); return; }
+  navigator.clipboard.writeText(output).then(() => showToast('Copied!'));
+}
+
+function downloadJSON() {
+  const output = document.getElementById('output').value;
+  if (!output) { showToast('Generate first'); return; }
+  const blob = new Blob([output], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'postman-collection.json'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('Downloaded!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._timeout); t._timeout = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+addHeader();
+document.querySelector('#headersList input[placeholder*="Key"]').value = 'Authorization';
+document.querySelector('#headersList input[placeholder*="Value"]').value = 'Bearer YOUR_TOKEN';
+addEndpoint();
+addEndpoint();
+document.querySelectorAll('#endpointsList input[placeholder="Path"]')[1].value = '/users/:id';
+document.querySelectorAll('#endpointsList input[placeholder="Name"]')[1].value = 'Get Single User';
+document.querySelectorAll('#endpointsList select')[1].value = 'GET';</script>
+</body>
+</html>

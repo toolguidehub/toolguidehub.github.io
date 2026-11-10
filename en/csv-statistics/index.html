@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CSV Statistics Tool - ToolGuideHub</title>
+    <meta name="description" content="Calculate statistics from CSV data online for free. Mean, median, mode, standard deviation, and more. Analyze your data instantly.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/csv-statistics/">
+    <meta property="og:title" content="Free CSV Statistics Tool - ToolGuideHub">
+    <meta property="og:description" content="Calculate statistics from CSV data online for free. Mean, median, mode, standard deviation, and more. Analyze your data instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/csv-statistics/">
+    <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--primary-hover:#0891b2;--shadow:0 1px 3px rgba(0,0,0,.3)}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); resize: vertical; min-height: 150px; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        table th { background: #22d3ee; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+        table td { padding: 8px 12px; border-bottom: 1px solid rgba(148,163,184,.1); }
+        table tr:nth-child(even) { background: #0f172a; }
+        .table-container { overflow-x: auto; }
+        .col-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 4px; }
+        .col-numeric { background: rgba(6,182,212,.15); color: #22d3ee; }
+        .col-text { background: rgba(245,158,11,.15); color: #fbbf24; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free CSV Statistics Tool", "item": "https://adi63586.github.io/Toolguidehub/en/csv-statistics/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/csv-statistics/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <div class="nav-back"><a href="../../">← Back to Home</a></div>
+            <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);justify-content:center;margin-bottom:16px">
+                <a href="../../en/csv-statistics/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a>
+                <a href="../../en/csv-statistics/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee;text-decoration:none">English</a>
+            </div>
+            <h1>📊 CSV Statistics Tool</h1>
+            <p>Calculate statistics from CSV data online for free. Mean, median, mode, standard deviation, and more. Analyze your data instantly.</p>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</header>
+
+        <div class="section" id="input-card">
+            <h2>📥 Input CSV Data</h2>
+            <div>
+                <label for="csv-input" style="display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px">📝 Enter CSV Data</label>
+                <textarea id="csv-input" rows="8" placeholder="Paste CSV data, first row as header...&#10;Example:&#10;name,age,salary&#10;Alice,28,15000&#10;Bob,35,25000"></textarea>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-top:12px">
+                <div>
+                    <label for="csv-file" style="display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px">📁 Upload CSV File</label>
+                    <input type="file" id="csv-file" accept=".csv,.tsv,.txt" style="color:#94a3b8;font-size:.85rem">
+                </div>
+                <div>
+                    <label for="delimiter" style="display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px">Delimiter</label>
+                    <select id="delimiter" style="width:140px">
+                        <option value=",">Comma (,)</option>
+                        <option value="\t">Tab</option>
+                        <option value=";">Semicolon (;)</option>
+                        <option value="|">Pipe (|)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;color:#94a3b8;font-size:.85rem"><input type="checkbox" id="has-header" checked style="width:16px;height:16px;accent-color:#22d3ee"> First row is header</label>
+                </div>
+                <div style="display:flex;gap:8px">
+                    <button class="btn btn-primary" onclick="analyze()">📊 Analyze</button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('csv-input').value=''">🗑️ Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="overview-card" style="display:none">
+            <h2>📋 Data Overview</h2>
+            <div id="overview-content"></div>
+        </div>
+
+        <div class="section" id="stats-card" style="display:none">
+            <h2>📈 Numeric Column Statistics</h2>
+            <div class="table-container" id="stats-table"></div>
+        </div>
+
+        <div class="section" id="text-card" style="display:none">
+            <h2>📝 Text Column Statistics</h2>
+            <div class="table-container" id="text-table"></div>
+        </div>
+
+        <div class="section" id="dist-card" style="display:none">
+            <h2>📊 Distribution Histogram</h2>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+                <select id="hist-col" style="width:200px"></select>
+                <select id="hist-bins" style="width:120px">
+                    <option value="5">5 bins</option>
+                    <option value="10" selected>10 bins</option>
+                    <option value="20">20 bins</option>
+                </select>
+                <button class="btn btn-secondary" onclick="drawHistogram()">📊 Draw</button>
+            </div>
+            <canvas id="histogram" width="800" height="300" style="width:100%;max-width:800px"></canvas>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: What statistics are supported?</h3>
+                <p>Numeric columns: count, mean, median, mode, standard deviation, variance, min, max, range, Q1/Q3 quartiles, IQR, skewness, kurtosis, sum. Text columns: count, unique values, most common, least common, missing values.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: Is my data uploaded to a server?</h3>
+                <p>No! All statistical calculations are performed locally in your browser. Data is never uploaded to any server, ensuring privacy and security.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: How are missing values handled?</h3>
+                <p>Empty cells and unparseable values are automatically identified as missing values and excluded from calculations. The count of missing values is displayed in results to help assess data quality.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "CSV Statistics Tool FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use CSV Statistics Tool on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CSV Statistics Tool is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSV Statistics Tool is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CSV Statistics Tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, CSV Statistics Tool is completely free to use. No registration or login required — all features are available immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for CSV Statistics Tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV Statistics Tool has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CSV Statistics Tool upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSV Statistics Tool uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use CSV Statistics Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Paste CSV data or upload a CSV file", "name": "Paste CSV data or upload a CSV"}, {"@type": "HowToStep", "position": 2, "text": "Select delimiter and header options", "name": "Select delimiter and header op"}, {"@type": "HowToStep", "position": 3, "text": "Click 'Analyze' to view statistics for each column", "name": "Click 'Analyze' to view statis"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSV Statistics Tool", "description": "Free online CSV statistics tool with comprehensive statistical metrics", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/csv-statistics/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+        <script>
+        var parsedData = {};
+        var headers = [];
+        var numericCols = [];
+        var textCols = [];
+
+        document.getElementById('csv-file').addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                document.getElementById('csv-input').value = ev.target.result;
+            };
+            reader.readAsText(file);
+        });
+
+        function parseCSVLine(line, delim) {
+            var result = [], current = '', inQuotes = false;
+            for (var i = 0; i < line.length; i++) {
+                var ch = line[i];
+                if (inQuotes) {
+                    if (ch === '"') { if (i+1 < line.length && line[i+1]==='"') { current += '"'; i++; } else inQuotes = false; }
+                    else current += ch;
+                } else {
+                    if (ch === '"') inQuotes = true;
+                    else if (ch === delim) { result.push(current.trim()); current = ''; }
+                    else current += ch;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        function analyze() {
+            var raw = document.getElementById('csv-input').value.trim();
+            if (!raw) { showToast('Please enter CSV data'); return; }
+            var delim = document.getElementById('delimiter').value;
+            if (delim === '\\t') delim = '\t';
+            var hasHeader = document.getElementById('has-header').checked;
+            var lines = raw.split('\n').filter(function(l) { return l.trim(); });
+            if (lines.length < 2) { showToast('Insufficient data'); return; }
+
+            headers = parseCSVLine(lines[0], delim);
+            parsedData = {};
+            headers.forEach(function(h) { parsedData[h] = []; });
+            numericCols = [];
+            textCols = [];
+
+            var startIdx = hasHeader ? 1 : 0;
+            for (var i = startIdx; i < lines.length; i++) {
+                var values = parseCSVLine(lines[i], delim);
+                headers.forEach(function(h, idx) {
+                    parsedData[h].push(values[idx] || '');
+                });
+            }
+
+            headers.forEach(function(h) {
+                var nums = parsedData[h].filter(function(v) { return v !== '' && !isNaN(Number(v)); });
+                if (nums.length > parsedData[h].length * 0.5) numericCols.push(h);
+                else textCols.push(h);
+            });
+
+            renderOverview(lines.length - (hasHeader ? 1 : 0));
+            renderNumericStats();
+            renderTextStats();
+            setupHistogram();
+            gtag('event', 'analyze', { event_category: 'csv-statistics' });
+        }
+
+        function renderOverview(rows) {
+            document.getElementById('overview-card').style.display = 'block';
+            var html = '<div style="display:flex;gap:16px;flex-wrap:wrap">';
+            html += '<div style="background:#0f172a;padding:12px 20px;border-radius:8px"><strong>Rows:</strong> ' + rows + '</div>';
+            html += '<div style="background:#0f172a;padding:12px 20px;border-radius:8px"><strong>Columns:</strong> ' + headers.length + '</div>';
+            html += '<div style="background:rgba(6,182,212,.15);padding:12px 20px;border-radius:8px"><strong>Numeric:</strong> ' + numericCols.length + '</div>';
+            html += '<div style="background:rgba(245,158,11,.15);padding:12px 20px;border-radius:8px"><strong>Text:</strong> ' + textCols.length + '</div>';
+            html += '</div>';
+            html += '<div style="margin-top:12px;font-size:13px;color:#94a3b8">Columns: ';
+            headers.forEach(function(h) {
+                var isNum = numericCols.indexOf(h) >= 0;
+                html += '<span class="col-badge ' + (isNum ? 'col-numeric' : 'col-text') + '">' + escHtml(h) + '</span>';
+            });
+            html += '</div>';
+            document.getElementById('overview-content').innerHTML = html;
+        }
+
+        function calcStats(values) {
+            var nums = values.filter(function(v) { return v !== '' && !isNaN(Number(v)); }).map(Number);
+            if (nums.length === 0) return null;
+            nums.sort(function(a, b) { return a - b; });
+            var n = nums.length;
+            var sum = nums.reduce(function(a, b) { return a + b; }, 0);
+            var mean = sum / n;
+            var median = n % 2 === 0 ? (nums[n/2-1] + nums[n/2]) / 2 : nums[Math.floor(n/2)];
+            var variance = nums.reduce(function(a, b) { return a + Math.pow(b - mean, 2); }, 0) / n;
+            var stddev = Math.sqrt(variance);
+            var q1 = nums[Math.floor(n * 0.25)];
+            var q3 = nums[Math.floor(n * 0.75)];
+            var freq = {};
+            nums.forEach(function(v) { freq[v] = (freq[v] || 0) + 1; });
+            var maxFreq = 0, mode = nums[0];
+            for (var k in freq) { if (freq[k] > maxFreq) { maxFreq = freq[k]; mode = Number(k); } }
+            var skew = n > 2 ? nums.reduce(function(a, b) { return a + Math.pow((b - mean) / stddev, 3); }, 0) / n : 0;
+            var kurt = n > 3 ? nums.reduce(function(a, b) { return a + Math.pow((b - mean) / stddev, 4); }, 0) / n - 3 : 0;
+            var missing = values.length - nums.length;
+            return { count: n, missing: missing, mean: mean, median: median, mode: mode, stddev: stddev, variance: variance, min: nums[0], max: nums[n-1], range: nums[n-1] - nums[0], q1: q1, q3: q3, iqr: q3 - q1, skew: skew, kurt: kurt, sum: sum };
+        }
+
+        function fmt(v, decimals) {
+            if (v === null || v === undefined) return '-';
+            decimals = decimals || 4;
+            return Number(v).toFixed(decimals).replace(/\.?0+$/, '') || '0';
+        }
+
+        function renderNumericStats() {
+            if (numericCols.length === 0) { document.getElementById('stats-card').style.display = 'none'; return; }
+            document.getElementById('stats-card').style.display = 'block';
+            var metrics = ['count','missing','mean','median','mode','stddev','variance','min','max','range','q1','q3','iqr','skew','kurt','sum'];
+            var labels = {count:'Count',missing:'Missing',mean:'Mean',median:'Median',mode:'Mode',stddev:'Std Dev',variance:'Variance',min:'Min',max:'Max',range:'Range',q1:'Q1 (25%)',q3:'Q3 (75%)',iqr:'IQR',skew:'Skewness',kurt:'Kurtosis',sum:'Sum'};
+            var html = '<table><thead><tr><th>Metric</th>';
+            numericCols.forEach(function(c) { html += '<th>' + escHtml(c) + '</th>'; });
+            html += '</tr></thead><tbody>';
+            metrics.forEach(function(m) {
+                html += '<tr><td><strong>' + labels[m] + '</strong></td>';
+                numericCols.forEach(function(c) {
+                    var s = calcStats(parsedData[c]);
+                    html += '<td>' + (s ? fmt(s[m]) : '-') + '</td>';
+                });
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('stats-table').innerHTML = html;
+        }
+
+        function renderTextStats() {
+            if (textCols.length === 0) { document.getElementById('text-card').style.display = 'none'; return; }
+            document.getElementById('text-card').style.display = 'block';
+            var html = '<table><thead><tr><th>Metric</th>';
+            textCols.forEach(function(c) { html += '<th>' + escHtml(c) + '</th>'; });
+            html += '</tr></thead><tbody>';
+            textCols.forEach(function(col) {
+                var vals = parsedData[col];
+                var nonEmpty = vals.filter(function(v) { return v !== ''; });
+                var unique = {};
+                nonEmpty.forEach(function(v) { unique[v] = (unique[v] || 0) + 1; });
+                var uniqueCount = Object.keys(unique).length;
+                var mostCommon = '', mostCommonCount = 0;
+                var leastCommon = '', leastCommonCount = Infinity;
+                for (var k in unique) {
+                    if (unique[k] > mostCommonCount) { mostCommonCount = unique[k]; mostCommon = k; }
+                    if (unique[k] < leastCommonCount) { leastCommonCount = unique[k]; leastCommon = k; }
+                }
+                var missing = vals.length - nonEmpty.length;
+                html += '<tr><td><strong>Count</strong></td><td>' + nonEmpty.length + '</td></tr>';
+                html += '<tr><td><strong>Unique</strong></td><td>' + uniqueCount + '</td></tr>';
+                html += '<tr><td><strong>Most Common</strong></td><td>"' + escHtml(mostCommon) + '" (' + mostCommonCount + 'x)</td></tr>';
+                html += '<tr><td><strong>Least Common</strong></td><td>"' + escHtml(leastCommon) + '" (' + leastCommonCount + 'x)</td></tr>';
+                html += '<tr><td><strong>Missing</strong></td><td>' + missing + '</td></tr>';
+            });
+            html += '</tbody></table>';
+            document.getElementById('text-table').innerHTML = html;
+        }
+
+        function setupHistogram() {
+            if (numericCols.length === 0) { document.getElementById('dist-card').style.display = 'none'; return; }
+            document.getElementById('dist-card').style.display = 'block';
+            var sel = document.getElementById('hist-col');
+            sel.innerHTML = '';
+            numericCols.forEach(function(c) {
+                sel.innerHTML += '<option value="' + escHtml(c) + '">' + escHtml(c) + '</option>';
+            });
+            drawHistogram();
+        }
+
+        function drawHistogram() {
+            var col = document.getElementById('hist-col').value;
+            var bins = parseInt(document.getElementById('hist-bins').value);
+            var vals = parsedData[col].filter(function(v) { return v !== '' && !isNaN(Number(v)); }).map(Number);
+            if (vals.length === 0) return;
+            vals.sort(function(a, b) { return a - b; });
+            var min = vals[0], max = vals[vals.length - 1];
+            var binWidth = (max - min) / bins;
+            if (binWidth === 0) binWidth = 1;
+            var counts = new Array(bins).fill(0);
+            vals.forEach(function(v) {
+                var idx = Math.min(Math.floor((v - min) / binWidth), bins - 1);
+                counts[idx]++;
+            });
+            var maxCount = Math.max.apply(null, counts);
+            var canvas = document.getElementById('histogram');
+            var ctx = canvas.getContext('2d');
+            var w = canvas.width, h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+            var padding = 50, barW = (w - padding * 2) / bins;
+            ctx.fillStyle = '#3b82f6';
+            counts.forEach(function(c, i) {
+                var barH = (c / maxCount) * (h - padding * 2);
+                ctx.fillRect(padding + i * barW, h - padding - barH, barW - 2, barH);
+            });
+            ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(padding, padding); ctx.lineTo(padding, h - padding); ctx.lineTo(w - padding, h - padding); ctx.stroke();
+            ctx.fillStyle = '#64748b'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+            for (var i = 0; i <= bins; i += Math.max(1, Math.floor(bins / 5))) {
+                var val = min + i * binWidth;
+                ctx.fillText(fmt(val, 2), padding + i * barW, h - padding + 16);
+            }
+            ctx.textAlign = 'right';
+            for (var i = 0; i <= 4; i++) {
+                var val = Math.round(maxCount * i / 4);
+                var y = h - padding - (val / maxCount) * (h - padding * 2);
+                ctx.fillText(val, padding - 6, y + 4);
+            }
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+        </script>
+      <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Can I use CSV Statistics Tool on my phone?</h3>
+      <p>Yes. CSV Statistics Tool is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. CSV Statistics Tool is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is CSV Statistics Tool free to use?</h3>
+      <p>Yes, CSV Statistics Tool is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for CSV Statistics Tool?</h3>
+      <p>CSV Statistics Tool has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does CSV Statistics Tool upload my data to a server?</h3>
+      <p>No. CSV Statistics Tool uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+  </div>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+  (function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+  })();</script>
+<div class="toast" id="toast"></div>
+    </main>
+
+<footer>
+        <p>&copy; 2026 WebTools - Free Online Tools | <a href="../../en/privacy/">Privacy Policy</a> | <a href="../../en/terms/">Terms of Service</a></p>
+     | <a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

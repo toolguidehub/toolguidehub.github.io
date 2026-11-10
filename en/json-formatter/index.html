@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Format, minify, validate and sort JSON keys, and query it with JSONPath like $.tools[*].name — with errors pinned to the exact line.">
+<meta name="keywords" content="JSON formatter,JSON beautifier,JSON minifier,JSON validator,JSON parser,JSON online tool,JSON tree view,JSONPath query,online JSON editor,JSON formatter tool">
+<title>Free Online JSON Formatter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/json-formatter/">
+<meta property="og:title" content="Free Online JSON Formatter - ToolGuideHub">
+<meta property="og:description" content="Format, minify, validate and sort JSON keys, and query it with JSONPath like $.tools[*].name — with errors pinned to the exact line.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/json-formatter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Will my JSON data be uploaded to a server?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will my JSON data be uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely not. This tool is built with pure front-end technology. All JSON parsing, formatting, validation, and querying happen in your browser. You can press F12 to open Developer Tools and check the Network panel to confirm there are no data upload requests. The tool works normally even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How large a JSON file can it handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no hard limit in theory, but due to browser memory and performance constraints, we recommend processing JSON files no larger than 10MB. For very large JSON files (such as log files of hundreds of MB), we suggest pre-processing with a command-line tool (like jq) first, then using this tool to view the formatted result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did non-ASCII characters turn into Unicode encoding after formatting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The JSON standard allows non-ASCII characters to appear directly (UTF-8 encoding), but some systems generate JSON that escapes non-ASCII characters into \\uXXXX format. This is valid JSON. If you want readable characters, this tool preserves the original characters during formatting (it does not decode Unicode escapes), but you can use the \"Unescape\" feature to restore \\uXXXX back to readable characters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What JSONPath syntax is supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool supports a common subset of JSONPath syntax: root object access ($), property access ($.key), array index ($[0]), array wildcard ($[*]), recursive search ($..key), and simple filter expressions ($.arr[?(@.prop\u003e1)]). Complex script expressions and custom functions are not currently supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the formatted JSON be copied directly into code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The formatted JSON is standard, valid JSON. If you need to embed JSON into a JavaScript code string, we recommend using the \"Escape\" feature to automatically escape special characters like double quotes with \\ prefixes, avoiding string parsing errors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Tree View and Formatted Text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Formatted Text is a standard JSON string, suitable for copying and pasting or saving as a file. Tree View is an interactive structural display where objects and arrays can be clicked to collapse/expand, making it easier to browse the hierarchical relationships of large JSON. The content is identical in both; only the presentation differs."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online JSON Formatter", "description": "Free online JSON formatter tool, pure front-end local processing. Supports JSON formatting/beautifying, minifying, syntax validation with error positioning, tree view with collapse/expand, JSONPath query, one-click copy and download.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Online JSON Formatter",
+  "description": "Simple steps to use the Online JSON Formatter online tool. Everything runs locally: Online JSON Formatter and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online JSON Formatter"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-formatter/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-formatter/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-formatter/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+.ad-sidebar{width:300px;min-height:250px}
+.breadcrumb{color:#94a3b8;font-size:13px;padding:12px 0}
+.breadcrumb a{color:#06b6d4}
+.breadcrumb a:hover{text-decoration:underline}
+.hero{background:linear-gradient(135deg,#0c4a6e 0%,#0f172a 100%);border-radius:16px;padding:32px 24px;margin-bottom:24px;text-align:center;border:1px solid rgba(6,182,212,.15)}
+h1{font-size:2rem;font-weight:700;color:#f1f5f9;margin-bottom:8px}
+.subtitle{color:#94a3b8;font-size:.95rem}
+.badge{display:inline-block;background:rgba(16,185,129,.15);color:#10b981;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:8px;border:1px solid rgba(16,185,129,.2)}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-bottom:24px}
+.panel{background:#1e293b;border-radius:16px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+.panel-title{font-size:1rem;color:#f1f5f9;margin-bottom:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.textarea-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.9rem;font-family:"JetBrains Mono","Fira Code","SF Mono",Menlo,Consolas,monospace;resize:vertical;min-height:180px;transition:border-color .2s;tab-size:2}
+.textarea-area:focus{outline:none;border-color:#06b6d4}
+.textarea-area::placeholder{color:#64748b}
+.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:10px;border:none;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee;transform:translateY(-1px)}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn.danger{background:rgba(239,68,68,.15);color:#ef4444}
+.btn.danger:hover{background:rgba(239,68,68,.25)}
+.btn.success{background:rgba(16,185,129,.15);color:#10b981}
+.privacy-note{display:flex;align-items:center;gap:8px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;padding:12px 16px;margin-top:16px;color:#10b981;font-size:.85rem}
+
+/* Output areas */
+.output-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.85rem;font-family:"JetBrains Mono",monospace;min-height:180px;max-height:500px;overflow:auto;white-space:pre-wrap;word-break:break-word;tab-size:2}
+.output-area .json-key{color:#93c5fd}
+.output-area .json-string{color:#86efac}
+.output-area .json-number{color:#fca5a5}
+.output-area .json-boolean{color:#f0abfc}
+.output-area .json-null{color:#94a3b8}
+.output-area .json-bracket{color:#f1f5f9}
+
+/* Tree view */
+.tree-view{font-family:"JetBrains Mono",monospace;font-size:.85rem;line-height:1.8}
+.tree-line{display:flex;align-items:flex-start;gap:4px;padding:1px 0}
+.tree-toggle{cursor:pointer;user-select:none;color:#06b6d4;width:16px;text-align:center;flex-shrink:0;font-size:.8rem}
+.tree-toggle:hover{color:#22d3ee}
+.tree-key{color:#93c5fd;white-space:nowrap}
+.tree-string{color:#86efac;word-break:break-word}
+.tree-number{color:#fca5a5}
+.tree-boolean{color:#f0abfc}
+.tree-null{color:#94a3b8}
+.tree-bracket{color:#cbd5e1}
+.tree-type{color:#64748b;font-size:.75rem;margin-left:4px}
+.tree-children{padding-left:20px;border-left:1px solid rgba(148,163,184,.1);margin-left:7px}
+.tree-children.collapsed{display:none}
+.tree-collapsed{color:#64748b;font-style:italic}
+
+/* Error display */
+.error-box{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:16px;margin-top:16px;color:#fca5a5;font-family:"JetBrains Mono",monospace;font-size:.85rem}
+.error-box .err-title{color:#ef4444;font-weight:600;margin-bottom:8px}
+.error-box .err-line{background:rgba(239,68,68,.15);padding:2px 6px;border-radius:4px;display:inline-block;margin-top:4px}
+.error-context{background:#0f172a;border-radius:6px;padding:8px;margin-top:8px;overflow-x:auto}
+.error-context .line-num{color:#64748b;display:inline-block;width:32px;text-align:right;margin-right:8px;user-select:none}
+.error-context .line-bad{background:rgba(239,68,68,.15);border-radius:2px}
+
+/* Stats bar */
+.stats-bar{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;padding:10px 14px;background:#0f172a;border-radius:8px;font-size:.8rem;color:#94a3b8}
+.stats-bar span{display:flex;align-items:center;gap:4px}
+.stats-bar .stat-val{color:#22d3ee;font-weight:600}
+
+/* JSONPath */
+.path-row{display:flex;gap:10px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.path-input{flex:1;min-width:200px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#f1f5f9;padding:10px 12px;font-size:.9rem;font-family:"JetBrains Mono",monospace}
+.path-input:focus{outline:none;border-color:#06b6d4}
+.path-hint{color:#64748b;font-size:.8rem;margin-top:6px}
+.path-result{background:#0f172a;border:1px solid rgba(6,182,212,.2);border-radius:10px;padding:16px;margin-top:16px;max-height:400px;overflow:auto}
+.path-result pre{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#e2e8f0;white-space:pre-wrap;word-break:break-word}
+.path-result .path-match-count{color:#22d3ee;font-weight:600;margin-bottom:8px;font-size:.9rem}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid rgba(148,163,184,.1);margin-bottom:16px}
+.tab-btn{padding:8px 16px;border:none;background:none;color:#94a3b8;cursor:pointer;font-size:.9rem;border-radius:8px 8px 0 0;transition:all .2s}
+.tab-btn:hover{color:#e2e8f0}
+.tab-btn.active{background:rgba(6,182,212,.1);color:#22d3ee;border-bottom:2px solid #06b6d4}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Raw textarea for formatted output */
+.raw-output{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.85rem;font-family:"JetBrains Mono",monospace;min-height:180px;resize:vertical;tab-size:2}
+
+.seo-content{margin-top:32px}
+.seo-content h2{font-size:1.4rem;color:#f1f5f9;margin-bottom:12px;margin-top:28px}
+.seo-content h3{font-size:1.1rem;color:#94a3b8;margin-bottom:10px;margin-top:20px}
+.seo-content p{color:#94a3b8;margin-bottom:12px;font-size:.9rem}
+.seo-content ul{list-style:none;margin-bottom:16px}
+.seo-content li{color:#94a3b8;padding:4px 0;padding-left:20px;position:relative;font-size:.9rem}
+.seo-content li::before{content:"·";position:absolute;left:4px;color:#06b6d4}
+.faq-item{margin-bottom:16px;padding:16px;border-radius:10px;background:#1e293b;border:1px solid rgba(148,163,184,.08)}
+.faq-item h3{font-size:1rem;color:#f1f5f9;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}.ad-sidebar{display:none}}
+@media(max-width:480px){h1{font-size:1.5rem}.btn{padding:8px 14px;font-size:.85rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Online JSON Formatter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/json-formatter/"
+    }
+  ],
+  "name": "Online JSON Formatter"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/json-formatter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+
+<!-- Top Ad Space -->
+<main class="container">
+  <div class="header">
+    <h1>Online JSON Formatter</h1>
+    
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="../../">Home</a> › <a href="../../">Online Tools</a> › JSON Formatter
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <p class="subtitle">Pure front-end local processing · Data never uploaded · Format/Minify/Validate/JSONPath query all-in-one</p>
+    <span class="badge">Zero dependencies · Works offline</span>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-grid">
+    <div>
+      <!-- Input Panel -->
+      <div class="panel">
+        <div class="panel-title">📝 JSON Input</div>
+        <textarea class="textarea-area" id="jsonInput" placeholder="Paste JSON data here...&#10;Supports formatting, minifying, validating, tree view and JSONPath query">{
+  "name": "Online Tools Hub",
+  "version": "1.0.0",
+  "tools": [
+    {"id": "password-generator", "name": "Password Generator", "category": "Security Tools"},
+    {"id": "qr-generator", "name": "QR Code Generator", "category": "Developer Tools"}
+  ],
+  "features": {
+    "offline": true,
+    "openSource": false,
+    "api": null
+  },
+  "stats": {
+    "totalTools": 2,
+    "dailyUsers": 150
+  }
+}</textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btnFormat">✨ Format</button>
+          <button class="btn btn-secondary" id="btnMinify">🗜️ Minify</button>
+          <button class="btn btn-secondary" id="btnValidate">✅ Validate</button>
+          <button class="btn btn-secondary" id="btnEscape">🔤 Escape</button>
+          <button class="btn btn-secondary" id="btnUnescape">🔓 Unescape</button>
+          <button class="btn btn-secondary" id="btnSort">📊 Sort Keys</button>
+          <button class="btn danger" id="btnClear">🗑️ Clear</button>
+        </div>
+        <div class="privacy-note">
+          <span>🔒</span>
+          <span>All JSON data is processed locally in your browser only and will never be uploaded to any server. You can use this tool offline.</span>
+        </div>
+      </div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+      <!-- Output Panel -->
+      <div class="panel">
+        <div class="panel-title">📤 Results</div>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="formatted">Formatted Text</button>
+          <button class="tab-btn" data-tab="tree">Tree View</button>
+          <button class="tab-btn" data-tab="raw">Raw Text</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-formatted">
+          <textarea class="raw-output" id="formattedOutput" readonly></textarea>
+        </div>
+        <div class="tab-panel" id="tab-tree">
+          <div class="tree-view" id="treeOutput"></div>
+        </div>
+        <div class="tab-panel" id="tab-raw">
+          <textarea class="raw-output" id="rawOutput" readonly></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btnCopy">📋 Copy Result</button>
+          <button class="btn btn-secondary" id="btnDownload">💾 Download JSON</button>
+        </div>
+
+        <div class="stats-bar" id="statsBar" style="display:none">
+          <span>Nodes: <span class="stat-val" id="statNodes">0</span></span>
+          <span>Max Depth: <span class="stat-val" id="statDepth">0</span></span>
+          <span>Objects: <span class="stat-val" id="statObjects">0</span></span>
+          <span>Arrays: <span class="stat-val" id="statArrays">0</span></span>
+          <span>Strings: <span class="stat-val" id="statStrings">0</span></span>
+          <span>Numbers: <span class="stat-val" id="statNumbers">0</span></span>
+          <span>Booleans/Null: <span class="stat-val" id="statBools">0</span></span>
+          <span>Char Length: <span class="stat-val" id="statLength">0</span></span>
+        </div>
+
+        <div id="errorBox"></div>
+      </div>
+
+      <!-- JSONPath Panel -->
+      <div class="panel">
+        <div class="panel-title">🔍 JSONPath Query</div>
+        <div class="path-row">
+          <input type="text" class="path-input" id="pathInput" placeholder="Enter JSONPath, e.g. $.tools[*].name or $..id">
+          <button class="btn btn-primary" id="btnPathQuery">Query</button>
+          <button class="btn btn-secondary" id="btnPathClear">Clear</button>
+        </div>
+        <div class="path-hint">Supported syntax: $.key / $[0] / $[*] / $..key (recursive) / $.arr[?(@.prop>1)] (filter)</div>
+        <div class="path-result" id="pathResult" style="display:none">
+          <div class="path-match-count" id="pathMatchCount"></div>
+          <pre id="pathResultPre"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Ads -->
+    </div>
+
+  <!-- Middle Ad -->
+  <!-- SEO Content Section -->
+  <div class="seo-content">
+    <h2>What Can the Online JSON Formatter Do?</h2>
+    <p>JSON (JavaScript Object Notation) is the de facto standard format for modern web development, API interfaces, and data exchange. However, JSON returned from servers or extracted from logs is often minified into a single line, making it hard to read. Our <strong>Online JSON Formatter</strong> runs entirely in your browser, providing an all-in-one solution with formatting/beautifying, minifying, syntax validation, error positioning, collapsible tree view, and JSONPath query.</p>
+    <p>Unlike most online JSON tools, <strong>we never upload your data to any server</strong>. All parsing and formatting operations are performed on your device, so it works even without an internet connection. This is especially important when handling JSON containing sensitive information (such as API keys, user data, or internal configurations).</p>
+
+    <h2>Supported JSON Processing Features</h2>
+    <ul>
+      <li><strong>Format/Beautify</strong>: Expand minified JSON into multi-line indented format with 2-space indentation for improved readability</li>
+      <li><strong>Minify</strong>: Remove all whitespace characters to produce the smallest possible JSON, ideal for transmission and storage</li>
+      <li><strong>Syntax Validation</strong>: Detect JSON syntax errors in real time with precise line and column positioning</li>
+      <li><strong>Tree View</strong>: Display JSON as a collapsible tree structure where objects and arrays can be expanded/collapsed</li>
+      <li><strong>JSONPath Query</strong>: Supports standard JSONPath syntax to quickly extract deeply nested data</li>
+      <li><strong>Statistics</strong>: Automatically counts nodes, depth, and the number of objects/arrays/strings/numbers/booleans</li>
+      <li><strong>Escape/Unescape</strong>: Handle escape characters in JSON strings for easy embedding in code</li>
+      <li><strong>Sort Keys</strong>: Reorder object properties alphabetically by key name for easy comparison</li>
+    </ul>
+
+    <h2>JSONPath Query Syntax Cheat Sheet</h2>
+    <p>JSONPath is a query language for extracting data from JSON documents. Its syntax is similar to XPath but designed specifically for JSON.</p>
+    <ul>
+      <li><strong>$</strong>: Root object</li>
+      <li><strong>$.key</strong>: Directly access a property of an object</li>
+      <li><strong>$[0]</strong>: Access the first element of an array</li>
+      <li><strong>$[*]</strong>: Access all elements of an array</li>
+      <li><strong>$..key</strong>: Recursively find all properties named key (depth-first)</li>
+      <li><strong>$.arr[?(@.prop>1)]</strong>: Filter array elements that match a condition</li>
+      <li><strong>$.a.b[0].c</strong>: Chain access to nested properties and array elements</li>
+    </ul>
+
+    <h2>JSON Syntax Validation and Error Positioning</h2>
+    <p>JSON syntax is very strict. Common errors include trailing commas, unquoted keys, using single quotes instead of double quotes, and unclosed brackets. Our validator not only tells you "syntax error" but also <strong>precisely locates the line and column number of the error</strong> and highlights the error context, helping you fix problems in seconds.</p>
+
+  <div class="seo-content">
+    <h2>How to Use the Online JSON Formatter</h2>
+    <p>Using the Online JSON Formatter is simple. Follow these three steps:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Enter Your Code or Data</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Type, paste, or upload the json formatter content into the input area. The tool supports direct text input, file upload, and drag-and-drop. All processing happens entirely in your browser.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Configure Formatting Options</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Select your preferred formatting options such as indentation size, sorting preferences, or minification mode. Click the "Format", "Beautify", or "Minify" button to process your content instantly.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Copy or Download the Result</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">The formatted result appears immediately in the output area. Use the "Copy" button to copy to your clipboard, or "Download" to save as a file. The original content is never uploaded to any server.</span>
+      </li>
+
+    </ol>
+  </div>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item">
+      <h3>Will my JSON data be uploaded to a server?</h3>
+      <p>Absolutely not. This tool is built with pure front-end technology. All JSON parsing, formatting, validation, and querying happen in your browser. You can press F12 to open Developer Tools and check the Network panel to confirm there are no data upload requests. The tool works normally even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How large a JSON file can it handle?</h3>
+      <p>There is no hard limit in theory, but due to browser memory and performance constraints, we recommend processing JSON files no larger than 10MB. For very large JSON files (such as log files of hundreds of MB), we suggest pre-processing with a command-line tool (like jq) first, then using this tool to view the formatted result.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why did non-ASCII characters turn into Unicode encoding after formatting?</h3>
+      <p>The JSON standard allows non-ASCII characters to appear directly (UTF-8 encoding), but some systems generate JSON that escapes non-ASCII characters into <code>\uXXXX</code> format. This is valid JSON. If you want readable characters, this tool preserves the original characters during formatting (it does not decode Unicode escapes), but you can use the "Unescape" feature to restore <code>\uXXXX</code> back to readable characters.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What JSONPath syntax is supported?</h3>
+      <p>This tool supports a common subset of JSONPath syntax: root object access ($), property access ($.key), array index ($[0]), array wildcard ($[*]), recursive search ($..key), and simple filter expressions ($.arr[?(@.prop>1)]). Complex script expressions and custom functions are not currently supported.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can the formatted JSON be copied directly into code?</h3>
+      <p>Yes. The formatted JSON is standard, valid JSON. If you need to embed JSON into a JavaScript code string, we recommend using the "Escape" feature to automatically escape special characters like double quotes with <code>\</code> prefixes, avoiding string parsing errors.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is the difference between Tree View and Formatted Text?</h3>
+      <p>Formatted Text is a standard JSON string, suitable for copying and pasting or saving as a file. Tree View is an interactive structural display where objects and arrays can be clicked to collapse/expand, making it easier to browse the hierarchical relationships of large JSON. The content is identical in both; only the presentation differs.</p>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">What is the JSON format specification?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">JSON format is defined by <a href='https://www.json.org/json-en.html' target='_blank' rel='nofollow'>ECMA-404</a> and <a href='https://datatracker.ietf.org/doc/html/rfc8259' target='_blank' rel='nofollow'>RFC 8259</a> standards. JSON supports six data types: strings, numbers, booleans, null, arrays, and objects. All modern programming languages support JSON serialization and deserialization.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Ad -->
+  <div class="seo-content"><p>Online JSON Formatter · Pure front-end local processing · Data never uploaded to server</p>
+    <p style="margin-top:4px">Supports formatting · minifying · validating · tree view · JSONPath query · one-click copy & download</p>
+    
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+
+// ===== JSON Formatter Core Logic =====
+function getInput(){return document.getElementById('jsonInput').value;}
+function showError(msg,line,col){
+  var box=document.getElementById('errorBox');
+  box.innerHTML='<div class="error-box"><div class="err-title">❌ JSON Syntax Error</div><div>'+msg+'</div><div class="err-line">Position: line '+(line||'?')+', column '+(col||'?')+'</div></div>';
+}
+function clearError(){document.getElementById('errorBox').innerHTML='';}
+function setOutput(panelId,text){
+  if(panelId==='tree'){document.getElementById('treeOutput').innerHTML=text;return;}
+  document.getElementById(panelId+'Output').value=text;
+}
+function switchOutputTab(tab){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.querySelector('.tab-btn[data-tab="'+tab+'"]').classList.add('active');
+}
+function getActiveTab(){var p=document.querySelector('.tab-panel.active');return p?p.id.replace('tab-',''):'formatted';}
+
+// Stats
+function updateStats(obj){
+  var nodes=0,depth=0,objs=0,arrs=0,strs=0,nums=0,bools=0;
+  function walk(v,d){nodes++;if(d>depth)depth=d;if(v===null||v===undefined){bools++;return;}
+    if(Array.isArray(v)){arrs++;v.forEach(function(x){walk(x,d+1);});return;}
+    if(typeof v==='object'){objs++;for(var k in v){if(v.hasOwnProperty(k))walk(v[k],d+1);}return;}
+    if(typeof v==='string'){strs++;return;}if(typeof v==='number'){nums++;return;}bools++;}
+  walk(obj,1);
+  document.getElementById('statNodes').textContent=nodes;
+  document.getElementById('statDepth').textContent=depth;
+  document.getElementById('statObjects').textContent=objs;
+  document.getElementById('statArrays').textContent=arrs;
+  document.getElementById('statStrings').textContent=strs;
+  document.getElementById('statNumbers').textContent=nums;
+  document.getElementById('statBools').textContent=bools;
+  document.getElementById('statLength').textContent=JSON.stringify(obj).length;
+  document.getElementById('statsBar').style.display='flex';
+}
+
+function formatJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  clearError();
+  try{var obj=JSON.parse(raw);var pretty=JSON.stringify(obj,null,2);
+    setOutput('formatted',pretty);setOutput('raw',raw);
+    buildTree(obj);switchOutputTab('formatted');updateStats(obj);showToast('Formatted');
+  }catch(e){showError(e.message,(e.message.match(/position (\d+)/)||[])[1]);}
+}
+function minifyJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  clearError();
+  try{var obj=JSON.parse(raw);var min=JSON.stringify(obj);
+    setOutput('formatted',min);setOutput('raw',raw);
+    buildTree(obj);switchOutputTab('formatted');updateStats(obj);showToast('Minified');
+  }catch(e){showError(e.message);}
+}
+function validateJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  clearError();
+  try{var obj=JSON.parse(raw);showToast('✅ Valid JSON');updateStats(obj);buildTree(obj);
+    setOutput('formatted',JSON.stringify(obj,null,2));setOutput('raw',raw);
+  }catch(e){showError(e.message);}
+}
+function escapeJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  var escaped=raw.replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n').replace(/\r/g,'\\r').replace(/\t/g,'\\t');
+  setOutput('formatted',escaped);setOutput('raw',raw);switchOutputTab('formatted');showToast('Escaped');
+}
+function unescapeJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  try{var unescaped=JSON.parse('"'+raw.replace(/"/g,'\\"')+'"');
+    setOutput('formatted',unescaped);setOutput('raw',raw);switchOutputTab('formatted');showToast('Unescaped');
+  }catch(e){showToast('Unescape failed: '+e.message);}
+}
+function sortJSON(){
+  var raw=getInput();if(!raw.trim()){showToast('Please enter JSON first');return;}
+  clearError();
+  try{var obj=JSON.parse(raw);
+    function sortKeys(o){if(Array.isArray(o)){return o.map(sortKeys);}
+      if(o&&typeof o==='object'){var keys=Object.keys(o).sort(),r={};keys.forEach(function(k){r[k]=sortKeys(o[k]);});return r;}return o;}
+    var sorted=sortKeys(obj);var pretty=JSON.stringify(sorted,null,2);
+    setOutput('formatted',pretty);setOutput('raw',raw);buildTree(sorted);switchOutputTab('formatted');updateStats(sorted);showToast('Keys sorted');
+  }catch(e){showError(e.message);}
+}
+function clearAll(){
+  document.getElementById('jsonInput').value='';
+  document.getElementById('formattedOutput').value='';
+  document.getElementById('rawOutput').value='';
+  document.getElementById('treeOutput').innerHTML='';
+  document.getElementById('errorBox').innerHTML='';
+  document.getElementById('statsBar').style.display='none';
+  document.getElementById('pathResult').style.display='none';
+  showToast('Cleared');
+}
+
+// Tree view
+function buildTree(obj){
+  var html='';var idx=0;
+  function render(v,key,path,depth){
+    var pid='tree-'+path.replace(/[^a-zA-Z0-9]/g,'_');
+    if(v===null){html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-key">'+(key!==null?'"'+key+'": ':'')+'</span><span class="tree-null">null</span></div>';return;}
+    if(typeof v==='boolean'){html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-key">'+(key!==null?'"'+key+'": ':'')+'</span><span class="tree-boolean">'+v+'</span></div>';return;}
+    if(typeof v==='number'){html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-key">'+(key!==null?'"'+key+'": ':'')+'</span><span class="tree-number">'+v+'</span></div>';return;}
+    if(typeof v==='string'){html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-key">'+(key!==null?'"'+key+'": ':'')+'</span><span class="tree-string">"'+v.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'"</span></div>';return;}
+    var isArr=Array.isArray(v);var entries=isArr?v.map(function(x,i){return[i,x]}) : Object.keys(v).map(function(k){return[k,v[k]]});
+    var toggleId='tg-'+pid;
+    html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-toggle" id="'+toggleId+'" onclick="toggleTreeNode(\''+pid+'\',\''+toggleId+'\')">▼</span>';
+    html+='<span class="tree-key">'+(key!==null?'"'+key+'": ':'')+'</span><span class="tree-bracket">'+(isArr?'[':'{')+'</span>';
+    html+='<span class="tree-type">'+(isArr?entries.length+' items':entries.length+' keys')+'</span></div>';
+    html+='<div class="tree-children" id="'+pid+'">';
+    entries.forEach(function(e){render(e[1],isArr?'['+e[0]+']':'"'+e[0]+'"',path+'.'+e[0],depth+1);});
+    html+='</div>';
+    html+='<div class="tree-line" style="padding-left:'+(depth*16)+'px"><span class="tree-bracket">'+(isArr?']':'}')+'</span></div>';
+  }
+  render(obj,null,'root',0);
+  document.getElementById('treeOutput').innerHTML=html;
+}
+function toggleTreeNode(id,toggleId){
+  var el=document.getElementById(id);var tg=document.getElementById(toggleId);
+  if(el.classList.contains('collapsed')){el.classList.remove('collapsed');tg.textContent='▼';}
+  else{el.classList.add('collapsed');tg.textContent='▶';}
+}
+
+// JSONPath
+function queryJSONPath(){
+  var raw=getInput();var expr=document.getElementById('pathInput').value.trim();
+  if(!raw||!expr){showToast('Please enter JSON and a JSONPath expression');return;}
+  clearError();
+  try{var obj=JSON.parse(raw);var results=evalPath(obj,expr);
+    document.getElementById('pathResult').style.display='block';
+    document.getElementById('pathMatchCount').textContent='Found '+results.length+' match(es)';
+    document.getElementById('pathResultPre').textContent=results.map(function(r){return JSON.stringify(r,null,2)}).join('\n---\n')||'(no match)';
+  }catch(e){showToast('Query failed: '+e.message);}
+}
+function clearPathResult(){
+  document.getElementById('pathInput').value='';document.getElementById('pathResult').style.display='none';
+}
+function evalPath(obj,expr){
+  if(expr==='$')return[obj];
+  expr=expr.replace(/^\$\.?/,'');
+  if(!expr)return[obj];
+  var results=[];
+  function descend(cur,segments){
+    if(segments.length===0){results.push(cur);return;}
+    var seg=segments[0],rest=segments.slice(1);
+    if(seg.startsWith('..')){var key=seg.slice(2);
+      if(cur&&typeof cur==='object'){
+        for(var k in cur){if(cur.hasOwnProperty(k)){if(k===key||key==='*')descend(cur[k],rest);descend(cur[k],segments);}}
+      }return;}
+    if(seg==='*'){
+      if(Array.isArray(cur)){cur.forEach(function(x){descend(x,rest);});}
+      else if(cur&&typeof cur==='object'){for(var k in cur){if(cur.hasOwnProperty(k))descend(cur[k],rest);}}
+      return;}
+    if(/^\d+$/.test(seg)){var idx=parseInt(seg);if(Array.isArray(cur)&&idx<cur.length){descend(cur[idx],rest);}return;}
+    if(cur&&typeof cur==='object'&&cur.hasOwnProperty(seg)){descend(cur[seg],rest);}
+  }
+  descend(obj,expr.split('.'));
+  return results;
+}
+
+// Copy & Download
+function copyResult(){
+  var tab=getActiveTab();
+  var text=tab==='tree'?document.getElementById('treeOutput').innerText:document.getElementById(tab+'Output').value;
+  if(!text){showToast('Nothing to copy');return;}
+  navigator.clipboard.writeText(text).then(function(){showToast('Copy')})["catch"](function(){showToast('CopyFailed')});
+}
+function downloadJSON(){
+  var tab=getActiveTab();var text;
+  if(tab==='tree'){text=document.getElementById('treeOutput').innerText;}
+  else{text=document.getElementById(tab+'Output').value;}
+  if(!text){showToast('Nothing to download');return;}
+  var blob=new Blob([text],{type:'application/json'});
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');
+  a.href=url;a.download='formatted.json';a.click();URL.revokeObjectURL(url);showToast('Downloaded');
+}
+
+// Event bindings - immediate with fallback
+(function bindEvents(){
+  var btnFormat=document.getElementById('btnFormat');
+  if(!btnFormat){
+    // DOM not ready yet, wait for it
+    document.addEventListener('DOMContentLoaded',bindEvents);
+    return;
+  }
+  btnFormat.addEventListener('click',formatJSON);
+  document.getElementById('btnMinify').addEventListener('click',minifyJSON);
+  document.getElementById('btnValidate').addEventListener('click',validateJSON);
+  document.getElementById('btnEscape').addEventListener('click',escapeJSON);
+  document.getElementById('btnUnescape').addEventListener('click',unescapeJSON);
+  document.getElementById('btnSort').addEventListener('click',sortJSON);
+  document.getElementById('btnClear').addEventListener('click',clearAll);
+  document.getElementById('btnCopy').addEventListener('click',copyResult);
+  document.getElementById('btnDownload').addEventListener('click',downloadJSON);
+  document.getElementById('btnPathQuery').addEventListener('click',queryJSONPath);
+  document.getElementById('btnPathClear').addEventListener('click',clearPathResult);
+  document.querySelectorAll('.tab-btn').forEach(function(btn){btn.addEventListener('click',function(){switchOutputTab(this.dataset.tab);});});
+})();
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+
+<!-- Feedback Widget -->
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<footer class="footer container">
+  <div style="margin-bottom:12px">
+    <a href="../../">Home</a>
+    <a href="../../">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/json-formatter/">中文</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>

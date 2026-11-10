@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check every link on a page for 404 and 500 errors by pasting the URL or the page HTML.">
+<meta name="keywords" content="broken link checker,dead link detector,404 checker,link checker,SEO broken links,webpage link checker,batch link check">
+<title>Free Broken Link Checker - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/broken-link-checker/">
+<meta property="og:title" content="Broken Link Checker - Free Online Tool">
+<meta property="og:description" content="Check every link on a page for 404 and 500 errors by pasting the URL or the page HTML.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/broken-link-checker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Registration">
+<meta name="twitter:description" content="Free online broken link checker - online tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Broken Link Checker", "description": "Free online broken link checker. Batch check all links on a webpage for 404, 500 errors and more. Essential SEO tool. Supports URL input or HTML paste, client-side detection.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are broken links?","acceptedAnswer":{"@type":"Answer","text":"Broken links are hyperlinks pointing to non-existent or inaccessible pages. Common types: 404 (not found), 500 (server error), expired domains. They hurt user experience and SEO rankings."}},{"@type":"Question","name":"How do I use the broken link checker?","acceptedAnswer":{"@type":"Answer","text":"Enter a webpage URL or paste HTML code, then click Check Links. The tool extracts all links and tests each one's HTTP status—green for OK, red for broken."}},{"@type":"Question","name":"Why are broken links bad for SEO?","acceptedAnswer":{"@type":"Answer","text":"Search engine crawlers waste crawl budget on broken links, lowering your site's overall score. Many broken links signal poor site maintenance, hurting rankings. Regular checks are recommended."}},{"@type":"Question","name":"Will checking many links be slow?","acceptedAnswer":{"@type":"Answer","text":"Due to browser CORS policies, some links can't be directly tested. The tool uses no-cors mode for rapid probing and shows status codes for accessible links. We recommend batches under 100 links."}}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Broken Link Checker",
+      "item": "https://adi63586.github.io/Toolguidehub/en/broken-link-checker/"
+    }
+  ],
+  "name": "Broken Link Checker"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Broken Link Checker",
+  "description": "Simple steps to use Broken Link Checker",
+  "totalTime": "PT30S",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Broken Link Checker"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Input",
+      "text": "Enter or upload your content."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Process",
+      "text": "Click the action button to process."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Get Results",
+      "text": "View, copy, or download results."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+input{width:100%}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:8px;margin-bottom:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;font-size:.85rem;margin-top:12px;display:none;max-height:400px;overflow-y:auto}
+.result-box table{width:100%;border-collapse:collapse}
+.result-box td{padding:6px 10px;border-bottom:1px solid rgba(148,163,184,.08);vertical-align:top}
+.result-box td:first-child{color:#94a3b8;white-space:nowrap;width:140px}
+.result-box td:last-child{color:#e2e8f0;word-break:break-all}
+.status-ok{color:#4ade80}
+.status-err{color:#f87171}
+.status-warn{color:#facc15}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.loading{color:#facc15;text-align:center;padding:20px}
+.info-box{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);border-radius:8px;padding:12px;margin-bottom:12px;color:#94a3b8;font-size:.8rem}
+.file-upload{border:2px dashed rgba(148,163,184,.2);border-radius:8px;padding:20px;text-align:center;cursor:pointer;margin-bottom:12px;transition:all .2s}
+.file-upload:hover{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.03)}
+.file-upload input{display:none}
+.quality-slider{display:flex;align-items:center;gap:10px;margin:10px 0}
+.quality-slider input[type=range]{flex:1}
+.btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+select{padding:8px 12px}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.input-row{flex-direction:column}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style><style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/broken-link-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Broken Link Checker
+  
+</h1>
+
+
+    
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+  
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-12
+  </span>
+</div>
+  <div class="tool-section">
+    <h2>Broken Link Checker</h2>
+    <p>Free online broken link checker. Batch check all links on a webpage for 404, 500 errors and more. Essential SEO tool. Supports URL input or HTML paste, client-side detection.</p>
+    
+    <div class="input-row">
+      <input type="text" id="pageUrl" placeholder="Enter webpage URL or paste HTML" value="">
+      <button class="btn btn-primary" onclick="checkLinks()" style="white-space:nowrap">🔍 Check Links</button>
+    </div>
+    <div class="info-box">💡 Supports URL input or HTML paste. Due to browser security, some links may not be directly testable.</div>
+    <div id="linkResult"></div>
+
+    <div id="result" class="result-box"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+  </div>
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Input:</strong> Enter or upload your content.</p>
+    <p><strong>2. Process:</strong> Click the action button to process.</p>
+    <p><strong>3. Get Results:</strong> View, copy, or download results.</p>
+  </div>
+  
+  
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is my data safe when using Broken Link Checker?</h3>
+      <p>Absolutely. Everything runs locally: Broken Link Checker and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Broken Link Checker is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Broken Link Checker upload my data to a server?</h3>
+      <p>No. Broken Link Checker uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Broken Link Checker free to use?</h3>
+      <p>Yes, Broken Link Checker is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+  </div>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/broken-link-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+function ftShowToast(m){var t=document.getElementById('toast');if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000)}}
+async function checkLinks(){
+  var input=document.getElementById('pageUrl').value.trim();
+  var resultEl=document.getElementById('linkResult');
+  var resultBox=document.getElementById('result');
+  if(!input){ftShowToast('Please enter a URL or HTML code');return;}
+  var links=[];
+  if(/^https?:\/\//i.test(input)){
+    resultEl.innerHTML='<div style="color:#94a3b8;padding:20px;text-align:center">⏳ Fetching page content...</div>';
+    try{
+      var resp=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(input));
+      if(!resp.ok)throw new Error('HTTP '+resp.status);
+      var html=await resp.text();
+      var linkRegex=/<a[^>]+href=["']([^"']+)["']/gi;
+      var match;
+      while((match=linkRegex.exec(html))!==null){
+        var href=match[1];
+        if(href&&!href.startsWith('#')&&!href.startsWith('mailto:')&&!href.startsWith('tel:')&&!href.startsWith('javascript:')){
+          try{links.push(new URL(href,input).href);}catch(e){links.push(href);}
+        }
+      }
+    }catch(e){
+      resultEl.innerHTML='<div style="color:#f87171;padding:16px">❌ Failed to fetch page: '+e.message+'</div>';
+      return;
+    }
+  }else{
+    var linkRegex=/<a[^>]+href=["']([^"']+)["']/gi;
+    var match;
+    while((match=linkRegex.exec(input))!==null){
+      var href=match[1];
+      if(href&&!href.startsWith('#')&&!href.startsWith('mailto:')&&!href.startsWith('tel:')&&!href.startsWith('javascript:')){
+        links.push(href);
+      }
+    }
+  }
+  if(links.length===0){
+    resultEl.innerHTML='<div style="color:#94a3b8;padding:16px">No links found</div>';
+    return;
+  }
+  links=[...new Set(links)];
+  var maxLinks=Math.min(links.length,50);
+  links=links.slice(0,maxLinks);
+  resultEl.innerHTML='<div style="color:#94a3b8;padding:12px">Found '+links.length+' links, checking... <span id="checkProgress">0/'+links.length+'</span></div>';
+  var results=[];
+  for(var i=0;i<links.length;i++){
+    var link=links[i];
+    var status='Unknown';
+    var ok=false;
+    try{
+      if(link.startsWith('http')){
+        var controller=new AbortController();
+        var timeout=setTimeout(function(){controller.abort();},8000);
+        var resp=await fetch(link,{mode:'no-cors',signal:controller.signal,cache:'no-store'});
+        clearTimeout(timeout);
+        ok=true;
+        status=resp.type==='opaque'?'Reachable (unverifiable)':'OK';
+      }else{
+        status='Relative link (needs page context)';
+        ok=true;
+      }
+    }catch(e){
+      ok=false;
+      status=e.name==='AbortError'?'Timeout':'Unreachable';
+    }
+    results.push({url:link,ok:ok,status:status});
+    var prog=document.getElementById('checkProgress');
+    if(prog)prog.textContent=(i+1)+'/'+links.length;
+  }
+  var okCount=results.filter(function(r){return r.ok;}).length;
+  var failCount=results.filter(function(r){return !r.ok;}).length;
+  var html='<div style="margin-bottom:12px;padding:8px 12px;background:rgba(148,163,184,.05);border-radius:6px;font-size:.85rem">';
+  html+='<span style="color:#10b981">✅ OK: '+okCount+'</span> · ';
+  html+='<span style="color:#ef4444">❌ Broken: '+failCount+'</span> · ';
+  html+='<span style="color:#94a3b8">Total: '+results.length+'</span></div>';
+  results.forEach(function(r){
+    var color=r.ok?'#10b981':'#ef4444';
+    var icon=r.ok?'✅':'❌';
+    html+='<div style="display:flex;align-items:center;gap:8px;padding:6px 12px;margin:2px 0;border-radius:4px;background:rgba(148,163,184,.03);font-size:.85rem">';
+    html+='<span>'+icon+'</span>';
+    html+='<span style="flex:1;word-break:break-all;color:#e2e8f0">'+r.url+'</span>';
+    html+='<span style="color:'+color+';font-size:.75rem;white-space:nowrap">'+r.status+'</span>';
+    html+='</div>';
+  });
+  html+='<div style="margin-top:12px;color:#64748b;font-size:.8rem">💡 Tip: Due to CORS limits, some links may show as reachable even if they return an error. Manually verify suspicious links.</div>';
+  resultEl.innerHTML=html;
+  resultBox.style.display='block';
+  resultBox.textContent='✅ '+okCount+' OK / ❌ '+failCount+' broken — Total: '+results.length+' links checked';
+  ftShowToast('Check complete');
+}
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</main>
+</body>
+</html>

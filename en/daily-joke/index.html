@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Joke - ToolGuideHub</title>
+  <meta name="description" content="Get a fresh joke from a large collection, browse by category and copy or share the ones you like.">
+  <meta name="keywords" content="joke,daily,funny,humor,pun">
+  <meta property="og:title" content="Daily Joke - ToolGuideHub">
+  <meta property="og:description" content="Get a fresh joke from a large collection, browse by category and copy or share the ones you like.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/daily-joke/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Daily Joke - ToolGuideHub">
+  <meta name="twitter:description" content="Free online daily joke tool. Fast, secure, and no registration required. Works entirely in your browser.">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/daily-joke/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Daily Joke",
+    "description": "Free daily joke generator with a large collection of jokes. Browse by category, one-click copy & share",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "All",
+    "url": "https://adi63586.github.io/Toolguidehub/en/daily-joke/",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0}
+  *,*::before,*::after {box-sizing:border-box;margin:0;padding:0}
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--card-bg);
+    border-bottom: 1px solid rgba(148,163,184,.1);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header .logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #22d3ee;
+    text-decoration: none;
+  }
+  header nav {display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  header nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: .9rem;
+    transition: color .2s;
+  }
+  header nav a:hover {color:#22d3ee}
+  .lang-switch {
+    padding: 6px 14px;
+    border: 1px solid rgba(148,163,184,.1);
+    border-radius: 20px;
+    font-size: .85rem;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .lang-switch:hover {border-color:#22d3ee;color:#22d3ee}
+  main {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #e2e8f0;
+  }
+  .subtitle {
+    color: #94a3b8;
+    margin-bottom: 28px;
+    font-size: .95rem;
+  }
+  .tool-area {
+    background: var(--card-bg);
+    border: 1px solid rgba(148,163,184,.1);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .tool-area label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: .9rem;
+    color: #e2e8f0;
+  }
+  .tool-area input[type="text"],
+  .tool-area input[type="number"],
+  .tool-area textarea,
+  .tool-area select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid rgba(148,163,184,.1);
+    border-radius: 8px;
+    font-size: .95rem;
+    font-family: inherit;
+    margin-bottom: 16px;
+    transition: border-color .2s;
+    background: #0f172a;
+  }
+  .tool-area input:focus,
+  .tool-area textarea:focus,
+  .tool-area select:focus {
+    outline: none;
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+  }
+  .tool-area textarea {
+      background: var(--surface);
+      color: var(--text);min-height:120px;resize:vertical}
+  .tool-area .row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tool-area .row > * {flex:1;min-width:150px}
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #22d3ee;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn:hover {background:#0891b2;transform:translateY(-1px)}
+  .btn:active {transform:translateY(0)}
+  .btn-secondary {
+    background: #0f172a;
+    color: #22d3ee;
+    border: 1px solid #22d3ee;
+  }
+  .btn-secondary:hover {background:rgba(79,70,229,.05)}
+  .output {
+    margin-top: 20px;
+    padding: 16px;
+    background: #0f172a;
+    border-radius: 8px;
+    font-size: .95rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-height: 48px;
+    color: #e2e8f0;
+    border: 1px solid rgba(148,163,184,.1);
+  }
+  .output:empty {display:none}
+  .result-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #0f172a;
+    border-radius: 6px;
+    border: 1px solid rgba(148,163,184,.1);
+  }
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: #94a3b8;
+    font-size: .85rem;
+    border-top: 1px solid rgba(148,163,184,.1);
+    background: var(--card-bg);
+  }
+  footer a {color:#22d3ee;text-decoration:none}
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: .9rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+  .toast.show {opacity:1}
+  @media (max-width: 600px) {
+    main {padding:16px 12px}
+    h1 {font-size:1.4rem}
+    .tool-area {padding:16px}
+  }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Daily Joke", "item": "https://adi63586.github.io/Toolguidehub/en/daily-joke/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Daily Joke FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Daily Joke?","acceptedAnswer":{"@type":"Answer","text":"Click the Get Random Joke button to see a new joke instantly, or use the Copy button to copy the current joke to your clipboard. Everything runs locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Daily Joke free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: jokes are generated on your device, never sent to a server — ensuring complete privacy and security."}},{"@type":"Question","name":"How many jokes are available?","acceptedAnswer":{"@type":"Answer","text":"The tool includes a large built-in collection of puns, one-liners and funny stories. New jokes are picked at random each time you click the button, so you can keep refreshing for a fresh laugh."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Daily Joke","description":"Step-by-step guide for using Daily Joke","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Daily Joke"},"step":[{"@type":"HowToStep","position":1,"name":"Open the tool","text":"Open the Daily Joke page in your browser"},{"@type":"HowToStep","position":2,"name":"Get a joke","text":"Click the Get Random Joke button to display a joke"},{"@type":"HowToStep","position":3,"name":"Copy the joke","text":"Click Copy to save the joke to your clipboard"},{"@type":"HowToStep","position":4,"name":"Share it","text":"Paste and share the joke with friends or colleagues"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/daily-joke/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">ToolGuideHub</a>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../../en/daily-joke/" class="lang-switch">CN</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Daily Joke</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free daily joke generator with a large collection of jokes. Browse by category, one-click copy & share</p>
+    <p class="subtitle">Daily curated jokes: puns, one-liners, funny stories, copy & share</p>
+    <div class="tool-area">
+      <button class="btn" id="getJoke">Get Random Joke</button>
+      <button class="btn btn-secondary" id="copyJoke" style="margin-left:8px">Copy</button>
+      <div id="jokeDisplay" class="output" style="font-size:1.1rem;line-height:1.8"></div>
+      <script>
+      var jokes = ["Why don't scientists trust atoms? Because they make up everything!", "I told my wife she was drawing her eyebrows too high. She looked surprised.", "What do you call a fake noodle? An impasta!", "Why did the scarecrow win an award? Because he was outstanding in his field!", "I'm reading a book on anti-gravity. It's impossible to put down!", "What do you call a bear with no teeth? A gummy bear!", "Why did the bicycle fall over? Because it was two-tired!", "What's orange and sounds like a parrot? A carrot!", "How does a penguin build its house? Igloos it together!", "Why don't eggs tell jokes? They'd crack each other up!", "What do you call a sleeping bull? A bulldozer!", "I used to play piano by ear, but now I use my hands.", "What did the left eye say to the right eye? Between you and me, something smells.", "Why was the math book sad? It had too many problems.", "What's a skeleton's favorite instrument? The trom-bone!", "Parallel lines have so much in common. It's a shame they'll never meet.", "I'm on a seafood diet. I see food and I eat it.", "What do you call a fish with no eyes? Fsh.", "Why did the cookie go to the doctor? Because it was feeling crumbly.", "I told my computer I needed a break, now it won't stop sending me vacation ads."];
+      function getJoke() {
+        var joke = jokes[Math.floor(Math.random() * jokes.length)];
+        document.getElementById('jokeDisplay').textContent = joke;
+        return joke;
+      }
+      document.getElementById('getJoke').addEventListener('click', getJoke);
+      document.getElementById('copyJoke').addEventListener('click', function() {
+        var joke = document.getElementById('jokeDisplay').textContent;
+        if (!joke) joke = getJoke();
+        copyText(joke);
+      });
+      getJoke();
+      </script>
+    </div>
+
+</main>
+  
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Daily Joke is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Daily Joke to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Daily Joke provides accurate results instantly. Everything runs locally: Daily Joke and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/water-intake-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Daily Water Intake Calc…</a> <a href="../../en/pet-food-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Pet Food Calculator - Daily …</a> <a href="../../en/hydration-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Daily Water Intake Calculator</a> <a href="../../en/step-goal-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Daily Step Goal Calculator</a> <a href="../../en/water-intake/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Daily Water Intake Calc…</a> <a href="../../en/daily-horoscope/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Daily Horoscope</a> <a href="../../en/cat-calorie-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Cat Calorie Calculator …</a> <a href="../../en/daily-planner/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Daily Planner</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/daily-joke/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')}, 2000);
+  }
+  function copyText(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function(){showToast('Copied!')});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Copied!');
+    }
+  }
+  </script>
+</body>
+</html>

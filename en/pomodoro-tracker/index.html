@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Track 25-minute focus sessions with 5-minute breaks, custom durations, and a count of the Pomodoros you complete.">
+<meta name="keywords" content="Pomodoro timer,time management,focus timer,Pomodoro technique">
+<title>Pomodoro Tracker - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pomodoro-tracker/">
+<meta property="og:title" content="Pomodoro Tracker - ToolGuideHub">
+<meta property="og:description" content="Track 25-minute focus sessions with 5-minute breaks, custom durations, and a count of the Pomodoros you complete.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pomodoro-tracker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pomodoro-tracker/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pomodoro Tracker","description":"Online Pomodoro Tracker with 25-min work + 5-min break cycles. Custom durations..","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Pomodoro Tracker","item":"https://adi63586.github.io/Toolguidehub/en/pomodoro-tracker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Pomodoro Tracker FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Pomodoro Tracker?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Pomodoro Tracker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Work Duration and Break Duration are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Pomodoro Tracker?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Pomodoro Tracker","description":"Step-by-step guide for using Pomodoro Tracker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Pomodoro Tracker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.timer-display{text-align:center;margin:20px 0}.timer-circle{width:240px;height:240px;border-radius:50%;border:4px solid rgba(148,163,184,.15);display:flex;align-items:center;justify-content:center;margin:0 auto;position:relative;transition:border-color .3s}.timer-circle.work{border-color:#10B981}.timer-circle.break{border-color:#06b6d4}.timer-time{font-size:3rem;color:#f1f5f9;font-weight:700}.timer-label{font-size:.9rem;color:#94a3b8;margin-top:8px;text-align:center}.timer-progress{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;overflow:hidden}.timer-progress-bar{height:100%;background:rgba(10B981,.1);transition:width 1s linear;width:0}.timer-circle.break .timer-progress-bar{background:rgba(6,182,212,.1)}.btn-row{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}.btn-start{background:#10B981;color:#fff}.btn-start:hover{opacity:.9}.btn-pause{background:rgba(245,158,11,.2);color:#F59E0B;border:1px solid rgba(245,158,11,.3)}.btn-reset{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-reset:hover{background:rgba(148,163,184,.2)}.btn-skip{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-skip:hover{background:rgba(6,182,212,.25)}.settings-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.form-group{flex:1;min-width:120px}.form-group label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}.form-group input{width:100%;padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;text-align:center}.stats-row{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}.stat-item{text-align:center;background:#0f172a;border-radius:8px;padding:12px 20px;border:1px solid rgba(148,163,184,.1)}.stat-value{font-size:1.8rem;color:#22d3ee;font-weight:700}.stat-label{color:#64748b;font-size:.8rem;margin-top:4px}.history-list{margin-top:12px}.history-item{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.05);font-size:.85rem;color:#94a3b8}.history-item .emoji{font-size:1rem}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}.footer{text-align:center;color:#64748b;font-size:.85rem;padding:16px 0;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}@media(max-width:600px){.header h1{font-size:1.2rem}.timer-circle{width:180px;height:180px}.timer-time{font-size:2rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🍅 Pomodoro Tracker</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../../#tools">Tools</a> &rsaquo; Pomodoro Tracker</p>
+<p style="color:#94a3b8;margin-bottom:8px">25-min focus work + 5-min break cycles. Track completed Pomodoros. Custom durations.</p><span class="badge">No dependencies · Works offline</span>
+
+<div class="section">
+<h2>Pomodoro Timer</h2>
+<div class="timer-display">
+<div class="timer-circle work" id="timerCircle">
+<div class="timer-progress"><div class="timer-progress-bar" id="progressBar"></div></div>
+<div class="timer-time" id="timerTime">25:00</div>
+</div>
+<div class="timer-label" id="timerLabel">Focus Work</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-start" id="startBtn" onclick="startTimer()">▶ Start</button>
+<button class="btn btn-pause" id="pauseBtn" onclick="pauseTimer()" style="display:none">⏸ Pause</button>
+<button class="btn btn-skip" onclick="skipPhase()">⏭ Skip</button>
+<button class="btn btn-reset" onclick="resetTimer()">🔄 Reset</button>
+</div>
+<div class="settings-row">
+<div class="form-group"><label>Work Duration (min)</label><input type="number" id="workMin" value="25" min="1" max="60"></div>
+<div class="form-group"><label>Break Duration (min)</label><input type="number" id="breakMin" value="5" min="1" max="30"></div>
+<div class="form-group"><label>Long Break (min)</label><input type="number" id="longBreakMin" value="15" min="1" max="30"></div>
+</div>
+</div>
+
+<div class="section">
+<h2>📊 Completion Stats</h2>
+<div class="stats-row">
+<div class="stat-item"><div class="stat-value" id="tomatoCount">0</div><div class="stat-label">Pomodoros</div></div>
+<div class="stat-item"><div class="stat-value" id="workTotal">0 min</div><div class="stat-label">Focus Time</div></div>
+<div class="stat-item"><div class="stat-value" id="breakTotal">0 min</div><div class="stat-label">Break Time</div></div>
+</div>
+<div class="history-list" id="historyList"></div>
+</div>
+
+<div class="info-section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>What is the Pomodoro Technique?</h3><p>The Pomodoro Technique was invented by Francesco Cirillo: 25 minutes of focused work (one "Pomodoro"), then a 5-minute break. After 4 Pomodoros, take a 15-30 minute long break. The core idea is short bursts of intense focus plus regular rest.</p></div>
+<div class="faq-item"><h3>Why is 25 minutes optimal?</h3><p>Research shows attention drops significantly after 25-30 minutes. 25 minutes is enough to complete a small task without causing fatigue. You can adjust based on personal preference.</p></div>
+<div class="faq-item"><h3>What should I do during breaks?</h3><p>Stand up, walk, drink water, stretch, look out the window — stay away from screens. Don't scroll phone or continue working. True mental rest restores focus.</p></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/speed-reading/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📚 Speed Reading</a><a href="../../en/spaced-repetition-scheduler/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🧠 Spaced Repetition</a><a href="../../en/vocabulary-builder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📖 Vocabulary Builder</a></div></section>
+
+<div class="footer">
+<a href="../../">Home</a><a href="../../#tools">All Tools</a><a href="../contact/">Contact</a><a href="../../en/privacy/">Privacy</a><a href="../../en/terms/">Terms</a><a href="../../en/about/">About</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="index.html" class="active">EN</a>
+<p style="margin-top:12px">Pomodoro Tracker | No registration · Data never leaves your browser</p>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+var timer=null;
+var secondsLeft=25*60;
+var totalSeconds=25*60;
+var isWork=true;
+var isRunning=false;
+var tomatoes=0;
+var workMinutes=0;
+var breakMinutes=0;
+var history=[];
+var phase=0; // 0-3 work phases, then long break
+
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+function updateDisplay(){
+  var min=Math.floor(secondsLeft/60);
+  var sec=secondsLeft%60;
+  document.getElementById("timerTime").textContent=min.toString().padStart(2,"0")+":"+sec.toString().padStart(2,"0");
+  var pct=((totalSeconds-secondsLeft)/totalSeconds)*100;
+  document.getElementById("progressBar").style.width=pct+"%";
+}
+
+function setPhase(){
+  var circle=document.getElementById("timerCircle");
+  var label=document.getElementById("timerLabel");
+  if(isWork){
+    circle.className="timer-circle work";
+    label.textContent="Focus Work #"+(tomatoes+1);
+    totalSeconds=parseInt(document.getElementById("workMin").value)*60||25*60;
+  }else{
+    var isLong=phase>=4;
+    circle.className="timer-circle break";
+    label.textContent=isLong?"Long Break":"Short Break";
+    totalSeconds=isLong?(parseInt(document.getElementById("longBreakMin").value)*60||15*60):(parseInt(document.getElementById("breakMin").value)*60||5*60);
+  }
+  secondsLeft=totalSeconds;
+  updateDisplay();
+}
+
+function startTimer(){
+  if(isRunning)return;
+  isRunning=true;
+  document.getElementById("startBtn").style.display="none";
+  document.getElementById("pauseBtn").style.display="inline-flex";
+  timer=setInterval(function(){
+    secondsLeft--;
+    if(secondsLeft<=0){
+      clearInterval(timer);
+      timer=null;
+      isRunning=false;
+      if(isWork){
+        tomatoes++;
+        workMinutes+=parseInt(document.getElementById("workMin").value)||25;
+        history.unshift({type:"work",num:tomatoes,time:new Date().toLocaleTimeString()});
+        showToast("Pomodoro #"+tomatoes+" completed! Take a break");
+        isWork=false;
+        phase++;
+      }else{
+        breakMinutes+=isWork?0:Math.round(totalSeconds/60);
+        history.unshift({type:"break",time:new Date().toLocaleTimeString()});
+        showToast("Break over! Start new Pomodoro");
+        isWork=true;
+        if(phase>=4)phase=0;
+      }
+      updateStats();
+      setPhase();
+      startTimer();
+    }else{
+      updateDisplay();
+    }
+  },1000);
+}
+
+function pauseTimer(){
+  if(!isRunning)return;
+  clearInterval(timer);
+  timer=null;
+  isRunning=false;
+  document.getElementById("startBtn").style.display="inline-flex";
+  document.getElementById("startBtn").textContent="▶ Resume";
+  document.getElementById("pauseBtn").style.display="none";
+}
+
+function skipPhase(){
+  clearInterval(timer);
+  timer=null;
+  isRunning=false;
+  if(isWork){isWork=false;showToast("Skipped work, starting break")}
+  else{isWork=true;if(phase>=4)phase=0;showToast("Skipped break, starting work")}
+  setPhase();
+  document.getElementById("startBtn").style.display="inline-flex";
+  document.getElementById("startBtn").textContent="▶ Start";
+  document.getElementById("pauseBtn").style.display="none";
+}
+
+function resetTimer(){
+  clearInterval(timer);
+  timer=null;
+  isRunning=false;
+  isWork=true;
+  phase=0;
+  tomatoes=0;workMinutes=0;breakMinutes=0;history=[];
+  setPhase();
+  updateStats();
+  document.getElementById("startBtn").style.display="inline-flex";
+  document.getElementById("startBtn").textContent="▶ Start";
+  document.getElementById("pauseBtn").style.display="none";
+}
+
+function updateStats(){
+  document.getElementById("tomatoCount").textContent=tomatoes;
+  document.getElementById("workTotal").textContent=workMinutes+" min";
+  document.getElementById("breakTotal").textContent=breakMinutes+" min";
+  var html="";
+  history.slice(0,10).forEach(function(h){
+    html+='<div class="history-item"><span class="emoji">'+(h.type==="work"?"🍅":"☕")+'</span><span>'+h.time+'</span></div>';
+  });
+  document.getElementById("historyList").innerHTML=html;
+}
+
+setPhase();
+</script>
+</main>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a> <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#64748b;margin:0 8px">GitHub</a></footer>
+</body>
+</html>

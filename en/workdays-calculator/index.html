@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Count business days between two dates, excluding weekends and any holidays you add, to plan deadlines and leave.">
+<meta name="keywords" content="workdays calculator,business days,exclude weekends,holiday calculation,date calculator,online tool,free">
+<title>Free Workdays Calculator | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/workdays-calculator/">
+<meta property="og:title" content="Workdays Calculator">
+<meta property="og:description" content="Count business days between two dates, excluding weekends and any holidays you add, to plan deadlines and leave.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/workdays-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Workdays Calculator", "description": "Free online workdays calculator — calculate business days between two dates, exclude weekends and holidays. Accurate results, no registration.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-25", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "name": "How to calculate workdays between two dates?", "mainEntity": [{"@type": "Question", "name": "How to calculate workdays between two dates?", "acceptedAnswer": {"@type": "Answer", "text": "The workdays calculator automatically excludes Saturdays and Sundays, counting only Monday through Friday. You can also manually exclude specific holiday dates."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Workdays Calculator", "description": "Step-by-step guide on using the Workdays Calculator", "totalTime": "PT2M", "tool": {"@type": "HowToTool", "name": "Workdays Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter Data", "text": "Enter the data you want to process"}, {"@type": "HowToStep", "position": 2, "name": "Select Options", "text": "Select mode or parameters as needed"}, {"@type": "HowToStep", "position": 3, "name": "Click Calculate", "text": "Click the calculate button to get results"}, {"@type": "HowToStep", "position": 4, "name": "View Results", "text": "View the results, one-click copy supported"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Workdays Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/workdays-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4)}
+.form-group textarea{min-height:120px;resize:vertical;font-family:monospace}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;margin-top:12px;display:none}
+.result-box.show{display:block}
+.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.result-item:last-child{border-bottom:none}
+.result-label{color:#94a3b8;font-size:.85rem}
+.result-value{color:#22d3ee;font-weight:600;font-size:.9rem;cursor:pointer}
+.result-value:hover{text-decoration:underline}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#22d3ee;color:#0f172a;padding:10px 24px;border-radius:8px;font-weight:600;z-index:9999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.8rem}
+footer a{color:#64748b}
+.copied{color:#10b981!important}
+@media(max-width:600px){.header h1{font-size:1.2rem}.section{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/workdays-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<div class="header">
+<h1>🔧 Workdays Calculator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online workdays calculator — calculate business days between two dates, exclude weekends and holidays. Accurate results, no registration.</p>
+
+</div>
+<div class="section">
+<h2>Workdays Calculation</h2>
+<div class="form-row">
+<div class="form-group">
+<label>Start Date</label>
+<input type="date" id="startDate">
+</div>
+<div class="form-group">
+<label>End Date</label>
+<input type="date" id="endDate">
+</div>
+</div>
+<div class="form-group">
+<label>Exclude Holidays (comma separated)</label>
+<input type="text" id="holidays" placeholder="Optional: 2026-12-25,2026-01-01">
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" id="calcBtn">Calculate Workdays</button>
+</div>
+<div class="result-box" id="resultBox">
+<div class="result-item"><span class="result-label">Total Days</span><span class="result-value" id="totalDays"></span></div>
+<div class="result-item"><span class="result-label">Workdays</span><span class="result-value" id="workDays"></span></div>
+<div class="result-item"><span class="result-label">Weekend Days</span><span class="result-value" id="weekendDays"></span></div>
+<div class="result-item"><span class="result-label">Excluded Holidays</span><span class="result-value" id="holidayDays"></span></div>
+</div>
+</div>
+
+<h2>What is Workdays Calculator?</h2><p>Workdays Calculator is a free online tool that counts business days between two dates, automatically excluding weekends and optionally excluding custom holidays. All processing runs locally in your browser.</p>
+<h2>Use Cases</h2><ul><li>Calculate business days between two project milestones</li><li>Plan work schedules and track deadline availability</li><li>Exclude weekends and holidays for accurate time tracking</li><li>Verify payroll periods and employee attendance</li></ul>
+<h2>Key Features</h2><ul><li>Automatically excludes weekends (Saturday & Sunday)</li><li>Custom holiday exclusion support</li><li>Instant calculation with no registration required</li><li>Privacy Safe: all data stays in your browser</li></ul>
+<h2>FAQ</h2><p><strong>How does the workdays calculator work?</strong><br>Pick a start date and an end date, then click "Calculate Workdays." The tool counts every day from start to end, skipping Saturdays, Sundays, and any holidays you list.</p><p><strong>Are the start and end dates included?</strong><br>Yes. The tool counts every day where start date ≤ date ≤ end date, so both endpoints are included in the total.</p><p><strong>How do I exclude public holidays?</strong><br>Type the dates in the "Exclude Holidays" field separated by commas, for example 2026-12-25,2026-01-01. Those dates are skipped during calculation.</p><p><strong>What is the difference between workdays and calendar days?</strong><br>Calendar days include weekends and holidays; workdays are Monday to Friday (and optionally exclude public holidays). A week has 7 calendar days but only 5 workdays.</p>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#94a3b8;">🔗 Related Tools</h2><a href="../../en/business-days-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Business Days Calculator</a><a href="../../en/business-day-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Working Days Between Two Dates</a><a href="../../en/work-hours-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Work Hours Calculator</a><a href="../../en/time-duration-calc/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Time Duration Calculator</a><a href="../../en/date-difference-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Date Difference Calculator</a></section>
+<footer>
+<p><a href="../../">Home</a> · <a href="../../#tools">All Tools</a> · <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a></p>
+<p>© 2026 ToolGuideHub · Free Online Tools, No Registration</p>
+</footer>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2000);}
+document.getElementById("calcBtn").addEventListener("click",function(){
+  var s=document.getElementById("startDate").value,e=document.getElementById("endDate").value;
+  if(!s||!e){showToast("Please select start and end dates");return;}
+  var start=new Date(s+"T00:00:00"),end=new Date(e+"T00:00:00");
+  if(start>end){showToast("Start date cannot be later than end date");return;}
+  var holidays=document.getElementById("holidays").value.split(",").map(function(h){return h.trim();}).filter(Boolean);
+  var total=0,work=0,weekend=0,holiday=0;
+  var cur=new Date(start);
+  while(cur<=end){
+    total++;
+    var ds=cur.toISOString().slice(0,10),isWeekend=cur.getDay()===0||cur.getDay()===6,isHoliday=holidays.indexOf(ds)!==-1;
+    if(isHoliday){holiday++;}else if(isWeekend){weekend++;}else{work++;}
+    cur.setDate(cur.getDate()+1);
+  }
+  document.getElementById("totalDays").textContent=total+" day";
+  document.getElementById("workDays").textContent=work+" day";
+  document.getElementById("weekendDays").textContent=weekend+" day";
+  document.getElementById("holidayDays").textContent=holiday+" day";
+  document.getElementById("resultBox").classList.add("show");
+});
+document.addEventListener("DOMContentLoaded",function(){
+  var today=new Date().toISOString().slice(0,10);
+  document.getElementById("startDate").value=today;
+  var next=new Date();next.setDate(next.getDate()+30);
+  document.getElementById("endDate").value=next.toISOString().slice(0,10);
+});
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* 示例按钮 */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

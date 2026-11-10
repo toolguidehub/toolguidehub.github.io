@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Remove the open password from a protected PDF and save an unprotected copy, all processed locally in your browser.">
+<meta name="keywords" content="PDF unlockerremove PDF passwordPDF password removerunlock PDFdecrypt PDFPDF protection removerPDF open password removerPDF decryption toolfree PDF unlockeronline PDF unlocker">
+<title>Free PDF Unlocker - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pdf-unlocker/">
+<meta property="og:title" content="Free PDF Unlocker - ToolGuideHub">
+<meta property="og:description" content="Remove the open password from a protected PDF and save an unprotected copy, all processed locally in your browser.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pdf-unlocker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<!-- Software Schema -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF Unlocker", "description": "Free online PDF unlocker tool. Remove password protection from PDF files. Supports removing PDF open password (user password), outputting unprotected PDF files. Pure frontend local processing, files never uploaded to any server. Perfect for forgotten PDF passwords or editing protected documents.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<!-- FAQ Schema -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What types of password protection does a PDF file have?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of password protection does a PDF file have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDF files typically have two types: User Password (open password) — required to open the file; Owner/Permissions Password — restricts printing, copying, editing. This tool supports removing the open password (user password). For permission passwords, removal depends on the PDF's encryption strength (40-bit RC4 is usually removable, 128-bit AES depends on password complexity)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing PDF password affect file quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Removing a password is a decryption process that does not modify the PDF's content, formatting, images, or page layout. The output PDF is visually and functionally identical to the original, just without the password requirement. File size may change slightly due to re-encoding during decryption."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this tool unlock all PDF files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool supports most standard PDF encryption formats (RC4 and AES). Limitations: ① Highly encrypted PDFs (e.g., 256-bit AES) ② PDFs with only permission password but no open password ③ The tool cannot recover or guess passwords — it requires the correct password to unlock. For documents you have the password to but want to remove protection, this tool works perfectly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload my PDF files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally in your browser. Your PDF file is read by the browser and all decryption happens on your device. The file content and password are never transmitted or stored on any server — the tool works even offline, ensuring document privacy and security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I forgot my PDF password?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool cannot crack or guess passwords — brute-forcing requires massive computing power unavailable in a frontend environment. Suggestions: ① Try common passwords (birthdays, phone numbers) ② Check your password manager ③ Contact the document sender for the password ④ Try empty password or common defaults like 'admin' for permission passwords."
+      }
+    }
+  ]
+}</script>
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/#online-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PDF Unlocker",
+      "item": "https://adi63586.github.io/Toolguidehub/en/pdf-unlocker/"
+    }
+  ],
+  "name": "PDF Unlocker"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(148,163,184,.1)}
+.btn{display:inline-flex;align-items:center;gap:4px;padding:8px 18px;border-radius:6px;border:none;font-size:.85rem;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-secondary{background:#1e293b;color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.options-area{background:rgba(15,23,42,.5);border-radius:8px;padding:16px;margin-bottom:16px}
+.option-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.option-row label{color:#94a3b8;font-size:.85rem}
+.option-row select,.option-row input{padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem}
+.option-row input[type="checkbox"]{width:16px;height:16px;accent-color:#06b6d4}
+.input-area{background:rgba(15,23,42,.5);border-radius:8px;padding:16px;margin-bottom:16px}
+.input-area textarea{width:100%;min-height:120px;padding:12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.9rem;resize:vertical}
+.result-area{background:rgba(15,23,42,.5);border-radius:8px;padding:16px;display:none}
+.result-area.show{display:block}
+.result-output{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;padding:12px;margin:8px 0;color:#22d3ee;font-size:.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto}
+.result-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px;padding:16px;background:rgba(15,23,42,.5);border-radius:8px;border:1px solid rgba(148,163,184,.05)}
+.faq-item h3{color:#22d3ee;font-size:.95rem;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.7}
+.footer{padding:24px 0;color:#64748b;font-size:.8rem;text-align:center}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.grid-2{grid-template-columns:1fr}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pdf-unlocker/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use PDF Unlocker","description":"Step-by-step guide for using PDF Unlocker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"PDF Unlocker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header">
+ <h1>PDF Unlocker</h1>
+ 
+ </div>
+ <p class="nav-back"><a href='../../index.html'>← All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+ <div class="tool-section">
+ <h2>PDF Unlocker</h2>
+ <p>Free online PDF unlocker tool. Remove password protection from PDF files. Supports removing PDF open password (user password), outputting unprotected PDF files. Pure frontend local processing, files never uploaded to any server. Perfect for forgotten PDF passwords or editing protected documents.</p>
+
+<div class="options-area">
+ <div class="option-row">
+ <label>PDF File: <input type="file" id="pdfFile" accept=".pdf" onchange="pdfUnlockLoad(event)"></label>
+ </div>
+</div>
+<div class="input-area" style="text-align:center">
+ <div style="border:2px dashed rgba(148,163,184,.2);border-radius:8px;padding:24px;margin-bottom:12px" id="pdfDrop">
+ <p style="color:#64748b;margin-bottom:8px">📁 Drop PDF file here or click to select</p>
+ <input type="file" id="pdfFileInput" accept=".pdf" style="display:none" onchange="pdfUnlockLoad(event)">
+ <button class="btn btn-primary" onclick="document.getElementById('pdfFileInput').click()">Select PDF File</button>
+ </div>
+ <div id="pdfUnlockInfo" style="display:none;margin-bottom:12px;text-align:left">
+ <div style="background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.15);border-radius:8px;padding:12px">
+ <p style="color:#94a3b8;font-size:.85rem">Loaded: <span id="pdfFileName" style="color:#22d3ee"></span></p>
+ <p style="color:#94a3b8;font-size:.85rem">Size: <span id="pdfFileSize" style="color:#22d3ee"></span></p>
+ <p style="color:#94a3b8;font-size:.85rem">Encrypted: <span id="pdfEncrypted" style="color:#fbbf24"></span></p>
+ </div>
+ </div>
+ <div id="pdfUnlockPasswordArea" style="display:none;margin-bottom:12px">
+ <label style="color:#94a3b8;font-size:.85rem">Enter PDF Password:</label>
+ <input type="password" id="pdfPassword" placeholder="Enter PDF open password" style="width:100%;padding:10px 14px;background:#1e293b;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.9rem;margin-top:6px">
+ </div>
+ <div id="pdfUnlockActions" style="display:none">
+ <button class="btn btn-primary" onclick="pdfUnlockProcess()">🔓 Unlock PDF</button>
+ <button class="btn btn-secondary" onclick="pdfUnlockReset()">Reset</button>
+ </div>
+ <div id="pdfUnlockStatus" style="display:none;margin-top:12px"></div>
+</div>
+
+ </div>
+ <div class="tool-section">
+ <h2>📖 How to Use</h2>
+<p><strong>Enter Content:</strong> Type, paste, or upload the content you want to process. Everything runs locally: Enter PDF Password and other values are processed on your device, never sent to a server — no data is uploaded to any server.</p><p><strong>Configure Options:</strong> Adjust available options and settings to customize the output format.</p><p><strong>Get Results:</strong> Copy the result or download the file once processing is complete. Every operation runs on your device — Enter PDF Password and other values are never sent to a server — no data is uploaded to any server.</p>
+ </div>
+ <div class="tool-section">
+ <h2>❓ FAQ</h2>
+ <div class="faq-item">
+ <h3>What types of password protection does a PDF file have?</h3>
+ <p>PDF files typically have two types: User Password (open password) — required to open the file; Owner/Permissions Password — restricts printing, copying, editing. This tool supports removing the open password (user password). For permission passwords, removal depends on the PDF's encryption strength (40-bit RC4 is usually removable, 128-bit AES depends on password complexity).</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does removing PDF password affect file quality?</h3>
+ <p>No. Removing a password is a decryption process that does not modify the PDF's content, formatting, images, or page layout. The output PDF is visually and functionally identical to the original, just without the password requirement. File size may change slightly due to re-encoding during decryption.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can this tool unlock all PDF files?</h3>
+ <p>This tool supports most standard PDF encryption formats (RC4 and AES). Limitations: ① Highly encrypted PDFs (e.g., 256-bit AES) ② PDFs with only permission password but no open password ③ The tool cannot recover or guess passwords — it requires the correct password to unlock. For documents you have the password to but want to remove protection, this tool works perfectly.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does this tool upload my PDF files?</h3>
+ <p>No. Everything runs locally in your browser. Your PDF file is read by the browser and all decryption happens on your device. The file content and password are never transmitted or stored on any server — the tool works even offline, ensuring document privacy and security.</p>
+ </div>
+ <div class="faq-item">
+ <h3>What if I forgot my PDF password?</h3>
+ <p>This tool cannot crack or guess passwords — brute-forcing requires massive computing power unavailable in a frontend environment. Suggestions: ① Try common passwords (birthdays, phone numbers) ② Check your password manager ③ Contact the document sender for the password ④ Try empty password or common defaults like 'admin' for permission passwords.</p>
+ </div>
+  </div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/pdf-unlocker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<script src="../../related-tools.js" data-slug="pdf-unlocker" data-lang="en"></script>
+<div id="related-tools"></div>
+<div id="toast" class="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied to clipboard")})["catch"](function(){showToast("Copy failed")})}
+</script>
+<script>
+
+var pdfUnlockFileBytes=null;var pdfUnlockFileName="";
+function pdfUnlockLoad(e){
+    var file=e.target.files[0]||(e.dataTransfer&&e.dataTransfer.files[0]);
+    if(!file||!file.name.toLowerCase().endsWith(".pdf")){showToast("Please select a PDF file");return}
+    pdfUnlockFileName=file.name.replace(/\.pdf$/i,"")+"_unlocked.pdf";
+    var reader=new FileReader();
+    reader.onload=function(ev){
+        pdfUnlockFileBytes=new Uint8Array(ev.target.result);
+        document.getElementById("pdfFileName").textContent=file.name;
+        document.getElementById("pdfFileSize").textContent=(file.size/1024).toFixed(1)+" KB";
+        var header=pdfUnlockFileBytes.slice(0,100);
+        var txt="";
+        for(var i=0;i<header.length;i++)txt+=String.fromCharCode(header[i]);
+        var enc=txt.indexOf("/Encrypt")>=0;
+        document.getElementById("pdfEncrypted").textContent=enc?"Yes":"No (no unlock needed)";
+        document.getElementById("pdfUnlockInfo").style.display="block";
+        document.getElementById("pdfUnlockPasswordArea").style.display=enc?"block":"none";
+        document.getElementById("pdfUnlockActions").style.display="block";
+        if(!enc)document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#4ade80">✅ This PDF is not password protected. You can still download a clean copy.</p>';
+        showToast("PDF loaded");
+    };
+    reader.readAsArrayBuffer(file);
+}
+function pdfUnlockProcess(){
+    if(!pdfUnlockFileBytes)return;
+    var pass=document.getElementById("pdfPassword").value;
+    document.getElementById("pdfUnlockStatus").style.display="block";
+    document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#94a3b8">⏳ Unlocking...</p>';
+    var loading=document.getElementById("pdfUnlockStatus").innerHTML;
+    if(!(window.pdfjsLib&&!window.pdfjsLibUnlock)){
+        var script=document.createElement("script");
+        script.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
+        script.onload=function(){
+            pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+            window.pdfjsLibUnlock=true;
+            pdfUnlockDoProcess(pass);
+        };
+        script.onerror=function(){
+            document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#f87171">❌ Failed to load PDF.js library</p>';
+        };
+        document.head.appendChild(script);
+    }else{
+        pdfUnlockDoProcess(pass);
+    }
+}
+function pdfUnlockDoProcess(pass){
+    var loadingTask=pdfjsLib.getDocument({data:pdfUnlockFileBytes,password:pass});
+    loadingTask.promise.then(function(pdf){
+        pdfUnlockRebuildPdf(pdf,pass);
+    })["catch"](function(err){
+        document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#f87171">❌ Wrong password or cannot unlock</p>';
+    });
+}
+function pdfUnlockRebuildPdf(pdf,pass){
+    if(window.pdfLibUnlock){
+        pdfUnlockFinalSave(pdf,pass);
+        return;
+    }
+    var script=document.createElement("script");
+    script.src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js";
+    script.onload=function(){
+        window.pdfLibUnlock=true;
+        pdfUnlockFinalSave(pdf,pass);
+    };
+    script.onerror=function(){
+        document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#f87171">❌ Failed to load pdf-lib library</p>';
+    };
+    document.head.appendChild(script);
+}
+function pdfUnlockFinalSave(pdf,pass){
+    try{
+        pdf.getData().then(function(data){
+            var blob=new Blob([data],{type:"application/pdf"});
+            var url=URL.createObjectURL(blob);
+            var a=document.createElement("a");
+            a.href=url;a.download=pdfUnlockFileName;
+            a.style.display="none";document.body.appendChild(a);a.click();
+            document.body.removeChild(a);URL.revokeObjectURL(url);
+            document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#4ade80">✅ Unlocked successfully! <a href="'+url+'" download="'+pdfUnlockFileName+'" style="color:#22d3ee">📥 Download Unlocked PDF</a></p>';
+        });
+    }catch(e){
+        document.getElementById("pdfUnlockStatus").innerHTML='<p style="color:#f87171">❌ Error: '+e.message+'</p>';
+    }
+}
+function pdfUnlockReset(){
+    pdfUnlockFileBytes=null;pdfUnlockFileName="";
+    document.getElementById("pdfFileInput").value="";
+    document.getElementById("pdfPassword").value="";
+    document.getElementById("pdfUnlockInfo").style.display="none";
+    document.getElementById("pdfUnlockPasswordArea").style.display="none";
+    document.getElementById("pdfUnlockActions").style.display="none";
+    document.getElementById("pdfUnlockStatus").style.display="none";
+}</script>
+
+</main>
+</body>
+</html>

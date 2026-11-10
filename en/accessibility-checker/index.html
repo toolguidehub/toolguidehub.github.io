@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Accessibility Checker - ToolGuideHub</title>
+  <meta name="description" content="Scan a page for WCAG issues including colour contrast, font size, and missing labels, and see what to fix first.">
+  <meta property="og:title" content="Web Accessibility Checker - ToolGuideHub">
+  <meta property="og:description" content="Scan a page for WCAG issues including colour contrast, font size, and missing labels, and see what to fix first.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Web Accessibility Checker","applicationCategory":"DeveloperApplication","operatingSystem":"Web Browser","description":"Check web accessibility issues online, test color contrast, font size, and other WCAG standard compliance."}</script>
+  <style>:root{--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    header .logo { font-size: 1.25rem; font-weight: 700; color: #22d3ee; text-decoration: none; }
+    header nav { display: flex; gap: 16px; }
+    header nav a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+    header nav a:hover { color: #22d3ee; }
+    main { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .subtitle { color: #94a3b8; margin-bottom: 24px; }
+    .card { background: var(--card-bg); border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .section h2 { font-size: 1.1rem; margin-bottom: 16px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 12px; }
+    .row .field { display: flex; flex-direction: column; gap: 4px; }
+    .row .field label { font-size: 0.85rem; color: #94a3b8; font-weight: 500; }
+    .row input, .row textarea {
+      background: var(--surface);
+      color: var(--text); padding: 10px 14px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 0.95rem; }
+    .row input { min-width: 120px; }
+    .row textarea { width: 100%; min-height: 100px; resize: vertical; font-family: monospace; }
+    .row input:focus, .row textarea:focus { outline: 2px solid #22d3ee; outline-offset: -1px; }
+    button { padding: 10px 20px; border: none; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .btn-primary { background: #22d3ee; color: #fff; }
+    .btn-primary:hover { opacity: 0.9; }
+    .color-preview { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+    .color-swatch { width: 48px; height: 48px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); }
+    .color-inputs { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .result { padding: 8px 12px; border-radius: 6px; margin-bottom: 8px; font-size: 0.9rem; border: 1px solid rgba(148,163,184,.15); }
+    .result.pass { background: rgba(16,185,129,.12); color: #4ade80; }
+    .result.fail { background: rgba(239,68,68,.12); color: #f87171; }
+    .result.warn { background: rgba(245,158,11,.12); color: #fbbf24; }
+    .ratio-display { font-size: 2rem; font-weight: 700; text-align: center; margin: 16px 0; }
+    .wcag-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .wcag-badge { padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(148,163,184,.15); }
+    .wcag-badge.pass { background: rgba(16,185,129,.12); color: #4ade80; }
+    .wcag-badge.fail { background: rgba(239,68,68,.12); color: #f87171; }
+    .tab-bar { display: flex; border-bottom: 2px solid rgba(148,163,184,.1); margin-bottom: 16px; }
+    .tab { padding: 8px 16px; cursor: pointer; font-size: 0.9rem; color: #94a3b8; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+    .tab.active { color: #22d3ee; border-bottom-color: #22d3ee; font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    footer { text-align: center; padding: 32px 16px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(148,163,184,.1); margin-top: 16px; }
+    footer a { color: #22d3ee; text-decoration: none; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 10px 24px; border-radius: 8px; font-size: 0.9rem; z-index: 100; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+    @media (max-width: 640px) {
+      main { padding: 16px 12px; }
+      h1 { font-size: 1.4rem; }
+    }
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/accessibility-checker/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "Web Accessibility Checker", "item": "https://adi63586.github.io/Toolguidehub/en/accessibility-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Web Accessibility Checker FAQ","mainEntity":[{"@type":"Question","name":"How does the Web Accessibility Checker check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: Foreground Color and Background Color are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the Web Accessibility Checker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Foreground Color and Background Color are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Web Accessibility Checker report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Web Accessibility Checker","description":"Step-by-step guide for using Web Accessibility Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Web Accessibility Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/accessibility-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../" class="logo">ToolGuideHub</a>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../" class="lang-switch" style="color:#22d3ee">English</a>
+    <a href="../../en/accessibility-checker/" class="lang-switch" style="color:#22d3ee">中文</a>
+  </nav>
+</header>
+<main>
+  <h1>Web Accessibility Checker</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Check web accessibility issues online. Test color contrast, font size, image alt text, link accessibility, and other WCAG standard compliance, generating a detailed report.</p>
+  <p class="subtitle">Check accessibility issues like color contrast, font size, and alt text, compliant with WCAG 2.1 standards.</p>
+
+  <div class="section">
+    <div class="tab-bar" id="tabs">
+      <div class="tab active" data-tab="contrast">Color Contrast</div>
+      <div class="tab" data-tab="text">Text Readability</div>
+      <div class="tab" data-tab="html">HTML Code Analysis</div>
+    </div>
+
+    <!-- Contrast Tab -->
+    <div class="tab-content active" id="tab-contrast">
+      <h2>Color Contrast Checker</h2>
+      <div class="row">
+        <div class="field">
+          <label>Foreground Color (Text)</label>
+          <input type="text" id="fgColor" value="#4F46E5" placeholder="#4F46E5" maxlength="7">
+        </div>
+        <div class="field">
+          <label>Background Color</label>
+          <input type="text" id="bgColor" value="#FFFFFF" placeholder="#FFFFFF" maxlength="7">
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <button class="btn-primary" id="checkContrastBtn">Check Contrast</button>
+        </div>
+      </div>
+      <div class="color-preview" style="background: #0f172a; padding: 20px; border-radius: 8px;" id="previewArea">
+        <span id="previewText" style="font-size: 1.1rem;">Sample Text Sample Text</span>
+      </div>
+      <div class="ratio-display" id="ratioDisplay">21.00:1</div>
+      <div class="wcag-badges" id="wcagBadges"></div>
+    </div>
+
+    <!-- Text Tab -->
+    <div class="tab-content" id="tab-text">
+      <h2>Text Readability Checker</h2>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Enter text to check</label>
+        <textarea id="textInput" placeholder="Paste or enter text here to check readability issues...">This is a sample text used to test font size and readability.</textarea>
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Font Size (px)</label>
+        <input type="number" id="fontSizeInput" value="16" min="8" max="72" style="width:100px;">
+      </div>
+      <button class="btn-primary" id="checkTextBtn">Check Text</button>
+      <div id="textResults" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- HTML Tab -->
+    <div class="tab-content" id="tab-html">
+      <h2>HTML Code Accessibility Analysis</h2>
+      <div class="field" style="margin-bottom:12px;">
+        <label>Paste HTML code snippet</label>
+        <textarea id="htmlInput" placeholder="Paste HTML code here..."><img src="photo.jpg">
+<input type="text">
+<a href="#">Click here</a>
+<button></button></textarea>
+      </div>
+      <button class="btn-primary" id="checkHtmlBtn">Analyze HTML</button>
+      <div id="htmlResults" style="margin-top:12px;"></div>
+    </div>
+  </div>
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>The Web Accessibility Checker is a free online tool that can be used directly in your browser without installing any software. This tool runs entirely locally, your data will not be uploaded to the server, ensuring privacy and security. It supports all major browsers and mobile devices, available anytime, anywhere. Using the Web Accessibility Checker can help you quickly complete related tasks and improve work efficiency. This tool is implemented using pure front-end technology, ready to use out of the box, without the need to register an account or download plugins. The operation is simple and intuitive, and the results are presented instantly. The Web Accessibility Checker provides accurate calculation and conversion functions to meet daily work and study needs. All processing is completed locally in the browser, with fast response and safe reliability. Whether you are using a computer or a mobile phone, you can get a smooth operating experience.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tool Recommendations</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/docker-compose-validator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🐳 Docker Compose Validator</a><a href="../../en/file-type-detector/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔍 Online File Type Detector</a><a href="../../en/google-index-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔎 Google Index Checker</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/accessibility-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+(function() {
+  // Tab switching
+  document.getElementById('tabs').addEventListener('click', function(e) {
+    var tab = e.target.closest('.tab');
+    if (!tab) return;
+    var tabName = tab.dataset.tab;
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+    tab.classList.add('active');
+    document.getElementById('tab-' + tabName).classList.add('active');
+  });
+
+  // Parse color
+  function parseColor(hex) {
+    hex = hex.replace('#', '').trim();
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    if (hex.length !== 6) return null;
+    var r = parseInt(hex.substr(0,2), 16);
+    var g = parseInt(hex.substr(2,2), 16);
+    var b = parseInt(hex.substr(4,2), 16);
+    if (isNaN(r) || isNaN(g) || isNaN(b)) return null;
+    return { r: r, g: g, b: b };
+  }
+
+  function relativeLuminance(c) {
+    var rs = c.r / 255, gs = c.g / 255, bs = c.b / 255;
+    function cLin(ch) { return ch <= 0.03928 ? ch / 12.92 : Math.pow((ch + 0.055) / 1.055, 2.4); }
+    return 0.2126 * cLin(rs) + 0.7152 * cLin(gs) + 0.0722 * cLin(bs);
+  }
+
+  function contrastRatio(l1, l2) {
+    var lighter = Math.max(l1, l2);
+    var darker = Math.min(l1, l2);
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  // Contrast checker
+  document.getElementById('checkContrastBtn').addEventListener('click', checkContrast);
+  document.getElementById('fgColor').addEventListener('input', checkContrast);
+  document.getElementById('bgColor').addEventListener('input', checkContrast);
+
+  function checkContrast() {
+    var fg = parseColor(document.getElementById('fgColor').value);
+    var bg = parseColor(document.getElementById('bgColor').value);
+    var ratioDisplay = document.getElementById('ratioDisplay');
+    var wcagBadges = document.getElementById('wcagBadges');
+    var previewArea = document.getElementById('previewArea');
+    var previewText = document.getElementById('previewText');
+
+    if (!fg || !bg) {
+      ratioDisplay.textContent = 'Invalid color';
+      wcagBadges.innerHTML = '';
+      return;
+    }
+
+    previewArea.style.backgroundColor = '#' + toHex(bg);
+    previewText.style.color = '#' + toHex(fg);
+
+    var l1 = relativeLuminance(fg);
+    var l2 = relativeLuminance(bg);
+    var ratio = contrastRatio(l1, l2);
+
+    ratioDisplay.textContent = ratio.toFixed(2) + ':1';
+
+    var html = '';
+    html += '<div class="wcag-badge ' + (ratio >= 7 ? 'pass' : 'fail') + '">AAA Normal Text ' + (ratio >= 7 ? '✅' : '❌') + '</div>';
+    html += '<div class="wcag-badge ' + (ratio >= 4.5 ? 'pass' : 'fail') + '">AA Normal Text ' + (ratio >= 4.5 ? '✅' : '❌') + '</div>';
+    html += '<div class="wcag-badge ' + (ratio >= 4.5 ? 'pass' : 'fail') + '">AAA Large Text ' + (ratio >= 4.5 ? '✅' : '❌') + '</div>';
+    html += '<div class="wcag-badge ' + (ratio >= 3 ? 'pass' : 'fail') + '">AA Large Text ' + (ratio >= 3 ? '✅' : '❌') + '</div>';
+    wcagBadges.innerHTML = html;
+  }
+
+  function toHex(c) {
+    return [c.r, c.g, c.b].map(function(v) { return v.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  // Text checker
+  document.getElementById('checkTextBtn').addEventListener('click', function() {
+    var text = document.getElementById('textInput').value;
+    var fontSize = parseInt(document.getElementById('fontSizeInput').value) || 16;
+    var results = document.getElementById('textResults');
+    var items = [];
+
+    if (fontSize < 12) items.push({ cls: 'fail', txt: '❌ Font size is less than 12px, which is hard to read. At least 16px is recommended.' });
+    else if (fontSize < 16) items.push({ cls: 'warn', txt: '⚠️ Font size is ' + fontSize + 'px. At least 16px is recommended for readability.' });
+    else items.push({ cls: 'pass', txt: '✅ Font size ' + fontSize + 'px meets the recommended standard.' });
+
+    if (text.length < 10) items.push({ cls: 'warn', txt: '⚠️ Text content is too short to be fully analyzed.' });
+    else items.push({ cls: 'pass', txt: '✅ Text length is sufficient (' + text.length + ' characters in total).' });
+
+    var lines = text.split('\n').filter(function(l) { return l.trim(); });
+    if (lines.length > 0) {
+      var longestLine = Math.max.apply(null, lines.map(function(l) { return l.length; }));
+      var charsPerLine = 65;
+      if (longestLine > charsPerLine * 1.5) items.push({ cls: 'warn', txt: '⚠️ Some lines exceed ' + Math.round(charsPerLine * 1.5) + ' characters. It is recommended to keep lines under 65 characters to improve readability.' });
+      else items.push({ cls: 'pass', txt: '✅ Line length is reasonable (longest is ' + longestLine + ' characters), providing a good reading experience.' });
+    }
+
+    results.innerHTML = items.map(function(i) { return '<div class="result ' + i.cls + '">' + i.txt + '</div>'; }).join('');
+  });
+
+  // HTML checker
+  document.getElementById('checkHtmlBtn').addEventListener('click', function() {
+    var html = document.getElementById('htmlInput').value;
+    var results = document.getElementById('htmlResults');
+    var items = [];
+
+    // Check images without alt
+    var imgRegex = /<img\b[^>]*>/gi;
+    var imgMatch = html.match(imgRegex);
+    if (imgMatch) {
+      var missingAlt = imgMatch.filter(function(t) { return !/\balt=/.test(t); }).length;
+      if (missingAlt > 0) items.push({ cls: 'fail', txt: '❌ Found ' + missingAlt + ' image(s) missing the alt attribute. All images must have descriptive alt text.' });
+      else items.push({ cls: 'pass', txt: '✅ All ' + imgMatch.length + ' image(s) have the alt attribute.' });
+    } else {
+      items.push({ cls: 'pass', txt: '✅ No image tags found.' });
+    }
+
+    // Check empty links
+    var linkRegex = /<a\b[^>]*>([\s]*?)<\/a>/gi;
+    var emptyLinks = html.match(linkRegex);
+    if (emptyLinks && emptyLinks.length > 0) items.push({ cls: 'fail', txt: '❌ Found ' + emptyLinks.length + ' empty link(s), which should contain descriptive text.' });
+
+    // Check empty buttons
+    var btnRegex = /<button\b[^>]*>([\s]*?)<\/button>/gi;
+    var emptyBtns = html.match(btnRegex);
+    if (emptyBtns && emptyBtns.length > 0) items.push({ cls: 'fail', txt: '❌ Found ' + emptyBtns.length + ' empty button(s), which should contain descriptive text.' });
+
+    // Check inputs without labels
+    var inputRegex = /<input\b[^>]*>/gi;
+    var inputMatch = html.match(inputRegex);
+    if (inputMatch) {
+      var inputsWithout = inputMatch.filter(function(t) { return !/\bid=/.test(t) || !/\btype=["']hidden/.test(t) && !/\btype=["']submit/.test(t); });
+      if (inputsWithout.length > 0) items.push({ cls: 'warn', txt: '⚠️ Found ' + inputMatch.length + ' input tag(s), ensure each has a corresponding label tag.' });
+    }
+
+    if (items.length === 0) items.push({ cls: 'pass', txt: '✅ No obvious accessibility issues found.' });
+
+    results.innerHTML = items.map(function(i) { return '<div class="result ' + i.cls + '">' + i.txt + '</div>'; }).join('');
+  });
+
+  // Initial contrast check
+  checkContrast();
+})();
+</script>
+
+<script>
+(function(){
+  // Add copy buttons to all result areas
+  var processed = new Set();
+  function addCopyBtns(){
+    var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]');
+    results.forEach(function(el){
+      if(processed.has(el)) return;
+      if(el.querySelector('.copy-btn')) return;
+      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return;
+      if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'Copy result';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+</body>
+</html>

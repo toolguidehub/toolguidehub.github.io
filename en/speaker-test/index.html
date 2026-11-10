@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online speaker test: check left and right channels, run a 100–8000Hz frequency sweep, and find out whether your speakers or headphones are faulty.">
+<meta name="keywords" content="speaker test,speaker test online,left right channel test,stereo test,frequency sweep,headphone test,speaker checker">
+<title>Speaker Test - Left/Right Channels & Frequency</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/speaker-test/">
+<meta property="og:title" content="Speaker Test - Left/Right Channels & Frequency">
+<meta property="og:description" content="Free online speaker test: check left and right channels, run a 100–8000Hz frequency sweep, and find out whether your speakers or headphones are faulty.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/speaker-test/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Speaker Test","description":"Free online speaker/headphone test tool. Check left/right channels, frequency response and stereo effects. No installation needed.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to test speakers?","acceptedAnswer":{"@type":"Answer","text":"Click left/right channel buttons to verify each channel works. Frequency sweep helps detect distortion or crackling at different frequencies."}},{"@type":"Question","name":"Do I need to install software?","acceptedAnswer":{"@type":"Answer","text":"No! Uses the browser Web Audio API to generate test tones directly. No installation or plugins required."}},{"@type":"Question","name":"Why can't I hear anything?","acceptedAnswer":{"@type":"Answer","text":"Check: 1) Device volume is on; 2) Not in silent mode; 3) Browser isn't muted by the system. Some browsers require a click before playing audio."}},{"@type":"Question","name":"How do I test left and right channels?","acceptedAnswer":{"@type":"Answer","text":"Click “Test Left Channel” and listen — audio should come only from the left side. Then click “Test Right Channel” and it should come only from the right. If both sides are identical or swapped, your cable, adapter or OS balance setting is the likely cause."}},{"@type":"Question","name":"How do I know if my speaker is broken?","acceptedAnswer":{"@type":"Answer","text":"Test each channel separately: if one side stays silent, that channel or its wiring is likely at fault. Crackling, buzzing or popping usually means a damaged cone or voice coil, while a band that goes muffled or silent during the sweep points to a faulty crossover or driver. Keep the volume moderate while testing."}},{"@type":"Question","name":"What frequency range does the sweep cover?","acceptedAnswer":{"@type":"Answer","text":"The sweep runs from 100Hz to 8000Hz, covering low bass, the vocal midrange and high-frequency detail. The left, right and both-channel tests use a 440Hz reference tone so you can quickly confirm each channel plays."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Speaker Test","item":"https://adi63586.github.io/Toolguidehub/en/speaker-test/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Test Speakers Online","description":"Step-by-step guide to testing speakers and headphones with left/right channel checks and a 100Hz to 8000Hz frequency sweep.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Speaker Test"},"step":[{"@type":"HowToStep","position":1,"name":"Test the left channel","text":"Click Test Left Channel and confirm sound comes only from the left speaker or earbud."},{"@type":"HowToStep","position":2,"name":"Test the right channel","text":"Click Test Right Channel and confirm sound comes only from the right side."},{"@type":"HowToStep","position":3,"name":"Run the frequency sweep","text":"Click Frequency Sweep to play 100Hz to 8000Hz and listen for dropouts, crackle or muffled bands."},{"@type":"HowToStep","position":4,"name":"Stop playback","text":"Click Stop to silence the test tone when you are finished."}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.panel{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.panel-title{font-size:1.1rem;color:#f1f5f9;margin-bottom:14px;font-weight:600}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.35);transform:translateY(-1px)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-large{padding:12px 32px;font-size:1.1rem;font-weight:600}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.input-row input{padding:10px 12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;background:#0f172a;color:#e2e8f0;font-size:.9rem;min-width:180px;transition:border-color .2s}
+.input-row input:focus{outline:none;border-color:#06b6d4}
+.faq-item{margin-bottom:16px;border-bottom:1px solid rgba(148,163,184,.1);padding-bottom:16px}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-q{font-weight:600;color:#f1f5f9;margin-bottom:6px}
+.faq-a{color:#94a3b8;font-size:.9rem}
+.privacy-note{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:8px;padding:12px 16px;font-size:.85rem;color:#94a3b8;margin-top:16px;display:flex;align-items:center;gap:8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.hero{margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;line-height:1.7}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-top:8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}}
+.test-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.test-buttons .btn{justify-content:center;padding:16px}
+.status-text{text-align:center;color:#22d3ee;font-size:1rem;margin-top:12px;min-height:24px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/speaker-test/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🔊 Speaker Test</h1></div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; <a href="../../#tools">Tools</a> &rsaquo; Speaker Test</p>
+<div class="hero"><p>Free online speaker/headphone test tool. Check left/right channels, frequency response and stereo effects. No installation needed. <span class="badge">🔒 No Registration · Data Stays Local</span></p></div>
+<div class="panel">
+  <div class="panel-title">🔊 Speaker Test</div>
+  <div class="test-buttons">
+  <button class="btn btn-primary btn-large" id="testLeft">🔊 Test Left Channel</button>
+  <button class="btn btn-primary btn-large" id="testRight">🔊 Test Right Channel</button>
+  <button class="btn btn-primary btn-large" id="testBoth">🔊 Test Both Channels</button>
+  <button class="btn btn-primary btn-large" id="testSweep">📈 Frequency Sweep</button>
+</div>
+<div class="btn-row"><button class="btn btn-secondary" id="stopBtn">⏹ Stop</button></div>
+<div id="statusText" class="status-text">Click a button to start testing</div>
+</div>
+<div class="privacy-note">🔒 <span>All computation happens on your device — Speaker Test, other values and other inputs stay in your browser. No data is uploaded to any server.</span></div>
+<div class="panel">
+  <div class="panel-title">📖 How to Test Speakers and Headphones</div>
+  <p style="color:#94a3b8;font-size:.9rem;margin-bottom:10px"><strong style="color:#f1f5f9">Left/right channel test:</strong> Click “Test Left Channel” — sound should come only from the left speaker or earbud; then click “Test Right Channel” and it should come only from the right. If both sides play the same channel, or the sides are reversed, your wiring or balance setting is wrong.</p>
+  <p style="color:#94a3b8;font-size:.9rem;margin-bottom:10px"><strong style="color:#f1f5f9">Frequency range test:</strong> Click “Frequency Sweep” to play a sine sweep from 100Hz to 8000Hz. Lows (100–300Hz) give music its body, mids (300–3000Hz) carry vocals, and highs (3000–8000Hz) handle detail. A band that suddenly sounds muffled, crackly or silent points to a weak driver or crossover.</p>
+  <p style="color:#94a3b8;font-size:.9rem"><strong style="color:#f1f5f9">How to tell if a speaker is broken:</strong> ①No sound at all — check volume and mute, then try another device. ②Only one side works — a broken channel or amp. ③Crackling, buzzing or popping — a damaged cone or voice coil, or too much volume. ④A gap during the sweep — a faulty crossover or driver. Keep the volume at a comfortable level while testing.</p>
+</div>
+<div class="panel">
+  <div class="panel-title">❓ FAQ</div>
+<div class="faq-item"><div class="faq-q">How to test speakers?</div><div class="faq-a">Click left/right channel buttons to verify each channel works. Frequency sweep helps detect distortion or crackling at different frequencies.</div></div>
+<div class="faq-item"><div class="faq-q">Do I need to install software?</div><div class="faq-a">No! Uses the browser Web Audio API to generate test tones directly. No installation or plugins required.</div></div>
+<div class="faq-item"><div class="faq-q">Why can't I hear anything?</div><div class="faq-a">Check: 1) Device volume is on; 2) Not in silent mode; 3) Browser isn't muted by the system. Some browsers require a click before playing audio.</div></div>
+<div class="faq-item"><div class="faq-q">How do I test left and right channels?</div><div class="faq-a">Click “Test Left Channel” and listen — audio should come only from the left side. Then click “Test Right Channel” and it should come only from the right. If both sides are identical or swapped, your cable, adapter or OS balance setting is the likely cause.</div></div>
+<div class="faq-item"><div class="faq-q">How do I know if my speaker is broken?</div><div class="faq-a">Test each channel separately: if one side stays silent, that channel or its wiring is likely at fault. Crackling, buzzing or popping usually means a damaged cone or voice coil, while a band that goes muffled or silent during the sweep points to a faulty crossover or driver. Keep the volume moderate while testing.</div></div>
+<div class="faq-item"><div class="faq-q">What frequency range does the sweep cover?</div><div class="faq-a">The sweep runs from 100Hz to 8000Hz, covering low bass, the vocal midrange and high-frequency detail. The left, right and both-channel tests use a 440Hz reference tone so you can quickly confirm each channel plays.</div></div>
+</div>
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer><a href="../../">Home</a> | <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> | <a href="../../en/contact/">Contact</a> | <a href="../../en/privacy/">Privacy</a><br>© 2026 ToolGuideHub. All rights reserved.</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+var ctx=null,osc=null,gain=null,stopped=false;
+function initAudio(){if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.connect(ctx.destination);gain.gain.value=0.3}}
+function stopAll(){stopped=true;if(osc){try{osc.stop()}catch(e){}osc=null}document.getElementById('statusText').textContent='Stopped'}
+function playTone(freq,pan,cb){initAudio();stopAll();stopped=false;osc=ctx.createOscillator();var p=ctx.createStereoPanner();osc.type='sine';osc.frequency.value=freq;p.pan.value=pan;osc.connect(p);p.connect(gain);osc.start();osc.onended=function(){if(cb&&!stopped)cb()};document.getElementById('statusText').textContent='Playing: '+freq+'Hz'}
+document.getElementById('testLeft').addEventListener('click',function(){playTone(440,-1,function(){document.getElementById('statusText').textContent='Left channel test complete'})});
+document.getElementById('testRight').addEventListener('click',function(){playTone(440,1,function(){document.getElementById('statusText').textContent='Right channel test complete'})});
+document.getElementById('testBoth').addEventListener('click',function(){playTone(440,0,function(){document.getElementById('statusText').textContent='Both channels test complete'})});
+document.getElementById('testSweep').addEventListener('click',function(){initAudio();stopAll();stopped=false;osc=ctx.createOscillator();var p=ctx.createStereoPanner();osc.type='sine';osc.frequency.value=100;p.pan.value=0;osc.connect(p);p.connect(gain);osc.start();osc.frequency.linearRampToValueAtTime(8000,ctx.currentTime+3);osc.onended=function(){document.getElementById('statusText').textContent='Frequency sweep complete'};document.getElementById('statusText').textContent='Sweeping: 100Hz → 8000Hz';setTimeout(function(){try{osc.stop()}catch(e){}},3000)});
+document.getElementById('stopBtn').addEventListener('click',stopAll);
+</script>
+
+</main>
+</body>
+</html>

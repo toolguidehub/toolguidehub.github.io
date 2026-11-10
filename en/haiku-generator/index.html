@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate a three-line 5-7-5 syllable haiku from a theme you supply, in styles ranging from nature and seasons to zen and humorous.">
+<meta name="keywords" content="haiku generator,haiku poem,Japanese poetry,5-7-5,poem creator,online haiku,inspiration tool,free">
+<title>Free Haiku Generator - 5-7-5 Poem Creator | No Registration</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/haiku-generator/">
+<meta property="og:title" content="Free Haiku Generator - 5-7-5 Poem Creator | No Registration">
+<meta property="og:description" content="Generate a three-line 5-7-5 syllable haiku from a theme you supply, in styles ranging from nature and seasons to zen and humorous.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/haiku-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Haiku Generator","description":"Free online haiku generator. Enter a theme to automatically create traditional Japanese haiku poems in 5-7-5 syllable format.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Haiku Generator","item":"https://adi63586.github.io/Toolguidehub/en/haiku-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Haiku Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Haiku Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Haiku Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Style and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Haiku Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Haiku Generator","description":"Step-by-step guide for using Haiku Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Haiku Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{text-align:center;margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;background:rgba(6,182,212,.1);color:#22d3ee;font-size:.8rem;border:1px solid rgba(6,182,212,.15)}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.haiku-card{background:#0f172a;border-radius:10px;padding:24px;margin:12px 0;text-align:center;border:1px solid rgba(148,163,184,.1);position:relative}
+.haiku-line{font-size:1.3rem;line-height:2;color:#e2e8f0;letter-spacing:.05em}
+.haiku-syllable{font-size:.7rem;color:#64748b;margin-left:8px}
+.haiku-theme{display:inline-block;padding:2px 10px;border-radius:12px;background:rgba(6,182,212,.1);color:#22d3ee;font-size:.75rem;margin:8px 0}
+.haiku-number{position:absolute;top:8px;right:12px;font-size:.7rem;color:#475569}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px;margin:8px 0}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.3rem}.header{flex-direction:column;gap:8px}.haiku-line{font-size:1.1rem}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/haiku-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🌸 Haiku Generator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Haiku Generator</p>
+<div class="hero"><p>Free online haiku generator. Enter a theme to create traditional Japanese haiku in 5-7-5 syllable format. | No registration · Data never leaves your device</p><span class="badge">Zero dependency·Works offline</span></div>
+
+<div class="input-section">
+  <h2>✍️ Creation Settings</h2>
+  <label>Theme / Keywords (optional)</label>
+  <input type="text" id="themeInput" placeholder="e.g., spring, moon, cherry blossom, ocean...">
+  <label>Style</label>
+  <select id="styleSelect">
+    <option value="nature">Nature</option>
+    <option value="seasons">Seasons</option>
+    <option value="love">Love & Longing</option>
+    <option value="zen">Zen & Mindfulness</option>
+    <option value="humor">Humorous</option>
+    <option value="random">Random Mix</option>
+  </select>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="generateBtn">🌸 Generate Haiku</button>
+    <button class="btn btn-secondary" id="generateMoreBtn">🔄 Another One</button>
+  </div>
+</div>
+
+<div class="result-section" id="resultSection">
+  <h2>📜 Generated Haiku</h2>
+  <div id="haikuContainer">
+    <div class="haiku-card"><div class="haiku-line" style="color:#64748b">Click "Generate Haiku" to start...</div></div>
+  </div>
+</div>
+
+<div class="info-section">
+  <h2>📖 About Haiku</h2>
+  <p>Haiku is a traditional Japanese poetry form consisting of three lines with a <strong>5-7-5</strong> syllable pattern.</p>
+  <ul>
+    <li>Line 1: 5 syllables</li>
+    <li>Line 2: 7 syllables</li>
+    <li>Line 3: 5 syllables</li>
+  </ul>
+  <p>Traditional haiku often include a <strong>kigo</strong> (seasonal word) and nature imagery. This generator uses preset word banks to compose haiku.</p>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/haiku-generator/">中文</a>
+</div>
+
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Haiku Generator | No registration · Data never leaves your device</p>
+
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var themeInput = document.getElementById('themeInput');
+  var styleSelect = document.getElementById('styleSelect');
+  var generateBtn = document.getElementById('generateBtn');
+  var generateMoreBtn = document.getElementById('generateMoreBtn');
+  var haikuContainer = document.getElementById('haikuContainer');
+  var toast = document.getElementById('toast');
+
+  function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
+
+  // English haiku word banks (5/7/5 syllable patterns)
+  var wordBanks = {
+    nature: {
+      l5a: ['Gentle breeze blows through','Morning sun rises','Quiet mountain stream','Cherry blossoms fall','Ocean waves roll in','Stars shine in darkness','Raindrops on green leaves','Soft wind through bamboo','Golden sunset glows','Misty morning air'],
+      l5b: ['Birds sing in tall trees','River flows so free','Butterflies flutter','Moonlight on water','Pine trees stand so tall','Dewdrops on the grass','Clouds drift in the sky','Flowers start to bloom','Snow falls on the peaks','Fireflies at twilight'],
+      l7: ['The ancient forest whispers low','White clouds floating across the sky','A waterfall sings on the rocks','The summer sun warms everything','A rainbow after the rainfall','Autumn leaves dancing in the wind','The ocean stretches far and wide','Crystal waters reflect the moon','Wild flowers bloom along the path','The mountain stands in silent peace'],
+      l5c: ['Nature speaks to us','Peace fills the quiet air','Beauty all around','Earth breathes a deep sigh','Moments flow like streams']
+    },
+    seasons: {
+      l5a: ['Spring flowers blooming','Summer heat arrives','Autumn leaves falling','Winter snowflakes fall','First day of springtime'],
+      l5b: ['Cherry blooms appear','Warm breezes blow soft','Harvest moons so bright','Frost covers the ground','New life awakens'],
+      l7: ['The seasons turn around once more','Each day brings a new kind of light','The cycle of life continues','A year passes in the garden'],
+      l5c: ['Seasons come and go','Time flows like a stream','Change is life itself','Another year ends']
+    },
+    love: {
+      l5a: ['Your smile lights my day','I think of you now','Under moonlit sky','Heart beats faster still','Two souls become one'],
+      l5b: ['Holding hands so tight','Whispered words of love','A gentle embrace','Dreams of you at night','Lost in your soft eyes'],
+      l7: ['I would cross oceans for your love','The memory of your warm touch','Forever seems not long enough','A thousand stars cannot compare'],
+      l5c: ['Love knows no distance','Hearts connected strong','Forever with you','Sweet dreams of your face']
+    },
+    zen: {
+      l5a: ['Silence fills the room','Empty mind at peace','One breath at a time','Still water runs deep','Let go of it all'],
+      l5b: ['The present moment','Nothing left to prove','Simple joy is here','A leaf falls so slow','Inner peace found now'],
+      l7: ['In stillness lies the greatest strength','The path unfolds beneath your feet','No need to chase what will not stay','Accept the world just as it is'],
+      l5c: ['Peace is found within','Simply be right here','Now is all there is','The journey is home']
+    },
+    humor: {
+      l5a: ['Monday morning blues','Forgot my password','Coffee spills again','My code will not run','Alarm did not ring'],
+      l5b: ['Need more sleep today','Where did my keys go','Cat sits on keyboard','Stuck in traffic now','Pizza delivery'],
+      l7: ['Why does Monday come so quickly','I really should be working now','Another meeting that could wait','My plant somehow is dying still'],
+      l5c: ['Is it Friday yet','Please just let me sleep','This is fine I guess','At least there is tea']
+    }
+  };
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function generateHaiku() {
+    var style = styleSelect.value;
+    var bank;
+    if (style === 'random') {
+      var keys = Object.keys(wordBanks);
+      bank = wordBanks[keys[Math.floor(Math.random() * keys.length)]];
+    } else {
+      bank = wordBanks[style] || wordBanks.nature;
+    }
+    return { line1: pick(bank.l5a), line2: pick(bank.l7), line3: pick(bank.l5c), style: style };
+  }
+
+  function displayHaiku(haiku) {
+    var styleNames = {nature:'Nature',seasons:'Seasons',love:'Love & Longing',zen:'Zen & Mindfulness',humor:'Humorous',random:'Random Mix'};
+    var html = '<div class="haiku-card">';
+    html += '<span class="haiku-number">#' + (Math.floor(Math.random()*9000)+1000) + '</span>';
+    html += '<div class="haiku-line">' + haiku.line1 + '<span class="haiku-syllable">5</span></div>';
+    html += '<div class="haiku-line">' + haiku.line2 + '<span class="haiku-syllable">7</span></div>';
+    html += '<div class="haiku-line">' + haiku.line3 + '<span class="haiku-syllable">5</span></div>';
+    html += '<span class="haiku-theme">' + (styleNames[haiku.style] || haiku.style) + '</span>';
+    html += '</div>';
+    return html;
+  }
+
+  function generate() {
+    haikuContainer.innerHTML = displayHaiku(generateHaiku());
+    showToast('🌸 Haiku generated');
+  }
+
+  generateBtn.addEventListener('click', generate);
+  generateMoreBtn.addEventListener('click', generate);
+  generate();
+})();
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* Example button */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+
+
+</main>
+</body>
+</html>

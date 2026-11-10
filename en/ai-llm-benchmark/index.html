@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare GPT-4o, Claude, Gemini, and Llama on benchmark scores, speed, and context window in one table.">
+<meta name="keywords" content="LLM benchmark,AI model benchmark,GPT-4o benchmark,Claude benchmark,Gemini benchmark,LLM comparison,AI performance">
+<title>Free LLM Benchmark Comparison - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ai-llm-benchmark/">
+<meta property="og:title" content="LLM Benchmark Comparison - Free Online Tool">
+<meta property="og:description" content="Compare GPT-4o, Claude, Gemini, and Llama on benchmark scores, speed, and context window in one table.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ai-llm-benchmark/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LLM Benchmark Comparison", "description": "Free online LLM benchmark comparison tool that compares the performance, speed and context support of GPT-4o, Claude, Gemini, Llama and other major models.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "LLM Benchmark Comparison FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are LLM benchmarks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LLM benchmarks are standardized test sets used to evaluate the performance of large language models. Common benchmarks include MMLU (multi-task language understanding), HumanEval (code generation), GSM8K (math reasoning) and MATH (advanced math). Benchmarks help users objectively compare how different models perform across a variety of tasks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the right LLM for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Consider your task type, budget, speed, context window and privacy needs. Pick a model with high HumanEval for code generation or high GSM8K for math reasoning, and choose open-source models for local deployment when privacy matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do benchmark scores fully represent model capability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Benchmarks have limitations including data contamination, limited task coverage, differences from real-world usage and prompt sensitivity. Treat benchmark scores as a reference and validate with your own tests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a big gap between open-source and commercial models?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The gap is closing. By 2025-2026, open-source models like Llama 3, Mistral and Qwen approach or exceed some commercial models on many benchmarks. Open-source models offer local deployment and data privacy, while commercial models generally provide stronger overall performance and faster updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All comparison calculations run locally in your browser. No data is sent to any server, and all model data is bundled static content that requires no network access."
+      }
+    }
+  ]
+}</script>
+<style>
+:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#1e293b;color:#e2e8f0;border:1px solid rgba(6,182,212,.3);padding:10px 24px;border-radius:8px;z-index:99999;font-size:14px;opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter-btn{padding:6px 14px;border:1px solid rgba(148,163,184,.2);border-radius:6px;background:rgba(148,163,184,.05);color:#94a3b8;font-size:.8rem;cursor:pointer;transition:all .2s}
+.filter-btn:hover{background:rgba(148,163,184,.1)}
+.filter-btn.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.model-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s}
+.model-card:hover{border-color:rgba(6,182,212,.4)}
+.model-card.selected{border-color:rgba(6,182,212,.6);background:rgba(6,182,212,.05)}
+.model-card .model-name{font-size:1rem;font-weight:600;color:#f1f5f9;margin-bottom:4px}
+.model-card .model-vendor{font-size:.8rem;color:#64748b;margin-bottom:8px}
+.model-card .model-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;margin-right:4px}
+.tag-open{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.tag-closed{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.tag-free{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.benchmark-bar{margin:4px 0}
+.benchmark-bar .bar-label{display:flex;justify-content:space-between;font-size:.75rem;color:#94a3b8;margin-bottom:2px}
+.benchmark-bar .bar-track{height:6px;background:rgba(148,163,184,.1);border-radius:3px;overflow:hidden}
+.benchmark-bar .bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.compare-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.compare-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.compare-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.compare-table th{text-align:left;padding:8px 12px;color:#94a3b8;border-bottom:1px solid rgba(148,163,184,.1);font-weight:500}
+.compare-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.05)}
+.compare-table tr:hover td{background:rgba(148,163,184,.03)}
+.best-val{color:#22d3ee;font-weight:600}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free LLM Benchmark Comparison - Online Tool", "item": "https://adi63586.github.io/Toolguidehub/en/ai-llm-benchmark/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the LLM Benchmark Comparison","description":"Step-by-step guide for using the LLM Benchmark Comparison","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"LLM Benchmark Comparison"},"step":[{"@type":"HowToStep","position":1,"name":"Prepare test","text":"Enter test parameters or upload test data"},{"@type":"HowToStep","position":2,"name":"Start test","text":"Click the start button to run the test"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the test results and detailed data"},{"@type":"HowToStep","position":4,"name":"Copy report","text":"Copy or download the test report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ai-llm-benchmark/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>Free LLM Benchmark Comparison - Online Tool</h1>
+
+</div>
+<div class="nav-back"><a href="../../">Home</a> › <a href="../../#dev">Dev Tools</a> › LLM Benchmark Comparison</div>
+
+<div class="tool-section">
+<h2>🔍 Select models to compare</h2>
+<div class="filter-row">
+<button class="filter-btn active" onclick="filterModels('all')">All</button>
+<button class="filter-btn" onclick="filterModels('closed')">Closed</button>
+<button class="filter-btn" onclick="filterModels('open')">Open Source</button>
+<button class="filter-btn" onclick="filterModels('free')">Free</button>
+</div>
+<div class="compare-grid" id="model-grid"></div>
+<div style="margin-top:12px;color:#64748b;font-size:.8rem">Select 2-4 models to compare</div>
+</div>
+
+<div class="compare-section" id="compare-section" style="display:none">
+<h2>📊 Comparison Results</h2>
+<div id="compare-content"></div>
+</div>
+
+<div class="info-section">
+<h2>📖 LLM Benchmark Guide</h2>
+<h3>What is an LLM Benchmark?</h3>
+<p>An LLM (large language model) benchmark is a standardized test set used to measure a model's performance on specific tasks. Different benchmarks evaluate different capability dimensions, so combining multiple benchmark scores gives a well-rounded picture of a model's abilities.</p>
+<h3>Common Benchmarks</h3>
+<ul>
+<li><strong>MMLU</strong> — Multi-task language understanding, 57 subjects, tests general knowledge</li>
+<li><strong>HumanEval</strong> — Code generation, 164 Python coding problems</li>
+<li><strong>GSM8K</strong> — Math word problems, tests mathematical reasoning</li>
+<li><strong>MATH</strong> — Advanced math problems, tests higher-level reasoning</li>
+<li><strong>GPQA</strong> — Graduate-level questions, tests expert knowledge</li>
+<li><strong>IFEval</strong> — Instruction following, tests prompt compliance</li>
+</ul>
+<h3>How to Use the Results</h3>
+<ol>
+<li>Based on your primary task type, focus on the most relevant benchmark score</li>
+<li>Combine benchmark scores with speed and price data for a fuller comparison</li>
+<li>Check whether context window support fully meets your needs</li>
+<li>Open-source models can be deployed locally, ideal for privacy-sensitive scenarios</li>
+<li>Benchmark scores are only a reference; validate with your own real-world tests</li>
+</ol>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What are LLM benchmarks?</h3><p>LLM benchmarks are standardized test sets used to evaluate the performance of large language models. Common benchmarks include MMLU (multi-task language understanding), HumanEval (code generation), GSM8K (math reasoning), and MATH (advanced math). Benchmarks help users objectively compare how different models perform across a variety of tasks.</p></div>
+<div class="faq-item"><h3>How do I choose the right LLM for me?</h3><p>When choosing an LLM, consider: 1) Task type - pick a model with high HumanEval for code generation or high GSM8K for math reasoning; 2) Budget - open-source models are free, commercial models charge per token; 3) Speed - real-time apps need low-latency models; 4) Context window - long documents need large context windows; 5) Privacy - consider self-hosting an open-source model for sensitive data.</p></div>
+<div class="faq-item"><h3>Do benchmark scores fully represent model capability?</h3><p>No. Benchmarks have limitations: 1) Data contamination - training sets may include test data; 2) Limited coverage - benchmarks only test certain task types; 3) Real-world differences - actual usage is more complex than benchmarks; 4) Prompt sensitivity - different prompts can lead to different scores. Treat benchmark scores as a reference and validate with your own tests.</p></div>
+<div class="faq-item"><h3>Is there a big gap between open-source and commercial models?</h3><p>The gap is closing. By 2025-2026, open-source models like Llama 3, Mistral, and Qwen approach or exceed some commercial models on many benchmarks. Open-source models offer local deployment, no usage limits, and data privacy, while commercial models generally provide stronger overall performance, richer ecosystems, and faster updates.</p></div>
+<div class="faq-item"><h3>Is my data uploaded to a server?</h3><p>No. All comparison calculations run locally in your browser. No data is sent to any server, and all model data is bundled static content that requires no network access.</p></div>
+</div>
+
+</main>
+
+<!-- Related Tools -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<footer>
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy</a>
+<a href="../../en/terms/">Terms</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/ai-llm-benchmark/" class="active">EN</a>
+</div>
+
+
+</footer>
+
+
+<script>
+const models = [
+  {id:'gpt4o',name:'GPT-4o',vendor:'OpenAI',type:'closed',free:false,
+   ctx:128000,inputPrice:2.5,outputPrice:10,speed:82,
+   mmlu:88.7,humaneval:90.2,gsm8k:95.8,math:76.6,gpqa:53.6,ifeval:86.5},
+  {id:'gpt4o-mini',name:'GPT-4o mini',vendor:'OpenAI',type:'closed',free:true,
+   ctx:128000,inputPrice:0.15,outputPrice:0.6,speed:150,
+   mmlu:82.0,humaneval:87.2,gsm8k:93.2,math:70.2,gpqa:40.5,ifeval:80.1},
+  {id:'claude4sonnet',name:'Claude Sonnet 4',vendor:'Anthropic',type:'closed',free:false,
+   ctx:200000,inputPrice:3,outputPrice:15,speed:75,
+   mmlu:89.0,humaneval:92.0,gsm8k:96.4,math:78.3,gpqa:56.1,ifeval:88.2},
+  {id:'claude4haiku',name:'Claude Haiku 3.5',vendor:'Anthropic',type:'closed',free:true,
+   ctx:200000,inputPrice:0.8,outputPrice:4,speed:200,
+   mmlu:84.7,humaneval:88.1,gsm8k:94.1,math:72.5,gpqa:44.2,ifeval:83.5},
+  {id:'gemini25pro',name:'Gemini 2.5 Pro',vendor:'Google',type:'closed',free:true,
+   ctx:1000000,inputPrice:1.25,outputPrice:10,speed:65,
+   mmlu:90.0,humaneval:91.8,gsm8k:96.8,math:80.1,gpqa:59.1,ifeval:87.5},
+  {id:'gemini25flash',name:'Gemini 2.5 Flash',vendor:'Google',type:'closed',free:true,
+   ctx:1000000,inputPrice:0.15,outputPrice:0.6,speed:250,
+   mmlu:84.0,humaneval:86.5,gsm8k:93.5,math:71.8,gpqa:42.3,ifeval:81.2},
+  {id:'llama4maverick',name:'Llama 4 Maverick',vendor:'Meta',type:'open',free:true,
+   ctx:1000000,inputPrice:0,outputPrice:0,speed:90,
+   mmlu:88.4,humaneval:89.5,gsm8k:95.2,math:75.8,gpqa:52.3,ifeval:85.1},
+  {id:'llama4scout',name:'Llama 4 Scout',vendor:'Meta',type:'open',free:true,
+   ctx:10000000,inputPrice:0,outputPrice:0,speed:180,
+   mmlu:82.5,humaneval:84.2,gsm8k:91.8,math:66.5,gpqa:38.1,ifeval:78.5},
+  {id:'qwen3',name:'Qwen 3 235B',vendor:'Alibaba',type:'open',free:true,
+   ctx:128000,inputPrice:0,outputPrice:0,speed:85,
+   mmlu:87.1,humaneval:88.8,gsm8k:95.5,math:77.2,gpqa:51.8,ifeval:84.8},
+  {id:'deepseekr1',name:'DeepSeek R1',vendor:'DeepSeek',type:'open',free:true,
+   ctx:128000,inputPrice:0,outputPrice:0,speed:60,
+   mmlu:88.5,humaneval:90.8,gsm8k:96.2,math:79.8,gpqa:55.2,ifeval:86.1},
+  {id:'mistral-large',name:'Mistral Large',vendor:'Mistral',type:'closed',free:false,
+   ctx:128000,inputPrice:2,outputPrice:6,speed:80,
+   mmlu:85.2,humaneval:87.5,gsm8k:94.0,math:73.1,gpqa:46.5,ifeval:82.8},
+  {id:'command-r-plus',name:'Command R+',vendor:'Cohere',type:'closed',free:true,
+   ctx:128000,inputPrice:2.5,outputPrice:10,speed:70,
+   mmlu:83.5,humaneval:85.2,gsm8k:92.5,math:68.8,gpqa:41.2,ifeval:80.5}
+];
+
+let selectedModels = new Set();
+let currentFilter = 'all';
+
+function showToast(msg){var t=document.getElementById('toast');if(!t){t=document.createElement('div');t.className='toast';t.id='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000)}
+
+function filterModels(type) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderGrid(type);
+}
+
+function renderGrid(filter = 'all') {
+  const grid = document.getElementById('model-grid');
+  const filtered = filter === 'all' ? models : models.filter(m => {
+    if (filter === 'open') return m.type === 'open';
+    if (filter === 'closed') return m.type === 'closed';
+    if (filter === 'free') return m.free;
+    return true;
+  });
+  grid.innerHTML = filtered.map(m => {
+    const sel = selectedModels.has(m.id) ? 'selected' : '';
+    const tagClass = m.type === 'open' ? 'tag-open' : 'tag-closed';
+    const tagLabel = m.type === 'open' ? 'Open Source' : '';
+    const freeTag = m.free ? '<span class="model-tag tag-free">Free</span>' : '';
+    return `<div class="model-card ${sel}" onclick="toggleModel('${m.id}')">
+      <div class="model-name">${m.name}</div>
+      <div class="model-vendor">${m.vendor}</div>
+      <span class="model-tag ${tagClass}">${tagLabel}</span>${freeTag}
+      <div class="benchmark-bar"><div class="bar-label"><span>MMLU</span><span>${m.mmlu}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${m.mmlu}%;background:linear-gradient(90deg,#06b6d4,#22d3ee)"></div></div></div>
+      <div class="benchmark-bar"><div class="bar-label"><span>HumanEval</span><span>${m.humaneval}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${m.humaneval}%;background:linear-gradient(90deg,#10b981,#34d399)"></div></div></div>
+      <div class="benchmark-bar"><div class="bar-label"><span>GSM8K</span><span>${m.gsm8k}%</span></div><div class="bar-track"><div class="bar-fill" style="width:${m.gsm8k}%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div></div>
+    </div>`;
+  }).join('');
+}
+
+function toggleModel(id) {
+  if (selectedModels.has(id)) {
+    selectedModels.delete(id);
+  } else {
+    if (selectedModels.size >= 4) {
+      showToast('You can select up to 4 models');
+      return;
+    }
+    selectedModels.add(id);
+  }
+  renderGrid(currentFilter);
+  renderCompare();
+}
+
+function renderCompare() {
+  const section = document.getElementById('compare-section');
+  const content = document.getElementById('compare-content');
+  if (selectedModels.size < 2) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  const sel = models.filter(m => selectedModels.has(m.id));
+  const benchmarks = [
+    {key:'mmlu',label:'MMLU',unit:'%'},
+    {key:'humaneval',label:'HumanEval',unit:'%'},
+    {key:'gsm8k',label:'GSM8K',unit:'%'},
+    {key:'math',label:'MATH',unit:'%'},
+    {key:'gpqa',label:'GPQA',unit:'%'},
+    {key:'ifeval',label:'IFEval',unit:'%'}
+  ];
+  const specs = [
+    {key:'ctx',label:'Context Window',format:v=>v>=1000000?(v/1000000)+'M':(v/1000)+'K'},
+    {key:'inputPrice',label:'Input Price',format:v=>v===0?'Free':'$'+v+'/1M tokens'},
+    {key:'outputPrice',label:'Output Price',format:v=>v===0?'Free':'$'+v+'/1M tokens'},
+    {key:'speed',label:'Speed',format:v=>v+' tokens/s'}
+  ];
+
+  let html = '<h3 style="font-size:.95rem;color:#e2e8f0;margin-bottom:12px">Benchmark Scores</h3>';
+  html += '<table class="compare-table"><tr><th>Benchmark</th>';
+  sel.forEach(m => html += `<th>${m.name}</th>`);
+  html += '</tr>';
+  benchmarks.forEach(b => {
+    const vals = sel.map(m => m[b.key]);
+    const best = Math.max(...vals);
+    html += `<tr><td>${b.label}</td>`;
+    sel.forEach(m => {
+      const v = m[b.key];
+      const cls = v === best ? 'best-val' : '';
+      html += `<td class="${cls}">${v}${b.unit}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</table>';
+
+  html += '<h3 style="font-size:.95rem;color:#e2e8f0;margin:20px 0 12px">Specs & Pricing</h3>';
+  html += '<table class="compare-table"><tr><th>Spec</th>';
+  sel.forEach(m => html += `<th>${m.name}</th>`);
+  html += '</tr>';
+  specs.forEach(s => {
+    html += `<tr><td>${s.label}</td>`;
+    sel.forEach(m => {
+      html += `<td>${s.format(m[s.key])}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</table>';
+
+  // Radar chart using canvas
+  html += '<h3 style="font-size:.95rem;color:#e2e8f0;margin:20px 0 12px">Capability Radar</h3>';
+  html += '<div style="text-align:center"><canvas id="radar-chart" width="400" height="400" style="max-width:100%"></canvas></div>';
+
+  content.innerHTML = html;
+  drawRadar(sel, benchmarks);
+}
+
+function drawRadar(sel, benchmarks) {
+  const canvas = document.getElementById('radar-chart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx = 200, cy = 200, r = 150;
+  const n = benchmarks.length;
+  const colors = ['#22d3ee','#10b981','#f59e0b','#ef4444'];
+
+  ctx.clearRect(0, 0, 400, 400);
+
+  // Draw grid
+  for (let level = 20; level <= 100; level += 20) {
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      const x = cx + r * (level / 100) * Math.cos(angle);
+      const y = cy + r * (level / 100) * Math.sin(angle);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = 'rgba(148,163,184,0.1)';
+    ctx.stroke();
+  }
+
+  // Draw axes and labels
+  benchmarks.forEach((b, i) => {
+    const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(x, y);
+    ctx.strokeStyle = 'rgba(148,163,184,0.15)';
+    ctx.stroke();
+    const lx = cx + (r + 20) * Math.cos(angle);
+    const ly = cy + (r + 20) * Math.sin(angle);
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(b.label, lx, ly);
+  });
+
+  // Draw data
+  sel.forEach((m, mi) => {
+    ctx.beginPath();
+    benchmarks.forEach((b, i) => {
+      const angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      const val = m[b.key] / 100;
+      const x = cx + r * val * Math.cos(angle);
+      const y = cy + r * val * Math.sin(angle);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = colors[mi] + '20';
+    ctx.fill();
+    ctx.strokeStyle = colors[mi];
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Legend
+  sel.forEach((m, mi) => {
+    const ly = 380 - mi * 16;
+    ctx.fillStyle = colors[mi];
+    ctx.fillRect(10, ly - 5, 10, 10);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(m.name, 25, ly + 2);
+  });
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Suggestion',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**pageside**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+
+// Auto-select first two models
+selectedModels.add('gpt4o');
+selectedModels.add('claude4sonnet');
+renderGrid();
+renderCompare();</script>
+</body>
+</html>

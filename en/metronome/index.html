@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online metronome with 30-300 BPM, 2/4, 3/4, 4/4 and 6/8 time signatures, first-beat accent, and woodblock, electronic or tick sounds. No signup required.">
+<meta name="keywords" content="online metronome,metronome,free metronome,bpm metronome,tempo,time signature,music practice">
+<title>Metronome - Free Online Metronome with BPM and Accents</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/metronome/">
+<meta property="og:title" content="Metronome - Free Online Metronome with BPM and Accents">
+<meta property="og:description" content="Free online metronome with 30-300 BPM, 2/4, 3/4, 4/4 and 6/8 time signatures, first-beat accent, and woodblock, electronic or tick sounds. No signup required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/metronome/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/metronome/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online Metronome", "description": "Free online metronome with 30-300 BPM, 2/4, 3/4, 4/4 and 6/8 time signatures, first-beat accent and woodblock, electronic or tick sounds. Audio is synthesized with the Web Audio API in real time and paired with a pendulum animation and beat highlight.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What BPM range does this online metronome support?", "acceptedAnswer": {"@type": "Answer", "text": "It supports 30 to 300 BPM, covering the full range from Largo to Presto. You can change the tempo with the slider, the preset buttons, or the arrow keys on your keyboard."}}, {"@type": "Question", "name": "Where does the metronome sound come from?", "acceptedAnswer": {"@type": "Answer", "text": "Every click is synthesized in your browser with the Web Audio API. No audio files are downloaded and no external libraries are used. The audio context is created on your first click so it complies with browser autoplay policies."}}, {"@type": "Question", "name": "Which time signatures and sounds are available?", "acceptedAnswer": {"@type": "Answer", "text": "You can choose 2/4, 3/4, 4/4 or 6/8, plus woodblock, electronic and tick sounds. The first-beat accent can be toggled on or off; when enabled, beat 1 uses a higher pitch and lights up in red."}}, {"@type": "Question", "name": "Are there keyboard shortcuts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Press Space to start or stop the metronome, the Up or Right arrow to speed up and the Down or Left arrow to slow down. Hold Shift with an arrow key to change the tempo by 5 BPM at a time."}}, {"@type": "Question", "name": "Does it work on phones and tablets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The layout is responsive and works on mobile and tablet screens. Headphones are recommended for the clearest audible feedback during practice."}}, {"@type": "Question", "name": "Does a browser metronome drain the battery?", "acceptedAnswer": {"@type": "Answer", "text": "No. It only generates simple waveforms with the Web Audio API, so CPU usage is very low and the effect on battery life is negligible."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Online Metronome", "item": "https://adi63586.github.io/Toolguidehub/en/metronome/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the online metronome","description":"Set a tempo and time signature, then press start to hear clicks synthesized live with the Web Audio API.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Online Metronome"},"step":[{"@type":"HowToStep","position":1,"name":"Set the tempo","text":"Drag the BPM slider or click a preset to pick a tempo between 30 and 300 BPM."},{"@type":"HowToStep","position":2,"name":"Choose time signature and sound","text":"Select 2/4, 3/4, 4/4 or 6/8 and pick a woodblock, electronic or tick sound."},{"@type":"HowToStep","position":3,"name":"Start playing","text":"Click Start or press Space. The metronome clicks, the pendulum swings and the current beat lights up."},{"@type":"HowToStep","position":4,"name":"Practice along","text":"Play along and adjust the tempo with the arrow keys at any time. Press Space again to stop."}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+.metro-panel{background:#1e293b;border-radius:16px;padding:28px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1);text-align:center}
+.bpm-display{font-size:5rem;font-weight:700;color:#22d3ee;line-height:1;margin:20px 0}
+.bpm-label{font-size:.9rem;color:#94a3b8;margin-bottom:8px}
+.bpm-slider{width:100%;max-width:500px;margin:16px auto;-webkit-appearance:none;appearance:none;height:8px;background:#0f172a;border-radius:4px;outline:none;display:block}
+.bpm-slider::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;background:#22d3ee;border-radius:50%;cursor:pointer;box-shadow:0 0 10px rgba(34,211,238,.4)}
+.bpm-slider::-moz-range-thumb{width:24px;height:24px;background:#22d3ee;border-radius:50%;cursor:pointer;border:none;box-shadow:0 0 10px rgba(34,211,238,.4)}
+.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center;margin:20px 0}
+.control-group{display:flex;flex-direction:column;align-items:center;gap:6px}
+.control-group label{font-size:.85rem;color:#94a3b8}
+select{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:8px 16px;font-size:.9rem;min-width:120px;cursor:pointer}
+select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.checkbox-group{display:flex;align-items:center;gap:8px;color:#94a3b8;font-size:.9rem;cursor:pointer}
+.checkbox-group input{width:18px;height:18px;accent-color:#22d3ee;cursor:pointer}
+.pendulum-wrap{position:relative;width:120px;height:120px;margin:8px auto 4px}
+.pendulum-rod{position:absolute;left:50%;top:0;width:4px;height:100px;background:linear-gradient(#22d3ee,#3b82f6);border-radius:3px;transform-origin:50% 0;transform:rotate(0deg);transition:transform .5s linear}
+.pendulum-bob{position:absolute;left:-14px;bottom:-6px;width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 32% 32%,#67e8f9,#0891b2);box-shadow:0 0 14px rgba(34,211,238,.5)}
+.pendulum-base{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:60px;height:6px;border-radius:3px;background:#334155}
+.beat-visual{display:flex;gap:12px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.beat-dot{width:40px;height:40px;border-radius:50%;background:#0f172a;border:2px solid rgba(148,163,184,.3);transition:all .08s;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:#475569}
+.beat-dot.active{background:rgba(34,211,238,.3);border-color:#22d3ee;box-shadow:0 0 20px rgba(34,211,238,.3);transform:scale(1.15);color:#e2e8f0}
+.beat-dot.accent{border-color:rgba(248,113,113,.6)}
+.beat-dot.accent.active{background:rgba(239,68,68,.35);border-color:#f87171;box-shadow:0 0 20px rgba(239,68,68,.35)}
+.btn{padding:12px 32px;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:all .2s;font-weight:500}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2);padding:10px 20px;font-size:.9rem}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.presets{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.preset-btn{padding:6px 14px;border-radius:6px;font-size:.8rem;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15);cursor:pointer;transition:all .2s}
+.preset-btn:hover{background:rgba(6,182,212,.1);color:#22d3ee}
+.speed-info{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.1);border-radius:8px;padding:12px;margin-top:16px;font-size:.85rem;color:#94a3b8}
+.hint{color:#64748b;font-size:.8rem;margin-top:10px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section li{color:#94a3b8;font-size:.9rem;margin:4px 0 4px 20px}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.9rem}
+th,td{border:1px solid rgba(148,163,184,.15);padding:9px 12px;text-align:left}
+th{background:#0f172a;color:#e2e8f0}
+td{color:#94a3b8}
+td:first-child{color:#e2e8f0;font-weight:600}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1);display:inline-block;padding:6px 12px;margin:4px 4px 0 0;background:#0f172a;border-radius:6px;color:#22d3ee;font-size:14px}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:600px){.bpm-display{font-size:3.5rem}.beat-dot{width:30px;height:30px;font-size:.65rem}.pendulum-wrap{width:96px;height:96px}.pendulum-rod{height:80px}.pendulum-bob{width:26px;height:26px;left:-11px}.btn{padding:10px 20px;font-size:.9rem}}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.header{flex-direction:column;gap:8px}.metro-panel{padding:18px}.container{padding:16px 12px}}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🎵 Online Metronome</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../../#tools">Tools</a> &rsaquo; Online Metronome</p>
+<div class="hero"><p>A free online metronome with 30-300 BPM, 2/4, 3/4, 4/4 and 6/8 time signatures, a toggleable first-beat accent and woodblock, electronic or tick sounds. Every click is synthesized live with the Web Audio API, paired with a swinging pendulum and beat highlight. Space starts and stops, arrow keys change tempo. | No sign-up · nothing is uploaded</p><span class="badge">Zero dependencies · works offline</span></div>
+
+<div class="metro-panel" id="metroPanel">
+  <div class="bpm-label">Current tempo (BPM)</div>
+  <div class="bpm-display" id="bpmDisplay">120</div>
+  <input type="range" class="bpm-slider" id="bpmSlider" min="30" max="300" value="120" aria-label="Beats per minute">
+  <div class="pendulum-wrap" aria-hidden="true">
+    <div class="pendulum-rod" id="pendulumRod"><div class="pendulum-bob"></div></div>
+    <div class="pendulum-base"></div>
+  </div>
+  <div class="controls">
+    <div class="control-group">
+      <label for="timeSignature">Time signature</label>
+      <select id="timeSignature">
+        <option value="2">2/4</option>
+        <option value="3">3/4</option>
+        <option value="4" selected>4/4</option>
+        <option value="6">6/8</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="soundType">Sound</label>
+      <select id="soundType">
+        <option value="wood" selected>Woodblock</option>
+        <option value="click">Electronic</option>
+        <option value="tick">Tick</option>
+      </select>
+    </div>
+    <label class="checkbox-group" for="accentToggle"><input type="checkbox" id="accentToggle" checked>Accent beat 1</label>
+  </div>
+  <div class="beat-visual" id="beatVisual"></div>
+  <button class="btn btn-primary" id="startBtn" type="button">▶ Start</button>
+  <div class="controls"><button class="btn btn-secondary" id="copyBtn" type="button">📋 Copy settings</button></div>
+  <div class="presets" id="presets"></div>
+  <div class="speed-info" id="speedInfo">Tempo marking: Allegro</div>
+  <div class="hint">Shortcuts: Space = start/stop · ↑/→ faster · ↓/← slower (hold Shift for 5 BPM steps)</div>
+</div>
+
+<div class="section info-section">
+  <h2>📖 How to use this metronome</h2>
+  <p><strong>1. Set the tempo.</strong> Drag the slider or tap a preset to reach your target BPM. The range is 30-300 BPM, covering everything from Largo to Presto. You can also use the ↑/→ keys to speed up and ↓/← to slow down.</p>
+  <p><strong>2. Pick a time signature.</strong> 2/4 suits marches, 3/4 is the foundation of the waltz, 4/4 is the most common choice and 6/8 appears frequently in pop and rock. The number of beat dots updates when you switch.</p>
+  <p><strong>3. Toggle the accent.</strong> With "Accent beat 1" enabled, the first beat of every bar plays at a higher pitch and shows in red so you can hear where the bar begins. Turn it off to make every beat identical.</p>
+  <p><strong>4. Choose a sound.</strong> Woodblock is crisp, electronic is precise and tick is short and clean. Pick whichever suits your instrument and room.</p>
+  <p><strong>5. Start practicing.</strong> Click Start or press Space; the clicks begin, the pendulum swings and the current beat lights up. Click again or press Space to stop.</p>
+</div>
+
+<div class="section info-section">
+  <h2>🥁 Common BPM reference</h2>
+  <table>
+    <thead><tr><th>Style / use</th><th>Typical BPM</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Slow ballad</td><td>60-76</td><td>Slow songs, folk, Adagio</td></tr>
+      <tr><td>Waltz</td><td>84-96 (around 90)</td><td>3/4 time, one step per beat</td></tr>
+      <tr><td>Pop songs</td><td>100-120</td><td>The most common pop tempo</td></tr>
+      <tr><td>March</td><td>116-124 (around 120)</td><td>2/4 or 4/4 marching pace</td></tr>
+      <tr><td>Dance / EDM</td><td>128</td><td>Standard for house and dance music</td></tr>
+      <tr><td>Fast practice</td><td>140-168</td><td>Scales and études at speed</td></tr>
+      <tr><td>Running cadence</td><td>170-180</td><td>Common jogging and marathon step rate</td></tr>
+      <tr><td>Presto</td><td>168-200</td><td>Fast passages and virtuoso runs</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section info-section">
+  <h2>❓ Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What BPM range does this online metronome support?</h3>
+    <p>It supports 30 to 300 BPM, covering the full range from Largo to Presto. You can change the tempo with the slider, the preset buttons, or the arrow keys on your keyboard.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Where does the metronome sound come from?</h3>
+    <p>Every click is synthesized in your browser with the Web Audio API. No audio files are downloaded and no external libraries are used. The audio context is created on your first click so it complies with browser autoplay policies.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Which time signatures and sounds are available?</h3>
+    <p>You can choose 2/4, 3/4, 4/4 or 6/8, plus woodblock, electronic and tick sounds. The first-beat accent can be toggled on or off; when enabled, beat 1 uses a higher pitch and lights up in red.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Are there keyboard shortcuts?</h3>
+    <p>Yes. Press Space to start or stop the metronome, the Up or Right arrow to speed up and the Down or Left arrow to slow down. Hold Shift with an arrow key to change the tempo by 5 BPM at a time.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does it work on phones and tablets?</h3>
+    <p>Yes. The layout is responsive and works on mobile and tablet screens. Headphones are recommended for the clearest audible feedback during practice.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does a browser metronome drain the battery?</h3>
+    <p>No. It only generates simple waveforms with the Web Audio API, so CPU usage is very low and the effect on battery life is negligible.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I save my favourite tempo?</h3>
+    <p>Yes. Add URL parameters such as <code>https://adi63586.github.io/Toolguidehub/en/metronome/?bpm=100&amp;beats=4</code> and bookmark the page to return to that setup instantly.</p>
+  </div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1);">
+  <h2 style="color:#e2e8f0;font-size:18px;margin-bottom:12px">🔗 Related tools</h2>
+  <a href="../../en/bpm-tapper/">🎼 BPM Tapper</a>
+  <a href="../../en/speech-timer/">🎤 Speech Timer</a>
+  <a href="../../en/online-compass/">🧭 Online Compass</a>
+  <a href="../../en/work-hours-calculator/">⏱ Work Hours Calculator</a>
+<a href="../../en/beat-maker/">Beat Maker</a></section>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy</a>
+<a href="../../en/terms/">Terms</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../metronome/">中文</a>
+</div>
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Online Metronome | No sign-up · nothing is uploaded</p>
+
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  "use strict";
+  var audioCtx = null, masterGain = null;
+  var isPlaying = false, bpm = 120, beatsPerBar = 4, soundType = "wood", accentOn = true;
+  var currentBeat = 0, nextNoteTime = 0, schedulerTimer = null, swingDir = 0;
+  var LOOKAHEAD_MS = 25, SCHEDULE_AHEAD = 0.12;
+
+  var $ = function(id){ return document.getElementById(id); };
+  var bpmDisplay = $("bpmDisplay"), bpmSlider = $("bpmSlider"), timeSignature = $("timeSignature"),
+      soundTypeSel = $("soundType"), accentToggle = $("accentToggle"), beatVisual = $("beatVisual"),
+      startBtn = $("startBtn"), pendulumRod = $("pendulumRod"), speedInfo = $("speedInfo"), toastEl = $("toast");
+
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    setTimeout(function(){ toastEl.classList.remove("show"); }, 2200);
+  }
+
+  function bpmLabel(b){
+    if (b < 66) return "Largo";
+    if (b < 76) return "Adagio";
+    if (b < 108) return "Andante";
+    if (b < 120) return "Moderato";
+    if (b < 168) return "Allegro";
+    return "Presto";
+  }
+
+  function buildBeatDots(){
+    beatVisual.innerHTML = "";
+    for (var i = 0; i < beatsPerBar; i++){
+      var d = document.createElement("div");
+      d.className = "beat-dot" + (i === 0 ? " accent" : "");
+      d.textContent = i === 0 ? "1" : String(i + 1);
+      beatVisual.appendChild(d);
+    }
+  }
+
+  function clearDots(){
+    var dots = beatVisual.children;
+    for (var i = 0; i < dots.length; i++) dots[i].classList.remove("active");
+  }
+
+  function highlight(beat){
+    clearDots();
+    var dot = beatVisual.children[beat];
+    if (dot) dot.classList.add("active");
+    swingDir = swingDir === 1 ? -1 : 1;
+    pendulumRod.style.transitionDuration = (60 / bpm) + "s";
+    pendulumRod.style.transform = "rotate(" + (swingDir * 32) + "deg)";
+  }
+
+  function setBpm(v, keepSync){
+    v = Math.round(v);
+    if (isNaN(v)) v = 120;
+    if (v < 30) v = 30;
+    if (v > 300) v = 300;
+    bpm = v;
+    bpmSlider.value = v;
+    bpmDisplay.textContent = v;
+    speedInfo.textContent = "Tempo marking: " + bpmLabel(v);
+    if (isPlaying && keepSync){ nextNoteTime = audioCtx.currentTime + 60 / bpm; currentBeat = 0; }
+  }
+
+  function ensureCtx(){
+    if (audioCtx) return;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AC();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0.8;
+    masterGain.connect(audioCtx.destination);
+  }
+
+  function playClick(time, accent){
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(masterGain);
+    var freq, dur, peak, wave;
+    if (soundType === "wood"){
+      wave = "triangle"; freq = accent ? 1400 : 980; dur = 0.07; peak = accent ? 0.9 : 0.62;
+    } else if (soundType === "click"){
+      wave = "square"; freq = accent ? 2500 : 1800; dur = 0.03; peak = accent ? 0.5 : 0.34;
+    } else {
+      wave = "sine"; freq = accent ? 2800 : 2100; dur = 0.025; peak = accent ? 0.55 : 0.4;
+    }
+    if (!accentOn) freq = freq * 0.85;
+    osc.type = wave;
+    osc.frequency.setValueAtTime(freq, time);
+    gain.gain.setValueAtTime(0.0001, time);
+    gain.gain.exponentialRampToValueAtTime(peak, time + 0.002);
+    gain.gain.exponentialRampToValueAtTime(0.0001, time + dur);
+    osc.start(time);
+    osc.stop(time + dur + 0.02);
+  }
+
+  function scheduleNote(beat, time){
+    var accent = accentOn && beat === 0;
+    playClick(time, accent);
+    var delay = Math.max(0, (time - audioCtx.currentTime) * 1000);
+    setTimeout(function(){ if (isPlaying) highlight(beat); }, delay);
+  }
+
+  function scheduler(){
+    while (nextNoteTime < audioCtx.currentTime + SCHEDULE_AHEAD){
+      scheduleNote(currentBeat, nextNoteTime);
+      nextNoteTime += 60 / bpm;
+      currentBeat = (currentBeat + 1) % beatsPerBar;
+    }
+  }
+
+  function startMetro(){
+    ensureCtx();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    isPlaying = true;
+    currentBeat = 0;
+    swingDir = 1;
+    nextNoteTime = audioCtx.currentTime + 0.06;
+    schedulerTimer = setInterval(scheduler, LOOKAHEAD_MS);
+    startBtn.textContent = "⏹ Stop";
+    startBtn.classList.remove("btn-primary");
+    startBtn.classList.add("btn-danger");
+  }
+
+  function stopMetro(){
+    isPlaying = false;
+    if (schedulerTimer) { clearInterval(schedulerTimer); schedulerTimer = null; }
+    clearDots();
+    pendulumRod.style.transitionDuration = "0.3s";
+    pendulumRod.style.transform = "rotate(0deg)";
+    startBtn.textContent = "▶ Start";
+    startBtn.classList.remove("btn-danger");
+    startBtn.classList.add("btn-primary");
+  }
+
+  function toggleMetronome(){ if (isPlaying) stopMetro(); else startMetro(); }
+
+  window.toggleMetronome = toggleMetronome;
+
+  startBtn.addEventListener("click", toggleMetronome);
+  bpmSlider.addEventListener("input", function(){ setBpm(parseInt(this.value, 10), true); });
+  timeSignature.addEventListener("change", function(){
+    beatsPerBar = parseInt(this.value, 10) || 4;
+    buildBeatDots();
+    if (isPlaying) { currentBeat = 0; nextNoteTime = audioCtx.currentTime + 60 / bpm; }
+  });
+  soundTypeSel.addEventListener("change", function(){ soundType = this.value; });
+  accentToggle.addEventListener("change", function(){ accentOn = this.checked; });
+
+  var PRESETS = [
+    ["Largo 60", 60], ["Adagio 70", 70], ["Waltz 90", 90], ["Andante 100", 100],
+    ["March 120", 120], ["Allegro 140", 140], ["Fast 160", 160], ["Presto 180", 180]
+  ];
+  (function buildPresets(){
+    var box = document.getElementById("presets");
+    PRESETS.forEach(function(p){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "preset-btn";
+      b.textContent = p[0];
+      b.addEventListener("click", function(){ setBpm(p[1], true); });
+      box.appendChild(b);
+    });
+  })();
+
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var ts = timeSignature.value === "6" ? "6/8" : timeSignature.value + "/4";
+    var snd = { wood: "Woodblock", click: "Electronic", tick: "Tick" }[soundType] || soundType;
+    var txt = "BPM: " + bpm + " | Time: " + ts + " | Sound: " + snd + " | Accent beat 1: " + (accentOn ? "on" : "off");
+    navigator.clipboard.writeText(txt).then(function(){ showToast("Copied: " + txt); })["catch"](function(){ showToast("Copy failed"); });
+  });
+
+  document.addEventListener("keydown", function(e){
+    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA")) return;
+    if (e.code === "Space" || e.key === " "){
+      e.preventDefault();
+      toggleMetronome();
+    } else if (e.key === "ArrowUp" || e.key === "ArrowRight"){
+      e.preventDefault();
+      setBpm(bpm + (e.shiftKey ? 5 : 1), true);
+    } else if (e.key === "ArrowDown" || e.key === "ArrowLeft"){
+      e.preventDefault();
+      setBpm(bpm - (e.shiftKey ? 5 : 1), true);
+    }
+  });
+
+  (function initFromUrl(){
+    var q = new URLSearchParams(window.location.search);
+    var b = parseInt(q.get("bpm"), 10);
+    var n = parseInt(q.get("beats"), 10);
+    if (b >= 30 && b <= 300) setBpm(b);
+    if ([2, 3, 4, 6].indexOf(n) >= 0){ beatsPerBar = n; timeSignature.value = String(n); }
+    buildBeatDots();
+    setBpm(bpm);
+  })();
+})();
+</script>
+</body>
+</html>

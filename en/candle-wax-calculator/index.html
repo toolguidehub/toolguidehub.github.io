@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candle Wax Calculator - ToolGuideHub</title>
+<meta name="description" content="Free candle wax calculator: enter volume and count for wax weight and fragrance load for soy/beeswax/paraffin/palm/coconut wax. 100% client-side, no sign-up.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/candle-wax-calculator/">
+<meta property="og:title" content="Candle Wax Calculator - ToolGuideHub">
+<meta property="og:description" content="Free candle wax calculator: enter volume and count for wax weight and fragrance load for soy/beeswax/paraffin/palm/coconut wax. 100% client-side, no sign-up.">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#22d3ee;--border:rgba(148,163,184,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:12px}
+header a{color:var(--text);text-decoration:none;font-weight:600}
+header .lang a{color:var(--accent);margin-left:16px}
+main{max-width:880px;margin:0 auto;padding:32px 20px}
+h1{font-size:1.9rem;margin-bottom:8px}
+.hero{color:var(--muted);margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.field{flex:1;min-width:200px;display:flex;flex-direction:column;gap:6px}
+label{font-size:.9rem;color:var(--muted)}
+input,select{background:#0f172a;color:#e2e8f0;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:1rem;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:8px}
+.result-item{background:#0f172a;border:1px solid var(--border);border-radius:10px;padding:14px}
+.result-item .label{font-size:.8rem;color:var(--muted)}
+.result-item .value{font-size:1.3rem;font-weight:700;color:var(--accent);word-break:break-all}
+.formula{background:#0f172a;border-left:3px solid var(--accent);border-radius:6px;padding:12px 14px;color:var(--muted);font-size:.9rem;margin-top:12px}
+.formula code{color:var(--text)}
+.btn{background:var(--accent);color:#0f172a;border:none;border-radius:8px;padding:11px 20px;font-size:1rem;font-weight:700;cursor:pointer}
+.btn:hover{opacity:.9}
+.btn-row{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.hint{color:var(--muted);font-size:.85rem;margin-top:10px}
+.faq h2{font-size:1.3rem;margin:28px 0 12px}
+.faq details{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted);text-decoration:none;margin:0 8px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;border:1px solid var(--accent);color:var(--text);padding:12px 20px;border-radius:10px;opacity:0;transition:.3s;pointer-events:none;z-index:99}
+.toast.show{opacity:1}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<a href="../../">🧰 ToolGuideHub</a>
+<span class="lang"><a href="../../en/candle-wax-calculator/">中文</a></span>
+</header>
+<main>
+<h1>Candle Wax Calculator</h1>
+<p class="hero">Enter container volume, number of containers, and wax type to get the exact wax weight and fragrance load for handmade candles. Great for hobbyists and small studios.</p>
+
+<div class="card">
+<div class="row">
+<div class="field">
+<label for="vol">Container volume (ml)</label>
+<input id="vol" type="number" min="0" step="1" value="200" oninput="convert()">
+</div>
+<div class="field">
+<label for="count">Number of containers</label>
+<input id="count" type="number" min="1" step="1" value="4" oninput="convert()">
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label for="wax">Wax type</label>
+<select id="wax" onchange="convert()">
+<option value="0.86">Soy wax (density 0.86 g/ml)</option>
+<option value="0.96">Beeswax (density 0.96 g/ml)</option>
+<option value="0.87">Paraffin (density 0.87 g/ml)</option>
+<option value="0.91">Palm wax (density 0.91 g/ml)</option>
+<option value="0.86">Coconut wax (density 0.86 g/ml)</option>
+</select>
+</div>
+<div class="field">
+<label for="fo">Fragrance load (% of wax weight)</label>
+<input id="fo" type="number" min="0" max="15" step="0.5" value="6" oninput="convert()">
+</div>
+</div>
+<div class="btn-row">
+<button class="btn" onclick="convert()">Calculate wax</button>
+<button class="btn" style="background:#334155;color:#e2e8f0" onclick="copyResult()">Copy result</button>
+<button class="btn" style="background:#334155;color:#e2e8f0" onclick="resetForm()">Reset</button>
+</div>
+<div class="hint">Tip: fragrance is typically added at 6%–10% of wax weight, up to 12% maximum. This is the base amount; prepare about 5%–10% extra wax for loss when pouring.</div>
+</div>
+
+<div class="card" id="resultCard" style="display:none">
+<h2 style="margin-bottom:12px">Results</h2>
+<div class="grid">
+<div class="result-item"><div class="label">Wax weight</div><div class="value" id="rWax">—</div></div>
+<div class="result-item"><div class="label">Wax weight (oz)</div><div class="value" id="rWaxOz">—</div></div>
+<div class="result-item"><div class="label">Fragrance weight</div><div class="value" id="rFo">—</div></div>
+<div class="result-item"><div class="label">Wax + fragrance total</div><div class="value" id="rTotal">—</div></div>
+<div class="result-item"><div class="label">Total volume (ml)</div><div class="value" id="rVol">—</div></div>
+<div class="result-item"><div class="label">Total volume (L)</div><div class="value" id="rVolL">—</div></div>
+</div>
+<div class="formula">
+Formula: <code>total volume = container volume × count</code>; <code>wax weight = total volume × wax density</code>; <code>fragrance = wax weight × load%</code>; <code>total = wax + fragrance</code>.
+</div>
+</div>
+
+<section class="faq">
+<h2>Frequently asked questions</h2>
+<details><summary>What are the densities of different waxes?</summary><p>Soy wax ≈ 0.86 g/ml, beeswax ≈ 0.96 g/ml, paraffin ≈ 0.87 g/ml, palm wax ≈ 0.91 g/ml, coconut wax ≈ 0.86 g/ml. Higher density means more wax by weight for the same volume.</p></details>
+<details><summary>How much fragrance oil should I add?</summary><p>Candle fragrance is typically added at 6%–10% of the wax weight, up to 12% maximum. This calculator uses your input percentage to compute the fragrance weight and the total weight.</p></details>
+<details><summary>Why calculate fragrance by weight, not volume?</summary><p>Fragrance oil density is close to but not exactly water, so weighing is more accurate, stable, and easier to replicate across batches.</p></details>
+<details><summary>Should I add extra wax for loss?</summary><p>Melting and pouring usually cause a small loss. In practice prepare about 5%–10% extra wax. This result is the base amount and does not include loss.</p></details>
+</section>
+</main>
+
+<footer>
+<a href="../../">Home</a>
+<a href="../../en/contact/">Contact</a>
+<a href="../../en/privacy/">Privacy Policy</a>
+<a href="../../en/terms/">Terms of Service</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank">GitHub</a>
+<br>© 2026 ToolGuideHub — All calculations run locally in your browser. No data is sent to any server.
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+function convert(){
+  var vol=parseFloat(document.getElementById('vol').value);
+  var count=parseFloat(document.getElementById('count').value);
+  var dens=parseFloat(document.getElementById('wax').value);
+  var fo=parseFloat(document.getElementById('fo').value);
+  if(isNaN(vol)||isNaN(count)||isNaN(dens)||vol<=0||count<=0){
+    document.getElementById('resultCard').style.display='none';
+    if(vol!==0&&count!==0) toast('Please enter a valid volume and count');
+    return;
+  }
+  var totalVol=vol*count;
+  var waxWeight=totalVol*dens;
+  var foPct=isNaN(fo)?0:fo;
+  if(foPct<0)foPct=0; if(foPct>15)foPct=15;
+  var foWeight=waxWeight*foPct/100;
+  var totalWeight=waxWeight+foWeight;
+  var waxOz=waxWeight/28.349523125;
+  document.getElementById('rWax').textContent=waxWeight.toFixed(1)+' g';
+  document.getElementById('rWaxOz').textContent=waxOz.toFixed(2)+' oz';
+  document.getElementById('rFo').textContent=foWeight.toFixed(1)+' g';
+  document.getElementById('rTotal').textContent=totalWeight.toFixed(1)+' g';
+  document.getElementById('rVol').textContent=totalVol.toLocaleString('en-US')+' ml';
+  document.getElementById('rVolL').textContent=(totalVol/1000).toFixed(2)+' L';
+  document.getElementById('resultCard').style.display='block';
+}
+function copyResult(){
+  if(document.getElementById('resultCard').style.display!=='block'){toast('Calculate first');return;}
+  var txt='Candle wax calculation\nContainer volume: '+document.getElementById('vol').value+' ml × '+document.getElementById('count').value+' containers\nWax density: '+document.getElementById('wax').value+' g/ml\nWax weight: '+document.getElementById('rWax').textContent+'\nFragrance weight: '+document.getElementById('rFo').textContent+'\nTotal (wax + fragrance): '+document.getElementById('rTotal').textContent+'\nTotal volume: '+document.getElementById('rVol').textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('Result copied');},function(){toast('Copy failed');});}else{toast('Clipboard not supported');}
+}
+function resetForm(){
+  document.getElementById('vol').value='200';
+  document.getElementById('count').value='4';
+  document.getElementById('wax').value='0.86';
+  document.getElementById('fo').value='6';
+  convert();
+}
+convert();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Candle Wax Calculator",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Web",
+  "description":"Enter container volume, count, and wax density to get exact wax weight and fragrance load for handmade candles.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "url":"https://adi63586.github.io/Toolguidehub/en/candle-wax-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What are the densities of different waxes?","acceptedAnswer":{"@type":"Answer","text":"Soy wax ≈ 0.86 g/ml, beeswax ≈ 0.96 g/ml, paraffin ≈ 0.87 g/ml, palm wax ≈ 0.91 g/ml, coconut wax ≈ 0.86 g/ml. Higher density means more wax by weight for the same volume."}},
+    {"@type":"Question","name":"How much fragrance oil should I add?","acceptedAnswer":{"@type":"Answer","text":"Candle fragrance is typically added at 6%–10% of the wax weight, up to 12% maximum. This calculator uses your input percentage to compute the fragrance weight and total weight."}},
+    {"@type":"Question","name":"Why calculate fragrance by weight, not volume?","acceptedAnswer":{"@type":"Answer","text":"Fragrance oil density is close to but not exactly water, so weighing is more accurate, stable, and easier to replicate across batches."}},
+    {"@type":"Question","name":"Should I add extra wax for loss?","acceptedAnswer":{"@type":"Answer","text":"Melting and pouring usually cause a small loss. In practice prepare about 5%–10% extra wax. This result is the base amount and does not include loss."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},
+    {"@type":"ListItem","position":2,"name":"Candle Wax Calculator","item":"https://adi63586.github.io/Toolguidehub/en/candle-wax-calculator/"}
+  ]
+}
+</script>
+</body>
+</html>

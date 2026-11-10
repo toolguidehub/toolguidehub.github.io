@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert CSS to Sass indented syntax with extracted variables and nesting rules, then copy the result.">
+<meta name="keywords" content="css to sasscss to scsscss to sass convertercss to scss convertersass generatorscss convertercss preprocessor">
+<title>Free Online CSS to Sass/SCSS Converter | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-to-sass/">
+<meta property="og:title" content="CSS to Sass/SCSS Converter">
+<meta property="og:description" content="Convert CSS to Sass indented syntax with extracted variables and nesting rules, then copy the result.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-to-sass/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS to Sass/SCSS Converter", "description": "Free online CSS to Sass/SCSS converter, one-click convert CSS to Sass (indented syntax) or SCSS (bracket syntax). Supports variable extraction, automatic nesting, mixin conversion. Pure frontend local processing.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Do I need to upload my code?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to upload my code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All conversion is done locally in your browser. Your CSS code is never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Sass syntax is supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both SCSS (curly-brace syntax, CSS-compatible) and Sass (indented syntax, more concise) are supported. You can switch between them in the preview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it extract variables automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool automatically detects repeated values like colors and font sizes, extracting them as Sass variables for better maintainability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support nesting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool recognizes selector hierarchies in CSS and automatically generates nested rules, reducing repetitive parent selectors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I copy the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. After conversion, you can one-click copy the generated Sass/SCSS code or download as .scss/.sass files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free. No registration or payment required."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use CSS to Sass/SCSS Converter",
+  "description": "Simple steps to use CSS to Sass/SCSS Converter. Every operation runs on your device — Enter CSS code and Converted result are never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "CSS to Sass/SCSS Converter"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Input Content",
+      "text": "Enter or paste your content in the input area.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-to-sass/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure Options",
+      "text": "Adjust available options or settings as needed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-to-sass/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View & Save Results",
+      "text": "Click the process button to see results in your browser. Every operation runs on your device — Enter CSS code and Converted result are never sent to a server.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-to-sass/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.content-section ul{padding-left:20px;color:#94a3b8;font-size:.9rem}
+.content-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/#online-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS to Sass/SCSS Converter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-to-sass/"
+    }
+  ],
+  "name": "CSS to Sass/SCSS Converter"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-to-sass/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>CSS to Sass/SCSS Converter</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Tools Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div class="ad-slot">Ad Space (Top)</div>
+
+<div class="tool-section" id="input">
+<h2>CSS to Sass/SCSS Converter</h2>
+
+<div style="margin-bottom:12px">
+<label style="font-size:.85rem;color:#94a3b8;display:block;margin-bottom:6px">Enter CSS code:</label>
+<textarea id="cssInput" placeholder='.container { width: 100%; } .container .item { color: red; }' style="width:100%;height:200px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#e2e8f0;font-size:.85rem;resize:vertical;outline:none;font-family:monospace;white-space:pre;overflow:auto">.container {
+ width: 100%;
+ max-width: 1200px;
+ margin: 0 auto;
+}
+.container .header {
+ background: #333;
+ color: #fff;
+ padding: 20px;
+}
+.container .header .logo {
+ font-size: 24px;
+ font-weight: bold;
+}</textarea>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center">
+<button id="convertBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)">🔄 Convert to SCSS</button>
+<button id="convertSassBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">🔄 Convert to Sass</button>
+<button id="clearBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Clear</button>
+<button id="sampleBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">📋 Load Sample</button>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;margin-left:8px">
+<input type="checkbox" id="extractVars" checked> Extract variables
+</label>
+</div>
+<div id="result" style="display:none">
+<label style="font-size:.85rem;color:#94a3b8;display:block;margin-bottom:6px">Converted result:</label>
+<div style="position:relative">
+<pre id="codeOutput" style="width:100%;min-height:150px;background:#0f172a;border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:16px;color:#e2e8f0;font-size:.85rem;font-family:monospace;white-space:pre-wrap;overflow:auto;line-height:1.5"></pre>
+<div style="position:absolute;top:8px;right:8px;display:flex;gap:4px">
+<button id="copyBtn" style="padding:6px 12px;border:none;border-radius:4px;font-size:.75rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">📋 Copy</button>
+<button id="downloadBtn" style="padding:6px 12px;border:none;border-radius:4px;font-size:.75rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">⬇️ Download</button>
+</div>
+</div>
+<div style="margin-top:8px;padding:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px">
+<div style="font-size:.85rem;color:#22c55e;display:flex;gap:16px;flex-wrap:wrap">
+<span>📐 Original rules: <strong id="origRules">0</strong></span>
+<span>📐 Converted lines: <strong id="newLines">0</strong></span>
+</div>
+</div>
+</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+<div id="errorMsg" style="display:none;margin-top:12px;padding:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;color:#ef4444;font-size:.85rem"></div>
+<script>
+var i=document.getElementById('cssInput'),b=document.getElementById('convertBtn'),bs=document.getElementById('convertSassBtn'),c=document.getElementById('clearBtn'),s=document.getElementById('sampleBtn'),r=document.getElementById('result'),o=document.getElementById('codeOutput'),cb=document.getElementById('copyBtn'),db=document.getElementById('downloadBtn'),e=document.getElementById('errorMsg'),ev=document.getElementById('extractVars'),or=document.getElementById('origRules'),nl=document.getElementById('newLines');
+var ERR_EMPTY='Please enter CSS code';
+var ERR_PARSE='Cannot parse CSS code.';
+var ERR_PREFIX='Error: ';
+var TXT_COPIED='✅ Copied';
+var TXT_COPY='📋 Copy';
+var LM='scss',LR='';
+function pCSS(c){var r=[];var cl=c.replace(/\/\*[\s\S]*?\*\//g,'').trim();var bl=cl.split('}');for(var bi=0;bi<bl.length;bi++){var b=bl[bi].trim();if(!b)continue;var bi2=b.indexOf('{');if(bi2<0)continue;var sel=b.substring(0,bi2).trim();var bd=b.substring(bi2+1).trim();if(!sel||!bd)continue;var dl=[];bd.split(';').forEach(function(d){d=d.trim();if(!d)return;var col=d.indexOf(':');if(col>0){var p=d.substring(0,col).trim();var v=d.substring(col+1).trim();if(p&&v)dl.push({p:p,v:v})}});if(dl.length>0)r.push({s:sel,d:dl})}return r}
+function c2s(css,ext){var rules=pCSS(css);if(rules.length===0)return '';or.textContent=rules.length;var nested=[];for(var ri=0;ri<rules.length;ri++){var r=rules[ri];var parts=r.s.split(/\s+(?![^(]*\))/);if(parts.length>1){var par=parts[0];var ch=parts.slice(1).join(' ');var f=nested.find(function(n){return n.p===par});if(!f){f={p:par,c:[],d:r.d};nested.push(f)}else{f.d=f.d.concat(r.d)}f.c.push({s:ch,d:r.d})}else{nested.push({p:r.s,c:[],d:r.d})}}var s='';var vars='';if(ext){var freq={};for(var ni=0;ni<nested.length;ni++){for(var di=0;di<nested[ni].d.length;di++){var k=nested[ni].d[di].p+'|||'+nested[ni].d[di].v;freq[k]=(freq[k]||0)+1}}var vi=1;var vm={};for(var k in freq){if(freq[k]>=2){var sp=k.split('|||');var vn='$color-'+vi;vm[k]=vn;vars+=vn+': '+sp[1]+';\n';vi++}}if(vars)vars='// Variables\n'+vars+'\n'}for(var ni=0;ni<nested.length;ni++){var n=nested[ni];if(n.c.length>0){s+=n.p+' {\n';for(var di=0;di<n.d.length;di++){var k=n.d[di].p+'|||'+n.d[di].v;var vn=vm[k];s+='  '+(vn?vn:n.d[di].p)+': '+(vn?'':n.d[di].v)+';\n'}for(var ci=0;ci<n.c.length;ci++){s+='  '+n.c[ci].s+' {\n';for(var di=0;di<n.c[ci].d.length;di++){var k=n.c[ci].d[di].p+'|||'+n.c[ci].d[di].v;var vn=vm[k];s+='    '+(vn?vn:n.c[ci].d[di].p)+': '+(vn?'':n.c[ci].d[di].v)+';\n'}s+='  }\n'}s+='}\n'}else{s+=n.p+' {\n';for(var di=0;di<n.d.length;di++){var k=n.d[di].p+'|||'+n.d[di].v;var vn=vm[k];s+='  '+(vn?vn:n.d[di].p)+': '+(vn?'':n.d[di].v)+';\n'}s+='}\n'}}return vars+s}
+function c2si(css,ext){var sc=c2s(css,ext);if(!sc)return '';var lines=sc.split('\n');var out='';var il=0;for(var li=0;li<lines.length;li++){var s=lines[li].trim();if(!s)continue;if(s.startsWith('$')||s.startsWith('//')){out+=s+'\n';continue}if(s.startsWith('}')){il=Math.max(0,il-1);continue}if(s.endsWith('{')){out+='  '.repeat(il)+s.slice(0,-1).trim()+'\n';il++}else{out+='  '.repeat(il)+s+'\n'}}return out}
+function dv(mode){var css=i.value;if(!css.trim()){showToast(ERR_EMPTY);return}try{var ext=ev.checked;var rc=mode==='scss'?c2s(css,ext):c2si(css,ext);if(!rc||rc.trim()===''){e.style.display='block';e.textContent=ERR_PARSE;r.style.display='none';return}LR=rc;LM=mode;o.textContent=rc;nl.textContent=rc.split('\n').length;r.style.display='block';e.style.display='none'}catch(ex){e.style.display='block';e.textContent=ERR_PREFIX+ex.message;r.style.display='none'}}
+b.addEventListener('click',function(){dv('scss')});
+bs.addEventListener('click',function(){dv('sass')});
+c.addEventListener('click',function(){i.value='';r.style.display='none';e.style.display='none'});
+s.addEventListener('click',function(){i.value='.container {\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.container .header {\n  background: #333;\n  color: #fff;\n  padding: 20px;\n}\n.container .header .logo {\n  font-size: 24px;\n  font-weight: bold;\n}\n.btn {\n  display: inline-block;\n  padding: 10px 20px;\n  background: #333;\n  color: #fff;\n}\n.btn:hover {\n  background: #555;\n}'});
+cb.addEventListener('click',function(){if(!LR)return;navigator.clipboard.writeText(LR).then(function(){cb.textContent=TXT_COPIED;setTimeout(function(){cb.textContent=TXT_COPY},2000)})});
+db.addEventListener('click',function(){if(!LR)return;var ext=LM==='scss'?'scss':'sass';var b=new Blob([LR],{type:'text/css'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='style.'+ext;a.click();URL.revokeObjectURL(u)});</script>
+</div>
+
+<div class="content-section" id="options">
+<h2>📖 How to Use</h2>
+<p>One-click convert CSS to Sass (indented syntax) or SCSS (curly-brace syntax). Supports variable extraction, automatic nesting, mixin conversion. Switch between Sass/SCSS preview freely.</p>
+</div>
+
+<div class="content-section">
+<h2>⚡ How It Works</h2>
+<p>Parses CSS AST, analyzes selector hierarchy, identifies repeated values for variable extraction, and generates preprocessor code in Sass or SCSS syntax.</p>
+</div>
+
+<div class="content-section">
+<h2>💼 Use Cases</h2>
+<p>Migrate traditional CSS projects to Sass/SCSS; learn Sass syntax; optimize CSS structure during code refactoring; unify team style code; convert third-party CSS libraries to maintainable Sass.</p>
+</div>
+
+<div class="content-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><div class="q">❓ Do I need to upload my code?</div><div class="a">No. All conversion is done locally in your browser. Your CSS code is never uploaded to any server.</div></div>
+<div class="faq-item"><div class="q">❓ Which Sass syntax is supported?</div><div class="a">Both SCSS (curly-brace syntax, CSS-compatible) and Sass (indented syntax, more concise) are supported. You can switch between them in the preview.</div></div>
+<div class="faq-item"><div class="q">❓ Can it extract variables automatically?</div><div class="a">Yes. The tool automatically detects repeated values like colors and font sizes, extracting them as Sass variables for better maintainability.</div></div>
+<div class="faq-item"><div class="q">❓ Does it support nesting?</div><div class="a">Yes. The tool recognizes selector hierarchies in CSS and automatically generates nested rules, reducing repetitive parent selectors.</div></div>
+<div class="faq-item"><div class="q">❓ Can I copy the result?</div><div class="a">Yes. After conversion, you can one-click copy the generated Sass/SCSS code or download as .scss/.sass files.</div></div>
+<div class="faq-item"><div class="q">❓ Is this tool free?</div><div class="a">Yes, completely free. No registration or payment required.</div></div>
+
+</div>
+
+<div class="content-section">
+<h2>🔗 Related Tools</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+<a href="../scss-to-css/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">SCSS to CSS</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">SCSS to CSS</span></a>
+<a href="../flexbox-generator/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Flexbox Generator</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Flexbox</span></a>
+<a href="../glassmorphism-generator/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Glassmorphism Generator</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Glassmorphism</span></a>
+<a href="../gradient-generator/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Gradient Generator</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px"> </span></a>
+<a href="../border-radius-generator/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Border Radius</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Border Radius</span></a>
+
+</div>
+</div>
+
+<div class="ad-slot">Ad Space (Bottom)</div>
+
+</main>
+<div class="toast" id="toast"></div>
+<footer>
+<p>Online Tools Suite | No Signup, Client-Side · Privacy First</p>
+<p>Contact: <a href="../contact/">Contact</a></p>
+<p><a href="../../">Home</a> · <a href="../privacy-policy/">Privacy Policy</a> · <a href="../terms-of-service/">Terms of Service</a></p>
+<p style="margin-top:8px;font-size:.75rem;color:#475569">© 2026 Online Tools Suite All Rights Reserved</p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+var type=document.getElementById('feedback-type').value;
+var typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+var title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+var body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

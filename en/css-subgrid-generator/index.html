@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lay out nested CSS Grid subgrids, align tracks across parent and child elements, and copy the generated code.">
+<meta name="keywords" content="CSS Subgrid,sub grid,CSS Grid,grid layout,subgrid generator,frontend layout,CSS layout tool">
+<title>Free CSS Subgrid Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-subgrid-generator/">
+<meta property="og:title" content="Free CSS Subgrid Generator - ToolGuideHub">
+<meta property="og:description" content="Lay out nested CSS Grid subgrids, align tracks across parent and child elements, and copy the generated code.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-subgrid-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Subgrid Generator", "description": "Free online CSS Subgrid generator. Visual config for CSS Grid sub-grid layouts, live preview + code generation. Pure frontend, no server upload.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "CSS Subgrid Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CSS Subgrid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS Subgrid allows child grids to inherit parent grid track definitions, enabling nested grid elements to align with parent grid tracks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Subgrid vs regular Grid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regular nested grids have independent track definitions and can't align with parents. Subgrid lets children use parent tracks directly for cross-level alignment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which browsers support it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chrome 117+, Firefox 71+, Safari 16+ natively. Graceful degradation to independent grid when unsupported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the generated code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The generated CSS code can be copied directly into your project with complete grid definitions and compatibility notes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is data uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. No data is ever uploaded."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dev Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS Subgrid Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-subgrid-generator/"
+    }
+  ],
+  "name": "CSS Subgrid Generator"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use CSS Subgrid Generator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Configure Parent Grid",
+      "text": "Set parent grid columns, gap, and track definitions."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enable Subgrid",
+      "text": "Set grid-template-columns/rows: subgrid on child elements."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy Code",
+      "text": "Click copy to get CSS code for your project."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.breadcrumb{font-size:.85rem;color:#64748b;margin-bottom:16px}
+.breadcrumb a{color:#64748b}
+.panel{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px}
+.panel h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.control-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.control-row label{color:#94a3b8;font-size:.9rem;min-width:80px;font-weight:500}
+.control-row input[type="range"],.control-row select{flex:1;min-width:140px;padding:8px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none}
+.control-row select:focus{border-color:rgba(6,182,212,.5)}
+.val{color:#22d3ee;font-size:.85rem;min-width:48px;text-align:right;font-weight:600}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.grid-preview{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:160px;margin-top:8px}
+.grid-parent{border:2px solid rgba(6,182,212,.4);border-radius:8px;padding:8px;display:grid}
+.grid-child{border:2px solid rgba(52,211,153,.4);border-radius:6px;padding:8px;display:grid}
+.grid-item{background:rgba(6,182,212,.15);color:#22d3ee;border-radius:4px;padding:12px 6px;text-align:center;font-size:.75rem}
+.preset-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.preset-card{border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:12px;text-align:center;cursor:pointer;background:#0f172a;transition:all .2s}
+.preset-card:hover{border-color:rgba(6,182,212,.4)}
+.preset-card.active{border-color:#22d3ee;background:rgba(6,182,212,.08)}
+.preset-card .icon{font-size:1.4rem;display:block;margin-bottom:4px}
+.preset-card .name{color:#94a3b8;font-size:.8rem}
+.code-output{background:#0f172a;border-radius:8px;padding:16px;font-family:"SFMono-Regular","Fira Code",Consolas,monospace;font-size:.8rem;color:#e2e8f0;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto;border:1px solid rgba(148,163,184,.1);margin-top:8px}
+.sidebar-panel{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px}
+.sidebar-panel h3{font-size:1rem;color:#f1f5f9;margin-bottom:12px}
+.faq-section{background:#1e293b;border-radius:12px;padding:20px;margin-top:24px;border:1px solid rgba(148,163,184,.1)}
+.faq-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.faq-q{display:flex;justify-content:space-between;align-items:center;color:#e2e8f0;font-size:.9rem;font-weight:600}
+.faq-a{display:none;color:#94a3b8;font-size:.85rem;margin-top:8px;line-height:1.6}
+.faq-item.open .faq-a{display:block}
+.faq-item .arrow{color:#22d3ee;font-size:.75rem}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}.preset-grid{grid-template-columns:repeat(2,1fr)}.control-row label{min-width:60px}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:200px}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.btn-success:hover{background:rgba(34,197,94,.25)}.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}.btn-danger:hover{background:rgba(239,68,68,.25)}
+.seo-content{margin-top:24px;padding:20px;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}.seo-content p{color:#94a3b8;margin-bottom:8px;font-size:.9rem}.seo-content ul,.seo-content ol{margin-left:20px;margin-bottom:8px;color:#94a3b8;font-size:.9rem}.faq-item{margin-bottom:12px;padding:12px;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer}.faq-item p{color:#94a3b8;font-size:.85rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a:hover{color:#94a3b8}.footer p{margin-bottom:8px}.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:12px 20px;border-radius:8px;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;z-index:1000;pointer-events:none}.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-subgrid-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📐 CSS Subgrid Generator</h1></div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Dev Tools</a> › CSS Subgrid Generator</div>
+<div class="hero"><p class="subtitle">Visual config for CSS Grid sub-grid layouts, live preview + code generation</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2>🎛️ Parent Grid</h2>
+<div class="control-row"><label>📊 Columns</label><input type="range" id="cols" min="2" max="6" value="3" oninput="updateGrid();document.getElementById('cols-val').textContent=this.value"><span class="val" id="cols-val">3</span></div>
+<div class="control-row"><label>📏 Track Def</label><select id="col-type" onchange="updateGrid()"><option value="fr">Equal 1fr</option><option value="auto">Auto</option><option value="mixed">Mixed (1fr 2fr 1fr)</option><option value="custom">Custom</option></select></div>
+<div class="control-row"><label>↔️ Gap</label><input type="range" id="gap" min="0" max="32" value="16" oninput="updateGrid();document.getElementById('gap-val').textContent=this.value+'px'"><span class="val" id="gap-val">16px</span></div>
+<div class="control-row"><label>↕️ Row Gap</label><input type="range" id="row-gap" min="0" max="32" value="16" oninput="updateGrid();document.getElementById('rgap-val').textContent=this.value+'px'"><span class="val" id="rgap-val">16px</span></div>
+<h2 style="margin-top:16px">🔗 Subgrid Config</h2>
+<div class="control-row"><label>📋 Col subgrid</label><select id="sub-col" onchange="updateGrid()"><option value="subgrid">subgrid</option><option value="none">off</option></select></div>
+<div class="control-row"><label>📋 Row subgrid</label><select id="sub-row" onchange="updateGrid()"><option value="subgrid">subgrid</option><option value="none">off</option></select></div>
+<div class="control-row"><label>📦 Items</label><input type="range" id="child-items" min="2" max="8" value="4" oninput="updateGrid();document.getElementById('items-val').textContent=this.value"><span class="val" id="items-val">4</span></div>
+<h2 style="margin-top:16px">🎭 Presets</h2>
+<div class="preset-grid">
+<div class="preset-card" onclick="loadPreset('card')"><span class="icon">🃏</span><span class="name">Cards</span></div>
+<div class="preset-card" onclick="loadPreset('form')"><span class="icon">📝</span><span class="name">Form</span></div>
+<div class="preset-card" onclick="loadPreset('dashboard')"><span class="icon">📊</span><span class="name">Dashboard</span></div>
+<div class="preset-card" onclick="loadPreset('nav')"><span class="icon">🧭</span><span class="name">Navigation</span></div>
+</div>
+<div class="btn-group"><button class="btn btn-primary" onclick="copyCode()">📋 Copy CSS</button><button class="btn btn-secondary" onclick="copyHTML()">📋 Copy HTML</button></div>
+<h2 style="margin-top:16px">👁️ Live Preview</h2>
+<div class="grid-preview" id="grid-preview"></div>
+<h2 style="margin-top:16px">💻 Generated Code</h2>
+<div class="code-output" id="code-output"></div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel"><h3>📖 Key Points</h3><div style="font-size:.8rem;color:#94a3b8;line-height:1.8"><p><strong>Syntax</strong>: grid-template-columns: subgrid</p><p><strong>Effect</strong>: Child inherits parent tracks</p><p><strong>Alignment</strong>: Nested items align to parent</p><p><strong>Gap</strong>: Can inherit or override parent</p><p><strong>Browser</strong>: Chrome 117+, Firefox 71+</p></div></div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the CSS Subgrid Generator Do?</h2>
+<p>The CSS Subgrid Generator is a free online tool for visually configuring CSS Grid sub-grid layouts. Supports column/row subgrid toggles, track definitions, gap control, with live preview and CSS/HTML code generation. Perfect for frontend developers implementing nested grid alignment.</p>
+<h2>Core Features</h2>
+<ul><li><strong>Visual Config</strong>: Drag to adjust columns, gaps, track definitions</li><li><strong>Subgrid Toggles</strong>: Independent column/row subgrid control</li><li><strong>Live Preview</strong>: Parent (blue) and child (green) grids clearly distinguished</li><li><strong>Code Generation</strong>: One-click CSS and HTML output</li><li><strong>4 Presets</strong>: Cards, Form, Dashboard, Navigation layouts</li></ul>
+<h2>Use Cases</h2>
+<h3>Card List Alignment</h3><p>When card internal elements (title, description, button) need cross-card alignment, subgrid lets all cards share the same track height.</p>
+<h3>Form Layout</h3><p>Form labels and inputs need precise alignment. Subgrid lets nested form groups inherit parent grid column definitions.</p>
+<h3>Dashboard</h3><p>Dashboard nested panels need to align to the same grid system. Subgrid ensures all panel internals align with the overall layout.</p>
+<h2>Background</h2>
+<p>CSS Subgrid is a core feature of CSS Grid Level 2, implemented in all major browsers in 2023. It solves the core pain point of Grid nesting: child grids can't align with parent tracks. Traditional workarounds required manual calculations or fixed sizes. Subgrid inherits parent definitions directly, resulting in cleaner code and easier maintenance. Key syntax: grid-template-columns: subgrid and grid-template-rows: subgrid.</p>
+</div>
+<div class="faq-section">
+<h2>FAQ</h2>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>What is CSS Subgrid?</span><span class="arrow">▼</span></div><div class="faq-a">CSS Subgrid allows child grids to inherit parent grid track definitions, enabling nested elements to align with parent grid tracks — solving the traditional Grid nesting alignment problem.</div></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>Subgrid vs regular Grid?</span><span class="arrow">▼</span></div><div class="faq-a">Regular nested grids have independent tracks and can't align with parents. Subgrid lets children use parent tracks directly for cross-level alignment.</div></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>Browser support?</span><span class="arrow">▼</span></div><div class="faq-a">Chrome 117+, Firefox 71+, Safari 16+ natively. Graceful degradation to independent grid when unsupported.</div></div>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/css-loader-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS Loader Generator</a> <a href="../../en/css-loader-spinner/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free css-loader-spinner - Me…</a> <a href="../../en/css-font-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS Font Generator</a> <a href="../../en/clip-path-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS Clip-path Generator</a> <a href="../../en/css-aspect-ratio-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS Aspect Ratio Genera…</a> <a href="../../en/css-at-starting-style-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS @starting-style Gen…</a> <a href="../../en/css-calc-builder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS calc() Builder</a> <a href="../../en/tailwind-button/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Button Gen…</a></div></section>
+
+
+<script>
+function getColDef(){const c=parseInt(document.getElementById('cols').value),t=document.getElementById('col-type').value;if(t==='fr')return Array(c).fill('1fr').join(' ');if(t==='auto')return Array(c).fill('auto').join(' ');if(t==='mixed')return c>=3?'1fr 2fr 1fr':'1fr 1fr';return Array(c).fill('1fr').join(' ')}
+function updateGrid(){const c=parseInt(document.getElementById('cols').value),g=document.getElementById('gap').value+'px',rg=document.getElementById('row-gap').value+'px',sc=document.getElementById('sub-col').value,sr=document.getElementById('sub-row').value,items=parseInt(document.getElementById('child-items').value),colDef=getColDef();const preview=document.getElementById('grid-preview');let html=`<div class="grid-parent" style="grid-template-columns:${colDef};gap:${g} ${rg}">`;html+=`<div class="grid-child" style="grid-column:1/-1;grid-template-columns:${sc==='subgrid'?'subgrid':colDef};grid-template-rows:${sr==='subgrid'?'subgrid':'auto'};gap:${g}">`;for(let i=0;i<items;i++)html+=`<div class="grid-item">Item ${i+1}</div>`;html+='</div></div>';preview.innerHTML=html;updateCode()}
+function genCSS(){const c=parseInt(document.getElementById('cols').value),g=document.getElementById('gap').value+'px',rg=document.getElementById('row-gap').value+'px',sc=document.getElementById('sub-col').value,sr=document.getElementById('sub-row').value,colDef=getColDef();return`.parent {\n  display: grid;\n  grid-template-columns: ${colDef};\n  gap: ${rg} ${g};\n}\n\n.child {\n  grid-column: 1 / -1;\n  display: grid;\n  grid-template-columns: ${sc==='subgrid'?'subgrid':colDef};${sr==='subgrid'?'\n  grid-template-rows: subgrid;':''}\n  gap: ${g} ${rg};\n}`}
+function genHTML(){const items=parseInt(document.getElementById('child-items').value);let h='<div class="parent">\n  <div class="child">\n';for(let i=0;i<items;i++)h+=`    <div class="item">Item ${i+1}</div>\n`;h+='  </div>\n</div>';return h}
+function updateCode(){document.getElementById('code-output').textContent=genCSS()+'\n\n'+genHTML()}
+function copyCode(){navigator.clipboard.writeText(genCSS()).then(()=>{const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+function copyHTML(){navigator.clipboard.writeText(genHTML()).then(()=>{const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+function loadPreset(n){const p={card:{cols:3,colType:'fr',gap:16,rgap:16,sc:'subgrid',sr:'subgrid',items:6},form:{cols:2,colType:'mixed',gap:12,rgap:12,sc:'subgrid',sr:'none',items:4},dashboard:{cols:4,colType:'fr',gap:12,rgap:12,sc:'subgrid',sr:'subgrid',items:8},nav:{cols:4,colType:'mixed',gap:8,rgap:8,sc:'subgrid',sr:'none',items:4}}[n];if(!p)return;document.getElementById('cols').value=p.cols;document.getElementById('cols-val').textContent=p.cols;document.getElementById('col-type').value=p.colType;document.getElementById('gap').value=p.gap;document.getElementById('gap-val').textContent=p.gap+'px';document.getElementById('row-gap').value=p.rgap;document.getElementById('rgap-val').textContent=p.rgap+'px';document.getElementById('sub-col').value=p.sc;document.getElementById('sub-row').value=p.sr;document.getElementById('child-items').value=p.items;document.getElementById('items-val').textContent=p.items;updateGrid();document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('active'));event.target.closest('.preset-card').classList.add('active')}
+window.addEventListener('load',updateGrid);
+</script>
+<div class="toast" id="copy-toast"></div>
+
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/css-subgrid-generator/">中文</a>
+</div>
+
+
+</footer>
+</body>
+</html>

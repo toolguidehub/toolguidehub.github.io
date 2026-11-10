@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Experiment with LLM settings like temperature, top-p, top-k and penalties and watch how they reshape the token probability spread.">
+<meta name="keywords" content="LLM parameter playgroundTemperatureTop-PTop-KFrequency Penaltylarge language model parametersAI generation parametersmodel tuning">
+<title>Free LLM Parameter Playground - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/llm-parameter-playground/">
+<meta property="og:title" content="Free LLM Parameter Playground - ToolGuideHub">
+<meta property="og:description" content="Experiment with LLM settings like temperature, top-p, top-k and penalties and watch how they reshape the token probability spread.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/llm-parameter-playground/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "LLM Parameter Playground", "description": "Free online LLM parameter playground. Visually adjust Temperature, Top-P, Top-K, Frequency Penalty and more. Real-time preview of parameter effects. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Free Toolbase"}, "author": {"@type": "Organization", "name": "Free Toolbase"}, "dateModified": "2026-07-20"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What are LLM parameters?",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the Temperature parameter?", "acceptedAnswer": {"@type": "Answer", "text": ""}},
+    {"@type": "Question", "name": "Top-PandTop-Khavewhatdifference?", "acceptedAnswer": {"@type": "Answer", "text": ""}},
+    {"@type": "Question", "name": "Frequency PenaltyandPresence Penaltyhavewhatdifference?", "acceptedAnswer": {"@type": "Answer", "text": ""}},
+    {"@type": "Question", "name": "such ashowSelectcombinedfit Parametersgroupcombined?", "acceptedAnswer": {"@type": "Answer", "text": ""}},
+    {"@type": "Question", "name": "DatawillUploadtoserver??", "acceptedAnswer": {"@type": "Answer", "text": "notwill.AllParameterstunesectionandcanvisualizationallinBrowsetoolLocalcomplete，notSendAnyDatatoserver."}}
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea,input[type=text],input[type=number],select{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}
+textarea:focus,input:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.param-group{margin-bottom:20px}
+.param-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.param-name{color:#e2e8f0;font-size:.95rem;font-weight:600}
+.param-value{color:#22d3ee;font-size:1.1rem;font-weight:700;min-width:50px;text-align:right}
+.param-desc{color:#64748b;font-size:.8rem;margin-bottom:4px}
+input[type=range]{-webkit-appearance:none;width:100%;height:8px;background:#1e293b;border-radius:4px;outline:none;margin:8px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:#06b6d4;border-radius:50%;cursor:pointer;box-shadow:0 2px 6px rgba(6,182,212,.3)}
+.range-labels{display:flex;justify-content:space-between;font-size:.75rem;color:#475569}
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px}
+.preset-btn{background:rgba(148,163,184,.08);color:#94a3b8;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:10px;text-align:center;cursor:pointer;transition:all .2s;font-size:.8rem}
+.preset-btn:hover{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3);color:#22d3ee}
+.preset-btn .preset-name{font-weight:600;margin-bottom:2px}
+.preset-btn .preset-desc{font-size:.7rem;color:#64748b}
+.viz-canvas{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;margin-top:12px;overflow:hidden}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free LLM Parameter Playground", "item": "https://adi63586.github.io/Toolguidehub/en/llm-parameter-playground/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use LLM Parameter Playground","description":"Step-by-step guide for using LLM Parameter Playground","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"LLM Parameter Playground"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Type or paste your content into the editor"},{"@type":"HowToStep","position":2,"name":"Edit and modify","text":"Use the toolbar or controls to make changes"},{"@type":"HowToStep","position":3,"name":"Preview live","text":"See real-time preview of your changes"},{"@type":"HowToStep","position":4,"name":"Export result","text":"Copy or download the edited content"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/llm-parameter-playground/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🎛️ LLM Parameter Playground</h1>
+
+</div>
+<div class="nav-back"><a href="../../">Home</a> › <a href="../../#ai">AITools</a> › LLM Parameter Playground</div>
+
+<div class="tool-section">
+<h2>🎯 Quick Presets</h2>
+<div class="preset-grid">
+<div class="preset-btn" onclick="applyPreset('code')"><div class="preset-name">💻 Code Gen</div><div class="preset-desc">T:0.1 P0.9</div></div>
+<div class="preset-btn" onclick="applyPreset('creative')"><div class="preset-name">✍️ Creative</div><div class="preset-desc">T0.8 P0.92</div></div>
+<div class="preset-btn" onclick="applyPreset('brainstorm')"><div class="preset-name">💡 Brainstorm</div><div class="preset-desc">T1.2 P0.95</div></div>
+<div class="preset-btn" onclick="applyPreset('factual')"><div class="preset-name">📚 Factual Q&A</div><div class="preset-desc">T0 P1.0</div></div>
+<div class="preset-btn" onclick="applyPreset('chat')"><div class="preset-name">💬 Chat</div><div class="preset-desc">T0.7 P0.9</div></div>
+<div class="preset-btn" onclick="applyPreset('analysis')"><div class="preset-name">📊 Analysis</div><div class="preset-desc">T0.2 P0.85</div></div>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>🎛️ Parameters</h2>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">🌡️ Temperature</span><span class="param-value" id="temp-val">0.70</span></div>
+<div class="param-desc">Controls output randomness. Low=deterministic, High=creative</div>
+<input type="range" id="temperature" min="0" max="2" step="0.05" value="0.7" oninput="updateParam()">
+<div class="range-labels"><span>0 (Deterministic)</span><span>1 (default)</span><span>2 (Very Random)</span></div>
+</div>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">🎯 Top-P ( )</span><span class="param-value" id="topp-val">0.90</span></div>
+<div class="param-desc">Select smallest token set with cumulative probability P. 0.1=few candidates, 1.0=all</div>
+<input type="range" id="top-p" min="0" max="1" step="0.05" value="0.9" oninput="updateParam()">
+<div class="range-labels"><span>0 (Strict)</span><span>0.9 (Recommended)</span><span>1.0 (All)</span></div>
+</div>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">🔢 Top-K</span><span class="param-value" id="topk-val">0 (Off)</span></div>
+<div class="param-desc">Limit candidate token count. 0=disabled, 1=greedy, 40=common</div>
+<input type="range" id="top-k" min="0" max="100" step="1" value="0" oninput="updateParam()">
+<div class="range-labels"><span>0 (Off)</span><span>40</span><span>100</span></div>
+</div>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">📉 Frequency Penalty</span><span class="param-value" id="freq-val">0.00</span></div>
+<div class="param-desc">Penalize tokens by occurrence count. Positive=reduce repetition</div>
+<input type="range" id="freq-penalty" min="-2" max="2" step="0.1" value="0" oninput="updateParam()">
+<div class="range-labels"><span>-2 (Encourage)</span><span>0 (Default)</span><span>2 (Strong)</span></div>
+</div>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">📈 Presence Penalty</span><span class="param-value" id="pres-val">0.00</span></div>
+<div class="param-desc">Fixed penalty for appeared tokens. Positive=increase diversity</div>
+<input type="range" id="pres-penalty" min="-2" max="2" step="0.1" value="0" oninput="updateParam()">
+<div class="range-labels"><span>-2 (Reuse)</span><span>0 (Default)</span><span>2 (Strong)</span></div>
+</div>
+
+<div class="param-group">
+<div class="param-header"><span class="param-name">📏 Max Tokens</span><span class="param-value" id="maxtok-val">2048</span></div>
+<div class="param-desc">Maximum tokens to generate</div>
+<input type="range" id="max-tokens" min="1" max="8192" step="1" value="2048" oninput="updateParam()">
+<div class="range-labels"><span>1</span><span>2048</span><span>8192</span></div>
+</div>
+
+<div class="btn-row">
+<button class="btn btn-primary" onclick="generateConfig()">📋 Generate API Config</button>
+<button class="btn btn-secondary" onclick="copyConfig()">📄 Copy JSON</button>
+<button class="btn btn-secondary" onclick="resetParams()">🔄 Reset</button>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>📊 Probability Distribution</h2>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">Simulate Temperature and Top-P effects on token probability distribution</p>
+<div class="viz-canvas"><canvas id="dist-canvas" width="900" height="300"></canvas></div>
+</div>
+
+<div id="config-section" style="display:none">
+<div class="tool-section">
+<h2>📋 API Configuration</h2>
+<div id="config-output" style="background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;white-space:pre-wrap;overflow-x:auto;color:#22d3ee"></div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📖 LLM Parameters Guide</h2>
+<h3>Temperature</h3>
+<p>Temperaturecontrol softmaxOutputseparate " degree".T→0whenseparate one-hot(totalisselectmosthighprobability)，T→∞when equal separate .actualeffect：lowTemperaturefitcombinedneeddeterministic task(code、number )，highTemperaturefitcombined task(writework、head ).</p>
+<h3>Top-P ( /Nucleus Sampling)</h3>
+<p>Top-P probabilityfilter selecttoken.examplesuch asTop-P=0.9when，fromprobabilitymosthigh tokenStart add，untiltotaland to0.9，onlyfromThesetokenin .thanTop-Kmore ： modelveryconfirmsetwhen selectfew，notconfirmsetwhen selectmultiple.</p>
+<h3>Top-K</h3>
+<p>Top-K setprotected probabilitymosthigh K token.K=1etc in Decode，K=40iscommon defaultvalue.andTop-Pcan whenusing，get set.</p>
+<h3>Frequency/Presence Penalty</h3>
+<p> allbaseinAlreadyGeneratetoken add ，but different：Frequency Penalty exit subnumberlinearincrease (exit 3sub 3 )，Presence Penaltyas long asexit throughthen add set (exit 1suband10sub same).</p>
+</div>
+
+<div class="info-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><h3>About Free LLM Parameter Playground</h3><p>Free online LLM parameter playground. Visually adjust Temperature, Top-P, Top-K, Frequency Penalty and more. Real-time preview of parameter effects. Pure frontend. Try now!</p></div>
+<div class="faq-item"><h3>About Free LLM Parameter Playground</h3><p>Free online LLM parameter playground. Visually adjust Temperature, Top-P, Top-K, Frequency Penalty and more. Real-time preview of parameter effects. Pure frontend. Try now!</p></div>
+<div class="faq-item"><h3>About Free LLM Parameter Playground</h3><p>Free online LLM parameter playground. Visually adjust Temperature, Top-P, Top-K, Frequency Penalty and more. Real-time preview of parameter effects. Pure frontend. Try now!</p></div>
+<div class="faq-item"><h3>How to Use Free LLM Parameter Playground?</h3><p>Enter your content in the input area, click the action button, and view the result. All computation happens on your device — ️ LLM Parameter Playground, other values and other inputs stay in your browser.</p></div>
+<div class="faq-item"><h3>DatawillUploadtoserver??</h3><p>notwill.AllParameterstunesectionandcanvisualizationallinBrowsetoolLocalcomplete，notSendAnyDatatoserver.</p></div>
+</div>
+
+
+
+</main><footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a><a href="../../">AllTools</a><a href="../contact/">Contact</a><a href="../../en/privacy/">Privacy Policy</a><a href="../../en/terms/">Terms of Service</a><a href="../../en/about/">About Us</a><a href="../../en/llm-parameter-playground/" class="active">EN</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+<script>
+function updateParam() {
+  const temp = parseFloat(document.getElementById('temperature').value);
+  const topp = parseFloat(document.getElementById('top-p').value);
+  const topk = parseInt(document.getElementById('top-k').value);
+  const freq = parseFloat(document.getElementById('freq-penalty').value);
+  const pres = parseFloat(document.getElementById('pres-penalty').value);
+  const maxtok = parseInt(document.getElementById('max-tokens').value);
+  document.getElementById('temp-val').textContent = temp.toFixed(2);
+  document.getElementById('topp-val').textContent = topp.toFixed(2);
+  document.getElementById('topk-val').textContent = topk === 0 ? '0 (Off)' : topk;
+  document.getElementById('freq-val').textContent = freq.toFixed(2);
+  document.getElementById('pres-val').textContent = pres.toFixed(2);
+  document.getElementById('maxtok-val').textContent = maxtok;
+  drawDistribution(temp, topp);
+}
+
+function applyPreset(name) {
+  const presets = {
+    code: {temp:0.1, topp:0.9, topk:0, freq:0, pres:0, maxtok:2048},
+    creative: {temp:0.8, topp:0.92, topk:0, freq:0.3, pres:0.2, maxtok:4096},
+    brainstorm: {temp:1.2, topp:0.95, topk:0, freq:0.5, pres:0.5, maxtok:2048},
+    factual: {temp:0, topp:1.0, topk:0, freq:0, pres:0, maxtok:1024},
+    chat: {temp:0.7, topp:0.9, topk:0, freq:0.3, pres:0.1, maxtok:2048},
+    analysis: {temp:0.2, topp:0.85, topk:0, freq:0.1, pres:0, maxtok:4096}
+  };
+  const p = presets[name];
+  if (!p) return;
+  document.getElementById('temperature').value = p.temp;
+  document.getElementById('top-p').value = p.topp;
+  document.getElementById('top-k').value = p.topk;
+  document.getElementById('freq-penalty').value = p.freq;
+  document.getElementById('pres-penalty').value = p.pres;
+  document.getElementById('max-tokens').value = p.maxtok;
+  updateParam();
+  showToast('Preset applied: ' + name);
+}
+
+function resetParams() {
+  applyPreset('chat');
+}
+
+function drawDistribution(temp, topp) {
+  const canvas = document.getElementById('dist-canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = canvas.parentElement.clientWidth - 2;
+  const H = canvas.height = 280;
+  ctx.clearRect(0, 0, W, H);
+
+  const tokens = ['AI','the','is','a','and','of','to','in','for','on','with','as','by','at','an','be','or','not','this','that'];
+  const rawProbs = [0.15, 0.12, 0.10, 0.08, 0.07, 0.06, 0.05, 0.04, 0.04, 0.03, 0.03, 0.03, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02];
+
+  const t = Math.max(temp, 0.01);
+  const logits = rawProbs.map(p => Math.log(Math.max(p, 1e-10)));
+  const scaledLogits = logits.map(l => l / t);
+  const maxLogit = Math.max(...scaledLogits);
+  const expLogits = scaledLogits.map(l => Math.exp(l - maxLogit));
+  const sumExp = expLogits.reduce((a, b) => a + b, 0);
+  const temperedProbs = expLogits.map(e => e / sumExp);
+
+  let cumProb = 0;
+  const toppIdx = temperedProbs.findIndex((p, i) => {
+    cumProb += p;
+    return cumProb >= topp;
+  });
+
+  const barW = (W - 60) / tokens.length;
+  const maxProb = Math.max(...temperedProbs);
+  const barMaxH = H - 60;
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+
+  for(let i = 0; i < tokens.length; i++) {
+    const x = 40 + i * barW;
+    const h = (temperedProbs[i] / maxProb) * barMaxH;
+    const y = H - 30 - h;
+
+    if (i <= toppIdx) {
+      const grad = ctx.createLinearGradient(x, y, x, H - 30);
+      grad.addColorStop(0, 'rgba(6,182,212,0.8)');
+      grad.addColorStop(1, 'rgba(6,182,212,0.2)');
+      ctx.fillStyle = grad;
+    } else {
+      ctx.fillStyle = 'rgba(100,116,139,0.3)';
+    }
+    ctx.fillRect(x + 2, y, barW - 4, h);
+
+    ctx.fillStyle = i <= toppIdx ? '#22d3ee' : '#475569';
+    ctx.fillText(tokens[i], x + barW / 2, H - 14);
+
+    if (temperedProbs[i] > 0.01) {
+      ctx.fillStyle = i <= toppIdx ? '#e2e8f0' : '#475569';
+      ctx.font = '9px sans-serif';
+      ctx.fillText((temperedProbs[i] * 100).toFixed(1) + '%', x + barW / 2, y - 4);
+      ctx.font = '11px sans-serif';
+    }
+  }
+
+  if (toppIdx >= 0 && toppIdx < tokens.length - 1) {
+    const cutoffX = 40 + (toppIdx + 1) * barW;
+    ctx.strokeStyle = 'rgba(239,68,68,0.6)';
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(cutoffX, 10);
+    ctx.lineTo(cutoffX, H - 30);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#f87171';
+    ctx.font = '10px sans-serif';
+    ctx.fillText('Top-P Cutoff', cutoffX + 30, 20);
+  }
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('T=' + temp.toFixed(2) + '  Top-P=' + topp.toFixed(2), 10, 16);
+}
+
+function generateConfig() {
+  const temp = parseFloat(document.getElementById('temperature').value);
+  const topp = parseFloat(document.getElementById('top-p').value);
+  const topk = parseInt(document.getElementById('top-k').value);
+  const freq = parseFloat(document.getElementById('freq-penalty').value);
+  const pres = parseFloat(document.getElementById('pres-penalty').value);
+  const maxtok = parseInt(document.getElementById('max-tokens').value);
+
+  const config = {
+    model: "gpt-4",
+    temperature: temp,
+    top_p: topp,
+    max_tokens: maxtok,
+    frequency_penalty: freq,
+    presence_penalty: pres
+  };
+  if (topk > 0) config.top_k = topk;
+
+  const output = `// OpenAI API tuneuseshowexample
+const response = await openai.chat.completions.create(${JSON.stringify(config, null, 2).replace('"model"', 'model').replace('"temperature"', 'temperature').replace('"top_p"', 'top_p').replace('"max_tokens"', 'max_tokens').replace('"frequency_penalty"', 'frequency_penalty').replace('"presence_penalty"', 'presence_penalty').replace('"top_k"', 'top_k')});
+
+// Python showexample
+# response = client.chat.completions.create(
+${Object.entries(config).map(([k,v]) => `#   ${k}=${typeof v==='string'?`"${v}"`:v},`).join('\n')}
+# )`;
+
+  document.getElementById('config-section').style.display = 'block';
+  document.getElementById('config-output').textContent = JSON.stringify(config, null, 2);
+}
+
+function copyConfig() {
+  const text = document.getElementById('config-output')?.textContent;
+  if (text) navigator.clipboard.writeText(text).then(() => showToast('Config copied'));
+}
+
+function showToast(msg){const t=document.getElementById('toast')||(()=>{const d=document.createElement('div');d.id='toast';d.className='toast';document.body.appendChild(d);return d;})();t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+window.addEventListener('load', () => { updateParam(); });
+window.addEventListener('resize', () => { updateParam(); });
+document.addEventListener('keydown', function(e) { if(e.ctrlKey && e.key==='Enter') { generateConfig(); e.preventDefault(); } });
+</script>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

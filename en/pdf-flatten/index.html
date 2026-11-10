@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online PDF Flatten Tool - ToolGuideHub</title>
+    <meta name="description" content="Flatten a PDF&#x27;s form fields and annotations into the page so the filled data can&#x27;t be edited and displays the same everywhere.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pdf-flatten/">
+    <meta property="og:title" content="Free Online PDF Flatten Tool - ToolGuideHub">
+    <meta property="og:description" content="Flatten a PDF&#x27;s form fields and annotations into the page so the filled data can&#x27;t be edited and displays the same everywhere.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pdf-flatten/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container{ max-width:960px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .drop-zone { border: 2px dashed rgba(148,163,184,.1); border-radius: 12px; padding: 40px 20px; text-align: center; cursor: pointer; transition: all .2s; background: #0f172a; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #22d3ee; background: rgba(59,130,246,.05); }
+        .drop-zone p { color: #94a3b8; margin: 8px 0; }
+        .drop-zone .icon { font-size: 3rem; margin-bottom: 8px; }
+        .file-info { display: flex; align-items: center; gap: 12px; padding: 12px; background: #0f172a; border-radius: 8px; margin: 12px 0; }
+        .file-info .name { font-weight: 600; flex: 1; }
+        .file-info .size { color: #94a3b8; font-size: 0.9rem; }
+        .progress-bar { width: 100%; height: 8px; background: rgba(148,163,184,.1); border-radius: 4px; overflow: hidden; margin: 12px 0; }
+        .progress-bar .fill { height: 100%; background: #22d3ee; border-radius: 4px; transition: width .3s; }
+        .result-box { background:#0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; font-size: 14px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .badge-success { background: #d1fae5; color: #065f46; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online PDF Flatten Tool", "item": "https://adi63586.github.io/Toolguidehub/en/pdf-flatten/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pdf-flatten/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*gtag_stub: analytics removed*/window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<div class="header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+  <h1>📄 PDF Flatten Tool</h1>
+  <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+    <a href="../../en/pdf-flatten/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a>
+    <a href="./" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a>
+  </div>
+</div>
+<div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+  <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+  <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+  <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+</div>
+        
+    <div class="section" id="optionsCard" style="display:none">
+        <h2>⚙️ Flatten Options</h2>
+        <div class="row">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="flattenForms" checked> Remove form fields</label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="flattenAnnotations" checked> Remove annotations</label>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" onclick="flattenPDF()">🔄 Flatten PDF</button>
+            <button class="btn btn-secondary" onclick="clearFile()">🗑️ Clear</button>
+        </div>
+        <div id="progressContainer" style="display:none">
+            <div class="progress-bar"><div class="fill" id="progressFill" style="width:0%"></div></div>
+            <p style="text-align:center;color:#94a3b8;font-size:0.9rem" id="progressText">Processing...</p>
+        </div>
+    </div>
+    <div class="section" id="resultCard" style="display:none">
+        <h2>✅ Flatten Result</h2>
+        <div class="result-box" id="resultBox"></div>
+        <div class="row" style="margin-top:12px">
+            <button class="btn btn-success" onclick="downloadResult()">💾 Download Flattened PDF</button>
+        </div>
+    </div>
+    <div class="section">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item"><h3>What is PDF flattening?</h3><p>PDF flattening is the process of merging interactive form fields (text boxes, checkboxes, dropdowns) and annotations (comments, highlights) into the page content. After flattening, form data becomes non-editable static content, ensuring consistent display across different PDF readers.</p></div>
+        <div class="faq-item"><h3>Why should I flatten a PDF?</h3><p>Common reasons to flatten PDFs: 1) Ensure form data displays consistently across different PDF readers; 2) Prevent others from modifying filled form content; 3) Meet document format requirements from certain institutions; 4) Reduce file size; 5) Improve compatibility and printability.</p></div>
+        <div class="faq-item"><h3>Can I edit forms after flattening?</h3><p>No. Flattening is an irreversible operation — form fields are permanently merged into page content. If you need to keep editable forms, please backup the original PDF before flattening.</p></div>
+        <div class="faq-item"><h3>Is my PDF file secure?</h3><p>Absolutely. Everything runs locally in your browser using the pdf-lib library. Your files are never uploaded to any server. You can close the page after processing with no traces left behind.</p></div>
+        <div class="faq-item"><h3>What PDF features are supported?</h3><p>This tool supports removing interactive form fields (AcroForm) and page annotations. For PDFs containing JavaScript interactions or multimedia content, these interactive features will be removed after flattening.</p></div>
+    </div>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is PDF flattening?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is PDF flattening?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDF flattening merges interactive form fields and annotations into page content, making form data non-editable static content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I flatten a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flattening ensures consistent display across PDF readers, prevents form modification, meets document requirements, and reduces file size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit forms after flattening?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Flattening is irreversible. Form fields are permanently merged. Backup the original PDF before flattening."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my PDF file secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything runs locally in your browser using pdf-lib. Files are never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What PDF features are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports removing AcroForm fields and Annotations. JavaScript and multimedia content will be removed."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use PDF Flatten Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Upload the PDF file you want to flatten", "name": "Upload the PDF file you want t"}, {"@type": "HowToStep", "position": 2, "text": "Select flatten options (remove form fields/annotations)", "name": "Select flatten options (remove"}, {"@type": "HowToStep", "position": 3, "text": "Click the Flatten PDF button to start processing", "name": "Click the Flatten PDF button t"}, {"@type": "HowToStep", "position": 4, "text": "Download the flattened PDF file", "name": "Download the flattened PDF fil"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF Flatten Tool", "description": "Free online PDF flatten tool, remove interactive form fields", "applicationCategory": "ProductivityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/pdf-flatten/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script>
+    var pdfBytes=null,flattenedBytes=null,originalName='';
+    var dropZone=document.getElementById('dropZone');
+    dropZone.addEventListener('dragover',function(e){e.preventDefault();dropZone.classList.add('dragover')});
+    dropZone.addEventListener('dragleave',function(){dropZone.classList.remove('dragover')});
+    dropZone.addEventListener('drop',function(e){e.preventDefault();dropZone.classList.remove('dragover');if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])});
+    function handleFile(file){
+        if(!file||!file.name.toLowerCase().endsWith('.pdf')){document.getElementById('status')&&(document.getElementById('status').textContent='Please select a PDF file',document.getElementById('status').style.color='#ef4444');return}
+        originalName=file.name;document.getElementById('fileName').textContent=file.name;document.getElementById('fileSize').textContent=formatSize(file.size);
+        document.getElementById('fileInfo').style.display='flex';document.getElementById('optionsCard').style.display='block';document.getElementById('resultCard').style.display='none';
+        var reader=new FileReader();reader.onload=function(e){pdfBytes=new Uint8Array(e.target.result)};reader.readAsArrayBuffer(file);
+        gtag('event','upload_pdf',{event_category:'pdf_flatten'});
+    }
+    function formatSize(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB'}
+    async function flattenPDF(){
+        if(!pdfBytes){showToast('Please upload a PDF file first');return}
+        var pc=document.getElementById('progressContainer'),pf=document.getElementById('progressFill'),pt=document.getElementById('progressText');
+        pc.style.display='block';pf.style.width='10%';pt.textContent='Loading PDF...';
+        try{
+            var pdfDoc=await PDFLib.PDFDocument.load(pdfBytes,{ignoreEncryption:true});
+            pf.style.width='30%';pt.textContent='Analyzing form fields...';
+            var form=pdfDoc.getForm(),fields=form.getFields(),fieldCount=fields.length;
+            var doForms=document.getElementById('flattenForms').checked,doAnnots=document.getElementById('flattenAnnotations').checked;
+            pf.style.width='50%';pt.textContent='Flattening '+fieldCount+' form fields...';
+            if(doForms&&fieldCount>0){form.updateFieldAppearances();form.flatten()}
+            pf.style.width='70%';pt.textContent='Processing annotations...';
+            if(doAnnots){var pages=pdfDoc.getPages();for(var i=0;i<pages.length;i++){var page=pages[i],annots=page.node.Annots();if(annots){for(var j=annots.size()-1;j>=0;j--){var a=annots.lookup(j),st=a.get('Subtype');if(st&&st.toString()!=='/Widget'){annots.remove(j)}}}}}
+            pf.style.width='90%';pt.textContent='Generating PDF...';
+            flattenedBytes=await pdfDoc.save();pf.style.width='100%';pt.textContent='Done!';
+            document.getElementById('resultBox').innerHTML='<p><span class="badge badge-success">✅ Flattened successfully</span></p><p style="margin-top:8px">Original: '+formatSize(pdfBytes.length)+' → Flattened: '+formatSize(flattenedBytes.length)+'</p><p>Form fields: '+fieldCount+' flattened</p>';
+            document.getElementById('resultCard').style.display='block';gtag('event','flatten_pdf',{event_category:'pdf_flatten',value:fieldCount});
+        }catch(e){pf.style.width='100%';pf.style.background='#ef4444';pt.textContent='Error: '+e.message;gtag('event','flatten_error',{event_category:'pdf_flatten',event_label:e.message})}
+    }
+    function downloadResult(){if(!flattenedBytes)return;var blob=new Blob([flattenedBytes],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=originalName.replace('.pdf','_flattened.pdf')||'flattened.pdf';a.click();URL.revokeObjectURL(url);gtag('event','download_flattened',{event_category:'pdf_flatten'})}
+    function clearFile(){pdfBytes=null;flattenedBytes=null;originalName='';document.getElementById('fileInput').value='';document.getElementById('fileInfo').style.display='none';document.getElementById('optionsCard').style.display='none';document.getElementById('resultCard').style.display='none';document.getElementById('progressContainer').style.display='none'}
+    </script>
+</main>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+<div class="toast" id="toast"></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/pdf-flatten/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

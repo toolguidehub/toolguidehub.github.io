@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Text to NATO Phonetic Alphabet - ToolGuideHub</title>
+    <meta name="description" content="Spell out text in the NATO phonetic alphabet, showing Alpha Bravo Charlie code words and how numbers are read aloud.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/text-to-nato/">
+    <meta property="og:title" content="Free Text to NATO Phonetic Alphabet - ToolGuideHub">
+    <meta property="og:description" content="Spell out text in the NATO phonetic alphabet, showing Alpha Bravo Charlie code words and how numbers are read aloud.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/text-to-nato/">
+    <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0;--bg:#0f172a}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container{ max-width:960px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); resize: vertical; min-height: 120px; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-success:hover { opacity: .9; }
+        .result-box { background:#0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; white-space: pre-wrap; word-break: break-all; max-height: 400px; overflow-y: auto; min-height: 80px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .nato-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; margin-top: 12px; }
+        .nato-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 6px; padding: 6px 10px; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+        .nato-item .letter { font-weight: 700; color: #22d3ee; min-width: 18px; }
+        .nato-item .word { color: #94a3b8; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+.faq-section{margin-top:24px}.faq-section h2{margin-bottom:16px}</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/text-to-nato/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div class="nav-back"><a href="../../">← Back to Home</a></div>
+    <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+      <a href="../../en/text-to-nato/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a>
+      <a href="index.html" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a>
+    </div>
+  </div>
+  <h1>📻 Text to NATO Phonetic Alphabet</h1>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+  <p>Online NATO phonetic alphabet converter - Alpha Bravo Charlie... Pure frontend, local processing</p>
+</header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Text to NATO Phonetic",
+      "item": "https://adi63586.github.io/Toolguidehub/en/text-to-nato/"
+    }
+  ],
+  "name": "Text to NATO Phonetic"
+}</script>
+
+        <div class="section">
+            <h2>📝 Input Text</h2>
+            <textarea id="input-text" placeholder="Enter text to convert, e.g.: HELLO WORLD">HELLO WORLD</textarea>
+            <div class="row" style="margin-top:12px">
+                <button class="btn btn-primary" onclick="convertToNATO()">🔄 Convert</button>
+                <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+                <button class="btn btn-success" onclick="copyResult()">📋 Copy Result</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📡 NATO Phonetic Result</h2>
+            <div class="result-box" id="nato-result">Waiting to convert...</div>
+        </div>
+
+        <div class="section">
+            <h2>🔤 Character-by-Character Map</h2>
+            <div class="nato-grid" id="nato-grid"></div>
+        </div>
+
+        <div class="section">
+            <h2>📖 NATO Phonetic Alphabet Reference</h2>
+            <div class="nato-grid" id="nato-table"></div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: What is the NATO phonetic alphabet?</h3>
+                <p>The NATO phonetic alphabet (also known as the International Radiotelephony Spelling Alphabet) is a standard set of code words used by ICAO and NATO to clearly spell out letters during radio or telephone communication, avoiding confusion from similar-sounding letters. For example: A=Alpha, B=Bravo, C=Charlie.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: How are numbers converted?</h3>
+                <p>Numbers use standard pronunciations: 0=Zero, 1=One, 2=Two, 3=Three, 4=Four, 5=Fife (to avoid confusion with Fire), 6=Six, 7=Seven, 8=Eight, 9=Niner (to avoid confusion with German "nein"). This tool uses common English pronunciations.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: When do you need the NATO phonetic alphabet?</h3>
+                <p>Common use cases: aviation communications (flight numbers, runway designations), military communications, maritime communications, customer service spelling names/order numbers, IT reading serial numbers/verification codes, and any scenario requiring accurate letter transmission over voice communication.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is the NATO phonetic alphabet?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the NATO phonetic alphabet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard set of code words by ICAO/NATO for clearly spelling letters during radio/telephone communication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are numbers converted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numbers use standard pronunciations: 0=Zero through 9=Niner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do you need the NATO phonetic alphabet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aviation, military, maritime communications, customer service, IT serial numbers, and any voice communication requiring accurate letter transmission."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Text to NATO Phonetic Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter text to convert in the input box", "name": "Enter text to convert in the i"}, {"@type": "HowToStep", "position": 2, "text": "Click 'Convert' button", "name": "Click 'Convert' button"}, {"@type": "HowToStep", "position": 3, "text": "View NATO phonetic result and character-by-character mapping", "name": "View NATO phonetic result and "}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Text to NATO Phonetic Alphabet", "description": "Free online NATO phonetic alphabet converter", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/text-to-nato/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+        
+        <script>
+        var NATO = {
+            A:'Alpha',B:'Bravo',C:'Charlie',D:'Delta',E:'Echo',F:'Foxtrot',G:'Golf',
+            H:'Hotel',I:'India',J:'Juliet',K:'Kilo',L:'Lima',M:'Mike',N:'November',
+            O:'Oscar',P:'Papa',Q:'Quebec',R:'Romeo',S:'Sierra',T:'Tango',U:'Uniform',
+            V:'Victor',W:'Whiskey',X:'X-ray',Y:'Yankee',Z:'Zulu',
+            '0':'Zero','1':'One','2':'Two','3':'Three','4':'Four',
+            '5':'Five','6':'Six','7':'Seven','8':'Eight','9':'Niner'
+        };
+
+        // Render reference table
+        (function() {
+            var html = '';
+            for (var k in NATO) {
+                html += '\x3Cdiv class="nato-item">\x3Cspan class="letter">' + k + '\x3C/span>\x3Cspan class="word">' + NATO[k] + '\x3C/span>\x3C/div>';
+            }
+            document.getElementById('nato-table').innerHTML = html;
+        })();
+
+        function convertToNATO() {
+            var input = document.getElementById('input-text').value;
+            if (!input) { document.getElementById('nato-result').textContent = 'Please enter text'; return; }
+            var words = [];
+            var gridHtml = '';
+            for (var i = 0; i < input.length; i++) {
+                var ch = input[i];
+                var upper = ch.toUpperCase();
+                if (NATO[upper]) {
+                    words.push(NATO[upper]);
+                    gridHtml += '\x3Cdiv class="nato-item">\x3Cspan class="letter">' + escHtml(ch) + '\x3C/span>\x3Cspan class="word">' + NATO[upper] + '\x3C/span>\x3C/div>';
+                } else if (ch === ' ') {
+                    words.push('[space]');
+                    gridHtml += '\x3Cdiv class="nato-item" style="background:rgba(148,163,184,.1)">\x3Cspan class="letter">⎵\x3C/span>\x3Cspan class="word">Space\x3C/span>\x3C/div>';
+                } else {
+                    words.push(ch);
+                    gridHtml += '\x3Cdiv class="nato-item">\x3Cspan class="letter">' + escHtml(ch) + '\x3C/span>\x3Cspan class="word">' + escHtml(ch) + '\x3C/span>\x3C/div>';
+                }
+            }
+            document.getElementById('nato-result').textContent = words.join(' ');
+            document.getElementById('nato-grid').innerHTML = gridHtml;
+            gtag('event', 'convert_nato', { event_category: 'text-to-nato' });
+        }
+
+        function clearAll() {
+            document.getElementById('input-text').value = '';
+            document.getElementById('nato-result').textContent = 'Converting...';
+            document.getElementById('nato-grid').innerHTML = '';
+        }
+
+        function copyResult() {
+            var text = document.getElementById('nato-result').textContent;
+            if (!text || text === 'Converting...') return;
+            navigator.clipboard.writeText(text).then(function() {
+                gtag('event', 'copy_result', { event_category: 'text-to-nato' });
+                ;
+            });
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/\x3C/g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        // Auto-convert on load
+        convertToNATO();
+        </script>
+    </main>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+</script>
+<footer style="text-align:center;padding:30px 0;color:#94a3b8;font-size:0.85rem;border-top:1px solid rgba(148,163,184,.1)">
+    <div style="margin-bottom:12px">
+        <a href="../../" style="color:#64748b;margin:0 8px;text-decoration:none">Home</a>
+        <a href="../../en/privacy/" style="color:#64748b;margin:0 8px;text-decoration:none">Privacy</a>
+        <a href="../../en/terms/" style="color:#64748b;margin:0 8px;text-decoration:none">Terms</a>
+        <a href="../contact/">Contact</a>
+        <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#64748b;margin:0 8px;text-decoration:none">GitHub</a>
+        <a href="../../en/text-to-nato/" style="color:#64748b;margin:0 8px;text-decoration:none">中文</a>
+    </div>
+    <p style="margin-top:8px;color:#475569;font-size:.8rem">&copy; 2026 ToolGuideHub - Free Online Tools</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online JPG to WebP converter. Batch convert JPG images to WebP for smaller files. Pure frontend, images never leave your browser. No signup required.">
+<meta name="keywords" content="JPG to WebP, JPEG to WebP, image to webp, jpg to webp converter, online image converter, image compression">
+<title>Free Online JPG to WebP Converter - Bulk Convert | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/jpg-to-webp/">
+<meta property="og:title" content="Free Online JPG to WebP Converter - Bulk Convert | No Signup">
+<meta property="og:description" content="Free online JPG to WebP converter. Batch convert JPG images to WebP for smaller files. Pure frontend, images never leave your browser. No signup required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/jpg-to-webp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online JPG to WebP Converter - No Signup Required">
+<meta name="twitter:description" content="Free online JPG to WebP converter. Batch convert JPG/JPEG images to WebP format for 25-35% smaller files. No registration required.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/jpg-to-webp/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JPG to WebP Converter", "description": "Free online JPG to WebP converter. Batch convert JPG/JPEG images to WebP format with significant file size reduction. Pure frontend, images never leave your device.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why convert JPG to WebP?","acceptedAnswer":{"@type":"Answer","text":"WebP is a modern image format developed by Google that reduces file size by 25-35% compared to JPG at the same quality. Using WebP significantly speeds up page loading, saves bandwidth, and improves SEO. All major browsers (Chrome, Edge, Firefox, Safari) support WebP."}},{"@type":"Question","name":"Will image quality decrease after conversion?","acceptedAnswer":{"@type":"Answer","text":"The tool defaults to 90% quality, which maximizes compression with barely noticeable difference. WebP compression is highly efficient — at 80-90% quality it is virtually indistinguishable from the original JPG. You can adjust the quality slider to balance file size and image quality."}},{"@type":"Question","name":"Can I batch convert? Is it secure?","acceptedAnswer":{"@type":"Answer","text":"Yes, batch conversion is fully supported — select multiple images at once. All conversion happens locally in your browser. Images never leave your device, ensuring complete privacy. Works offline too."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "JPG to WebP Converter", "item": "https://adi63586.github.io/Toolguidehub/en/jpg-to-webp/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.upload-zone:hover,.upload-zone.dragover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.05)}
+.upload-zone p{color:#64748b;margin-top:8px;font-size:.9rem}
+.quality-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.quality-row input[type=range]{flex:1;min-width:150px;accent-color:#06b6d4}
+.quality-row span{color:#22d3ee;font-weight:600;min-width:40px}
+.result-item{display:flex;align-items:center;gap:12px;padding:12px;background:#0f172a;border-radius:8px;margin-bottom:8px;flex-wrap:wrap}
+.result-item img{width:80px;height:80px;object-fit:cover;border-radius:4px;border:1px solid rgba(148,163,184,.1)}
+.result-item .info{flex:1;min-width:150px}
+.result-item .info .name{color:#e2e8f0;font-size:.85rem;word-break:break-all}
+.result-item .info .size{color:#64748b;font-size:.75rem;margin-top:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.result-item{flex-direction:column;align-items:flex-start}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+  <h1>Free Online JPG to WebP Converter</h1>
+  
+</div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; JPG to WebP Converter</p>
+
+<div style="text-align:center;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    No Signup Required · Data Never Leaves Your Browser
+  </span>
+</div>
+
+<div class="tool-section">
+  <h2>Batch JPG &rarr; WebP Conversion</h2>
+  <p>Convert JPG/JPEG images to WebP format for 25-35% file size reduction while maintaining high quality. All conversions happen locally in your browser.</p>
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+    <div style="font-size:2rem">📁</div>
+    <p>Click to select JPG images or drag &amp; drop here</p>
+    <p style="color:#475569;font-size:.75rem">Batch selection supported, max 50MB per file</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/jpg" multiple style="display:none" onchange="handleFiles(this.files)">
+  <div class="quality-row">
+    <label style="color:#94a3b8;font-size:.85rem">Quality:</label>
+    <input type="range" id="quality" min="1" max="100" value="90" oninput="document.getElementById('qualityVal').textContent=this.value+'%'">
+    <span id="qualityVal">90%</span>
+  </div>
+  <div id="results"></div>
+  <div id="batchActions" style="display:none;margin-top:12px">
+    <button class="btn btn-primary" onclick="downloadAll()">📥 Download All</button>
+    <button class="btn btn-secondary" onclick="clearResults()">🗑️ Clear</button>
+  </div>
+</div>
+
+<div class="tool-section">
+  <h2>📖 How to Use</h2>
+  <p><strong>1. Select images:</strong> Click the upload zone or drag &amp; drop JPG images. Batch selection supported.</p>
+  <p><strong>2. Adjust quality:</strong> Drag the quality slider (1-100%). 80-95% recommended for best results.</p>
+  <p><strong>3. Download results:</strong> Click the download button next to each image, or "Download All" to get everything at once.</p>
+</div>
+
+<div class="tool-section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item">
+    <h3>Why convert JPG to WebP?</h3>
+    <p>WebP is a modern image format developed by Google that reduces file size by 25-35% compared to JPG at the same quality. Using WebP significantly speeds up page loading, saves bandwidth, and improves SEO. All major browsers (Chrome, Edge, Firefox, Safari) support WebP.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Will image quality decrease after conversion?</h3>
+    <p>The tool defaults to 90% quality, which maximizes compression with barely noticeable difference. WebP compression is highly efficient — at 80-90% quality it is virtually indistinguishable from the original JPG. You can adjust the quality slider to balance file size and image quality.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I batch convert? Is it secure?</h3>
+    <p>Yes, batch conversion is fully supported — select multiple images at once. All conversion happens locally in your browser. Images never leave your device, ensuring complete privacy. Works offline too.</p>
+  </div>
+</div>
+</main>
+
+<footer class="footer container">
+  <div style="margin-bottom:12px">
+    <a href="../index.html">Home</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+    <a href="../../en/jpg-to-webp/">中文</a>
+  </div>
+  <p>Free Online JPG to WebP Converter | No Signup · Data Never Leaves Your Browser</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+var convertedFiles=[];
+function formatBytes(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(2)+' MB'}
+function handleFiles(files){
+  if(!files||!files.length)return;
+  for(var i=0;i<files.length;i++){
+    if(files[i].type==='image/jpeg'||files[i].type==='image/jpg'){convertImage(files[i]);}
+    else{showToast('Please select a JPG image: '+files[i].name);}
+  }
+}
+function convertImage(file){
+  var quality=parseInt(document.getElementById('quality').value)/100;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      var canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+      var ctx=canvas.getContext('2d');
+      ctx.drawImage(img,0,0);
+      canvas.toBlob(function(blob){
+        if(!blob){showToast('Conversion failed: '+file.name);return;}
+        var item={
+          name:file.name.replace(/\.[^.]+$/,'')+'.webp',
+          originalSize:file.size,convertedSize:blob.size,
+          url:URL.createObjectURL(blob),
+          width:img.naturalWidth,height:img.naturalHeight
+        };
+        convertedFiles.push(item);
+        renderResults();
+        showToast('Converted: '+item.name);
+      },'image/webp',quality);
+    };
+    img.onerror=function(){showToast('Cannot load image: '+file.name);};
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function renderResults(){
+  var container=document.getElementById('results');
+  if(convertedFiles.length===0){container.innerHTML='';document.getElementById('batchActions').style.display='none';return;}
+  var html='';
+  convertedFiles.forEach(function(f,i){
+    var ratio=((1-f.convertedSize/f.originalSize)*100).toFixed(1);
+    var sign=ratio>0?'↓':'↑';
+    html+='<div class="result-item">'+
+      '<img src="'+f.url+'">'+
+      '<div class="info"><div class="name">'+f.name+'</div>'+
+      '<div class="size">'+f.width+'×'+f.height+'px · Original '+formatBytes(f.originalSize)+' → Converted '+formatBytes(f.convertedSize)+' · '+sign+Math.abs(ratio)+'%</div></div>'+
+      '<a href="'+f.url+'" download="'+f.name+'" class="btn btn-primary">📥 Download</a>'+
+      '<button class="btn btn-secondary" onclick="removeItem('+i+')">🗑️</button>'+
+    '</div>';
+  });
+  container.innerHTML=html;
+  document.getElementById('batchActions').style.display='block';
+}
+function removeItem(i){
+  URL.revokeObjectURL(convertedFiles[i].url);
+  convertedFiles.splice(i,1);
+  renderResults();
+}
+function downloadAll(){
+  convertedFiles.forEach(function(f,i){
+    setTimeout(function(){var a=document.createElement('a');a.href=f.url;a.download=f.name;a.click();},i*300);
+  });
+}
+function clearResults(){
+  convertedFiles.forEach(function(f){URL.revokeObjectURL(f.url);});
+  convertedFiles=[];
+  renderResults();
+  showToast('Cleared');
+}
+var dropZone=document.getElementById('uploadZone');
+if(dropZone){
+  dropZone.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover');});
+  dropZone.addEventListener('dragleave',function(e){this.classList.remove('dragover');});
+  dropZone.addEventListener('drop',function(e){
+    e.preventDefault();this.classList.remove('dragover');
+    handleFiles(e.dataTransfer.files);
+  });
+}
+
+</script>
+</body>
+</html>

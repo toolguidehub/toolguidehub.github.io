@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Extract every URL, email address and phone number from a block of text or HTML, then copy the deduplicated list.">
+<meta name="keywords" content="url extractor,email extractor,extract urls,extract emails,link extractor,url scraper,email scraper,data extraction tool">
+<title>Free URL & Email Extractor - Online Link Extraction Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/url-extractor/">
+<meta property="og:title" content="URL & Email Extractor - Free Online Link Extraction Tool">
+<meta property="og:description" content="Extract every URL, email address and phone number from a block of text or HTML, then copy the deduplicated list.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/url-extractor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "URL & Email Extractor", "description": "Free online URL and Email extractor tool. Extract all URLs, email addresses, and phone numbers from text. Batch extraction, one-click copy.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What types of content can this tool extract?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of content can this tool extract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool extracts three types of content from text: (1) URLs including http/https/ftp protocols and www-links; (2) Email addresses; (3) Phone numbers in various formats. You can choose which types to extract via checkboxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I export the extracted data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extracted results can be copied to clipboard with one click or downloaded as a TXT file. Each item is on a separate line, making it easy to import into Excel or other tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool secure? Does it upload my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely secure. Everything runs locally: URL & Email Extractor and other values are processed on your device, never sent to a server. Your text is never sent to any server. You can safely process sensitive content containing links or contact information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extract links from HTML pages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool extracts all URL patterns from plain text. If you want to extract from HTML code, paste the HTML source directly into the text area. For best results with HTML, consider using our HTML to Text converter first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What phone number formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common international phone number formats are supported, including country codes (e.g., +1 555-123-4567), area codes in parentheses, and numbers with hyphens or spaces. Accuracy depends on the input format consistency."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use URL & Email Extractor",
+  "description": "Three simple steps.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "URL & Email Extractor"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste your text",
+      "text": "Copy text containing URLs, emails, or phone numbers into the input area."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Select extraction types",
+      "text": "Check the types of content you want to extract: URLs, emails, phone numbers, or all."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and export results",
+      "text": "Click Extract to scan the text. View categorized results, copy or download as a file."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+textarea,input[type=text],select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px;outline:none;font-family:inherit}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+textarea{
+      background: var(--surface);
+      color: var(--text);resize:vertical;min-height:160px;font-family:monospace;font-size:.85rem}
+.check-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.check-row label{display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;cursor:pointer}
+.check-row label input[type=checkbox]{accent-color:#22d3ee;width:16px;height:16px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;min-height:120px;white-space:pre-wrap;word-break:break-all;font-family:monospace;font-size:.85rem;color:#e2e8f0;max-height:400px;overflow-y:auto;border:1px solid rgba(148,163,184,.1)}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;margin-bottom:8px;color:#64748b;font-size:.8rem}
+.stats span{margin-right:16px}
+.stats .num{color:#22d3ee;font-weight:700}
+.copy-alert{display:none;margin-top:8px;padding:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:6px;color:#4ade80;font-size:.8rem;text-align:center}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ol{padding-left:20px}
+.info-section ol li{margin-bottom:6px}
+.faq-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(148,163,184,.08)}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-q{color:#f1f5f9;font-weight:600;font-size:.95rem;margin-bottom:4px}
+.faq-a{color:#94a3b8;font-size:.85rem;line-height:1.5}
+.result-tabs{display:flex;gap:4px;margin-bottom:12px}
+.result-tab{padding:6px 14px;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15);transition:all .2s}
+.result-tab.active{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.result-tab .badge{display:inline-block;margin-left:4px;background:rgba(148,163,184,.2);border-radius:10px;padding:0 6px;font-size:.7rem}
+.result-tab.active .badge{background:rgba(6,182,212,.2)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.check-row{flex-direction:column;gap:8px}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "URL & Email Extractor",
+      "item": "https://adi63586.github.io/Toolguidehub/en/url-extractor/"
+    }
+  ],
+  "name": "URL & Email Extractor"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/url-extractor/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🔗 URL & Email Extractor</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section">
+    <h2>Input Text</h2>
+    <textarea id="textInput" rows="6" placeholder="Paste text containing URLs, emails, or phone numbers...">Visit our website at https://example.com or email support@example.com.
+More info at www.google.com and contact admin@test.org.
+Customer hotline: +1 555-123-4567 or (212) 888-8888
+Blog posts: https://blog.example.com/posts?category=tech&id=123
+Partnership inquiries: partner@company.co.uk or visit https://shop.example.org</textarea>
+    <div class="check-row">
+      <label><input type="checkbox" id="chkUrl" checked> 🌐 Extract URLs</label>
+      <label><input type="checkbox" id="chkEmail" checked> 📧 Extract Emails</label>
+      <label><input type="checkbox" id="chkPhone"> 📞 Extract Phones</label>
+      <label><input type="checkbox" id="chkAll" checked> 🔄 Deduplicate</label>
+    </div>
+    <div class="toolbar">
+      <button class="btn btn-primary" id="extractBtn">🔍 Extract</button>
+      <button class="btn btn-danger" id="clearBtn">🗑 Clear</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Extraction Results</h2>
+    <div class="stats" id="stats">
+      <span>URLs: <span id="urlCount" class="num">0</span></span>
+      <span>Emails: <span id="emailCount" class="num">0</span></span>
+      <span>Phones: <span id="phoneCount" class="num">0</span></span>
+      <span>Total: <span id="totalCount" class="num">0</span></span>
+    </div>
+    <div class="result-tabs" id="resultTabs">
+      <span class="result-tab active" data-tab="all">All <span class="badge" id="tabAllCount">0</span></span>
+      <span class="result-tab" data-tab="url">URLs <span class="badge" id="tabUrlCount">0</span></span>
+      <span class="result-tab" data-tab="email">Emails <span class="badge" id="tabEmailCount">0</span></span>
+      <span class="result-tab" data-tab="phone">Phones <span class="badge" id="tabPhoneCount">0</span></span>
+    </div>
+    <div class="result-box" id="resultBox">Click "Extract" to scan text</div>
+    <div class="toolbar" style="margin-top:12px">
+      <button class="btn btn-success" id="copyBtn">📋 Copy Results</button>
+      <button class="btn btn-primary" id="downloadBtn">⬇ Download TXT</button>
+    </div>
+    <div class="copy-alert" id="copyAlert">✅ Copied to clipboard!</div>
+  </div>
+  
+  <div class="info-section" id="usage">
+    <h2>How to Use URL & Email Extractor</h2>
+    <ol>
+      <li><strong>Paste text</strong>: Copy text containing URLs, emails, or phone numbers into the input area.</li>
+      <li><strong>Select types</strong>: Check the types of content to extract (URLs, emails, phones).</li>
+      <li><strong>View results</strong>: Click Extract to scan. Use tabs to view different categories.</li>
+    </ol>
+    <p style="margin-top:12px"><strong>Use cases:</strong> Extract links from scraped web data, collect contact information, SEO backlink analysis, data cleaning during migration.</p>
+  </div>
+
+  <div class="info-section" id="faq">
+    <h2>FAQ</h2>
+    <div class="faq-item"><div class="faq-q">What types of content can this tool extract?</div><div class="faq-a">This tool extracts URLs (http/https/ftp and www links), email addresses, and phone numbers. You can choose which types to extract via checkboxes.</div></div>
+    <div class="faq-item"><div class="faq-q">How do I export the extracted data?</div><div class="faq-a">Extracted results can be copied to clipboard with one click or downloaded as a TXT file. Each item is on a separate line, ready to import into Excel or other tools.</div></div>
+    <div class="faq-item"><div class="faq-q">Is this tool secure? Does it upload my data?</div><div class="faq-a">Absolutely secure. Everything runs locally: URL & Email Extractor and other values are processed on your device, never sent to a server. Your text is never sent to any server.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I extract links from HTML pages?</div><div class="faq-a">Yes. The tool extracts all URL patterns from plain text. Paste HTML source directly into the text area, or use our HTML to Text converter first for better results.</div></div>
+    <div class="faq-item"><div class="faq-q">What phone number formats are supported?</div><div class="faq-a">Common international phone number formats are supported, including country codes, area codes in parentheses, and numbers with hyphens or spaces.</div></div>
+  </div>
+</main>
+
+<div>
+<footer>
+  <a href="../../">All Tools</a> | <a href="../blog/">Blog</a> | <a href="../../">中文</a>
+  <p style="margin-top:8px">&copy; 2025 ToolGuideHub &middot; Free Online Tools &middot; Pure Frontend</p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<script>
+var input=document.getElementById('textInput');
+var resultBox=document.getElementById('resultBox');
+var urlCount=document.getElementById('urlCount');
+var emailCount=document.getElementById('emailCount');
+var phoneCount=document.getElementById('phoneCount');
+var totalCount=document.getElementById('totalCount');
+var tabAllCount=document.getElementById('tabAllCount');
+var tabUrlCount=document.getElementById('tabUrlCount');
+var tabEmailCount=document.getElementById('tabEmailCount');
+var tabPhoneCount=document.getElementById('tabPhoneCount');
+
+var extracted={urls:[],emails:[],phones:[]};
+var currentTab='all';
+
+function extract(){
+  var txt=input.value;
+  if(!txt){resultBox.textContent='Please enter text';resetCounts();return;}
+  var urls=[],emails=[],phones=[];
+  if(document.getElementById('chkUrl').checked){
+    var urlRe=/(?:https?|ftp):\/\/[^\s<>"']+|(?:www\.)[a-zA-Z0-9.-]+(?:\.[a-zA-Z]{2})(?:\/[^\s<>"']*)?/gi;
+    var m;
+    while((m=urlRe.exec(txt))!==null) urls.push(m[0]);
+  }
+  if(document.getElementById('chkEmail').checked){
+    var emailRe=/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2}/gi;
+    var m;
+    while((m=emailRe.exec(txt))!==null) emails.push(m[0]);
+  }
+  if(document.getElementById('chkPhone').checked){
+    var phoneRe=/(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{2,4}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}(?:[-.\s]\d{1,4})?/g;
+    var m;
+    while((m=phoneRe.exec(txt))!==null){
+      var p=m[0].trim();
+      if(p.replace(/[\d+]/g,'').length>0||p.replace(/\D/g,'').length<7) continue;
+      phones.push(p);
+    }
+  }
+  if(document.getElementById('chkAll').checked){
+    urls=[...new Set(urls)];
+    emails=[...new Set(emails)];
+    phones=[...new Set(phones)];
+  }
+  extracted={urls,emails,phones};
+  updateCounts();
+  showTab(currentTab);
+}
+
+function showTab(tab){
+  currentTab=tab;
+  var items=[];
+  if(tab==='all') items=[...extracted.urls,...extracted.emails,...extracted.phones];
+  else if(tab==='url') items=extracted.urls;
+  else if(tab==='email') items=extracted.emails;
+  else if(tab==='phone') items=extracted.phones;
+  
+  if(items.length===0){
+    resultBox.textContent='No matches found';
+  }else{
+    resultBox.textContent=items.map(function(v,i){return (i+1)+'. '+v;}).join('\n');
+  }
+  document.querySelectorAll('.result-tab').forEach(function(el){
+    el.classList.toggle('active',el.getAttribute('data-tab')===tab);
+  });
+}
+
+function updateCounts(){
+  urlCount.textContent=extracted.urls.length;
+  emailCount.textContent=extracted.emails.length;
+  phoneCount.textContent=extracted.phones.length;
+  var total=extracted.urls.length+extracted.emails.length+extracted.phones.length;
+  totalCount.textContent=total;
+  tabAllCount.textContent=total;
+  tabUrlCount.textContent=extracted.urls.length;
+  tabEmailCount.textContent=extracted.emails.length;
+  tabPhoneCount.textContent=extracted.phones.length;
+}
+
+function resetCounts(){
+  urlCount.textContent='0';emailCount.textContent='0';phoneCount.textContent='0';
+  totalCount.textContent='0';tabAllCount.textContent='0';tabUrlCount.textContent='0';
+  tabEmailCount.textContent='0';tabPhoneCount.textContent='0';
+}
+
+document.getElementById('extractBtn').addEventListener('click',extract);
+document.getElementById('clearBtn').addEventListener('click',function(){
+  input.value='';resultBox.textContent='Click "Extract" to scan text';
+  extracted={urls:[],emails:[],phones:[]};updateCounts();
+});
+document.querySelectorAll('.result-tab').forEach(function(el){
+  el.addEventListener('click',function(){
+    showTab(this.getAttribute('data-tab'));
+  });
+});
+document.getElementById('copyBtn').addEventListener('click',function(){
+  if(!resultBox.textContent||resultBox.textContent==='Click "Extract" to scan text'||resultBox.textContent==='Please enter text'||resultBox.textContent==='No matches found')return;
+  var lines=resultBox.textContent.replace(/^\d+\.\s/gm,'');
+  navigator.clipboard.writeText(lines).then(function(){
+    var a=document.getElementById('copyAlert');
+    a.style.display='block';setTimeout(function(){a.style.display='none';},2000);
+  });
+});
+document.getElementById('downloadBtn').addEventListener('click',function(){
+  if(!resultBox.textContent||resultBox.textContent==='Click "Extract" to scan text'||resultBox.textContent==='Please enter text'||resultBox.textContent==='No matches found')return;
+  var lines=resultBox.textContent.replace(/^\d+\.\s/gm,'');
+  var blob=new Blob([lines],{type:'text/plain;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='extracted-items.txt';
+  a.click();URL.revokeObjectURL(a.href);
+});
+extract();
+</script>
+
+</div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+document.addEventListener('DOMContentLoaded',function(){
+});
+function submitFeedback(){
+  /* feedback now opens a pre-filled GitHub issue in the ToolGuideHub repository (no tokens stored in the page) */
+  var el=document.getElementById('feedback-type');var type=el?el.value:'feedback';
+  window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+encodeURIComponent('[Feedback] '+document.title+' - '+type),'_blank','noopener');
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js">
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+<div class="toast" id="toast">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Search world flags by country, filter by continent, and see each flag's emoji, capital, currency and population.">
+<meta name="keywords" content="country flags world flags flag finder national flags online tool free">
+<title>Free Country Flag Finder - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/country-flag-finder/">
+<meta property="og:title" content="Free Country Flag Finder - ToolGuideHub">
+<meta property="og:description" content="Search world flags by country, filter by continent, and see each flag's emoji, capital, currency and population.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/country-flag-finder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Country Flag Finder", "description": "Free online country flag finder. Search all world flags by country name, filter by continent. View flag emoji, capital, currency, population and more.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Country Flag Finder", "description": "Steps to use the country flag finder tool", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Country Flag Finder"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Search country", "text": "Enter country name in the search box"}, {"@type": "HowToStep", "position": 2, "name": "Filter continent", "text": "Select a continent to filter countries"}, {"@type": "HowToStep", "position": 3, "name": "View details", "text": "Click a country to see its flag, capital, currency and more"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Country Flag Finder", "item": "https://adi63586.github.io/Toolguidehub/en/country-flag-finder/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Country Flag Finder FAQ","mainEntity":[{"@type":"Question","name":"How does the Country Flag Finder work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Country Flag Finder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Search by country na and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Country Flag Finder results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+.badge{display:inline-block;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);color:#22d3ee;font-size:.8rem;margin-bottom:16px}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}
+.search-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.search-bar input{flex:1;padding:10px 14px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;outline:none;min-width:180px}
+.search-bar input:focus{border-color:rgba(6,182,212,.5)}
+.search-bar select{padding:10px 14px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;outline:none;cursor:pointer}
+.search-bar select:focus{border-color:rgba(6,182,212,.5)}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.country-card{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;text-align:center}
+.country-card:hover{background:rgba(6,182,212,.08);border-color:rgba(6,182,212,.2);transform:translateY(-2px)}
+.country-card .flag-emoji{font-size:2.5rem;display:block;margin-bottom:8px;line-height:1.2}
+.country-card .cname{font-size:.9rem;color:#f1f5f9;font-weight:500}
+.country-card .cname-native{font-size:.75rem;color:#64748b;margin-top:2px}
+.country-card .ccont{font-size:.7rem;color:#475569;margin-top:3px}
+.result-count{text-align:center;color:#64748b;font-size:.85rem;margin-bottom:12px;padding:8px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.08)}
+.detail-panel{background:#1e293b;border-radius:12px;padding:20px;border:1px solid rgba(148,163,184,.1);position:sticky;top:16px}
+.detail-panel h3{font-size:1.1rem;color:#f1f5f9;margin-bottom:8px;text-align:center}
+.detail-panel .big-flag{font-size:4rem;display:block;text-align:center;margin:12px 0;line-height:1.2}
+.detail-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(148,163,184,.06);font-size:.85rem}
+.detail-row .label{color:#64748b}
+.detail-row .value{color:#e2e8f0;text-align:right}
+.detail-footer{text-align:center;margin-top:12px;padding-top:12px;border-top:1px solid rgba(148,163,184,.1)}
+.detail-footer button{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.85rem}
+.detail-footer button:hover{background:rgba(6,182,212,.3)}
+.placeholder-text{text-align:center;color:#475569;padding:40px 0;font-size:.9rem}
+.placeholder-text .big-icon{font-size:3rem;display:block;margin-bottom:16px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#06b6d4}
+.footer a:hover{color:#38bdf8}
+.footer .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:16px;line-height:1.7}
+@media(max-width:860px){.main-grid{grid-template-columns:1fr}.detail-panel{position:static;margin-top:16px}}@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}.country-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr)}}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/country-flag-finder/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🏳️ Country Flag Finder</h1></div>
+<p class="nav-back"><a href="../">Home</a> &rsaquo; <a href="../#tools">Tools</a> &rsaquo; Country Flag Finder</p>
+<div class="hero"><p>Free online country flag finder. Search and browse world flags by country name, filter by continent. View flag emoji, capital, currency, population, area and more. Pure frontend, no data uploaded to server.</p><span class="badge">Zero dependency·Offline ready</span></div>
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-23
+ </span>
+</div>
+<div class="main-grid">
+<div>
+ <div class="input-section">
+ <h2>🔍 Search Country Flags</h2>
+ <div class="search-bar">
+ <input type="text" id="searchInput" placeholder="Search by country name..." autocomplete="off">
+ <select id="continentFilter">
+ <option value="all">All Continents</option>
+ <option value="Asia">Asia</option>
+ <option value="Africa">Africa</option>
+ <option value="Europe">Europe</option>
+ <option value="North America">North America</option>
+ <option value="South America">South America</option>
+ <option value="Oceania">Oceania</option>
+ <option value="Antarctica">Antarctica</option>
+ </select>
+ </div>
+ <div class="result-count" id="resultCount">0 countries</div>
+ <div class="country-grid" id="countryGrid"></div>
+ </div>
+ <div class="info-section">
+ <h2>📖 How to Use</h2>
+ <h3>Step 1: Search</h3>
+ <p>Type a country name in English to filter results in real-time. You can also use the continent dropdown.</p>
+ <h3>Step 2: Filter</h3>
+ <p>Select a continent to narrow down the list to a specific region.</p>
+ <h3>Step 3: Explore</h3>
+ <p>Click any country card to view detailed information including flag, capital, currency, population and more in the side panel.</p>
+ </div>
+ <div class="info-section">
+ <h2>🎯 Use Cases</h2>
+ <ul>
+ <li><strong>Design Reference:</strong> Find flag color schemes and patterns for design projects.</li>
+ <li><strong>Education:</strong> Help students learn world flags and basic country information.</li>
+ <li><strong>Travel Planning:</strong> Discover flags, currencies and capitals of destinations.</li>
+ <li><strong>Content Creation:</strong> Use flag emojis in articles, presentations and designs.</li>
+ <li><strong>Geography Research:</strong> Compare population, area and other country data.</li>
+ </ul>
+ </div>
+ <div class="info-section">
+ <h2>💡 Did You Know?</h2>
+ <p>A national flag is a symbol of a country's sovereignty and identity. There are 195 sovereign states recognized by the United Nations, each with its own unique flag design.</p>
+ <p>Vexillology is the scientific study of flags, including their design, history, and symbolism. Good flag designs typically follow principles of simplicity, meaningful symbolism, limited colors, and recognizability.</p>
+ <p>The world is traditionally divided into seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Oceania.</p>
+ </div>
+ <div class="info-section">
+ <h2>❓ FAQ</h2>
+ <h3>How many countries are included?</h3>
+ <p>This tool includes all 195 UN-recognized sovereign states plus some de facto independent territories.</p>
+ <h3>Where does the flag data come from?</h3>
+ <p>Flags are displayed using Unicode Emoji standard, compatible with all modern browsers and operating systems. All data is provided locally and works offline.</p>
+ <h3>Why do some flags show as letters?</h3>
+ <p>Flag emojis may not display correctly on older operating systems. For best results, use Windows 10+, macOS 10.12+, iOS 10+, or Android 7+.</p>
+ </div>
+</div>
+<div>
+ <div class="detail-panel" id="detailPanel">
+ <div class="placeholder-text" id="placeholder">
+ <span class="big-icon">🏳️</span>
+ <p>Click a country card on the left to see details</p>
+ </div>
+ <div id="detailContent" style="display:none">
+ <h3 id="detailName">Country Name</h3>
+ <span class="big-flag" id="detailFlag">🏳️</span>
+ <div id="detailInfo"></div>
+ <div class="detail-footer">
+ <button id="copyFlagBtn">📋 Copy Flag Emoji</button>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+</main>
+
+<footer class="footer container">
+<div class="footer-links">
+<a href="../../">Home</a>
+<a href="../../#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/country-flag-finder/">中文</a>
+</div>
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+// Country data: [emoji, zhName, enName, capital, continent, currency, phoneCode, tld, population, area]
+var COUNTRIES=[
+["🇦🇫","阿富汗","Afghanistan","Kabul","Asia","Afghani (AFN)",93,".af",38928346,652230],
+["🇦🇱","阿尔巴尼亚","Albania","Tirana","Europe","Lek (ALL)",355,".al",2877797,28748],
+["🇩🇿","阿尔及利亚","Algeria","Algiers","Africa","Dinar (DZD)",213,".dz",43851044,2381741],
+["🇦🇩","安道尔","Andorra","Andorra la Vella","Europe","Euro (EUR)",376,".ad",77265,468],
+["🇦🇴","安哥拉","Angola","Luanda","Africa","Kwanza (AOA)",244,".ao",32866272,1246700],
+["🇦🇬","安提瓜和巴布达","Antigua and Barbuda","St. John's","North America","East Caribbean Dollar (XCD)",1268,".ag",97928,442],
+["🇦🇷","阿根廷","Argentina","Buenos Aires","South America","Peso (ARS)",54,".ar",45195774,2780400],
+["🇦🇲","亚美尼亚","Armenia","Yerevan","Asia","Dram (AMD)",374,".am",2963243,29743],
+["🇦🇺","澳大利亚","Australia","Canberra","Oceania","Australian Dollar (AUD)",61,".au",25499884,7692024],
+["🇦🇹","奥地利","Austria","Vienna","Europe","Euro (EUR)",43,".at",9006398,83871],
+["🇦🇿","阿塞拜疆","Azerbaijan","Baku","Asia","Manat (AZN)",994,".az",10139177,86600],
+["🇧🇸","巴哈马","Bahamas","Nassau","North America","Bahamian Dollar (BSD)",1242,".bs",393244,13943],
+["🇧🇭","巴林","Bahrain","Manama","Asia","Dinar (BHD)",973,".bh",1701575,765],
+["🇧🇩","孟加拉国","Bangladesh","Dhaka","Asia","Taka (BDT)",880,".bd",164689383,147570],
+["🇧🇧","巴巴多斯","Barbados","Bridgetown","North America","Barbadian Dollar (BBD)",1246,".bb",287371,430],
+["🇧🇾","白俄罗斯","Belarus","Minsk","Europe","Ruble (BYN)",375,".by",9449323,207600],
+["🇧🇪","比利时","Belgium","Brussels","Europe","Euro (EUR)",32,".be",11589623,30528],
+["🇧🇿","伯利兹","Belize","Belmopan","North America","Belize Dollar (BZD)",501,".bz",397628,22966],
+["🇧🇯","贝宁","Benin","Porto-Novo","Africa","West African CFA Franc (XOF)",229,".bj",12123200,112622],
+["🇧🇹","不丹","Bhutan","Thimphu","Asia","Ngultrum (BTN)",975,".bt",771608,38394],
+["🇧🇴","玻利维亚","Bolivia","Sucre","South America","Boliviano (BOB)",591,".bo",11673021,1098581],
+["🇧🇦","波斯尼亚和黑塞哥维那","Bosnia and Herzegovina","Sarajevo","Europe","Convertible Mark (BAM)",387,".ba",3280819,51209],
+["🇧🇼","博茨瓦纳","Botswana","Gaborone","Africa","Pula (BWP)",267,".bw",2351627,581730],
+["🇧🇷","巴西","Brazil","Brasília","South America","Real (BRL)",55,".br",212559417,8515767],
+["🇧🇳","文莱","Brunei","Bandar Seri Begawan","Asia","Brunei Dollar (BND)",673,".bn",437479,5765],
+["🇧🇬","保加利亚","Bulgaria","Sofia","Europe","Lev (BGN)",359,".bg",6948445,110879],
+["🇧🇫","布基纳法索","Burkina Faso","Ouagadougou","Africa","West African CFA Franc (XOF)",226,".bf",20903273,274200],
+["🇧🇮","布隆迪","Burundi","Gitega","Africa","Franc (BIF)",257,".bi",11890784,27834],
+["🇰🇭","柬埔寨","Cambodia","Phnom Penh","Asia","Riel (KHR)",855,".kh",16718965,181035],
+["🇨🇲","喀麦隆","Cameroon","Yaoundé","Africa","Central African CFA Franc (XAF)",237,".cm",26545863,475442],
+["🇨🇦","加拿大","Canada","Ottawa","North America","Canadian Dollar (CAD)",1,".ca",37742154,9984670],
+["🇨🇻","佛得角","Cape Verde","Praia","Africa","Escudo (CVE)",238,".cv",555987,4033],
+["🇨🇫","中非共和国","Central African Republic","Bangui","Africa","Central African CFA Franc (XAF)",236,".cf",4829767,622984],
+["🇹🇩","乍得","Chad","N'Djamena","Africa","Central African CFA Franc (XAF)",235,".td",16425864,1284000],
+["🇨🇱","智利","Chile","Santiago","South America","Peso (CLP)",56,".cl",19116201,756102],
+["🇨🇳","中国","China","Beijing","Asia","Chinese Yuan (CNY)",86,".cn",1439323776,9596961],
+["🇨🇴","哥伦比亚","Colombia","Bogotá","South America","Peso (COP)",57,".co",50882891,1141748],
+["🇰🇲","科摩罗","Comoros","Moroni","Africa","Franc (KMF)",269,".km",869601,2235],
+["🇨🇬","刚果（布）","Congo","Brazzaville","Africa","Central African CFA Franc (XAF)",242,".cg",5518092,342000],
+["🇨🇩","刚果（金）","DR Congo","Kinshasa","Africa","Franc (CDF)",243,".cd",89561403,2344858],
+["🇨🇷","哥斯达黎加","Costa Rica","San José","North America","Colón (CRC)",506,".cr",5094118,51100],
+["🇭🇷","克罗地亚","Croatia","Zagreb","Europe","Kuna (HRK)",385,".hr",4105267,56594],
+["🇨🇺","古巴","Cuba","Havana","North America","Peso (CUP)",53,".cu",11326616,109884],
+["🇨🇾","塞浦路斯","Cyprus","Nicosia","Europe","Euro (EUR)",357,".cy",1207359,9251],
+["🇨🇿","捷克","Czech Republic","Prague","Europe","Koruna (CZK)",420,".cz",10708981,78865],
+["🇩🇰","丹麦","Denmark","Copenhagen","Europe","Danish Krone (DKK)",45,".dk",5831404,43094],
+["🇩🇯","吉布提","Djibouti","Djibouti City","Africa","Franc (DJF)",253,".dj",988000,23200],
+["🇩🇲","多米尼克","Dominica","Roseau","North America","East Caribbean Dollar (XCD)",1767,".dm",71986,751],
+["🇩🇴","多米尼加","Dominican Republic","Santo Domingo","North America","Peso (DOP)",1809,".do",10847910,48671],
+["🇪🇨","厄瓜多尔","Ecuador","Quito","South America","US Dollar (USD)",593,".ec",17643054,283561],
+["🇪🇬","埃及","Egypt","Cairo","Africa","Egyptian Pound (EGP)",20,".eg",102334404,1002450],
+["🇸🇻","萨尔瓦多","El Salvador","San Salvador","North America","US Dollar (USD)",503,".sv",6486205,21041],
+["🇬🇶","赤道几内亚","Equatorial Guinea","Malabo","Africa","Central African CFA Franc (XAF)",240,".gq",1402985,28051],
+["🇪🇷","厄立特里亚","Eritrea","Asmara","Africa","Nakfa (ERN)",291,".er",3546421,117600],
+["🇪🇪","爱沙尼亚","Estonia","Tallinn","Europe","Euro (EUR)",372,".ee",1326535,45228],
+["🇸🇿","斯威士兰","Eswatini","Mbabane","Africa","Lilangeni (SZL)",268,".sz",1160164,17364],
+["🇪🇹","埃塞俄比亚","Ethiopia","Addis Ababa","Africa","Birr (ETB)",251,".et",114963588,1104300],
+["🇫🇯","斐济","Fiji","Suva","Oceania","Fijian Dollar (FJD)",679,".fj",896445,18274],
+["🇫🇮","芬兰","Finland","Helsinki","Europe","Euro (EUR)",358,".fi",5540720,338424],
+["🇫🇷","法国","France","Paris","Europe","Euro (EUR)",33,".fr",65273511,640679],
+["🇬🇦","加蓬","Gabon","Libreville","Africa","Central African CFA Franc (XAF)",241,".ga",2225734,267668],
+["🇬🇲","冈比亚","Gambia","Banjul","Africa","Dalasi (GMD)",220,".gm",2416668,11295],
+["🇬🇪","格鲁吉亚","Georgia","Tbilisi","Asia","Lari (GEL)",995,".ge",3989167,69700],
+["🇩🇪","德国","Germany","Berlin","Europe","Euro (EUR)",49,".de",83783942,357114],
+["🇬🇭","加纳","Ghana","Accra","Africa","Cedi (GHS)",233,".gh",31072940,238533],
+["🇬🇷","希腊","Greece","Athens","Europe","Euro (EUR)",30,".gr",10423054,131990],
+["🇬🇩","格林纳达","Grenada","St. George's","North America","East Caribbean Dollar (XCD)",1473,".gd",112523,344],
+["🇬🇹","危地马拉","Guatemala","Guatemala City","North America","Quetzal (GTQ)",502,".gt",17915568,108889],
+["🇬🇳","几内亚","Guinea","Conakry","Africa","Franc (GNF)",224,".gn",13132795,245857],
+["🇬🇼","几内亚比绍","Guinea-Bissau","Bissau","Africa","West African CFA Franc (XOF)",245,".gw",1968001,36125],
+["🇬🇾","圭亚那","Guyana","Georgetown","South America","Guyanese Dollar (GYD)",592,".gy",786559,214969],
+["🇭🇹","海地","Haiti","Port-au-Prince","North America","Gourde (HTG)",509,".ht",11402528,27750],
+["🇭🇳","洪都拉斯","Honduras","Tegucigalpa","North America","Lempira (HNL)",504,".hn",9904607,112492],
+["🇭🇺","匈牙利","Hungary","Budapest","Europe","Forint (HUF)",36,".hu",9660351,93028],
+["🇮🇸","冰岛","Iceland","Reykjavik","Europe","Icelandic Króna (ISK)",354,".is",341243,103000],
+["🇮🇳","印度","India","New Delhi","Asia","Rupee (INR)",91,".in",1380004385,2980193],
+["🇮🇩","印度尼西亚","Indonesia","Jakarta","Asia","Rupiah (IDR)",62,".id",273523615,1904569],
+["🇮🇷","伊朗","Iran","Tehran","Asia","Rial (IRR)",98,".ir",83992949,1648195],
+["🇮🇶","伊拉克","Iraq","Baghdad","Asia","Dinar (IQD)",964,".iq",40222493,438317],
+["🇮🇪","爱尔兰","Ireland","Dublin","Europe","Euro (EUR)",353,".ie",4937786,70273],
+["🇮🇱","以色列","Israel","Jerusalem","Asia","New Shekel (ILS)",972,".il",8655535,20770],
+["🇮🇹","意大利","Italy","Rome","Europe","Euro (EUR)",39,".it",60461826,301340],
+["🇨🇮","科特迪瓦","Ivory Coast","Yamoussoukro","Africa","West African CFA Franc (XOF)",225,".ci",26378274,322463],
+["🇯🇲","牙买加","Jamaica","Kingston","North America","Jamaican Dollar (JMD)",1876,".jm",2961167,10991],
+["🇯🇵","日本","Japan","Tokyo","Asia","Yen (JPY)",81,".jp",126476461,377930],
+["🇯🇴","约旦","Jordan","Amman","Asia","Dinar (JOD)",962,".jo",10203134,89342],
+["🇰🇿","哈萨克斯坦","Kazakhstan","Nur-Sultan","Asia","Tenge (KZT)",7,".kz",18776707,2724900],
+["🇰🇪","肯尼亚","Kenya","Nairobi","Africa","Shilling (KES)",254,".ke",53771296,580367],
+["🇰🇮","基里巴斯","Kiribati","Tarawa","Oceania","Australian Dollar (AUD)",686,".ki",119449,811],
+["🇰🇵","朝鲜","North Korea","Pyongyang","Asia","North Korean Won (KPW)",850,".kp",25778816,120538],
+["🇰🇷","韩国","South Korea","Seoul","Asia","Won (KRW)",82,".kr",51269185,100210],
+["🇽🇰","科索沃","Kosovo","Pristina","Europe","Euro (EUR)",383,".xk",1810463,10908],
+["🇰🇼","科威特","Kuwait","Kuwait City","Asia","Dinar (KWD)",965,".kw",4270571,17818],
+["🇰🇬","吉尔吉斯斯坦","Kyrgyzstan","Bishkek","Asia","Som (KGS)",996,".kg",6524195,199951],
+["🇱🇦","老挝","Laos","Vientiane","Asia","Kip (LAK)",856,".la",7275560,236800],
+["🇱🇻","拉脱维亚","Latvia","Riga","Europe","Euro (EUR)",371,".lv",1886198,64559],
+["🇱🇧","黎巴嫩","Lebanon","Beirut","Asia","Lebanese Pound (LBP)",961,".lb",6825445,10452],
+["🇱🇸","莱索托","Lesotho","Maseru","Africa","Loti (LSL)",266,".ls",2142249,30355],
+["🇱🇷","利比里亚","Liberia","Monrovia","Africa","Liberian Dollar (LRD)",231,".lr",5057681,111369],
+["🇱🇾","利比亚","Libya","Tripoli","Africa","Dinar (LYD)",218,".ly",6871287,1759540],
+["🇱🇮","列支敦士登","Liechtenstein","Vaduz","Europe","Swiss Franc (CHF)",423,".li",38128,160],
+["🇱🇹","立陶宛","Lithuania","Vilnius","Europe","Euro (EUR)",370,".lt",2722289,65300],
+["🇱🇺","卢森堡","Luxembourg","Luxembourg City","Europe","Euro (EUR)",352,".lu",625978,2586],
+["🇲🇬","马达加斯加","Madagascar","Antananarivo","Africa","Ariary (MGA)",261,".mg",27691018,587041],
+["🇲🇼","马拉维","Malawi","Lilongwe","Africa","Kwacha (MWK)",265,".mw",19129952,118484],
+["🇲🇾","马来西亚","Malaysia","Kuala Lumpur","Asia","Ringgit (MYR)",60,".my",32365999,330803],
+["🇲🇻","马尔代夫","Maldives","Malé","Asia","Rufiyaa (MVR)",960,".mv",540544,298],
+["🇲🇱","马里","Mali","Bamako","Africa","West African CFA Franc (XOF)",223,".ml",20250833,1240192],
+["🇲🇹","马耳他","Malta","Valletta","Europe","Euro (EUR)",356,".mt",441543,316],
+["🇲🇭","马绍尔群岛","Marshall Islands","Majuro","Oceania","US Dollar (USD)",692,".mh",59190,181],
+["🇲🇷","毛里塔尼亚","Mauritania","Nouakchott","Africa","Ouguiya (MRU)",222,".mr",4649658,1030700],
+["🇲🇺","毛里求斯","Mauritius","Port Louis","Africa","Rupee (MUR)",230,".mu",1271768,2040],
+["🇲🇽","墨西哥","Mexico","Mexico City","North America","Peso (MXN)",52,".mx",128932753,1964375],
+["🇫🇲","密克罗尼西亚","Micronesia","Palikir","Oceania","US Dollar (USD)",691,".fm",115023,702],
+["🇲🇩","摩尔多瓦","Moldova","Chișinău","Europe","Leu (MDL)",373,".md",4033963,33851],
+["🇲🇨","Monaco","Monaco","Monaco","Europe","Euro (EUR)",377,".mc",39244,2],
+["🇲🇳","蒙古","Mongolia","Ulaanbaatar","Asia","Tögrög (MNT)",976,".mn",3278290,1564116],
+["🇲🇪","黑山","Montenegro","Podgorica","Europe","Euro (EUR)",382,".me",628066,13812],
+["🇲🇦","摩洛哥","Morocco","Rabat","Africa","Dirham (MAD)",212,".ma",36910560,446550],
+["🇲🇿","莫桑比克","Mozambique","Maputo","Africa","Metical (MZN)",258,".mz",31255435,801590],
+["🇲🇲","缅甸","Myanmar","Naypyidaw","Asia","Kyat (MMK)",95,".mm",54409800,676578],
+["🇳🇦","纳米比亚","Namibia","Windhoek","Africa","Namibian Dollar (NAD)",264,".na",2540905,825615],
+["🇳🇷","瑙鲁","Nauru","Yaren","Oceania","Australian Dollar (AUD)",674,".nr",10834,21],
+["🇳🇵","尼泊尔","Nepal","Kathmandu","Asia","Nepalese Rupee (NPR)",977,".np",29136808,147516],
+["🇳🇱","荷兰","Netherlands","Amsterdam","Europe","Euro (EUR)",31,".nl",17134872,41543],
+["🇳🇿","新西兰","New Zealand","Wellington","Oceania","New Zealand Dollar (NZD)",64,".nz",4822233,270467],
+["🇳🇮","尼加拉瓜","Nicaragua","Managua","North America","Córdoba (NIO)",505,".ni",6624554,130373],
+["🇳🇪","尼日尔","Niger","Niamey","Africa","West African CFA Franc (XOF)",227,".ne",24206644,1267000],
+["🇳🇬","尼日利亚","Nigeria","Abuja","Africa","Naira (NGN)",234,".ng",206139589,923768],
+["🇲🇰","北马其顿","North Macedonia","Skopje","Europe","Denar (MKD)",389,".mk",2083459,25713],
+["🇳🇴","挪威","Norway","Oslo","Europe","Norwegian Krone (NOK)",47,".no",5421241,323802],
+["🇴🇲","阿曼","Oman","Muscat","Asia","Rial (OMR)",968,".om",5106626,309500],
+["🇵🇰","巴基斯坦","Pakistan","Islamabad","Asia","Rupee (PKR)",92,".pk",220892340,796095],
+["🇵🇼","帕劳","Palau","Ngerulmud","Oceania","US Dollar (USD)",680,".pw",18094,459],
+["🇵🇸","巴勒斯坦","Palestine","Ramallah","Asia","New Shekel (ILS)",970,".ps",5101416,6020],
+["🇵🇦","巴拿马","Panama","Panama City","North America","Balboa (PAB)",507,".pa",4314767,75417],
+["🇵🇬","巴布亚新几内亚","Papua New Guinea","Port Moresby","Oceania","Kina (PGK)",675,".pg",8947024,462840],
+["🇵🇾","巴拉圭","Paraguay","Asunción","South America","Guaraní (PYG)",595,".py",7132538,406752],
+["🇵🇪","秘鲁","Peru","Lima","South America","Sol (PEN)",51,".pe",32971854,1285216],
+["🇵🇭","菲律宾","Philippines","Manila","Asia","Peso (PHP)",63,".ph",109581078,300000],
+["🇵🇱","波兰","Poland","Warsaw","Europe","Zloty (PLN)",48,".pl",37846611,312685],
+["🇵🇹","葡萄牙","Portugal","Lisbon","Europe","Euro (EUR)",351,".pt",10196709,92212],
+["🇶🇦","卡塔尔","Qatar","Doha","Asia","Riyal (QAR)",974,".qa",2881053,11586],
+["🇷🇴","罗马尼亚","Romania","Bucharest","Europe","Leu (RON)",40,".ro",19237691,238397],
+["🇷🇺","俄罗斯","Russia","Moscow","Europe","Ruble (RUB)",7,".ru",145934462,17098242],
+["🇷🇼","卢旺达","Rwanda","Kigali","Africa","Franc (RWF)",250,".rw",12952218,26338],
+["🇰🇳","圣基茨和尼维斯","Saint Kitts and Nevis","Basseterre","North America","East Caribbean Dollar (XCD)",1869,".kn",53199,261],
+["🇱🇨","圣卢西亚","Saint Lucia","Castries","North America","East Caribbean Dollar (XCD)",1758,".lc",183627,616],
+["🇻🇨","圣文森特和格林纳丁斯","Saint Vincent and the Grenadines","Kingston","North America","East Caribbean Dollar (XCD)",1784,".vc",110940,389],
+["🇼🇸","萨摩亚","Samoa","Apia","Oceania","Tala (WST)",685,".ws",198410,2842],
+["🇸🇲","San Marino","San Marino","San Marino","Europe","Euro (EUR)",378,".sm",33931,61],
+["🇸🇹","圣多美和普林西比","Sao Tome and Principe","São Tomé","Africa","Dobra (STD)",239,".st",219159,964],
+["🇸🇦","沙特阿拉伯","Saudi Arabia","Riyadh","Asia","Riyal (SAR)",966,".sa",34813871,2149690],
+["🇸🇳","塞内加尔","Senegal","Dakar","Africa","West African CFA Franc (XOF)",221,".sn",16743927,196722],
+["🇷🇸","塞尔维亚","Serbia","Belgrade","Europe","Dinar (RSD)",381,".rs",8737371,88361],
+["🇸🇨","塞舌尔","Seychelles","Victoria","Africa","Rupee (SCR)",248,".sc",98347,452],
+["🇸🇱","塞拉利昂","Sierra Leone","Freetown","Africa","Leone (SLL)",232,".sl",7976983,71740],
+["🇸🇬","Singapore","Singapore","Singapore","Asia","Singapore Dollar (SGD)",65,".sg",5850342,728.6],
+["🇸🇰","斯洛伐克","Slovakia","Bratislava","Europe","Euro (EUR)",421,".sk",5459642,49037],
+["🇸🇮","斯洛文尼亚","Slovenia","Ljubljana","Europe","Euro (EUR)",386,".si",2078938,20273],
+["🇸🇧","所罗门群岛","Solomon Islands","Honiara","Oceania","Solomon Islands Dollar (SBD)",677,".sb",686884,28896],
+["🇸🇴","索马里","Somalia","Mogadishu","Africa","Shilling (SOS)",252,".so",15893222,637657],
+["🇿🇦","南非","South Africa","Pretoria","Africa","Rand (ZAR)",27,".za",59308690,1221037],
+["🇸🇸","南苏丹","South Sudan","Juba","Africa","South Sudanese Pound (SSP)",211,".ss",11193725,644329],
+["🇪🇸","西班牙","Spain","Madrid","Europe","Euro (EUR)",34,".es",46754778,505992],
+["🇱🇰","斯里兰卡","Sri Lanka","Colombo","Asia","Rupee (LKR)",94,".lk",21413249,65610],
+["🇸🇩","苏丹","Sudan","Khartoum","Africa","Sudanese Pound (SDG)",249,".sd",43849260,1886068],
+["🇸🇷","苏里南","Suriname","Paramaribo","South America","Surinamese Dollar (SRD)",597,".sr",586634,163820],
+["🇸🇪","瑞典","Sweden","Stockholm","Europe","Swedish Krona (SEK)",46,".se",10099265,450295],
+["🇨🇭","瑞士","Switzerland","Bern","Europe","Swiss Franc (CHF)",41,".ch",8654622,41284],
+["🇸🇾","叙利亚","Syria","Damascus","Asia","Syrian Pound (SYP)",963,".sy",17500658,185180],
+["🇹🇼","台湾","Taiwan","Taipei","Asia","New Taiwan Dollar (TWD)",886,".tw",23816775,36193],
+["🇹🇯","塔吉克斯坦","Tajikistan","Dushanbe","Asia","Somoni (TJS)",992,".tj",9537645,143100],
+["🇹🇿","坦桑尼亚","Tanzania","Dodoma","Africa","Shilling (TZS)",255,".tz",59734218,945087],
+["🇹🇭","泰国","Thailand","Bangkok","Asia","Baht (THB)",66,".th",69799978,513120],
+["🇹🇱","东帝汶","Timor-Leste","Dili","Asia","US Dollar (USD)",670,".tl",1318445,14874],
+["🇹🇬","多哥","Togo","Lomé","Africa","West African CFA Franc (XOF)",228,".tg",8278724,56785],
+["🇹🇴","汤加","Tonga","Nuku'alofa","Oceania","Paʻanga (TOP)",676,".to",105695,747],
+["🇹🇹","特立尼达和多巴哥","Trinidad and Tobago","Port of Spain","North America","Trinidad and Tobago Dollar (TTD)",1868,".tt",1399488,5130],
+["🇹🇳","突尼斯","Tunisia","Tunis","Africa","Dinar (TND)",216,".tn",11818619,163610],
+["🇹🇷","土耳其","Turkey","Ankara","Europe","Lira (TRY)",90,".tr",84339067,783562],
+["🇹🇲","土库曼斯坦","Turkmenistan","Ashgabat","Asia","Manat (TMT)",993,".tm",6031200,488100],
+["🇹🇻","图瓦卢","Tuvalu","Funafuti","Oceania","Australian Dollar (AUD)",688,".tv",11792,26],
+["🇺🇬","乌干达","Uganda","Kampala","Africa","Shilling (UGX)",256,".ug",45741000,241038],
+["🇺🇦","乌克兰","Ukraine","Kyiv","Europe","Hryvnia (UAH)",380,".ua",43733762,603500],
+["🇦🇪","阿联酋","United Arab Emirates","Abu Dhabi","Asia","Dirham (AED)",971,".ae",9890402,83600],
+["🇬🇧","英国","United Kingdom","London","Europe","British Pound (GBP)",44,".uk",67886011,242495],
+["🇺🇸","美国","United States","Washington, D.C.","North America","US Dollar (USD)",1,".us",331002651,9833520],
+["🇺🇾","乌拉圭","Uruguay","Montevideo","South America","Peso (UYU)",598,".uy",3473730,176215],
+["🇺🇿","乌兹别克斯坦","Uzbekistan","Tashkent","Asia","Som (UZS)",998,".uz",33469203,447400],
+["🇻🇺","瓦努阿图","Vanuatu","Port Vila","Oceania","Vatu (VUV)",678,".vu",307145,12189],
+["🇻🇦","梵蒂冈","Vatican City","Vatican City","Europe","Euro (EUR)",39,".va",801,0.44],
+["🇻🇪","委内瑞拉","Venezuela","Caracas","South America","Bolívar (VES)",58,".ve",28435940,916445],
+["🇻🇳","越南","Vietnam","Hanoi","Asia","Dong (VND)",84,".vn",97338579,331212],
+["🇾🇪","也门","Yemen","Sana'a","Asia","Rial (YER)",967,".ye",29825964,527968],
+["🇿🇲","赞比亚","Zambia","Lusaka","Africa","Kwacha (ZMW)",260,".zm",18383955,752612],
+["🇿🇼","津巴布韦","Zimbabwe","Harare","Africa","Zimbabwean Dollar (ZWL)",263,".zw",14862924,390757]
+];
+var continents=["Asia","Africa","Europe","North America","South America","Oceania","Antarctica"];
+function formatNumber(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+function renderGrid(){
+  var q=document.getElementById("searchInput").value.trim().toLowerCase();
+  var cont=document.getElementById("continentFilter").value;
+  var filtered=COUNTRIES.filter(function(c){
+    if(cont!=="all"&&c[4]!==cont)return false;
+    if(q){
+      return c[1].toLowerCase().indexOf(q)>-1||c[2].toLowerCase().indexOf(q)>-1||c[0].indexOf(q)>-1;
+    }
+    return true;
+  });
+  document.getElementById("resultCount").textContent=filtered.length+" countries";
+  var grid=document.getElementById("countryGrid");
+  if(filtered.length===0){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#64748b"><p>No matching countries found</p></div>';
+    return;
+  }
+  var html="";
+  filtered.forEach(function(c){
+    html+='<div class="country-card" data-code="'+c[2]+'" onclick="showDetail(\''+c[2]+'\')">'+
+      '<span class="flag-emoji">'+c[0]+'</span>'+
+      '<div class="cname">'+c[2]+'</div>'+
+      '<div class="ccont">'+c[4]+'</div>'+
+    '</div>';
+  });
+  grid.innerHTML=html;
+  // auto-show first result if no detail shown
+  if(!window._currentDetail&&filtered.length>0){
+    showDetail(filtered[0][2]);
+  }
+}
+window.showDetail = showDetail; function showDetail(code){
+  window._currentDetail=code;
+  var c=null;
+  for(var i=0;i<COUNTRIES.length;i++){
+    if(COUNTRIES[i][2]===code){c=COUNTRIES[i];break}
+  }
+  if(!c)return;
+  document.getElementById("placeholder").style.display="none";
+  document.getElementById("detailContent").style.display="block";
+  document.getElementById("detailName").textContent=c[2];
+  document.getElementById("detailFlag").textContent=c[0];
+  var info='<div class="detail-row"><span class="label">Capital</span><span class="value">'+c[3]+'</span></div>'+
+    '<div class="detail-row"><span class="label">Continent</span><span class="value">'+c[4]+'</span></div>'+
+    '<div class="detail-row"><span class="label">Currency</span><span class="value">'+c[5]+'</span></div>'+
+    '<div class="detail-row"><span class="label">Phone Code</span><span class="value">+'+c[6]+'</span></div>'+
+    '<div class="detail-row"><span class="label">Top-Level Domain</span><span class="value">'+c[7]+'</span></div>'+
+    '<div class="detail-row"><span class="label">Population</span><span class="value">'+formatNumber(c[8])+'</span></div>'+
+    '<div class="detail-row"><span class="label">Area</span><span class="value">'+formatNumber(c[9])+' km²</span></div>';
+  document.getElementById("detailInfo").innerHTML=info;
+  window._currentFlag=c[0];
+}
+document.getElementById("searchInput").addEventListener("input",renderGrid);
+document.getElementById("continentFilter").addEventListener("change",renderGrid);
+document.getElementById("copyFlagBtn").addEventListener("click",function(){
+  var f=window._currentFlag;
+  if(!f){showToast("Please select a country first");return}
+  navigator.clipboard.writeText(f).then(function(){showToast("Flag emoji copied")})["catch"](function(){showToast("Copy failed")});
+});
+// Init render
+renderGrid();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+</script>
+
+</body>
+</html>

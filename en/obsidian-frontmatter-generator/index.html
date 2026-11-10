@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build YAML frontmatter for Obsidian notes with tags, aliases, dates and status fields, then copy it into your note.">
+<meta name="keywords" content="Obsidian FrontmatterYAML frontmatter generatorObsidian templateMarkdown metadatanote propertiesObsidian tagsfree online tool">
+<title>Free Obsidian Frontmatter Generator Online - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/obsidian-frontmatter-generator/">
+<meta property="og:title" content="Free Obsidian Frontmatter Generator Online - ToolGuideHub">
+<meta property="og:description" content="Build YAML frontmatter for Obsidian notes with tags, aliases, dates and status fields, then copy it into your note.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/obsidian-frontmatter-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Obsidian Frontmatter Generator Online - Create YAML Note Metadata | No Signup">
+<meta name="twitter:description" content="Free online obsidian frontmatter generator online - toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Obsidian Frontmatter Generator", "description": "Free online Obsidian Frontmatter Generator. Visually create YAML frontmatter with tags, aliases, dates, status fields. One-click copy to notes, pure frontend.", "applicationCategory": "ProductivityApplication", "operatingSystem": "Any", "dateModified": "2026-07-25", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Obsidian Frontmatter Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Obsidian Frontmatter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frontmatter is YAML metadata at the top of a Markdown file, enclosed by three dashes (---). Obsidian parses this metadata as note properties, which can be used for searching, filtering, sorting, and Dataview queries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data types does Frontmatter support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports strings, numbers, booleans, dates, arrays (tag lists), and objects. Common fields: title, tags, aliases, date, status, author, category. You can also define custom fields for any purpose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use Frontmatter with Dataview?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dataview can query Frontmatter fields. For example: TABLE status, date FROM 'Daily Notes' WHERE status = 'Done' SORT date DESC. All custom fields are available for queries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to write tags in Frontmatter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tags can be written as an array: [tag1, tag2] or as a YAML list with one - tag per line. This generator uses the array format by default, which Obsidian fully supports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to any server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. All frontmatter generation and editing happens client-side — no data is ever uploaded to any server. Your privacy is fully protected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Obsidian Frontmatter Generator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely free with no registration required. Everything runs locally: Obsidian Frontmatter Generator and other values are processed on your device, never sent to a server using 100% client-side code. No hidden fees, no premium tiers, no data collection."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/office/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Obsidian Frontmatter Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/obsidian-frontmatter-generator/"
+    }
+  ],
+  "name": "Obsidian Frontmatter Generator"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to create Obsidian Frontmatter with this generator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Add fields",
+      "text": "Click field buttons (Text, Tags, Date, Select, Number, Boolean) to add the metadata fields you need for your Obsidian note."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Fill in values",
+      "text": "Enter field names and values. For tags, use comma-separated values. For select fields, choose from predefined options."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Copy Frontmatter",
+      "text": "Click the copy button to copy the generated YAML frontmatter to your clipboard. Paste it at the top of any Obsidian note."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}
+.header{padding:24px 0;border-bottom:1px solid rgba(148,163,184,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#e2e8f0}
+.lang-switch{display:flex;gap:8px}
+.lang-switch a{padding:4px 12px;border-radius:6px;font-size:.85rem;border:1px solid rgba(148,163,184,.2)}
+.lang-switch a.active{background:#06b6d4;color:#0f172a;border-color:#06b6d4}
+.breadcrumb{padding:12px 0;font-size:.85rem;color:#64748b}
+.breadcrumb a{color:#94a3b8}
+.hero{padding:20px 0}
+.hero .subtitle{color:#94a3b8;font-size:1rem;margin-bottom:8px}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.15);color:#06b6d4;border:1px solid rgba(6,182,212,.3)}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;padding:16px 0}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.panel{background:#1e293b;border-radius:12px;padding:20px;border:1px solid rgba(148,163,184,.1)}
+.panel h2{font-size:1.1rem;margin-bottom:16px;color:#e2e8f0}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#06b6d4}
+.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#0f172a}.btn-primary:hover{background:#22d3ee}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-sm{padding:6px 12px;font-size:.8rem}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.ad-slot.ad-sidebar{max-width:300px}
+.field-row{display:grid;grid-template-columns:140px 1fr 40px 40px;gap:8px;align-items:center;margin-bottom:10px}
+.field-row input,.field-row select{padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem}
+.field-row .field-name{font-weight:500;color:#e2e8f0}
+.field-row .field-type{font-size:.75rem;color:#64748b}
+.icon-btn{width:32px;height:32px;border-radius:6px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .2s}
+.icon-btn.edit{background:rgba(6,182,212,.15);color:#06b6d4}.icon-btn.edit:hover{background:rgba(6,182,212,.3)}
+.icon-btn.del{background:rgba(239,68,68,.15);color:#ef4444}.icon-btn.del:hover{background:rgba(239,68,68,.3)}
+.yaml-output{background:#0f172a;border-radius:8px;padding:16px;font-family:'Courier New',monospace;font-size:.9rem;color:#06b6d4;border:2px solid rgba(6,182,212,.3);white-space:pre-wrap;line-height:1.6;position:relative}
+.yaml-output .copy-btn{position:absolute;top:8px;right:8px;background:rgba(6,182,212,.2);border:none;color:#06b6d4;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:.75rem}
+.yaml-output .copy-btn:hover{background:rgba(6,182,212,.4)}
+.template-card{padding:10px;border-radius:8px;background:#0f172a;border:1px solid rgba(148,163,184,.1);margin-bottom:8px;cursor:pointer;transition:all .2s}
+.template-card:hover{border-color:rgba(6,182,212,.3)}
+.template-card .t-name{font-size:.85rem;color:#e2e8f0;font-weight:500}
+.template-card .t-desc{font-size:.75rem;color:#64748b;margin-top:2px}
+.sidebar-panel{background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1);margin-bottom:16px}
+.sidebar-panel h3{font-size:.9rem;color:#e2e8f0;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(148,163,184,.1)}
+.seo-content{padding:24px 0;font-size:.9rem;line-height:1.8;color:#94a3b8}
+.seo-content h2{color:#e2e8f0;font-size:1.2rem;margin:24px 0 12px}
+.seo-content h3{color:#e2e8f0;font-size:1rem;margin:16px 0 8px}
+.seo-content p{margin-bottom:12px}
+.seo-content ul{margin:8px 0 12px 20px}
+.seo-content li{margin-bottom:4px}
+.faq-section{padding:24px 0}
+.faq-section h2{font-size:1.2rem;color:#e2e8f0;margin-bottom:16px}
+.faq-item{border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-item .faq-q{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#e2e8f0;font-size:.9rem;background:#1e293b}
+.faq-item .faq-q:hover{background:#253449}
+.faq-item .faq-q .arrow{transition:transform .2s;color:#64748b}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-item .faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:all .3s;color:#94a3b8;font-size:.85rem;line-height:1.6}
+.faq-item.open .faq-a{padding:12px 16px;max-height:500px}
+.footer{padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#94a3b8;margin:0 8px}
+.copy-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#0f172a;padding:8px 20px;border-radius:8px;font-size:.85rem;font-weight:500;z-index:1000;opacity:0;transition:opacity .3s}
+.copy-toast.show{opacity:1}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/obsidian-frontmatter-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<div class="header">
+<h1>📝 Obsidian Frontmatter Generator</h1>
+
+</div>
+<div class="breadcrumb">
+<a href="../../">Home</a> › <a href="../../#tools">Tools</a> › Obsidian Frontmatter Generator
+</div>
+<div class="hero">
+<p class="subtitle">Free online Obsidian Frontmatter Generator. Visually create YAML frontmatter with tags, aliases, dates, and status fields. One-click copy to your notes.</p>
+<span class="badge">🔒 Zero dependencies · Works offline</span>
+</div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2>📋 Field Configuration</h2>
+<div id="fields-area"></div>
+<div class="btn-group">
+<button class="btn btn-secondary btn-sm" onclick="addField('text')">➕ Text Field</button>
+<button class="btn btn-secondary btn-sm" onclick="addField('tags')">🏷️ Tag Field</button>
+<button class="btn btn-secondary btn-sm" onclick="addField('date')">📅 Date Field</button>
+<button class="btn btn-secondary btn-sm" onclick="addField('select')">📋 Select Field</button>
+<button class="btn btn-secondary btn-sm" onclick="addField('number')">🔢 Number Field</button>
+<button class="btn btn-secondary btn-sm" onclick="addField('boolean')">✅ Boolean Field</button>
+</div>
+</div>
+<div class="panel">
+<h2>📄 YAML Output</h2>
+<div class="yaml-output" id="yaml-output">
+<button class="copy-btn" onclick="copyYaml()">📋 Copy</button>
+<span id="yaml-text"></span>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary btn-sm" onclick="copyYaml()">📋 Copy to Clipboard</button>
+<button class="btn btn-secondary btn-sm" onclick="saveTemplate()">💾 Save Template</button>
+<button class="btn btn-secondary btn-sm" onclick="loadExample()">💡 Load Example</button>
+</div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel">
+<h3>📋 presettemplate</h3>
+<div id="template-list"></div>
+</div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the Obsidian Frontmatter Generator Do?</h2>
+<p>The Obsidian Frontmatter Generator is a free online tool that lets you visually create YAML frontmatter for Obsidian notes. No need to manually write YAML syntax — simply add fields, enter values, and the tool auto-generates standard format frontmatter. Supports Text, Tags, Date, Select, Number, and Boolean field types, with preset templates for daily notes, projects, reading notes, and more.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Visual Editing:</strong> Add and configure fields in a table — no manual YAML writing needed</li>
+<li><strong>Multiple Field Types:</strong> Text, tag arrays, dates, dropdown selects, numbers, and booleans</li>
+<li><strong>Preset Templates:</strong> Daily notes, project management, reading notes, meeting records, and more</li>
+<li><strong>Real-time Preview:</strong> YAML output updates instantly as you edit fields</li>
+<li><strong>Custom Templates:</strong> Save frequently used templates locally for quick access</li>
+<li><strong>One-click Copy:</strong> Copy the generated frontmatter and paste directly into Obsidian</li>
+</ul>
+<h2>How to Use</h2>
+<p>1. Select a preset template or start from scratch</p>
+<p>2. Click an "Add Field" button to choose a field type</p>
+<p>3. Enter field names and values — use commas to separate multiple tag values</p>
+<p>4. Preview the YAML output in real time, then click Copy when ready</p>
+<p>5. Paste into your Obsidian note's top section — Obsidian will parse it automatically</p>
+<h2>Use Cases</h2>
+<h3>Daily Notes</h3>
+<p>Create structured daily notes with Date, Mood, Weather, and Rating fields. Combine with Dataview queries for quick journal browsing.</p>
+<h3>Project Management</h3>
+<p>Set Status, Priority, Start Date, Due Date, and Progress fields for project notes. Use Dataview to generate project dashboards.</p>
+<h3>Reading Notes</h3>
+<p>Track Author, Rating, Status, and ISBN for your reading list. Organize your personal knowledge library with structured metadata.</p>
+<h2>Understanding YAML Frontmatter</h2>
+<p>YAML Frontmatter is a metadata block at the top of a Markdown file, enclosed by three dashes (---). Obsidian parses this metadata as note properties, which can be used for searching, filtering, sorting, and Dataview queries. Common best practices include: using lowercase field names, ISO 8601 date format, and array format for tags.</p>
+</div>
+<div class="faq-section">
+<h2>FAQ</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)"><span>What is Obsidian Frontmatter?</span><span class="arrow">▼</span></div>
+<div class="faq-a">Frontmatter is a YAML metadata block at the top of a Markdown file, enclosed by three dashes (---). Obsidian parses this metadata as note properties, which can be used for searching, filtering, sorting, and Dataview queries.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)"><span>What data types does Frontmatter support?</span><span class="arrow">▼</span></div>
+<div class="faq-a">Supports strings, numbers, booleans, dates, arrays (tag lists), and objects. Common fields: title, tags, aliases, date, status, author, category. You can also define custom fields for any purpose.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)"><span>How to use Frontmatter with Dataview?</span><span class="arrow">▼</span></div>
+<div class="faq-a">Dataview can query Frontmatter fields. For example: TABLE status, date FROM "Daily Notes" WHERE status = "Done" SORT date DESC. All custom fields are available for queries.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)"><span>How to write tags in Frontmatter?</span><span class="arrow">▼</span></div>
+<div class="faq-a">Tags can be written as an array: [tag1, tag2] or as a YAML list with one - tag per line. This generator uses the array format by default, which Obsidian fully supports.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)"><span>Is my data uploaded to any server?</span><span class="arrow">▼</span></div>
+<div class="faq-a">No. This tool runs entirely in your browser. All frontmatter generation and editing happens client-side — no data is ever uploaded to any server. Your privacy is fully protected.</div>
+</div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/json-formatter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online JSON Formatter</a> <a href="../../en/base64-encode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free base64-encode - Merged</a> <a href="../../en/password-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Password Generator - St…</a> <a href="../../en/image-compress/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free image-compress - Merged</a> <a href="../../en/qr-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online QR Code Generator</a> <a href="../../en/url-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online URL Encoder &amp…</a> <a href="../../en/hash-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online Hash Generator -…</a> <a href="../../en/color-picker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online Color Picker - H…</a></div></section>
+
+<p>Obsidian Frontmatter Generator · Data never leaves your browser</p>
+
+</div>
+
+
+
+
+
+
+</main><footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">AllTools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../about/">About Us</a>
+<a href="index.html" class="active">EN</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</div>
+<div class="toast" id="copy-toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("copy-toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+const TEMPLATES = [
+  {name:'📋 Daily Notes', desc:'Daily journal', fields:[{n:'title',t:'text',v:''},{n:'date',t:'date',v:'today'},{n:'tags',t:'tags',v:'journal'},{n:'mood',t:'select',v:'😊 Happy',opts:['😊 Happy','😐 Calm','😢 Sad','😤 Frustrated']},{n:'weather',t:'select',v:'☀️ Sunny',opts:['☀️ Sunny','⛅ Cloudy','🌧️ Rainy','❄️ Snowy']},{n:'rating',t:'number',v:'7'}]},
+  {name:'📁 Project', desc:'Project management', fields:[{n:'title',t:'text',v:''},{n:'status',t:'select',v:'In Progress',opts:['To Do','In Progress','Done','On Hold']},{n:'priority',t:'select',v:'Medium',opts:['High','Medium','Low']},{n:'tags',t:'tags',v:'project'},{n:'start_date',t:'date',v:'today'},{n:'due_date',t:'date',v:''},{n:'progress',t:'number',v:'0'}]},
+  {name:'📚 Reading Notes', desc:'Book notes', fields:[{n:'title',t:'text',v:''},{n:'author',t:'text',v:''},{n:'tags',t:'tags',v:'reading'},{n:'rating',t:'number',v:'8'},{n:'status',t:'select',v:'Reading',opts:['Want to Read','Reading','Finished']},{n:'date_read',t:'date',v:'today'},{n:'isbn',t:'text',v:''}]},
+  {name:'🤝 Meeting Notes', desc:'Meeting record', fields:[{n:'title',t:'text',v:''},{n:'date',t:'date',v:'today'},{n:'tags',t:'tags',v:'meeting'},{n:'attendees',t:'tags',v:''},{n:'type',t:'select',v:'Team Meeting',opts:['Team Meeting','One-on-One','Client Meeting','Review']},{n:'action_items',t:'number',v:'0'}]},
+  {name:'💡 Ideas', desc:'Inspiration notes', fields:[{n:'title',t:'text',v:''},{n:'tags',t:'tags',v:'ideas'},{n:'date',t:'date',v:'today'},{n:'priority',t:'select',v:'Normal',opts:['Important','Normal','Later']},{n:'implemented',t:'boolean',v:'false'}]},
+];
+let fields = [];
+function init() {
+  loadExample();
+  renderTemplates();
+}
+function renderFields() {
+  const area = document.getElementById('fields-area');
+  area.innerHTML = '';
+  fields.forEach((f, i) => {
+    const row = document.createElement('div');
+    row.className = 'field-row';
+    let valueInput = '';
+    switch(f.t) {
+      case 'tags':
+        valueInput = `\x3Cinput type="text" value="${f.v}" placeholder="tag1, tag2" oninput="updateField(${i},'v',this.value)">`;
+        break;
+      case 'date':
+        valueInput = `\x3Cinput type="date" value="${f.v==='today'?new Date().toISOString().split('T')[0]:f.v}" oninput="updateField(${i},'v',this.value)">`;
+        break;
+      case 'select':
+        valueInput = `\x3Cselect oninput="updateField(${i},'v',this.value)">${(f.opts||[]).map(o=>`\x3Coption value="${o}" ${o===f.v?'selected':''}>${o}\x3C/option>`).join('')}\x3C/select>`;
+        break;
+      case 'number':
+        valueInput = `\x3Cinput type="number" value="${f.v}" oninput="updateField(${i},'v',this.value)">`;
+        break;
+      case 'boolean':
+        valueInput = `\x3Cselect oninput="updateField(${i},'v',this.value)">\x3Coption value="true" ${f.v==='true'?'selected':''}>true\x3C/option>\x3Coption value="false" ${f.v==='false'?'selected':''}>false\x3C/option>\x3C/select>`;
+        break;
+      default:
+        valueInput = `\x3Cinput type="text" value="${f.v}" placeholder="Enter value" oninput="updateField(${i},'v',this.value)">`;
+    }
+    const typeLabel = {text:'Text',tags:'Tags',date:'Date',select:'Select',number:'Number',boolean:'Boolean'}[f.t]||f.t;
+    row.innerHTML = `\x3Cinput type="text" value="${f.n}" placeholder="Field name" oninput="updateField(${i},'n',this.value)" style="font-weight:500">${valueInput}\x3Cspan class="field-type">${typeLabel}\x3C/span>\x3Cbutton class="icon-btn del" onclick="removeField(${i})">✕\x3C/button>`;
+    area.appendChild(row);
+  });
+  updateYaml();
+}
+window.addField = addField; function addField(type) {
+  const names = {text:'custom_field',tags:'tags',date:'date',select:'status',number:'value',boolean:'enabled'};
+  const vals = {text:'',tags:'',date:'today',select:'',number:'0',boolean:'false'};
+  fields.push({n:names[type], t:type, v:vals[type], opts:type==='select'?['Option 1','Option 2','Option 3']:undefined});
+  renderFields();
+}
+function updateField(i, key, val) {
+  fields[i][key] = val;
+  updateYaml();
+}
+function removeField(i) {
+  fields.splice(i, 1);
+  renderFields();
+}
+function updateYaml() {
+  const lines = ['---'];
+  fields.forEach(f => {
+    const name = f.n || 'unnamed';
+    if (f.t === 'tags') {
+      const tags = f.v ? f.v.split(',').map(t=>t.trim()).filter(Boolean) : [];
+      if (tags.length) lines.push(`${name}: [${tags.join(', ')}]`);
+      else lines.push(`${name}: []`);
+    } else if (f.t === 'boolean') {
+      lines.push(`${name}: ${f.v}`);
+    } else if (f.t === 'number') {
+      lines.push(`${name}: ${f.v || '0'}`);
+    } else if (f.t === 'date' && f.v === 'today') {
+      lines.push(`${name}: ${new Date().toISOString().split('T')[0]}`);
+    } else if (f.v && f.v.includes(':') || f.v && f.v.includes('#')) {
+      lines.push(`${name}: "${f.v}"`);
+    } else {
+      lines.push(`${name}: ${f.v || '""'}`);
+    }
+  });
+  lines.push('---');
+  document.getElementById('yaml-text').textContent = lines.join('\n');
+}
+function copyYaml() {
+  const text = document.getElementById('yaml-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('copy-toast');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 2000);
+  });
+}
+function saveTemplate() {
+  const name = prompt('Template name:', 'My Template');
+  if (!name) return;
+  try {
+    const saved = JSON.parse(localStorage.getItem('fm-templates') || '{}');
+    saved[name] = JSON.parse(JSON.stringify(fields));
+    localStorage.setItem('fm-templates', JSON.stringify(saved));
+    renderTemplates();
+  } catch(e){}
+}
+function loadTemplate(template) {
+  fields = JSON.parse(JSON.stringify(template.fields));
+  renderFields();
+}
+function renderTemplates() {
+  const el = document.getElementById('template-list');
+  let html = TEMPLATES.map(t=>`\x3Cdiv class="template-card" onclick='loadTemplate(${JSON.stringify(t).replace(/'/g,"&#39;")})'>\x3Cdiv class="t-name">${t.name}\x3C/div>\x3Cdiv class="t-desc">${t.desc}\x3C/div>\x3C/div>`).join('');
+  try {
+    const saved = JSON.parse(localStorage.getItem('fm-templates') || '{}');
+    Object.entries(saved).forEach(([name, flds]) => {
+      html += `\x3Cdiv class="template-card" onclick='loadTemplate(${JSON.stringify({fields:flds}).replace(/'/g,"&#39;")})'>\x3Cdiv class="t-name">💾 ${name}\x3C/div>\x3Cdiv class="t-desc">Custom Template\x3C/div>\x3C/div>`;
+    });
+  } catch(e){}
+  el.innerHTML = html;
+}
+function loadExample() {
+  fields = [
+    {n:'title',t:'text',v:'My Note'},
+    {n:'date',t:'date',v:'today'},
+    {n:'tags',t:'tags',v:'notes, ideas'},
+    {n:'status',t:'select',v:'Draft',opts:['Draft','In Review','Done']},
+    {n:'aliases',t:'tags',v:''},
+    {n:'rating',t:'number',v:'7'}
+  ];
+  renderFields();
+}
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+document.addEventListener('keydown', function(e) {
+  if(e.ctrlKey && e.key==='Enter') { copyYaml(); e.preventDefault(); }
+  if(e.ctrlKey && e.shiftKey && e.key==='C') { copyYaml(); e.preventDefault(); }
+});
+init();
+
+</script>
+</body>
+</html>

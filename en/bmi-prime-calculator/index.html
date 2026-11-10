@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Prime Calculator - Standard Weight Assessment | ToolGuideHub</title>
+  <meta name="description" content="Calculate BMI Prime, the ratio of your BMI to the upper healthy limit, in metric or imperial units.">
+  <meta property="og:title" content="BMI Prime Calculator - Free Standard Weight Assessment">
+  <meta property="og:description" content="Calculate BMI Prime, the ratio of your BMI to the upper healthy limit, in metric or imperial units.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/bmi-prime-calculator/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/bmi-prime-calculator/">
+        <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="robots" content="index, follow">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BMI Prime Calculator",
+    "description": "Free online BMI Prime Calculator with metric/imperial support. More scientific than traditional BMI.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://adi63586.github.io/Toolguidehub/en/bmi-prime-calculator/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},
+      {"@type":"ListItem","position":3,"name":"BMI Prime Calculator"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Bmi Prime Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Bmi Prime Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Bmi Prime Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Unit System and Height are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Bmi Prime Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Bmi Prime Calculator","description":"Step-by-step guide for using Bmi Prime Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Bmi Prime Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+    .container { max-width: 720px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; padding: 24px 0 8px; }
+    header a { color: #22d3ee; text-decoration: none; font-size: .9rem; }
+    h1 { font-size: 1.6rem; margin-bottom: 4px; }
+    .subtitle { color: #94a3b8; font-size: .9rem; margin-bottom: 20px; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); }
+    .section { background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); }
+    .form-row { display: flex; gap: 12px; margin-bottom: 14px; align-items: center; flex-wrap: wrap; }
+    .form-row label { font-size: .85rem; color: #94a3b8; min-width: 80px; }
+    input, select { padding: 10px 14px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: .9rem; outline: none; background: #0f172a; color: #e2e8f0; }
+    input:focus, select:focus { border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+    input[type="number"] { width: 140px; }
+    .btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: .9rem; cursor: pointer; font-weight: 500; transition: all .2s; }
+    .btn-primary { background: #22d3ee; color: #fff; }
+    .btn-primary:hover { background: #0891b2; }
+    .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+    .btn-secondary:hover { background: #1e293b; }
+    .btn-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 12px; }
+    .result-item { background: #0f172a; padding: 14px 12px; border-radius: 8px; text-align: center; }
+    .result-item .val { font-size: 1.3rem; font-weight: 700; color: #22d3ee; }
+    .result-item .lbl { font-size: .78rem; color: #94a3b8; margin-top: 4px; }
+    .result-item.highlight { background: rgba(79,70,229,.06); }
+    .result-item.warn .val { color: #f59e0b; }
+    .result-item.success .val { color: #10b981; }
+    .result-item.danger .val { color: #ef4444; }
+    .gauge-container { text-align: center; margin: 16px 0; }
+    .gauge-track { height: 20px; background: linear-gradient(to right, #3b82f6, #10b981, #10b981, #f59e0b, #f59e0b, #ef4444); border-radius: 10px; position: relative; margin: 0 20px; }
+    .gauge-indicator { position: absolute; top: -6px; width: 6px; height: 32px; background: #1e293b; border-radius: 3px; transform: translateX(-50%); transition: left .5s; }
+    .gauge-labels { display: flex; justify-content: space-between; margin: 4px 20px 0; font-size: .7rem; color: #94a3b8; }
+    .info-box { background: rgba(79,70,229,.04); border: 1px solid rgba(79,70,229,.15); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; line-height: 1.7; font-size: .88rem; }
+    footer { text-align: center; padding: 24px 0; color: #94a3b8; font-size: .82rem; border-top: 1px solid rgba(148,163,184,.1); margin-top: 20px; }
+    footer a { color: #94a3b8; margin: 0 8px; text-decoration: none; }
+    .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 10px 24px; border-radius: 8px; font-size: .85rem; z-index: 1000; opacity: 0; transition: opacity .3s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+    @media(max-width:640px) { h1{font-size:1.2rem} .container{padding:0 12px} .section{padding:16px} .results{grid-template-columns:repeat(2,1fr)} }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/bmi-prime-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header style="display:flex;justify-content:space-between;align-items:center;text-align:left">
+      <a href="../../">← Back to Home</a>
+      <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+        <a href="../../en/bmi-prime-calculator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a>
+        <a href="./" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a>
+      </div>
+    </header>
+    <div style="text-align:center">
+      <h1>⚖️ BMI Prime Calculator</h1>
+      <p class="subtitle">More scientific than traditional BMI — BMI Prime = Current BMI / Standard BMI (25)</p>
+    </div>
+
+    <div class="section">
+      <div class="form-row">
+        <label>Unit System</label>
+        <select id="unit-system" onchange="switchUnit()">
+          <option value="metric">Metric (kg/cm)</option>
+          <option value="imperial">Imperial (lb/in)</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>Height</label>
+        <input type="number" id="height" value="170" min="50" max="250" step="0.1" placeholder="Height">
+        <span style="font-size:.8rem;color:#94a3b8" id="height-unit">cm</span>
+      </div>
+
+      <div class="form-row">
+        <label>Weight</label>
+        <input type="number" id="weight" value="65" min="20" max="500" step="0.1" placeholder="Weight">
+        <span style="font-size:.8rem;color:#94a3b8" id="weight-unit">kg</span>
+      </div>
+
+      <div class="form-row" id="imperial-extra" style="display:none">
+        <label></label>
+        <span style="font-size:.78rem;color:#94a3b8">Enter weight in lb and height in inches</span>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="calculate()">📊 Calculate</button>
+        <button class="btn btn-secondary" onclick="resetAll()">↺ Reset</button>
+        <button class="btn btn-secondary" onclick="switchUnit()">🔄 Switch Units</button>
+      </div>
+    </div>
+
+    <div class="section" id="result-card" style="display:none">
+      <div class="info-box" id="status-box"></div>
+
+      <div class="gauge-container">
+        <div class="gauge-track"><div class="gauge-indicator" id="gauge-indicator" style="left:50%"></div></div>
+        <div class="gauge-labels">
+          <span>Thin</span><span>Mild</span><span>Normal</span><span>Over</span><span>Obese</span><span>Severe</span>
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="result-item highlight"><div class="val" id="val-bmi">-</div><div class="lbl">BMI</div></div>
+        <div class="result-item highlight"><div class="val" id="val-prime">-</div><div class="lbl">BMI Prime</div></div>
+        <div class="result-item"><div class="val" id="val-category">-</div><div class="lbl">Category</div></div>
+        <div class="result-item"><div class="val" id="val-ideal-min">-</div><div class="lbl">Ideal Weight Min</div></div>
+        <div class="result-item"><div class="val" id="val-ideal-max">-</div><div class="lbl">Ideal Weight Max</div></div>
+        <div class="result-item"><div class="val" id="val-diff">-</div><div class="lbl" id="val-diff-lbl">Adjustment</div></div>
+      </div>
+
+      <div style="text-align:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="copyResults()">📋 Copy Results</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What is the BMI Prime Calculator?</h2>
+      <p>BMI Prime is a ratio of your BMI to a standard reference BMI of 25 (the upper bound of the healthy range). A BMI Prime of 1.0 means your BMI exactly equals 25; values below 1.0 indicate underweight or healthy weight, while values above 1.0 indicate overweight or obesity. This tool runs entirely in your browser — no data is ever uploaded.</p>
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Track health metrics when monitoring personal wellness</li>
+        <li>Adjust fitness plans based on calculated results</li>
+        <li>Interpret medical checkup reports with accurate numbers</li>
+        <li>Quick access on mobile without installing health apps</li>
+      </ul>
+      <h2>Key Features</h2>
+      <ul>
+        <li>Completely Free: No registration, no limits</li>
+        <li>Privacy Safe: Data never leaves your browser</li>
+        <li>Cross-Platform: Any modern browser</li>
+        <li>Zero Dependencies: Open and use</li>
+      </ul>
+    </div>
+
+    
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+
+  
+
+
+
+</main><footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/bmi-prime-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2000);
+    }
+
+    function switchUnit() {
+      var system = document.getElementById('unit-system').value;
+      var isImperial = system === 'imperial';
+      document.getElementById('imperial-extra').style.display = isImperial ? 'block' : 'none';
+      document.getElementById('height-unit').textContent = isImperial ? 'in' : 'cm';
+      document.getElementById('weight-unit').textContent = isImperial ? 'lb' : 'kg';
+      if (isImperial) {
+        document.getElementById('height').value = '67';
+        document.getElementById('weight').value = '150';
+      } else {
+        document.getElementById('height').value = '170';
+        document.getElementById('weight').value = '65';
+      }
+      calculate();
+    }
+
+    function calculate() {
+      var system = document.getElementById('unit-system').value;
+      var height = parseFloat(document.getElementById('height').value);
+      var weight = parseFloat(document.getElementById('weight').value);
+
+      if (!height || !weight || height <= 0 || weight <= 0) {
+        showToast('Please enter valid height and weight');
+        return;
+      }
+
+      var heightM;
+      var weightKg;
+
+      if (system === 'imperial') {
+        heightM = height * 0.0254;
+        weightKg = weight * 0.453592;
+      } else {
+        heightM = height / 100;
+        weightKg = weight;
+      }
+
+      var bmi = weightKg / (heightM * heightM);
+      var bmiPrime = bmi / 25;
+      var category = getCategory(bmiPrime);
+      var idealMin = 18.5 * heightM * heightM;
+      var idealMax = 25 * heightM * heightM;
+
+      var diff = weightKg;
+      if (bmiPrime < 0.74) {
+        diff = idealMin - weightKg;
+      } else if (bmiPrime > 1.0) {
+        diff = weightKg - idealMax;
+      } else {
+        diff = 0;
+      }
+
+      document.getElementById('val-bmi').textContent = bmi.toFixed(1);
+      document.getElementById('val-prime').textContent = bmiPrime.toFixed(2);
+      document.getElementById('val-category').textContent = category.name;
+      document.getElementById('val-category').parentElement.className = 'result-item ' + category.cssClass;
+
+      var unitLabel = system === 'imperial' ? 'lb' : 'kg';
+      document.getElementById('val-ideal-min').textContent = formatWeight(idealMin, system) + ' ' + unitLabel;
+      document.getElementById('val-ideal-max').textContent = formatWeight(idealMax, system) + ' ' + unitLabel;
+
+      if (diff === 0) {
+        document.getElementById('val-diff').textContent = '✅ Normal Weight';
+        document.getElementById('val-diff-lbl').textContent = 'Status';
+      } else if (bmiPrime < 0.74) {
+        document.getElementById('val-diff').textContent = '↑ +' + formatWeight(diff, system) + ' ' + unitLabel;
+        document.getElementById('val-diff-lbl').textContent = 'Gain Needed';
+      } else {
+        document.getElementById('val-diff').textContent = '↓ -' + formatWeight(diff, system) + ' ' + unitLabel;
+        document.getElementById('val-diff-lbl').textContent = 'Loss Needed';
+      }
+
+      document.getElementById('status-box').innerHTML = category.description;
+
+      var gaugePos = Math.max(0, Math.min(100, (bmiPrime / 1.6) * 100));
+      document.getElementById('gauge-indicator').style.left = gaugePos + '%';
+
+      document.getElementById('result-card').style.display = 'block';
+    }
+
+    function getCategory(bmiPrime) {
+      if (bmiPrime < 0.64) return { name: 'Severe Thinness', cssClass: 'danger', description: '<strong>⚠️ Severe Thinness</strong><br>BMI Prime &lt; 0.64 — Significantly underweight. Consult a doctor or nutritionist. Risk of malnutrition and weakened immunity.' };
+      if (bmiPrime < 0.74) return { name: 'Moderate Thinness', cssClass: 'warn', description: '<strong>⚠️ Moderate Thinness</strong><br>BMI Prime 0.64~0.74 — Below normal weight. Increase nutrient intake, focus on protein and energy-dense foods.' };
+      if (bmiPrime < 0.84) return { name: 'Mild Thinness', cssClass: 'warn', description: '<strong>📝 Mild Thinness</strong><br>BMI Prime 0.74~0.84 — Slightly below standard. Maintain balanced diet, increase quality protein and healthy fats.' };
+      if (bmiPrime < 1.0) return { name: 'Normal Weight', cssClass: 'success', description: '<strong>✅ Normal Weight</strong><br>BMI Prime 0.84~1.0 — Healthy weight range. Maintain current diet and exercise habits. Monitor periodically.' };
+      if (bmiPrime < 1.2) return { name: 'Overweight', cssClass: 'warn', description: '<strong>📝 Overweight</strong><br>BMI Prime 1.0~1.2 — Slightly above standard. Reduce calorie intake, increase aerobic exercise: 150 min/week moderate activity.' };
+      if (bmiPrime < 1.4) return { name: 'Obese Class I', cssClass: 'warn', description: '<strong>⚠️ Obese Class I</strong><br>BMI Prime 1.2~1.4 — Significantly overweight. Develop a weight loss plan combining diet and regular exercise. Consult a nutritionist.' };
+      if (bmiPrime < 1.6) return { name: 'Obese Class II', cssClass: 'danger', description: '<strong>🔴 Obese Class II</strong><br>BMI Prime 1.4~1.6 — Severely overweight. Cardiovascular and diabetes risks are elevated. Strongly recommend consulting a doctor.' };
+      return { name: 'Obese Class III', cssClass: 'danger', description: '<strong>🔴 Obese Class III</strong><br>BMI Prime ≥ 1.6 — Morbid obesity. Extremely high health risks. Seek professional medical help for a comprehensive weight loss plan.' };
+    }
+
+    function formatWeight(kg, system) {
+      var val = system === 'imperial' ? kg / 0.453592 : kg;
+      return val.toFixed(1);
+    }
+
+    function resetAll() {
+      document.getElementById('result-card').style.display = 'none';
+      if (document.getElementById('unit-system').value === 'imperial') {
+        document.getElementById('height').value = '67';
+        document.getElementById('weight').value = '150';
+      } else {
+        document.getElementById('height').value = '170';
+        document.getElementById('weight').value = '65';
+      }
+    }
+
+    function copyResults() {
+      var items = document.querySelectorAll('#result-card .result-item');
+      var text = 'BMI Prime Calculator Results\n';
+      text += '='.repeat(30) + '\n';
+      items.forEach(function(item) {
+        var val = item.querySelector('.val').textContent;
+        var lbl = item.querySelector('.lbl').textContent;
+        text += '  ' + lbl + ': ' + val + '\n';
+      });
+      text += '\n' + document.getElementById('status-box').textContent.replace(/[<>].*?[<>]/g, '').trim();
+      navigator.clipboard.writeText(text).then(function() {
+        showToast('✅ Results copied to clipboard');
+      }).catch(function() {
+        showToast('❌ Copy failed');
+      });
+    }
+
+    document.querySelectorAll('#height, #weight').forEach(function(el) {
+      el.addEventListener('input', calculate);
+    });
+    document.getElementById('unit-system').addEventListener('change', switchUnit);
+
+    calculate();
+</script>
+</body>
+</html>

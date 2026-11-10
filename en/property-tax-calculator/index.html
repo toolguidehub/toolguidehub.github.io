@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimate annual property tax from your home value and local rate, and compare typical rates for different cities.">
+<meta name="keywords" content="property tax,property tax calculator,home tax,real estate tax,tax estimator,homeownership cost">
+<title>Property Tax Calculator - Estimate Annual Tax | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/property-tax-calculator/">
+<meta property="og:title" content="Property Tax Calculator - Estimate Annual Tax | ToolGuideHub">
+<meta property="og:description" content="Estimate annual property tax from your home value and local rate, and compare typical rates for different cities.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/property-tax-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:8px}
+.lang-switch a{padding:4px 12px;border-radius:6px;font-size:.85rem;background:rgba(148,163,184,.1);color:#94a3b8}
+.lang-switch a.active{background:#06b6d4;color:#fff}
+.nav-back{margin-bottom:16px;font-size:.85rem;color:#64748b}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(79,70,229,.1));border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px 24px;margin-bottom:24px}
+.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.15);color:#06b6d4}
+.card{background:rgba(30,41,59,.6);border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+.card h2{font-size:1.1rem;margin-bottom:16px;color:#f1f5f9}
+.row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px}
+.field{flex:1;min-width:200px}
+.field label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.field input,.field select{width:100%;padding:10px 12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;background:rgba(15,23,42,.8);color:#e2e8f0;font-size:.95rem}
+.field input:focus,.field select:focus{outline:none;border-color:#06b6d4;box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.btn-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;font-weight:600;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8}.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-outline{background:transparent;color:#94a3b8;border:1px solid rgba(148,163,184,.3)}.btn-outline:hover{background:rgba(148,163,184,.1)}
+.result{background:linear-gradient(135deg,#0f766e,#0e7490);border-radius:12px;padding:16px 24px;margin:16px 0}
+.result h3{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:4px}
+.result .big{font-size:1.8rem;font-weight:700;color:#fff}
+.result .sub{font-size:.9rem;color:rgba(255,255,255,.7);margin-top:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.85rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+@media(max-width:600px){.header h1{font-size:1.3rem}.result .big{font-size:1.3rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Property Tax Calculator - Estimate Annual Tax | ToolGuideHub",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://adi63586.github.io/Toolguidehub/en/property-tax-calculator/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},
+    {"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},
+    {"@type":"ListItem","position":3,"name":"Property Tax Calculator"}
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Property Tax Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Property Tax Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Property Tax Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Property Value and Tax Rate are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Property Tax Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Property Tax Calculator","description":"Step-by-step guide for using Property Tax Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Property Tax Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/property-tax-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🏠 Property Tax Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Property Tax Calculator</p>
+<div class="hero"><p>Estimate annual property taxes based on home value and local tax rate. Compare rates across different cities and plan your homeownership budget. | No sign-up · Data stays local</p><span class="badge">Zero dependency · Works offline</span></div>
+
+<div class="card">
+<h2>📊 Basic Calculation</h2>
+<div class="row">
+<div class="field"><label>Property Value ($)</label><input type="number" id="propertyValue" value="3000000" min="100000" step="100000"></div>
+<div class="field"><label>Tax Rate (%)</label><input type="number" id="taxRate" value="2.0" min="0.1" max="10" step="0.1"></div>
+</div>
+<div class="field" style="margin-bottom:12px"><label>City Reference</label>
+<select id="cityPreset" onchange="applyCity(this.value)">
+<option value="">Custom rate</option>
+<option value="2.5">New Jersey (2.5%)</option>
+<option value="2.2">Illinois (2.2%)</option>
+<option value="1.1">US National Average (1.1%)</option>
+<option value="0.8">California (0.8%)</option>
+<option value="0.3">Hawaii (0.3%)</option>
+<option value="1.4">Japan (1.4%)</option>
+</select></div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<button class="btn btn-secondary" onclick="clearAll()">Reset</button>
+</div>
+</div>
+
+<div class="card" id="resultCard" style="display:none">
+<h2>💰 Results</h2>
+<div class="result">
+<h3>Annual Property Tax</h3>
+<div class="big" id="annualTax">-</div>
+<div class="sub">Monthly: <span id="monthlyTax">-</span></div>
+</div>
+<button class="btn btn-outline" onclick="copyResult()" style="margin-top:12px">📋 Copy</button>
+<div id="detailBlock" style="margin-top:12px"></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="//en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="//en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer class="footer">
+<p>© 2025 ToolGuideHub · All calculations are done locally in your browser</p>
+<p><a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> · <a href="../../en/privacy-policy/">Privacy</a> · <a href="../../en/terms/">Terms</a> · <a href="../../en/contact/">Contact</a></p>
+</footer>
+</main>
+<script>
+
+</script>
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000);}
+function fmt(n){if(n===undefined||n===null||isNaN(n))return'-';if(Math.abs(n)>=1e8)return (n/1e8).toFixed(2)+'B';if(Math.abs(n)>=1e4)return (n/1e4).toFixed(1)+'K';return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+function applyCity(val){if(val)document.getElementById('taxRate').value=val;}
+
+function calculate(){
+var value=parseFloat(document.getElementById('propertyValue').value)||0;
+var rate=parseFloat(document.getElementById('taxRate').value)/100||0;
+if(value<=0){showToast('Please enter property value');return;}
+var annualTax=value*rate;
+var monthlyTax=annualTax/12;
+document.getElementById('annualTax').textContent='$'+fmt(Math.round(annualTax));
+document.getElementById('monthlyTax').textContent='$'+fmt(Math.round(monthlyTax));
+document.getElementById('resultCard').style.display='block';
+var detail='<table>'+
+'<tr><td>Property Value</td><td style="text-align:right">$'+fmt(value)+'</td></tr>'+
+'<tr><td>Tax Rate</td><td style="text-align:right">'+(rate*100).toFixed(2)+'%</td></tr>'+
+'<tr><td>Annual Tax</td><td style="text-align:right;font-weight:700">$'+fmt(Math.round(annualTax))+'</td></tr>'+
+'<tr><td>Monthly</td><td style="text-align:right">$'+fmt(Math.round(monthlyTax))+'</td></tr>'+
+'<tr><td>10-Year Total</td><td style="text-align:right">$'+fmt(Math.round(annualTax*10))+'</td></tr>'+
+'<tr><td>30-Year Total</td><td style="text-align:right">$'+fmt(Math.round(annualTax*30))+'</td></tr>'+
+'</table>';
+document.getElementById('detailBlock').innerHTML=detail;
+}
+
+function clearAll(){
+document.getElementById('propertyValue').value=3000000;
+document.getElementById('taxRate').value=2.0;
+document.getElementById('cityPreset').value='';
+document.getElementById('resultCard').style.display='none';
+showToast('Reset to defaults');
+}
+
+    function copyResult() {
+        const r = document.getElementById('resultCard');
+        if (!r || !r.textContent.trim()) { showToast('No result to copy', 'warning'); return; }
+        navigator.clipboard.writeText(r.textContent.trim()).then(() => showToast('Copied!', 'success')).catch(() => showToast('Copy failed', 'error'));
+    }
+</script>
+</body>
+</html>

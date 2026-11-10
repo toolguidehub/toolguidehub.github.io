@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find gross margin, net margin, and markup from cost, price, and operating expenses, and see how each metric differs.">
+<meta name="keywords" content="profit margin calculator,gross margin calculator,net margin calculator,markup calculator,profit calculator,online margin calculator,ecommerce profit calculator">
+<title>Free Profit Margin Calculator - Gross &amp; Net Margin</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/profit-margin-calculator/">
+<meta property="og:title" content="Free Profit Margin Calculator - Gross &amp; Net Margin">
+<meta property="og:description" content="Find gross margin, net margin, and markup from cost, price, and operating expenses, and see how each metric differs.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/profit-margin-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/profit-margin-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Profit Margin Calculator","description":"Free online Profit Margin Calculator supporting gross margin, net margin, markup percentage, and profit calculation. Perfect for e-commerce and business finance.","applicationCategory":"FinanceApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is profit margin?","acceptedAnswer":{"@type":"Answer","text":"Profit margin is a key metric that measures a company's profitability, calculated as: (Profit ÷ Revenue) × 100%. Common types include Gross Margin (revenue minus cost of goods sold), Net Margin (after all expenses), and Markup (percentage above cost). Gross margin reflects core business profitability, while net margin shows the bottom line after all costs."}},{"@type":"Question","name":"What's the difference between gross margin and markup?","acceptedAnswer":{"@type":"Answer","text":"Gross Margin = (Selling Price - Cost) ÷ Selling Price × 100%, showing profit as a percentage of revenue. Markup = (Selling Price - Cost) ÷ Cost × 100%, showing how much you added on top of cost. Example: Cost $100, Selling $150 → Gross Margin = 33.3% (50/150), Markup = 50% (50/100)."}},{"@type":"Question","name":"How can I improve my profit margins?","acceptedAnswer":{"@type":"Answer","text":"Ways to improve margins: 1) Raise prices if the market allows; 2) Reduce procurement or production costs; 3) Optimize operations to reduce overhead; 4) Add product value to justify higher pricing; 5) Negotiate bulk discounts with suppliers."}},{"@type":"Question","name":"What is a good profit margin?","acceptedAnswer":{"@type":"Answer","text":"There's no universal 'good' margin — it depends on your industry. Retail typically aims for 20-50% gross margin, SaaS companies 70-90%, restaurants 30-60%, and manufacturing 15-30%. The key is that margins must cover fixed costs and generate reasonable net profit."}},{"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations happen locally in your browser. No data is ever transmitted to any server."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Profit Margin Calculator","item":"https://adi63586.github.io/Toolguidehub/en/profit-margin-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Profit Margin Calculator","description":"Step-by-step guide for using Profit Margin Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Profit Margin Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px;margin-top:12px}
+label:first-of-type{margin-top:0}
+input[type=number],input[type=text]{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}
+input:focus{border-color:rgba(6,182,212,.5)}
+.input-group{display:flex;gap:8px;align-items:flex-end}
+.input-group>div{flex:1}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.mode-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px}
+.mode-tab{padding:8px 14px;border-radius:8px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.05);color:#94a3b8;border:1px solid rgba(148,163,184,.15);transition:all .2s}
+.mode-tab:hover{background:rgba(148,163,184,.1)}
+.mode-tab.active{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:16px;text-align:center}
+.result-card .label{font-size:.75rem;color:#64748b;margin-bottom:4px}
+.result-card .value{font-size:1.5rem;font-weight:700;color:#22d3ee}
+.result-card .value.green{color:#22c55e}
+.result-card .value.orange{color:#f59e0b}
+.result-card .value.red{color:#ef4444}
+.bar-container{background:rgba(148,163,184,.1);border-radius:4px;height:24px;margin-top:8px;overflow:hidden;display:flex}
+.bar-cost{background:rgba(239,68,68,.4);height:100%;transition:width .3s;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff}
+.bar-profit{background:rgba(34,197,94,.4);height:100%;transition:width .3s;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff}
+.bar-label{padding:0 6px;white-space:nowrap}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);font-size:.9rem;color:#94a3b8}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{margin-bottom:12px}
+.info-section .formula{background:#0f172a;border-radius:8px;padding:12px;font-family:monospace;font-size:.85rem;color:#22d3ee;margin:8px 0}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.85rem;border:1px solid rgba(148,163,184,.2);z-index:1000;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.8rem}
+footer a{color:#64748b}
+footer a:hover{color:#94a3b8}
+@media(max-width:480px){
+.header h1{font-size:1.3rem}
+.result-grid{grid-template-columns:1fr 1fr}
+.mode-tab{padding:6px 10px;font-size:.75rem}
+.result-card .value{font-size:1.2rem}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../../">← Back to Tools</a></div>
+<header class="header">
+<h1>📊 Profit Margin Calculator</h1>
+
+</header>
+
+<div class="tool-section">
+<div class="mode-tabs">
+<button class="mode-tab active" data-mode="margin">Gross Margin</button>
+<button class="mode-tab" data-mode="markup">Markup Calc</button>
+<button class="mode-tab" data-mode="target">Target Margin</button>
+<button class="mode-tab" data-mode="net">Net Margin</button>
+</div>
+
+<form id="calcForm">
+<div id="modeMarginInputs">
+<label for="cost">💰 Cost</label>
+<input type="number" id="cost" placeholder="e.g. 100" step="0.01" min="0" required>
+<label for="price">💵 Selling Price</label>
+<input type="number" id="price" placeholder="e.g. 150" step="0.01" min="0" required>
+</div>
+
+<div id="modeMarkupInputs" style="display:none">
+<label for="costMarkup">💰 Cost</label>
+<input type="number" id="costMarkup" placeholder="e.g. 100" step="0.01" min="0">
+<label for="markupPercent">📈 Target Markup (%)</label>
+<input type="number" id="markupPercent" placeholder="e.g. 50" step="0.01" min="0">
+</div>
+
+<div id="modeTargetInputs" style="display:none">
+<label for="costTarget">💰 Cost</label>
+<input type="number" id="costTarget" placeholder="e.g. 100" step="0.01" min="0">
+<label for="targetMargin">🎯 Target Margin (%)</label>
+<input type="number" id="targetMargin" placeholder="e.g. 30" step="0.01" min="0" max="99.99">
+</div>
+
+<div id="modeNetInputs" style="display:none">
+<label for="revenue">💵 Total Revenue</label>
+<input type="number" id="revenue" placeholder="e.g. 10000" step="0.01" min="0">
+<label for="cogs">📦 Cost of Goods Sold (COGS)</label>
+<input type="number" id="cogs" placeholder="e.g. 4000" step="0.01" min="0">
+<label for="expenses">📋 Operating Expenses (rent, salaries, etc.)</label>
+<input type="number" id="expenses" placeholder="e.g. 3000" step="0.01" min="0">
+<label for="taxes">🏛️ Taxes</label>
+<input type="number" id="taxes" placeholder="e.g. 500" step="0.01" min="0">
+</div>
+
+<div class="btn-row">
+<button type="submit" class="btn btn-primary">🔍 Calculate</button>
+<button type="button" class="btn btn-secondary" id="btnClear">🔄 Clear</button>
+</div>
+</form>
+
+<div id="results" style="display:none">
+<div class="bar-container">
+<div class="bar-cost"><span class="bar-label">Cost</span></div>
+<div class="bar-profit"><span class="bar-label">Profit</span></div>
+</div>
+<div class="result-grid" id="resultGrid"></div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📚 Formulas</h2>
+<p><strong>Gross Margin</strong>: Measures core business profitability</p>
+<div class="formula">Gross Margin = (Selling Price - Cost) ÷ Selling Price × 100%</div>
+<p><strong>Markup</strong>: Shows how much you added on top of cost</p>
+<div class="formula">Markup = (Selling Price - Cost) ÷ Cost × 100%</div>
+<p><strong>Net Margin</strong>: Bottom-line profitability after all expenses</p>
+<div class="formula">Net Margin = (Revenue - COGS - Expenses - Taxes) ÷ Revenue × 100%</div>
+</div>
+
+<div class="info-section">
+<h2>💡 Use Cases</h2>
+<p>• <strong>E-commerce Sellers</strong>: Determine optimal pricing and ensure healthy profit margins</p>
+<p>• <strong>Entrepreneurs</strong>: Evaluate business model viability and set pricing strategies</p>
+<p>• <strong>Financial Analysis</strong>: Analyze profitability across product lines</p>
+<p>• <strong>Procurement</strong>: Compare supplier costs and their impact on margins</p>
+</div>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/profit-margin-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000);}
+function fmt(n){return n.toFixed(2);}
+function fmtPct(n){return n.toFixed(2)+'%';}
+
+var currentMode='margin';
+document.querySelectorAll('.mode-tab').forEach(function(tab){
+tab.addEventListener('click',function(){
+document.querySelectorAll('.mode-tab').forEach(function(t){t.classList.remove('active')});
+this.classList.add('active');
+currentMode=this.dataset.mode;
+document.getElementById('modeMarginInputs').style.display=currentMode==='margin'?'block':'none';
+document.getElementById('modeMarkupInputs').style.display=currentMode==='markup'?'block':'none';
+document.getElementById('modeTargetInputs').style.display=currentMode==='target'?'block':'none';
+document.getElementById('modeNetInputs').style.display=currentMode==='net'?'block':'none';
+document.getElementById('results').style.display='none';
+});
+});
+
+document.getElementById('calcForm').addEventListener('submit',function(e){
+e.preventDefault();
+var results=document.getElementById('results');
+var grid=document.getElementById('resultGrid');
+var barCost=document.querySelector('.bar-cost');
+var barProfit=document.querySelector('.bar-profit');
+var html='';
+
+if(currentMode==='margin'){
+var cost=parseFloat(document.getElementById('cost').value)||0;
+var price=parseFloat(document.getElementById('price').value)||0;
+if(cost<=0||price<=0){showToast('Please enter valid cost and price');return;}
+var profit=price-cost;
+var marginPct=price>0?(profit/price)*100:0;
+var markupPct=cost>0?(profit/cost)*100:0;
+var colorClass=marginPct>=30?'green':marginPct>=15?'orange':'red';
+html='<div class="result-card"><div class="label">💰 Profit</div><div class="value '+colorClass+'">$'+fmt(profit)+'</div></div>';
+html+='<div class="result-card"><div class="label">📊 Gross Margin</div><div class="value '+colorClass+'">'+fmtPct(marginPct)+'</div></div>';
+html+='<div class="result-card"><div class="label">📈 Markup</div><div class="value">'+fmtPct(markupPct)+'</div></div>';
+html+='<div class="result-card"><div class="label">📦 Cost %</div><div class="value">'+fmtPct(price>0?(cost/price)*100:0)+'</div></div>';
+var costPct=price>0?(cost/price)*100:0;
+barCost.style.width=costPct+'%';
+barProfit.style.width=(100-costPct)+'%';
+barCost.querySelector('.bar-label').textContent='Cost $'+fmt(cost);
+barProfit.querySelector('.bar-label').textContent='Profit $'+fmt(profit);
+}
+
+if(currentMode==='markup'){
+var cost=parseFloat(document.getElementById('costMarkup').value)||0;
+var markupPct=parseFloat(document.getElementById('markupPercent').value)||0;
+if(cost<=0||markupPct<=0){showToast('Please enter valid cost and markup');return;}
+var sellingPrice=cost*(1+markupPct/100);
+var profit=sellingPrice-cost;
+var actualMargin=sellingPrice>0?(profit/sellingPrice)*100:0;
+html='<div class="result-card"><div class="label">💵 Selling Price</div><div class="value green">$'+fmt(sellingPrice)+'</div></div>';
+html+='<div class="result-card"><div class="label">💰 Profit</div><div class="value green">$'+fmt(profit)+'</div></div>';
+html+='<div class="result-card"><div class="label">📊 Gross Margin</div><div class="value">'+fmtPct(actualMargin)+'</div></div>';
+html+='<div class="result-card"><div class="label">📈 Markup</div><div class="value">'+fmtPct(markupPct)+'</div></div>';
+var costPct=sellingPrice>0?(cost/sellingPrice)*100:0;
+barCost.style.width=costPct+'%';
+barProfit.style.width=(100-costPct)+'%';
+barCost.querySelector('.bar-label').textContent='Cost $'+fmt(cost);
+barProfit.querySelector('.bar-label').textContent='Profit $'+fmt(profit);
+}
+
+if(currentMode==='target'){
+var cost=parseFloat(document.getElementById('costTarget').value)||0;
+var targetMargin=parseFloat(document.getElementById('targetMargin').value)||0;
+if(cost<=0||targetMargin<=0||targetMargin>=100){showToast('Please enter valid cost and target margin (0-100)');return;}
+var sellingPrice=cost/(1-targetMargin/100);
+var profit=sellingPrice-cost;
+html='<div class="result-card"><div class="label">💵 Target Price</div><div class="value green">$'+fmt(sellingPrice)+'</div></div>';
+html+='<div class="result-card"><div class="label">💰 Profit</div><div class="value green">$'+fmt(profit)+'</div></div>';
+html+='<div class="result-card"><div class="label">🎯 Target Margin</div><div class="value">'+fmtPct(targetMargin)+'</div></div>';
+html+='<div class="result-card"><div class="label">📈 Markup</div><div class="value">'+fmtPct(cost>0?(profit/cost)*100:0)+'</div></div>';
+barCost.style.width=(100-targetMargin)+'%';
+barProfit.style.width=targetMargin+'%';
+barCost.querySelector('.bar-label').textContent='Cost $'+fmt(cost);
+barProfit.querySelector('.bar-label').textContent='Profit $'+fmt(profit);
+}
+
+if(currentMode==='net'){
+var revenue=parseFloat(document.getElementById('revenue').value)||0;
+var cogs=parseFloat(document.getElementById('cogs').value)||0;
+var expenses=parseFloat(document.getElementById('expenses').value)||0;
+var taxes=parseFloat(document.getElementById('taxes').value)||0;
+if(revenue<=0){showToast('Please enter valid revenue');return;}
+var grossProfit=revenue-cogs;
+var grossMargin=revenue>0?(grossProfit/revenue)*100:0;
+var netProfit=revenue-cogs-expenses-taxes;
+var netMargin=revenue>0?(netProfit/revenue)*100:0;
+var totalCosts=cogs+expenses+taxes;
+var netClass=netProfit>=0?'green':'red';
+html='<div class="result-card"><div class="label">📊 Gross Profit</div><div class="value">$'+fmt(grossProfit)+'</div></div>';
+html+='<div class="result-card"><div class="label">📊 Gross Margin</div><div class="value">'+fmtPct(grossMargin)+'</div></div>';
+html+='<div class="result-card"><div class="label">💰 Net Profit</div><div class="value '+netClass+'">$'+fmt(netProfit)+'</div></div>';
+html+='<div class="result-card"><div class="label">📈 Net Margin</div><div class="value '+netClass+'">'+fmtPct(netMargin)+'</div></div>';
+html+='<div class="result-card"><div class="label">📦 Total Costs</div><div class="value">$'+fmt(totalCosts)+'</div></div>';
+html+='<div class="result-card"><div class="label">📋 Cost/Revenue</div><div class="value">'+fmtPct(revenue>0?(totalCosts/revenue)*100:0)+'</div></div>';
+var costPct=revenue>0?(totalCosts/revenue)*100:0;
+barCost.style.width=Math.min(costPct,100)+'%';
+barProfit.style.width=Math.max(100-Math.min(costPct,100),0)+'%';
+barCost.querySelector('.bar-label').textContent='Costs $'+fmt(totalCosts);
+barProfit.querySelector('.bar-label').textContent='Net $'+fmt(netProfit);
+}
+grid.innerHTML=html;
+results.style.display='block';
+});
+
+document.getElementById('btnClear').addEventListener('click',function(){
+document.querySelectorAll('input').forEach(function(inp){inp.value=''});
+document.getElementById('results').style.display='none';
+document.getElementById('cost').focus();
+});
+
+document.getElementById('cost').focus();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('results');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

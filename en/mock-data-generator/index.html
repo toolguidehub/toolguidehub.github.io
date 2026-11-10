@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate realistic mock data for testing and development. Free online mock data generator with customizable schemas. Create users, orders, and more.">
+<meta name="keywords" content="mock data generator, test data generator, fake data, JSON data, CSV data, SQL data, random name generator, dummy data">
+<title>Free Online Mock Data Generator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/mock-data-generator/">
+<meta property="og:title" content="Free Online Mock Data Generator - ToolGuideHub">
+<meta property="og:description" content="Generate realistic mock data for testing and development. Free online mock data generator with customizable schemas. Create users, orders, and more.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/mock-data-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Signup Required">
+<meta name="twitter:description" content="Generate realistic mock data for testing and development. Free online mock data generator with customizable schemas. Create users, orders, and more.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Mock Data Generator", "description": "Free online mock data generator for generating names, emails, phone numbers, addresses, and more. Export to JSON/CSV/SQL.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What kind of data can the mock data generator create?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What kind of data can the mock data generator create?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can generate names (Chinese and English), email addresses, phone numbers, company names, addresses, dates, IP addresses, URLs, UUIDs, and random text. You can freely combine fields to create custom test datasets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export the generated mock data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Three export formats are supported: JSON (ideal for API testing), CSV (for Excel or data analysis tools), and SQL INSERT statements (for direct database import). One-click copy to clipboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this data real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All data is randomly generated mock data. Names come from common name databases, email domains use reserved domains like example.com. Do not use mock data for any real business scenarios. It is for development and testing purposes only."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mock Data Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/mock-data-generator/"
+    }
+  ],
+  "name": "Mock Data Generator"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1000px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.field-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:16px}
+.field-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#0f172a;border-radius:6px;border:1px solid rgba(148,163,184,.08);cursor:pointer;font-size:.85rem}
+.field-item input[type=checkbox]{accent-color:#06b6d4;width:16px;height:16px}
+.field-item.selected{border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.05)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.controls label{color:#94a3b8;font-size:.85rem}
+.controls input[type=number]{width:80px;text-align:center}
+.preview{background:#0f172a;border-radius:8px;padding:16px;font-size:.8rem;max-height:400px;overflow-y:auto;font-family:"SF Mono",Monaco,"Cascadia Code",monospace;white-space:pre-wrap;word-break:break-all}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.field-grid{grid-template-columns:repeat(2,1fr)}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/mock-data-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Mock Data Generator","description":"Step-by-step guide for using Mock Data Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Mock Data Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*tgh_toast*/window.showToast=function(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t)}t.textContent=m;t.classList.add("show");clearTimeout(window.__tt);window.__tt=setTimeout(function(){t.classList.remove("show")},2000)};</script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🎲 Mock Data Generator</h1>
+    
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-12
+  </span>
+</div>
+  <div class="tool-section">
+    <h2>Select Fields</h2>
+    <div class="field-grid" id="fieldGrid"></div>
+    <div class="controls">
+      <label>Count:</label>
+      <input type="number" id="count" value="10" min="1" max="1000">
+      <button class="btn btn-primary" onclick="generate()">🎲 Generate</button>
+      <button class="btn btn-secondary" onclick="exportData('json')">📋 Copy JSON</button>
+      <button class="btn btn-secondary" onclick="exportData('csv')">📊 Copy CSV</button>
+      <button class="btn btn-secondary" onclick="exportData('sql')">🗄️ Copy SQL</button>
+    </div>
+  </div>
+  <div class="tool-section">
+    <h2>📋 Generated Data</h2>
+    <div class="preview" id="output">Click "Generate" to start...</div>
+  </div>
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Select Fields:</strong> Check the fields you want to generate, such as name, email, phone, etc. Multiple fields can be combined.</p>
+    <p><strong>2. Set Count:</strong> Enter the number of records to generate (1-1000).</p>
+    <p><strong>3. Export Data:</strong> Choose JSON, CSV, or SQL format and copy to clipboard with one click.</p>
+  </div>
+  
+  
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Mock Data Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Mock Data Generator free to use?</h3>
+      <p>Yes, Mock Data Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Mock Data Generator upload my data to a server?</h3>
+      <p>No. Mock Data Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Mock Data Generator?</h3>
+      <p>Absolutely. Everything runs locally: Count and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use Mock Data Generator on my phone?</h3>
+      <p>Yes. Mock Data Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Mock Data Generator?</h3>
+      <p>Mock Data Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+  </div>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/mock-data-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<div id="related-tools-section" class="related-tools-section"></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+
+// === Mock Data Generator Implementation ===
+var FIELDS = {
+  cnName: { label: 'Chinese Name', gen: genCNName },
+  enName: { label: 'English Name', gen: genENName },
+  email: { label: 'Email', gen: genEmail },
+  phone: { label: 'Phone', gen: genPhone },
+  idCard: { label: 'ID Card', gen: genIDCard },
+  company: { label: 'Company', gen: genCompany },
+  address: { label: 'Address', gen: genAddress },
+  date: { label: 'Date', gen: genDate },
+  ip: { label: 'IP Address', gen: genIP },
+  url: { label: 'URL', gen: genURL },
+  uuid: { label: 'UUID', gen: genUUID },
+  text: { label: 'Random Text', gen: genText },
+  age: { label: 'Age', gen: genAge },
+  salary: { label: 'Salary', gen: genSalary },
+  bool: { label: 'Boolean', gen: genBool }
+};
+
+var CN_SURNAMES = ['Wang','Li','Zhang','Liu','Chen','Yang','Zhao','Huang','Zhou','Wu','Xu','Sun','Hu','Zhu','Gao','Lin','He','Guo','Ma','Luo'];
+var CN_GIVEN = ['Wei','Fang','Na','XiuYing','Min','Jing','Li','Qiang','Lei','Jun','Yang','Yong','Yan','Jie','Juan','Tao','Ming','Chao','HaoRan','ZiXuan'];
+var EN_FIRST = ['James','John','Robert','Michael','William','David','Mary','Jennifer','Linda','Patricia','Elizabeth','Susan','Jessica','Sarah','Karen','Thomas','Charles','Daniel','Matthew','Anthony'];
+var EN_LAST = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez','Wilson','Anderson','Taylor','Thomas','Moore','Jackson','Martin','Lee','Thompson','White'];
+var COMPANIES = ['Tech','Network','Info','Smart','Data','Cloud','Electronics','Communications','Software','AI'];
+var COMP_SUFFIX = ['Inc','Corp','LLC','Ltd','Co'];
+var CITIES = ['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose','Austin','Seattle','Denver','Boston','Portland'];
+var STREETS = ['Main St','Oak Ave','Maple Dr','Cedar Ln','Pine Rd','Elm St','Washington Blvd','Park Ave','Lake Dr','Hill Rd'];
+
+var generatedData = [];
+var fieldOrder = [];
+
+function genCNName(){ return CN_SURNAMES[rand(CN_SURNAMES.length)] + ' ' + CN_GIVEN[rand(CN_GIVEN.length)]; }
+function genENName(){ return EN_FIRST[rand(EN_FIRST.length)] + ' ' + EN_LAST[rand(EN_LAST.length)]; }
+function genEmail(){ var u='user'+rand(10000); var d=['example.com','test.com','demo.org','mail.com','sample.net']; return u+'@'+d[rand(d.length)]; }
+function genPhone(){ var p=['212','310','312','415','503','510','617','646','718','737','832','848','917','929','949']; return '+1 ('+p[rand(p.length)]+') ' + pad(rand(900)+100,3) + '-' + pad(rand(10000),4); }
+function genIDCard(){ return pad(rand(1000000),7) + (1970+rand(40)) + pad(rand(1000),4) + rand(10); }
+function genCompany(){ return COMPANIES[rand(COMPANIES.length)] + COMP_SUFFIX[rand(COMP_SUFFIX.length)]; }
+function genAddress(){ return (1+rand(999)) + ' ' + STREETS[rand(STREETS.length)] + ', ' + CITIES[rand(CITIES.length)]; }
+function genDate(){ var y=1990+rand(30); var m=1+rand(12); var d=1+rand(28); return y+'-'+pad(m,2)+'-'+pad(d,2); }
+function genIP(){ return rand(256)+'.'+rand(256)+'.'+rand(256)+'.'+rand(256); }
+function genURL(){ var protos=['https://','http://']; var domains=['example.com','test.org','demo.io','sample.net','myapp.dev']; return protos[rand(protos.length)] + domains[rand(domains.length)] + '/path' + rand(1000); }
+function genUUID(){ return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){ var r=Math.random()*16|0; var v=c==='x'?r:(r&0x3|0x8); return v.toString(16); }); }
+function genText(){ var words=['project','development','testing','deployment','optimization','iteration','launch','fix','design','architecture','requirement','analysis','documentation','meeting','review','planning','goal','progress','quality','performance']; var n=3+rand(5); var arr=[]; for(var i=0;i<n;i++) arr.push(words[rand(words.length)]); return arr.join(' '); }
+function genAge(){ return 18+rand(50); }
+function genSalary(){ return (30000+rand(120000)/1000*1000).toFixed(0); }
+function genBool(){ return Math.random()>0.5?'true':'false'; }
+
+function rand(n){ return Math.floor(Math.random()*n); }
+function pad(num,len){ var s=String(num); while(s.length<len) s='0'+s; return s; }
+
+function initFields(){
+  var grid=document.getElementById('fieldGrid');
+  if(!grid) return;
+  grid.innerHTML='';
+  var defaultChecked=['enName','email','phone','company'];
+  Object.keys(FIELDS).forEach(function(key){
+    var div=document.createElement('div');
+    div.className='field-item' + (defaultChecked.indexOf(key)>=0?' selected':'');
+    var chk=document.createElement('input');
+    chk.type='checkbox'; chk.id='f_'+key; chk.checked=defaultChecked.indexOf(key)>=0;
+    chk.addEventListener('change',function(){ div.classList.toggle('selected',chk.checked); });
+    var lbl=document.createElement('label');
+    lbl.htmlFor='f_'+key; lbl.textContent=FIELDS[key].label;
+    div.appendChild(chk); div.appendChild(lbl);
+    grid.appendChild(div);
+  });
+}
+
+function generate(){
+  fieldOrder=[];
+  Object.keys(FIELDS).forEach(function(key){
+    var chk=document.getElementById('f_'+key);
+    if(chk && chk.checked) fieldOrder.push(key);
+  });
+  if(fieldOrder.length===0){ showToast('Please select at least one field'); return; }
+  var count=parseInt(document.getElementById('count').value)||10;
+  if(count<1) count=1; if(count>1000) count=1000;
+  generatedData=[];
+  for(var i=0;i<count;i++){
+    var row={};
+    fieldOrder.forEach(function(key){ row[key]=FIELDS[key].gen(); });
+    generatedData.push(row);
+  }
+  renderPreview();
+  showToast('Generated '+count+' records');
+}
+
+function renderPreview(){
+  var el=document.getElementById('output');
+  if(!el) return;
+  if(generatedData.length===0){ el.textContent='Click "Generate" to start...'; return; }
+  el.textContent=JSON.stringify(generatedData.slice(0,50),null,2);
+  if(generatedData.length>50) el.textContent+='\n\n... Total '+generatedData.length+' records, showing first 50';
+  el.style.display='block';
+}
+
+function exportData(fmt){
+  if(generatedData.length===0){ showToast('Please generate data first'); return; }
+  var text='';
+  if(fmt==='json'){
+    text=JSON.stringify(generatedData,null,2);
+  }else if(fmt==='csv'){
+    var header=fieldOrder.map(function(k){ return FIELDS[k].label; });
+    text=header.join(',')+'\n';
+    generatedData.forEach(function(row){
+      var vals=fieldOrder.map(function(k){ var v=String(row[k]); return v.indexOf(',')>=0?'"'+v+'"':v; });
+      text+=vals.join(',')+'\n';
+    });
+  }else if(fmt==='sql'){
+    text='-- '+generatedData.length+' records\n';
+    generatedData.forEach(function(row){
+      var cols=fieldOrder.join(', ');
+      var vals=fieldOrder.map(function(k){ return "'"+String(row[k]).replace(/'/g,"''")+"'"; });
+      text+='INSERT INTO mock_data ('+cols+') VALUES ('+vals.join(', ')+');\n';
+    });
+  }
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(function(){ showToast('Copied '+fmt.toUpperCase()+' ('+generatedData.length+' records)'); }).catch(function(){
+      fallbackCopy(text); showToast('Copied '+fmt.toUpperCase());
+    });
+  }else{
+    fallbackCopy(text); showToast('Copied '+fmt.toUpperCase());
+  }
+}
+
+function fallbackCopy(text){
+  var ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+}
+
+initFields();
+</script>
+
+</main>
+</body>
+</html>

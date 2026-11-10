@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert decimal numbers to Roman numerals and Roman numerals back to decimal, covering the standard 1-3999 range.">
+<meta name="keywords" content="Roman numerals converter, Roman to number, number to Roman, bidirectional conversion, online tool, free">
+<title>Roman Numerals Converter - Bidirectional Conversion</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/roman-numerals-converter/">
+<meta property="og:title" content="Roman Numerals Converter - Bidirectional Conversion">
+<meta property="og:description" content="Convert decimal numbers to Roman numerals and Roman numerals back to decimal, covering the standard 1-3999 range.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/roman-numerals-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Roman Numerals Converter","description":"Free online Roman numerals converter. Convert between decimal numbers and Roman numerals instantly. Supports range 1-3999.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the maximum Roman numeral?","acceptedAnswer":{"@type":"Answer","text":"The maximum standard Roman numeral is MMMCMXCIX which equals 3999. Traditional Roman numerals have no symbol for 5000."}},{"@type":"Question","name":"What are the rules for Roman numerals?","acceptedAnswer":{"@type":"Answer","text":"Roman numerals use 7 symbols: I(1), V(5), X(10), L(50), C(100), D(500), M(1000). Same symbol max 3 times in a row. Smaller before larger means subtraction (IV=4)."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Roman Numerals Converter","description":"Simple steps to convert between Roman numerals and decimal numbers.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Roman Numerals Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter value","text":"Type a decimal number or Roman numeral in the input field."},{"@type":"HowToStep","position":2,"name":"View result","text":"The conversion result appears instantly as you type."},{"@type":"HowToStep","position":3,"name":"Copy result","text":"Click the Copy button to copy the result to clipboard."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Roman Numerals Converter","item":"https://adi63586.github.io/Toolguidehub/en/roman-numerals-converter/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end}
+@media(max-width:600px){.input-row{grid-template-columns:1fr}.input-row .arrow{display:none}}
+.arrow{font-size:1.5rem;color:#22d3ee;text-align:center;padding-bottom:12px}
+.input-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:6px}
+.input-group input{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:1.1rem;font-family:monospace}
+.input-group input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-box{background:#0f172a;border:1px solid rgba(6,182,212,.2);border-radius:8px;padding:16px;min-height:60px;font-family:monospace;font-size:1.3rem;color:#22d3ee;word-break:break-all;margin-top:8px}
+.error-msg{color:#f87171;font-size:.85rem;margin-top:6px;display:none}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-top:24px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{list-style:none;margin-bottom:12px}
+.info-section li{padding:4px 0;padding-left:20px;position:relative}
+.info-section li::before{content:"•";position:absolute;left:4px;color:#06b6d4}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.2);z-index:1000;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.85rem}
+footer a{color:#64748b}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/roman-numerals-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<div class="header">
+<h1>🏛️ Roman Numerals Converter</h1>
+
+</div>
+<div class="section">
+<h2>Bidirectional Conversion</h2>
+<div class="input-row">
+<div class="input-group"><label>Decimal Number (1-3999)</label><input type="text" id="decimalInput" placeholder="e.g.: 2024" autocomplete="off"></div>
+<div class="arrow">⇄</div>
+<div class="input-group"><label>Roman Numerals</label><input type="text" id="romanInput" placeholder="e.g.: MMXXIV" autocomplete="off"></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" id="copyBtn">📋 Copy Result</button>
+<button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+</div>
+<div class="result-box" id="resultBox">Enter a number or Roman numeral</div>
+<div class="error-msg" id="errorMsg"></div>
+</div>
+<div class="section">
+<h2>📖 Roman Numerals Reference</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;font-family:monospace;font-size:.9rem">
+<div>I = 1</div><div>V = 5</div><div>X = 10</div><div>L = 50</div><div>C = 100</div><div>D = 500</div><div>M = 1000</div>
+<div>IV = 4</div><div>IX = 9</div><div>XL = 40</div><div>XC = 90</div><div>CD = 400</div><div>CM = 900</div>
+</div>
+</div>
+<div class="info-section">
+<h2>About Roman Numerals</h2>
+<h3>Basic Rules</h3>
+<ul>
+<li>Roman numerals use 7 basic symbols: I(1), V(5), X(10), L(50), C(100), D(500), M(1000)</li>
+<li>The same symbol can appear at most three times (e.g., III=3, but 4 is IV not IIII)</li>
+<li>A smaller number before a larger means subtraction (IV=4, IX=9, XL=40, XC=90, CD=400, CM=900)</li>
+<li>A smaller number after a larger means addition (VI=6, LX=60, DC=600)</li>
+<li>Arranged left to right, largest to smallest</li>
+</ul>
+<h3>Common Examples</h3>
+<ul>
+<li>2024 = MMXXIV (M+M+X+X+IV = 1000+1000+10+10+4)</li>
+<li>1987 = MCMLXXXVII (M+CM+L+X+X+X+V+I+I)</li>
+<li>3999 = MMMCMXCIX (maximum standard Roman numeral)</li>
+</ul>
+</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="//en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a><a href="//en/blood-alcohol-calculator/">🔧 BAC Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/roman-numerals-converter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+const decInput = document.getElementById('decimalInput');
+const romInput = document.getElementById('romanInput');
+const resultBox = document.getElementById('resultBox');
+const errorMsg = document.getElementById('errorMsg');
+const toast = document.getElementById('toast');
+
+const romanMap = [
+  [1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],
+  [100,'C'],[90,'XC'],[50,'L'],[40,'XL'],
+  [10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']
+];
+
+function toRoman(num) {
+  if (num < 1 || num > 3999 || !Number.isInteger(num)) return null;
+  let result = '';
+  for (const [val, sym] of romanMap) {
+    while (num >= val) { result += sym; num -= val; }
+  }
+  return result;
+}
+
+function fromRoman(str) {
+  const romanValues = {M:1000,D:500,C:100,L:50,X:10,V:5,I:1};
+  str = str.toUpperCase().trim();
+  if (!/^[MDCLXVI]+$/.test(str)) return null;
+  let total = 0, prev = 0;
+  for (let i = str.length - 1; i >= 0; i--) {
+    const val = romanValues[str[i]];
+    if (!val) return null;
+    if (val < prev) total -= val; else total += val;
+    prev = val;
+  }
+  if (total < 1 || total > 3999 || toRoman(total) !== str) return null;
+  return total;
+}
+
+function showError(msg) {
+  errorMsg.textContent = msg;
+  errorMsg.style.display = 'block';
+  resultBox.textContent = '—';
+  resultBox.style.color = '#f87171';
+}
+function clearError() {
+  errorMsg.style.display = 'none';
+  resultBox.style.color = '#22d3ee';
+}
+
+decInput.addEventListener('input', () => {
+  const val = parseInt(decInput.value, 10);
+  romInput.value = '';
+  if (decInput.value === '') { resultBox.textContent = 'Enter a number or Roman numeral'; clearError(); return; }
+  if (isNaN(val) || val < 1 || val > 3999 || !Number.isInteger(val)) {
+    showError('Please enter an integer between 1-3999');
+    return;
+  }
+  clearError();
+  const roman = toRoman(val);
+  romInput.value = roman;
+  resultBox.textContent = roman;
+});
+
+romInput.addEventListener('input', () => {
+  const val = romInput.value.trim();
+  decInput.value = '';
+  if (val === '') { resultBox.textContent = 'Enter a number or Roman numeral'; clearError(); return; }
+  const num = fromRoman(val);
+  if (num === null) { showError('Please enter valid Roman numerals (I,V,X,L,C,D,M only)'); return; }
+  clearError();
+  decInput.value = num;
+  resultBox.textContent = `${val.toUpperCase()} = ${num}`;
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const text = decInput.value || romInput.value;
+  if (!text) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard ✓'));
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  decInput.value = ''; romInput.value = '';
+  resultBox.textContent = 'Enter a number or Roman numeral'; clearError();
+});
+
+function showToast(msg) {
+  toast.textContent = msg; toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* 示例按钮 */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

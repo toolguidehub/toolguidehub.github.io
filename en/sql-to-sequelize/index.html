@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Convert SQL CREATE TABLE statements into Sequelize model definitions with type mapping and belongsTo/hasMany associations.">
+<meta name="keywords" content="SQL to Sequelize,SQL to Sequelize model,Sequelize model generator,ORM code generator,Node.js,Sequelize CLI">
+<title>Free SQL to Sequelize Model Converter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/sql-to-sequelize/">
+<meta property="og:title" content="Free SQL to Sequelize Model Converter - ToolGuideHub">
+<meta property="og:description" content="Convert SQL CREATE TABLE statements into Sequelize model definitions with type mapping and belongsTo/hasMany associations.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/sql-to-sequelize/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SQL to Sequelize Model Converter", "description": "Free online SQL to Sequelize model converter. Supports MySQL/PostgreSQL/SQLite. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-14", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Which SQL dialects are supported?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which SQL dialects are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MySQL, PostgreSQL, and SQLite CREATE TABLE syntax are supported, with automatic type mapping for each dialect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it handle foreign key constraints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool parses FOREIGN KEY constraints and generates Sequelize belongsTo/hasMany association code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support default values?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DEFAULT values are converted to Sequelize defaultValue properties, including function defaults like NOW()."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool uses pure frontend technology. All conversion happens locally in your browser. Your data never leaves your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the generated code be used directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The generated code follows Sequelize conventions and can be used directly in Sequelize CLI migration or model files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import SQL from a file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drag and drop a SQL file onto the input area, or click Load Example to try it quickly."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SQL to Sequelize",
+      "item": "https://adi63586.github.io/Toolguidehub/en/sql-to-sequelize/"
+    }
+  ],
+  "name": "SQL to Sequelize"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace;resize:vertical;min-height:200px}textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}textarea::placeholder{color:#475569}.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}.options input[type=checkbox]{accent-color:#06b6d4}.options select{padding:6px 10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:.85rem}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.btn-success:hover{background:rgba(34,197,94,.25)}.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.error-msg{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:10px 14px;font-size:.85rem;margin:8px 0}.seo-content{background:#1e293b;border-radius:12px;padding:24px;margin:24px 0;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2rem;color:#f1f5f9;margin:20px 0 10px;border-bottom:1px solid rgba(148,163,184,.1);padding-bottom:6px}.seo-content h2:first-child{margin-top:0}.seo-content h3{font-size:1rem;color:#e2e8f0;margin:14px 0 8px}.seo-content p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;line-height:1.7}.seo-content ul{color:#94a3b8;font-size:.9rem;margin:8px 0 12px 20px;line-height:1.7}.faq-item{background:#1e293b;border-radius:8px;padding:14px 18px;margin:8px 0;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#f1f5f9;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.6}
+.ad-slot.ad-sidebar{max-width:300px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}@media(max-width:768px){.main-grid{grid-template-columns:1fr}.ad-sidebar-wrap{display:none}}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}.history-item{padding:6px 10px;background:#0f172a;border-radius:6px;margin:4px 0;cursor:pointer;font-size:.8rem;color:#94a3b8;border:1px solid rgba(148,163,184,.08)}.history-item:hover{color:#22d3ee;border-color:rgba(6,182,212,.3)}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/sql-to-sequelize/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use SQL to Sequelize Model Converter","description":"Step-by-step guide for using SQL to Sequelize Model Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"SQL to Sequelize Model Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🔄 SQL to Sequelize Model</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › SQL to Sequelize</p>
+  <p class="hero-sub">One-click convert SQL CREATE TABLE statements to Sequelize Model definitions, supporting MySQL/PostgreSQL/SQLite</p>
+  <span class="badge">Zero Dependencies · Works Offline</span>
+  <div class="main-grid">
+    <div>
+      <div class="input-section">
+        <h2>📝 SQL Input</h2>
+        <textarea id="sqlInput" placeholder="Paste SQL CREATE TABLE statements..."></textarea>
+        <div id="sqlError" class="error-msg" style="display:none"></div>
+        <div class="options">
+          <label>Dialect: <select id="dialect"><option value="mysql">MySQL</option><option value="postgres">PostgreSQL</option><option value="sqlite">SQLite</option></select></label>
+          <label><input type="checkbox" id="useTimestamps" checked> Auto timestamps</label>
+          <label><input type="checkbox" id="useParanoid"> Soft delete</label>
+          <label><input type="checkbox" id="useFreezeTable"> Freeze table name</label>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="convert()">🔄 Convert</button>
+          <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+          <button class="btn btn-secondary" onclick="clearAll()">✖ Clear</button>
+        </div>
+        <div style="margin-top:12px"><h2 style="font-size:.9rem;color:#94a3b8;margin-bottom:6px">📜 History</h2><div id="historyList"></div></div>
+      </div>
+      <div class="result-section" id="resultSection" style="display:none">
+        <h2>📄 Sequelize Model Code</h2>
+        <textarea id="seqOutput" readonly style="min-height:250px;background:#0d1117;color:#7ee787;border-color:rgba(6,182,212,.2)"></textarea>
+        <div class="btn-row" style="margin-top:8px">
+          <button class="btn btn-success" onclick="copyResult()">📋 Copy Code</button>
+          <button class="btn btn-primary" onclick="downloadResult()">💾 Download .js</button>
+          <button class="btn btn-secondary" onclick="shareLink()">🔗 Share Link</button>
+        </div>
+      </div>
+    </div>
+    <div class="ad-sidebar-wrap">
+      </div>
+  </div>
+  <div class="seo-content">
+    <h2>What is SQL to Sequelize Model Converter?</h2>
+    <p>The SQL to Sequelize Model Converter is a free online developer tool that instantly converts SQL CREATE TABLE statements into Sequelize Model definition code. It automatically identifies SQL data types and maps them to Sequelize types, supports MySQL, PostgreSQL, and SQLite dialects, parses PRIMARY KEY, FOREIGN KEY, DEFAULT, NOT NULL constraints, and generates Sequelize-compliant Model code. Perfect for Node.js developers who need to quickly generate ORM models from existing databases. All conversion happens locally in your browser — no data is ever uploaded to a server.</p>
+    <h2>Core Features</h2>
+    <ul>
+      <li><strong>Smart Type Mapping</strong>: Auto-converts SQL types (INT, VARCHAR, TEXT, DATETIME, etc.) to Sequelize types (INTEGER, STRING, TEXT, DATE, etc.)</li>
+      <li><strong>Multi-Dialect Support</strong>: Supports MySQL, PostgreSQL, and SQLite with automatic dialect-specific type adaptation</li>
+      <li><strong>Constraint Parsing</strong>: Parses PRIMARY KEY, FOREIGN KEY, NOT NULL, DEFAULT, UNIQUE, AUTO_INCREMENT constraints</li>
+      <li><strong>Association Generation</strong>: Foreign key constraints automatically generate belongsTo/hasMany association code</li>
+      <li><strong>History</strong>: Auto-saves last 5 conversions for easy review and reuse</li>
+    </ul>
+    <h2>How to Use</h2>
+    <p>1. Paste your SQL CREATE TABLE statement into the input area, or click "Load Example" to try it quickly.</p>
+    <p>2. Select the SQL dialect and conversion options: auto timestamps, soft delete, freeze table name, etc.</p>
+    <p>3. Click "Convert" or use Ctrl+Enter to execute.</p>
+    <p>4. View the generated Sequelize Model code in the result area below.</p>
+    <p>5. Click "Copy Code" to copy to clipboard, or download as a .js file.</p>
+    <h2>Use Cases</h2>
+    <h3>Database Migration</h3>
+    <p>When migrating from traditional SQL projects to Node.js+Sequelize, use this tool to quickly convert existing table structures to Sequelize Models, accelerating project refactoring.</p>
+    <h3>API Development</h3>
+    <p>Backend developers can generate Sequelize Model definitions from SQL CREATE TABLE scripts in database design documents, rapidly building RESTful APIs.</p>
+    <h3>Team Collaboration</h3>
+    <p>DBAs provide SQL scripts; developers convert them to Sequelize code, ensuring Model definitions match database structure.</p>
+    <h3>Learning Sequelize</h3>
+    <p>Beginners can quickly understand ORM type mapping and constraint expressions by comparing SQL and Sequelize code side by side.</p>
+    <h2>Technical Background</h2>
+    <p>Sequelize is one of the most popular Node.js ORM frameworks, supporting PostgreSQL, MySQL, SQLite, and MSSQL. Sequelize Models define database table structure mappings including field types, constraints, indexes, and associations. SQL-to-Sequelize type mapping follows specific rules: INT→INTEGER, VARCHAR(n)→STRING(n), TEXT→TEXT, BOOLEAN→BOOLEAN, DATETIME→DATE, DECIMAL(p,s)→DECIMAL(p,s). The timestamps option adds createdAt and updatedAt fields by default, paranoid adds deletedAt for soft deletes, and freezeTableName prevents Sequelize from pluralizing model names as table names.</p>
+  </div>
+  <h2>❓ FAQ</h2>
+  <div class="faq-item"><h3>Which SQL dialects are supported?</h3><p>MySQL, PostgreSQL, and SQLite CREATE TABLE syntax are supported with automatic type mapping.</p></div>
+  <div class="faq-item"><h3>Can it handle foreign keys?</h3><p>Yes. FOREIGN KEY constraints are parsed and generate Sequelize belongsTo/hasMany association code.</p></div>
+  <div class="faq-item"><h3>Does it support default values?</h3><p>Yes. DEFAULT values are converted to Sequelize defaultValue properties, including function defaults like NOW().</p></div>
+  <div class="faq-item"><h3>Is my data uploaded?</h3><p>No. Everything runs locally: SQL to Sequelize Model and other values are processed on your device, never sent to a server. Your data never leaves your device.</p></div>
+  <div class="faq-item"><h3>Can generated code be used directly?</h3><p>Yes. The output follows Sequelize conventions and can be used in CLI migration or model files.</p></div>
+  <div class="faq-item"><h3>Can I import SQL from a file?</h3><p>Yes. Drag and drop a SQL file onto the input area, or click Load Example.</p></div>
+  </main>
+
+  
+
+<script>
+var STORAGE_KEY='sql2seq_history_en';
+var TYPE_MAP={'int':'INTEGER','integer':'INTEGER','tinyint':'INTEGER','smallint':'INTEGER','mediumint':'INTEGER','bigint':'BIGINT','float':'FLOAT','double':'DOUBLE','decimal':'DECIMAL','numeric':'DECIMAL','varchar':'STRING','char':'CHAR','text':'TEXT','tinytext':'TEXT','mediumtext':'TEXT','longtext':'TEXT','blob':'BLOB','boolean':'BOOLEAN','bool':'BOOLEAN','bit':'BOOLEAN','date':'DATEONLY','datetime':'DATE','timestamp':'DATE','time':'TIME','enum':'ENUM','json':'JSON','jsonb':'JSONB','uuid':'UUID','serial':'INTEGER','real':'REAL','double precision':'DOUBLE','character varying':'STRING','character':'CHAR'};
+function mapType(raw){var t=raw.toLowerCase().trim();if(t.match(/^varchar\(/))return'STRING';if(t.match(/^char\(/))return'CHAR';if(t.match(/^decimal\(/))return t.replace(/decimal/i,'DECIMAL');if(t.match(/^numeric\(/))return t.replace(/numeric/i,'DECIMAL');if(t.match(/^enum\(/))return'ENUM';return TYPE_MAP[t]||'STRING';}
+function parseCreateTable(sql){
+  var tm=sql.match(/CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?[`"']?(\w+)[`"']?/i);if(!tm)throw new Error('No CREATE TABLE statement found');var tableName=tm[1];
+  var bm=sql.match(/CREATE\s+TABLE[^(]*\(([\s\S]+)\)(?:\s*ENGINE[\s\S]*)?$/i);if(!bm)throw new Error('Cannot parse table structure');
+  var body=bm[1];var columns=[];var fks=[];var parts=[];var depth=0;var cur='';
+  for(var i=0;i<body.length;i++){var c=body[i];if(c==='(')depth++;if(c===')')depth--;if(c===','&&depth===0){parts.push(cur.trim());cur='';}else cur+=c;}
+  if(cur.trim())parts.push(cur.trim());
+  parts.forEach(function(p){
+    if(p.match(/^\s*(PRIMARY\s+KEY|KEY|INDEX|UNIQUE|CONSTRAINT|CHECK)/i))return;
+    var fkM=p.match(/FOREIGN\s+KEY\s*\(\s*[`"']?(\w+)[`"']?\s*\)\s*REFERENCES\s+[`"']?(\w+)[`"']?\s*\(\s*[`"']?(\w+)[`"']?\s*\)/i);
+    if(fkM){fks.push({column:fkM[1],refTable:fkM[2],refColumn:fkM[3]});return;}
+    var colM=p.match(/^\s*[`"']?(\w+)[`"']?\s+([\w()]+(?:\s*\([^)]*\))?)\s*([\s\S]*)$/i);if(!colM)return;
+    var name=colM[1],type=colM[2],rest=colM[3]||'';
+    var col={name:name,type:mapType(type),primaryKey:false,autoIncrement:false,allowNull:true,defaultValue:null,unique:false};
+    if(rest.match(/\bPRIMARY\s+KEY\b/i))col.primaryKey=true;if(rest.match(/\bAUTO_INCREMENT\b/i))col.autoIncrement=true;
+    if(rest.match(/\bNOT\s+NULL\b/i))col.allowNull=false;if(rest.match(/\bUNIQUE\b/i))col.unique=true;
+    var defM=rest.match(/\bDEFAULT\s+(['"]?)([^'",\s)]+)\1/i);if(defM)col.defaultValue=defM[2];columns.push(col);
+  });return{tableName:tableName,columns:columns,fks:fks};
+}
+function singularize(s){if(s.match(/ies$/))return s.slice(0,-3)+'y';if(s.match(/ses$/))return s.slice(0,-2);if(s.match(/s$/)&&!s.match(/ss$/))return s.slice(0,-1);return s;}
+function camelize(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function generateSequelize(table){
+  var lines=[];lines.push("'use strict';");lines.push("module.exports = (sequelize, DataTypes) => {");
+  lines.push("  const "+camelize(singularize(table.tableName))+" = sequelize.define('"+camelize(singularize(table.tableName))+"', {");
+  table.columns.forEach(function(col){
+    lines.push("    "+col.name+": {");lines.push("      type: DataTypes."+col.type+",");
+    if(col.primaryKey)lines.push("      primaryKey: true,");if(col.autoIncrement)lines.push("      autoIncrement: true,");
+    if(!col.allowNull)lines.push("      allowNull: false,");
+    if(col.defaultValue!==null){var dv=col.defaultValue;if(dv.match(/^NOW\(\)$/i))lines.push("      defaultValue: DataTypes.NOW,");else if(dv.match(/^\d+$/))lines.push("      defaultValue: "+dv+",");else if(dv.match(/^(true|false)$/i))lines.push("      defaultValue: "+dv.toLowerCase()+",");else lines.push("      defaultValue: '"+dv+"',");}
+    if(col.unique)lines.push("      unique: true,");lines.push("    },");
+  });
+  lines.push("  }, {");lines.push("    tableName: '"+table.tableName+"',");lines.push("    timestamps: "+(document.getElementById('useTimestamps').checked?'true':'false')+",");
+  if(document.getElementById('useParanoid').checked)lines.push("    paranoid: true,");if(document.getElementById('useFreezeTable').checked)lines.push("    freezeTableName: true,");
+  lines.push("  });");
+  if(table.fks.length){lines.push("");table.fks.forEach(function(fk){lines.push("  "+camelize(singularize(table.tableName))+".belongsTo(models."+camelize(singularize(fk.refTable))+", { foreignKey: '"+fk.column+"' });");});}
+  lines.push("");lines.push("  return "+camelize(singularize(table.tableName))+";");lines.push("};");return lines.join('\n');
+}
+window.convert=function(){var input=document.getElementById('sqlInput').value.trim();var errorEl=document.getElementById('sqlError');if(!input){errorEl.style.display='none';document.getElementById('resultSection').style.display='none';return;}try{var table=parseCreateTable(input);var code=generateSequelize(table);document.getElementById('seqOutput').value=code;document.getElementById('resultSection').style.display='block';errorEl.style.display='none';saveHistory(input,table.tableName);}catch(e){errorEl.textContent='❌ SQL parse error: '+e.message;errorEl.style.display='block';document.getElementById('resultSection').style.display='none';}};
+window.loadExample=function(){document.getElementById('sqlInput').value="CREATE TABLE users (\n  id INT PRIMARY KEY AUTO_INCREMENT,\n  username VARCHAR(50) NOT NULL UNIQUE,\n  email VARCHAR(100) NOT NULL,\n  age INT DEFAULT 18,\n  is_active BOOLEAN DEFAULT true,\n  score DECIMAL(5,2) DEFAULT 0.00,\n  bio TEXT,\n  created_at DATETIME DEFAULT NOW(),\n  role VARCHAR(20) DEFAULT 'user'\n);";convert();};
+window.clearAll=function(){document.getElementById('sqlInput').value='';document.getElementById('seqOutput').value='';document.getElementById('sqlError').style.display='none';document.getElementById('resultSection').style.display='none';};
+window.copyResult=function(){var text=document.getElementById('seqOutput').value;if(navigator.clipboard)navigator.clipboard.writeText(text).then(showCopyMsg);};
+window.downloadResult=function(){var text=document.getElementById('seqOutput').value;var blob=new Blob([text],{type:'text/plain'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='model.js';a.click();};
+window.shareLink=function(){var input=document.getElementById('sqlInput').value;var url=location.href+'?data='+encodeURIComponent(input);if(navigator.clipboard)navigator.clipboard.writeText(url).then(showCopyMsg);};
+function showCopyMsg(){var msg=document.createElement('div');msg.textContent='✓ Copied to clipboard';msg.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(msg);setTimeout(function(){msg.remove();},2000);}
+function saveHistory(input,name){var h=[];try{h=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch(e){h=[];}h.unshift({input:input.substring(0,200),name:name,time:Date.now()});if(h.length>5)h=h.slice(0,5);localStorage.setItem(STORAGE_KEY,JSON.stringify(h));renderHistory();}
+function renderHistory(){var h=[];try{h=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch(e){h=[];}var el=document.getElementById('historyList');if(!h.length){el.innerHTML='<div style="color:#475569;font-size:.8rem">No history yet</div>';return;}el.innerHTML=h.map(function(hi,i){var t=new Date(hi.time).toLocaleTimeString();return '<div class="history-item" onclick="restoreHistory('+i+')">'+hi.name+' · '+t+'</div>';}).join('');}
+window.restoreHistory=function(idx){var h=[];try{h=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');}catch(e){return;}if(h[idx]){document.getElementById('sqlInput').value=h[idx].input;convert();}};
+var ta=document.getElementById('sqlInput');
+ta.addEventListener('dragover',function(e){e.preventDefault();e.stopPropagation();this.style.borderColor='rgba(6,182,212,.5)';});
+ta.addEventListener('dragleave',function(e){this.style.borderColor='';});
+ta.addEventListener('drop',function(e){e.preventDefault();e.stopPropagation();this.style.borderColor='';var file=e.dataTransfer.files[0];if(file){var reader=new FileReader();reader.onload=function(ev){ta.value=ev.target.result;convert();};reader.readAsText(file);}});
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){convert();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyResult();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='X'){clearAll();e.preventDefault();}});
+var urlData=new URLSearchParams(location.search).get('data');if(urlData){try{document.getElementById('sqlInput').value=decodeURIComponent(urlData);convert();}catch(e){}}
+if(!localStorage.getItem(STORAGE_KEY))loadExample();renderHistory();
+</script>
+
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<footer class="footer container">
+  <div style="margin-bottom:12px">
+    <a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/sql-to-sequelize/">中文</a>
+</div>
+
+
+</footer>
+</body>
+</html>

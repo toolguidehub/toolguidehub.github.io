@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Organize CSS variables by category, spot unused custom properties and generate tidy variable declarations.">
+<meta name="keywords" content="CSS variablesCSS custom propertiesvariable organizerCSS optimizationvariable extraction">
+<title>Free CSS Variable Organizer - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-variable-organizer/">
+<meta property="og:title" content="Free CSS Variable Organizer - ToolGuideHub">
+<meta property="og:description" content="Organize CSS variables by category, spot unused custom properties and generate tidy variable declarations.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-variable-organizer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Variable Organizer - Extract · Categorize · Rename · Optimize", "description": "Free online CSS variable organizer，Extract, categorize, and rename CSS custom properties. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS Variable Organizer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-variable-organizer/"
+    }
+  ],
+  "name": "CSS Variable Organizer"
+}</script>
+<style>:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:var(--card-bg);border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.input-section{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;font-family:monospace;resize:vertical;min-height:150px}textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}textarea::placeholder{color:#475569}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(16,185,129,.2);color:#34d399;border:1px solid rgba(16,185,129,.3)}.btn-success:hover{background:rgba(16,185,129,.3)}.btn-danger{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}.btn-danger:hover{background:rgba(239,68,68,.3)}.result-section{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.var-group{margin-bottom:16px}.var-group-title{color:#22d3ee;font-size:.9rem;font-weight:600;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(6,182,212,.2)}.var-item{display:flex;gap:8px;align-items:center;padding:6px 10px;background:#0f172a;border-radius:6px;margin-bottom:4px;border:1px solid rgba(148,163,184,.05)}.var-item .var-name{color:#facc15;font-family:monospace;font-size:.85rem;min-width:200px}.var-item .var-value{color:#94a3b8;font-family:monospace;font-size:.85rem;flex:1}.var-item .color-preview{width:20px;height:20px;border-radius:4px;border:1px solid rgba(148,163,184,.2);flex-shrink:0}.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:16px}.stat-card{background:#0f172a;border-radius:8px;padding:12px;border:1px solid rgba(148,163,184,.1)}.stat-card .stat-val{font-size:1.4rem;font-weight:700;color:#22d3ee}.stat-card .stat-label{font-size:.75rem;color:#64748b;margin-top:2px}.output-box{background:#0f172a;border-radius:8px;padding:12px;border:1px solid rgba(148,163,184,.1);font-family:monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-all;color:#94a3b8;max-height:300px;overflow-y:auto}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.ad-slot.ad-sidebar{max-width:300px}.ad-sidebar-wrap{display:flex;flex-direction:column;gap:0}.seo-content{margin-top:24px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2rem;color:#f1f5f9;margin:20px 0 10px}.seo-content h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}.seo-content p{color:#94a3b8;margin-bottom:10px;line-height:1.8}.seo-content ul{color:#94a3b8;padding-left:20px;margin-bottom:10px}.seo-content li{margin-bottom:4px}.faq-item{background:var(--card-bg);border-radius:8px;padding:14px 18px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#e2e8f9;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.6}.footer{border-top:1px solid rgba(148,163,184,.1);padding:20px 0;text-align:center;margin-top:24px}.footer a{color:#64748b;margin:0 8px;font-size:.85rem}.footer a:hover{color:#22d3ee}.footer p{color:#64748b;font-size:.85rem}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-variable-organizer/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Variable Organizer","description":"Step-by-step guide for using CSS Variable Organizer","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Variable Organizer"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"CSS Variable Organizer FAQ","mainEntity":[{"@type":"Question","name":"How does CSS Variable Organizer work?","acceptedAnswer":{"@type":"Answer","text":"CSS Variable Organizer processes everything locally in your browser. No data is sent to any server."}},{"@type":"Question","name":"Is my data safe with CSS Variable Organizer?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything runs locally: CSS Variable Organizer and other values are processed on your device, never sent to a server. Your data is never uploaded to any server."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+ <div class="header"><h1>🎨 CSS Variable Organizer</h1></div>
+ <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › CSS Variable Organizer</p>
+ <p class="hero-sub">Extract, categorize, and organize CSS custom properties, generate optimized variable declarations</p>
+ <span class="badge">Zero Dependencies · Works Offline</span>
+ <div class="main-grid">
+ <div>
+ <div class="input-section">
+ <h2>📝 CSS Code Input</h2>
+ <textarea id="cssInput" placeholder="PasteCSScode...&#10;:root {&#10; --primary-color: #06b6d4;&#10; --bg-color: #0f172a;&#10; --font-size-base: 16px;&#10; --spacing-md: 16px;&#10;}" oninput="parseCSS()"></textarea>
+ <div class="btn-row">
+ <button class="btn btn-primary" onclick="parseCSS()">🔍 Extract Variables</button>
+ <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+ <button class="btn btn-danger" onclick="clearAll()">✖ Clear</button>
+ </div>
+ </div>
+ <div class="result-section" id="statsSection" style="display:none">
+ <h2>📊 Variable Statistics</h2>
+ <div class="stat-grid" id="statGrid"></div>
+ </div>
+ <div class="result-section" id="varsSection" style="display:none">
+ <h2>📄 Variable Categories</h2>
+ <div id="varGroups"></div>
+ </div>
+ <div class="result-section" id="outputSection" style="display:none">
+ <h2>📄 Optimized Output</h2>
+ <div class="output-box" id="cssOutput"></div>
+ <div class="btn-row" style="margin-top:8px">
+ <button class="btn btn-success" onclick="copyOutput()">📋 Copy CSS</button>
+ <button class="btn btn-primary" onclick="downloadOutput()">💾 Download CSS</button>
+ </div>
+ </div>
+ </div>
+ <div class="ad-sidebar-wrap">
+ </div>
+ </div>
+ <div class="seo-content">
+ <h2>What can the CSS Variable Organizer do?</h2>
+ <p>The CSS Variable Organizer is a free online tool that extracts all custom properties (CSS variables) from your CSS code, automatically groups them by category (Colors, Spacing, Typography, Layout, etc.), and generates an optimized variable declaration block. It supports color previews, variable statistics, and one-click export. Ideal for heavy CSS codebases, design token systems, and variable standardization. Everything runs locally in your browser — no server uploads.</p>
+ <h2>Features</h2>
+ <ul>
+ <li><strong>Variable Extraction</strong>: extract every `--` custom property from your CSS</li>
+ <li><strong>Automatic Categorization</strong>: groups variables into Colors, Spacing, Typography, Layout, and more</li>
+ <li><strong>Color Preview</strong>: shows a swatch preview for color values</li>
+ <li><strong>Variable Statistics</strong>: counts variables per category and in total</li>
+ <li><strong>Optimized Output</strong>: generates a neatly sorted `:root` variable block</li>
+ </ul>
+ <h2>How to Use</h2>
+ <p>1. Paste your CSS code into the input area.</p>
+ <p>2. Click "Extract Variables" or let it parse automatically as you type.</p>
+ <p>3. Review the variable categories and statistics.</p>
+ <p>4. Copy or download the optimized CSS variable block.</p>
+ <h2>Use Cases</h2>
+ <h3>Scenario 1: Design Token System</h3>
+ <p>Move your CSS variables into `:root` to build a complete design token system.</p>
+ <h3>Scenario 2: Heavy CSS</h3>
+ <p>Extract repeated color and size values into variables to improve code maintainability.</p>
+ <h3>Scenario 3: Theme Switching</h3>
+ <p>Organize your variables into multiple theme sets to implement dark/light theme switching.</p>
+ <h2>Extended Knowledge</h2>
+ <p>CSS custom properties (CSS Variables) start with `--` and are referenced with the var() function. Unlike preprocessor variables, CSS variables are resolved at runtime and can be modified dynamically via JavaScript, and they support fallback values. Best practices: use descriptive names (such as --color-primary instead of --blue-500), group related variables together (such as --spacing-sm, --font-size-lg), and prefer concrete values over vague names.</p>
+ </div>
+ <h2>❓ FAQ</h2>
+ <div class="faq-item"><h3>About Free CSS Variable Organizer</h3><p>Free online CSS variable organizer. Extract, categorize, and organize CSS custom properties. Generate optimized variable declarations. Pure frontend, no server uploads. Try now!</p></div>
+ <div class="faq-item"><h3>Will my data be uploaded to a server?</h3><p>No. All CSS parsing happens locally in your browser.</p></div>
+ <div class="seo-content">
+</div></main>
+
+ 
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+var _vars=[];
+function categorize(name,value){
+  var n=name.toLowerCase();
+  if(/color|colour|bg|border-color|fill|stroke|tint|shade/.test(n)&&(/#|rgb|hsl/.test(value)||/^[a-z]+$/i.test(value)))return'Colors';
+  if(/spacing|margin|padding|gap|space|inset|offset/.test(n)||/^\d+(\.\d+)?(px|rem|em|vh|vw|%)$/.test(value.trim())&&/spacing|margin|padding|gap|space/.test(n))return'Spacing';
+  if(/font|size|weight|line|letter|text/.test(n))return'Typography';
+  if(/width|height|radius|shadow|opacity|z-index|transform|transition|duration/.test(n))return'Layout';
+  if(/border|outline/.test(n))return'Borders';
+  return'Other';
+}
+window.parseCSS=function(){
+  var input=document.getElementById('cssInput').value.trim();
+  if(!input){hideResults();return;}
+  _vars=[];
+  var re=/--([a-zA-Z0-9_-]+)\s*:\s*([^;}]+)/g;
+  var m;
+  while((m=re.exec(input))!==null){
+    _vars.push({name:'--'+m[1],value:m[2].trim(),category:categorize(m[1],m[2])});
+  }
+  // Deduplicate
+  var seen={};
+  _vars=_vars.filter(function(v){if(seen[v.name])return false;seen[v.name]=true;return true;});
+  renderStats();renderGroups();renderOutput();
+};
+function hideResults(){document.getElementById('statsSection').style.display='none';document.getElementById('varsSection').style.display='none';document.getElementById('outputSection').style.display='none';}
+function renderStats(){
+  var cats={};_vars.forEach(function(v){cats[v.category]=(cats[v.category]||0)+1;});
+  var html='\x3Cdiv class="stat-card">\x3Cdiv class="stat-val">'+_vars.length+'\x3C/div>\x3Cdiv class="stat-label">Total Variables\x3C/div>\x3C/div>';
+  Object.keys(cats).forEach(function(c){html+='\x3Cdiv class="stat-card">\x3Cdiv class="stat-val">'+cats[c]+'\x3C/div>\x3Cdiv class="stat-label">'+c+'\x3C/div>\x3C/div>';});
+  document.getElementById('statGrid').innerHTML=html;
+  document.getElementById('statsSection').style.display='block';
+}
+function renderGroups(){
+  var groups={};_vars.forEach(function(v){if(!groups[v.category])groups[v.category]=[];groups[v.category].push(v);});
+  var html='';
+  var order=['Colors','Spacing','Typography','Layout','Borders','Other'];
+  order.forEach(function(cat){
+    if(!groups[cat])return;
+    html+='\x3Cdiv class="var-group">\x3Cdiv class="var-group-title">'+cat+' ('+groups[cat].length+')\x3C/div>';
+    groups[cat].forEach(function(v){
+      var isColor=/#|rgb|hsl/.test(v.value)||/^[a-z]{3}$/i.test(v.value);
+      html+='\x3Cdiv class="var-item">';
+      if(isColor)html+='\x3Cdiv class="color-preview" style="background:'+v.value+'">\x3C/div>';
+      html+='\x3Cdiv class="var-name">'+v.name+'\x3C/div>\x3Cdiv class="var-value">'+v.value+'\x3C/div>\x3C/div>';
+    });
+    html+='\x3C/div>';
+  });
+  document.getElementById('varGroups').innerHTML=html;
+  document.getElementById('varsSection').style.display='block';
+}
+function renderOutput(){
+  var groups={};_vars.forEach(function(v){if(!groups[v.category])groups[v.category]=[];groups[v.category].push(v);});
+  var css=':root {\n';
+  var order=['Colors','Spacing','Typography','Layout','Borders','Other'];
+  order.forEach(function(cat){
+    if(!groups[cat])return;
+    css+='\n  /* '+cat+' */\n';
+    groups[cat].forEach(function(v){css+='  '+v.name+': '+v.value+';\n';});
+  });
+  css+='}\n';
+  document.getElementById('cssOutput').textContent=css;
+  document.getElementById('outputSection').style.display='block';
+}
+window.loadExample=function(){
+  document.getElementById('cssInput').value=':root {\n  --primary-color: #06b6d4;\n  --secondary-color: #8b5cf6;\n  --bg-dark: #0f172a;\n  --bg-light: #1e293b;\n  --text-primary: #e2e8f0;\n  --text-secondary: #94a3b8;\n  --font-size-sm: 0.75rem;\n  --font-size-base: 0.875rem;\n  --font-size-lg: 1rem;\n  --font-size-xl: 1.25rem;\n  --spacing-xs: 4px;\n  --spacing-sm: 8px;\n  --spacing-md: 16px;\n  --spacing-lg: 24px;\n  --spacing-xl: 32px;\n  --border-radius: 8px;\n  --border-radius-lg: 12px;\n  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);\n  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);\n  --transition-fast: 150ms ease;\n  --transition-normal: 200ms ease;\n  --z-dropdown: 1000;\n  --z-modal: 1050;\n}';
+  parseCSS();
+};
+window.clearAll=function(){document.getElementById('cssInput').value='';hideResults();};
+window.copyOutput=function(){var t=document.getElementById('cssOutput').textContent;if(navigator.clipboard)navigator.clipboard.writeText(t).then(showMsg);};
+window.downloadOutput=function(){var t=document.getElementById('cssOutput').textContent;var b=new Blob([t],{type:'text/css'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='variables.css';a.click();};
+function showMsg(){var m=document.createElement('div');m.textContent='✓ Copy';m.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(m);setTimeout(function(){m.remove();},2000);}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){parseCSS();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyOutput();e.preventDefault();}});
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<footer class="footer container">
+ <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+ <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/css-variable-organizer/">中文</a>
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Base45 Encoder Decoder - Base45 Converter</title>
+    <meta name="description" content="Encode or decode Base45 text as used by EU digital COVID certificates, following RFC 9285.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/base45-encoder/">
+    <meta property="og:title" content="Free Online Base45 Encoder Decoder - Base45 Converter">
+    <meta property="og:description" content="Encode or decode Base45 text as used by EU digital COVID certificates, following RFC 9285.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/base45-encoder/">
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;}
+        .container{max-width:900px;margin:0 auto;padding:20px;}
+        header{text-align:center;padding:30px 0;}
+        h1{font-size:2em;color:#f1f5f9;margin-bottom:10px;}
+        .subtitle{color:#94a3b8;font-size:1.1em;}
+        .tool-card{background:#1e293b;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,0.2);margin-bottom:24px;border:1px solid rgba(148,163,184,.1);}
+        label{display:block;font-weight:600;margin-bottom:6px;color:#94a3b8;}
+        textarea{
+      background:#0f172a;
+      color:#e2e8f0;width:100%;padding:12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:16px;font-family:monospace;min-height:150px;resize:vertical;transition:border-color .3s;}
+        textarea:focus{outline:none;border-color:rgba(6,182,212,.5);}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0;}
+        .btn{display:inline-block;padding:10px 24px;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;transition:all .2s;}
+        .btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);}
+        .btn-primary:hover{background:rgba(6,182,212,.3);}
+        .btn-outline{background:#0f172a;color:#22d3ee;border:1px solid rgba(6,182,212,.5);}
+        .btn-outline:hover{background:rgba(6,182,212,.15);}
+        .btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2);}
+        .btn-danger:hover{background:rgba(239,68,68,.25);}
+        .info-box{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.25);border-radius:8px;padding:16px;margin:16px 0;font-size:.9em;color:#22d3ee;}
+        .info-box strong{display:block;margin-bottom:4px;}
+        .faq-section{margin-top:40px;}
+        .faq-item{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:16px 20px;margin-bottom:12px;}
+        .faq-item h3{color:#22d3ee;margin-bottom:8px;font-size:1.05em;}
+        .faq-item p{color:#94a3b8;line-height:1.7;}
+        .faq-item code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:4px;font-size:.9em;}
+        footer{text-align:center;padding:20px;color: #64748b;font-size:.85em;}
+        .tab-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+        .tab-btn{padding:8px 20px;border:1px solid rgba(148,163,184,.2);background:#0f172a;color:#94a3b8;cursor:pointer;font-size:14px;font-weight:600;transition:all .2s;border-radius:8px;}
+        .tab-btn.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.4);}
+        .lang-switch{display:inline-flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-bottom:16px}
+        .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+        .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+        .trust-signals{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+        .toast.show{opacity:1}
+        .related-tools-section{max-width:900px;margin:32px auto;padding:0 16px}
+    
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online Base45 Encoder Decoder - Base45 Converter", "item": "https://adi63586.github.io/Toolguidehub/en/base45-encoder/"}]}</script>
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free Online Base45 Encoder Decoder - Base45 Converter", "description": "Free online Base45 encoder and decoder tool. Convert text to Base45 and decode Base45 back to text. RFC 9285 compliant. 100% free, no signup required, all processing done locally in your browser. Try now!", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/base45-encoder/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Base45 Encoder Decoder","description":"Step-by-step guide for using Base45 Encoder Decoder","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Base45 Encoder Decoder"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Base45 Encoder Decoder FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Base45 Encoder Decoder?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Base45 Encoder Decoder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Input and Output are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Base45 Encoder Decoder?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+        
+        <h1>🔤 Base45 Encoder / Decoder</h1>
+        <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+
+        <p class="subtitle">Free Online Base45 Converter · RFC 9285 Compliant</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<div class="tool-card">
+        <div class="tab-bar">
+            <button class="tab-btn active" onclick="switchTab('encode',this)">Text → Base45 Encode</button>
+            <button class="tab-btn" onclick="switchTab('decode',this)">Base45 → Text Decode</button>
+        </div>
+
+        <label for="inputText">Input</label>
+        <textarea id="inputText" placeholder="Encode mode: enter text to encode...&#10;Decode mode: enter Base45 string to decode..."></textarea>
+        <div class="btn-row">
+            <button class="btn btn-primary" id="actionBtn" onclick="process()">Encode</button>
+            <button class="btn btn-outline" onclick="copyResult()">📋 Copy Result</button>
+            <button class="btn btn-danger" onclick="clearAll()">Clear</button>
+        </div>
+        <label for="outputText">Output</label>
+        <textarea id="outputText" readonly placeholder="Result will appear here..."></textarea>
+    </div>
+
+    <div class="info-box">
+        <strong>📌 About Base45</strong>
+        <p>Base45 is an encoding scheme that represents binary data using 45 printable ASCII characters, defined in RFC 9285. It's notably used for encoding data in QR codes for EU Digital COVID Certificates (EU DCC). Compared to Base64, Base45 achieves ~150% encoding efficiency (3 bytes → 2 characters), making it more compact for QR code applications.</p>
+    </div>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What is Base45 encoding?</h3>
+            <p>Base45 is a data encoding scheme defined in RFC 9285 that uses 45 ASCII characters (0-9, A-Z, space, $%*+-./:) to represent binary data. Every 2 Base45 characters can encode 3 bytes, giving ~150% efficiency. It was developed primarily for QR code data in EU Digital COVID Certificates.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How does Base45 differ from Base64?</h3>
+            <p>Base64 uses 64 characters (A-Za-z0-9+/) with 133% efficiency (3 bytes → 4 characters). Base45 uses 45 characters with 150% efficiency (3 bytes → 2 characters). Base45 avoids characters like + and / that can cause issues in URLs and QR codes, making it ideal for constrained transport formats.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the Base45 character set?</h3>
+            <p>Base45 uses these 45 characters: <code>0-9 A-Z space $ % * + - . / :</code>. Note there are no lowercase letters — Base45-encoded text consists entirely of uppercase letters and special symbols.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is this tool secure? Will my data be uploaded?</h3>
+            <p>Absolutely secure. All encoding and decoding happens locally in your browser using the JavaScript TextEncoder/TextDecoder API. Your data never leaves your device. This is a pure client-side tool with no server involvement.</p>
+        </div>
+    </section>
+
+    <div id="related-tools-section" class="related-tools-section"></div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/base45-encoder/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<script>
+  'use strict';
+  function showToast(msg){
+    var t=document.getElementById('toast');
+    if(!t)return;
+    t.textContent=msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')},2000);
+  }
+  (function() {
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  try {
+    fetch(u).then(function(r) {
+      if (!r.ok) throw new Error('not found');
+      return r.json();
+    }).then(function(d) {
+      var data = en ? d.en : d.cn;
+      var t = data[slug];
+      if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+      var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+        + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+        + '</h3><div class="related-tools-grid">';
+      t.related.forEach(function(r) {
+        var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+        h += '<a href="' + link + '" class="related-tool-card">'
+          + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+          + '<span class="related-tool-name">' + r.name + '</span></a>';
+      });
+      h += '</div></div>';
+      s.innerHTML = h;
+    }).catch(function() { s.innerHTML = ''; });
+  } catch (e) { s.innerHTML = ''; }
+  })();
+</script>
+<script>
+// === Base45 RFC 9285 Implementation ===
+var B45_ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:';
+
+function b45Encode(bytes) {
+  var out = '';
+  var i = 0;
+  while (i + 1 < bytes.length) {
+    var v = bytes[i] * 256 + bytes[i + 1];
+    out += B45_ALPHABET[v % 45];
+    v = Math.floor(v / 45);
+    out += B45_ALPHABET[v % 45];
+    v = Math.floor(v / 45);
+    out += B45_ALPHABET[v % 45];
+    i += 2;
+  }
+  if (i < bytes.length) {
+    var v = bytes[i];
+    out += B45_ALPHABET[v % 45];
+    v = Math.floor(v / 45);
+    out += B45_ALPHABET[v % 45];
+  }
+  return out;
+}
+
+function b45Decode(str) {
+  var bytes = [];
+  var i = 0;
+  while (i < str.length) {
+    var chunk = str.substr(i, 3);
+    if (chunk.length < 2) throw new Error('Invalid Base45 data length');
+    var c0 = B45_ALPHABET.indexOf(chunk[0]);
+    var c1 = B45_ALPHABET.indexOf(chunk[1]);
+    var c2 = chunk.length === 3 ? B45_ALPHABET.indexOf(chunk[2]) : 0;
+    if (c0 < 0 || c1 < 0 || (chunk.length === 3 && c2 < 0)) throw new Error('Invalid character in input');
+    var v = c0 + c1 * 45 + c2 * 45 * 45;
+    if (v > 65535) throw new Error('Value overflow (>65535)');
+    if (chunk.length === 3) {
+      bytes.push(Math.floor(v / 256));
+      bytes.push(v % 256);
+    } else {
+      if (Math.floor(v / 256) !== 0) throw new Error('Invalid encoded data');
+      bytes.push(v % 256);
+    }
+    i += 3;
+  }
+  return bytes;
+}
+
+function clearAll() {
+  document.getElementById('inputText').value = '';
+  document.getElementById('outputText').value = '';
+  showToast('Cleared');
+}
+
+function copyResult() {
+  var text = document.getElementById('outputText').value;
+  if (!text) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(text).then(function(){ showToast('Copied'); }, function(){ showToast('Copy failed'); });
+}
+
+function process() {
+  var input = document.getElementById('inputText').value;
+  if (!input.trim()) { showToast('Please enter data'); return; }
+  var activeBtn = document.querySelector('.tab-btn.active');
+  var isEncode = !(activeBtn && activeBtn.textContent.indexOf('Decode') !== -1);
+  try {
+    if (isEncode) {
+      var bytes = new TextEncoder().encode(input);
+      document.getElementById('outputText').value = b45Encode(bytes);
+    } else {
+      var bytes = b45Decode(input.replace(/[\r\n]+/g, ''));
+      document.getElementById('outputText').value = new TextDecoder().decode(new Uint8Array(bytes));
+    }
+    showToast('Done');
+  } catch (e) {
+    showToast(e.message || 'Processing failed');
+  }
+}
+
+function switchTab(tab, btn) {
+  var btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+  if (btn) { btn.classList.add('active'); }
+  else if (event && event.target) { event.target.classList.add('active'); }
+  document.getElementById('actionBtn').textContent = tab === 'encode' ? 'Encode' : 'Decode';
+  document.getElementById('outputText').value = '';
+}
+</script>
+</body>
+</html>

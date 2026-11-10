@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online roof pitch calculator. Enter rise and run to instantly calculate roof pitch (X:12), angle, slope percentage, and rafter length.">
+<meta name="keywords" content="roof pitch calculator, roof slope calculator, rafter length calculator, roof angle calculator, pitch ratio, construction calculator, free online tool">
+<title>Roof Pitch Calculator | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/roof-pitch-calculator/">
+<meta property="og:title" content="Roof Pitch Calculator | ToolGuideHub">
+<meta property="og:description" content="Free online roof pitch calculator. Enter rise and run to instantly calculate roof pitch (X:12), angle, slope percentage, and rafter length.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/roof-pitch-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/roof-pitch-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Roof Pitch Calculator","description":"Free online roof pitch calculator. Enter rise and run to instantly calculate roof pitch (X:12), angle, slope percentage, and rafter length. Supports imperial and metric units.","applicationCategory":"CalculatorApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is roof pitch?","acceptedAnswer":{"@type":"Answer","text":"Roof pitch describes the steepness of a roof. It is typically expressed as a ratio in the format X:12, meaning the roof rises X inches for every 12 inches of horizontal distance (run). For example, a 6:12 pitch means the roof rises 6 inches for every 12 inches of horizontal run. Pitch can also be expressed as an angle in degrees or as a slope percentage."}},{"@type":"Question","name":"How do you calculate roof pitch?","acceptedAnswer":{"@type":"Answer","text":"Roof pitch = Rise divided by Run, multiplied by 12. For example, if the rise is 6 feet and the run is 12 feet, the pitch is (6/12) x 12 = 6:12. The angle is calculated as arctan(Rise/Run), the slope percentage is (Rise/Run) x 100, and the rafter length is the square root of (Rise squared + Run squared)."}},{"@type":"Question","name":"What are common roof pitches?","acceptedAnswer":{"@type":"Answer","text":"Flat roofs: 0 to 1:12. Low slope: 1:12 to 3:12. Conventional slope: 4:12 to 9:12. Steep slope: 10:12 to 12:12. High slope: above 12:12. Most residential homes use a pitch between 4:12 and 9:12."}},{"@type":"Question","name":"How do I calculate rafter length from roof pitch?","acceptedAnswer":{"@type":"Answer","text":"Rafter length is calculated using the Pythagorean theorem: rafter = square root of (rise squared + run squared). This gives you the length of the sloped side of the roof from the ridge to the wall plate."}},{"@type":"Question","name":"Can this calculator estimate roof surface area?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter your roof footprint area (the flat projection seen from above), and the calculator multiplies it by the roof area multiplier, which is the square root of (1 + (rise/run) squared). This accounts for the extra surface area created by the roof's slope."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Roof Pitch Calculator","item":"https://adi63586.github.io/Toolguidehub/en/roof-pitch-calculator/"}]}</script>
+<style>
+:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--primary:#06b6d4;--border:rgba(148,163,184,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--primary);text-decoration:none}a:hover{color:#22d3ee}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1c40f}
+.lang-switch{display:flex;gap:4px;background:var(--card-bg);border-radius:8px;padding:4px;border:1px solid var(--border)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}
+.intro{color:#94a3b8;font-size:.95rem;margin-bottom:24px;line-height:1.7}
+.unit-toggle{display:flex;gap:8px;margin-bottom:20px;align-items:center}
+.unit-toggle label{font-size:.85rem;color:#94a3b8}
+.unit-toggle button{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);color:#94a3b8;cursor:pointer;font-size:.85rem;transition:all .2s}
+.unit-toggle button.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.card{background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border);margin-bottom:20px}
+.card h2{font-size:1.1rem;color:var(--primary);margin-bottom:16px}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.input-grid{grid-template-columns:1fr}}
+.input-group{display:flex;flex-direction:column;gap:6px}
+.input-group label{font-size:.85rem;color:#94a3b8}
+.input-group input{background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:.95rem;transition:border-color .2s}
+.input-group input:focus{outline:none;border-color:rgba(6,182,212,.4)}
+.input-group input::placeholder{color:#475569}
+.input-group .hint{font-size:.75rem;color:#64748b}
+.results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.results-grid{grid-template-columns:1fr}}
+.result-item{background:var(--bg);border-radius:10px;padding:14px;border:1px solid var(--border);transition:border-color .2s}
+.result-item:hover{border-color:rgba(6,182,212,.2)}
+.result-item .label{font-size:.78rem;color:#64748b;margin-bottom:4px}
+.result-item .value{font-size:1.4rem;font-weight:700;color:#22d3ee}
+.result-item .unit{font-size:.8rem;color:#94a3b8;margin-left:4px}
+.diagram-section{background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border);margin-bottom:20px;text-align:center}
+.diagram-section h2{font-size:1.1rem;color:var(--primary);margin-bottom:16px}
+canvas{max-width:100%;border-radius:10px}
+.area-calc{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px}
+.area-calc .input-group{flex:1;min-width:150px}
+.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.88rem;font-weight:500;transition:all .2s}
+.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:#334155;color:var(--text)}.btn-secondary:hover{background:#475569}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.formula-box{background:var(--bg);border-radius:10px;padding:16px;border:1px solid var(--border);margin-top:12px}
+.formula-box h3{font-size:.9rem;color:var(--primary);margin-bottom:8px}
+.formula-box p{font-size:.82rem;color:#94a3b8;line-height:1.7}
+.formula-box code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:4px;font-size:.82rem}
+.related{background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border);margin-bottom:20px}
+.related h2{font-size:1rem;color:var(--primary);margin-bottom:12px}
+.related-links{display:flex;flex-wrap:wrap;gap:8px}
+.related-links a{padding:6px 14px;border-radius:20px;background:var(--bg);border:1px solid var(--border);font-size:.82rem;color:#94a3b8;transition:all .2s}
+.related-links a:hover{border-color:rgba(6,182,212,.3);color:#22d3ee}
+.footer{text-align:center;color:#64748b;font-size:.8rem;padding:24px 0;border-top:1px solid var(--border)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--card-bg);color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.pitch-presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pitch-presets button{padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:#94a3b8;cursor:pointer;font-size:.8rem;transition:all .2s}
+.pitch-presets button:hover{border-color:rgba(6,182,212,.3);color:#22d3ee}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🏠 Roof Pitch Calculator</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<span class="badge">Roof Pitch & Slope Calculator</span>
+<p class="intro">Enter the rise and run of your roof to instantly calculate the pitch ratio (X:12), angle in degrees, slope percentage, and rafter length. Switch between imperial and metric units. You can also calculate the actual roof surface area from the building footprint.</p>
+
+<div class="unit-toggle">
+<label>Units:</label>
+<button id="btnImperial" class="active" onclick="switchUnit('imperial')">Imperial (in/ft)</button>
+<button id="btnMetric" onclick="switchUnit('metric')">Metric (cm/m)</button>
+</div>
+
+<div class="card">
+<h2>📐 Input Parameters</h2>
+<div class="input-grid">
+<div class="input-group">
+<label id="lblRise">Rise (vertical height)</label>
+<input type="number" id="inpRise" placeholder="e.g. 6" step="0.01" min="0" oninput="calculate()">
+<span class="hint" id="hintRise">Vertical rise per 12 inches of run</span>
+</div>
+<div class="input-group">
+<label id="lblRun">Run (horizontal distance)</label>
+<input type="number" id="inpRun" placeholder="e.g. 12" step="0.01" min="0" oninput="calculate()">
+<span class="hint" id="hintRun">Horizontal projection of the roof</span>
+</div>
+</div>
+<div class="pitch-presets">
+<span style="font-size:.8rem;color:#64748b;align-self:center;">Quick presets:</span>
+<button onclick="setPreset(4,12)">4:12</button>
+<button onclick="setPreset(6,12)">6:12</button>
+<button onclick="setPreset(8,12)">8:12</button>
+<button onclick="setPreset(9,12)">9:12</button>
+<button onclick="setPreset(12,12)">12:12</button>
+</div>
+</div>
+
+<div class="card">
+<h2>📊 Results</h2>
+<div class="results-grid">
+<div class="result-item">
+<div class="label">Pitch Ratio</div>
+<div class="value" id="resPitch">—</div>
+</div>
+<div class="result-item">
+<div class="label">Angle</div>
+<div class="value" id="resAngle">—<span class="unit">°</span></div>
+</div>
+<div class="result-item">
+<div class="label">Slope Percentage</div>
+<div class="value" id="resSlope">—<span class="unit">%</span></div>
+</div>
+<div class="result-item">
+<div class="label" id="lblRafter">Rafter Length</div>
+<div class="value" id="resRafter">—</div>
+</div>
+</div>
+</div>
+
+<div class="diagram-section">
+<h2>🏠 Roof Diagram</h2>
+<canvas id="diagram" width="500" height="220"></canvas>
+</div>
+
+<div class="card">
+<h2>📐 Roof Surface Area Calculator</h2>
+<div class="area-calc">
+<div class="input-group">
+<label id="lblArea">Roof Footprint Area</label>
+<input type="number" id="inpArea" placeholder="e.g. 1000" step="0.01" min="0" oninput="calcArea()">
+</div>
+<button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calcArea()">Calculate</button>
+</div>
+<div class="result-item" style="margin-top:12px">
+<div class="label">Actual Roof Surface Area</div>
+<div class="value" id="resArea">—</div>
+</div>
+<div class="formula-box">
+<h3>Roof Pitch Calculator: calculation logic</h3>
+<p>Roof area multiplier = √(1 + (Rise/Run)²)<br>
+Actual roof surface area = Footprint area × Roof area multiplier</p>
+</div>
+</div>
+
+<div class="card">
+<h2>📖 Formulas</h2>
+<div class="formula-box">
+<h3>Core Formulas</h3>
+<p><code>Pitch (X:12) = (Rise ÷ Run) × 12</code></p>
+<p><code>Angle = arctan(Rise ÷ Run)</code></p>
+<p><code>Slope % = (Rise ÷ Run) × 100</code></p>
+<p><code>Rafter Length = √(Rise² + Run²)</code></p>
+</div>
+</div>
+
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+<button class="btn btn-secondary" onclick="copyResults()">📋 Copy Results</button>
+</div>
+
+<div class="related">
+<h2>🔗 Related Tools</h2>
+<div class="related-links">
+<a href="../../en/fence-calculator/">🚧 Fence Calculator</a>
+<a href="../../en/btu-calculator/">🌡️ BTU Calculator</a>
+<a href="../../en/paver-calculator/">🧱 Paver Calculator</a>
+<a href="../../en/percentage-calculator/">📊 Percentage Calculator</a>
+</div>
+</div>
+
+<div class="footer">
+<p>ToolGuideHub — Roof Pitch Calculator | All calculations run locally in your browser</p>
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var currentUnit='imperial';
+var unitRise='in';
+var unitRun='in';
+var unitArea='sq ft';
+var unitRafter='in';
+
+function switchUnit(u){
+  currentUnit=u;
+  var btnI=document.getElementById('btnImperial');
+  var btnM=document.getElementById('btnMetric');
+  if(u==='imperial'){
+    btnI.classList.add('active');btnM.classList.remove('active');
+    unitRise='in';unitRun='in';unitArea='sq ft';unitRafter='in';
+    document.getElementById('lblRise').textContent='Rise (inches)';
+    document.getElementById('lblRun').textContent='Run (inches)';
+    document.getElementById('hintRise').textContent='Vertical rise per 12 inches of run';
+    document.getElementById('hintRun').textContent='Horizontal projection of the roof';
+    document.getElementById('lblArea').textContent='Roof Footprint Area (sq ft)';
+    document.getElementById('lblRafter').textContent='Rafter Length (in)';
+  }else{
+    btnM.classList.add('active');btnI.classList.remove('active');
+    unitRise='cm';unitRun='cm';unitArea='m²';unitRafter='cm';
+    document.getElementById('lblRise').textContent='Rise (cm)';
+    document.getElementById('lblRun').textContent='Run (cm)';
+    document.getElementById('hintRise').textContent='Vertical rise for the given run';
+    document.getElementById('hintRun').textContent='Horizontal projection of the roof';
+    document.getElementById('lblArea').textContent='Roof Footprint Area (m²)';
+    document.getElementById('lblRafter').textContent='Rafter Length (cm)';
+  }
+  calculate();
+}
+
+function setPreset(rise,run){
+  document.getElementById('inpRise').value=rise;
+  document.getElementById('inpRun').value=run;
+  calculate();
+}
+
+function calculate(){
+  var rise=parseFloat(document.getElementById('inpRise').value);
+  var run=parseFloat(document.getElementById('inpRun').value);
+  if(!rise||!run||rise<=0||run<=0){
+    document.getElementById('resPitch').textContent='—';
+    document.getElementById('resAngle').innerHTML='—<span class="unit">°</span>';
+    document.getElementById('resSlope').innerHTML='—<span class="unit">%</span>';
+    document.getElementById('resRafter').textContent='—';
+    document.getElementById('resArea').textContent='—';
+    drawDiagram(0,0);
+    return;
+  }
+  var ratio=rise/run;
+  var pitchX=ratio*12;
+  var angle=Math.atan(ratio)*180/Math.PI;
+  var slopePct=ratio*100;
+  var rafter=Math.sqrt(rise*rise+run*run);
+
+  document.getElementById('resPitch').textContent=pitchX.toFixed(2)+':12';
+  document.getElementById('resAngle').innerHTML=angle.toFixed(2)+'<span class="unit">°</span>';
+  document.getElementById('resSlope').innerHTML=slopePct.toFixed(2)+'<span class="unit">%</span>';
+  document.getElementById('resRafter').textContent=rafter.toFixed(2)+' '+unitRafter;
+
+  calcArea();
+  drawDiagram(rise,run);
+}
+
+function calcArea(){
+  var rise=parseFloat(document.getElementById('inpRise').value);
+  var run=parseFloat(document.getElementById('inpRun').value);
+  var area=parseFloat(document.getElementById('inpArea').value);
+  if(!rise||!run||!area||rise<=0||run<=0||area<=0){
+    document.getElementById('resArea').textContent='—';
+    return;
+  }
+  var multiplier=Math.sqrt(1+(rise/run)*(rise/run));
+  var roofArea=area*multiplier;
+  document.getElementById('resArea').textContent=roofArea.toFixed(2)+' '+unitArea;
+}
+
+function drawDiagram(rise,run){
+  var canvas=document.getElementById('diagram');
+  var ctx=canvas.getContext('2d');
+  var w=canvas.width,h=canvas.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle='#0f172a';
+  ctx.fillRect(0,0,w,h);
+
+  var padX=60,padY=40;
+  var availW=w-padX*2;
+  var availH=h-padY*2;
+
+  if(rise<=0||run<=0){
+    ctx.fillStyle='#64748b';
+    ctx.font='14px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText('Enter Rise and Run to see the diagram',w/2,h/2);
+    return;
+  }
+
+  var ratio=rise/run;
+  var drawW=availW*0.8;
+  var drawH=drawW*ratio;
+  if(drawH>availH){
+    drawH=availH;
+    drawW=drawH/ratio;
+  }
+  var startX=(w-drawW)/2;
+  var baseY=h-padY;
+
+  ctx.beginPath();
+  ctx.moveTo(startX,baseY);
+  ctx.lineTo(startX+drawW/2,baseY-drawH);
+  ctx.lineTo(startX+drawW,baseY);
+  ctx.closePath();
+  ctx.fillStyle='rgba(6,182,212,0.1)';
+  ctx.fill();
+  ctx.strokeStyle='#06b6d4';
+  ctx.lineWidth=2;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(startX,baseY);
+  ctx.lineTo(startX+drawW,baseY);
+  ctx.strokeStyle='#10b981';
+  ctx.lineWidth=2;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(startX,baseY);
+  ctx.lineTo(startX,baseY-drawH);
+  ctx.strokeStyle='#f59e0b';
+  ctx.lineWidth=2;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(startX,baseY-drawH);
+  ctx.lineTo(startX+drawW,baseY);
+  ctx.strokeStyle='#ef4444';
+  ctx.lineWidth=2;
+  ctx.stroke();
+
+  ctx.font='12px sans-serif';
+  ctx.textAlign='center';
+  ctx.fillStyle='#f59e0b';
+  ctx.fillText('Rise: '+(rise.toFixed(2))+' '+unitRise,startX-30,baseY-drawH/2);
+  ctx.fillStyle='#10b981';
+  ctx.fillText('Run: '+(run.toFixed(2))+' '+unitRun,startX+drawW/2,baseY+20);
+  ctx.fillStyle='#ef4444';
+  var angle=Math.atan(ratio)*180/Math.PI;
+  ctx.save();
+  ctx.translate(startX+drawW/2,baseY-drawH/2);
+  ctx.rotate(-Math.atan(ratio));
+  ctx.fillText('Rafter '+angle.toFixed(1)+'°',0,-8);
+  ctx.restore();
+}
+
+function clearAll(){
+  document.getElementById('inpRise').value='';
+  document.getElementById('inpRun').value='';
+  document.getElementById('inpArea').value='';
+  calculate();
+  showToast('Cleared');
+}
+
+function copyResults(){
+  var rise=parseFloat(document.getElementById('inpRise').value);
+  var run=parseFloat(document.getElementById('inpRun').value);
+  if(!rise||!run){
+    showToast('Please enter data first');
+    return;
+  }
+  var pitchX=(rise/run*12).toFixed(2);
+  var angle=(Math.atan(rise/run)*180/Math.PI).toFixed(2);
+  var slopePct=(rise/run*100).toFixed(2);
+  var rafter=Math.sqrt(rise*rise+run*run).toFixed(2);
+  var text='Roof Pitch Calculation Results:\n'+
+    'Pitch Ratio: '+pitchX+':12\n'+
+    'Angle: '+angle+' degrees\n'+
+    'Slope: '+slopePct+'%\n'+
+    'Rafter Length: '+rafter+' '+unitRafter;
+  var area=document.getElementById('resArea').textContent;
+  if(area&&area!=='—'){text+='\nRoof Surface Area: '+area;}
+  navigator.clipboard.writeText(text).then(function(){
+    showToast('Results copied to clipboard');
+  }).catch(function(){
+    showToast('Copy failed, please select manually');
+  });
+}
+
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2000);
+}
+
+calculate();
+
+function fillExample(){
+  var vals = [["inpRise", "6"], ["inpRun", "12"], ["inpArea", "1000"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calcArea();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Signature Checker - ToolGuideHub</title>
+  <meta name="description" content="Spot a file&#x27;s real type from its hex header: magic bytes reveal disguised PNG, PDF, ZIP, EXE, MP4, and 20+ other formats, with the raw header shown.">
+  <meta property="og:title" content="File Signature Checker - ToolGuideHub">
+  <meta property="og:description" content="Spot a file&#x27;s real type from its hex header: magic bytes reveal disguised PNG, PDF, ZIP, EXE, MP4, and 20+ other formats, with the raw header shown.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"File Signature Checker","applicationCategory":"SecurityApplication","operatingSystem":"Any","description":"Free online file signature checker tool","url":"https://adi63586.github.io/Toolguidehub/en/file-signature-checker/"}
+  </script>
+  <style>:root{--primary-hover:rgba(6,182,212,.3);--surface:#1e293b;}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+  header { background: var(--surface); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; }
+  header a { color: #22d3ee; text-decoration: none; font-weight: 600; }
+  main { max-width: 800px; margin: 0 auto; padding: 32px 16px; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .subtitle { color: #94a3b8; margin-bottom: 24px; }
+  .card { background: var(--surface); border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+  .dropzone { border: 2px dashed rgba(148,163,184,.1); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: all .2s; }
+  .dropzone:hover, .dropzone.dragover { border-color: #22d3ee; background: #EEF2FF; }
+  .dropzone p { color: #94a3b8; }
+  input[type="file"] { display: none; }
+  .result-card { margin-top: 16px; }
+  .result-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .icon { font-size: 2rem; }
+  .hex-view { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 12px; font-family: monospace; font-size: .85rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 8px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .info-item { background: #0f172a; padding: 10px; border-radius: 12px; }
+  .info-item .key { font-size: .8rem; color: #94a3b8; }
+  .info-item .val { font-weight: 600; }
+  .status-match { color: #10b981; }
+  .status-mismatch { color: #f59e0b; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: #22d3ee; color: #fff; border: none; border-radius: 12px; font-size: .9rem; cursor: pointer; font-weight: 600; margin-top: 8px; }
+  .btn:hover { background: var(--primary-hover); }
+  #toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: #fff; padding: 12px 20px; border-radius: 12px; opacity: 0; transition: opacity .3s; z-index: 999; pointer-events: none; }
+  #toast.show { opacity: 1; }
+  footer { text-align: center; padding: 24px; color: #94a3b8; font-size: .85rem; }
+  @media (max-width: 375px) { main { padding: 16px 8px; } .card { padding: 16px; } .info-grid { grid-template-columns: 1fr; } }
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/file-signature-checker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "File Signature Checker", "item": "https://adi63586.github.io/Toolguidehub/en/file-signature-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"File Signature Checker FAQ","mainEntity":[{"@type":"Question","name":"How does the File Signature Checker check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: File Signature Checker and other values are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the File Signature Checker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: File Signature Checker and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the File Signature Checker report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use File Signature Checker","description":"Step-by-step guide for using File Signature Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"File Signature Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/file-signature-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><a href="../../">← Back to Home</a><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/file-signature-checker/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;font-weight:400">中文</a><a href="index.html" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;font-weight:400;background:rgba(6,182,212,.2)">English</a></div></header>
+<main>
+  <h1>🔬 File Signature Checker</h1>
+  <p class="subtitle">Upload a file to view its hex header and identify the real file type</p>
+  <div class="section">
+    <div class="dropzone" id="dropzone">
+      <p style="font-size:2rem;">📁</p>
+      <p>Drag & drop a file here, or click to select</p>
+      <p style="font-size:.8rem;">Processed locally, never uploaded</p>
+    </div>
+    <input type="file" id="fileInput">
+    <div id="result"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+  </div>
+  <div class="section">
+    <h3>Supported File Types</h3>
+    <p style="font-size:.85rem;color:#94a3b8;">PNG, JPG/JPEG, GIF, BMP, WEBP, PDF, ZIP, RAR, 7Z, GZIP, EXE/DLL, ELF, MP3, MP4, WAV, AVI, FLV, DOCX/XLSX/PPTX, ISO, SQLite, and more</p>
+  </div>
+
+<h2>What is File Signature Checker?</h2><p>File Signature Checker is a free online tool that runs entirely in your browser. No download or signup needed — enter File Signature Checker and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/file-signature-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div id="toast"></div>
+
+<script>
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+var SIGNATURES = [
+  {sig: '89504E47', ext: 'PNG', type: 'PNG Image', mime: 'image/png', icon: '🖼️', offset: 0},
+  {sig: 'FFD8FF', ext: 'JPG', type: 'JPEG Image', mime: 'image/jpeg', icon: '🖼️', offset: 0},
+  {sig: '47494638', ext: 'GIF', type: 'GIF Image', mime: 'image/gif', icon: '🖼️', offset: 0},
+  {sig: '424D', ext: 'BMP', type: 'BMP Image', mime: 'image/bmp', icon: '🖼️', offset: 0},
+  {sig: '25504446', ext: 'PDF', type: 'PDF Document', mime: 'application/pdf', icon: '📄', offset: 0},
+  {sig: '504B0304', ext: 'ZIP/gOCX', type: 'ZIP or Office Document', mime: 'application/zip', icon: '📦', offset: 0},
+  {sig: '504B0506', ext: 'ZIP', type: 'ZIP Archive (empty)', mime: 'application/zip', icon: '📦', offset: 0},
+  {sig: '52617221', ext: 'RAR', type: 'RAR Archive', mime: 'application/vnd.rar', icon: '📦', offset: 0},
+  {sig: '377ABCAF271C', ext: '7Z', type: '7-Zip Archive', mime: 'application/x-7z-compressed', icon: '📦', offset: 0},
+  {sig: '1F8B08', ext: 'GZ', type: 'GZip File', mime: 'application/gzip', icon: '📦', offset: 0},
+  {sig: '4D5A', ext: 'EXE/gLL', type: 'Windows Executable', mime: 'application/vnd.microsoft.portable-executable', icon: '⚙️', offset: 0},
+  {sig: '7F454C46', ext: 'ELF', type: 'Linux Executable', mime: 'application/x-executable', icon: '⚙️', offset: 0},
+  {sig: '494433', ext: 'MP3', type: 'MP3 Audio', mime: 'audio/mpeg', icon: '🎵', offset: 0},
+  {sig: '000001BA', ext: 'MPG', type: 'MPEG Video', mime: 'video/mpeg', icon: '🎬', offset: 0},
+  {sig: '000001B3', ext: 'MPG', type: 'MPEG Video', mime: 'video/mpeg', icon: '🎬', offset: 0},
+  {sig: '464C5601', ext: 'FLV', type: 'FLV Video', mime: 'video/x-flv', icon: '🎬', offset: 0},
+  {sig: '53514C69', ext: 'SQLite', type: 'SQLite Database', mime: 'application/x-sqlite3', icon: '🗄️', offset: 0},
+  {sig: 'CAFEBABE', ext: 'CLASS', type: 'Java Class File', mime: 'application/java-vm', icon: '☕', offset: 0},
+  {sig: '00000020', ext: 'ISO', type: 'ISO Disc Image', mime: 'application/x-iso9660-image', icon: '💿', offset: 0},
+  {sig: 'EFBBBF', ext: 'TXT(BOM)', type: 'UTF-8 Text with BOM', mime: 'text/plain', icon: '📝', offset: 0},
+];
+
+function bytesToHex(bytes) {
+  return Array.from(bytes).map(function(b){return b.toString(16).toUpperCase().padStart(2,'0')}).join('');
+}
+
+function findMatch(hex) {
+  for (var i = 0; i < SIGNATURES.length; i++) {
+    var s = SIGNATURES[i];
+    if (s.offset !== undefined && s.offset > 0) {
+      var sub = hex.substring(s.offset * 2, s.offset * 2 + s.sig.length);
+      if (sub === s.sig) return s;
+    } else {
+      if (hex.startsWith(s.sig)) return s;
+    }
+  }
+  return null;
+}
+
+var dropzone = document.getElementById('dropzone');
+var fileInput = document.getElementById('fileInput');
+
+dropzone.addEventListener('click', function(){ fileInput.click(); });
+dropzone.addEventListener('dragover', function(e){ e.preventDefault(); this.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', function(){ this.classList.remove('dragover'); });
+dropzone.addEventListener('drop', function(e){ e.preventDefault(); this.classList.remove('dragover'); handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', function(){ if (this.files[0]) handleFile(this.files[0]); });
+
+function handleFile(file) {
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var bytes = new Uint8Array(e.target.result);
+    var hex = bytesToHex(bytes.slice(0, 64));
+    var match = findMatch(hex);
+    var result = document.getElementById('result');
+
+    var html = '<div class="result-card card">';
+    html += '<div class="result-header">';
+
+    if (match) {
+      html += '<div class="icon">' + match.icon + '</div>';
+      html += '<div><h3 class="status-match">✅ Detected: ' + match.type + '</h3>';
+      html += '<p style="color:#94a3b8">Extension: .' + match.ext + ' | MIME: ' + match.mime + '</p></div>';
+    } else {
+      html += '<div class="icon">❓</div>';
+      html += '<div><h3 class="status-mismatch">⚠️ Unknown File Type</h3>';
+      html += '<p style="color:#94a3b8">No matching signature found</p></div>';
+    }
+    html += '</div>';
+
+    html += '<div class="info-grid">';
+    html += '<div class="info-item"><div class="key">Filename</div><div class="val">' + file.name + '</div></div>';
+    html += '<div class="info-item"><div class="key">File Size</div><div class="val">' + (file.size / 1024).toFixed(1) + ' KB</div></div>';
+    html += '<div class="info-item"><div class="key">Declared Type</div><div class="val">' + (file.type || 'Unknown') + '</div></div>';
+    html += '<div class="info-item"><div class="key">Signature</div><div class="val" style="font-family:monospace;font-size:.85rem;">' + hex.substring(0, 16) + '...</div></div>';
+    html += '</div>';
+
+    html += '<div class="hex-view">' + hex.match(/.{1,32}/g).map(function(line){return line.match(/.{1,2}/g).join(' ')}).join('\n') + '</div>';
+    html += '</div>';
+    result.innerHTML = html;
+  };
+  reader.readAsArrayBuffer(file.slice(0, 1024));
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

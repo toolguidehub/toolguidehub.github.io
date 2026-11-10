@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online wavelength calculator. Enter frequency to compute wavelength, or vice versa. Supports Hz/kHz/MHz/GHz/THz and m/cm/mm/μm/nm/km with signal presets.">
+<title>Wavelength Calculator - Frequency to Wavelength Converter</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/wavelength-calculator/">
+<meta property="og:title" content="Wavelength Calculator - Frequency to Wavelength Converter">
+<meta property="og:description" content="Free online wavelength calculator. Enter frequency to compute wavelength, or vice versa. Supports Hz/kHz/MHz/GHz/THz and m/cm/mm/μm/nm/km with signal presets.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/wavelength-calculator/">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wavelength-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Wavelength Calculator - Frequency to Wavelength Converter","description":"Wavelength calculator. Enter frequency to compute wavelength or input wavelength to find frequency. Supports Hz/kHz/MHz/GHz/THz frequency units and m/cm/mm/μm/nm/km wavelength units, with common signal presets. Formula λ=c/f, runs locally in browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the relationship between wavelength and frequency?","acceptedAnswer":{"@type":"Answer","text":"Wavelength (λ) and frequency (f) are related by the formula λ = c / f, where c is the speed of light (299,792,458 m/s). Higher frequency means shorter wavelength; lower frequency means longer wavelength. For example, a 1MHz AM broadcast has a wavelength of about 300 meters, while 5GHz WiFi has a wavelength of only about 6 centimeters."}},{"@type":"Question","name":"How do I choose the right wavelength unit?","acceptedAnswer":{"@type":"Answer","text":"Choose units based on wavelength size: use km/m for radio waves, cm/mm for microwaves, μm for infrared, and nm for visible light and ultraviolet. This tool automatically recommends a suitable unit, or you can select manually."}},{"@type":"Question","name":"What presets does this calculator support?","acceptedAnswer":{"@type":"Answer","text":"It includes 5 common signal presets: AM radio (1MHz), FM radio (100MHz), WiFi 2.4GHz, WiFi 5GHz and visible light (500THz). Click a preset button to quickly compute the corresponding wavelength."}},{"@type":"Question","name":"Is the calculation accurate?","acceptedAnswer":{"@type":"Answer","text":"This tool uses the exact speed of light c = 299,792,458 m/s. All calculations run locally in your browser and are precise and reliable. Scientific notation display is supported for very large or very small values."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Wavelength Calculator","item":"https://adi63586.github.io/Toolguidehub/en/wavelength-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:10px 14px;color:#e2e8f0;font-size:.9rem;outline:none;font-family:inherit;width:100%}
+input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;font-weight:500}
+.btn-primary{background:#06b6d4;color:#fff}
+.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.result-output{background:#0f172a;border-radius:8px;padding:16px;color:#e2e8f0;font-size:.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.hero{margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:3px 10px;border-radius:20px;font-size:.8rem;margin-right:6px}
+.seo-content{color:#64748b;font-size:.85rem;margin-top:24px;line-height:1.8}
+.seo-content h3{color:#94a3b8;font-size:1rem;margin-bottom:8px}
+.formula-box{background:rgba(6,182,212,.08);border:1px dashed rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;text-align:center;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem;color:#22d3ee;margin-bottom:12px}
+.swap-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(6,182,212,.15);border:1px solid rgba(6,182,212,.25);color:#22d3ee;cursor:pointer;font-size:1.1rem;transition:all .2s;flex-shrink:0}
+.swap-btn:hover{background:rgba(6,182,212,.3);transform:rotate(180deg)}
+.conversion-row{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.conversion-row>div{flex:1;min-width:150px}
+.stat-row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.stat-item{text-align:center;background:#0f172a;border-radius:8px;padding:12px 20px;min-width:90px}
+.stat-value{color:#22d3ee;font-weight:700;font-size:1.4rem}
+.stat-label{color:#94a3b8;font-size:.75rem;margin-top:4px}
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+.preset-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.preset-btn{padding:8px 14px;border-radius:8px;background:rgba(148,163,184,.08);color:#94a3b8;border:1px solid rgba(148,163,184,.15);cursor:pointer;font-size:.82rem;transition:all .2s}
+.preset-btn:hover{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.result-display{background:#0f172a;border-radius:10px;padding:20px;text-align:center;margin-top:16px;border:1px solid rgba(6,182,212,.15)}
+.result-display .result-value{font-size:2rem;font-weight:700;color:#22d3ee;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-display .result-unit{font-size:.9rem;color:#94a3b8;margin-top:4px}
+.result-display .result-sci{font-size:.8rem;color:#64748b;margin-top:6px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.direction-label{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:12px}
+.direction-label.freq-to-wave{background:rgba(6,182,212,.15);color:#22d3ee}
+.direction-label.wave-to-freq{background:rgba(168,85,247,.15);color:#a855f7}
+@media(max-width:768px){
+  .conversion-row{flex-direction:column}
+  .conversion-row>div{min-width:100%}
+  .swap-btn{align-self:center;margin:4px 0}
+  .stat-row{gap:12px}
+  .stat-item{padding:8px 14px}
+  .result-display .result-value{font-size:1.5rem}
+}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+  <div>
+    <h1>🌊 Wavelength Calculator - Frequency to Wavelength Converter</h1>
+    <p style="color:#6b7280;font-size:0.9rem;line-height:1.5;margin-top:4px">Enter frequency to automatically compute wavelength, or enter wavelength to find frequency. Supports Hz/kHz/MHz/GHz/THz and m/cm/mm/μm/nm/km, with common signal presets.</p>
+  </div>
+  
+</div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Wavelength Calculator</p>
+<div class="hero">
+  <p>Wavelength calculator for instant frequency-wavelength conversion. Based on the speed-of-light formula λ = c / f, with multi-unit auto-conversion and built-in AM/FM/WiFi/visible light presets.</p>
+  <span class="badge">λ = c / f</span><span class="badge">Two-way conversion</span><span class="badge">Multi-unit support</span><span class="badge">Signal presets</span>
+</div>
+
+<!-- Direction Toggle -->
+<div class="tool-section">
+  <h2>🔄 Conversion Direction</h2>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <button class="btn btn-primary" id="btnFreqToWave" onclick="setDirection('freq')">Frequency → Wavelength</button>
+    <button class="btn btn-secondary" id="btnWaveToFreq" onclick="setDirection('wave')">Wavelength → Frequency</button>
+  </div>
+  <div class="formula-box" id="formulaBox">λ = c / f &nbsp;&nbsp;(c = 299,792,458 m/s)</div>
+</div>
+
+<!-- Input Section -->
+<div class="tool-section">
+  <h2 id="inputTitle">📡 Enter Frequency</h2>
+  <div class="conversion-row">
+    <div>
+      <label style="color:#94a3b8;font-size:.85rem" id="inputLabel">Frequency Value</label>
+      <input type="number" id="inputValue" value="100" step="any" min="0" oninput="calculate()">
+    </div>
+    <div>
+      <label style="color:#94a3b8;font-size:.85rem" id="unitLabel">Frequency Unit</label>
+      <select id="inputUnit" onchange="calculate()">
+        <option value="1">Hz</option>
+        <option value="1000">kHz</option>
+        <option value="1000000" selected>MHz</option>
+        <option value="1000000000">GHz</option>
+        <option value="1000000000000">THz</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Presets -->
+  <div class="preset-row" id="presetRow">
+    <button class="preset-btn" onclick="applyPreset(1,1000000,'1')">📻 AM Radio 1MHz</button>
+    <button class="preset-btn" onclick="applyPreset(100,1000000,'1000000')">📻 FM Radio 100MHz</button>
+    <button class="preset-btn" onclick="applyPreset(2.4,1000000000,'1000000000')">📶 WiFi 2.4GHz</button>
+    <button class="preset-btn" onclick="applyPreset(5,1000000000,'1000000000')">📶 WiFi 5GHz</button>
+    <button class="preset-btn" onclick="applyPreset(500,1000000000000,'1000000000000')">💡 Visible Light 500THz</button>
+  </div>
+</div>
+
+<!-- Result Section -->
+<div class="tool-section">
+  <h2 id="resultTitle">📐 Wavelength Result</h2>
+  <div class="result-display" id="resultDisplay">
+    <div class="result-value" id="resultValue">2.9979</div>
+    <div class="result-unit" id="resultUnit">m</div>
+    <div class="result-sci" id="resultSci">2.99792458 m</div>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+    <label style="color:#94a3b8;font-size:.85rem;display:flex;align-items:center;gap:6px">
+      Output Unit:
+      <select id="outputUnit" onchange="calculate()" style="width:auto;padding:6px 10px">
+        <option value="auto" selected>Auto</option>
+        <option value="0.001">mm</option>
+        <option value="0.01">cm</option>
+        <option value="1">m</option>
+        <option value="0.000001">μm</option>
+        <option value="0.000000001">nm</option>
+        <option value="1000">km</option>
+      </select>
+    </label>
+    <button class="copy-btn" onclick="copyResult()">📋 Copy Result</button>
+  </div>
+</div>
+
+<!-- Quick Reference Stats -->
+<div class="stat-row" style="margin-bottom:16px">
+  <div class="stat-item"><div class="stat-value">300m</div><div class="stat-label">AM 1MHz</div></div>
+  <div class="stat-item"><div class="stat-value">3m</div><div class="stat-label">FM 100MHz</div></div>
+  <div class="stat-item"><div class="stat-value">12.5cm</div><div class="stat-label">WiFi 2.4GHz</div></div>
+  <div class="stat-item"><div class="stat-value">6cm</div><div class="stat-label">WiFi 5GHz</div></div>
+  <div class="stat-item"><div class="stat-value">600nm</div><div class="stat-label">Visible 500THz</div></div>
+</div>
+
+<div class="seo-content">
+  <h3>The Relationship Between Wavelength and Frequency</h3>
+  <p>Wavelength (λ) and frequency (f) are two fundamental parameters of electromagnetic waves, related by the formula <strong>λ = c / f</strong>, where c is the speed of light in a vacuum (299,792,458 m/s). Higher frequency means shorter wavelength; lower frequency means longer wavelength.<br><br>
+  Common electromagnetic wavelength ranges: radio waves (km~m), microwaves (cm~mm), infrared (μm), visible light (380-780nm), ultraviolet (nm), X-rays (pm).<br><br>
+  This tool supports both frequency→wavelength and wavelength→frequency conversion, automatically choosing the most suitable display unit, and also allows manual output unit selection. It includes built-in presets for AM radio, FM radio, WiFi 2.4GHz/5GHz and visible light for quick reference.</p>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)">
+  <h2 style="font-size:1rem;margin-bottom:0.75rem;color:#94a3b8;">🔗 Related Tools</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:6px">
+    <a href="../../en/sound-frequency-generator/" style="display:inline-block;padding:6px 12px;background:#0f172a;border-radius:6px;color:#22d3ee;font-size:13px">🔊 Frequency Generator</a>
+    <a href="../../en/em-to-px/" style="display:inline-block;padding:6px 12px;background:#0f172a;border-radius:6px;color:#22d3ee;font-size:13px">📏 EM/PX Converter</a>
+    <a href="../../en/speed-converter/" style="display:inline-block;padding:6px 12px;background:#0f172a;border-radius:6px;color:#22d3ee;font-size:13px">🏎 Speed Converter</a>
+    <a href="../../en/data-transfer-converter/" style="display:inline-block;padding:6px 12px;background:#0f172a;border-radius:6px;color:#22d3ee;font-size:13px">📡 Data Rate Converter</a>
+  </div>
+</section>
+
+
+<div class="toast" id="toast"></div>
+
+<script>
+var C = 299792458;
+var direction = 'freq';
+
+function setDirection(dir) {
+  direction = dir;
+  var btnF = document.getElementById('btnFreqToWave');
+  var btnW = document.getElementById('btnWaveToFreq');
+  var inputTitle = document.getElementById('inputTitle');
+  var inputLabel = document.getElementById('inputLabel');
+  var unitLabel = document.getElementById('unitLabel');
+  var resultTitle = document.getElementById('resultTitle');
+  var formulaBox = document.getElementById('formulaBox');
+  var presetRow = document.getElementById('presetRow');
+  var inputUnit = document.getElementById('inputUnit');
+  var outputUnit = document.getElementById('outputUnit');
+
+  if (dir === 'freq') {
+    btnF.className = 'btn btn-primary';
+    btnW.className = 'btn btn-secondary';
+    inputTitle.textContent = '📡 Enter Frequency';
+    inputLabel.textContent = 'Frequency Value';
+    unitLabel.textContent = 'Frequency Unit';
+    resultTitle.textContent = '📐 Wavelength Result';
+    formulaBox.innerHTML = 'λ = c / f &nbsp;&nbsp;(c = 299,792,458 m/s)';
+    presetRow.style.display = 'flex';
+    inputUnit.innerHTML = '<option value="1">Hz</option><option value="1000">kHz</option><option value="1000000" selected>MHz</option><option value="1000000000">GHz</option><option value="1000000000000">THz</option>';
+    outputUnit.innerHTML = '<option value="auto" selected>Auto</option><option value="0.001">mm</option><option value="0.01">cm</option><option value="1">m</option><option value="0.000001">μm</option><option value="0.000000001">nm</option><option value="1000">km</option>';
+  } else {
+    btnF.className = 'btn btn-secondary';
+    btnW.className = 'btn btn-primary';
+    inputTitle.textContent = '📐 Enter Wavelength';
+    inputLabel.textContent = 'Wavelength Value';
+    unitLabel.textContent = 'Wavelength Unit';
+    resultTitle.textContent = '📡 Frequency Result';
+    formulaBox.innerHTML = 'f = c / λ &nbsp;&nbsp;(c = 299,792,458 m/s)';
+    presetRow.style.display = 'none';
+    inputUnit.innerHTML = '<option value="0.000000001">nm</option><option value="0.000001">μm</option><option value="0.001">mm</option><option value="0.01">cm</option><option value="1" selected>m</option><option value="1000">km</option>';
+    outputUnit.innerHTML = '<option value="auto" selected>Auto</option><option value="1">Hz</option><option value="1000">kHz</option><option value="1000000">MHz</option><option value="1000000000">GHz</option><option value="1000000000000">THz</option>';
+  }
+  calculate();
+}
+
+function applyPreset(val, unitVal, unitSelectVal) {
+  document.getElementById('inputValue').value = val;
+  var sel = document.getElementById('inputUnit');
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value === String(unitVal)) { sel.selectedIndex = i; break; }
+  }
+  calculate();
+}
+
+function formatSci(num) {
+  if (num === 0) return '0';
+  var abs = Math.abs(num);
+  if (abs >= 0.01 && abs < 10000) return String(Math.round(num * 10000) / 10000);
+  var exp = Math.floor(Math.log10(abs));
+  var mantissa = num / Math.pow(10, exp);
+  return (Math.round(mantissa * 1000) / 1000) + 'e' + exp;
+}
+
+function autoUnitWavelength(meters) {
+  var abs = Math.abs(meters);
+  if (abs >= 1000) return { val: meters / 1000, unit: 'km', factor: 1000 };
+  if (abs >= 1) return { val: meters, unit: 'm', factor: 1 };
+  if (abs >= 0.01) return { val: meters / 0.01, unit: 'cm', factor: 0.01 };
+  if (abs >= 0.001) return { val: meters / 0.001, unit: 'mm', factor: 0.001 };
+  if (abs >= 0.000001) return { val: meters / 0.000001, unit: 'μm', factor: 0.000001 };
+  if (abs >= 0.000000001) return { val: meters / 0.000000001, unit: 'nm', factor: 0.000000001 };
+  return { val: meters * 1e12, unit: 'pm', factor: 1e-12 };
+}
+
+function autoUnitFrequency(hz) {
+  var abs = Math.abs(hz);
+  if (abs >= 1e12) return { val: hz / 1e12, unit: 'THz', factor: 1e12 };
+  if (abs >= 1e9) return { val: hz / 1e9, unit: 'GHz', factor: 1e9 };
+  if (abs >= 1e6) return { val: hz / 1e6, unit: 'MHz', factor: 1e6 };
+  if (abs >= 1e3) return { val: hz / 1e3, unit: 'kHz', factor: 1e3 };
+  return { val: hz, unit: 'Hz', factor: 1 };
+}
+
+function calculate() {
+  var val = parseFloat(document.getElementById('inputValue').value);
+  var unitFactor = parseFloat(document.getElementById('inputUnit').value);
+  var outputSel = document.getElementById('outputUnit').value;
+
+  if (isNaN(val) || val <= 0) {
+    document.getElementById('resultValue').textContent = '-';
+    document.getElementById('resultUnit').textContent = '';
+    document.getElementById('resultSci').textContent = 'Please enter a value greater than 0';
+    return;
+  }
+
+  if (direction === 'freq') {
+    var freqHz = val * unitFactor;
+    var wavelengthM = C / freqHz;
+    var auto = autoUnitWavelength(wavelengthM);
+    var displayVal, displayUnit, sciText;
+
+    if (outputSel === 'auto') {
+      displayVal = auto.val;
+      displayUnit = auto.unit;
+    } else {
+      var factor = parseFloat(outputSel);
+      displayVal = wavelengthM / factor;
+      displayUnit = getUnitName(factor, 'wave');
+    }
+
+    displayVal = Math.round(displayVal * 10000) / 10000;
+    sciText = formatSci(wavelengthM) + ' m';
+
+    document.getElementById('resultValue').textContent = displayVal;
+    document.getElementById('resultUnit').textContent = displayUnit;
+    document.getElementById('resultSci').textContent = sciText;
+  } else {
+    var wavelengthM2 = val * unitFactor;
+    var freqHz2 = C / wavelengthM2;
+    var auto2 = autoUnitFrequency(freqHz2);
+    var displayVal2, displayUnit2, sciText2;
+
+    if (outputSel === 'auto') {
+      displayVal2 = auto2.val;
+      displayUnit2 = auto2.unit;
+    } else {
+      var factor2 = parseFloat(outputSel);
+      displayVal2 = freqHz2 / factor2;
+      displayUnit2 = getUnitName(factor2, 'freq');
+    }
+
+    displayVal2 = Math.round(displayVal2 * 10000) / 10000;
+    sciText2 = formatSci(freqHz2) + ' Hz';
+
+    document.getElementById('resultValue').textContent = displayVal2;
+    document.getElementById('resultUnit').textContent = displayUnit2;
+    document.getElementById('resultSci').textContent = sciText2;
+  }
+}
+
+function getUnitName(factor, type) {
+  if (type === 'wave') {
+    var map = { '0.001': 'mm', '0.01': 'cm', '1': 'm', '0.000001': 'μm', '0.000000001': 'nm', '1000': 'km' };
+    return map[String(factor)] || 'm';
+  } else {
+    var map2 = { '1': 'Hz', '1000': 'kHz', '1000000': 'MHz', '1000000000': 'GHz', '1000000000000': 'THz' };
+    return map2[String(factor)] || 'Hz';
+  }
+}
+
+function copyResult() {
+  var val = document.getElementById('resultValue').textContent;
+  var unit = document.getElementById('resultUnit').textContent;
+  var text = val + ' ' + unit;
+  navigator.clipboard.writeText(text).then(function() {
+    showToast('Copied: ' + text);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('Copied: ' + text);
+  });
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2000);
+}
+
+calculate();
+</script>
+
+
+
+
+<div class="seo-content"><h2 style="font-size:1.1rem;color:#f1f5f9;margin-bottom:16px">❓ About the Wavelength Calculator</h2>
+  <div class="faq-item">
+    <h3>What is the relationship between wavelength and frequency?</h3>
+    <p>Wavelength (λ) and frequency (f) are related by the formula <strong>λ = c / f</strong>, where c is the speed of light (299,792,458 m/s). Higher frequency means shorter wavelength; lower frequency means longer wavelength. For example, a 1MHz AM broadcast has a wavelength of about 300 meters, while 5GHz WiFi has a wavelength of only about 6 centimeters.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I choose the right wavelength unit?</h3>
+    <p>Choose units based on wavelength size: use km/m for radio waves, cm/mm for microwaves, μm for infrared, and nm for visible light and ultraviolet. This tool automatically recommends a suitable unit, or you can select manually.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What presets does this calculator support?</h3>
+    <p>It includes 5 common signal presets: AM radio (1MHz), FM radio (100MHz), WiFi 2.4GHz, WiFi 5GHz and visible light (500THz). Click a preset button to quickly compute the corresponding wavelength.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is the calculation accurate?</h3>
+    <p>This tool uses the exact speed of light c = 299,792,458 m/s. All calculations run locally in your browser and are precise and reliable. Scientific notation display is supported for very large or very small values.</p>
+  </div>
+</div></main>
+<footer class="footer container">
+  <div style="margin-bottom:12px"><a href="../index.html">Home</a><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a><a href="../about/">About Us</a>
+  <a href="../wavelength-calculator/">中文</a></div>
+  <p>🌊 Wavelength Calculator - Frequency to Wavelength Converter | No signup · Data never uploaded to server</p>
+  <p style="margin-top:8px;color:#475569;font-size:.8rem">Questions: </p>
+</footer>
+</body></html>

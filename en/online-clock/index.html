@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online clock with analog and digital modes. View real-time clock with world time zones. No signup required, works offline.">
+<meta name="keywords" content="online clock,analog clock,digital clock,world clock,time zone converter,web clock,free clock tool,online time">
+<title>Online Clock - Analog & Digital | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/online-clock/">
+<meta property="og:title" content="Online Clock - Analog & Digital | ToolGuideHub">
+<meta property="og:description" content="Free online clock with analog and digital modes. View real-time clock with world time zones. No signup required, works offline.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/online-clock/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/online-clock/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Online Clock","description":"Free online clock with analog and digital modes. View real-time clock with world time zones. No signup, works offline.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#online-tools/"},{"@type":"ListItem","position":3,"name":"Online Clock","item":"https://adi63586.github.io/Toolguidehub/en/online-clock/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.hero{text-align:center;margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;padding:4px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border-radius:20px;font-size:.8rem;border:1px solid rgba(6,182,212,.2)}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-primary.active{background:rgba(6,182,212,.4);border-color:#22d3ee}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.clock-display{text-align:center;padding:30px 20px}
+.analog-clock{width:280px;height:280px;margin:0 auto 24px;position:relative;border-radius:50%;border:4px solid rgba(148,163,184,.3);background:radial-gradient(circle,#1e293b,#0f172a);box-shadow:0 0 40px rgba(6,182,212,.1),inset 0 0 40px rgba(0,0,0,.3)}
+.analog-clock .mark{position:absolute;width:2px;height:10px;background:#64748b;top:6px;left:50%;transform-origin:50% 134px}
+.analog-clock .mark.major{width:3px;height:16px;background:#94a3b8}
+.analog-clock .hand{position:absolute;bottom:50%;left:50%;transform-origin:50% 100%;border-radius:2px}
+.analog-clock .hand-hour{width:6px;height:65px;margin-left:-3px;background:#22d3ee;border-radius:3px}
+.analog-clock .hand-minute{width:4px;height:95px;margin-left:-2px;background:#06b6d4}
+.analog-clock .hand-second{width:2px;height:110px;margin-left:-1px;background:#ef4444}
+.analog-clock .center-dot{position:absolute;width:12px;height:12px;background:#22d3ee;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:2px solid #0f172a;z-index:2}
+.digital-clock{font-size:5rem;font-weight:700;font-family:"Courier New",monospace;color:#22d3ee;letter-spacing:4px;line-height:1.2;margin-bottom:4px;text-shadow:0 0 20px rgba(6,182,212,.3)}
+.digital-date{font-size:1.1rem;color:#94a3b8;margin-bottom:4px}
+.digital-seconds{font-size:1.5rem;color:#64748b}
+.timezone-select{max-width:300px;margin:12px auto 0}
+.timezone-select select{width:100%;padding:10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;outline:none;appearance:auto}
+.timezone-select select:focus{border-color:rgba(6,182,212,.5)}
+.world-clocks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+.world-clock-item{background:#0f172a;border-radius:8px;padding:12px;text-align:center;border:1px solid rgba(148,163,184,.1)}
+.world-clock-item .city{font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.world-clock-item .time{font-size:1.2rem;font-weight:600;color:#e2e8f0;font-family:monospace}
+.world-clock-item .date{font-size:.7rem;color:#64748b;margin-top:2px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.related-tools{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.related-tools h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.related-tools a{display:block;padding:6px 0;color:#06b6d4;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#06b6d4;margin:0 8px}
+@media(max-width:640px){
+.digital-clock{font-size:3rem}
+.world-clocks{grid-template-columns:1fr 1fr}
+.analog-clock{width:240px;height:240px}
+.analog-clock .mark{transform-origin:50% 114px}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;margin-bottom:12px}
+#resultText{font-family:monospace;font-size:1.05rem;color:#22d3ee;margin-bottom:12px;word-break:break-word}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Online Clock</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../">← Back to Tools</a></p>
+
+  <div class="hero">
+    <p>Free online clock with analog and digital display modes. View real-time clock across world time zones. No signup, updates every second.</p>
+    <span class="badge">Zero dependencies · Works offline</span>
+  </div>
+
+  <div style="text-align:center;margin-bottom:16px;font-size:.8rem;color:#64748b">
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Updated: 2026-08-02
+    </span>
+  </div>
+
+  <div class="input-section">
+    <div class="btn-row" id="modeBtns">
+      <button class="btn btn-primary active" data-mode="analog">🕐 Analog</button>
+      <button class="btn btn-secondary" data-mode="digital">🔢 Digital</button>
+    </div>
+
+    <div class="timezone-select">
+      <select id="tzSelect">
+        <option value="local">Local Time</option>
+        <option value="America/New_York">New York (UTC-5)</option>
+        <option value="America/Chicago">Chicago (UTC-6)</option>
+        <option value="America/Denver">Denver (UTC-7)</option>
+        <option value="America/Los_Angeles">Los Angeles (UTC-8)</option>
+        <option value="America/Sao_Paulo">Sao Paulo (UTC-3)</option>
+        <option value="Europe/London">London (UTC+0)</option>
+        <option value="Europe/Paris">Paris (UTC+1)</option>
+        <option value="Europe/Berlin">Berlin (UTC+1)</option>
+        <option value="Europe/Moscow">Moscow (UTC+3)</option>
+        <option value="Asia/Dubai">Dubai (UTC+4)</option>
+        <option value="Asia/Kolkata">India (UTC+5:30)</option>
+        <option value="Asia/Shanghai">Beijing (UTC+8)</option>
+        <option value="Asia/Tokyo">Tokyo (UTC+9)</option>
+        <option value="Asia/Seoul">Seoul (UTC+9)</option>
+        <option value="Asia/Singapore">Singapore (UTC+8)</option>
+        <option value="Australia/Sydney">Sydney (UTC+10)</option>
+        <option value="Pacific/Auckland">Auckland (UTC+12)</option>
+        <option value="UTC">UTC</option>
+      </select>
+    </div>
+
+    <div class="clock-display" id="clockDisplay">
+      <div id="analogSection">
+        <div class="analog-clock" id="analogClock"></div>
+      </div>
+      <div id="digitalSection" style="display:none">
+        <div class="digital-clock" id="digiTime">00:00</div>
+        <div class="digital-seconds" id="digiSeconds">00</div>
+      </div>
+      <div class="digital-date" id="dateDisplay">Loading...</div>
+    </div>
+  </div>
+
+  <div class="input-section">
+    <h2>🌍 World Clocks</h2>
+    <div class="world-clocks" id="worldClocks"></div>
+  </div>
+
+  <div class="input-section">
+    <h2>📋 Snapshot</h2>
+    <div id="result" class="result-card">
+      <div id="resultText">Loading...</div>
+      <button class="btn btn-secondary" id="copyResultBtn">📋 Copy Result</button>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>📖 About This Clock</h2>
+    <p>This online clock uses your device's system time to display the current time in real-time. Switch between analog and digital modes, and view time across major world time zones.</p>
+    <p>The analog clock displays precise hour, minute, and second hands. The digital clock shows time in a large, clear format.</p>
+    <h3>Accuracy</h3>
+    <p>This tool updates every animation frame (~60fps) using JavaScript's Date object. If your device has NTP (Network Time Protocol) enabled, time accuracy matches atomic clock precision.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>🎯 Use Cases</h2>
+    <ul>
+      <li><strong>Remote Work:</strong> Check colleagues' time across time zones</li>
+      <li><strong>Study Aid:</strong> Desktop clock for online classes</li>
+      <li><strong>International Meetings:</strong> Quick time zone comparison</li>
+    </ul>
+  </div>
+
+  <div class="related-tools">
+    <h2>🔗 Related Tools</h2>
+    <a href="../date-calculator/">📅 Date Calculator</a>
+    <a href="../business-days-calculator/">💼 Business Days Calculator</a>
+    <a href="../hours-calculator/">⏱️ Hours Calculator</a>
+    <a href="../metronome/">🎵 Online Metronome</a>
+  </div>
+</main>
+
+<footer class="footer container">
+  <div style="margin-bottom:12px">
+    <a href="../">Home</a>
+    <a href="../#online-tools">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy-policy/">Privacy</a>
+    <a href="../terms-of-service/">Terms</a>
+    <a href="../../en/online-clock/">中文</a>
+  </div>
+  <p>Online Clock | No signup · Data never leaves your device</p>
+  
+</footer>
+
+<script>
+(function(){
+  var analogSection = document.getElementById('analogSection');
+  var digitalSection = document.getElementById('digitalSection');
+  var digiTime = document.getElementById('digiTime');
+  var digiSeconds = document.getElementById('digiSeconds');
+  var dateDisplay = document.getElementById('dateDisplay');
+  var analogClock = document.getElementById('analogClock');
+  var tzSelect = document.getElementById('tzSelect');
+  var worldClocks = document.getElementById('worldClocks');
+  var modeBtns = document.querySelectorAll('#modeBtns .btn');
+  var currentMode = 'analog';
+  var animFrame = null;
+
+  // Build analog clock marks
+  for (var i = 0; i < 60; i++) {
+    var mark = document.createElement('div');
+    mark.className = 'mark' + (i % 5 === 0 ? ' major' : '');
+    var angle = i * 6;
+    mark.style.transform = 'rotate(' + angle + 'deg)';
+    analogClock.appendChild(mark);
+  }
+
+  // Add hands
+  var handsHTML = '<div class="hand hand-hour" id="handHour"></div>' +
+    '<div class="hand hand-minute" id="handMinute"></div>' +
+    '<div class="hand hand-second" id="handSecond"></div>' +
+    '<div class="center-dot"></div>';
+  analogClock.insertAdjacentHTML('beforeend', handsHTML);
+
+  var handHour = document.getElementById('handHour');
+  var handMinute = document.getElementById('handMinute');
+  var handSecond = document.getElementById('handSecond');
+
+  function pad(n) {
+    return n < 10 ? '0' + n : '' + n;
+  }
+
+  function getOffset(tz) {
+    if (tz === 'local') return 0;
+    try {
+      var now = new Date();
+      var tzTime = new Date(now.toLocaleString('en-US', {timeZone: tz}));
+      return (tzTime.getTime() - now.getTime()) / 60000;
+    } catch(e) { return 0; }
+  }
+
+  var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function updateClock() {
+    var tz = tzSelect.value;
+    var now = new Date();
+    var offset = getOffset(tz);
+    var tzNow = new Date(now.getTime() + offset * 60000);
+
+    var h = tzNow.getHours();
+    var m = tzNow.getMinutes();
+    var s = tzNow.getSeconds();
+    var ms = tzNow.getMilliseconds();
+
+    // Analog hands
+    var hAngle = (h % 12) * 30 + m * 0.5 + s * (0.5 / 60);
+    var mAngle = m * 6 + s * 0.1;
+    var sAngle = s * 6 + ms * 0.006;
+
+    handHour.style.transform = 'rotate(' + hAngle + 'deg)';
+    handMinute.style.transform = 'rotate(' + mAngle + 'deg)';
+    handSecond.style.transform = 'rotate(' + sAngle + 'deg)';
+
+    // Digital display
+    digiTime.textContent = pad(h) + ':' + pad(m);
+    digiSeconds.textContent = pad(s);
+
+    // Date
+    var dateStr = weekdays[tzNow.getDay()] + ', ' + months[tzNow.getMonth()] + ' ' + tzNow.getDate() + ', ' + tzNow.getFullYear();
+    if (tz !== 'local') {
+      try {
+        var tzName = tzSelect.options[tzSelect.selectedIndex].text.split(' (')[0];
+        dateStr += ' | ' + tzName;
+      } catch(e) {}
+    }
+    dateDisplay.textContent = dateStr;
+
+    // World clocks
+    var cities = [
+      {name: 'New York', tz: 'America/New_York'},
+      {name: 'London', tz: 'Europe/London'},
+      {name: 'Beijing', tz: 'Asia/Shanghai'},
+      {name: 'Tokyo', tz: 'Asia/Tokyo'},
+      {name: 'Sydney', tz: 'Australia/Sydney'},
+      {name: 'Dubai', tz: 'Asia/Dubai'}
+    ];
+    var html = '';
+    for (var i = 0; i < cities.length; i++) {
+      var c = cities[i];
+      var cOffset = getOffset(c.tz);
+      var cTime = new Date(now.getTime() + cOffset * 60000);
+      var ch = pad(cTime.getHours());
+      var cm = pad(cTime.getMinutes());
+      var cd = months[cTime.getMonth()].substring(0,3) + ' ' + cTime.getDate();
+      html += '<div class="world-clock-item"><div class="city">' + c.name + '</div><div class="time">' + ch + ':' + cm + '</div><div class="date">' + cd + '</div></div>';
+    }
+    worldClocks.innerHTML = html;
+
+    lastSnapshot = pad(h) + ':' + pad(m) + ':' + pad(s) + ' · ' + dateStr;
+    resultText.textContent = lastSnapshot;
+
+    animFrame = requestAnimationFrame(updateClock);
+  }
+
+  // Mode switching
+  for (var j = 0; j < modeBtns.length; j++) {
+    modeBtns[j].addEventListener('click', function() {
+      for (var k = 0; k < modeBtns.length; k++) {
+        modeBtns[k].className = 'btn btn-secondary';
+      }
+      this.className = 'btn btn-primary active';
+      currentMode = this.getAttribute('data-mode');
+
+      if (currentMode === 'analog') {
+        analogSection.style.display = 'block';
+        digitalSection.style.display = 'none';
+      } else {
+        analogSection.style.display = 'none';
+        digitalSection.style.display = 'block';
+      }
+    });
+  }
+
+  tzSelect.addEventListener('change', function() {});
+
+  var resultText = document.getElementById('resultText');
+  var lastSnapshot = '';
+
+  function copySnapshot() {
+    if (!lastSnapshot) { return; }
+    var btn = document.getElementById('copyResultBtn');
+    function done() {
+      btn.textContent = '✅ Copied!';
+      setTimeout(function(){ btn.textContent = '📋 Copy Result'; }, 2000);
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(lastSnapshot).then(done, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = lastSnapshot;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+  document.getElementById('copyResultBtn').addEventListener('click', copySnapshot);
+
+  updateClock();
+})();
+</script>
+</body>
+</html>

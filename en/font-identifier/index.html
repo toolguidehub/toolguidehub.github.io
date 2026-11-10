@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Identifier - Online Font Finder & Preview | ToolGuideHub</title>
+  <meta name="description" content="Identify a font by name, style, or category, preview it live, and grab its CSS font stack plus similar alternatives to find a matching typeface.">
+  <meta property="og:title" content="Font Identifier - Online Font Finder & Preview">
+  <meta property="og:description" content="Identify a font by name, style, or category, preview it live, and grab its CSS font stack plus similar alternatives to find a matching typeface.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Font Identifier","description":"Preview and identify font names and find alternatives","applicationCategory":"DesignApplication","operatingSystem":"Web"}</script>
+  <style>:root{--text-light:#94a3b8;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+    header { background: linear-gradient(135deg, #6366F1, #0EA5E9); color: #fff; padding: 1.5rem 1rem; text-align: center; }
+    header h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    header p { opacity: 0.85; font-size: 0.95rem; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem; }
+    .search-box { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .search-box input { flex: 1; padding: 0.75rem 1rem; border: 2px solid rgba(148,163,184,.1); border-radius: 12px; font-size: 1rem; outline: none; }
+    .search-box input:focus { border-color: #22d3ee; }
+    .search-box button { padding: 0.75rem 1.5rem; background: #22d3ee; color: #fff; border: none; border-radius: 12px; font-size: 1rem; cursor: pointer; }
+    .category-tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .cat-tab { padding: 0.4rem 1rem; background: #1e293b; border: 1px solid rgba(148,163,184,.1); border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+    .cat-tab.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+    .font-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px,100%), 1fr)); gap: 0.75rem; }
+    .font-card { background: #1e293b; border-radius: 12px; padding: 1rem; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; border: 2px solid transparent; min-width: 0; }
+    .font-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .font-card.active { border-color: #22d3ee; }
+    .font-preview { font-size: 1.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(148,163,184,.1); margin-bottom: 0.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .font-name { font-weight: 700; font-size: 0.95rem; }
+    .font-meta { font-size: 0.8rem; color: var(--text-light); display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
+    .font-meta span { background: rgba(148,163,184,.15); padding: 0.15rem 0.5rem; border-radius: 10px; }
+    .detail-panel { background: #1e293b; border-radius: 12px; padding: 1.5rem; margin-top: 1rem; display: none; }
+    .detail-panel.visible { display: block; }
+    .detail-preview { font-size: 2.5rem; padding: 1rem 0; border-bottom: 2px solid rgba(148,163,184,.1); margin-bottom: 1rem; overflow-wrap: break-word; }
+    .detail-alphabet { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-light); word-break: break-all; }
+    .detail-section { margin-bottom: 1rem; }
+    .detail-section h3 { font-size: 0.95rem; color: #22d3ee; margin-bottom: 0.4rem; }
+    .alt-fonts { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .alt-font { padding: 0.4rem 0.75rem; background: rgba(148,163,184,.12); border-radius: 20px; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .alt-font:hover { background: rgba(34,211,238,.25); }
+    .toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #1e293b; color: #fff; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: all 0.3s; pointer-events: none; z-index: 1000; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .lang-switch{display:flex;gap:4px;background:rgba(15,23,42,.45);border-radius:8px;padding:4px;border:1px solid rgba(255,255,255,.18)}
+    .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#e2e8f0;text-decoration:none}
+    .lang-switch a.active{background:rgba(6,182,212,.35);color:#fff}
+    @media (max-width: 375px) { .font-cards { grid-template-columns: 1fr; } header h1 { font-size: 1.4rem; } }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/font-identifier/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Font Identifier - Online Font Finder & Preview | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/font-identifier/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Font Identifier FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Font Identifier?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Font Identifier free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Font Identifier and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Font Identifier?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Font Identifier","description":"Step-by-step guide for using Font Identifier","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Font Identifier"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/font-identifier/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1000px;margin:0 auto">
+    <h1 style="margin:0">🔤 Font Identifier</h1>
+    
+  </div>
+  <p>Preview and identify fonts — find names and alternatives</p>
+</header>
+<main class="container">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search fonts (name, style, category)...">
+    <button id="searchBtn">Search</button>
+  </div>
+  <div class="category-tabs" id="categoryTabs">
+    <button class="cat-tab active" data-cat="all">All</button>
+    <button class="cat-tab" data-cat="serif">Serif</button>
+    <button class="cat-tab" data-cat="sans-serif">Sans Serif</button>
+    <button class="cat-tab" data-cat="monospace">Monospace</button>
+    <button class="cat-tab" data-cat="handwriting">Handwriting</button>
+    <button class="cat-tab" data-cat="display">Display</button>
+  </div>
+  <div class="font-cards" id="fontCards"></div>
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-preview" id="detailPreview">The quick brown fox</div>
+    <div class="detail-alphabet" id="detailAlphabet"></div>
+    <div class="detail-section">
+      <h3>📋 CSS Font Stack</h3>
+      <code style="background:#0f172a;color:#e2e8f0;padding:0.5rem 1rem;border-radius:6px;display:block;font-size:0.9rem;border:1px solid rgba(148,163,184,.15)" id="detailCSS"></code>
+    </div>
+    <div class="detail-section">
+      <h3>🔄 Similar Alternatives</h3>
+      <div class="alt-fonts" id="detailAlternatives"></div>
+    </div>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const fonts = [
+  { name: 'Helvetica', family: 'Helvetica, Arial, sans-serif', category: 'sans-serif', description: 'The most classic sans-serif', alternatives: ['Arial','Roboto','Inter','Open Sans'] },
+  { name: 'Arial', family: 'Arial, Helvetica, sans-serif', category: 'sans-serif', description: 'Windows system default font', alternatives: ['Helvetica','Roboto','Inter'] },
+  { name: 'Times New Roman', family: '"Times New Roman", Times, serif', category: 'serif', description: 'Classic serif for print', alternatives: ['Georgia','Merriweather','Playfair Display'] },
+  { name: 'Georgia', family: 'Georgia, "Times New Roman", serif', category: 'serif', description: 'Elegant screen-reading serif', alternatives: ['Times New Roman','Merriweather','Lora'] },
+  { name: 'Courier New', family: '"Courier New", Courier, monospace', category: 'monospace', description: 'Classic monospace', alternatives: ['Consolas','Fira Code','Source Code Pro'] },
+  { name: 'Verdana', family: 'Verdana, Geneva, sans-serif', category: 'sans-serif', description: 'Large x-height, great at small sizes', alternatives: ['Tahoma','Open Sans','Segoe UI'] },
+  { name: 'Roboto', family: '"Roboto", Arial, sans-serif', category: 'sans-serif', description: 'Android & Material Design default', alternatives: ['Inter','Open Sans','Helvetica'] },
+  { name: 'Open Sans', family: '"Open Sans", Arial, sans-serif', category: 'sans-serif', description: 'Most popular Google sans-serif', alternatives: ['Roboto','Inter','Lato'] },
+  { name: 'Inter', family: '"Inter", -apple-system, sans-serif', category: 'sans-serif', description: 'Modern UI favorite, screen-optimized', alternatives: ['Roboto','SF Pro','Segoe UI'] },
+  { name: 'Lato', family: '"Lato", Arial, sans-serif', category: 'sans-serif', description: 'Warm and friendly sans-serif', alternatives: ['Open Sans','Nunito','Rubik'] },
+  { name: 'Playfair Display', family: '"Playfair Display", Georgia, serif', category: 'serif', description: 'Fashion magazine headline font', alternatives: ['Cormorant Garamond','Libre Baskerville','Lora'] },
+  { name: 'Merriweather', family: '"Merriweather", Georgia, serif', category: 'serif', description: 'Serif designed for screen reading', alternatives: ['Georgia','Lora','Libre Baskerville'] },
+  { name: 'Fira Code', family: '"Fira Code", "Courier New", monospace', category: 'monospace', description: 'Programming font with ligatures', alternatives: ['JetBrains Mono','Source Code Pro','Cascadia Code'] },
+  { name: 'JetBrains Mono', family: '"JetBrains Mono", "Fira Code", monospace', category: 'monospace', description: 'Developed by JetBrains', alternatives: ['Fira Code','Cascadia Code','Consolas'] },
+  { name: 'Source Code Pro', family: '"Source Code Pro", Consolas, monospace', category: 'monospace', description: 'Adobe open-source monospace', alternatives: ['Fira Code','JetBrains Mono','Consolas'] },
+  { name: 'Cascadia Code', family: '"Cascadia Code", Consolas, monospace', category: 'monospace', description: 'Microsoft Terminal default', alternatives: ['Fira Code','JetBrains Mono','Source Code Pro'] },
+  { name: 'Consolas', family: 'Consolas, "Courier New", monospace', category: 'monospace', description: 'Windows coding default', alternatives: ['Fira Code','Source Code Pro','Cascadia Code'] },
+  { name: 'Segoe UI', family: '"Segoe UI", -apple-system, sans-serif', category: 'sans-serif', description: 'Windows system UI font', alternatives: ['SF Pro','Inter','Roboto'] },
+  { name: 'SF Pro', family: '-apple-system, "SF Pro", sans-serif', category: 'sans-serif', description: 'Apple system UI font', alternatives: ['Inter','Segoe UI','Roboto'] },
+  { name: 'Montserrat', family: '"Montserrat", Arial, sans-serif', category: 'sans-serif', description: 'Geometric sans-serif for headings', alternatives: ['Gotham','Poppins','Raleway'] },
+  { name: 'Poppins', family: '"Poppins", Arial, sans-serif', category: 'sans-serif', description: 'Geometric, popular Google font', alternatives: ['Montserrat','Raleway','DM Sans'] },
+  { name: 'Raleway', family: '"Raleway", Arial, sans-serif', category: 'sans-serif', description: 'Elegant thin heading font', alternatives: ['Montserrat','Poppins','Josefin Sans'] },
+  { name: 'Nunito', family: '"Nunito", Arial, sans-serif', category: 'sans-serif', description: 'Rounded friendly sans-serif', alternatives: ['Rubik','Quicksand','Poppins'] },
+  { name: 'Rubik', family: '"Rubik", Arial, sans-serif', category: 'sans-serif', description: 'Modern with slightly rounded corners', alternatives: ['Nunito','Quicksand','Inter'] },
+  { name: 'DM Sans', family: '"DM Sans", Arial, sans-serif', category: 'sans-serif', description: 'Geometric sans, Google Fonts recommended', alternatives: ['Inter','Poppins','Manrope'] },
+  { name: 'Space Grotesk', family: '"Space Grotesk", Arial, sans-serif', category: 'sans-serif', description: 'Retro-futuristic style', alternatives: ['Space Mono','DM Sans','Inter'] },
+  { name: 'Manrope', family: '"Manrope", Arial, sans-serif', category: 'sans-serif', description: 'Modern geometric sans-serif', alternatives: ['DM Sans','Inter','Poppins'] },
+  { name: 'IBM Plex Sans', family: '"IBM Plex Sans", Arial, sans-serif', category: 'sans-serif', description: 'IBM open-source enterprise font', alternatives: ['Inter','Roboto','Source Sans 3'] },
+  { name: 'Work Sans', family: '"Work Sans", Arial, sans-serif', category: 'sans-serif', description: 'Screen-optimized Grotesk', alternatives: ['Inter','DM Sans','Poppins'] },
+  { name: 'Libre Baskerville', family: '"Libre Baskerville", Georgia, serif', category: 'serif', description: 'Classic book printing font', alternatives: ['Playfair Display','Merriweather','Lora'] },
+  { name: 'Lora', family: '"Lora", Georgia, serif', category: 'serif', description: 'Balanced contemporary serif', alternatives: ['Merriweather','Libre Baskerville','Playfair Display'] },
+  { name: 'Cormorant Garamond', family: '"Cormorant Garamond", Georgia, serif', category: 'serif', description: 'Elegant Garamond-style font', alternatives: ['Playfair Display','Libre Baskerville','EB Garamond'] },
+  { name: 'EB Garamond', family: '"EB Garamond", Georgia, serif', category: 'serif', description: 'Classic Garamond revival', alternatives: ['Cormorant Garamond','Libre Baskerville','Lora'] },
+  { name: 'Pacifico', family: '"Pacifico", cursive', category: 'handwriting', description: 'Popular brush script', alternatives: ['Dancing Script','Caveat','Great Vibes'] },
+  { name: 'Dancing Script', family: '"Dancing Script", cursive', category: 'handwriting', description: 'Lively handwriting font', alternatives: ['Pacifico','Caveat','Satisfy'] },
+  { name: 'Caveat', family: '"Caveat", cursive', category: 'handwriting', description: 'Natural handwritten notes', alternatives: ['Dancing Script','Pacifico','Indie Flower'] },
+  { name: 'Indie Flower', family: '"Indie Flower", cursive', category: 'handwriting', description: 'Playful cute handwriting', alternatives: ['Caveat','Shadows Into Light','Patrick Hand'] },
+  { name: 'Bebas Neue', family: '"Bebas Neue", Arial, sans-serif', category: 'display', description: 'All-caps display, great for headings', alternatives: ['Oswald','Anton','Staatliches'] },
+  { name: 'Oswald', family: '"Oswald", Arial, sans-serif', category: 'display', description: 'Condensed sans-serif display', alternatives: ['Bebas Neue','Anton','Staatliches'] },
+  { name: 'Anton', family: '"Anton", Arial, sans-serif', category: 'display', description: 'Heavy display for posters', alternatives: ['Bebas Neue','Oswald','Staatliches'] },
+  { name: 'Staatliches', family: '"Staatliches", Arial, sans-serif', category: 'display', description: 'Narrow display font', alternatives: ['Bebas Neue','Oswald','Anton'] },
+  { name: 'Archivo Black', family: '"Archivo Black", Arial, sans-serif', category: 'display', description: 'Bold Grotesk display', alternatives: ['Montserrat','Anton','Bebas Neue'] },
+  { name: 'Quicksand', family: '"Quicksand", Arial, sans-serif', category: 'sans-serif', description: 'Rounded geometric sans-serif', alternatives: ['Nunito','Rubik','Poppins'] },
+  { name: 'Comfortaa', family: '"Comfortaa", Arial, sans-serif', category: 'display', description: 'Rounded geometric font', alternatives: ['Quicksand','Nunito','Baloo 2'] },
+];
+
+let currentCategory = 'all';
+
+function renderFonts(searchTerm = '') {
+  const grid = document.getElementById('fontCards');
+  let filtered = fonts;
+  if (currentCategory !== 'all') filtered = filtered.filter(f => f.category === currentCategory);
+  if (searchTerm) {
+    const lower = searchTerm.toLowerCase();
+    filtered = filtered.filter(f => f.name.toLowerCase().includes(lower) || f.description.toLowerCase().includes(lower) || f.category.includes(lower) || f.alternatives.some(a => a.toLowerCase().includes(lower)));
+  }
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;padding:2rem;color:var(--text-light)">No matching fonts found</p>'; return;
+  }
+  grid.innerHTML = filtered.map((f, i) => `
+    <div class="font-card" data-name="${f.name}" onclick="selectFont('${f.name}')">
+      <div class="font-preview" style="font-family:${f.family}">The quick brown fox jumps over the lazy dog</div>
+      <div class="font-name">${f.name}</div>
+      <div class="font-meta"><span>${f.category === 'sans-serif' ? 'Sans Serif' : f.category === 'serif' ? 'Serif' : f.category === 'monospace' ? 'Monospace' : f.category === 'handwriting' ? 'Handwriting' : 'Display'}</span><span>${f.description}</span></div>
+    </div>`).join('');
+}
+
+function selectFont(name) {
+  const f = fonts.find(x => x.name === name);
+  if (!f) return;
+  document.querySelectorAll('.font-card').forEach(c => c.classList.remove('active'));
+  document.querySelector(`.font-card[data-name="${name}"]`)?.classList.add('active');
+  const panel = document.getElementById('detailPanel');
+  panel.classList.add('visible');
+  document.getElementById('detailPreview').style.fontFamily = f.family;
+  document.getElementById('detailPreview').textContent = 'The quick brown fox jumps over the lazy dog 0123456789';
+  document.getElementById('detailAlphabet').textContent = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 !@#$%^&*()';
+  document.getElementById('detailAlphabet').style.fontFamily = f.family;
+  document.getElementById('detailCSS').textContent = `font-family: ${f.family};`;
+  document.getElementById('detailAlternatives').innerHTML = f.alternatives.map(a => `<span class="alt-font" onclick="selectFont('${a}')">${a}</span>`).join('');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.getElementById('searchBtn').addEventListener('click', () => renderFonts(document.getElementById('searchInput').value.trim()));
+document.getElementById('searchInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') renderFonts(e.target.value.trim()); });
+document.getElementById('searchInput').addEventListener('input', (e) => { renderFonts(e.target.value.trim()); });
+
+document.getElementById('categoryTabs').addEventListener('click', (e) => {
+  if (!e.target.classList.contains('cat-tab')) return;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  e.target.classList.add('active');
+  currentCategory = e.target.dataset.cat;
+  renderFonts(document.getElementById('searchInput').value.trim());
+});
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+renderFonts();
+</script>
+
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#1e293b;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Font Identifier is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Font Identifier to quickly preview and identify font names, CSS font stacks, Google Fonts matches, and similar alternative fonts. Built with pure front-end technology, it works on all modern browsers and mobile devices. Font Identifier provides accurate results instantly. Everything runs locally: fonts and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/grid-paper-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📐 Online Grid Paper Generator</a><a href="../../en/color-psychology/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎨 Color Psychology</a><a href="../../en/compare-images/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🖼️ 🖼️ Image Compare Tool</a></div></section>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

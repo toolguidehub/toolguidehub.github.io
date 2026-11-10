@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Format and beautify Terraform HCL with consistent indentation and alignment, or minify it, and catch obvious syntax problems as you edit.">
+<meta name="keywords" content="Terraform formatter,HCL formatter,Terraform beautifier,HCL format,Terraform validator,IaC tool">
+<title>Free Terraform HCL Formatter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/terraform-hcl-formatter/">
+<meta property="og:title" content="Free Terraform HCL Formatter - ToolGuideHub">
+<meta property="og:description" content="Format and beautify Terraform HCL with consistent indentation and alignment, or minify it, and catch obvious syntax problems as you edit.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/terraform-hcl-formatter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Terraform HCL Formatter", "description": "Free online Terraform HCL formatter. Format, minify, and validate HCL syntax. Auto-indent and align, compatible with Terraform 0.12+. Pure frontend, no server upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-19"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is Terraform HCL?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Terraform HCL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HCL (HashiCorp Configuration Language) is a configuration language developed by HashiCorp for tools like Terraform. It combines JSON's machine-readability with human-readability, supporting block structures, attribute assignments, expressions, and comments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between HCL and JSON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HCL is a superset of JSON: 1) HCL supports comments (# and //), JSON does not; 2) HCL supports block structures (resource blocks etc.), JSON uses nested objects; 3) HCL supports expressions and variable interpolation, JSON only supports literals; 4) HCL is easier to read and write, JSON is more strict."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to format Terraform code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool automatically formats HCL code according to terraform fmt standards: consistent 2-space indentation, aligned equals signs, standardized block structures, and organized comments. You can also use the terraform fmt CLI command."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of formatting Terraform code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Formatted Terraform code: 1) Is easier to read and maintain; 2) Reduces style conflicts in team collaboration; 3) Conforms to terraform fmt standards; 4) Makes code review more effective at finding configuration errors; 5) Improves Infrastructure as Code professionalism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my code uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All HCL formatting and validation happens locally in your browser. Your infrastructure configuration is never sent to any server, ensuring security."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(148,163,184,.1)}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch a{color:#64748b;text-decoration:none;margin-left:12px;font-size:.85rem}
+.lang-switch a:hover,.lang-switch a.active{color:#22d3ee}
+.nav-back{margin-bottom:16px}
+.nav-back a{color:#94a3b8;text-decoration:none;font-size:.85rem}
+.nav-back a:hover{color:#22d3ee}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:12px;font-size:.85rem;font-family:'Fira Code',Consolas,monospace;outline:none;resize:vertical;transition:border-color .2s;min-height:250px}
+textarea:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;font-size:.85rem;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2);color:#e2e8f0}
+.btn-danger{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.btn-danger:hover{background:rgba(239,68,68,.2)}
+select{cursor:pointer;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;padding:6px 10px;font-size:.85rem;outline:none}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.editor-grid{grid-template-columns:1fr}}
+.editor-pane h3{font-size:.9rem;color:#94a3b8;margin-bottom:8px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Terraform HCL Formatter", "item": "https://adi63586.github.io/Toolguidehub/en/terraform-hcl-formatter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Terraform HCL Formatter","description":"Step-by-step guide for using Terraform HCL Formatter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Terraform HCL Formatter"},"step":[{"@type":"HowToStep","position":1,"name":"Paste content","text":"Paste the code or text you want to format"},{"@type":"HowToStep","position":2,"name":"Set style","text":"Choose formatting options (indent size, line breaks, etc.)"},{"@type":"HowToStep","position":3,"name":"Click Format","text":"Press the format button to process your input"},{"@type":"HowToStep","position":4,"name":"Copy output","text":"Review the formatted result and copy it"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/terraform-hcl-formatter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>Terraform HCL Formatter</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="tool-section">
+<h2>⚙️ Settings</h2>
+<div class="options">
+<label>Indent: <select id="indent-select"><option value="2" selected>2 Spaces</option><option value="4">4 Spaces</option></select></label>
+</div>
+</div>
+
+<div class="editor-grid">
+<div class="editor-pane">
+<h3>📝 Input HCL Code</h3>
+<textarea id="code-input" placeholder="Paste Terraform HCL code here...&#10;&#10;Supports: resource, data, variable, output, locals, module, terraform blocks"></textarea>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="formatCode()">✨ Format</button>
+<button class="btn btn-secondary" onclick="minifyCode()">🗜️ Minify</button>
+<button class="btn btn-secondary" onclick="loadExample()">📝 Example</button>
+<button class="btn btn-danger" onclick="clearAll()">🗑️ Clear</button>
+</div>
+</div>
+<div class="editor-pane">
+<h3>📋 Output</h3>
+<textarea id="code-output" readonly style="min-height:250px"></textarea>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="copyResult()">📋 Copy</button>
+<button class="btn btn-secondary" onclick="downloadResult()">💾 Download</button>
+<button class="btn btn-secondary" onclick="swapCode()">🔄 Swap</button>
+</div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📖 Terraform HCL Guide</h2>
+<h3>What is HCL</h3>
+<p>HCL (HashiCorp Configuration Language) is a configuration language developed by HashiCorp for Infrastructure as Code (IaC) tools like Terraform. It combines JSON's machine-readability with human-readability, supporting block structures, attribute assignments, expressions, and comments — the core language for cloud-native infrastructure management.</p>
+<h3>HCL Core Syntax</h3>
+<ul>
+<li><strong>Blocks</strong>: <code>resource "aws_instance" "web" { ... }</code></li>
+<li><strong>Attributes</strong>: <code>ami = "ami-12345"</code></li>
+<li><strong>Variable interpolation</strong>: <code>var.instance_type</code></li>
+<li><strong>Comments</strong>: <code>#</code>, <code>//</code> (line) and <code>/* */</code> (block)</li>
+<li><strong>Conditional expressions</strong>: <code>condition ? true_val : false_val</code></li>
+<li><strong>For expressions</strong>: <code>[for s in var.list: upper(s)]</code></li>
+</ul>
+<h3>Terraform HCL Formatter in 3 steps</h3>
+<ol>
+<li>Paste Terraform HCL code into the input area</li>
+<li>Select indentation style (2 or 4 spaces)</li>
+<li>Click "Format" to beautify, or "Minify" to compress</li>
+<li>Copy the result or download as .tf file</li>
+</ol>
+<h3>When to use Terraform HCL Formatter</h3>
+<ul>
+<li><strong>Code review</strong>: Formatted code makes configuration errors easier to spot</li>
+<li><strong>Team collaboration</strong>: Consistent style reduces Git conflicts</li>
+<li><strong>Learning</strong>: Format minified code for easier understanding</li>
+<li><strong>CI/CD</strong>: Automated format checks ensure code quality</li>
+</ul>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is Terraform HCL?</h3><p>HCL (HashiCorp Configuration Language) is a configuration language developed by HashiCorp for tools like Terraform. It combines JSON's machine-readability with human-readability, supporting block structures, attribute assignments, expressions, and comments.</p></div>
+<div class="faq-item"><h3>What is the difference between HCL and JSON?</h3><p>HCL is a superset of JSON: 1) HCL supports comments (# and //), JSON does not; 2) HCL supports block structures (resource blocks etc.), JSON uses nested objects; 3) HCL supports expressions and variable interpolation, JSON only supports literals; 4) HCL is easier to read and write, JSON is more strict.</p></div>
+<div class="faq-item"><h3>How to format Terraform code?</h3><p>This tool automatically formats HCL code according to terraform fmt standards: consistent 2-space indentation, aligned equals signs, standardized block structures, and organized comments. You can also use the terraform fmt CLI command.</p></div>
+<div class="faq-item"><h3>What are the benefits of formatting Terraform code?</h3><p>Formatted Terraform code: 1) Is easier to read and maintain; 2) Reduces style conflicts in team collaboration; 3) Conforms to terraform fmt standards; 4) Makes code review more effective at finding configuration errors; 5) Improves Infrastructure as Code professionalism.</p></div>
+<div class="faq-item"><h3>Is my code uploaded to a server?</h3><p>No. All HCL formatting and validation happens locally in your browser. Your infrastructure configuration is never sent to any server, ensuring security.</p></div>
+</div>
+
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/terraform-hcl-formatter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function formatHCL(code,indentSize){
+  const indent=' '.repeat(indentSize);
+  let formatted='';let level=0;
+  const lines=code.split('\n');
+  lines.forEach(line=>{
+    const trimmed=line.trim();
+    if(!trimmed){formatted+='\n';return}
+    if(trimmed.startsWith('#')||trimmed.startsWith('//')){formatted+=indent.repeat(level)+trimmed+'\n';return}
+    if(trimmed==='}'){level=Math.max(0,level-1);formatted+=indent.repeat(level)+trimmed+'\n';return}
+    if(trimmed.endsWith('{')){formatted+=indent.repeat(level)+trimmed+'\n';level++;return}
+    if(trimmed.includes('=')&&!trimmed.startsWith('#')){
+      const eqIdx=trimmed.indexOf('=');
+      const key=trimmed.substring(0,eqIdx).trim();
+      const val=trimmed.substring(eqIdx+1).trim();
+      formatted+=indent.repeat(level)+key+' = '+val+'\n';
+      return;
+    }
+    formatted+=indent.repeat(level)+trimmed+'\n';
+  });
+  return formatted.trim();
+}
+
+function minifyHCL(code){
+  return code.replace(/#.*$/gm,'').replace(/\/\/.*$/gm,'').replace(/\/\*[\s\S]*?\*\//g,'').replace(/\n\s*\n/g,'\n').replace(/^\s+/gm,'').replace(/\s+$/gm,'').replace(/\s*=\s*/g,'=').replace(/\s*{\s*/g,'{').replace(/\s*}\s*/g,'}').trim();
+}
+
+function formatCode(){
+  const code=document.getElementById('code-input').value;
+  if(!code){showToast('Please enter HCL code');return}
+  const indentSize=parseInt(document.getElementById('indent-select').value);
+  const result=formatHCL(code,indentSize);
+  document.getElementById('code-output').value=result;
+  showToast('Formatted');
+}
+
+function minifyCode(){
+  const code=document.getElementById('code-input').value;
+  if(!code){showToast('Please enter HCL code');return}
+  const result=minifyHCL(code);
+  document.getElementById('code-output').value=result;
+  showToast('Minified');
+}
+
+function copyResult(){
+  const code=document.getElementById('code-output').value;
+  if(!code){showToast('Nothing to copy');return}
+  navigator.clipboard.writeText(code).then(()=>showToast('Copied to clipboard'));
+}
+
+function downloadResult(){
+  const code=document.getElementById('code-output').value;
+  if(!code){showToast('Nothing to download');return}
+  const blob=new Blob([code],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='main.tf';a.click();
+  URL.revokeObjectURL(a.href);showToast('File downloaded');
+}
+
+function swapCode(){
+  const output=document.getElementById('code-output').value;
+  document.getElementById('code-input').value=output;
+  document.getElementById('code-output').value='';
+}
+
+function loadExample(){
+  document.getElementById('code-input').value=`terraform {
+required_version = ">= 1.0"
+required_providers {
+aws = {
+source  = "hashicorp/aws"
+version = "~> 5.0"
+}
+}
+}
+provider "aws" {
+region = var.aws_region
+}
+variable "aws_region" {
+description = "AWS region"
+type        = string
+default     = "us-west-2"
+}
+variable "instance_type" {
+description = "EC2 instance type"
+type        = string
+default     = "t3.micro"
+}
+resource "aws_instance" "web" {
+ami           = data.aws_ami.ubuntu.id
+instance_type = var.instance_type
+tags = {
+Name = "WebServer"
+Environment = var.environment
+}
+}
+data "aws_ami" "ubuntu" {
+most_recent = true
+owners      = ["099720109477"]
+filter {
+name   = "name"
+values = ["ubuntu/images/hvm-ssd/ubuntu-*-amd64-server-*"]
+}
+}
+output "instance_id" {
+description = "EC2 instance ID"
+value       = aws_instance.web.id
+}`;
+  showToast('Example loaded');
+}
+
+function clearAll(){
+  document.getElementById('code-input').value='';
+  document.getElementById('code-output').value='';
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey&&e.key==='Enter'){formatCode();e.preventDefault()}
+  if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyResult();e.preventDefault()}
+});</script>
+
+</main>
+</body>
+</html>

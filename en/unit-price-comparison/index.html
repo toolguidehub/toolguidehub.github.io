@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online unit price calculator. Compare prices of different package sizes to find the best deal. Supports weight (kg/g/lb/oz), volume (L/mL/gal), and coun...">
+<meta name="keywords" content="unit price calculator, price comparison, bulk buy calculator, unit cost, best deal finder">
+<title>Unit Price Calculator | Compare & Save | Free Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/unit-price-comparison/">
+<meta property="og:title" content="Unit Price Calculator | Compare & Save">
+<meta property="og:description" content="Free online unit price calculator. Compare prices of different package sizes to find the best deal. Supports weight (kg/g/lb/oz), volume (L/mL/gal), and coun...">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/unit-price-comparison/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/unit-price-comparison/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Unit Price Calculator","applicationCategory":"UtilityApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online unit price calculator. Compare prices of different package sizes to find the best deal."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is unit price and how is it calculated?","acceptedAnswer":{"@type":"Answer","text":"Unit price = total price ÷ quantity. For example, a 500g bag of coffee at $15 has a unit price of $0.03/g. When comparing different package sizes, convert to the same unit first, then compare unit prices."}},{"@type":"Question","name":"Is buying in bulk always cheaper?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. While bulk packages usually have a lower unit price, sales and promotions can sometimes make smaller packages cheaper. Use this tool to enter prices and quantities for different sizes and find the best deal automatically."}},{"@type":"Question","name":"What units are supported?","acceptedAnswer":{"@type":"Answer","text":"Weight (kg, g, lb, oz), volume (L, mL, gal), and count (pieces, dozen) are supported. Items with different units are automatically converted to a common base unit for fair comparison."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Unit Price Calculator","item":"https://adi63586.github.io/Toolguidehub/en/unit-price-comparison/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{text-align:center;margin-bottom:24px}
+.hero p{color:#94a3b8;font-size:.95rem;max-width:600px;margin:0 auto 8px}
+.badge{display:inline-block;background:rgba(6,182,212,.1);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;border:1px solid rgba(6,182,212,.2)}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:14px}
+.product-row{display:grid;grid-template-columns:1fr 90px 100px 110px 40px;gap:8px;align-items:center;margin-bottom:8px;padding:10px;border-radius:8px;background:#0a0f1e;transition:all .2s}
+.product-row.best{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3)}
+.product-row input,.product-row select{width:100%;padding:8px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem;outline:none}
+.product-row input:focus,.product-row select:focus{border-color:rgba(6,182,212,.4)}
+.product-row .del-btn{background:none;border:none;color:#64748b;cursor:pointer;font-size:1.1rem;padding:4px;border-radius:4px;transition:all .2s}
+.product-row .del-btn:hover{color:#ef4444;background:rgba(239,68,68,.1)}
+.row-header{display:grid;grid-template-columns:1fr 90px 100px 110px 40px;gap:8px;margin-bottom:8px;padding:0 10px}
+.row-header span{color:#64748b;font-size:.75rem;font-weight:500}
+.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-add{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3);margin-top:8px}
+.btn-add:hover{background:rgba(6,182,212,.25)}
+.best-banner{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:14px;margin-top:16px;text-align:center}
+.best-banner .best-label{color:#4ade80;font-size:.85rem}
+.best-banner .best-value{color:#4ade80;font-size:1.3rem;font-weight:700;margin-top:4px}
+.best-banner .best-save{color:#94a3b8;font-size:.8rem;margin-top:4px}
+.faq-item{margin-bottom:16px;border-bottom:1px solid rgba(148,163,184,.08);padding-bottom:16px}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:4px}
+.faq-item p{color:#94a3b8;font-size:.85rem;margin-top:6px;line-height:1.7}
+.footer{text-align:center;color:#64748b;font-size:.85rem;margin-top:32px;padding-top:20px;border-top:1px solid rgba(148,163,184,.08)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+@media(max-width:640px){.product-row,.row-header{grid-template-columns:1fr 70px 80px}.col-unit{display:none}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🛒 Unit Price Calculator</h1>
+
+</div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Unit Price Calculator</p>
+<div class="hero">
+<p>Enter prices, quantities, and units for different products to automatically calculate unit prices and find the best deal. Your smart shopping companion.</p>
+<span class="badge">No signup · Runs in your browser · 100% free</span>
+</div>
+
+<div class="section">
+<h2>📊 Product List</h2>
+<div class="row-header">
+<span>Product Name</span>
+<span>Price ($)</span>
+<span>Quantity</span>
+<span class="col-unit">Unit</span>
+<span></span>
+</div>
+<div id="productList"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+<button class="btn btn-add" onclick="addRow()" style="margin-top:0">+ Add Product</button>
+<button class="btn btn-primary" onclick="copyResult()">📋 Copy Result</button>
+</div>
+<div class="best-banner" id="bestBanner" style="display:none">
+<div class="best-label">🏆 Best Deal</div>
+<div class="best-value" id="bestName"></div>
+<div class="best-save" id="bestSave"></div>
+</div>
+<canvas id="priceChart" style="width:100%;height:200px;margin-top:16px"></canvas>
+</div>
+
+<div class="section">
+<h2>❓ FAQ</h2>
+<div class="faq-item">
+<h3>What is unit price and how is it calculated?</h3>
+<p>Unit price = total price ÷ quantity. For example, a 500g bag of coffee at $15 has a unit price of $0.03/g. Convert to the same unit first, then compare unit prices.</p>
+</div>
+<div class="faq-item">
+<h3>Is buying in bulk always cheaper?</h3>
+<p>Not necessarily. While bulk packages usually have a lower unit price, sales and promotions can sometimes make smaller packages cheaper. Use this tool to find the best deal automatically.</p>
+</div>
+<div class="faq-item">
+<h3>What units are supported?</h3>
+<p>Weight (kg, g, lb, oz), volume (L, mL, gal), and count (pieces, dozen) are supported. Items with different units are automatically converted to a common base for fair comparison.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="text-align:center;color:#64748b;font-size:.85rem;margin-top:32px;padding-top:20px;border-top:1px solid rgba(148,163,184,.08)">
+<p>ToolGuideHub · Pure frontend tools · Your data never leaves your browser</p>
+<p><a href="../index.html">Back to Home</a></p>
+</footer>
+<div class="related-tools" style="max-width:960px;margin:0 auto;padding:1rem;">
+<h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2>
+<div style="display:flex;flex-wrap:wrap;gap:4px;">
+<a href="../../en/price-per-unit-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Unit Price Calculator</a>
+<a href="../../en/discount-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Discount Calculator</a>
+<a href="../../en/tip-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Tip Calculator</a>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var units={
+'kg':1000,'g':1,'lb':453.6,'oz':28.35,
+'L':1000,'mL':1,'ml':1,'gal':3785.4,
+'pc':1,'dozen':12,'pack':1,'box':1
+};
+var unitLabels={'kg':'kg','g':'g','lb':'lb','oz':'oz','L':'L','mL':'mL','ml':'mL','gal':'gal','pc':'pc','dozen':'pc','pack':'pack','box':'box'};
+var productId=0;
+var products=[];
+
+function addRow(name,price,qty,unit){
+products.push({id:++productId,name:name||'',price:price||'',qty:qty||'',unit:unit||'g'});
+render();
+}
+
+function removeRow(id){
+products=products.filter(function(p){return p.id!==id;});
+render();
+}
+
+function getBaseUnit(unit){
+if(['kg','g','lb','oz'].includes(unit))return 'g';
+if(['L','mL','ml','gal'].includes(unit))return 'mL';
+return unit;
+}
+
+function calcUnitPrice(p){
+var price=parseFloat(p.price);
+var qty=parseFloat(p.qty);
+if(!price||!qty||qty<=0||!p.unit||!units[p.unit])return null;
+var baseQty=qty*units[p.unit];
+return price/baseQty;
+}
+
+function render(){
+var list=document.getElementById('productList');
+list.innerHTML='';
+products.forEach(function(p){
+var up=calcUnitPrice(p);
+var div=document.createElement('div');
+div.className='product-row';
+var upStr=up!==null?('$'+up.toFixed(4)+'/'+unitLabels[p.unit]||p.unit):'—';
+div.innerHTML='<input type="text" value="'+p.name+'" placeholder="Product name" oninput="updateProduct('+p.id+',\'name\',this.value)">'
++'<input type="number" value="'+p.price+'" placeholder="0" min="0" step="0.01" oninput="updateProduct('+p.id+',\'price\',this.value)">'
++'<input type="number" value="'+p.qty+'" placeholder="0" min="0" step="0.01" oninput="updateProduct('+p.id+',\'qty\',this.value)">'
++'<select class="col-unit" onchange="updateProduct('+p.id+',\'unit\',this.value)">'+Object.keys(units).map(function(u){return '<option value="'+u+'"'+(p.unit===u?' selected':'')+'>'+u+'</option>'}).join('')+'</select>'
++'<button class="del-btn" onclick="removeRow('+p.id+')">✕</button>';
+list.appendChild(div);
+});
+updateBest();
+}
+
+function updateProduct(id,field,val){
+var p=products.find(function(x){return x.id===id;});
+if(p)p[field]=val;
+updateBest();
+}
+
+function updateBest(){
+var valid=products.filter(function(p){return calcUnitPrice(p)!==null&&p.name;});
+var banner=document.getElementById('bestBanner');
+document.querySelectorAll('.product-row').forEach(function(r){r.classList.remove('best');});
+drawChart();
+if(valid.length<2){banner.style.display='none';return;}
+var best=valid.reduce(function(min,p){var up=calcUnitPrice(p);return min===null||up<min.up?{p:p,up:up}:min;},null);
+if(best){
+banner.style.display='block';
+document.getElementById('bestName').textContent=best.p.name+' — $'+best.up.toFixed(4)+'/'+unitLabels[best.p.unit];
+var worst=valid.reduce(function(max,p){var up=calcUnitPrice(p);return max===null||up>max.up?{p:p,up:up}:max;},null);
+if(worst&&worst.up>best.up){
+var savePct=((worst.up-best.up)/worst.up*100).toFixed(1);
+document.getElementById('bestSave').textContent='Save '+savePct+'% vs the most expensive';
+}
+var idx=products.indexOf(best.p);
+var rows=document.querySelectorAll('.product-row');
+if(rows[idx])rows[idx].classList.add('best');
+}
+}
+
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+
+function drawChart(){
+var canvas=document.getElementById('priceChart');
+if(!canvas)return;
+var valid=products.map(function(p){var up=calcUnitPrice(p);return up===null?null:{name:p.name||'',up:up};}).filter(function(x){return x&&x.name;});
+if(valid.length<2){canvas.style.display='none';return;}
+canvas.style.display='block';
+var dpr=window.devicePixelRatio||1;
+var w=canvas.clientWidth||640;
+var h=200;
+canvas.width=w*dpr;canvas.height=h*dpr;
+var ctx=canvas.getContext('2d');
+ctx.scale(dpr,dpr);
+ctx.clearRect(0,0,w,h);
+var max=Math.max.apply(null,valid.map(function(x){return x.up;}))||1;
+var pad=40;
+var chartW=w-pad*2;
+var chartH=h-32;
+var n=valid.length;
+var gap=chartW/n;
+var bw=Math.min(gap*0.6,60);
+ctx.font='10px sans-serif';
+ctx.textAlign='center';
+valid.forEach(function(x,i){
+var barH=Math.max((x.up/max)*chartH,2);
+var x0=pad+gap*i+gap/2-bw/2;
+var y0=chartH-barH+8;
+var grad=ctx.createLinearGradient(0,y0,0,y0+barH);
+grad.addColorStop(0,'#22d3ee');grad.addColorStop(1,'#0e7490');
+ctx.fillStyle=grad;
+ctx.fillRect(x0,y0,bw,barH);
+ctx.fillStyle='#94a3b8';
+ctx.fillText((x.name.length>8?x.name.slice(0,7)+'…':x.name)||'Product',x0+bw/2,chartH+18);
+ctx.fillStyle='#e2e8f0';
+ctx.fillText('$'+x.up.toFixed(3),x0+bw/2,y0-4);
+});
+}
+
+function copyResult(){
+var valid=products.filter(function(p){return calcUnitPrice(p)!==null&&p.name;});
+if(valid.length<2){showToast('Add at least 2 products to compare');return;}
+var lines=['Unit Price Comparison'];
+valid.forEach(function(p){
+lines.push((p.name||'Product')+': $'+calcUnitPrice(p).toFixed(4)+' / '+unitLabels[p.unit]);
+});
+var best=valid.reduce(function(min,p){var up=calcUnitPrice(p);return min===null||up<min.up?{p:p,up:up}:min;},null);
+if(best)lines.push('Best deal: '+best.p.name+' — $'+best.up.toFixed(4)+'/'+unitLabels[best.p.unit]);
+var text=lines.join('\n');
+if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){showToast('Comparison copied ✅')}).catch(function(){showToast('Copy failed')});}
+else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Comparison copied ✅');}
+}
+
+// Initialize with example data
+addRow('Brand A 500g',7.99,500,'g');
+addRow('Brand B 1kg',13.99,1,'kg');
+addRow('Brand C 2lb',12.50,2,'lb');
+</script>
+</body>
+</html>

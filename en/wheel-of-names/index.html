@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wheel of Names - ToolGuideHub</title>
+  <meta name="description" content="Spin a wheel of names to pick a random winner, with custom entries for giveaways, classroom picks and group decisions.">
+  <meta property="og:title" content="Wheel of Names - ToolGuideHub">
+  <meta property="og:description" content="Spin a wheel of names to pick a random winner, with custom entries for giveaways, classroom picks and group decisions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/wheel-of-names/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Wheel of Names","description":"Free online wheel spinner for random selection","applicationCategory":"Utility"}</script>
+  <style>:root{--text-light:#94a3b8;--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+    header{background:#1e293b;color:#fff;padding:20px 0;text-align:center;border-bottom:1px solid rgba(148,163,184,.1)}
+    header h1{font-size:1.6rem;font-weight:700;letter-spacing:-.5px}
+    header p{font-size:.9rem;color:#94a3b8;margin-top:4px}
+    .container{max-width:700px;margin:0 auto;padding:24px 16px 60px}
+    .section{background:var(--card-bg);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:24px;margin-bottom:20px}
+    h2{font-size:1.25rem;font-weight:600;margin-bottom:16px;color:#0891b2}
+    .form-group{margin-bottom:16px}
+    label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px;color:var(--text-light)}
+    input,textarea{
+      background: var(--surface);
+      color: var(--text);width:100%;padding:10px 12px;border:1.5px solid rgba(148,163,184,.1);border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s;box-sizing:border-box}
+    input:focus,textarea:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+    textarea{resize:vertical;min-height:100px}
+    .wheel-container{display:flex;flex-direction:column;align-items:center;margin:20px 0}
+    canvas{max-width:100%}
+    .pointer{font-size:2rem;margin-top:-10px;z-index:10;position:relative;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+    .result-box{text-align:center;padding:20px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:16px;margin-top:12px}
+    .result-text{font-size:1.4rem;font-weight:700;color:#22d3ee}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;border:none;border-radius:8px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .btn-primary{background:#22d3ee;color:#fff}
+    .btn-primary:hover{background:#0891b2;transform:translateY(-1px)}
+    .btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+    .btn-secondary:hover{background:rgba(148,163,184,.2)}
+    .btn-group{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+    footer{text-align:center;padding:20px;color:var(--text-light);font-size:.85rem}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:.9rem;z-index:9999;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+  @media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/wheel-of-names/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Wheel of Names", "item": "https://adi63586.github.io/Toolguidehub/en/wheel-of-names/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Wheel of Names FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Wheel of Names?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Wheel of Names free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Wheel of Names and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Wheel of Names?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Wheel of Names","description":"Step-by-step guide for using Wheel of Names","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Wheel of Names"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wheel-of-names/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+  <div style="max-width:700px;margin:0 auto;padding:0 16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <h1>🎡 Wheel of Names</h1>
+    <div class="lang-switch" style="display:flex;gap:4px;background:rgba(148,163,184,.1);border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/wheel-of-names/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="index.html" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2);text-decoration:none">EN</a></div>
+    </div>
+<p style="color:#94a3b8;font-size:0.9rem;line-height:1.6;margin:0 0 8px;">Free online wheel spinner for random selection. Customize your name list, spin the wheel to pick randomly. Perfect for giveaways, decisions, and random group...</p>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+  </div></header>
+  <main class="container">
+    <div class="section">
+      <h2>📝 Custom Names</h2>
+      <div class="form-group"><label>Enter names (one per line)</label><textarea id="optionsInput">Option A
+Option B
+Option C
+Option D
+Option E
+Option F</textarea></div>
+      <button class="btn btn-secondary" onclick="initWheel()">🔄 Update Wheel</button>
+    </div>
+    <div class="wheel-container">
+      <div class="pointer">▼</div>
+      <canvas id="wheel" width="400" height="400"></canvas>
+    </div>
+    <div class="result-box" id="resultBox" style="display:none">
+      <div style="font-size:.85rem;color:var(--text-light)">🎯 Result</div>
+      <div class="result-text" id="resultText"></div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="spinBtn" onclick="spin()">🎲 Spin!</button>
+    </div>
+  </main>
+  
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Wheel of Names is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Wheel of Names to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Wheel of Names provides accurate results instantly. Everything runs locally: Wheel of Names and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/lottery-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎰 Lottery Number Generator</a><a href="../../en/dream-journal/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📓 Dream Journal</a><a href="../../en/wheel-spinner/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🌀 Wheel Spinner</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/wheel-of-names/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+    let items = ['Option A','Option B','Option C','Option D','Option E','Option F'];
+    let currentAngle = 0;
+    let spinning = false;
+    const colors = ['#4F46E5','#7C3AED','#EC4899','#F59E0B','#10B981','#3B82F6','#EF4444','#8B5CF6','#06B6D4','#F97316','#84CC16','#6366F1','#14B8A6','#E11D48','#0EA5E9','#A855F7','#22C55E','#EAB308','#64748B','#D946EF'];
+    function initWheel(){
+      const text = document.getElementById('optionsInput').value.trim();
+      items = text.split('\n').filter(l=>l.trim());
+      if(items.length<2){items=['Item 1','Item 2'];}
+      if(items.length>20){items=items.slice(0,20);}
+      document.getElementById('resultBox').style.display='none';
+      drawWheel();
+    }
+    function drawWheel(angle=0){
+      const canvas = document.getElementById('wheel');
+      const ctx = canvas.getContext('2d');
+      const cx = canvas.width/2, cy = canvas.height/2, r = 180;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const sliceAngle = (2*Math.PI)/items.length;
+      items.forEach((item,i)=>{
+        const start = angle + i*sliceAngle - Math.PI/2;
+        const end = start + sliceAngle;
+        ctx.beginPath();
+        ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,r,start,end);
+        ctx.closePath();
+        ctx.fillStyle = colors[i%colors.length];
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.save();
+        ctx.translate(cx,cy);
+        ctx.rotate(start+sliceAngle/2);
+        ctx.textAlign='center';
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 14px -apple-system,BlinkMacSystemFont,sans-serif';
+        ctx.fillText(item.length>10?item.slice(0,9)+'..':item, r*0.6, 5);
+        ctx.restore();
+      });
+      ctx.beginPath();
+      ctx.arc(cx,cy,20,0,2*Math.PI);
+      ctx.fillStyle='#fff';
+      ctx.fill();
+      ctx.strokeStyle='#e2e8f0';
+      ctx.lineWidth=3;
+      ctx.stroke();
+    }
+    function spin(){
+      if(spinning)return;
+      spinning = true;
+      document.getElementById('spinBtn').disabled = true;
+      const targetIdx = Math.floor(Math.random()*items.length);
+      const sliceAngle = (2*Math.PI)/items.length;
+      const targetAngle = -targetIdx*sliceAngle + Math.PI/2;
+      const extraSpins = (3+Math.floor(Math.random()*4))*2*Math.PI;
+      const totalAngle = extraSpins + targetAngle;
+      const duration = 3000;
+      const startTime = Date.now();
+      const startAngle = currentAngle;
+      function animate(){
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed/duration,1);
+        const eased = 1-Math.pow(1-progress,3);
+        currentAngle = startAngle + totalAngle*eased;
+        drawWheel(currentAngle);
+        if(progress<1){
+          requestAnimationFrame(animate);
+        }else{
+          spinning = false;
+          document.getElementById('spinBtn').disabled = false;
+          document.getElementById('resultBox').style.display = 'block';
+          document.getElementById('resultText').textContent = items[targetIdx];
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    initWheel();
+  </script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

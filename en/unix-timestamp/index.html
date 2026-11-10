@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert Unix timestamps to dates and back with second or millisecond precision, and watch the current epoch time update live.">
+<meta name="keywords" content="Unix timestamp,timestamp converter,epoch,online tool,free">
+<title>Unix Timestamp Converter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/unix-timestamp/">
+<meta property="og:title" content="Unix Timestamp Converter - ToolGuideHub">
+<meta property="og:description" content="Convert Unix timestamps to dates and back with second or millisecond precision, and watch the current epoch time update live.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/unix-timestamp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unix Timestamp Converter", "description": "Free online Unix timestamp converter. Convert between timestamps and dates, supports second/millisecond precision.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Unix Timestamp Converter", "item": "https://adi63586.github.io/Toolguidehub/en/unix-timestamp/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Unix Timestamp Converter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Unix Timestamp Converter?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Unix Timestamp Converter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Enter Timestamp and Precision are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Unix Timestamp Converter?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Unix Timestamp Converter","description":"Step-by-step guide for using Unix Timestamp Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Unix Timestamp Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:800px;margin:0 auto;padding:0 16px}
+header{background:#1e293b;border-bottom:1px solid #334155;padding:16px 0}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo{font-size:1.3em;font-weight:700;color:#e2e8f0}
+.back-link{color:#94a3b8;font-size:.9em}
+main{padding:40px 0}
+h1{font-size:2em;margin-bottom:8px;color:#f1f5f9}
+.subtitle{color:#94a3b8;margin-bottom:32px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:24px;margin-bottom:20px}
+.card h3{color:#06b6d4;margin-bottom:16px;font-size:1.1em}
+.current-ts{font-size:2.5em;font-weight:700;color:#f1f5f9;text-align:center;padding:16px;background:#0f172a;border-radius:8px;font-family:monospace;margin-bottom:12px}
+.ts-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.ts-controls .btn-sm{padding:6px 16px;background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:6px;cursor:pointer;font-size:.9em}
+.ts-controls .btn-sm:hover{background:#475569}
+.input-group{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px}
+.input-group label{font-size:.9em;color:#94a3b8;display:block;margin-bottom:4px}
+.input-group input,.input-group select{padding:12px 16px;border:1px solid #334155;border-radius:8px;background:#1e293b;color:#e2e8f0;font-size:1em;flex:1;min-width:150px}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:#06b6d4}
+.btn{padding:12px 24px;background:#06b6d4;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:1em;font-weight:600;white-space:nowrap}
+.btn:hover{background:#0891b2}
+.result{background:#0f172a;border-radius:8px;padding:16px;margin-top:16px;font-family:monospace;font-size:1.1em;color:#34d399;word-break:break-all}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.result-item{background:#0f172a;border-radius:8px;padding:12px}
+.result-item .label{font-size:.8em;color:#64748b;margin-bottom:4px}
+.result-item .value{font-family:monospace;font-size:1em;color:#34d399;word-break:break-all}
+footer{background:#1e293b;border-top:1px solid #334155;padding:24px 0;text-align:center;color:#64748b;margin-top:60px}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;border:1px solid #334155;opacity:0;transition:opacity .3s;z-index:9999;pointer-events:none}
+#toast.show{opacity:1}
+@media(max-width:375px){h1{font-size:1.5em}.result-grid{grid-template-columns:1fr}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/unix-timestamp/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px"><div class="header-left"><span class="logo">⏱️ ToolGuideHub</span><a href="../../" class="back-link">← Back to Home</a></div><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/unix-timestamp/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="index.html" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee;text-decoration:none">EN</a></div></div></header>
+<main><div class="container">
+<h1>Unix Timestamp Converter</h1>
+<p class="subtitle">Real-time Unix timestamp display, convert between timestamps and dates</p>
+<div class="card">
+  <h3>Current Timestamp</h3>
+  <div class="current-ts" id="currentTs">-</div>
+  <div class="ts-controls">
+    <button class="btn-sm" onclick="copyTextById('currentTs')">Copy Seconds</button>
+    <button class="btn-sm" onclick="copyTextById('currentMs')">Copy Milliseconds</button>
+    <div style="display:none"><span id="currentMs"></span></div>
+  </div>
+</div>
+<div class="card">
+  <h3>Timestamp → Date</h3>
+  <div class="input-group">
+    <div style="flex:1"><label>Enter Timestamp</label><input type="number" id="tsInput" placeholder="e.g. 1700000000" /></div>
+    <div style="flex:1"><label>Precision</label><select id="tsUnit"><option value="s">Seconds (10 digits)</option><option value="ms">Milliseconds (13 digits)</option></select></div>
+    <button class="btn" id="tsToDateBtn">Convert</button>
+  </div>
+  <div class="result-grid">
+    <div class="result-item"><div class="label">UTC</div><div class="value" id="utcResult">-</div></div>
+    <div class="result-item"><div class="label">Local Time</div><div class="value" id="localResult">-</div></div>
+    <div class="result-item"><div class="label">ISO 8601</div><div class="value" id="isoResult">-</div></div>
+    <div class="result-item"><div class="label">Day of Week</div><div class="value" id="dayResult">-</div></div>
+  </div>
+</div>
+<div class="card">
+  <h3>Date → Timestamp</h3>
+  <div class="input-group">
+    <div style="flex:1"><label>Select Date & Time</label><input type="datetime-local" id="dateInput" /></div>
+    <button class="btn" id="dateToTsBtn">Convert</button>
+  </div>
+  <div class="result" id="dateToTsResult" style="display:none"></div>
+</div>
+</div>
+<h2>What is Unix Timestamp Converter?</h2><p>Unix Timestamp Converter is a free online tool that runs entirely in your browser. No download or signup needed — enter Enter Timestamp and Precision to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Convert units quickly when working with international measurements</li><li>Translate metric and imperial units while reading foreign materials</li><li>Verify conversion results in engineering or scientific work</li><li>Quick conversions on mobile without searching for formulas</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/unix-timestamp/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyTextById(id){var el=document.getElementById(id);if(!el)return;navigator.clipboard.writeText(el.textContent||el.innerText).then(function(){showToast("Copied")})["catch"](function(){showToast("Copy failed")})}
+
+function updateCurrentTs(){
+  var now = Date.now();
+  document.getElementById('currentTs').textContent = Math.floor(now/1000);
+  document.getElementById('currentMs').textContent = now;
+}
+updateCurrentTs();
+setInterval(updateCurrentTs, 1000);
+
+document.getElementById('tsToDateBtn').addEventListener('click', function(){
+  var val = document.getElementById('tsInput').value.trim();
+  if(!val){ showToast('Please enter a timestamp'); return; }
+  var ts = parseInt(val);
+  if(document.getElementById('tsUnit').value === 's') ts *= 1000;
+  var d = new Date(ts);
+  if(isNaN(d.getTime())){ showToast('Invalid timestamp'); return; }
+  document.getElementById('utcResult').textContent = d.toUTCString();
+  document.getElementById('localResult').textContent = d.toString();
+  document.getElementById('isoResult').textContent = d.toISOString();
+  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  document.getElementById('dayResult').textContent = days[d.getDay()];
+});
+
+document.getElementById('dateToTsBtn').addEventListener('click', function(){
+  var val = document.getElementById('dateInput').value;
+  if(!val){ showToast('Please select a date'); return; }
+  var d = new Date(val);
+  var sec = Math.floor(d.getTime()/1000);
+  var ms = d.getTime();
+  var el = document.getElementById('dateToTsResult');
+  el.style.display = 'block';
+  el.innerHTML = 'Seconds: <b>'+sec+'</b><br>Milliseconds: <b>'+ms+'</b>';
+});
+</script>
+</body>
+</html>

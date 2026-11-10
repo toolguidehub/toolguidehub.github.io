@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Work out CPC, CTR, CPM, CPA and ROI from your ad spend and campaign results.">
+<meta name="keywords" content="CPC calculator, cost per click, ad metrics, CPM, CTR, ROI, online calculator, tool, free">
+<title>CPC Calculator - Ad Budget | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cost-per-click-calculator/">
+<meta property="og:title" content="CPC Calculator - Ad Budget | ToolGuideHub">
+<meta property="og:description" content="Work out CPC, CTR, CPM, CPA and ROI from your ad spend and campaign results.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cost-per-click-calculator/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg"><meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow"><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Online CPC Calculator","description":"Free online CPC Calculator. Calculate CPC, CTR, CPM, CPA, ROI. Pure frontend, private & secure.","applicationCategory":"BusinessApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Online CPC Calculator","item":"https://adi63586.github.io/Toolguidehub/en/cost-per-click-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Online CPC Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Online CPC Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Online CPC Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Total Ad Spend and Total Clicks are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Online CPC Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Online CPC Calculator","description":"Step-by-step guide for using Online CPC Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Online CPC Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(34,211,238,.04));border:1px solid rgba(6,182,212,.15);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.hero p{color:#94a3b8;font-size:.9rem;flex:1;min-width:200px}
+.badge{background:rgba(34,211,238,.15);color:#22d3ee;padding:4px 10px;border-radius:12px;font-size:.75rem;white-space:nowrap;border:1px solid rgba(34,211,238,.25)}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.input-grid{grid-template-columns:1fr}}
+.input-group{background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1)}
+.input-group label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:8px}
+.input-group input,.input-group select{width:100%;padding:10px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.95rem;transition:border-color .2s}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.input-group .hint{font-size:.8rem;color:#64748b;margin-top:4px}
+.calculator-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.calculator-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+@media(max-width:768px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.results-grid{grid-template-columns:1fr}}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:16px;text-align:center}
+.result-card .label{font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.result-card .value{font-size:1.2rem;color:#22d3ee;font-weight:600}
+.result-card .sub{font-size:.8rem;color:#64748b;margin-top:4px}
+.result-card.highlight{border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.05)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.copy-btn{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;white-space:nowrap}.copy-btn:hover{background:rgba(6,182,212,.25)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cost-per-click-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📢 Online CPC Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Online CPC Calculator</p>
+<div class="hero"><p>Free online CPC Calculator. Enter ad spend and clicks to calculate Cost Per Click, CTR, CPM, CPA, and ROI. Perfect for Google Ads, Facebook Ads, and digital advertising analysis. Pure frontend, private & secure. | No sign-up · Data never uploaded</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+
+<div class="calculator-section">
+  <h2>📊 Enter Ad Data</h2>
+  <div class="input-grid">
+    <div class="input-group">
+      <label for="totalCost">Total Ad Spend ($)</label>
+      <input type="number" id="totalCost" value="1000" min="0" step="any">
+      <div class="hint">Total campaign expenditure</div>
+    </div>
+    <div class="input-group">
+      <label for="clicks">Total Clicks</label>
+      <input type="number" id="clicks" value="500" min="1" step="1">
+      <div class="hint">Total clicks received</div>
+    </div>
+    <div class="input-group">
+      <label for="impressions">Total Impressions</label>
+      <input type="number" id="impressions" value="20000" min="0" step="1">
+      <div class="hint">Total ad impressions (optional)</div>
+    </div>
+    <div class="input-group">
+      <label for="conversions">Conversions</label>
+      <input type="number" id="conversions" value="25" min="0" step="1">
+      <div class="hint">Total conversions (optional)</div>
+    </div>
+    <div class="input-group">
+      <label for="revenue">Total Revenue ($)</label>
+      <input type="number" id="revenue" value="5000" min="0" step="any">
+      <div class="hint">Revenue from conversions (optional)</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="calculate()">🧮 Calculate</button>
+    <button class="btn btn-secondary" onclick="resetAll()">🔄 Reset</button>
+  </div>
+</div>
+
+<div class="calculator-section" id="resultsSection" style="display:none">
+  <h2>📈 Ad Metrics</h2>
+  <div class="results-grid">
+    <div class="result-card highlight">
+      <div class="label">CPC (Cost Per Click)</div>
+      <div class="value" id="cpc">-</div>
+      <div class="sub">Spend ÷ Clicks</div>
+    </div>
+    <div class="result-card">
+      <div class="label">CTR (Click-Through Rate)</div>
+      <div class="value" id="ctr">-</div>
+      <div class="sub">Clicks ÷ Impressions</div>
+    </div>
+    <div class="result-card">
+      <div class="label">CPM (Cost Per Mille)</div>
+      <div class="value" id="cpm">-</div>
+      <div class="sub">Spend ÷ Impressions×1000</div>
+    </div>
+    <div class="result-card">
+      <div class="label">ROI</div>
+      <div class="value" id="roi">-</div>
+      <div class="sub">(Revenue-Spend)÷Spend</div>
+    </div>
+    <div class="result-card">
+      <div class="label">CPA (Cost Per Acquisition)</div>
+      <div class="value" id="cpa">-</div>
+      <div class="sub">Spend ÷ Conversions</div>
+    </div>
+    <div class="result-card">
+      <div class="label">CVR (Conversion Rate)</div>
+      <div class="value" id="cvr">-</div>
+      <div class="sub">Conversions ÷ Clicks</div>
+    </div>
+    <div class="result-card">
+      <div class="label">Revenue Per Conversion</div>
+      <div class="value" id="rpc">-</div>
+      <div class="sub">Revenue ÷ Conversions</div>
+    </div>
+    <div class="result-card">
+      <div class="label">Net Profit</div>
+      <div class="value" id="netProfit">-</div>
+      <div class="sub">Revenue - Spend</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-section">
+  <h2>📖 How to Use</h2>
+  <h3>CPC = Cost Per Click</h3>
+  <p>CPC = Total Ad Spend ÷ Clicks. A core metric for search and display ads. Lower CPC means lower cost per user.</p>
+  <h3>CTR = Click-Through Rate</h3>
+  <p>CTR = Clicks ÷ Impressions × 100%. High CTR usually means effective creative. Industry averages: search ads 3-5%, display ads 0.5-1%.</p>
+  <h3>CPM = Cost Per Mille (Thousand Impressions)</h3>
+  <p>CPM = Spend ÷ Impressions × 1000. Mainly used for brand and display campaigns. Lower CPM means cheaper brand exposure.</p>
+  <h3>ROI = Return on Investment</h3>
+  <p>ROI = (Revenue - Spend) ÷ Spend × 100%. Positive = profitable, negative = loss. A healthy ad ROI should typically exceed 100%.</p>
+</div>
+
+<div class="info-section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item"><h3>What is a good CPC?</h3><p>CPC varies widely by industry. Google Search averages ~$1-2, legal can hit $6+, ecommerce ~$0.5-1. Key is keeping CPC below profit per conversion.</p></div>
+  <div class="faq-item"><h3>Is my data secure?</h3><p>Absolutely. All calculations run locally — no ad spend data is ever uploaded. Works offline too.</p></div>
+  <div class="faq-item"><h3>CPM vs CPC — which matters more?</h3><p>Depends on goals: brand exposure → CPM, direct conversions → CPC. Analyzing both gives a complete picture.</p></div>
+</div>
+
+<div class="ad-slot">
+
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">🌙 Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+</main>
+<footer class="footer">
+<div style="margin-bottom:12px"><a href="../index.html">Home</a><a href="../index.html">All Tools</a><a href="../contact/">Contact</a><a href="../../en/privacy/">Privacy Policy</a><a href="../../en/terms/">Terms of Service</a><a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../../en/cost-per-click-calculator/">中文</a></div>
+<p>Online CPC Calculator | No sign-up · Data never uploaded</p>
+
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function resetAll(){document.getElementById('totalCost').value=1000;document.getElementById('clicks').value=500;document.getElementById('impressions').value=20000;document.getElementById('conversions').value=25;document.getElementById('revenue').value=5000;document.getElementById('resultsSection').style.display='none';}
+function calculate(){
+  var cost=parseFloat(document.getElementById('totalCost').value)||0;
+  var clicks=parseInt(document.getElementById('clicks').value)||0;
+  var imps=parseInt(document.getElementById('impressions').value)||0;
+  var convs=parseInt(document.getElementById('conversions').value)||0;
+  var rev=parseFloat(document.getElementById('revenue').value)||0;
+  if(clicks<=0){showToast('Clicks must be greater than 0');return;}
+  var cpc=cost/clicks;
+  document.getElementById('cpc').textContent='$'+cpc.toFixed(2);
+  if(imps>0){
+    document.getElementById('ctr').textContent=(clicks/imps*100).toFixed(2)+'%';
+    document.getElementById('cpm').textContent='$'+(cost/imps*1000).toFixed(2);
+  }else{
+    document.getElementById('ctr').textContent='N/A';
+    document.getElementById('cpm').textContent='N/A';
+  }
+  if(cost>0&&rev>0){
+    document.getElementById('roi').textContent=((rev-cost)/cost*100).toFixed(1)+'%';
+  }else{
+    document.getElementById('roi').textContent='N/A';
+  }
+  if(convs>0){
+    document.getElementById('cpa').textContent='$'+(cost/convs).toFixed(2);
+    document.getElementById('cvr').textContent=(convs/clicks*100).toFixed(2)+'%';
+    if(rev>0){document.getElementById('rpc').textContent='$'+(rev/convs).toFixed(2);}
+    else{document.getElementById('rpc').textContent='N/A';}
+  }else{
+    document.getElementById('cpa').textContent='N/A';
+    document.getElementById('cvr').textContent='N/A';
+    document.getElementById('rpc').textContent='N/A';
+  }
+  if(rev>0){
+    document.getElementById('netProfit').textContent='$'+(rev-cost).toFixed(2);
+  }else{
+    document.getElementById('netProfit').textContent='N/A';
+  }
+  document.getElementById('resultsSection').style.display='block';
+  showToast('Calculation complete! CPC: $'+cpc.toFixed(2));
+}
+</script>
+<script>
+function copyResult(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  const text = el.textContent || el.value || el.innerText || '';
+  navigator.clipboard.writeText(text.trim()).then(function() {
+    showToast('Copied to clipboard');
+  }).catch(function() { showToast('Copy failed'); });
+}
+function showToast(msg) {
+  let t = document.querySelector('.toast');
+  if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+</script>
+</body>
+</html>

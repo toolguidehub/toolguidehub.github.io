@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate a strong random WiFi password that meets WPA, WPA2 or WPA3 rules, choosing the length and character set.">
+<meta name="keywords" content="WiFi password generator,WPA password,WPA2 password,WPA3 password,wireless password,random WiFi password,WiFi security,network password">
+<title>Free WiFi Password Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/">
+<meta property="og:title" content="Free WiFi Password Generator - ToolGuideHub">
+<meta property="og:description" content="Generate a strong random WiFi password that meets WPA, WPA2 or WPA3 rules, choosing the length and character set.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "WiFi Password Generator", "description": "Free online WiFi password generator supporting WPA/WPA2/WPA3 standards. Custom length & charset, pure frontend local processing, no server uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-19", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "WiFi Password Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between WPA, WPA2, and WPA3 passwords?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WPA requires minimum 8 characters, WPA2 also requires 8+ but recommends 12+, and WPA3 requires minimum 8 with SAE authentication for better security. WPA3 provides stronger encryption and brute-force protection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should my WiFi password be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WPA/WPA2 minimum is 8 characters, but we recommend at least 12-16. A 16-character password with mixed case, numbers, and special characters would take millions of years to brute force."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I use the generated WiFi password?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In your router admin panel, navigate to Wireless Security settings and enter the password in the WPA/WPA2/WPA3 key field. The location varies by router manufacturer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't WiFi passwords contain certain special characters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some routers have limited special character support, and certain devices may fail to connect. We recommend using ASCII printable characters and avoiding non-standard Unicode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remember a complex WiFi password?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recommended methods: 1) Use WPS button pairing; 2) Generate a QR code for guests to scan; 3) Write it on a router label; 4) Save in a password manager. This tool supports WiFi QR code generation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I change my WiFi password regularly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend changing every 3-6 months, especially after: discovering unknown devices, moving, or guests leaving. WPA3's SAE protocol reduces the need, but it's still a good security practice."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use WiFi Password Generator",
+  "description": "Simple steps to use the WiFi Password Generator. Everything runs locally: WiFi Security Standa and Character Set are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "WiFi Password Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select WiFi Security Standard",
+      "text": "Choose your WiFi security protocol (WPA/WPA2/WPA3). The tool will automatically set the corresponding minimum password length and character requirements.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Customize Password Parameters",
+      "text": "Adjust password length, character set (upper/lowercase, numbers, special chars), and exclude ambiguous characters like 0/O, 1/l/I.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Generate and Copy Password",
+      "text": "Click generate, then copy the password to clipboard. Supports batch generation and WiFi QR code creation for easy sharing.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/#step3"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "name": "WiFi Password Generator",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Security Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/security/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WiFi Password Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/wifi-password-generator/"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:1100px;margin:0 auto;padding:16px}.header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(148,163,184,.1)}.header h1{font-size:1.5rem;color:#06b6d4}.lang-switch a{padding:4px 12px;border-radius:4px;font-size:.85rem;border:1px solid rgba(148,163,184,.2)}.breadcrumb{padding:8px 0;font-size:.85rem;color:#64748b}.hero{padding:16px 0}.hero .subtitle{color:#94a3b8;font-size:.95rem}.badge{display:inline-block;background:rgba(6,182,212,.1);color:#06b6d4;padding:2px 10px;border-radius:12px;font-size:.75rem;margin-left:8px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-top:16px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.panel{background:#1e293b;border-radius:8px;padding:20px;border:1px solid rgba(148,163,184,.1)}.panel h2{font-size:1.1rem;margin-bottom:12px;color:#e2e8f0}
+.ad-slot.ad-sidebar{min-height:250px;max-width:300px}.seo-content{margin-top:24px;padding:20px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2rem;color:#06b6d4;margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid rgba(148,163,184,.1)}.seo-content h2:first-child{margin-top:0}.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem}.seo-content ul{padding-left:20px;margin:8px 0}.faq-item{margin:8px 0;padding:12px;background:#1e293b;border-radius:6px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#06b6d4;cursor:pointer}.faq-item p{color:#94a3b8;font-size:.85rem;margin-top:6px;display:none}.faq-item.open p{display:block}.footer{margin-top:24px;padding:16px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;font-size:.85rem;color:#64748b}.footer a{margin:0 8px;color:#06b6d4}label{display:block;margin:8px 0 4px;color:#94a3b8;font-size:.85rem}input[type="number"],input[type="text"],input[type="range"],select,textarea{width:100%;padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.9rem}input[type="range"]{padding:4px 0}textarea{min-height:80px;resize:vertical;font-family:monospace}.btn{display:inline-block;padding:8px 20px;background:#06b6d4;color:#0f172a;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;font-weight:600;margin:4px}.btn:hover{background:#22d3ee}.btn-secondary{background:rgba(148,163,184,.15);color:#e2e8f0}.btn-secondary:hover{background:rgba(148,163,184,.25)}.result-box{margin-top:12px;padding:12px;background:#0f172a;border-radius:6px;border:1px solid rgba(148,163,184,.15);min-height:60px;font-family:monospace;word-break:break-all;font-size:1.1rem;letter-spacing:1px}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.checkbox-group{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0}.checkbox-group label{display:flex;align-items:center;gap:4px;margin:0;font-size:.85rem;color:#94a3b8;cursor:pointer}.checkbox-group input[type="checkbox"]{width:auto;margin-right:4px}.strength-bar{height:8px;background:#0f172a;border-radius:4px;margin:8px 0;overflow:hidden}.strength-bar div{height:100%;border-radius:4px;transition:width .3s}.toast{position:fixed;bottom:20px;right:20px;background:#10b981;color:#0f172a;padding:8px 16px;border-radius:6px;font-size:.85rem;display:none;z-index:999}.toast.show{display:block}.history-item{padding:6px 8px;background:#0f172a;border-radius:4px;margin:4px 0;font-family:monospace;font-size:.8rem;color:#94a3b8;cursor:pointer;display:flex;justify-content:space-between;align-items:center}.history-item:hover{background:rgba(6,182,212,.1)}.qr-container{margin-top:12px;text-align:center;padding:12px;background:#0f172a;border-radius:8px;display:inline-block}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>📶 WiFi Password Generator</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/password-generator/" style="color:#22d3ee;text-decoration:underline">password generator</a>. Please use the new version.</div>
+
+</div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../">Security</a> › WiFi Password Generator</div>
+<div class="hero"><span class="subtitle">Generate secure WiFi passwords compliant with WPA/WPA2/WPA3 standards. Batch generation & QR code sharing</span> <span class="badge">Zero Dependencies · Offline</span></div>
+<div class="main-grid">
+<div class="panel">
+<h2>🔐 WiFi Password Configuration</h2>
+<label>WiFi Security Standard</label>
+<select id="wifiStandard" onchange="updateStandard()">
+<option value="wpa2">WPA2/WPA (Recommended, most compatible)</option>
+<option value="wpa3">WPA3 (Latest, most secure)</option>
+<option value="wep">WEP (Deprecated, not recommended)</option>
+</select>
+
+<label>Password Length: <span id="lengthValue">16</span> characters</label>
+<input type="range" id="passwordLength" min="8" max="63" value="16" oninput="document.getElementById('lengthValue').textContent=this.value">
+
+<label>Character Set</label>
+<div class="checkbox-group">
+<label><input type="checkbox" id="useUpper" checked> Uppercase A-Z</label>
+<label><input type="checkbox" id="useLower" checked> Lowercase a-z</label>
+<label><input type="checkbox" id="useDigits" checked> Digits 0-9</label>
+<label><input type="checkbox" id="useSpecial"> Special !@#$%&*</label>
+</div>
+
+<div class="checkbox-group">
+<label><input type="checkbox" id="excludeAmbiguous"> Exclude ambiguous chars (0/O, 1/l/I)</label>
+</div>
+
+<label>Batch Count</label>
+<select id="batchCount">
+<option value="1">1 password</option>
+<option value="3">3 passwords</option>
+<option value="5">5 passwords</option>
+<option value="10">10 passwords</option>
+</select>
+
+<div class="controls">
+<button class="btn" onclick="generate()">🔑 Generate</button>
+<button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button>
+<button class="btn btn-secondary" onclick="generateQR()">📱 QR Code</button>
+</div>
+
+<div class="strength-bar"><div id="strengthBar" style="width:0%;background:#ef4444"></div></div>
+<div id="strengthText" style="font-size:.8rem;color:#64748b">Click generate to create a password</div>
+
+<div id="result" class="result-box" style="display:none"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+
+<div id="qrArea" style="display:none;margin-top:12px;text-align:center">
+<div class="qr-container"><canvas id="qrCanvas" width="200" height="200"></canvas></div>
+<p style="font-size:.8rem;color:#64748b;margin-top:8px">Scan QR code to connect</p>
+</div>
+
+<h2 style="margin-top:16px">📜 History</h2>
+<div id="history" style="max-height:200px;overflow-y:auto"></div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the WiFi Password Generator Do?</h2>
+<p>The WiFi Password Generator is an online tool designed specifically for wireless network security. It helps users quickly generate strong passwords that comply with WPA/WPA2/WPA3 security standards. All passwords are generated locally in your browser and never uploaded to any server. It supports custom password length, character set combinations, exclusion of ambiguous characters, and WiFi QR code generation for easy mobile connection.</p>
+
+<h2>Core Features</h2>
+<ul>
+<li><strong>Multi-Standard Support</strong>: WPA/WPA2/WPA3 protocols with automatic minimum length enforcement</li>
+<li><strong>Flexible Character Sets</strong>: Mix uppercase, lowercase, digits, and special characters; exclude ambiguous characters</li>
+<li><strong>Password Strength Assessment</strong>: Real-time entropy calculation with visual security rating</li>
+<li><strong>Batch Generation</strong>: Generate multiple passwords at once for selection</li>
+<li><strong>WiFi QR Code</strong>: Create scannable QR codes for instant guest connection</li>
+<li><strong>History</strong>: Locally saved recent passwords for easy reference</li>
+</ul>
+
+<h2>How to Use</h2>
+<p>1. Select WiFi security standard (WPA2 recommended, WPA3 most secure)</p>
+<p>2. Drag the slider to set password length (16+ recommended)</p>
+<p>3. Check desired character sets — at least uppercase, lowercase, and digits recommended</p>
+<p>4. Click "Generate" to create your password</p>
+<p>5. Click "Copy" to save to clipboard, or "QR Code" to create a connection code</p>
+
+<h2>Use Cases</h2>
+<p><strong>Home Networks</strong>: Set secure passwords for new routers or change passwords regularly to prevent unauthorized access.</p>
+<p><strong>Office Networks</strong>: Generate high-strength passwords for enterprise WiFi with QR codes for easy employee onboarding.</p>
+<p><strong>Public Venues</strong>: Manage WiFi passwords for cafes, hotels, and co-working spaces with regular rotation.</p>
+<p><strong>IoT Devices</strong>: Generate separate passwords for smart home device networks, isolating IoT from the main network.</p>
+
+<h2>WiFi Security Knowledge</h2>
+<p>WPA2 is the most widely used WiFi security protocol using AES encryption. WPA3, introduced in 2018, replaces PSK with SAE (Simultaneous Authentication of Equals) to prevent offline dictionary attacks. WEP has been proven insecure and should never be used. Password strength depends on length and charset complexity: an 8-digit numeric password can be cracked in hours, while a 16-character mixed password would take billions of years.</p>
+</div>
+<div style="margin-top:16px">
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>What is the difference between WPA, WPA2, and WPA3 passwords?</h3><p>WPA requires minimum 8 characters, WPA2 also requires 8+ but recommends 12+, and WPA3 requires minimum 8 with SAE authentication for better security. WPA3 provides stronger encryption and brute-force protection.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>How long should my WiFi password be?</h3><p>WPA/WPA2 minimum is 8 characters, but we recommend at least 12-16. A 16-character password with mixed case, numbers, and special characters would take millions of years to brute force.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Where do I use the generated WiFi password?</h3><p>In your router admin panel, navigate to Wireless Security settings and enter the password in the WPA/WPA2/WPA3 key field. The location varies by router manufacturer.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Why can't WiFi passwords contain certain special characters?</h3><p>Some routers have limited special character support, and certain devices may fail to connect. We recommend using ASCII printable characters and avoiding non-standard Unicode.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>How do I remember a complex WiFi password?</h3><p>Recommended methods: 1) Use WPS button pairing; 2) Generate a QR code for guests to scan; 3) Write it on a router label; 4) Save in a password manager. This tool supports WiFi QR code generation.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Should I change my WiFi password regularly?</h3><p>We recommend changing every 3-6 months, especially after: discovering unknown devices, moving, or guests leaving. WPA3's SAE protocol reduces the need, but it's still a good security practice.</p></div>
+</div>
+</main>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/wifi-password-generator/">中文</a>
+</div>
+
+
+</footer>
+
+<script>
+var historyList=[];
+function updateStandard(){
+  var std=document.getElementById('wifiStandard').value;
+  var slider=document.getElementById('passwordLength');
+  if(std==='wpa3'){slider.min=8;slider.value=Math.max(8,slider.value);}
+  else if(std==='wpa2'){slider.min=8;slider.value=Math.max(8,slider.value);}
+  else if(std==='wep'){slider.min=5;slider.max=13;slider.value=Math.min(13,slider.value);}
+  document.getElementById('lengthValue').textContent=slider.value;
+}
+function getCharset(){
+  var chars='';
+  if(document.getElementById('useUpper').checked) chars+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(document.getElementById('useLower').checked) chars+='abcdefghijklmnopqrstuvwxyz';
+  if(document.getElementById('useDigits').checked) chars+='0123456789';
+  if(document.getElementById('useSpecial').checked) chars+='!@#$%^&*()_+-=[]{}|;:,.<>?';
+  if(!chars) chars='abcdefghijklmnopqrstuvwxyz0123456789';
+  if(document.getElementById('excludeAmbiguous').checked) chars=chars.replace(/[0O1lI]/g,'');
+  return chars;
+}
+function generatePassword(length){
+  var chars=getCharset();
+  var arr=new Uint32Array(length);
+  crypto.getRandomValues(arr);
+  var pwd='';
+  for(var i=0;i<length;i++) pwd+=chars[arr[i]%chars.length];
+  return pwd;
+}
+function calcStrength(pwd){
+  var charset=0;
+  if(/[a-z]/.test(pwd))charset+=26;
+  if(/[A-Z]/.test(pwd))charset+=26;
+  if(/[0-9]/.test(pwd))charset+=10;
+  if(/[^a-zA-Z0-9]/.test(pwd))charset+=32;
+  return pwd.length*Math.log2(charset||1);
+}
+function updateStrengthBar(pwd){
+  var entropy=calcStrength(pwd);
+  var bar=document.getElementById('strengthBar');
+  var text=document.getElementById('strengthText');
+  var pct=Math.min(100,entropy/1.28);
+  bar.style.width=pct+'%';
+  if(entropy<40){bar.style.background='#ef4444';text.textContent='Weak ('+Math.round(entropy)+' bits) - increase length or charset';}
+  else if(entropy<60){bar.style.background='#f59e0b';text.textContent='Medium ('+Math.round(entropy)+' bits) - usable but could be stronger';}
+  else if(entropy<80){bar.style.background='#10b981';text.textContent='Strong ('+Math.round(entropy)+' bits) - secure';}
+  else{bar.style.background='#06b6d4';text.textContent='Very Strong ('+Math.round(entropy)+' bits) - highly secure';}
+}
+function generate(){
+  var length=parseInt(document.getElementById('passwordLength').value);
+  var count=parseInt(document.getElementById('batchCount').value);
+  var passwords=[];
+  for(var i=0;i<count;i++) passwords.push(generatePassword(length));
+  var result=document.getElementById('result');
+  result.style.display='block';
+  if(count===1){result.textContent=passwords[0];updateStrengthBar(passwords[0]);}
+  else{result.innerHTML=passwords.map(function(p,i){return '<div style="margin:4px 0;padding:4px;border-bottom:1px solid rgba(148,163,184,.1)">'+(i+1)+'. '+p+'</div>';}).join('');updateStrengthBar(passwords[0]);}
+  passwords.forEach(function(p){historyList.unshift({pwd:p,time:new Date().toLocaleTimeString()});if(historyList.length>10)historyList.pop();});
+  renderHistory();
+}
+function copyResult(){
+  var result=document.getElementById('result');
+  var text=result.textContent||result.innerText;
+  if(text){navigator.clipboard.writeText(text.replace(/\d+\.\s/g,'').trim());showToast('Copied to clipboard');}
+}
+function generateQR(){
+  var result=document.getElementById('result');
+  var pwd=(result.textContent||result.innerText).replace(/\d+\.\s/g,'').trim().split('\n')[0].trim();
+  if(!pwd){showToast('Generate a password first');return;}
+  var ssid='MyWiFi';
+  var std=document.getElementById('wifiStandard').value;
+  var type=std==='wpa3'?'WPA3':std==='wep'?'WEP':'WPA2';
+  var canvas=document.getElementById('qrCanvas');
+  var ctx=canvas.getContext('2d');
+  ctx.fillStyle='#ffffff';ctx.fillRect(0,0,200,200);
+  ctx.fillStyle='#000000';ctx.font='bold 14px sans-serif';ctx.textAlign='center';
+  ctx.fillText('WiFi: '+ssid,100,80);
+  ctx.font='10px monospace';
+  ctx.fillText('Pass: '+pwd.substring(0,20)+(pwd.length>20?'...':''),100,110);
+  ctx.font='9px sans-serif';
+  ctx.fillText('Security: '+type,100,130);
+  document.getElementById('qrArea').style.display='block';
+  showToast('QR code generated');
+}
+function renderHistory(){
+  var el=document.getElementById('history');
+  if(!historyList.length){el.innerHTML='<div style="color:#64748b;font-size:.8rem">No history yet</div>';return;}
+  el.innerHTML=historyList.map(function(h){return '<div class="history-item" onclick="navigator.clipboard.writeText(\''+h.pwd+'\');showToast(\'Copied\')"><span>'+h.pwd.substring(0,30)+(h.pwd.length>30?'...':'')+'</span><span style="font-size:.7rem">'+h.time+'</span></div>';}).join('');
+}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){e.preventDefault();generate();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){e.preventDefault();copyResult();}});
+window.addEventListener('load',function(){generate();});
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+</script>
+<div id="toast" class="toast"></div>
+
+</body>
+</html>

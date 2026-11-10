@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert JSON into XML with a custom root element and indentation, mapping arrays and nested objects to elements.">
+<meta name="keywords" content="JSON to XML,convert JSON to XML,JSON XML converter,data format converter,online JSON tool,XML formatter,JSON transformation">
+<title>Free JSON to XML Converter | Online Format Converter</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/json-to-xml/">
+<meta property="og:title" content="JSON to XML Converter - Online Format Conversion Tool">
+<meta property="og:description" content="Convert JSON into XML with a custom root element and indentation, mapping arrays and nested objects to elements.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/json-to-xml/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JSON to XML Converter · Free Online Format Converter", "description": "Free online JSON to XML converter. Instantly transform JSON data into XML format with customizable root element and indentation. Pure frontend local processing, no data upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-22", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "name": "JSON to XML Converter FAQ", "mainEntity": [{"@type": "Question", "name": "Is my JSON data safe with this converter?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Everything runs locally in your browser. Your JSON data never leaves your device. All conversion is performed locally. The tool works even without internet connection."}}, {"@type": "Question", "name": "What are the main differences between JSON and XML?", "acceptedAnswer": {"@type": "Answer", "text": "JSON is a lightweight data interchange format with simple key-value and array syntax. XML is a markup language using tags to describe data structure, supporting attributes, namespaces, and comments, making it better for complex document descriptions."}}, {"@type": "Question", "name": "How are JSON arrays converted to XML?", "acceptedAnswer": {"@type": "Answer", "text": "JSON arrays are converted to repeated XML elements. For example, [{\"name\":\"A\"},{\"name\":\"B\"}] becomes <item><name>A</name></item><item><name>B</name></item>. Array elements use 'item' as the default tag name."}}, {"@type": "Question", "name": "Can the converted XML be used in configuration files?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the XML output follows standard specifications and can be used in configuration files, data exchange, and web services. Some systems may have specific XML structure requirements, so validate against target system documentation."}}, {"@type": "Question", "name": "What JSON features are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Standard JSON including objects, arrays, strings, numbers, booleans, and null. Nested structures, empty objects, and empty arrays are handled correctly. Recommended file size is under 5MB."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use JSON to XML Converter", "description": "Simple steps to convert JSON to XML. Everything runs locally: Root Element and Indentation are processed on your device, never sent to a server.", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "JSON to XML Converter"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Input JSON Data", "text": "Paste or type your JSON data in the input area"}, {"@type": "HowToStep", "position": 2, "name": "Configure Options", "text": "Set root element name and indentation"}, {"@type": "HowToStep", "position": 3, "name": "Convert and Get Result", "text": "Click convert button, then copy or download the XML result"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "JSON to XML Converter", "item": "https://adi63586.github.io/Toolguidehub/en/json-to-xml/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:900px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea,input[type=text],input[type=number],select{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none}select{appearance:auto;cursor:pointer}input[type=number]{-moz-appearance:textfield}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.form-group{margin-top:12px}.form-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:6px}.form-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.form-row label{font-size:.9rem;color:#94a3b8;min-width:80px}.form-row select,.form-row input[type="text"],.form-row input[type="number"]{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;font-size:.9rem;min-width:120px}.form-row select:focus,.form-row input:focus{outline:none;border-color:rgba(6,182,212,.5)}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.output-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.85rem;font-family:"JetBrains Mono","Fira Code","SF Mono",Menlo,Consolas,monospace;min-height:180px;max-height:500px;overflow:auto;white-space:pre-wrap;word-break:break-word;color:#e2e8f0}.hero{background:linear-gradient(135deg,#0c4a6e 0%,#0f172a 100%);border-radius:16px;padding:24px;margin-bottom:24px;text-align:center;border:1px solid rgba(6,182,212,.15)}.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(16,185,129,.15);color:#10b981;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:8px;border:1px solid rgba(16,185,129,.2)}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:900px){.main-grid{grid-template-columns:1fr}.ad-sidebar{display:none}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/json-to-xml/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<div class="header"><h1>JSON to XML Converter</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; JSON to XML Converter</p>
+<div class="hero"><p>Free online JSON to XML converter. Instantly transform JSON data into XML format with customizable root element and indentation. Pure frontend local processing, no data upload.</p><span class="badge">Zero dependencies · Works offline</span></div>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-22
+  </span>
+</div>
+
+<div class="input-section">
+  <h2>Input JSON Data</h2>
+  <textarea id="json-input" rows="10" placeholder='{"name": "Example", "version": "1.0"}'>{"name": "MyApp","version": "1.2.0","description": "A sample configuration","dependencies": {"express": "^4.18.0","lodash": "^4.17.0"},"scripts": {"start": "node index.js","test": "jest"},"author": {"name": "Developer","email": "dev@example.com"}}</textarea>
+  <div class="form-row">
+    <label>Root Element</label>
+    <input type="text" id="root-name" value="root" placeholder="root">
+  </div>
+  <div class="form-group">
+    <label>Indentation</label>
+    <select id="indent-select">
+      <option value="2">2 spaces</option>
+      <option value="4" selected>4 spaces</option>
+      <option value="6">6 spaces</option>
+      <option value="8">8 spaces</option>
+    </select>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="convertJsonToXml()">Convert to XML</button>
+    <button class="btn btn-secondary" onclick="copyResult()">Copy</button>
+    <button class="btn btn-secondary" onclick="downloadResult()">Download</button>
+    <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+  </div>
+</div>
+
+<div class="input-section">
+  <h2>XML Output</h2>
+  <div class="output-area" id="xml-output">Click "Convert to XML" to see result</div>
+  <div id="error-msg" style="color:#ef4444;font-size:.85rem;margin-top:8px;display:none"></div>
+</div>
+
+<div class="info-section">
+  <h2>How to Use</h2>
+  <p>This tool provides fast, accurate JSON to XML conversion. All data processing happens locally in your browser — no data is uploaded to any server.</p>
+  <h3>Why Convert JSON to XML?</h3>
+  <p>XML remains the standard data format in many enterprise systems and legacy web services. Converting JSON to XML is common when interacting with SOAP APIs, Spring configurations, Android layouts, and more.</p>
+  <h3>Key Differences Between JSON and XML</h3>
+  <p>JSON uses key-value pairs and arrays with concise syntax. XML uses tags to describe data structure, supporting attributes, namespaces, and comments, making it better for complex document descriptions and mixed content.</p>
+</div>
+
+<div class="info-section" id="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><h3>Is my JSON data safe with this converter?</h3><p>Absolutely. Everything runs locally in your browser. Your JSON data never leaves your device.</p></div>
+  <div class="faq-item"><h3>What are the main differences between JSON and XML?</h3><p>JSON is a lightweight data interchange format with simple key-value and array syntax. XML is a markup language using tags to describe data structure.</p></div>
+  <div class="faq-item"><h3>How are JSON arrays converted to XML?</h3><p>JSON arrays are converted to repeated XML elements. Array elements use 'item' as the default tag name.</p></div>
+  <div class="faq-item"><h3>What JSON features are supported?</h3><p>Standard JSON including objects, arrays, strings, numbers, booleans, and null. Nested structures are handled correctly.</p></div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div style="margin-bottom:12px">
+    <a href="../../">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
+    <a href="../about/">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+    <a href="../../en/json-to-xml/">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toastMsg"></div>
+
+<script>
+function jsonToXml(obj,rootName,indent){
+  var sp=' '.repeat(indent);
+  var lines=[];
+  function escapeXml(s){
+    if(s===null||s===undefined)return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+  }
+  function convert(val,key,depth){
+    var pad=sp.repeat(depth);
+    if(val===null){
+      lines.push(pad+'<'+key+' xsi:nil="true"/>');
+    }else if(typeof val==='object'){
+      if(Array.isArray(val)){
+        for(var i=0;i<val.length;i++){
+          convert(val[i],key,depth);
+        }
+      }else{
+        var keys=Object.keys(val);
+        if(keys.length===0){
+          lines.push(pad+'<'+key+'></'+key+'>');
+        }else{
+          lines.push(pad+'<'+key+'>');
+          for(var k=0;k<keys.length;k++){
+            convert(val[keys[k]],keys[k],depth+1);
+          }
+          lines.push(pad+'</'+key+'>');
+        }
+      }
+    }else{
+      lines.push(pad+'<'+key+'>'+escapeXml(val)+'</'+key+'>');
+    }
+  }
+  lines.push('<?xml version="1.0" encoding="UTF-8"?>');
+  lines.push('<'+rootName+'>');
+  if(typeof obj==='object'&&obj!==null){
+    var keys=Object.keys(obj);
+    for(var k=0;k<keys.length;k++){
+      convert(obj[keys[k]],keys[k],1);
+    }
+  }
+  lines.push('</'+rootName+'>');
+  return lines.join('\n');
+}
+function convertJsonToXml(){
+  var input=document.getElementById('json-input').value.trim();
+  if(!input){showToast('Please enter JSON data');return;}
+  var rootName=document.getElementById('root-name').value.trim()||'root';
+  var indent=parseInt(document.getElementById('indent-select').value);
+  var errEl=document.getElementById('error-msg');
+  errEl.style.display='none';
+  try{
+    var obj=JSON.parse(input);
+    var xml=jsonToXml(obj,rootName,indent);
+    document.getElementById('xml-output').textContent=xml;
+    showToast('Conversion successful!');
+  }catch(e){
+    errEl.textContent='JSON parse error: '+e.message;
+    errEl.style.display='block';
+    document.getElementById('xml-output').textContent='';
+    showToast('Invalid JSON format');
+  }
+}
+function copyResult(){
+  var text=document.getElementById('xml-output').textContent;
+  if(!text||text==='Click "Convert to XML" to see result'){showToast('Nothing to copy');return;}
+  navigator.clipboard.writeText(text).then(function(){showToast('Copied to clipboard');}).catch(function(){showToast('Copy failed');});
+}
+function downloadResult(){
+  var text=document.getElementById('xml-output').textContent;
+  if(!text||text==='Click "Convert to XML" to see result'){showToast('Nothing to download');return;}
+  var blob=new Blob([text],{type:'application/xml'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='output.xml';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Download successful');
+}
+function clearAll(){
+  document.getElementById('json-input').value='';
+  document.getElementById('xml-output').textContent='';
+}
+function showToast(m){var t=document.getElementById("toastMsg");t.textContent=m;t.style.display="block";setTimeout(function(){t.style.display="none"},2000)}
+</script>
+</body>
+</html>

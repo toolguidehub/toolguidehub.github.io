@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build Terraform HCL configuration files visually for AWS, Azure or GCP by choosing resources, then add variables and outputs and copy the code.">
+<meta name="keywords" content="Terraform generator,HCL config,IaC,infrastructure as code,AWS Terraform,Azure Terraform,GCP Terraform">
+<title>Free Terraform Config Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/terraform-config-generator/">
+<meta property="og:title" content="Free Terraform Config Generator - ToolGuideHub">
+<meta property="og:description" content="Build Terraform HCL configuration files visually for AWS, Azure or GCP by choosing resources, then add variables and outputs and copy the code.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/terraform-config-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Terraform Config Generator", "description": "Free online Terraform config generator. Visually create Terraform HCL config files with AWS/Azure/GCP cloud resources, variables, outputs. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Terraform Config Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Terraform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Terraform is an Infrastructure as Code (IaC) tool by HashiCorp that uses HCL to declaratively define cloud resources. It supports AWS, Azure, GCP and other major cloud platforms for version-controlled infrastructure management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is HCL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HCL (HashiCorp Configuration Language) is Terraform's config language, combining JSON's machine readability with human readability. It supports variables, conditions, loops and other programming features."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cloud platforms are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AWS, Azure, and GCP are supported with common resource templates for each: EC2, S3, RDS (AWS), VM, Storage Account (Azure), Compute Engine, Cloud Storage (GCP)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the generated config directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The generated config is standard HCL format, ready for terraform init/plan/apply. However, we recommend adjusting variable values and resource parameters for your actual environment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to any server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. All config generation is done client-side with no data uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Terraform Config Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/terraform-config-generator/"
+    }
+  ],
+  "name": "Terraform Config Generator"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Terraform Config Generator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select cloud platform",
+      "text": "Choose AWS, Azure, or GCP as the target cloud platform."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure resources",
+      "text": "Select resource types and fill in names and parameters."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Generate and export",
+      "text": "Generate Terraform config, then copy or download main.tf."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:1200px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.breadcrumb{color:#64748b;font-size:.85rem;margin-bottom:16px}.breadcrumb a{color:#64748b}.btn{padding:8px 18px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn:hover{opacity:.85}.btn-sm{padding:6px 14px;font-size:.8rem}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}.panel{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.panel h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{margin:0 8px}.resource-card{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px;margin-bottom:8px}.res-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.res-type{color:#22d3ee;font-size:.8rem;font-weight:600}.res-name{color:#e2e8f0;font-size:.85rem}.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:12px 20px;border-radius:8px;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;z-index:1000;pointer-events:none}.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/terraform-config-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🏗️ Terraform Config Generator</h1></div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Developer Tools</a> › Terraform Config Generator</div>
+<div class="hero"><p class="subtitle">Visually create Terraform HCL config files with AWS/Azure/GCP cloud resource definitions.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2>☁️ Cloud Platform & Provider</h2>
+<div class="form-group"><label>Cloud Platform</label><select id="provider" onchange="updateProvider()"><option value="aws">AWS</option><option value="azurerm">Azure</option><option value="google">GCP</option></select></div>
+<div class="form-group"><label>Region</label><input id="region" value="us-east-1" oninput="generate()"></div>
+<div class="form-group"><label>Project Name</label><input id="project-name" value="my-project" oninput="generate()"></div>
+<div class="form-group"><label>Environment</label><select id="environment" onchange="generate()"><option value="dev">Development</option><option value="staging">Staging</option><option value="prod">Production</option></select></div>
+</div>
+<div class="panel">
+<h2>📦 Resources</h2>
+<div id="resources-area"></div>
+<div class="btn-group">
+<button class="btn btn-primary btn-sm" onclick="addResource()">➕ Add Resource</button>
+<button class="btn btn-secondary btn-sm" onclick="addPresetResources()">🎯 Common Combo</button>
+<button class="btn btn-secondary btn-sm" onclick="loadExample()">💡 Load Example</button>
+</div>
+</div>
+<div class="panel">
+<h2>📄 Generated Config</h2>
+<div class="config-output" id="config-output"><button class="copy-btn" onclick="copyConfig()">📋 Copy</button><span id="config-text"></span></div>
+<div class="btn-group">
+<button class="btn btn-primary btn-sm" onclick="copyConfig()">📋 Copy Config</button>
+<button class="btn btn-secondary btn-sm" onclick="downloadConfig()">📥 Download main.tf</button>
+</div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel">
+<h3>📋 Resource Types</h3>
+<div style="font-size:.8rem;color:#94a3b8;line-height:1.8" id="resource-types"></div>
+</div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the Terraform Config Generator Do?</h2>
+<p>The Terraform Config Generator is a free online tool that helps DevOps engineers and cloud architects visually create Terraform HCL configuration files. It supports AWS, Azure, and GCP cloud platforms. Use the form interface to select resource types and configure parameters, and the tool automatically generates standard HCL format Terraform configurations. No need to write HCL by hand — lower the IaC barrier and improve configuration writing efficiency.</p>
+<h2>Core Features</h2>
+<ul><li><strong>Multi-cloud Support</strong>: AWS, Azure, GCP common resources</li><li><strong>Visual Configuration</strong>: Form interface replaces hand-written HCL, reducing errors</li><li><strong>Variable Management</strong>: Auto-generate variables.tf and terraform.tfvars</li><li><strong>Output Definitions</strong>: Auto-extract key output values</li><li><strong>Preset Combos</strong>: One-click common resource combinations (e.g., web server + database)</li><li><strong>One-click Export</strong>: Copy or download main.tf file</li></ul>
+<h2>How to Use</h2>
+<p>1. Select cloud platform (AWS/Azure/GCP) and region</p><p>2. Fill in project name and environment</p><p>3. Click "Add Resource" to select resource type and configure parameters</p><p>4. Use "Common Combo" to quickly add resource groups</p><p>5. Generate config then copy or download main.tf</p>
+<h2>Use Cases</h2>
+<h3>Case 1: Quick Prototyping</h3><p>Developers quickly generate Terraform config prototypes, then refine and adjust, shortening infrastructure setup time.</p>
+<h3>Case 2: IaC Learning</h3><p>Terraform beginners use the visual interface to understand HCL syntax and resource configuration structure, learning by doing.</p>
+<h3>Case 3: Standardized Templates</h3><p>Teams use a unified config generator to create standardized infrastructure templates, ensuring configuration consistency and best practices.</p>
+<h2>Extended Knowledge</h2>
+<p>Terraform is an open-source Infrastructure as Code (IaC) tool by HashiCorp that uses HCL (HashiCorp Configuration Language) to declaratively define cloud resources. Core concepts include Provider (cloud platform plugin), Resource (resource definition), Variable (variables), Output (output values), State (state management), and Module (modularization). The Terraform workflow is terraform init → plan → apply: first initialize to download providers, then preview changes, and finally apply. HCL combines JSON's machine readability with human readability, supporting variable interpolation (${var.name}), conditional expressions, for loops, and other features.</p>
+</div>
+<div class="faq-section"><h2>FAQ</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What is Terraform?</span><span class="arrow">▼</span></div><div class="faq-a">Terraform is an Infrastructure as Code (IaC) tool by HashiCorp that uses HCL to declaratively define cloud resources. It supports AWS, Azure, GCP and other major cloud platforms for version-controlled infrastructure management.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What is HCL?</span><span class="arrow">▼</span></div><div class="faq-a">HCL (HashiCorp Configuration Language) is Terraform's config language, combining JSON's machine readability with human readability. It supports variables, conditions, loops and other programming features.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Which cloud platforms are supported?</span><span class="arrow">▼</span></div><div class="faq-a">AWS, Azure, and GCP are supported with common resource templates for each: EC2, S3, RDS (AWS), VM, Storage Account (Azure), Compute Engine, Cloud Storage (GCP).</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I use the generated config directly?</span><span class="arrow">▼</span></div><div class="faq-a">The generated config is standard HCL format, ready for terraform init/plan/apply. However, we recommend adjusting variable values and resource parameters for your actual environment.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Is my data uploaded to any server?</span><span class="arrow">▼</span></div><div class="faq-a">No. This tool runs entirely in your browser. All config generation is done client-side with no data uploaded to any server.</div></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/terraform-hcl-formatter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Terraform HCL Formatter</a> <a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/prettier-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Prettier Config Generator</a> <a href="../../en/ssh-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free SSH Config Generator</a> <a href="../../en/vite-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Vite Config Generator</a> <a href="../../en/jest-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Jest Config Generator</a> <a href="../../en/webpack-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Webpack Config Generator</a> <a href="../../en/nginx-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Nginx Config Generator …</a></div></section>
+<footer class="footer container"><div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/terraform-config-generator/">中文</a>
+</div>
+
+
+</footer>
+<script>
+function renderResources(){
+  const area=document.getElementById('resources-area');
+  const p=document.getElementById('provider').value;
+  const types=RESOURCE_MAP[p]||{};
+  area.innerHTML=resources.map(r=>{
+    const resInfo=types[r.type]||{label:r.type,fields:[]};
+    return`\x3Cdiv class="resource-card">\x3Cdiv class="res-header">\x3Cspan class="res-type">${resInfo.label}\x3C/span>\x3Cdiv>\x3Cspan class="res-name">${r.name}\x3C/span> \x3Cbutton class="btn btn-danger btn-sm" onclick="removeResource(${r.id})" style="padding:2px 8px;font-size:.7rem">✕\x3C/button>\x3C/div>\x3C/div>\x3Cdiv class="res-grid">\x3Cdiv class="form-group">\x3Clabel>Resource Name\x3C/label>\x3Cinput value="${r.name}" oninput="resources.find(x=>x.id===${r.id}).name=this.value;generate()">\x3C/div>${resInfo.fields.map(f=>`\x3Cdiv class="form-group">\x3Clabel>${f.l}\x3C/label>\x3Cinput value="${r.fields[f.k]||f.v}" oninput="updateResourceField(${r.id},'${f.k}',this.value)">\x3C/div>`).join('')}\x3C/div>\x3C/div>`;
+  }).join('');
+}
+function generate(){const p=document.getElementById('provider').value;const region=document.getElementById('region').value;const project=document.getElementById('project-name').value;const env=document.getElementById('environment').value;if(resources.length===0){document.getElementById('config-text').textContent='# Click "Add Resource" to start configuring';return;}const lines=[];lines.push(`# Terraform Configuration for ${project} (${env})`);lines.push(`# Generated by ToolGuideHub Terraform Config Generator`);lines.push('');lines.push(`terraform {`);lines.push(`  required_version = ">= 1.0"`);lines.push(`  required_providers {`);lines.push(`    ${p} = {`);lines.push(`      source = "${p==='aws'?'hashicorp/aws':p==='azurerm'?'hashicorp/azurerm':'hashicorp/google'}"`);lines.push(`      version = "~> ${p==='aws'?'5.0':p==='azurerm'?'3.0':'5.0'}"`);lines.push(`    }`);lines.push(`  }`);lines.push(`}`);lines.push('');lines.push(`provider "${p}" {`);if(p==='aws')lines.push(`  region = var.aws_region`);else if(p==='azurerm')lines.push(`  features {}`);else if(p==='google')lines.push(`  region = var.gcp_region`);lines.push(`}`);lines.push('');lines.push(`variable "environment" {`);lines.push(`  description = "Environment name"`);lines.push(`  default     = "${env}"`);lines.push(`}`);lines.push('');if(p==='aws'){lines.push(`variable "aws_region" {`);lines.push(`  default = "${region}"`);lines.push(`}`);}else if(p==='google'){lines.push(`variable "gcp_region" {`);lines.push(`  default = "${region}"`);lines.push(`}`);}lines.push('');resources.forEach(r=>{lines.push(`resource "${p}_${r.type}" "${r.name}" {`);if(p==='aws'&&r.type==='ec2'){lines.push(`  ami           = "${r.fields.ami||'ami-0c55b159cbfafe1f0'}"`);lines.push(`  instance_type = "${r.fields.instance_type||'t3.micro'}"`);lines.push(`  tags = { Name = "${r.name}", Environment = var.environment }`);}else if(p==='aws'&&r.type==='s3'){lines.push(`  bucket = "${r.name}-${project}"`);lines.push(`  acl    = "${r.fields.acl||'private'}"`);}else if(p==='aws'&&r.type==='rds'){lines.push(`  engine               = "${r.fields.engine||'mysql'}"`);lines.push(`  instance_class       = "${r.fields.instance_class||'db.t3.micro'}"`);lines.push(`  allocated_storage    = ${r.fields.allocated_storage||20}`);lines.push(`  username             = "admin"`);lines.push(`  password             = var.db_password`);}else if(p==='aws'&&r.type==='vpc'){lines.push(`  cidr_block = "${r.fields.cidr_block||'10.0.0.0/16'}"`);lines.push(`  tags = { Name = "${r.name}" }`);}else if(p==='aws'&&r.type==='lambda'){lines.push(`  function_name = "${r.name}"`);lines.push(`  runtime       = "${r.fields.runtime||'python3.9'}"`);lines.push(`  handler       = "${r.fields.handler||'index.handler'}"`);}else{Object.entries(r.fields).forEach(([k,v])=>{lines.push(`  ${k} = "${v}"`);});}lines.push(`}`);lines.push('');});lines.push(`output "environment" { value = var.environment }`);document.getElementById('config-text').textContent=lines.join('\n');}
+function addPresetResources(){resources=[];resId=0;addResource('vpc');addResource('ec2');addResource('s3');}
+function loadExample(){document.getElementById('provider').value='aws';document.getElementById('region').value='us-east-1';document.getElementById('project-name').value='web-app';document.getElementById('environment').value='prod';resources=[];resId=0;addResource('vpc');addResource('ec2');addResource('s3');addResource('rds');updateResourceTypes();generate();}
+function copyConfig(){const text=document.getElementById('config-text').textContent;navigator.clipboard.writeText(text).then(()=>{const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);});}
+function downloadConfig(){const text=document.getElementById('config-text').textContent;const blob=new Blob([text],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='main.tf';a.click();}
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){copyConfig();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyConfig();e.preventDefault();}});
+updateResourceTypes();generate();
+</script>
+
+</main>
+</body>
+</html>

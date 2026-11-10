@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Tax Calculator - ToolGuideHub</title>
+  <meta name="description" content="Estimate gift tax on a transfer using the annual exclusion, lifetime exemption used, and progressive brackets, with spouse and family rates.">
+  <meta property="og:title" content="Gift Tax Calculator - Free Online Gift Tax Estimator">
+  <meta property="og:description" content="Estimate gift tax on a transfer using the annual exclusion, lifetime exemption used, and progressive brackets, with spouse and family rates.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Gift Tax Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Free online gift tax calculator for wealth transfer planning.","offers":{"@type":"Offer","price":"0"}}</script>
+  <style>:root{--primary-light:rgba(6,182,212,.15);--card-bg:#1e293b;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+    header { background: #1e293b; color: #e2e8f0; padding: 20px 0; text-align: center; border-bottom: 1px solid rgba(148,163,184,.1); }
+    header h1 { font-size: 1.6rem; margin-bottom: 4px; }
+    header p { opacity: 0.9; font-size: 0.9rem; }
+    .lang-switch{display:inline-flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-bottom:12px}
+    .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    .container { max-width: 750px; margin: 0 auto; padding: 20px 16px; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; color: #22d3ee; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row > .form-group { flex: 1; min-width: 160px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; }
+    .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 2px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 0.95rem; font-family: inherit; background: #0f172a; color: #e2e8f0; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #22d3ee; }
+    .btn { padding: 10px 24px; background: #22d3ee; color: white; border: none; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+    .btn:hover { background: #0891b2; }
+    .btn-secondary { padding: 10px 24px; background: transparent; color: #22d3ee; border: 2px solid #22d3ee; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+    .btn-secondary:hover { background: rgba(6,182,212,.15); }
+    .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(148,163,184,.1); }
+    .result-row .label { color: #94a3b8; }
+    .result-row .value { font-weight: 700; font-size: 1rem; }
+    .highlight { background: rgba(6,182,212,.15); border: 1px solid rgba(6,182,212,.3); border-radius: 8px; padding: 14px; margin-top: 12px; text-align: center; font-weight: 700; font-size: 1.15rem; color: #22d3ee; }
+    .tax-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.8rem; }
+    .tax-table th, .tax-table td { padding: 6px 8px; text-align: right; border: 1px solid rgba(148,163,184,.1); }
+    .tax-table th { background: #273549; font-weight: 600; }
+    .tax-table td:first-child, .tax-table th:first-child { text-align: left; }
+    footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 0.8rem; }
+    @media (max-width: 600px) { .container { padding: 12px; } .card { padding: 16px; } }
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gift-tax-calculator/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Gift Tax Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/gift-tax-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Gift Tax Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Gift Tax Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Gift Tax Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Gift Amount and Annual Exclusion are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Gift Tax Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Gift Tax Calculator","description":"Step-by-step guide for using Gift Tax Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Gift Tax Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gift-tax-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<h1>🎁 Gift Tax Calculator</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online gift tax calculator. Calculate gift tax based on gift amount, annual exclusion, lifetime exemption, and progressive tax brackets. Plan your wealth transfer with confidence.</p><p>Calculate Gift Tax · Wealth Transfer Planning</p><div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<main class="container">
+  <div class="section">
+    <h2>📋 Gift Details</h2>
+    <div class="row">
+      <div class="form-group"><label>Gift Amount ($)</label><input type="number" id="giftAmount" value="100000" min="0" step="1000"></div>
+      <div class="form-group"><label>Annual Exclusion ($)</label><input type="number" id="annualExemption" value="18000" min="0" step="1000"></div>
+    </div>
+    <div class="row">
+      <div class="form-group"><label>Relationship</label><select id="relationship"><option value="spouse">Spouse</option><option value="child">Child</option><option value="parent">Parent</option><option value="sibling">Sibling</option><option value="other">Other</option></select></div>
+      <div class="form-group"><label>Lifetime Exemption Used ($)</label><input type="number" id="lifetimeUsed" value="0" min="0" step="1000"></div>
+    </div>
+    <button class="btn" id="calcBtn">🔍 Calculate Tax</button>
+    <button class="btn-secondary" id="clearBtn" style="margin-left:8px">🗑 Clear</button>
+  </div>
+  <div class="section" id="resultsCard" style="display:none">
+    <h2>📊 Results</h2>
+    <div id="results"></div>
+  </div>
+
+<h2>What is Gift Tax Calculator?</h2><p>Gift Tax Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Gift Amount and Annual Exclusion to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Estimate gift tax before making large transfers to family</li><li>Plan annual exclusion and lifetime exemption usage</li><li>Compare tax impact across different recipient relationships</li><li>Budget for wealth transfer during financial planning</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="../../en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="../../en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gift-tax-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function() {
+  var calcBtn = document.getElementById('calcBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var resultsCard = document.getElementById('resultsCard');
+  var resultsEl = document.getElementById('results');
+
+  function formatMoney(num) {
+    if (Math.abs(num) >= 1000000) return '$' + (num / 1000000).toFixed(2) + 'M';
+    if (Math.abs(num) >= 1000) return '$' + (num / 1000).toFixed(1) + 'K';
+    return '$' + num.toFixed(0);
+  }
+
+  var taxBrackets = [
+    { min: 0, max: 50000, rate: 0.10, quick: 0 },
+    { min: 50000, max: 100000, rate: 0.20, quick: 5000 },
+    { min: 100000, max: 250000, rate: 0.30, quick: 15000 },
+    { min: 250000, max: 500000, rate: 0.40, quick: 40000 },
+    { min: 500000, max: Infinity, rate: 0.50, quick: 90000 }
+  ];
+
+  function calcTax(amount) {
+    if (amount <= 0) return 0;
+    for (var i = taxBrackets.length - 1; i >= 0; i--) {
+      var b = taxBrackets[i];
+      if (amount > b.min) return amount * b.rate - b.quick;
+    }
+    return 0;
+  }
+
+  function calculate() {
+    var gift = parseFloat(document.getElementById('giftAmount').value) || 0;
+    var annualEx = parseFloat(document.getElementById('annualExemption').value) || 0;
+    var rel = document.getElementById('relationship').value;
+    var lifetimeUsed = parseFloat(document.getElementById('lifetimeUsed').value) || 0;
+
+    if (gift <= 0) { resultsCard.style.display = 'block'; resultsEl.innerHTML = '<p style="text-align:center;color:#ef4444">⚠️ Please enter a valid gift amount</p>'; return; }
+
+    var spouseExempt = rel === 'spouse' ? gift : 0;
+    var taxableBeforeAnnual = gift - spouseExempt;
+    var afterAnnual = Math.max(0, taxableBeforeAnnual - annualEx);
+    var lifetimeRemaining = Math.max(0, 1000000 - lifetimeUsed);
+    var taxable = Math.max(0, afterAnnual - lifetimeRemaining);
+
+    var tax = calcTax(taxable);
+    var effectiveRate = gift > 0 ? (tax / gift * 100).toFixed(2) : '0.00';
+
+    var tableRows = '<tr><th>Taxable Gift</th><th>Rate</th><th>Quick Deduction</th></tr>';
+    for (var i = 0; i < taxBrackets.length; i++) {
+      var b = taxBrackets[i];
+      var range = b.max === Infinity ? 'Over $' + formatMoney(b.min) : '$' + formatMoney(b.min) + ' - $' + formatMoney(b.max);
+      tableRows += '<tr><td>' + range + '</td><td>' + (b.rate * 100).toFixed(0) + '%</td><td>$' + formatMoney(b.quick) + '</td></tr>';
+    }
+
+    resultsCard.style.display = 'block';
+    resultsEl.innerHTML =
+      '<div class="result-row"><span class="label">🎁 Gift Amount</span><span class="value">$' + formatMoney(gift) + '</span></div>' +
+      '<div class="result-row"><span class="label">💑 Spouse Exemption</span><span class="value">$' + formatMoney(spouseExempt) + '</span></div>' +
+      '<div class="result-row"><span class="label">📅 Annual Exclusion</span><span class="value">$' + formatMoney(annualEx) + '</span></div>' +
+      '<div class="result-row"><span class="label">🏦 Lifetime Exemption Remaining</span><span class="value">$' + formatMoney(lifetimeRemaining) + '</span></div>' +
+      '<div class="result-row"><span class="label">📊 Taxable Gift</span><span class="value">$' + formatMoney(taxable) + '</span></div>' +
+      '<div class="highlight">💰 Gift Tax Due: $' + formatMoney(tax) + ' (Effective Rate ' + effectiveRate + '%)</div>' +
+      '<div class="result-row" style="border-top:2px solid #22d3ee;margin-top:8px"><span class="label">💵 Net to Recipient</span><span class="value" style="font-size:1.1rem">$' + formatMoney(gift - tax) + '</span></div>' +
+      '<h3 style="margin-top:16px;font-size:0.85rem;color:#22d3ee">📋 Progressive Tax Brackets (Sample)</h3>' +
+      '<table class="tax-table">' + tableRows + '</table>' +
+      '<p style="font-size:0.75rem;color:#94a3b8;margin-top:8px">* Sample progressive rates for reference only. Actual rates vary by jurisdiction.</p>';
+  }
+
+  function clearAll() {
+    document.getElementById('giftAmount').value = '100000';
+    document.getElementById('annualExemption').value = '18000';
+    document.getElementById('relationship').value = 'child';
+    document.getElementById('lifetimeUsed').value = '0';
+    resultsCard.style.display = 'none';
+  }
+
+  calcBtn.addEventListener('click', calculate);
+  clearBtn.addEventListener('click', clearAll);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') calculate();
+  });
+})();
+</script>
+</body>
+</html>

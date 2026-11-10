@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Use your camera or an image to scan QR codes. This tool now redirects to the newer QR Code Reader.">
+<meta name="keywords" content="QR scanner, QR code scan, online QR code, QR reader, scan QR code">
+<title>QR Code Scanner - Online Tools | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/qr-scanner/">
+<meta property="og:title" content="QR Code Scanner - ToolGuideHub">
+<meta property="og:description" content="Use your camera or an image to scan QR codes. This tool now redirects to the newer QR Code Reader.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/qr-scanner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/qr-scanner/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/qr-scanner/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QR Code Scanner","description": "Free online QR code scanner tool, using camera to scan or upload image QR code.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use QR Code Scanner","tool":{"@type":"HowToTool","name":"QR Code Scanner"},"step":[{"@type":"HowToStep","position":1,"name": "Open Camera","text":"Click the button to enable camera access"},{"@type":"HowToStep","position":2,"name": "Scan QR Code","text": "Point camera at a QR code to scan it"},{"@type":"HowToStep","position":3,"name":"View Result","text":"View the decoded result"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"QR Code Scanner","item":"https://adi63586.github.io/Toolguidehub/en/qr-scanner/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"QR Code Scanner FAQ","mainEntity":[{"@type":"Question","name":"How does the QR code scanner work?","acceptedAnswer":{"@type":"Answer","text":"Click the camera scan button or upload an image containing a QR code. The tool decodes it in your browser. Everything runs locally: the scanner processes values on your device, never sent to a server."}},{"@type":"Question","name":"Is the QR code scanner free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: the scanner processes values on your device, never sent to a server — your data is never uploaded, ensuring complete privacy."}},{"@type":"Question","name":"What formats does the QR scanner support?","acceptedAnswer":{"@type":"Answer","text":"The scanner supports URL links, plain text, WiFi credentials, email addresses, phone numbers, SMS, and vCard contact information. Results are automatically categorized after decoding."}}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:700px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:8px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(139,92,246,.1));border-radius:12px;padding:16px 20px;margin-bottom:20px;border:1px solid rgba(6,182,212,.15)}
+.hero p{color:#cbd5e1;font-size:.95rem}
+.badge{display:inline-block;background:rgba(6,182,212,.2);color:#22d3ee;font-size:.75rem;padding:2px 10px;border-radius:10px;margin-top:8px}
+.card{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);text-align:center}
+.scanner-wrap{position:relative;display:inline-block;line-height:0;border-radius:8px;overflow:hidden;border:2px solid rgba(6,182,212,.3);max-width:100%}
+.scanner-wrap video,.scanner-wrap canvas{display:block;max-width:100%}
+.scan-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:60%;border:2px dashed rgba(6,182,212,.6);border-radius:8px;pointer-events:none}
+.scan-overlay::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(6,182,212,.05)}
+.scan-line{position:absolute;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);animation:scanDown 2s infinite}
+@keyframes scanDown{0%{top:10%}50%{top:90%}100%{top:10%}}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.95rem;cursor:pointer;font-weight:600;transition:all .2s;margin:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;margin-top:12px;border:1px solid rgba(6,182,212,.3);display:none}
+.result-box.show{display:block}
+.result-box .label{color:#64748b;font-size:.8rem;margin-bottom:4px}
+.result-box .value{color:#22d3ee;font-size:1.1rem;word-break:break-all;font-weight:700}
+.result-box .type-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;background:rgba(6,182,212,.2);color:#22d3ee;margin-bottom:8px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📷 QR Code Scanner</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/qr-code-reader/" style="color:#22d3ee;text-decoration:underline">qr code reader</a>. Please use the new version.</div></div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; QR Code Scanner</p>
+<div class="hero"><p>Free Online QR Code Scanner — use your camera to scan or upload an image to decode QR codes. Supports URLs, text, WiFi, and more. Pure browser tool, no data uploaded.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+
+<div class="card">
+<div class="scanner-wrap" id="scannerWrap">
+<video id="videoEl" autoplay playsinline style="display:none"></video>
+<canvas id="canvasEl" width="400" height="300" style="display:none"></canvas>
+<div id="placeholder" style="padding:60px;color:#64748b">
+<p style="font-size:3rem">📷</p>
+<p>Click the button below to enable camera</p>
+</div>
+<div class="scan-overlay"></div>
+<div class="scan-line"></div>
+</div>
+<div style="margin-top:12px">
+<button class="btn btn-primary" id="startBtn">📸 Enable Camera Scan</button>
+<button class="btn btn-secondary" id="stopBtn" style="display:none">⏹ Stop</button>
+<button class="btn btn-secondary" id="uploadBtn">📁 Upload Image to Scan</button>
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+</div>
+<div class="result-box" id="resultBox">
+<div class="type-badge" id="typeBadge">Text</div>
+<div class="label">Scan Result</div>
+<div class="value" id="resultText"></div>
+<div style="margin-top:8px">
+<button class="btn btn-secondary" id="copyResultBtn">📋 Copy Result</button>
+<button class="btn btn-secondary" id="openUrlBtn" style="display:none">🔗 Open Link</button>
+</div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Usage Instructions</h2>
+<p><strong>Camera Scan:</strong> Click "Enable Camera Scan" and allow browser camera access. Point your camera at a QR code and the result will be detected automatically.</p>
+<p><strong>Upload Image:</strong> Click "Upload Image to Scan" and select an image file containing a QR code (supports PNG/JPG etc.).</p>
+<p><strong>Privacy Protected:</strong> All scanning is performed locally in your browser. Video streams and images are never uploaded to any server.</p>
+<p><strong>Browser Support:</strong> Recommended using Chrome/Edge browser (supports BarcodeDetector API). Firefox/Safari use fallback mode.</p>
+</div>
+<div class="info-section">
+<h2>Supported Types</h2>
+<p><strong>URL Links:</strong> Website addresses that can be opened directly.</p>
+<p><strong>WiFi Info:</strong> WiFi network name and password.</p>
+<p><strong>Text/Numbers:</strong> General text, numbers, and encoded information.</p>
+<p><strong>Contact:</strong> Email, phone, and vCard information.</p>
+</div>
+</main>
+
+
+<p>QR Code Scanner | No Signup Required · Data Not Uploaded to Server</p>
+
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var stream=null,scanInterval=null,hasBarcodeDetector=false,detector=null;
+
+if(typeof BarcodeDetector!=="undefined"){hasBarcodeDetector=true;try{detector=new BarcodeDetector({formats:["qr_code"]})}catch(e){hasBarcodeDetector=false}}
+
+function showResult(text,type){
+document.getElementById("resultText").textContent=text;
+document.getElementById("resultBox").classList.add("show");
+var typeMap={url:"URLlink",wifi:"WiFiinfo",email:"Email",phone:"phone","text":"Text"};
+document.getElementById("typeBadge").textContent=typeMap[type]||type||"Text";
+var openBtn=document.getElementById("openUrlBtn");
+if(type==="url"||/^https?:\/\//.test(text)){openBtn.style.display="inline-block";openBtn.onclick=function(){window.open(text,"_blank")}}
+else{openBtn.style.display="none"}
+}
+
+function detectType(text){
+if(/^https?:\/\//.test(text))return"url";
+if(/^WIFI:/.test(text))return"wifi";
+if(/^mailto:|@/.test(text))return"email";
+if(/^tel:|\d{7,}/.test(text))return"phone";
+return"text"
+}
+
+function detectFromImage(img){
+if(hasBarcodeDetector&&detector){
+detector.detect(img).then(function(codes){if(codes.length>0){var c=codes[0];showResult(c.rawValue,detectType(c.rawValue));showToast("Scansuccess!")}else{showToast("NotdetecttoQR Code")}}).catch(function(){showToast("")})
+}else{showToast("")}
+}
+
+var video=document.getElementById("videoEl"),canvas=document.getElementById("canvasEl"),ctx=canvas.getContext("2d");
+
+async function startCamera(){
+try{
+stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment",width:{ideal:640},height:{ideal:480}}});
+video.srcObject=stream;video.style.display="block";
+document.getElementById("placeholder").style.display="none";
+document.getElementById("startBtn").style.display="none";document.getElementById("stopBtn").style.display="inline-block";
+video.onloadedmetadata=function(){
+canvas.width=video.videoWidth||400;canvas.height=video.videoHeight||300;
+scanInterval=setInterval(function(){
+if(video.readyState===video.HAVE_ENOUGH_DATA){
+ctx.drawImage(video,0,0,canvas.width,canvas.height);
+detectFromImage(canvas)
+}
+},500)
+}
+}catch(e){showToast(""+(e.message||"PleaseCheckpermissionSettings"))}
+}
+
+function stopCamera(){
+if(scanInterval){clearInterval(scanInterval);scanInterval=null}
+if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}
+video.style.display="none";document.getElementById("placeholder").style.display="block";
+document.getElementById("startBtn").style.display="inline-block";document.getElementById("stopBtn").style.display="none"
+}
+
+function handleFile(file){
+var reader=new FileReader();reader.onload=function(e){
+var img=new Image();img.onload=function(){canvas.width=img.width;canvas.height=img.height;ctx.drawImage(img,0,0);detectFromImage(canvas)};
+img.src=e.target.result
+};reader.readAsDataURL(file)
+}
+
+document.getElementById("startBtn").addEventListener("click",startCamera);
+document.getElementById("stopBtn").addEventListener("click",stopCamera);
+document.getElementById("uploadBtn").addEventListener("click",function(){document.getElementById("fileInput").click()});
+document.getElementById("fileInput").addEventListener("change",function(e){if(e.target.files.length){handleFile(e.target.files[0])}});
+document.getElementById("copyResultBtn").addEventListener("click",function(){var t=document.getElementById("resultText").textContent;navigator.clipboard.writeText(t).then(function(){showToast("AlreadyCopy")}).catch(function(){showToast("Copyfailed")})});
+
+if(!hasBarcodeDetector){showToast("")}
+</script>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../index.html">Home</a><a href="../../index.html">AllTools</a><a href="../contact/">Contact</a><a href="../../en/privacy/">Privacy Policy</a><a href="../../en/terms/">Terms of Service</a><a href="../../en/about/">About Us</a><a href="index.html" class="active">EN</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

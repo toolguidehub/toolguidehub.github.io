@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow Rate Converter - Free Online Flow Unit Conversion</title>
+<meta name="description" content="Free flow rate converter: m³/s, L/s, L/min, GPM, CFM, m³/h. Convert volumetric flow units with engineering accuracy. 100% client-side, no sign-up.">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/flow-converter/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/flow-converter/">
+<meta property="og:title" content="Flow Rate Converter - Free Online Flow Unit Conversion">
+<meta property="og:description" content="Free flow rate converter: m³/s, L/s, L/min, GPM, CFM, m³/h. Convert volumetric flow units with engineering accuracy. 100% client-side, no sign-up.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Flow Rate Converter",
+  "url":"https://adi63586.github.io/Toolguidehub/en/flow-converter/",
+  "description":"Free flow rate converter: m³/s, L/s, L/min, GPM, CFM, m³/h. Convert volumetric flow units with engineering accuracy. 100% client-side, no sign-up.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Web"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[{"@type": "Question", "name": "How many L/min in 1 GPM?", "acceptedAnswer": {"@type": "Answer", "text": "1 GPM (US gallon per minute) = 3.78541 L/min. A typical US shower head flows at 2.5 GPM \u2248 9.46 L/min."}},{"@type": "Question", "name": "How to convert CFM to m\u00b3/h?", "acceptedAnswer": {"@type": "Answer", "text": "1 CFM = 1.699 m\u00b3/h. US ventilation uses CFM; Europe uses m\u00b3/h. For HVAC sizing, 400 CFM per ton of cooling."}},{"@type": "Question", "name": "What's the difference between volumetric flow and mass flow?", "acceptedAnswer": {"@type": "Answer", "text": "Volumetric flow (m\u00b3/s, GPM) measures volume per time. Mass flow (kg/s, lb/h) measures mass per time = volumetric flow \u00d7 fluid density."}},{"@type": "Question", "name": "What is bbl/d?", "acceptedAnswer": {"@type": "Answer", "text": "Barrel per day is the standard oil production unit. 1 barrel = 42 US gallons \u2248 159 liters. Saudi Arabia produces ~10 million bbl/d."}}]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},
+    {"@type":"ListItem","position":2,"name":"Flow Rate Converter","item":"https://adi63586.github.io/Toolguidehub/en/flow-converter/"}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;
+  --primary:#06b6d4;--primary-dark:#0891b2;--accent:#22d3ee;
+  --border:rgba(148,163,184,.1);--border-hover:rgba(148,163,184,.25);
+  --radius:.75rem;--radius-sm:.5rem;--shadow:0 4px 24px rgba(0,0,0,.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:0 1rem}
+
+header{padding:1rem 0;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+header a{color:var(--text);text-decoration:none;font-weight:600;font-size:1.05rem}
+header a:hover{color:var(--primary)}
+.lang-switch a{font-size:.9rem;padding:.35rem .75rem;border:1px solid var(--border);border-radius:var(--radius-sm);transition:all .2s}
+.lang-switch a:hover{border-color:var(--primary);color:var(--primary)}
+
+.breadcrumb{font-size:.85rem;color:var(--text-secondary);padding:.5rem 0}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none}
+.breadcrumb a:hover{color:var(--primary)}
+
+.hero{text-align:center;padding:1.5rem 0 1rem}
+.hero h1{font-size:1.75rem;font-weight:700;margin-bottom:.5rem}
+.hero .badge{display:inline-block;background:rgba(6,182,212,.15);color:var(--primary);padding:.25rem .75rem;border-radius:99px;font-size:.8rem;font-weight:500}
+
+.tool-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin:0 0 2rem;box-shadow:var(--shadow)}
+.input-row{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.input-row input{flex:1;min-width:120px;padding:.65rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:1rem;outline:none;transition:border-color .2s}
+.input-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.input-row select{padding:.65rem .85rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:1rem;outline:none;cursor:pointer;min-width:200px}
+.input-row select:focus{border-color:var(--primary)}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.75rem;margin-top:1rem}
+.result-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:.85rem;text-align:center;transition:all .2s}
+.result-item:hover{border-color:var(--border-hover)}
+.result-item.highlight{border-color:rgba(34,211,238,.35);background:rgba(6,182,212,.06)}
+.result-item .unit-label{display:block;font-size:.75rem;color:var(--text-secondary);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.5px}
+.result-item .unit-value{display:block;font-size:1.15rem;font-weight:600;color:var(--accent);word-break:break-all}
+.result-item.highlight .unit-value{color:var(--accent)}
+
+.ref-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.9rem}
+.ref-table th,.ref-table td{padding:.6rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
+.ref-table th{font-weight:600;color:var(--text);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.ref-table code{background:var(--bg);padding:.15rem .4rem;border-radius:4px;font-size:.85rem;color:var(--accent)}
+.ref-table td{color:var(--text-secondary)}
+
+.section{margin:2rem 0}
+.section h2{font-size:1.25rem;font-weight:600;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--primary);display:inline-block}
+
+.related-tools{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.related-link{display:inline-block;padding:.45rem .85rem;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);text-decoration:none;font-size:.9rem;transition:all .2s}
+.related-link:hover{border-color:var(--primary);color:var(--primary)}
+
+.faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;margin-bottom:.75rem}
+.faq-item h3{font-size:1rem;font-weight:600;margin-bottom:.4rem}
+.faq-item p{font-size:.9rem;color:var(--text-secondary);line-height:1.65}
+
+footer{text-align:center;padding:2rem 1rem;border-top:1px solid var(--border);margin-top:3rem;font-size:.85rem;color:var(--text-secondary)}
+footer a{color:var(--text-secondary);text-decoration:none;margin:0 .6rem}
+footer a:hover{color:var(--primary)}
+
+@media(max-width:375px){
+  .input-row{flex-direction:column;align-items:stretch}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:1.35rem}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<div class="container">
+<a href="../../">🧰 ToolGuideHub</a>
+
+</div>
+</header>
+
+<main class="container">
+<div class="breadcrumb">
+<a href="../../">Home</a> › <span>Flow Rate Converter</span>
+</div>
+
+<div class="hero">
+<h1>💧 Flow Rate Converter</h1>
+<p class="badge">Free online flow rate unit conversion — m³/s, L/min, GPM, CFM, m³/h, real-time results</p>
+</div>
+
+<div class="tool-card">
+<div class="input-row">
+<input type="number" id="inputVal" value="1" step="any" oninput="convert()" placeholder="Enter value">
+<select id="fromUnit" onchange="convert()">
+<option value="m3s" selected>Cubic meter/sec (m³/s)</option>
+<option value="m3h">Cubic meter/hr (m³/h)</option>
+<option value="Ls">Liter/sec (L/s)</option>
+<option value="Lmin">Liter/min (L/min)</option>
+<option value="GPM">Gallon/min (GPM)</option>
+<option value="CFM">Cubic ft/min (CFM)</option>
+<option value="CFS">Cubic ft/sec (ft³/s)</option>
+<option value="bpd">Barrel/day (bbl/d)</option>
+
+</select>
+</div>
+<div class="result-grid" id="resultGrid">
+<div class="result-item" data-unit="m3h"><span class="unit-label">Cubic meter/hr (m³/h)</span><span class="unit-value" id="val_m3h">—</span></div>
+<div class="result-item" data-unit="Ls"><span class="unit-label">Liter/sec (L/s)</span><span class="unit-value" id="val_Ls">—</span></div>
+<div class="result-item highlight" data-unit="Lmin"><span class="unit-label">Liter/min (L/min)</span><span class="unit-value" id="val_Lmin">—</span></div>
+<div class="result-item highlight" data-unit="GPM"><span class="unit-label">Gallon/min (GPM)</span><span class="unit-value" id="val_GPM">—</span></div>
+<div class="result-item highlight" data-unit="CFM"><span class="unit-label">Cubic ft/min (CFM)</span><span class="unit-value" id="val_CFM">—</span></div>
+<div class="result-item" data-unit="CFS"><span class="unit-label">Cubic ft/sec (ft³/s)</span><span class="unit-value" id="val_CFS">—</span></div>
+<div class="result-item" data-unit="bpd"><span class="unit-label">Barrel/day (bbl/d)</span><span class="unit-value" id="val_bpd">—</span></div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>📊 Unit Reference Table</h2>
+<div style="overflow-x:auto">
+<table class="ref-table">
+<thead><tr><th>Unit</th><th>Conversion</th><th>Description</th></tr></thead>
+<tbody><tr><td>m³/s</td><td><code>Base unit</code></td><td>SI base unit, hydro engineering</td></tr>
+<tr><td>m³/h</td><td><code>1 m³/s = 3600 m³/h</code></td><td>Water meter, pump rating</td></tr>
+<tr><td>L/s</td><td><code>1 m³/s = 1000 L/s</code></td><td>Lab, small pipe flow</td></tr>
+<tr><td>L/min</td><td><code>1 m³/s = 60,000 L/min</code></td><td>Household, medical devices</td></tr>
+<tr><td>GPM</td><td><code>1 m³/s = 15,850 GPM</code></td><td>US residential water flow</td></tr>
+<tr><td>CFM</td><td><code>1 m³/s = 2118.88 CFM</code></td><td>Ventilation, air compressor</td></tr>
+<tr><td>CFS</td><td><code>1 m³/s = 35.315 CFS</code></td><td>River flow, dam discharge</td></tr>
+<tr><td>bbl/d</td><td><code>1 m³/s = 543,439 bbl/d</code></td><td>Oil industry daily production</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h2>❓ FAQ</h2>
+<div class="faq-item">
+<h3>How many L/min in 1 GPM?</h3>
+<p>1 GPM (US gallon per minute) = 3.78541 L/min. A typical US shower head flows at 2.5 GPM ≈ 9.46 L/min.</p>
+</div>
+<div class="faq-item">
+<h3>How to convert CFM to m³/h?</h3>
+<p>1 CFM = 1.699 m³/h. US ventilation uses CFM; Europe uses m³/h. For HVAC sizing, 400 CFM per ton of cooling.</p>
+</div>
+<div class="faq-item">
+<h3>What's the difference between volumetric flow and mass flow?</h3>
+<p>Volumetric flow (m³/s, GPM) measures volume per time. Mass flow (kg/s, lb/h) measures mass per time = volumetric flow × fluid density.</p>
+</div>
+<div class="faq-item">
+<h3>What is bbl/d?</h3>
+<p>Barrel per day is the standard oil production unit. 1 barrel = 42 US gallons ≈ 159 liters. Saudi Arabia produces ~10 million bbl/d.</p>
+</div>
+
+</div>
+
+<div class="section">
+<h2>🔗 Related Tools</h2>
+<div class="related-tools"><a href="../../en/unit-converter/" class="related-link">Unit Converter</a>
+<a href="../../en/volume-converter/" class="related-link">Volume Converter</a>
+<a href="../../en/speed-converter/" class="related-link">Speed Converter</a>
+<a href="../../en/pressure-converter/" class="related-link">Pressure Converter</a>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<a href="../../">Home</a>
+<a href="../../en/contact/">Contact</a>
+<a href="../../en/privacy/">Privacy Policy</a>
+<a href="../../en/terms/">Terms of Service</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank">GitHub</a>
+<br>© 2026 ToolGuideHub — All calculations run locally in your browser. No data is sent to any server.
+</div>
+</footer>
+
+<script>
+var units = {"m3s": {"name": "Cubic meter/sec (m³/s)", "factor": 1}, "m3h": {"name": "Cubic meter/hr (m³/h)", "factor": 0.0002777777777777778}, "Ls": {"name": "Liter/sec (L/s)", "factor": 0.001}, "Lmin": {"name": "Liter/min (L/min)", "factor": 1.6666666666666667e-05}, "GPM": {"name": "Gallon/min (GPM)", "factor": 6.309016666666667e-05}, "CFM": {"name": "Cubic ft/min (CFM)", "factor": 0.00047194666666666664}, "CFS": {"name": "Cubic ft/sec (ft³/s)", "factor": 0.0283168}, "bpd": {"name": "Barrel/day (bbl/d)", "factor": 1.8401273148148147e-06}};
+var baseKey = "m3s";
+
+function convert(){
+  var val = parseFloat(document.getElementById('inputVal').value);
+  var from = document.getElementById('fromUnit').value;
+  if(isNaN(val)){ document.getElementById('resultGrid').innerHTML='<p style="color:var(--text-secondary);text-align:center">Please enter a valid value</p>';return;}
+  var base = val * units[from].factor;
+  var html='';
+  for(var k in units){
+    if(k===from) continue;
+    var result = base / units[k].factor;
+    var cls = ["m3s", "Lmin", "GPM", "CFM"].indexOf(k)>=0 ? ' highlight' : '';
+    html+='<div class="result-item'+cls+'"><span class="unit-label">'+units[k].name+'</span><span class="unit-value">'+formatNum(result)+'</span></div>';
+  }
+  document.getElementById('resultGrid').innerHTML=html;
+}
+
+function formatNum(n){
+  if(n===0) return '0';
+  var abs=Math.abs(n);
+  if(abs<1e-12||abs>=1e15) return n.toExponential(6);
+  if(abs<0.001) return n.toExponential(6);
+  if(abs<1) return n.toFixed(8).replace(/\.?0+$/,'');
+  if(abs<100) return n.toFixed(6).replace(/\.?0+$/,'');
+  if(abs<10000) return n.toFixed(3).replace(/\.?0+$/,'');
+  return n.toLocaleString('en-US',{maximumFractionDigits:2});
+}
+
+// init
+convert();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* Example button */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

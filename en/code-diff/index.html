@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="See two versions of text or code side by side, with added, removed and changed lines highlighted.">
+<meta name="keywords" content="code diff,text diff,diff checker,compare text,diff tool,code comparison,text comparison,diff viewer,side by side diff,online diff">
+<title>Free Online Interactive Code Diff Checker | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/code-diff/">
+<meta property="og:title" content="Free Interactive Code Diff Checker Online - ToolGuideHub">
+<meta property="og:description" content="See two versions of text or code side by side, with added, removed and changed lines highlighted.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/code-diff/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Code Diff Checker", "description": "Free online code diff checker. Compare two versions of text or code side by side. Highlights added, removed, and changed lines with line numbers and dark theme. Client-side only, no data uploaded.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free to use. No registration, subscription, or payment is required. All processing happens directly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally: Free Interactive Code Diff Checker Online and other values are processed on your device, never sent to a server using JavaScript. Your data never leaves your device, ensuring complete privacy and security. The tool works even when offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is fully responsive and works on all modern browsers including Chrome, Safari, Firefox, and Edge on desktop, tablet, and mobile devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an internet connection required to use this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No internet connection is required after the page loads. Since all processing happens in your browser, you can use this tool offline once the page is loaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no server-side file size limit since files are processed locally in your browser. The only limitation is your device's memory (RAM). For very large files, we recommend processing them in smaller chunks."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Code Diff Checker",
+  "description": "Simple steps to use the 🔍 Code Diff Checker online tool. Everything runs locally: Free Interactive Code Diff Checker Online and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🔍 Code Diff Checker"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/code-diff/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/code-diff/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/code-diff/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select,.form-group textarea,.form-group input[type="range"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:100px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+textarea.code-input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.85rem;font-family:'Fira Code','Consolas','Courier New',monospace;outline:none;min-height:200px;resize:vertical;tab-size:2;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+textarea.code-input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:120px;font-size:.85rem;color:#94a3b8;white-space:pre-wrap;word-break:break-all;font-family:'Fira Code','Consolas','Courier New',monospace}
+.diff-add{background:rgba(34,197,94,.15);color:#4ade80}
+.diff-remove{background:rgba(239,68,68,.15);color:#f87171}
+.diff-change{background:rgba(251,191,36,.1);color:#fbbf24}
+.diff-line{display:flex;align-items:flex-start;line-height:1.5}
+.diff-line .ln-old,.diff-line .ln-new{display:inline-block;min-width:2.2em;text-align:right;color:#64748b;padding-right:8px;user-select:none;flex-shrink:0}
+.diff-line .ln-body{flex:1;white-space:pre-wrap;word-break:break-all;padding-left:8px;border-left:1px solid rgba(148,163,184,.1)}
+.diff-del{background:rgba(239,68,68,.12)}
+.diff-del .ln-body{color:#f87171}
+.diff-add{background:rgba(34,197,94,.12)}
+.diff-add .ln-body{color:#4ade80}
+.diff-chg{background:rgba(251,191,36,.1)}
+.diff-chg .ln-body{color:#fbbf24}
+.diff-hdr{color:#94a3b8;border-bottom:1px solid rgba(148,163,184,.1);padding-bottom:6px;margin-bottom:6px}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Code Diff Checker",
+      "item": "https://adi63586.github.io/Toolguidehub/en/code-diff/"
+    }
+  ],
+  "name": "Code Diff Checker"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/code-diff/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><h1>Free Interactive Code Diff Checker Online</h1></div>
+  <p class="nav-back"><a href="../../index.html">&larr; All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section"><p class="info-text">Free online code diff checker. Compare two versions of text or code side by side. Highlights added, removed, and changed lines with line numbers and dark theme. Client-side only, no data uploaded.</p>
+    <div class="tool-body">
+
+<div class="form-row">
+  <div class="form-group">
+    <label>Original <span style="color:#f87171">(Old)</span></label>
+    <textarea class="code-input" id="oldText" placeholder="Paste the original code or text..." style="min-height:300px"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Modified <span style="color:#4ade80">(New)</span></label>
+    <textarea class="code-input" id="newText" placeholder="Paste the modified code or text..." style="min-height:300px"></textarea>
+  </div>
+</div>
+<div class="btn-group">
+  <button class="btn btn-primary" onclick="compareDiff()">🔍 Compare</button>
+  <button class="btn btn-secondary" onclick="clearDiff()">🗑️ Clear</button>
+  <button class="btn btn-success" onclick="swapDiff()">🔄 Swap</button>
+</div>
+<div class="result-box" id="diffResult" style="min-height:200px;overflow-x:auto;white-space:pre;font-size:.8rem;line-height:1.5">Click "Compare" to see the diff</div>
+
+    </div>
+  </div>
+  <div class="seo-content">
+    <h2>How to Use the Code Diff Checker</h2>
+    <p>Validate your content with the Code Diff Checker in three steps:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Enter Content to Validate</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Type, paste, or upload the content you want to validate into the input area. The tool accepts direct text input and file upload for batch processing.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Run Validation</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Click the "Validate" or "Check" button to analyze your content. The tool performs a thorough check and provides detailed feedback, including error locations and suggested fixes.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Review Results</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">View the validation results, including any errors, warnings, or success messages. If errors are found, the tool highlights their exact location to help you fix them quickly.</span>
+      </li>
+
+    </ol>
+  </div>
+
+  <div>
+<div class="ad-slot"></div>
+
+</div>
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+function lineDiff(oldText,newText){
+  var oldLines=oldText.split('\n'),newLines=newText.split('\n');
+  var n=oldLines.length,m=newLines.length;
+  var dp=[];for(var i=0;i<=n;i++){dp[i]=new Array(m+1);for(var j=0;j<=m;j++){if(i===0)dp[i][j]=j;else if(j===0)dp[i][j]=i;else if(oldLines[i-1]===newLines[j-1])dp[i][j]=dp[i-1][j-1];else dp[i][j]=1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);}}
+  var ops=[];i=n;j=m;
+  while(i>0||j>0){
+    if(i>0&&j>0&&oldLines[i-1]===newLines[j-1]){ops.push({t:'eq',o:oldLines[i-1]});i--;j--;}
+    else if(j>0&&(i===0||dp[i][j-1]<=dp[i-1][j])){
+      if(i>0&&dp[i-1][j-1]<dp[i][j-1]){ops.push({t:'chg',o:oldLines[i-1],n:newLines[j-1]});i--;j--;}
+      else{ops.push({t:'add',n:newLines[j-1]});j--;}
+    }
+    else if(i>0&&(j===0||dp[i-1][j]<dp[i][j-1])){ops.push({t:'del',o:oldLines[i-1]});i--;}
+    else if(i>0){ops.push({t:'chg',o:oldLines[i-1],n:newLines[j-1]});i--;j--;}
+    else{ops.push({t:'add',n:newLines[j-1]});j--;}
+  }
+  return ops.reverse();
+}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function compareDiff(){
+  var oldText=document.getElementById('oldText').value;
+  var newText=document.getElementById('newText').value;
+  if(!oldText&&!newText){toast('Please enter text in at least one box');return;}
+  var ops=lineDiff(oldText,newText);
+  var box=document.getElementById('diffResult');
+  var html='';
+  var oldNo=0,newNo=0;
+  ops.forEach(function(op){
+    if(op.t==='eq'){oldNo++;newNo++;html+='<div class="diff-line"><span class="ln-old">'+oldNo+'</span><span class="ln-new">'+newNo+'</span><span class="ln-body">'+escapeHtml(op.o)+'</span></div>';}
+    else if(op.t==='del'){oldNo++;html+='<div class="diff-line diff-del"><span class="ln-old">'+oldNo+'</span><span class="ln-new"></span><span class="ln-body">- '+escapeHtml(op.o)+'</span></div>';}
+    else if(op.t==='add'){newNo++;html+='<div class="diff-line diff-add"><span class="ln-old"></span><span class="ln-new">'+newNo+'</span><span class="ln-body">+ '+escapeHtml(op.n)+'</span></div>';}
+    else{oldNo++;newNo++;html+='<div class="diff-line diff-chg"><span class="ln-old">'+oldNo+'</span><span class="ln-new">'+newNo+'</span><span class="ln-body">~ '+escapeHtml(op.o)+' → '+escapeHtml(op.n)+'</span></div>';}
+  });
+  box.innerHTML='<div class="diff-line diff-hdr"><span class="ln-old"></span><span class="ln-new"></span><span class="ln-body">+'+ops.filter(function(o){return o.t==='add'}).length+' added, -'+ops.filter(function(o){return o.t==='del'}).length+' removed, ~'+ops.filter(function(o){return o.t==='chg'}).length+' changed</span></div>'+html;
+}
+function clearDiff(){
+  document.getElementById('oldText').value='';
+  document.getElementById('newText').value='';
+  document.getElementById('diffResult').textContent='Click "Compare" to see the diff';
+}
+function swapDiff(){
+  var a=document.getElementById('oldText'),b=document.getElementById('newText');
+  var tmp=a.value;a.value=b.value;b.value=tmp;
+}
+</script>
+</body>
+</html>

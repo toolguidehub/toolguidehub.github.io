@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Button Generator - ToolGuideHub</title>
+  <meta name="description" content="Design a CSS button visually and copy the CSS and HTML, including hover states, in one click.">
+  <meta property="og:title" content="CSS Button Generator - ToolGuideHub">
+  <meta property="og:description" content="Design a CSS button visually and copy the CSS and HTML, including hover states, in one click.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSS Button Generator",
+    "description": "Free online CSS button generator. Visually design buttons and copy CSS/HTML code instantly.",
+    "applicationCategory": "WebApplication",
+    "url": "https://adi63586.github.io/Toolguidehub/en/button-css-generator/",
+    "operatingSystem": "All"
+  }
+  </script>
+  <style>:root{--text2:#94a3b8;}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+  header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header a { color: #22d3ee; text-decoration: none; font-weight: 600; font-size: 18px; }
+  header span { color: var(--text2); font-size: 14px; }
+  .lang-switch { display: flex; gap: 4px; background: #0f172a; border-radius: 8px; padding: 4px; border: 1px solid rgba(148,163,184,.1); margin-left: auto; }
+  .lang-switch a { padding: 6px 12px; border-radius: 5px; font-size: .85rem; color: #94a3b8; font-weight: 400; }
+  .lang-switch a.active { background: rgba(6,182,212,.2); color: #22d3ee; }
+  main { flex: 1; max-width: 900px; margin: 0 auto; padding: 32px 16px; width: 100%; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: var(--text2); margin-bottom: 24px; font-size: 14px; }
+  .tool-panel { background: #1e293b; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .preview-area { text-align: center; padding: 32px; background: #0f172a; border-radius: 12px; margin-bottom: 20px; min-height: 120px; display: flex; align-items: center; justify-content: center; }
+  .controls-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .ctrl {}
+  .ctrl label { display: block; font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .ctrl input[type="range"] { width: 100%; }
+  .ctrl input[type="color"] { width: 40px; height: 32px; border: 1px solid rgba(148,163,184,.1); border-radius: 4px; padding: 2px; cursor: pointer; }
+  .ctrl .val { font-size: 12px; color: var(--text2); margin-left: 6px; }
+  .ctrl .color-row { display: flex; gap: 8px; align-items: center; }
+  .code-section { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .code-section .code-box { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px; overflow-x: auto; position: relative; }
+  .code-section label { display: block; font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 6px; }
+  .code-box .copy-btn { position: absolute; top: 8px; right: 8px; padding: 2px 8px; border: 1px solid #475569; border-radius: 4px; background: #334155; color: #e2e8f0; cursor: pointer; font-size: 11px; }
+  .code-box .copy-btn:hover { background: #475569; border-color: #22d3ee; }
+  @media(max-width:600px){ .code-section { grid-template-columns: 1fr; } }
+  footer { text-align: center; padding: 20px; color: var(--text2); font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/button-css-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "CSS Button Generator", "item": "https://adi63586.github.io/Toolguidehub/en/button-css-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Button Css Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Button Css Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Button Css Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Button Text and Background are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Button Css Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Button Css Generator","description":"Step-by-step guide for using Button Css Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Button Css Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/button-css-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><a href="../../">ToolGuideHub</a><span>/ CSS Button Generator</span></header>
+<main>
+  <h1>🔘 CSS Button Generator</h1>
+  <p class="subtitle">Visually design button styles with real-time preview and one-click CSS/HTML copy</p>
+  <div class="tool-panel">
+    <div class="preview-area"><button id="previewBtn">Click Me to Preview</button></div>
+    <div class="controls-grid">
+      <div class="ctrl"><label>Button Text</label><input type="text" id="btnText" value="Click Me to Preview" style="width:100%;padding:8px;border:1px solid rgba(148,163,184,.1);border-radius:4px;font-size:13px;background:#0f172a;color:#e2e8f0;"></div>
+      <div class="ctrl"><label>Background</label><div class="color-row"><input type="color" id="bgColor" value="#4F46E5"><span class="val" id="bgVal">#4F46E5</span></div></div>
+      <div class="ctrl"><label>Text Color</label><div class="color-row"><input type="color" id="textColor" value="#ffffff"><span class="val" id="textVal">#ffffff</span></div></div>
+      <div class="ctrl"><label>Border Color</label><div class="color-row"><input type="color" id="borderColor" value="#4F46E5"><span class="val" id="borderVal">#4F46E5</span></div></div>
+      <div class="ctrl"><label>Hover Background</label><div class="color-row"><input type="color" id="hoverBg" value="#3730a3"><span class="val" id="hoverBgVal">#3730a3</span></div></div>
+      <div class="ctrl"><label>Font Size <span class="val" id="fsVal">16px</span></label><input type="range" id="fontSize" min="12" max="32" value="16"></div>
+      <div class="ctrl"><label>Border Radius <span class="val" id="brVal">8px</span></label><input type="range" id="borderRadius" min="0" max="50" value="8"></div>
+      <div class="ctrl"><label>Border Width <span class="val" id="bwVal">2px</span></label><input type="range" id="borderWidth" min="0" max="10" value="2"></div>
+      <div class="ctrl"><label>Padding X <span class="val" id="pxVal">24px</span></label><input type="range" id="paddingX" min="8" max="60" value="24"></div>
+      <div class="ctrl"><label>Padding Y <span class="val" id="pyVal">12px</span></label><input type="range" id="paddingY" min="4" max="40" value="12"></div>
+      <div class="ctrl"><label>Shadow <span class="val" id="shVal">0px</span></label><input type="range" id="shadow" min="0" max="20" value="0"></div>
+      <div class="ctrl"><label>Font Weight <span class="val" id="fwVal">600</span></label><input type="range" id="fontWeight" min="300" max="900" step="100" value="600"></div>
+    </div>
+    <div class="code-section">
+      <div><label>CSS Code</label><div class="code-box"><button class="copy-btn" id="copyCSS">📋 Copy</button><code id="cssOutput"></code></div></div>
+      <div><label>HTML Code</label><div class="code-box"><button class="copy-btn" id="copyHTML">📋 Copy</button><code id="htmlOutput"></code></div></div>
+    </div>
+  </div>
+
+<h2>What is CSS Button Generator?</h2><p>CSS Button Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Button Text and Background to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Generate CSS code snippets quickly during frontend development</li><li>Experiment with different color schemes and effects while designing</li><li>Preview CSS changes in real-time while learning</li><li>Check designs on mobile without opening a code editor</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/button-css-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+const state = {
+  text: 'Click Me to Preview',
+  bgColor: '#4F46E5',
+  textColor: '#ffffff',
+  borderColor: '#4F46E5',
+  hoverBg: '#3730a3',
+  fontSize: 16,
+  borderRadius: 8,
+  borderWidth: 2,
+  paddingX: 24,
+  paddingY: 12,
+  shadow: 0,
+  fontWeight: 600
+};
+
+const ids = ['btnText','bgColor','textColor','borderColor','hoverBg','fontSize','borderRadius','borderWidth','paddingX','paddingY','shadow','fontWeight'];
+const valIds = {fontSize:'fsVal',borderRadius:'brVal',borderWidth:'bwVal',paddingX:'pxVal',paddingY:'pyVal',shadow:'shVal',fontWeight:'fwVal',bgColor:'bgVal',textColor:'textVal',borderColor:'borderVal',hoverBg:'hoverBgVal'};
+
+function updatePreview() {
+  const btn = document.getElementById('previewBtn');
+  const s = state;
+  btn.textContent = s.text;
+  btn.style.cssText = `
+    background: ${s.bgColor};
+    color: ${s.textColor};
+    border: ${s.borderWidth}px solid ${s.borderColor};
+    border-radius: ${s.borderRadius}px;
+    font-size: ${s.fontSize}px;
+    font-weight: ${s.fontWeight};
+    padding: ${s.paddingY}px ${s.paddingX}px;
+    box-shadow: 0 ${s.shadow}px ${s.shadow*2}px rgba(0,0,0,.15);
+    cursor: pointer;
+    transition: all .2s;
+    display: inline-block;
+    line-height: 1.4;
+  `;
+  updateCode();
+}
+
+function updateCode() {
+  const s = state;
+  const css = `.btn {
+  background: ${s.bgColor};
+  color: ${s.textColor};
+  border: ${s.borderWidth}px solid ${s.borderColor};
+  border-radius: ${s.borderRadius}px;
+  font-size: ${s.fontSize}px;
+  font-weight: ${s.fontWeight};
+  padding: ${s.paddingY}px ${s.paddingX}px;
+  box-shadow: 0 ${s.shadow}px ${s.shadow*2}px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background: ${s.hoverBg};
+  transform: translateY(-1px);
+}`;
+  document.getElementById('cssOutput').textContent = css;
+  document.getElementById('htmlOutput').textContent = `<button class="btn">${s.text}</button>`;
+}
+
+ids.forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', function() {
+    if (this.type === 'range' || this.type === 'color') {
+      state[id] = this.type === 'range' ? parseInt(this.value) : this.value;
+      if (valIds[id]) document.getElementById(valIds[id]).textContent = this.value + (id.includes('font')||id.includes('Size')?'':id.includes('Color')||id.includes('Bg')?'':id==='fontWeight'?'':'px');
+      if (id.endsWith('Color') || id.endsWith('Bg')) document.getElementById(valIds[id]).textContent = this.value;
+    } else {
+      state.text = this.value;
+    }
+    updatePreview();
+  });
+});
+
+document.getElementById('copyCSS').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('cssOutput').textContent).then(() => {
+    document.getElementById('copyCSS').textContent = '✅';
+    setTimeout(() => document.getElementById('copyCSS').textContent = '📋 Copy', 2000);
+  });
+});
+document.getElementById('copyHTML').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('htmlOutput').textContent).then(() => {
+    document.getElementById('copyHTML').textContent = '✅';
+    setTimeout(() => document.getElementById('copyHTML').textContent = '📋 Copy', 2000);
+  });
+});
+
+updatePreview();
+</script>
+</body>
+</html>

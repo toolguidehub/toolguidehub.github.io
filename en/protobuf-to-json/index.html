@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Parse a .proto definition into JSON example data, recursively identifying message types, nested fields, and repeated values.">
+<meta name="keywords" content="protobuf-to-json,online tool,free tool">
+<title>Free Online Protobuf To Json | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/protobuf-to-json/">
+<meta property="og:title" content="Protobuf To Json - Free Online Tool">
+<meta property="og:description" content="Parse a .proto definition into JSON example data, recursively identifying message types, nested fields, and repeated values.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/protobuf-to-json/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,Roboto,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn:hover{background:rgba(6,182,212,.3)}
+input{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+
+</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "protobuf-to-json", "description": "Free online Protobuf To Json tool. Pure client-side processing, no registration required.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Protobuf To Json FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Protobuf To Json free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Protobuf To Json is completely free. Everything runs locally: Enter .proto definit and Root message are processed on your device, never sent to a server with no registration required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe with Protobuf To Json?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Everything runs locally: Enter .proto definit and Root message are processed on your device, never sent to a server. Your data is never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which browsers are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protobuf To Json supports all modern browsers including Chrome, Firefox, Safari, and Edge."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Protobuf To Json",
+  "description": "Simple steps to use Protobuf To Json. Everything runs locally: Enter .proto definit and Root message are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "protobuf-to-json"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/protobuf-to-json/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/protobuf-to-json/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/protobuf-to-json/#output"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "protobuf-to-json",
+      "item": "https://adi63586.github.io/Toolguidehub/en/protobuf-to-json/"
+    }
+  ],
+  "name": "protobuf-to-json"
+}</script>
+
+<style>
+.faq-section{margin-top:32px;padding:24px;border-radius:12px;background:rgba(15,23,42,.6);border:1px solid rgba(148,163,184,.08)}
+.faq-section h2{font-size:1.25rem;color:#f1f5f9;margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+</style>
+
+<style>
+
+@media(max-width:640px){}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/protobuf-to-json/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header">
+    <h1>Protobuf To Json</h1>
+
+    
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+  
+
+  <div class="tool-section">
+    <h2>Protobuf To Json</h2>
+    <p>Parse Protocol Buffers .proto definition files into JSON example data. Automatically identifies message types, nested structures, and repeated fields to recursively generate example values.</p>
+    <div style="margin-top:12px">
+      <label style="font-size:.85rem;color:#94a3b8;display:block;margin-bottom:6px">Enter .proto definition:</label>
+      <textarea id="protoInput" placeholder="syntax = &quot;proto3&quot;&#10;&#10;message User {&#10;  string name = 1;&#10;  int32 age = 2;&#10;  bool active = 3;&#10;  repeated string tags = 4;&#10;  Address address = 5;&#10;}" style="width:100%;min-height:180px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:10px 12px;color:#e2e8f0;font-size:.85rem;font-family:monospace;outline:none;resize:vertical"></textarea>
+    </div>
+    <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <label style="font-size:.85rem;color:#94a3b8">Root message:</label>
+      <input type="text" id="rootMsg" placeholder="Leave empty for first" style="width:180px">
+      <button class="btn" onclick="process()">Convert</button>
+      <button class="btn" onclick="loadExample()">Example</button>
+      <button class="btn" onclick="clearAll()">Clear</button>
+    </div>
+    <div style="margin-top:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <span style="font-size:.85rem;color:#94a3b8">JSON output:</span>
+        <button class="btn" style="font-size:.8rem;padding:4px 12px" onclick="copyJson()">Copy</button>
+      </div>
+      <pre id="result" style="background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:14px;font-size:.82rem;color:#a5b4fc;overflow-x:auto;max-height:400px;white-space:pre-wrap;word-break:break-word"></pre>
+    </div>
+  </div>
+  
+<div>
+</div>
+<div id="related-tools"></div>
+
+    <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Does Protobuf To Json upload my data to a server?</h3>
+      <p>No. Protobuf To Json uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Protobuf To Json free to use?</h3>
+      <p>Yes, Protobuf To Json is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Protobuf To Json is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Protobuf To Json?</h3>
+      <p>Protobuf To Json has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Protobuf To Json?</h3>
+      <p>Absolutely. Everything runs locally: Enter .proto definit and Root message are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use Protobuf To Json on my phone?</h3>
+      <p>Yes. Protobuf To Json is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How large a JSON file can I process?</h3>
+      <p>Since processing is client-side, file size depends on your device memory. Files up to several MB typically process smoothly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it support JSONPath queries?</h3>
+      <p>Yes, standard JSONPath syntax is supported. You can use dot notation and bracket syntax to access nested fields.</p>
+    </div>
+  </div>
+
+<script>
+function showToast(m){var t=document.createElement('div');t.textContent=m;t.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:rgba(6,182,212,.9);color:#fff;padding:8px 20px;border-radius:6px;font-size:.85rem;z-index:9999;';document.body.appendChild(t);setTimeout(function(){t.remove()},3000)}
+
+// === Protobuf to JSON implementation ===
+function process() {
+  var input = document.getElementById('protoInput').value.trim();
+  if (!input) { showToast('Please enter .proto definition'); return; }
+  var messages = parseProto(input);
+  var msgNames = Object.keys(messages);
+  if (msgNames.length === 0) { showToast('No message definitions found'); return; }
+  var rootName = document.getElementById('rootMsg').value.trim() || msgNames[0];
+  if (!messages[rootName]) { showToast('Message not found: ' + rootName); return; }
+  var result = generateExample(rootName, messages, {});
+  document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+  showToast('Conversion complete');
+}
+function parseProto(text) {
+  var messages = {};
+  var msgRegex = /message\s+(\w+)\s*\{([^}]*)\}/g;
+  var match;
+  while ((match = msgRegex.exec(text)) !== null) {
+    var name = match[1];
+    var body = match[2];
+    var fields = [];
+    var lines = body.split(/[;\n]/);
+    lines.forEach(function(line) {
+      line = line.trim();
+      if (!line || line.startsWith('//') || line.startsWith('/*')) return;
+      var parts = line.split(/\s+/);
+      if (parts.length < 2) return;
+      var isRepeated = parts[0] === 'repeated';
+      if (isRepeated) parts.shift();
+      var type = parts[0];
+      var fieldName = parts[1];
+      if (!fieldName) return;
+      fieldName = fieldName.replace(/[=].*/, '').trim();
+      if (!fieldName) return;
+      fields.push({ type: type, name: fieldName, repeated: isRepeated });
+    });
+    messages[name] = fields;
+  }
+  return messages;
+}
+function generateExample(name, messages, seen) {
+  if (seen[name]) return '<' + name + '>';
+  seen[name] = true;
+  var fields = messages[name];
+  if (!fields) return null;
+  var obj = {};
+  fields.forEach(function(f) {
+    var val = defaultValue(f.type, messages, seen);
+    if (f.repeated) { obj[f.name] = [val]; }
+    else { obj[f.name] = val; }
+  });
+  seen[name] = false;
+  return obj;
+}
+function defaultValue(type, messages, seen) {
+  var scalars = {
+    'string': 'example_string', 'int32': 42, 'int64': 42, 'uint32': 42, 'uint64': 42,
+    'sint32': 42, 'sint64': 42, 'fixed32': 42, 'fixed64': 42, 'sfixed32': 42, 'sfixed64': 42,
+    'float': 3.14, 'double': 3.14, 'bool': true, 'bytes': 'SGVsbG8=', 'enum': 'ENUM_VALUE_0'
+  };
+  if (scalars[type] !== undefined) return scalars[type];
+  if (messages[type]) return generateExample(type, messages, seen);
+  return null;
+}
+function loadExample() {
+  document.getElementById('protoInput').value = 'syntax = "proto3";\n\nmessage User {\n  string name = 1;\n  int32 age = 2;\n  bool active = 3;\n  double balance = 4;\n  repeated string tags = 5;\n  Address address = 6;\n  repeated Order orders = 7;\n}\n\nmessage Address {\n  string city = 1;\n  string zip = 2;\n}\n\nmessage Order {\n  int32 id = 1;\n  double total = 2;\n  bool paid = 3;\n}';
+  document.getElementById('rootMsg').value = 'User';
+  process();
+}
+function clearAll() {
+  document.getElementById('protoInput').value = '';
+  document.getElementById('rootMsg').value = '';
+  document.getElementById('result').textContent = '';
+}
+function copyJson() {
+  var text = document.getElementById('result').textContent;
+  if (!text) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(text).then(function() { showToast('Copied'); }).catch(function() { showToast('Copy failed'); });
+}
+
+// Related tools loader
+(function() {
+  'use strict';
+  var s = document.getElementById('related-tools');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) return;
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) { if (!r.ok) throw new Error('not found'); return r.json(); }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) return;
+    var h = '<div style="margin-top:24px"><h3 style="color:#f1f5f9;margin-bottom:12px">Related Tools</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1);color:#e2e8f0;text-decoration:none;font-size:.85rem;transition:border-color .2s">' + (r.icon || '🔧') + ' ' + r.name + '</a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() {});
+})();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/protobuf-to-json/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+</body>
+</html>

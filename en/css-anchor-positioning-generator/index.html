@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate CSS anchor positioning for tooltips, popovers and dropdowns with position-anchor and position-area values.">
+<meta name="keywords" content="CSSpointsetbitanchor positioningCSS anchorposition-anchorposition-areaCSSnewspecificpropertyexitlayersetbit">
+<title>Free CSS Anchor Positioning Generator - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-anchor-positioning-generator/">
+<meta property="og:title" content="CSS Anchor Positioning Generator - Free Online Tool">
+<meta property="og:description" content="Generate CSS anchor positioning for tooltips, popovers and dropdowns with position-anchor and position-area values.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-anchor-positioning-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Anchor Positioning Generator", "description": "Free online CSS Anchor Positioning generator. Visually create CSS anchor positioning with anchor-name, position-anchor, position-area properties. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "CSS Anchor Positioning Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CSS Anchor Positioning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS Anchor Positioning is a W3C specification that lets you position an element relative to another element (the anchor) without JavaScript. It is ideal for tooltips, popovers, dropdowns and other components."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between anchor positioning and absolute positioning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolute positioning places an element relative to its containing block, while anchor positioning places it relative to a specific anchor element. Anchor positioning keeps the positioned element attached to the anchor even when the anchor moves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is browser compatibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS Anchor Positioning is a relatively new specification. Support is growing in modern browsers, so check current browser compatibility before using it in production."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What values does position-area support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "position-area supports values such as top, bottom, left, right, top left, top right, bottom left and bottom right."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my data be uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All CSS code is generated locally in your browser. Nothing is sent to any server."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.form-group select,.form-group input{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:10px 12px;font-size:.9rem;outline:none}
+.form-group select:focus,.form-group input:focus{border-color:rgba(6,182,212,.5)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preview-area{position:relative;width:100%;height:300px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;margin-bottom:16px;overflow:hidden}
+.anchor-el{position:absolute;width:120px;height:50px;background:rgba(6,182,212,.2);border:2px solid #06b6d4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#22d3ee;cursor:move;user-select:none;top:120px;left:200px}
+.target-el{position:absolute;width:160px;padding:10px;background:rgba(16,185,129,.2);border:2px solid #10b981;border-radius:8px;font-size:.8rem;color:#34d399;text-align:center;pointer-events:none}
+.code-output{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;font-family:'Fira Code',monospace;font-size:.85rem;color:#e2e8f0;white-space:pre-wrap;overflow-x:auto;position:relative}
+.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);border-radius:4px;font-size:.75rem;cursor:pointer}
+.copy-btn:hover{background:rgba(6,182,212,.3)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}.form-row{grid-template-columns:1fr}.preview-area{height:240px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free CSS Anchor Positioning Generator - Online Tool", "item": "https://adi63586.github.io/Toolguidehub/en/css-anchor-positioning-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Anchor Positioning Generator","description":"Step-by-step guide for using CSS Anchor Positioning Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Anchor Positioning Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (anchor name, position area, offsets, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-anchor-positioning-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<div class="header">
+
+<h1>Free CSS Anchor Positioning Generator - Online Tool</h1>
+</div>
+<div class="nav-back"><a href="../../">Home</a> › <a href="../../#dev">Dev Tools</a> › CSS Anchor Positioning Generator</div>
+
+<div class="tool-section">
+<h2>🎨 Visual Preview</h2>
+<div class="preview-area" id="preview">
+ <div class="anchor-el" id="anchor">⚓ Anchor element</div>
+ <div class="target-el" id="target">📌 Positioned element<br><small>Tooltip / Popover</small></div>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>⚙️ Configuration</h2>
+<div class="form-row">
+<div class="form-group">
+<label>Anchor name (anchor-name)</label>
+<input type="text" id="anchor-name" value="--my-anchor" oninput="updateCode()">
+</div>
+<div class="form-group">
+<label>Position area (position-area)</label>
+<select id="position-area" onchange="updatePreview();updateCode()">
+<option value="top">top — above</option>
+<option value="bottom">bottom — below</option>
+<option value="left">left — to the left</option>
+<option value="right">right — to the right</option>
+<option value="top left">top left</option>
+<option value="top right">top right</option>
+<option value="bottom left">bottom left</option>
+<option value="bottom right">bottom right</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Horizontal offset</label>
+<input type="number" id="offset-x" value="0" oninput="updatePreview();updateCode()">
+</div>
+<div class="form-group">
+<label>Vertical offset</label>
+<input type="number" id="offset-y" value="8" oninput="updatePreview();updateCode()">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Fallback (position-try-fallbacks)</label>
+<select id="fallback" onchange="updateCode()">
+<option value="none">No fallback</option>
+<option value="flip-block">flip-block — flip to opposite block side</option>
+<option value="flip-inline">flip-inline — flip to opposite inline side</option>
+<option value="flip-block flip-inline">flip both</option>
+</select>
+</div>
+<div class="form-group">
+<label>Element type</label>
+<select id="el-type" onchange="updateCode()">
+<option value="tooltip">Tooltip</option>
+<option value="popover">Popover</option>
+<option value="dropdown">Dropdown</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>📋 Generated Code</h2>
+<div class="code-output" id="code-output">
+<button class="copy-btn" onclick="copyCode()">📋 Copy</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📖 CSS Anchor Positioning</h2>
+<h3>What is CSS Anchor Positioning?</h3>
+<p>CSS Anchor Positioning is a new W3C specification that lets you position an element relative to another element (the anchor) without JavaScript. It is ideal for tooltips, popovers, dropdowns and other components.</p>
+<h3>Key Properties</h3>
+<ul>
+<li><strong>anchor-name</strong> — marks an element as an anchor, e.g. anchor-name: --my-anchor</li>
+<li><strong>position-anchor</strong> — references the anchor, e.g. position-anchor: --my-anchor</li>
+<li><strong>position-area</strong> — sets the position area, e.g. position-area: top</li>
+<li><strong>position-try-fallbacks</strong> — defines fallback positioning</li>
+<li><strong>anchor()</strong> — function that references the anchor's edge position</li>
+</ul>
+<h3>Use Cases</h3>
+<ol>
+<li><strong>Tooltip</strong> — show hints near a trigger element</li>
+<li><strong>Popover</strong> — show content below a trigger button</li>
+<li><strong>Dropdown</strong> — align a list of options to an input</li>
+<li><strong>Date picker</strong> — show a calendar below an input</li>
+<li><strong>Notifications</strong> — display messages anchored to elements</li>
+</ol>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is CSS Anchor Positioning?</h3><p>CSS Anchor Positioning is a W3C specification that lets you position an element relative to another element (the anchor) without JavaScript. It is ideal for tooltips, popovers, dropdowns and other components.</p></div>
+<div class="faq-item"><h3>What is the difference between anchor positioning and absolute positioning?</h3><p>Absolute positioning places an element relative to its containing block, while anchor positioning places it relative to a specific anchor element. Anchor positioning keeps the positioned element attached to the anchor even when the anchor moves.</p></div>
+<div class="faq-item"><h3>Will my data be uploaded to a server?</h3><p>No. All CSS code is generated locally in your browser. Nothing is sent to any server.</p></div>
+</div>
+</main>
+
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy</a>
+<a href="../../en/terms/">Terms</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/css-anchor-positioning-generator/" class="active">EN</a>
+</div>
+
+</footer>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+
+let anchorPos = {x: 200, y: 120};
+let isDragging = false;
+let dragOffset = {x: 0, y: 0};
+
+const anchorEl = document.getElementById('anchor');
+const targetEl = document.getElementById('target');
+
+anchorEl.addEventListener('mousedown', function(e) {
+  isDragging = true;
+  const rect = anchorEl.getBoundingClientRect();
+  const previewRect = document.getElementById('preview').getBoundingClientRect();
+  dragOffset.x = e.clientX - rect.left;
+  dragOffset.y = e.clientY - rect.top;
+  e.preventDefault();
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!isDragging) return;
+  const previewRect = document.getElementById('preview').getBoundingClientRect();
+  anchorPos.x = e.clientX - previewRect.left - dragOffset.x;
+  anchorPos.y = e.clientY - previewRect.top - dragOffset.y;
+  anchorPos.x = Math.max(0, Math.min(anchorPos.x, previewRect.width - 120));
+  anchorPos.y = Math.max(0, Math.min(anchorPos.y, previewRect.height - 50));
+  anchorEl.style.left = anchorPos.x + 'px';
+  anchorEl.style.top = anchorPos.y + 'px';
+  updatePreview();
+});
+
+document.addEventListener('mouseup', function() { isDragging = false; });
+
+function updatePreview() {
+  const area = document.getElementById('position-area').value;
+  const offsetX = parseInt(document.getElementById('offset-x').value) || 0;
+  const offsetY = parseInt(document.getElementById('offset-y').value) || 0;
+  const aW = 120, aH = 50;
+
+  let tx, ty;
+  switch(area) {
+    case 'top':
+      tx = anchorPos.x + aW/2 - 80;
+      ty = anchorPos.y - 60 - offsetY;
+      break;
+    case 'bottom':
+      tx = anchorPos.x + aW/2 - 80;
+      ty = anchorPos.y + aH + offsetY;
+      break;
+    case 'left':
+      tx = anchorPos.x - 170 - offsetX;
+      ty = anchorPos.y + aH/2 - 25;
+      break;
+    case 'right':
+      tx = anchorPos.x + aW + offsetX;
+      ty = anchorPos.y + aH/2 - 25;
+      break;
+    case 'top left':
+      tx = anchorPos.x - 160 - offsetX;
+      ty = anchorPos.y - 60 - offsetY;
+      break;
+    case 'top right':
+      tx = anchorPos.x + aW + offsetX;
+      ty = anchorPos.y - 60 - offsetY;
+      break;
+    case 'bottom left':
+      tx = anchorPos.x - 160 - offsetX;
+      ty = anchorPos.y + aH + offsetY;
+      break;
+    case 'bottom right':
+      tx = anchorPos.x + aW + offsetX;
+      ty = anchorPos.y + aH + offsetY;
+      break;
+  }
+  targetEl.style.left = tx + 'px';
+  targetEl.style.top = ty + 'px';
+}
+
+window.updateCode = updateCode; function updateCode() {
+  const anchorName = document.getElementById('anchor-name').value || '--my-anchor';
+  const area = document.getElementById('position-area').value;
+  const offsetX = parseInt(document.getElementById('offset-x').value) || 0;
+  const offsetY = parseInt(document.getElementById('offset-y').value) || 0;
+  const fallback = document.getElementById('fallback').value;
+  const elType = document.getElementById('el-type').value;
+
+  let css = `/* Anchor element */\n.anchor {\n  anchor-name: ${anchorName};\n}\n\n`;
+  css += `/* Positioned element */\n.${elType} {\n  position: fixed;\n  position-anchor: ${anchorName};\n  position-area: ${area};\n`;
+
+  if (offsetX !== 0 || offsetY !== 0) {
+    if (offsetY !== 0) css += `  margin-block-start: ${offsetY}px;\n`;
+    if (offsetX !== 0) css += `  margin-inline-start: ${offsetX}px;\n`;
+  }
+
+  if (fallback !== 'none') {
+    css += `  position-try-fallbacks: ${fallback};\n`;
+  }
+
+  css += `}`;
+
+  const output = document.getElementById('code-output');
+  output.innerHTML = `\x3Cbutton class="copy-btn" onclick="copyCode()">📋 Copy\x3C/button>${escapeHtml(css)}`;
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g,'&amp;').replace(/\x3C/g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function copyCode() {
+  const code = document.getElementById('code-output').textContent.replace('📋 Copy','').trim();
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✅ Copy';
+    setTimeout(() => btn.textContent = '📋 Copy', 2000);
+  });
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Suggestion',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+
+updatePreview();
+updateCode();
+</script>
+<script src="../../related-tools.js"></script>
+</body>
+</html>

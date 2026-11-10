@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Hearing Test - ToolGuideHub</title>
+  <meta name="description" content="Run a pure-tone hearing test from 125Hz to 8000Hz in the browser and get an audiogram report for each ear.">
+  <meta name="keywords" content="online hearing test,hearing test free,audiogram,pure tone audiometry,hearing check,free hearing test,hearing test online">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/online-hearing-test/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/online-hearing-test/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Online Hearing Test - Free Pure-Tone Audiometry | ToolGuideHub">
+  <meta property="og:description" content="Run a pure-tone hearing test from 125Hz to 8000Hz in the browser and get an audiogram report for each ear.">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/online-hearing-test/">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Online Hearing Test",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "description": "Free online hearing test using pure-tone audiometry. Test your hearing sensitivity from 125Hz to 8000Hz. Generate instant audiogram report.",
+    "url": "https://adi63586.github.io/Toolguidehub/en/online-hearing-test/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+  </script>
+
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #818CF8;
+      --primary-dark: #3730A3;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #e2e8f0;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header .logo { font-size: 1.25rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    header nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; }
+    header nav a:hover { color: var(--primary); }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--text); }
+    .subtitle { color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem; }
+
+    .warning-banner {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-left: 4px solid var(--warning);
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #92400E;
+    }
+    .warning-banner strong { display: block; margin-bottom: 4px; }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .status-dot.active { background: var(--success); animation: pulse 1s infinite; }
+    .status-dot.idle { background: var(--border); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .test-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .freq-display {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .freq-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 120px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .btn-primary:disabled { background: #9CA3AF; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: #EEF2FF; }
+    .btn-outline:disabled { border-color: #9CA3AF; color: #9CA3AF; cursor: not-allowed; }
+    .btn-lg { padding: 18px 40px; font-size: 1.1rem; }
+
+    .volume-section {
+      margin-bottom: 20px;
+    }
+    .volume-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      height: 6px;
+    }
+
+    .result-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .result-section h2 { font-size: 1.3rem; margin-bottom: 16px; }
+
+    .audiogram {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      padding: 20px 30px 30px 40px;
+    }
+    .audiogram canvas {
+      width: 100%;
+      height: auto;
+    }
+
+    .result-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .result-normal { background: #D1FAE5; color: #065F46; }
+    .result-mild { background: #FEF3C7; color: #92400E; }
+    .result-moderate { background: #FED7AA; color: #9A3412; }
+    .result-severe { background: #FEE2E2; color: #991B1B; }
+
+    .ear-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .ear-card {
+      background: #F1F5F9;
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+    }
+    .ear-card h3 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 4px; }
+    .ear-card .threshold { font-size: 2rem; font-weight: 700; color: var(--primary); }
+
+    .instructions {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .instructions h2 { font-size: 1.2rem; margin-bottom: 12px; }
+    .instructions ol { padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
+    .instructions ol li { margin-bottom: 8px; }
+
+    .faq-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .faq-section h2 { font-size: 1.2rem; margin-bottom: 16px; }
+    .faq-item { margin-bottom: 16px; }
+    .faq-q { font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-a { color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-arrow { transition: transform 0.2s; font-size: 0.8rem; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      padding: 12px 20px;
+      font-size: 0.9rem;
+      animation: slideIn 0.3s ease;
+      max-width: 360px;
+    }
+    .toast.success { border-left: 4px solid var(--success); }
+    .toast.error { border-left: 4px solid var(--danger); }
+    .toast.info { border-left: 4px solid var(--primary); }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.4rem; }
+      .freq-display { font-size: 2.2rem; }
+      .test-card { padding: 20px 16px; }
+      .btn { padding: 12px 20px; font-size: 0.9rem; min-width: 100px; }
+      .ear-summary { grid-template-columns: 1fr; }
+    }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Online Hearing Test","description":"Step-by-step guide for using Online Hearing Test","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Online Hearing Test"},"step":[{"@type":"HowToStep","position":1,"name":"Prepare test","text":"Enter test parameters or upload test data"},{"@type":"HowToStep","position":2,"name":"Start test","text":"Click the start button to run the test"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the test results and detailed data"},{"@type":"HowToStep","position":4,"name":"Copy report","text":"Copy or download the test report"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Online Hearing Test FAQ","mainEntity":[{"@type":"Question","name":"How accurate is the Online Hearing Test?","acceptedAnswer":{"@type":"Answer","text":"The tool provides precise test results by processing your input locally in the browser. Enter your test parameters, run the test, and review the detailed report. No data is sent to external servers."}},{"@type":"Question","name":"Is the Online Hearing Test free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Online Hearing Test and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I use the Online Hearing Test on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Yes, the tool is fully responsive and works on any device with a modern browser. All testing runs locally, so you get the same accuracy and privacy on mobile as on desktop."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+
+<header>
+  <a href="../../" class="logo">🧰 ToolGuideHub</a>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../#all-tools">All Tools</a>
+    <a href="../../en/online-hearing-test/">中文</a>
+  </nav>
+</header>
+
+<main class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../">Home</a><span>›</span><a href="../../#health-tools">Health Tools</a><span>›</span><span>Online Hearing Test</span>
+  </nav>
+
+  <h1>👂 Online Hearing Test</h1>
+  <p class="subtitle">Free pure-tone audiometry test in your browser. Test your hearing sensitivity from 125Hz to 8000Hz and get an instant audiogram report.</p>
+
+  <div class="warning-banner">
+    <strong>⚠️ Important Notice</strong>
+    This tool is for self-assessment reference only and cannot replace professional hearing examination. Environmental noise, headphone quality, and other factors may affect accuracy. Consult a doctor if you have hearing concerns.
+  </div>
+
+  <div class="volume-section">
+    <div class="volume-label">
+      <span>🔊 System Volume</span>
+      <span id="volumeValue">70%</span>
+    </div>
+    <input type="range" id="volumeSlider" min="10" max="100" value="70" step="5" aria-label="Volume adjustment">
+  </div>
+
+  <div class="status-bar">
+    <span class="status-dot" id="statusDot"></span>
+    <span id="statusText">Ready to begin</span>
+    <span style="margin-left: auto; font-size: 0.85rem; color: var(--text-secondary);">
+      Testing: <strong id="currentEar">Left Ear</strong>
+    </span>
+  </div>
+
+  <div class="test-card" id="testCard">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+    <div class="freq-display" id="freqDisplay">1000 Hz</div>
+    <div class="freq-label" id="freqLabel">Ready to start testing</div>
+    <div class="btn-group" id="actionButtons">
+      <button class="btn btn-lg btn-primary" id="btnStart" onclick="startTest()">🎧 Start Test</button>
+    </div>
+  </div>
+
+  <div class="result-section" id="resultSection" style="display:none;">
+    <h2>📊 Hearing Test Results</h2>
+    <div class="audiogram">
+      <canvas id="audiogramCanvas" width="600" height="300"></canvas>
+    </div>
+    <div class="ear-summary">
+      <div class="ear-card">
+        <h3>👈 Left Ear Avg Threshold</h3>
+        <div class="threshold" id="leftEarAvg">- dB</div>
+        <div id="leftEarResult"></div>
+      </div>
+      <div class="ear-card">
+        <h3>👉 Right Ear Avg Threshold</h3>
+        <div class="threshold" id="rightEarAvg">- dB</div>
+        <div id="rightEarResult"></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;">
+      <button class="btn btn-outline" onclick="resetTest()">🔄 Retake Test</button>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>📋 Instructions</h2>
+    <ol>
+      <li><strong>Wear headphones</strong>: Use headphones with separate left/right channels. Test one ear at a time.</li>
+      <li><strong>Quiet environment</strong>: Find a quiet place and minimize background noise.</li>
+      <li><strong>Set volume</strong>: Use the slider above to set a comfortable volume level (70% recommended).</li>
+      <li><strong>Listen carefully</strong>: When you hear a beep, click <strong>"I Can Hear"</strong>. If not, click <strong>"Can't Hear"</strong>.</li>
+      <li><strong>Both ears</strong>: Left ear first, then right ear. Total test time: approximately 3-5 minutes.</li>
+    </ol>
+  </div>
+
+  <div class="faq-section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        How accurate is this hearing test?<span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">This test is based on standard pure-tone audiometry principles, but limited by browser audio API precision, headphone quality, and ambient noise. Results are for reference only. For accurate diagnosis, visit an ENT specialist.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        How long does the test take?<span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">A complete test for both ears takes approximately 3-5 minutes. We test 7 frequency points (125/250/500/1000/2000/4000/8000Hz), playing tones at multiple volume levels to determine your threshold.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        What is the normal hearing range?<span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Normal hearing thresholds are 0-25 dB HL. 25-40dB indicates mild hearing loss, 40-55dB moderate, 55-70dB moderately severe, 70-90dB severe, and above 90dB profound hearing loss.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Why can't I hear certain frequencies?<span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Different frequencies correspond to different hair cells in the cochlea. High-frequency hearing (4000-8000Hz) typically declines first with age. If you cannot hear certain frequencies at all, consult a doctor.</div>
+    </div>
+  </div>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/online-hearing-test/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ==================== Hearing Test Engine ====================
+
+var TEST_FREQUENCIES = [1000, 500, 250, 125, 1000, 2000, 4000, 8000];
+var VOLUME_LEVELS = [50, 40, 30, 20, 15, 10, 5, 0];
+var currentVolumeIndex = 0;
+
+var audioCtx = null;
+var oscillator = null;
+var gainNode = null;
+var currentFreqIndex = 0;
+var currentEar = 'left';
+var isPlaying = false;
+var isTestRunning = false;
+var testResults = { left: {}, right: {} };
+var currentTestTone = null;
+var toneTimeout = null;
+var waitTimeout = null;
+
+var freqDisplay = document.getElementById('freqDisplay');
+var freqLabel = document.getElementById('freqLabel');
+var progressFill = document.getElementById('progressFill');
+var statusDot = document.getElementById('statusDot');
+var statusText = document.getElementById('statusText');
+var currentEarEl = document.getElementById('currentEar');
+var actionButtons = document.getElementById('actionButtons');
+var resultSection = document.getElementById('resultSection');
+var volumeSlider = document.getElementById('volumeSlider');
+var volumeValue = document.getElementById('volumeValue');
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    gainNode = audioCtx.createGain();
+    gainNode.connect(audioCtx.destination);
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}
+
+function showToast(msg, type) {
+  type = type || 'info';
+  var container = document.getElementById('toastContainer');
+  var toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  toast.textContent = msg;
+  container.appendChild(toast);
+  setTimeout(function() { toast.remove(); }, 3000);
+}
+
+function startTest() {
+  initAudio();
+  isTestRunning = true;
+  currentEar = 'left';
+  currentFreqIndex = 0;
+  testResults = { left: {}, right: {} };
+  currentVolumeIndex = 0;
+
+  resultSection.style.display = 'none';
+  statusDot.className = 'status-dot active';
+  statusText.textContent = 'Testing...';
+  currentEarEl.textContent = 'Left Ear';
+
+  actionButtons.innerHTML = '' +
+    '<button class="btn btn-primary" id="btnHear" onclick="answerHear()">✅ I Can Hear</button>' +
+    '<button class="btn btn-outline" id="btnCantHear" onclick="answerCantHear()">❌ Can\'t Hear</button>';
+
+  updateProgress();
+  playNextTone();
+}
+
+function playNextTone() {
+  if (!isTestRunning) return;
+
+  if (currentVolumeIndex >= VOLUME_LEVELS.length) {
+    saveResult();
+    currentFreqIndex++;
+    if (currentFreqIndex >= TEST_FREQUENCIES.length) {
+      if (currentEar === 'left') {
+        currentEar = 'right';
+        currentFreqIndex = 0;
+        currentEarEl.textContent = 'Right Ear';
+        showToast('Left ear complete. Switch headphone to right ear to continue.', 'info');
+        updateProgress();
+        setTimeout(function() {
+          currentVolumeIndex = 0;
+          playNextTone();
+        }, 2500);
+      } else {
+        finishTest();
+        return;
+      }
+    } else {
+      currentVolumeIndex = 0;
+      updateProgress();
+      playNextTone();
+      return;
+    }
+  }
+
+  var freq = TEST_FREQUENCIES[currentFreqIndex];
+  var volume = VOLUME_LEVELS[currentVolumeIndex];
+
+  freqDisplay.textContent = freq + ' Hz';
+  freqLabel.textContent = 'Volume level ' + volume + '% · Round ' + (currentVolumeIndex + 1) + '/' + VOLUME_LEVELS.length;
+
+  playTone(freq, volume, currentEar);
+
+  var totalSteps = TEST_FREQUENCIES.length * VOLUME_LEVELS.length * 2;
+  var currentStep = (currentEar === 'left' ? 0 : TEST_FREQUENCIES.length * VOLUME_LEVELS.length)
+    + currentFreqIndex * VOLUME_LEVELS.length + currentVolumeIndex;
+  var progress = Math.round((currentStep / totalSteps) * 100);
+  progressFill.style.width = progress + '%';
+
+  var btnHear = document.getElementById('btnHear');
+  var btnCantHear = document.getElementById('btnCantHear');
+  if (btnHear) btnHear.disabled = false;
+  if (btnCantHear) btnCantHear.disabled = false;
+}
+
+function playTone(freq, volumePercent, ear) {
+  stopTone();
+  if (!audioCtx) return;
+
+  oscillator = audioCtx.createOscillator();
+  var panner = audioCtx.createStereoPanner();
+  var localGain = audioCtx.createGain();
+
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+  var masterVol = parseInt(volumeSlider.value) / 100;
+  var toneVol = volumePercent / 100;
+  localGain.gain.setValueAtTime(masterVol * toneVol * 0.8, audioCtx.currentTime);
+
+  panner.pan.setValueAtTime(ear === 'left' ? -1 : 1, audioCtx.currentTime);
+
+  oscillator.connect(localGain);
+  localGain.connect(panner);
+  panner.connect(audioCtx.destination);
+
+  oscillator.start();
+  isPlaying = true;
+
+  toneTimeout = setTimeout(function() {
+    stopTone();
+  }, 1200);
+}
+
+function stopTone() {
+  if (toneTimeout) { clearTimeout(toneTimeout); toneTimeout = null; }
+  if (oscillator) {
+    try { oscillator.stop(); } catch(e) {}
+    oscillator.disconnect();
+    oscillator = null;
+  }
+  isPlaying = false;
+}
+
+function answerHear() {
+  if (!isTestRunning) return;
+
+  var freq = TEST_FREQUENCIES[currentFreqIndex];
+  var volume = VOLUME_LEVELS[currentVolumeIndex];
+
+  testResults[currentEar][freq] = volume;
+  currentVolumeIndex = VOLUME_LEVELS.length;
+
+  var btnHear = document.getElementById('btnHear');
+  var btnCantHear = document.getElementById('btnCantHear');
+  if (btnHear) btnHear.disabled = true;
+  if (btnCantHear) btnCantHear.disabled = true;
+
+  statusText.textContent = 'Recorded: ' + freq + 'Hz at ' + volume + '%';
+
+  setTimeout(function() {
+    playNextTone();
+  }, 800);
+}
+
+function answerCantHear() {
+  if (!isTestRunning) return;
+
+  var freq = TEST_FREQUENCIES[currentFreqIndex];
+  currentVolumeIndex++;
+
+  if (currentVolumeIndex >= VOLUME_LEVELS.length) {
+    testResults[currentEar][freq] = 100;
+    statusText.textContent = 'Cannot hear ' + freq + 'Hz (threshold ≥100%)';
+  } else {
+    statusText.textContent = freq + 'Hz · Increasing volume...';
+  }
+
+  var btnHear = document.getElementById('btnHear');
+  var btnCantHear = document.getElementById('btnCantHear');
+  if (btnHear) btnHear.disabled = true;
+  if (btnCantHear) btnCantHear.disabled = true;
+
+  setTimeout(function() {
+    playNextTone();
+  }, 600);
+}
+
+function saveResult() {
+  var freq = TEST_FREQUENCIES[currentFreqIndex];
+  if (!(freq in testResults[currentEar])) {
+    testResults[currentEar][freq] = 100;
+  }
+}
+
+function finishTest() {
+  isTestRunning = false;
+  stopTone();
+
+  statusDot.className = 'status-dot idle';
+  statusText.textContent = 'Test complete';
+  freqDisplay.textContent = 'Done!';
+  freqLabel.textContent = 'View your results below';
+  progressFill.style.width = '100%';
+  actionButtons.innerHTML = '<button class="btn btn-lg btn-primary" onclick="resetTest()">🔄 Retake Test</button>';
+
+  drawAudiogram();
+  updateResults();
+  resultSection.style.display = 'block';
+  resultSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+function drawAudiogram() {
+  var canvas = document.getElementById('audiogramCanvas');
+  var ctx = canvas.getContext('2d');
+  var w = canvas.width;
+  var h = canvas.height;
+
+  ctx.clearRect(0, 0, w, h);
+
+  var margin = { top: 20, right: 30, bottom: 40, left: 45 };
+  var plotW = w - margin.left - margin.right;
+  var plotH = h - margin.top - margin.bottom;
+
+  var displayFreqs = [125, 250, 500, 1000, 2000, 4000, 8000];
+
+  function freqToX(f) {
+    var logMin = Math.log10(125);
+    var logMax = Math.log10(8000);
+    var logF = Math.log10(f);
+    return margin.left + ((logF - logMin) / (logMax - logMin)) * plotW;
+  }
+
+  function dbToY(db) {
+    return margin.top + (db / 100) * plotH;
+  }
+
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 0.5;
+  for (var db = 0; db <= 100; db += 25) {
+    var y = dbToY(db);
+    ctx.beginPath();
+    ctx.moveTo(margin.left, y);
+    ctx.lineTo(margin.left + plotW, y);
+    ctx.stroke();
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(db + ' dB', margin.left - 5, y + 3);
+  }
+  for (var i = 0; i < displayFreqs.length; i++) {
+    var x = freqToX(displayFreqs[i]);
+    ctx.beginPath();
+    ctx.moveTo(x, margin.top);
+    ctx.lineTo(x, margin.top + plotH);
+    ctx.stroke();
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.textAlign = 'center';
+    var label = displayFreqs[i] >= 1000 ? (displayFreqs[i]/1000) + 'k' : displayFreqs[i];
+    ctx.fillText(label, x, margin.top + plotH + 16);
+  }
+
+  var zones = [
+    { max: 25, color: 'rgba(16,185,129,0.08)', label: 'Normal' },
+    { max: 40, color: 'rgba(245,158,11,0.08)', label: 'Mild' },
+    { max: 55, color: 'rgba(249,115,22,0.08)', label: 'Moderate' },
+    { max: 70, color: 'rgba(239,68,68,0.06)', label: 'Mod-Sev' },
+    { max: 100, color: 'rgba(153,27,27,0.05)', label: 'Severe+' }
+  ];
+  var prevY = margin.top;
+  for (var z = 0; z < zones.length; z++) {
+    var zoneY = dbToY(zones[z].max);
+    ctx.fillStyle = zones[z].color;
+    ctx.fillRect(margin.left, prevY, plotW, zoneY - prevY);
+    prevY = zoneY;
+  }
+
+  function drawEarLine(ear, color) {
+    var points = [];
+    for (var i = 0; i < displayFreqs.length; i++) {
+      var f = displayFreqs[i];
+      var db = testResults[ear][f];
+      if (db === undefined) db = 100;
+      points.push({ x: freqToX(f), y: dbToY(db) });
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+    for (var i = 1; i < points.length; i++) {
+      ctx.lineTo(points[i].x, points[i].y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    for (var i = 0; i < points.length; i++) {
+      var symbol = ear === 'left' ? '▣' : '●';
+      ctx.fillStyle = color;
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(symbol, points[i].x, points[i].y + 4);
+    }
+  }
+
+  drawEarLine('left', '#4F46E5');
+  drawEarLine('right', '#EF4444');
+
+  ctx.fillStyle = '#4F46E5';
+  ctx.fillText('▣ Left Ear', margin.left + 10, margin.top - 4);
+  ctx.fillStyle = '#EF4444';
+  ctx.fillText('● Right Ear', margin.left + 90, margin.top - 4);
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Frequency (Hz)', margin.left + plotW/2, margin.top + plotH + 34);
+  ctx.save();
+  ctx.translate(10, margin.top + plotH/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('Hearing Level (dB HL)', 0, 0);
+  ctx.restore();
+}
+
+function updateResults() {
+  var displayFreqs = [125, 250, 500, 1000, 2000, 4000, 8000];
+
+  function calcAvg(ear) {
+    var sum = 0, count = 0;
+    for (var i = 0; i < displayFreqs.length; i++) {
+      var val = testResults[ear][displayFreqs[i]];
+      if (val !== undefined) { sum += val; count++; }
+    }
+    return count > 0 ? Math.round(sum / count) : 100;
+  }
+
+  function classify(avg) {
+    if (avg <= 25) return { cls: 'result-normal', text: '✅ Normal Hearing' };
+    if (avg <= 40) return { cls: 'result-mild', text: '⚠️ Mild Hearing Loss' };
+    if (avg <= 55) return { cls: 'result-moderate', text: '🔶 Moderate Hearing Loss' };
+    if (avg <= 70) return { cls: 'result-severe', text: '🔴 Moderately Severe Loss' };
+    return { cls: 'result-severe', text: '🔴 Severe Hearing Loss' };
+  }
+
+  var leftAvg = calcAvg('left');
+  var rightAvg = calcAvg('right');
+  var leftClass = classify(leftAvg);
+  var rightClass = classify(rightAvg);
+
+  document.getElementById('leftEarAvg').textContent = leftAvg + ' dB';
+  document.getElementById('rightEarAvg').textContent = rightAvg + ' dB';
+  document.getElementById('leftEarResult').innerHTML = '<span class="result-badge ' + leftClass.cls + '">' + leftClass.text + '</span>';
+  document.getElementById('rightEarResult').innerHTML = '<span class="result-badge ' + rightClass.cls + '">' + rightClass.text + '</span>';
+}
+
+function resetTest() {
+  isTestRunning = false;
+  stopTone();
+  currentEar = 'left';
+  currentFreqIndex = 0;
+  currentVolumeIndex = 0;
+  testResults = { left: {}, right: {} };
+
+  freqDisplay.textContent = '1000 Hz';
+  freqLabel.textContent = 'Ready to start testing';
+  progressFill.style.width = '0%';
+  statusDot.className = 'status-dot idle';
+  statusText.textContent = 'Ready to begin';
+  currentEarEl.textContent = 'Left Ear';
+  actionButtons.innerHTML = '<button class="btn btn-lg btn-primary" onclick="startTest()">🎧 Start Test</button>';
+  resultSection.style.display = 'none';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+volumeSlider.addEventListener('input', function() {
+  volumeValue.textContent = this.value + '%';
+  initAudio();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!isTestRunning) return;
+  if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+    answerHear();
+  } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+    answerCantHear();
+  }
+});
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

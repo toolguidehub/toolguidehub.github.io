@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build a crontab entry with presets and a next-run preview using standard 5-field cron syntax.">
+<meta name="keywords" content="crontab generatorcron expressioncron schedulelinux croncron job generatorcron syntaxcron buildercron expression generator">
+<title>Free Crontab Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/crontab-generator/">
+<meta property="og:title" content="Free Crontab Generator - ToolGuideHub">
+<meta property="og:description" content="Build a crontab entry with presets and a next-run preview using standard 5-field cron syntax.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/crontab-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Crontab Generator", "description": "Free online crontab generator. Visually configure cron schedule expressions with presets and next execution time preview. Supports standard 5-field cron format. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Crontab Generator FAQ","mainEntity":[{"@type":"Question","name":"Is Crontab Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, Crontab Generator is completely free. Everything runs locally: minute and hour are processed on your device, never sent to a server with no registration required."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. This tool is part of ToolGuideHub, all features are available without registration or payment."}}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Crontab Generator",
+  "description": "Simple steps to use Crontab Generator. Everything runs locally: minute and hour are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "⏰ Crontab Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/crontab-generator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/crontab-generator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/crontab-generator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.content-section ul{padding-left:20px;color:#94a3b8;font-size:.9rem}
+.content-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#online-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Crontab Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/crontab-generator/"
+    }
+  ],
+  "name": "Crontab Generator"
+}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/crontab-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>⏰ Crontab Generator</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/cron-generator/" style="color:#22d3ee;text-decoration:underline">cron generator</a>. Please use the new version.</div>
+
+</div>
+<div class="nav-back"><a href="../">← Back to Tools Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div class="ad-slot">Advertisement</div>
+
+<div class="tool-section">
+<h2>⏰ Crontab Generator</h2>
+
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px">
+<div>
+<label style="font-size:.75rem;color:#94a3b8;display:block;margin-bottom:4px">minute (0-59)</label>
+<select id="cronMin" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px;color:#e2e8f0;font-size:.85rem;outline:none">
+<option value="*">* Every minute</option>
+<option value="0">0 At minute 0</option>
+<option value="30">30 At minute 30</option>
+<option value="15">15 At minute 15</option>
+<option value="45">45 At minute 45</option>
+<option value="*/5">*/5 Every 5 min</option>
+<option value="*/10">*/10 Every 10 min</option>
+<option value="*/15">*/15 Every 15 min</option>
+<option value="*/30">*/30 Every 30 min</option>
+</select>
+</div>
+<div>
+<label style="font-size:.75rem;color:#94a3b8;display:block;margin-bottom:4px">hour (0-23)</label>
+<select id="cronHour" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px;color:#e2e8f0;font-size:.85rem;outline:none">
+<option value="*">* Every hour</option>
+<option value="0">0 Midnight</option>
+<option value="6">6 6 AM</option>
+<option value="8">8 8 AM</option>
+<option value="9">9 9 AM</option>
+<option value="12">12 Noon</option>
+<option value="14">14 2 PM</option>
+<option value="18">18 6 PM</option>
+<option value="22">22 10 PM</option>
+<option value="*/2">*/2 Every 2 hours</option>
+<option value="*/4">*/4 Every 4 hours</option>
+<option value="*/6">*/6 Every 6 hours</option>
+<option value="*/8">*/8 Every 8 hours</option>
+<option value="*/12">*/12 Every 12 hours</option>
+</select>
+</div>
+<div>
+<label style="font-size:.75rem;color:#94a3b8;display:block;margin-bottom:4px">day (1-31)</label>
+<select id="cronDay" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px;color:#e2e8f0;font-size:.85rem;outline:none">
+<option value="*">* Every day</option>
+<option value="1">1 First of month</option>
+<option value="15">15 Middle of month</option>
+<option value="1,15">1,15 1st and 15th</option>
+<option value="*/2">*/2 Every 2 days</option>
+<option value="*/7">*/7 Every 7 days</option>
+</select>
+</div>
+<div>
+<label style="font-size:.75rem;color:#94a3b8;display:block;margin-bottom:4px">month (1-12)</label>
+<select id="cronMonth" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px;color:#e2e8f0;font-size:.85rem;outline:none">
+<option value="*">* Every month</option>
+<option value="1">1 January</option>
+<option value="3">3 March</option>
+<option value="6">6 June</option>
+<option value="1,4,7,10">1,4,7,10 Quarterly</option>
+</select>
+</div>
+<div>
+<label style="font-size:.75rem;color:#94a3b8;display:block;margin-bottom:4px">week (0-7)</label>
+<select id="cronWeek" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px;color:#e2e8f0;font-size:.85rem;outline:none">
+<option value="*">* Every day</option>
+<option value="0,7">0,7 Weekend</option>
+<option value="1-5">1-5 Weekdays</option>
+<option value="6,0">6,0 Sat &amp; Sun</option>
+<option value="1">1 Monday</option>
+<option value="5">5 Friday</option>
+</select>
+</div>
+</div>
+
+<div style="margin:16px 0;padding:16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px">
+<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+<label style="font-size:.85rem;color:#94a3b8">Or enter directly:</label>
+<input type="text" id="cronInput" placeholder="*/5 * * * *" value="0 9 * * 1-5" style="flex:1;min-width:200px;background:#1e293b;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.9rem;font-family:monospace;outline:none">
+<button id="parseBtn" style="padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)">Parse</button>
+</div>
+</div>
+
+<div style="margin:16px 0">
+<h3 style="font-size:.95rem;color:#f1f5f9;margin-bottom:8px">📋 Preset Templates</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="preset-btn" data-cron="0 8 * * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Every day 8:00</button>
+<button class="preset-btn" data-cron="0 9 * * 1-5" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Weekdays 9:00</button>
+<button class="preset-btn" data-cron="*/5 * * * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Every 5 minutes</button>
+<button class="preset-btn" data-cron="0 0 * * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Every day midnight</button>
+<button class="preset-btn" data-cron="0 2 * * 0" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Sunday 2:00</button>
+<button class="preset-btn" data-cron="0 0 1 * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">1st of month</button>
+<button class="preset-btn" data-cron="*/30 * * * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Every 30 minutes</button>
+<button class="preset-btn" data-cron="0 */2 * * *" style="padding:8px 16px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Every 2 hours</button>
+</div>
+</div>
+
+<div id="cronResult" style="padding:16px;background:#0f172a;border:1px solid rgba(6,182,212,.3);border-radius:8px;margin-top:16px">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+<div>
+<div style="font-size:.75rem;color:#64748b">Cron Expression</div>
+<div id="cronDisplay" style="font-size:1.4rem;font-family:monospace;color:#22d3ee;font-weight:600;margin-top:4px">0 9 * * 1-5</div>
+</div>
+<button id="copyCronBtn" style="padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">📋 Copy</button>
+</div>
+<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(148,163,184,.1)">
+<div style="font-size:.75rem;color:#64748b">Description</div>
+<div id="cronDesc" style="font-size:1rem;color:#e2e8f0;margin-top:4px">Weekdays at 09:00</div>
+</div>
+<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(148,163,184,.1)">
+<div style="font-size:.75rem;color:#64748b">Next Execution Time</div>
+<div id="nextRun" style="font-size:.9rem;color:#94a3b8;margin-top:4px">--</div>
+</div>
+</div>
+
+<div id="cronError" style="display:none;margin-top:12px;padding:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;color:#ef4444;font-size:.85rem"></div>
+</div>
+<div class="content-section">
+<h2>📖 How to Use</h2>
+<p>The crontab generator lets you visually build Linux scheduled task expressions. Pick concrete values for minute, hour, day, month, and weekday from the dropdowns (or use the wildcard *), and the tool generates the matching cron expression for you. You can also type an expression directly into the input box and click "Parse" to view its meaning.</p>
+<p>Preset templates cover the most common schedules (e.g. every day at 8:00, every 5 minutes, weekdays at 9:00) and can be applied with one click. The tool shows the readable description of the expression plus the next 3 execution times, so you can verify that the expression is correct.</p>
+</div>
+
+<div class="content-section">
+<h2>⚡ About Cron Expressions</h2>
+<p>A cron expression is the standard format used by Linux to configure scheduled tasks. It is made up of 5 fields separated by spaces: minute, hour, day, month, and weekday. Each field supports the asterisk (*), comma (,), dash (-), and step value (/) characters. Fields are separated by a single space — for example, "0 9 * * 1-5" runs every weekday at 9:00 AM.</p>
+</div>
+
+<div class="content-section">
+<h2>💼 Use Cases</h2>
+<p>Cron expressions are widely used to automate server and system tasks: scheduled database backups, automated email reports, temporary file cleanup, periodic web scraping, routine system maintenance and updates, and scheduled data analysis or report generation.</p>
+</div>
+
+<div class="content-section">
+<h2>🔗 Recommended Tools</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+<a href="../timestamp-converter/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">⏱️</span><span style="display:block;font-weight:500;margin-top:4px">Time Convert</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">UnixTime convert</span></a>
+<a href="../timezone-converter/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🌍</span><span style="display:block;font-weight:500;margin-top:4px">Timezone Converter</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Convert between time zones</span></a>
+<a href="../countdown-timer/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">⏳</span><span style="display:block;font-weight:500;margin-top:4px">Countdown Timer</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Set event countdown</span></a>
+<a href="../date-calculator/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">📅</span><span style="display:block;font-weight:500;margin-top:4px">Date Calculator</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Calculate date difference</span></a>
+<a href="../alarm-clock/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">⏰</span><span style="display:block;font-weight:500;margin-top:4px">Alarm Clock</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Online reminder</span></a>
+</div>
+</div>
+
+<div class="ad-slot">Advertisement</div>
+
+<div>
+</div>
+
+
+<script>
+const cronMin=document.getElementById('cronMin');
+const cronHour=document.getElementById('cronHour');
+const cronDay=document.getElementById('cronDay');
+const cronMonth=document.getElementById('cronMonth');
+const cronWeek=document.getElementById('cronWeek');
+const cronInput=document.getElementById('cronInput');
+const cronDisplay=document.getElementById('cronDisplay');
+const cronDesc=document.getElementById('cronDesc');
+const nextRun=document.getElementById('nextRun');
+const copyCronBtn=document.getElementById('copyCronBtn');
+const cronError=document.getElementById('cronError');
+const parseBtn=document.getElementById('parseBtn');
+
+const dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+function describeCron(expr){
+  const parts=expr.trim().split(/\s+/);
+  if(parts.length!==5){return '';}
+  const [min,hour,day,month,week]=parts;
+
+  const time=(hour==='*'&&min==='*')?'every minute'
+    : (hour.startsWith('*/'))?'every '+hour.slice(2)+' hours'
+    : (hour==='*'&&min.startsWith('*/'))?'every '+min.slice(2)+' minutes'
+    : (hour==='*')?'every hour at minute '+min
+    : (min==='*')?'every minute of hour '+hour
+    : (min==='0')?'at '+hour+':00'
+    : (min.startsWith('*/'))?'at minutes '+min+' past hour '+hour
+    : 'at '+hour+':'+min;
+
+  const schedule=[time];
+  if(week==='*'){
+    if(day==='*'){
+      if(month==='*') schedule.push('every day');
+      else schedule.push('in month '+month);
+    }else{
+      schedule.push('on day '+day+(month==='*'?'':' of month '+month));
+    }
+  }else{
+    const num=parseInt(week.replace(/[^0-9]/g,''));
+    const wdesc=(week==='1-5')?'on weekdays'
+      :(week==='0,7'||week==='6,0')?'on weekends'
+      :(week.includes('-'))?'on days '+week.replace('-',' to ')
+      :(week.includes(','))?'on days '+week.replace(/,/g,' and ')
+      :'on '+(dayNames[num]||week);
+    schedule.push(wdesc);
+  }
+  return schedule.join(' ');
+}
+
+function getNextRuns(expr,count=5){
+  const parts=expr.trim().split(/\s+/);
+  if(parts.length!==5) return [];
+  const [minField,hourField,dayField,monthField,weekField]=parts;
+  
+  const cronMatch=(val,field)=>{
+    if(field==='*') return true;
+    const parts=field.split(',');
+    for(const p of parts){
+      if(p.startsWith('*/')){
+        const step=parseInt(p.slice(2));
+        if(step>0&&val%step===0) return true;
+      }else if(p.includes('-')){
+        const [s,e]=p.split('-').map(Number);
+        if(val>=s&&val<=e) return true;
+      }else if(parseInt(p)===val) return true;
+    }
+    return false;
+  };
+  
+  const now=new Date();
+  const runs=[];
+  let d=new Date(now);
+  d.setSeconds(0,0);
+  
+  for(let attempt=0;attempt<525600&&runs.length<count;attempt++){
+    d.setMinutes(d.getMinutes()+1);
+    const m=d.getMinutes(),h=d.getHours(),day=d.getDate(),mo=d.getMonth()+1,dow=d.getDay();
+    if(cronMatch(m,minField)&&cronMatch(h,hourField)&&cronMatch(day,dayField)&&cronMatch(mo,monthField)&&cronMatch(dow,weekField)){
+      runs.push(new Date(d));
+    }
+  }
+  return runs;
+}
+
+function updateFromSelects(){
+  const expr=[cronMin.value,cronHour.value,cronDay.value,cronMonth.value,cronWeek.value].join(' ');
+  cronInput.value=expr;
+  updateResult(expr);
+}
+
+function updateFromInput(){
+  const expr=cronInput.value.trim();
+  const parts=expr.split(/\s+/);
+  if(parts.length===5){
+    cronMin.value=parts[0];
+    cronHour.value=parts[1];
+    cronDay.value=parts[2];
+    cronMonth.value=parts[3];
+    cronWeek.value=parts[4];
+  }
+  updateResult(expr);
+}
+
+function updateResult(expr){
+  const parts=expr.split(/\s+/);
+  if(parts.length!==5){cronError.style.display='block';cronError.textContent='';document.getElementById('cronResult').style.display='none';return;}
+  
+  cronDisplay.textContent=expr;
+  const desc=describeCron(expr);
+  cronDesc.textContent=desc;
+  
+  const runs=getNextRuns(expr,3);
+  if(runs.length>0){
+    const options={year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',weekday:'short'};
+    nextRun.textContent=runs.map(r=>r.toLocaleDateString('en-US',options)).join(' → ');
+  }else{
+    nextRun.textContent='';
+  }
+  
+  cronError.style.display='none';
+  document.getElementById('cronResult').style.display='block';
+}
+
+cronMin.addEventListener('change',updateFromSelects);
+cronHour.addEventListener('change',updateFromSelects);
+cronDay.addEventListener('change',updateFromSelects);
+cronMonth.addEventListener('change',updateFromSelects);
+cronWeek.addEventListener('change',updateFromSelects);
+parseBtn.addEventListener('click',updateFromInput);
+cronInput.addEventListener('keydown',function(e){if(e.key==='Enter')updateFromInput();});
+
+copyCronBtn.addEventListener('click',function(){
+  navigator.clipboard.writeText(cronDisplay.textContent).then(()=>{
+    copyCronBtn.textContent='✅ Copied';
+    setTimeout(()=>{copyCronBtn.textContent='📋 Copy';},2000);
+  });
+});
+
+// Presets
+document.querySelectorAll('.preset-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    cronInput.value=this.dataset.cron;
+    updateFromInput();
+  });
+});
+
+// Init
+updateFromSelects();
+</script>
+
+
+<!-- Feedback Widget -->
+</main><footer>
+<p>ToolGuideHub · Client-side processing (no server upload) · Privacy &amp; Security</p>
+<p> Email: <a href="../contact/">Contact</a></p>
+<p><a href="../">Back Home</a> · <a href="../privacy-policy/">Privacy Policy</a> · <a href="../terms-of-service/">Terms of Service</a></p>
+<p style="margin-top:8px;font-size:.75rem;color:#475569">© 2026 ToolGuideHub. All Rights Reserved.</p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+</body></html>

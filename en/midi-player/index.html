@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Play MIDI files in the browser with a piano roll view, choose the instrument and tempo, and mute individual tracks.">
+<title>Free MIDI Player - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/midi-player/">
+<meta property="og:title" content="Free MIDI Player - ToolGuideHub">
+<meta property="og:description" content="Play MIDI files in the browser with a piano roll view, choose the instrument and tempo, and mute individual tracks.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/midi-player/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MIDI Player", "description": "Free online MIDI player. Play MIDI files directly in your browser with piano roll visualization, instrument selection, tempo control, and track management. Pure frontend processing, files never uploaded.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "MIDI Player FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a MIDI file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MIDI (Musical Instrument Digital Interface) files are not audio files but contain musical instructions. They record note pitch, duration, velocity, and instrument info but no actual sound waves. MIDI files are very small and need a synthesizer to play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does MIDI sound different from the original?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MIDI only contains instructions, not actual sound. Playback depends on the sound source (SoundFont). Different sound sources produce completely different timbres. This tool uses the Web Audio API synthesizer with selectable instruments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What MIDI formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard MIDI files (.mid) including Format 0 (single track) and Format 1 (multi-track). RMI and KAR formats are not supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are MIDI files uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All MIDI parsing and playback is done locally in your browser. MIDI data never leaves your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I adjust playback speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool supports 0.25x to 4x speed adjustment for slow learning or quick browsing. Speed changes do not affect pitch."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+input[type=range]{width:200px;accent-color:#06b6d4;cursor:pointer}
+input[type=file]{cursor:pointer;padding:10px;width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;outline:none}
+select{cursor:pointer;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;padding:6px 10px;font-size:.85rem;outline:none}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.piano-roll{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;overflow:hidden;margin:12px 0}
+.piano-roll canvas{width:100%;height:200px;display:block}
+.track-list{margin:12px 0}
+.track-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;margin-bottom:4px;font-size:.85rem}
+.track-item input[type=checkbox]{accent-color:#06b6d4}
+.track-color{width:12px;height:12px;border-radius:3px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free MIDI Player", "item": "https://adi63586.github.io/Toolguidehub/en/midi-player/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use MIDI Player","description":"Step-by-step guide for using MIDI Player","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"MIDI Player"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Type or paste your content into the editor"},{"@type":"HowToStep","position":2,"name":"Edit and modify","text":"Use the toolbar or controls to make changes"},{"@type":"HowToStep","position":3,"name":"Preview live","text":"See real-time preview of your changes"},{"@type":"HowToStep","position":4,"name":"Export result","text":"Copy or download the edited content"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/midi-player/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>MIDI Player</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="tool-section">
+<h2>🎹 MIDI Player</h2>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">Play MIDI files in your browser with piano roll visualization and track control.</p>
+<input type="file" id="midi-file" accept=".mid,.midi" style="margin-bottom:12px">
+<div class="piano-roll">
+<canvas id="piano-canvas"></canvas>
+</div>
+<div class="options">
+<label>Tempo: <input type="range" id="tempo" min="25" max="400" value="100" step="5"> <span id="tempo-val">100%</span></label>
+</div>
+<div class="options">
+<label>Instrument: <select id="instrument">
+<option value="0">Piano</option>
+<option value="24">Guitar</option>
+<option value="33">Bass</option>
+<option value="40">Violin</option>
+<option value="56">Trumpet</option>
+<option value="73">Flute</option>
+<option value="80">Synth Lead</option>
+<option value="89">Synth Pad</option>
+</select></label>
+</div>
+<div class="track-list" id="track-list"></div>
+<div class="btn-row">
+<button class="btn btn-primary" id="play-btn" onclick="playMidi()" disabled>▶️ Play</button>
+<button class="btn btn-danger" id="stop-btn" onclick="stopMidi()" style="display:none">⏹️ Stop</button>
+</div>
+<div id="status" style="margin-top:8px;color:#64748b;font-size:.85rem"></div>
+</div>
+
+<div class="info-section">
+<h2>📖 Instructions</h2>
+<h3>What is MIDI?</h3>
+<p>MIDI (Musical Instrument Digital Interface) is a music instruction protocol. MIDI files record note pitch, duration, and velocity but not actual sound. A synthesizer is needed for playback.</p>
+<h3>Features</h3>
+<ul>
+<li>Format 0 and Format 1 MIDI support</li>
+<li>Piano canvisualizationshow</li>
+<li>Independent track control</li>
+<li>Tempo adjustment (0.25x-4x)</li>
+<li>Multiple instrument options</li>
+</ul>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is a MIDI file?</h3><p>MIDI (Musical Instrument Digital Interface) files are not audio files but contain musical instructions. They record note pitch, duration, velocity, and instrument info but no actual sound waves. MIDI files are very small and need a synthesizer to play.</p></div>
+<div class="faq-item"><h3>Why does MIDI sound different from the original?</h3><p>MIDI only contains instructions, not actual sound. Playback depends on the sound source (SoundFont). Different sound sources produce completely different timbres. This tool uses the Web Audio API synthesizer with selectable instruments.</p></div>
+<div class="faq-item"><h3>What MIDI formats are supported?</h3><p>Standard MIDI files (.mid) including Format 0 (single track) and Format 1 (multi-track). RMI and KAR formats are not supported.</p></div>
+<div class="faq-item"><h3>Are MIDI files uploaded to a server?</h3><p>No. All MIDI parsing and playback is done locally in your browser. MIDI data never leaves your device.</p></div>
+<div class="faq-item"><h3>Can I adjust playback speed?</h3><p>Yes. This tool supports 0.25x to 4x speed adjustment for slow learning or quick browsing. Speed changes do not affect pitch.</p></div>
+</div>
+<script>
+  const tracks = [];
+  const allNotes = [];
+  const trackColors = ['#22d3ee', '#f87171', '#22c55e', '#fbbf24', '#a78bfa', '#fb923c', '#f472b6', '#34d399'];
+    const trackNotes = [];
+    const oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
+</script>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1);"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/metronome-online/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎵 Online Metronome</a><a href="../../en/audio-recorder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎙 Audio Recorder</a><a href="../../en/text-to-speech/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔊 Text to Speech</a></div></section>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/midi-player/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+
+let audioCtx = null;
+let midiData = null;
+let isPlaying = false;
+let scheduledNotes = [];
+let playbackStart = 0;
+
+document.getElementById('tempo').addEventListener('input', function() {
+  document.getElementById('tempo-val').textContent = this.value + '%';
+});
+
+document.getElementById('midi-file').addEventListener('change', async function(e) {
+  if (this.files.length > 0) {
+    try {
+      const arrayBuffer = await this.files[0].arrayBuffer();
+      midiData = parseMidi(new Uint8Array(arrayBuffer));
+      document.getElementById('status').textContent = '✅ Loaded: ' + this.files[0].name + ' | ' + midiData.tracks.length + ' tracks | ' + midiData.notes.length + ' notes';
+      document.getElementById('play-btn').disabled = false;
+      drawPianoRoll();
+      buildTrackList();
+    } catch(e) {
+      document.getElementById('status').textContent = '❌ Load failed: ' + e.message;
+    }
+  }
+});
+
+function parseMidi(data) {
+  // Simple MIDI parser
+  let pos = 0;
+  
+  // Read header
+  const headerTag = String.fromCharCode(data[0], data[1], data[2], data[3]);
+  if (headerTag !== 'MThd') throw new Error('Not a valid MIDI file');
+  pos = 4;
+  
+  const headerLen = (data[pos] << 24) | (data[pos+1] << 16) | (data[pos+2] << 8) | data[pos+3];
+  pos = 8;
+  
+  const format = (data[pos] << 8) | data[pos+1];
+  const numTracks = (data[pos+2] << 8) | data[pos+3];
+  const ppqn = (data[pos+4] << 8) | data[pos+5];
+  pos = 14;
+  
+  const tracks = [];
+  const allNotes = [];
+  const trackColors = ['#22d3ee', '#f87171', '#22c55e', '#fbbf24', '#a78bfa', '#fb923c', '#f472b6', '#34d399'];
+  
+  for (let t = 0; t < numTracks && pos < data.length; t++) {
+    const trackTag = String.fromCharCode(data[pos], data[pos+1], data[pos+2], data[pos+3]);
+    if (trackTag !== 'MTrk') break;
+    pos += 4;
+    
+    const trackLen = (data[pos] << 24) | (data[pos+1] << 16) | (data[pos+2] << 8) | data[pos+3];
+    pos += 4;
+    
+    const trackEnd = pos + trackLen;
+    const trackNotes = [];
+    let absTime = 0;
+    let runningStatus = 0;
+    let tempo = 500000; // Default 120 BPM
+    
+    while (pos < trackEnd) {
+      // Read variable-length delta time
+      let delta = 0;
+      let byte;
+      do {
+        byte = data[pos++];
+        delta = (delta << 7) | (byte & 0x7f);
+      } while (byte & 0x80);
+      
+      absTime += delta;
+      
+      // Read event
+      let statusByte = data[pos];
+      if (statusByte & 0x80) {
+        runningStatus = statusByte;
+        pos++;
+      } else {
+        statusByte = runningStatus;
+      }
+      
+      const type = statusByte & 0xf0;
+      const channel = statusByte & 0x0f;
+      
+      if (type === 0x90) {
+        // Note On
+        const note = data[pos++];
+        const velocity = data[pos++];
+        if (velocity > 0) {
+          const timeInSec = absTime * tempo / (ppqn * 1000000);
+          trackNotes.push({
+            note: note,
+            velocity: velocity,
+            startTime: timeInSec,
+            track: t,
+            channel: channel
+          });
+        }
+      } else if (type === 0x80) {
+        // Note Off
+        pos += 2;
+      } else if (type === 0xA0 || type === 0xB0 || type === 0xE0) {
+        pos += 2;
+      } else if (type === 0xC0 || type === 0xD0) {
+        pos += 1;
+      } else if (statusByte === 0xFF) {
+        // Meta event
+        const metaType = data[pos++];
+        let len = 0;
+        let byte2;
+        do {
+          byte2 = data[pos++];
+          len = (len << 7) | (byte2 & 0x7f);
+        } while (byte2 & 0x80);
+        
+        if (metaType === 0x51 && len === 3) {
+          tempo = (data[pos] << 16) | (data[pos+1] << 8) | data[pos+2];
+        }
+        pos += len;
+      } else if (statusByte === 0xF0 || statusByte === 0xF7) {
+        let len = 0;
+        let byte2;
+        do {
+          byte2 = data[pos++];
+          pos++;
+          len = (len << 7) | (byte2 & 0x7f);
+        } while (byte2 & 0x80);
+        pos += len;
+      }
+    }
+    
+    // Calculate note durations
+    for (let i = 0; i < trackNotes.length; i++) {
+      const nextTime = i + 1 < trackNotes.length ? trackNotes[i + 1].startTime : trackNotes[i].startTime + 0.5;
+      trackNotes[i].duration = Math.min(nextTime - trackNotes[i].startTime, 2);
+      trackNotes[i].color = trackColors[t % trackColors.length];
+    }
+    
+    tracks.push({ notes: trackNotes, color: trackColors[t % trackColors.length] });
+    allNotes.push(...trackNotes);
+    
+    pos = trackEnd;
+  }
+  
+  // Sort notes by start time
+  allNotes.sort((a, b) => a.startTime - b.startTime);
+  
+  const totalTime = allNotes.length > 0 ? Math.max(...allNotes.map(n => n.startTime + n.duration)) : 0;
+  
+  return { format, numTracks, ppqn, tracks, notes: allNotes, totalTime };
+}
+
+function drawPianoRoll() {
+  if (!midiData || midiData.notes.length === 0) return;
+  
+  const canvas = document.getElementById('piano-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 400;
+  
+  const notes = midiData.notes;
+  const minNote = Math.min(...notes.map(n => n.note));
+  const maxNote = Math.max(...notes.map(n => n.note));
+  const noteRange = maxNote - minNote + 1;
+  const totalTime = midiData.totalTime;
+  
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Draw grid
+  ctx.strokeStyle = 'rgba(148,163,184,0.1)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 12; i++) {
+    const x = (i / 12) * canvas.width;
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, canvas.height);
+    ctx.stroke();
+  }
+  
+  // Draw notes
+  for (const note of notes) {
+    const x = (note.startTime / totalTime) * canvas.width;
+    const w = Math.max(2, (note.duration / totalTime) * canvas.width);
+    const y = canvas.height - ((note.note - minNote) / noteRange) * canvas.height;
+    const h = Math.max(2, canvas.height / noteRange);
+    
+    ctx.fillStyle = note.color || '#22d3ee';
+    ctx.globalAlpha = 0.7;
+    ctx.fillRect(x, y - h, w, h);
+    ctx.globalAlpha = 1;
+  }
+}
+
+function buildTrackList() {
+  if (!midiData) return;
+  const list = document.getElementById('track-list');
+  list.innerHTML = '';
+  
+  midiData.tracks.forEach((track, i) => {
+    const item = document.createElement('div');
+    item.className = 'track-item';
+    item.innerHTML = '\x3Cinput type="checkbox" checked id="track-' + i + '" onchange="toggleTrack(' + i + ')">' +
+      '\x3Cdiv class="track-color" style="background:' + track.color + '">\x3C/div>' +
+      '\x3Cspan>Track ' + (i + 1) + ' (' + track.notes.length + ' notes)\x3C/span>';
+    list.appendChild(item);
+  });
+}
+
+function toggleTrack(idx) {
+  // Track toggle for playback
+}
+
+async function playMidi() {
+  if (!midiData || midiData.notes.length === 0) return;
+  
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') await audioCtx.resume();
+  
+  stopMidi();
+  isPlaying = true;
+  
+  const tempoScale = parseInt(document.getElementById('tempo').value) / 100;
+  const instrument = parseInt(document.getElementById('instrument').value);
+  
+  document.getElementById('play-btn').style.display = 'none';
+  document.getElementById('stop-btn').style.display = 'inline-block';
+  
+  playbackStart = audioCtx.currentTime;
+  
+  const enabledTracks = new Set();
+  midiData.tracks.forEach((track, i) => {
+    const cb = document.getElementById('track-' + i);
+    if (cb && cb.checked) enabledTracks.add(i);
+  });
+  
+  for (const note of midiData.notes) {
+    if (!enabledTracks.has(note.track)) continue;
+    
+    const startTime = playbackStart + note.startTime / tempoScale;
+    const duration = note.duration / tempoScale;
+    
+    // Simple oscillator-based synthesis
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    // Map instrument to oscillator type
+    const oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
+    const oscType = oscTypes[instrument % 4];
+    osc.type = oscType;
+    
+    // MIDI note to frequency
+    const freq = 440 * Math.pow(2, (note.note - 69) / 12);
+    osc.frequency.setValueAtTime(freq, startTime);
+    
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(note.velocity / 127 * 0.3, startTime + 0.01);
+    gain.gain.setValueAtTime(note.velocity / 127 * 0.3, startTime + duration - 0.05);
+    gain.gain.linearRampToValueAtTime(0, startTime + duration);
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.start(startTime);
+    osc.stop(startTime + duration + 0.1);
+    
+    scheduledNotes.push(osc);
+  }
+  
+  // Auto stop when done
+  const totalDuration = midiData.totalTime / tempoScale;
+  setTimeout(() => {
+    if (isPlaying) stopMidi();
+  }, totalDuration * 1000 + 500);
+}
+
+window.stopMidi = stopMidi; function stopMidi() {
+  isPlaying = false;
+  for (const osc of scheduledNotes) {
+    try { osc.stop(); } catch(e) {}
+  }
+  scheduledNotes = [];
+  document.getElementById('play-btn').style.display = 'inline-block';
+  document.getElementById('stop-btn').style.display = 'none';
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:' Feature request',bug:' Bug report',other:' Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+}
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000);}
+</script>
+
+
+</body>
+</html>

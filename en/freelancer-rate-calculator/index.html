@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelancer Rate Calculator - ToolGuideHub</title>
+  <meta name="description" content="Work out the minimum hourly and daily rate needed to hit a target take-home income after self-employment tax, expenses, and profit margin.">
+  <meta name="keywords" content="freelancer rate,hourly rate calculator,freelance pricing,rate calculator,freelancer,online tool,free">
+  <meta property="og:title" content="Freelancer Rate Calculator - ToolGuideHub">
+  <meta property="og:description" content="Work out the minimum hourly and daily rate needed to hit a target take-home income after self-employment tax, expenses, and profit margin.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/freelancer-rate-calculator/">
+      <meta name="robots" content="index, follow">
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+header { background: #0f172a; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
+header .logo { font-size: 20px; font-weight: 700; color: #22d3ee; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+header .logo span { font-size: 14px; color: #94a3b8; font-weight: 400; }
+main { max-width: 800px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 28px; margin-bottom: 8px; }
+.hero { color: #94a3b8; margin-bottom: 24px; font-size: 15px; }
+.card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #94a3b8; }
+.form-group input { width: 100%; padding: 10px 14px; border: 1.5px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; background: #0f172a; color: #e2e8f0; transition: border-color .2s; }
+.form-group input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px var(--primary-light); }
+.form-group .help-text { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+.btn-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.btn { padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all .2s; }
+.btn-primary { background: #22d3ee; color: #fff; }
+.btn-primary:hover { opacity: .9; }
+.btn-outline { background: #0f172a; color: #22d3ee; border: 1.5px solid #22d3ee; }
+.btn-outline:hover { background: var(--primary-light); }
+.result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 16px; }
+.result-item { background: var(--primary-light); padding: 16px; border-radius: 8px; text-align: center; }
+.result-item .label { font-size: 12px; color: #94a3b8; margin-bottom: 4px; }
+.result-item .value { font-size: 22px; font-weight: 700; color: #e2e8f0; }
+.result-item .value.highlight { color: #22d3ee; }
+.breakdown { margin-top: 16px; padding: 16px; background: #0f172a; border: 1px solid rgba(148,163,184,.15); border-radius: 8px; font-size: 13px; line-height: 1.8; }
+.breakdown strong { color: #e2e8f0; }
+footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); margin-top: 32px; }
+footer a { color: #22d3ee; text-decoration: none; }
+.lang-switch{display:flex;gap:4px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:4px}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+@media (max-width: 375px) { .result-grid { grid-template-columns: 1fr 1fr; } h1 { font-size: 22px; } }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Freelancer Rate Calculator"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Freelancer Rate Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Freelancer Rate Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Freelancer Rate Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Billable Hours per Y and Profit Margin are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Freelancer Rate Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Freelancer Rate Calculator","description":"Step-by-step guide for using Freelancer Rate Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Freelancer Rate Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/freelancer-rate-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Freelancer Rate Calculator","description":"Freelancer rate calculator. Determine your ideal hourly/daily rate. Factor in taxes, insurance, vacation, and expenses to calculate the ra","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><a href="../../" class="logo">⚡ ToolGuideHub <span>Free Online Tools</span></a></header>
+<main>
+  <h1>💼 Freelancer Rate Calculator</h1>
+  <p class="hero">Freelancer rate calculator. Enter your target take-home income, and we'll calculate the minimum hourly and daily rates you need to charge — factoring in taxes, expenses, and profit margin.</p>
+
+  <div class="section">
+    <div class="form-group">
+      <label for="targetIncome">Target Take-Home Income ($)</label>
+      <input type="number" id="targetIncome" placeholder="e.g. 80000" value="80000" min="0" step="1000">
+      <div class="help-text">Your desired annual after-tax income</div>
+    </div>
+    <div class="form-group">
+      <label for="taxRate">Self-Employment Tax Rate (%)</label>
+      <input type="number" id="taxRate" placeholder="e.g. 30" value="30" min="0" max="60" step="0.5">
+      <div class="help-text">Includes income tax + self-employment tax. US freelancers typically 25-35%</div>
+    </div>
+    <div class="form-group">
+      <label for="billableHours">Billable Hours per Year</label>
+      <input type="number" id="billableHours" placeholder="e.g. 1500" value="1500" min="100" max="3000" step="50">
+      <div class="help-text">Actual working hours after vacation, sick days, admin, training. Full-time ≈ 1500-1800 hrs/yr</div>
+    </div>
+    <div class="form-group">
+      <label for="expenses">Annual Business Expenses ($)</label>
+      <input type="number" id="expenses" placeholder="e.g. 5000" value="5000" min="0" step="500">
+      <div class="help-text">Office supplies, software subscriptions, internet, travel, marketing, etc.</div>
+    </div>
+    <div class="form-group">
+      <label for="profitMargin">Profit Margin (%)</label>
+      <input type="number" id="profitMargin" placeholder="e.g. 15" value="15" min="0" max="50" step="1">
+      <div class="help-text">Extra buffer for reinvestment and growth</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button>      <button class="btn btn-primary" onclick="calculate()">Calculate Rate</button>
+      <button class="btn btn-outline" onclick="copyResults()">📋 Copy Results</button>
+      <button class="btn btn-outline" onclick="clearAll()">Clear</button>
+    </div>
+  </div>
+
+  <div class="section" id="results" style="display:none;">
+    <h2 style="font-size:18px;margin-bottom:12px;">📊 Recommended Rates</h2>
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="label">Min. Hourly Rate</div>
+        <div class="value highlight" id="resHourly">$0</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Min. Daily Rate (8h)</div>
+        <div class="value" id="resDaily">$0</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Suggested Hourly (+profit)</div>
+        <div class="value highlight" id="resHourlyProfit">$0</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Suggested Daily (+profit)</div>
+        <div class="value" id="resDailyProfit">$0</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Annual Revenue Target</div>
+        <div class="value" id="resGross">$0</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Monthly Revenue Target</div>
+        <div class="value" id="resMonthly">$0</div>
+      </div>
+    </div>
+    <div class="breakdown" id="breakdown"></div>
+  </div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../moon-phase-calculator/">🌙 Moon Phase Calculator</a><a href="../roman-numerals-converter/">🏛️ Roman Numerals Converter</a><a href="../meeting-cost-calculator/">💼 Meeting Cost Calculator</a></div></section>
+<footer>
+  <p>© 2024 <a href="../../">ToolGuideHub</a> · All tools are free · <a href="../terms/">Terms</a> · <a href="../privacy/">Privacy</a></p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:999;display:none;box-shadow:0 4px 12px rgba(0,0,0,.3);"></div>
+
+<script>
+function fmt(n) {
+  return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function calculate() {
+  var target = parseFloat(document.getElementById('targetIncome').value) || 0;
+  var taxRate = (parseFloat(document.getElementById('taxRate').value) || 0) / 100;
+  var hours = parseInt(document.getElementById('billableHours').value) || 1500;
+  var expenses = parseFloat(document.getElementById('expenses').value) || 0;
+  var margin = (parseFloat(document.getElementById('profitMargin').value) || 0) / 100;
+  
+  var preTax = target / (1 - taxRate);
+  var totalNeeded = preTax + expenses;
+  var baseHourly = totalNeeded / hours;
+  var withProfit = baseHourly * (1 + margin);
+  var baseDaily = baseHourly * 8;
+  var dailyProfit = withProfit * 8;
+  
+  document.getElementById('resHourly').textContent = fmt(baseHourly);
+  document.getElementById('resDaily').textContent = fmt(baseDaily);
+  document.getElementById('resHourlyProfit').textContent = fmt(withProfit);
+  document.getElementById('resDailyProfit').textContent = fmt(dailyProfit);
+  document.getElementById('resGross').textContent = fmt(totalNeeded * (1 + margin));
+  document.getElementById('resMonthly').textContent = fmt(totalNeeded * (1 + margin) / 12);
+  
+  document.getElementById('breakdown').innerHTML = 
+    '<strong>Calculation Breakdown:</strong><br>' +
+    '① Pre-tax income needed: ' + fmt(preTax) + ' (' + fmt(target) + ' ÷ (1 - ' + (taxRate*100).toFixed(1) + '%))<br>' +
+    '② Add expenses: ' + fmt(totalNeeded) + ' (' + fmt(preTax) + ' + ' + fmt(expenses) + ' expenses)<br>' +
+    '③ Base hourly: ' + fmt(baseHourly) + ' (' + fmt(totalNeeded) + ' ÷ ' + hours + ' hours)<br>' +
+    '④ With profit: ' + fmt(withProfit) + ' (includes ' + (margin*100).toFixed(0) + '% margin)<br>' +
+    '⑤ Daily rate: ' + fmt(dailyProfit) + ' (' + fmt(withProfit) + ' × 8 hours)';
+  
+  document.getElementById('results').style.display = 'block';
+  showToast('Calculation complete');
+}
+
+function clearAll() {
+  document.getElementById('targetIncome').value = '';
+  document.getElementById('taxRate').value = '';
+  document.getElementById('billableHours').value = '';
+  document.getElementById('expenses').value = '';
+  document.getElementById('profitMargin').value = '';
+  document.getElementById('results').style.display = 'none';
+  showToast('Cleared');
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(function(){ t.style.display = 'none'; }, 2000);
+}
+
+document.getElementById('targetIncome').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') calculate();
+});
+
+function copyResults() {
+  var res = document.getElementById('results');
+  if (!res || res.style.display === 'none') { showToast('Pleasecalculate first'); return; }
+  var text = '';
+  var items = res.querySelectorAll('.result-item');
+  for (var i = 0; i < items.length; i++) {
+    var label = items[i].querySelector('.label');
+    var value = items[i].querySelector('.value');
+    if (label && value) text += label.textContent + ': ' + value.textContent + '\n';
+  }
+  if (!text) { text = res.textContent.trim(); }
+  navigator.clipboard.writeText(text).then(function() { showToast('DoneCopy'); }).catch(function() { showToast('CopyFailed'); });
+}
+
+
+function fillExample(){
+  var vals = [["targetIncome", "80000"], ["taxRate", "30"], ["billableHours", "1500"], ["expenses", "5000"], ["profitMargin", "15"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  showToast('Example filled & calculated');
+}
+</script>
+</body>
+</html>

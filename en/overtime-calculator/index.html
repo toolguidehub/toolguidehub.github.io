@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Work out overtime pay at weekday 1.5x, weekend 2x or holiday 3x rates from your hourly wage and extra hours.">
+<meta name="keywords" content="overtime calculatorovertime pay calculatorwork hourstoolonline toolfree">
+<title>Overtime Pay Calculator - ToolGuideHub | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/overtime-calculator/">
+<meta property="og:title" content="Overtime Pay Calculator - ToolGuideHub | No Signup">
+<meta property="og:description" content="Work out overtime pay at weekday 1.5x, weekend 2x or holiday 3x rates from your hourly wage and extra hours.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/overtime-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name": "addCalculatetool","description": "Free OnlineaddCalculatetool，supportsaveragedayadd、weekendadd、setsectionfalsedayaddCalculate.Enter hourly rateandaddhournumber，keyCalculateadd.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use Overtime Pay Calculator","description": "How to use Overtime Pay Calculator detailstepsouth","totalTime":"PT2M","tool":{"@type":"HowToTool","name": "addCalculatetool"},"step":[{"@type":"HowToStep","position":1,"name":"Enter hourly rate","text":""},{"@type":"HowToStep","position":2,"name":"Select overtime type","text":""},{"@type":"HowToStep","position":3,"name":"Enter overtime hours","text":""},{"@type":"HowToStep","position":4,"name":"View results","text": "autodynamicCalculateshowadd"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name": "addCalculatetool","item":"https://adi63586.github.io/Toolguidehub/en/overtime-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"addCalculatetool FAQ","mainEntity":[{"@type":"Question","name":"How does the addCalculatetool work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the addCalculatetool free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Hourly Rate and ⏱ Overtime Hours are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the addCalculatetool results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;color:#f1f5f9;margin-bottom:8px;text-align:center}
+.subtitle{color:#94a3b8;text-align:center;margin-bottom:32px}
+.card{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+input[type="number"],select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#0f172a;color:#e2e8f0;font-size:1rem;outline:none;transition:border-color .2s}
+input[type="number"]:focus,select:focus{border-color:#22d3ee}
+.input-group{margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 32px;border-radius:50px;border:none;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#0f172a}
+.btn-primary:hover{background:#06b6d4}
+.result-box{background:#0f172a;border-radius:10px;padding:20px;text-align:center;margin-top:16px;border:1px solid rgba(34,211,238,.2)}
+.result-box .amount{font-size:2.5rem;font-weight:800;color:#22d3ee}
+.result-box .label{color:#94a3b8;font-size:.85rem;margin-top:4px}
+.result-detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.result-detail .item{background:#0f172a;padding:14px;border-radius:8px;text-align:center}
+.result-detail .item .val{font-size:1.2rem;font-weight:700;color:#e2e8f0}
+.result-detail .item .lbl{color:#64748b;font-size:.75rem;margin-top:2px}
+.overtime-types{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.type-btn{padding:14px 8px;border-radius:10px;border:2px solid rgba(148,163,184,.15);background:#0f172a;color:#94a3b8;cursor:pointer;transition:all .2s;text-align:center}
+.type-btn:hover{border-color:rgba(34,211,238,.3)}
+.type-btn.active{background:rgba(34,211,238,.1);border-color:#22d3ee;color:#22d3ee}
+.type-btn .rate{font-size:1.4rem;font-weight:800;display:block}
+.type-btn .tp{font-size:.8rem;margin-top:4px;display:block}
+.lang-nav{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+.lang-nav a{padding:6px 16px;border-radius:6px;font-size:.85rem;color:#94a3b8;border:1px solid rgba(148,163,184,.15);transition:all .2s;text-decoration:none}
+.lang-nav a.active{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#94a3b8;text-decoration:none;margin:0 8px}
+.footer a:hover{color:#22d3ee}
+.toast{position:fixed;bottom:24px;left:50%;transform:translatex(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;border:1px solid rgba(34,211,238,.3);z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:480px){.overtime-types{grid-template-columns:repeat(3,1fr)}.result-detail{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/overtime-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>💰 Overtime Pay Calculator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Overtime Pay Calculator</p>
+<div class="hero"><p>Free online overtime pay calculator. Supports weekday (1.5x), weekend (2x), and holiday (3x) overtime rates. Enter hourly wage and overtime hours to instantly calculate overtime pay. Accurate to the cent. | No signup · Data never uploaded</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="card">
+<p class="subtitle">Select overtime type, enter hourly rate and hours to auto-calculate</p>
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+<span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+Updated: 2026-07-25
+</span>
+</div>
+
+<div class="overtime-types" id="overtimeTypes">
+<button class="type-btn active" data-type="weekday" data-rate="1.5">
+<span class="rate">1.5x</span><span class="tp">Weekday OT</span>
+</button>
+<button class="type-btn" data-type="weekend" data-rate="2">
+<span class="rate">2x</span><span class="tp">Weekend OT</span>
+</button>
+<button class="type-btn" data-type="holiday" data-rate="3">
+<span class="rate">3x</span><span class="tp">Holiday OT</span>
+</button>
+</div>
+
+<div class="input-group">
+<label>💰 Hourly Rate ($/hr)</label>
+<input type="number" id="hourlyRate" placeholder="e.g.: 50" min="0" step="0.01" value="50">
+</div>
+
+<div class="input-group">
+<label>⏱ Overtime Hours</label>
+<input type="number" id="overtimeHours" placeholder="e.g.: 3" min="0" step="0.5" value="3">
+</div>
+
+<div class="result-box">
+<div class="label">Overtime Pay</div>
+<div class="amount" id="totalPay">$225.00</div>
+<div class="label" id="detailLabel">Weekday OT × 1.5x</div>
+</div>
+
+<div class="result-detail">
+<div class="item"><div class="val" id="basePay">$150.00</div><div class="lbl">Regular Pay</div></div>
+<div class="item"><div class="val" id="extraPay">$75.00</div><div class="lbl">OT Premium</div></div>
+<div class="item"><div class="val" id="hoursWorked">3.0</div><div class="lbl">OT Hours</div></div>
+<div class="item"><div class="val" id="multiplier">1.5x</div><div class="lbl">Rate Multiplier</div></div>
+</div>
+</div>
+</main>
+
+<div id="feedback-panel" style="display:none"><textarea id="feedback-text"></textarea><span id="feedback-count">0/1000</span><span id="feedback-success"></span></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="//en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="//en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="index.html">EN</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var currentRate = 1.5;
+var currentType = "Weekday OT";
+
+document.getElementById("hourlyRate").addEventListener("input", calculate);
+document.getElementById("overtimeHours").addEventListener("input", calculate);
+
+document.querySelectorAll(".type-btn").forEach(function(btn){
+btn.addEventListener("click", function(){
+document.querySelectorAll(".type-btn").forEach(function(b){b.classList.remove("active")});
+this.classList.add("active");
+currentRate = parseFloat(this.dataset.rate);
+currentType = this.querySelector(".tp").textContent;
+calculate();
+});
+});
+
+function calculate(){
+var rate = parseFloat(document.getElementById("hourlyRate").value) || 0;
+var hours = parseFloat(document.getElementById("overtimeHours").value) || 0;
+var basePay = rate * hours;
+var overtimePay = basePay * currentRate;
+var extraPay = overtimePay - basePay;
+document.getElementById("totalPay").textContent = "$" + overtimePay.toFixed(2);
+document.getElementById("basePay").textContent = "$" + basePay.toFixed(2);
+document.getElementById("extraPay").textContent = "$" + extraPay.toFixed(2);
+document.getElementById("hoursWorked").textContent = hours.toFixed(1);
+document.getElementById("multiplier").textContent = currentRate + "x";
+document.getElementById("detailLabel").textContent = currentType + " × " + currentRate + "";
+}
+
+calculate();
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+document.getElementById('feedback-text').addEventListener('input',function(){document.getElementById('feedback-count').textContent=this.value.length+'/1000';});
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const text=document.getElementById('feedback-text').value.trim();
+if(!text){var ft=document.getElementById('feedback-text');if(ft){ft.style.borderColor='#ef4444';setTimeout(function(){ft.style.borderColor=''},2000)};return;}
+const typeLabel={feedback:'💡 featuresuggestion',bug:'🐛 questionanti-feedback',other:''}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**pageside**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+setTimeout(()=>{document.getElementById('feedback-success').style.display='none';toggleFeedback();document.getElementById('feedback-text').value='';document.getElementById('feedback-count').textContent='0/1000';},3000);
+}
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

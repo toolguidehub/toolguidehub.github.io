@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Value a growth stock with PEG, P/S and P/B ratios, estimating fair price at PEG 1 and the safety-margin price from EPS and growth inputs.">
+<meta name="keywords" content="growth stock,stock valuation,PEG valuation,investment analysis,tools,online tools,free">
+<title>Growth Stock Valuation Calculator - PEG/PS/PB | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/growth-stock-calculator/">
+<meta property="og:title" content="Growth Stock Valuation Calculator - PEG/PS/PB Multi-Metric">
+<meta property="og:description" content="Value a growth stock with PEG, P/S and P/B ratios, estimating fair price at PEG 1 and the safety-margin price from EPS and growth inputs.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/growth-stock-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/growth-stock-calculator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Growth Stock Calculator", "description": "Free online growth stock valuation calculator. Evaluate fair value using PEG, PS, PB metrics.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the PEG valuation method?", "acceptedAnswer": {"@type": "Answer", "text": "PEG = P/E ratio / earnings growth rate. A PEG below 1 typically indicates undervaluation, PEG = 1 suggests fair valuation, and PEG above 1 may indicate overvaluation. Championed by Peter Lynch, it provides a more complete picture than P/E alone."}}, {"@type": "Question", "name": "When is the P/S ratio useful?", "acceptedAnswer": {"@type": "Answer", "text": "P/S ratio = market cap / revenue. It is most useful for high-growth companies that are not yet profitable (e.g., SaaS startups). A P/S below 2 is generally considered inexpensive, while P/S above 10 requires very high growth expectations to justify."}}, {"@type": "Question", "name": "What matters most when valuing growth stocks?", "acceptedAnswer": {"@type": "Answer", "text": "The key metrics in order of importance are: revenue growth rate, profit growth rate, PEG, and P/S ratio. The core logic of growth stock investing is using future high growth to justify current high valuation, so growth rate is the key driver."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to useGrowth Stock Calculator", "description": "useGrowth Stock Calculatordetailed steps", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Growth Stock Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter financial data", "text": "Enter the stock price, earnings per share, revenue growth rate, and other key data"}, {"@type": "HowToStep", "position": 2, "name": "Select valuation model", "text": "Choose a valuation method: PEG, P/S, or P/B"}, {"@type": "HowToStep", "position": 3, "name": "View valuation result", "text": "View the valuation rating and fair price range"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "Growth Stock Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/growth-stock-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch a{color:#94a3b8;font-size:.875rem;padding:4px 12px;border:1px solid rgba(148,163,184,.1);border-radius:6px;transition:all .2s}
+.lang-switch a:hover{color:#e2e8f0;border-color:#22d3ee}
+.section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;margin-bottom:16px;color:#f1f5f9}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;font-size:.875rem;color:#94a3b8}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;color:#e2e8f0;font-size:1rem;transition:border-color .2s}
+.form-group select option{background:#1e293b}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee}
+.input-row{display:flex;gap:12px}
+.input-row .form-group{flex:1}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:500}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:rgba(148,163,184,.1);color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn-group{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.result-item{background:#0f172a;border-radius:8px;padding:16px;text-align:center}
+.result-item .label{font-size:.75rem;color:#94a3b8;margin-bottom:4px}
+.result-item .value{font-size:1.25rem;font-weight:700;color:#22d3ee}
+.result-item .value.buy{color:#10b981}
+.result-item .value.hold{color:#f59e0b}
+.result-item .value.sell{color:#ef4444}
+.verdict-box{margin-top:16px;padding:16px;border-radius:8px;text-align:center;font-weight:700;font-size:1.1rem}
+.verdict-box.undervalued{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3)}
+.verdict-box.fair{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
+.verdict-box.overvalued{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:8px;font-size:.875rem;border:1px solid rgba(148,163,184,.1);z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.footer{margin-top:32px;text-align:center;color:#94a3b8;font-size:.75rem;padding:16px 0;border-top:1px solid rgba(148,163,184,.1)}
+@media(max-width:480px){
+  .input-row{flex-direction:column}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .header h1{font-size:1.25rem}
+}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <header class="header">
+    <h1>📈 Growth Stock Valuation Calculator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online growth stock valuation calculator. Evaluate fair value of growth stocks using PEG, PS, PB metrics to help investors decide if high-growth companies are worth investing in.</p>
+    
+  <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+
+  <div class="section">
+    <h2>Financial Data</h2>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Current Stock Price ($)</label>
+        <input type="number" id="price" placeholder="e.g. 50.00" min="0" step="0.01">
+      </div>
+      <div class="form-group">
+        <label>Earnings Per Share ($)</label>
+        <input type="number" id="eps" placeholder="e.g. 2.50" min="0" step="0.01">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Revenue Growth Rate (%)</label>
+        <input type="number" id="revGrowth" placeholder="e.g. 30" min="0" step="0.1">
+      </div>
+      <div class="form-group">
+        <label>Earnings Growth Rate (%)</label>
+        <input type="number" id="earnGrowth" placeholder="e.g. 25" min="0" step="0.1">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Revenue Per Share ($)</label>
+        <input type="number" id="sps" placeholder="e.g. 15.00" min="0" step="0.01">
+      </div>
+      <div class="form-group">
+        <label>Book Value Per Share ($)</label>
+        <input type="number" id="bps" placeholder="e.g. 20.00" min="0" step="0.01">
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">📊 Valuation Analysis</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+    </div>
+  </div>
+
+  <div class="section" id="resultCard" style="display:none">
+    <h2>Valuation Report</h2>
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="label">P/E Ratio</div>
+        <div class="value" id="peVal">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">PEG Ratio</div>
+        <div class="value" id="pegVal">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">P/S Ratio</div>
+        <div class="value" id="psVal">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">P/B Ratio</div>
+        <div class="value" id="pbVal">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Fair Price (PEG=1)</div>
+        <div class="value" id="fairPrice">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Safety Margin Price</div>
+        <div class="value" id="safePrice">-</div>
+      </div>
+    </div>
+    <div class="verdict-box" id="verdict" style="display:none"></div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Results</button>
+    </div>
+  </div>
+
+  
+
+  
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>The Growth Stock Valuation Calculator is a free online investment analysis tool. All data stays local — nothing is uploaded. Evaluate growth stocks using PEG, PS, PB multi-dimensional models. Get clear valuation ratings and fair price ranges. Pure frontend, no signup required.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/stock-profit-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📊 Stock Profit Calculator</a><a href="../../?q=pe+ratio+calculator" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📈 P/E Ratio Calculator</a><a href="../../en/stock-average-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📉 Stock Average Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/growth-stock-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function calculate(){
+  const price=parseFloat(document.getElementById('price').value)||0;
+  const eps=parseFloat(document.getElementById('eps').value)||0;
+  const revGrowth=parseFloat(document.getElementById('revGrowth').value)||0;
+  const earnGrowth=parseFloat(document.getElementById('earnGrowth').value)||0;
+  const sps=parseFloat(document.getElementById('sps').value)||0;
+  const bps=parseFloat(document.getElementById('bps').value)||0;
+
+  if(price<=0||eps<=0){showToast('Please enter a valid price and EPS.');return;}
+
+  const pe=price/eps;
+  const peg=earnGrowth>0?pe/earnGrowth:Infinity;
+  const ps=sps>0?price/sps:null;
+  const pb=bps>0?price/bps:null;
+
+  document.getElementById('peVal').textContent=pe.toFixed(2);
+  document.getElementById('pegVal').textContent=peg===Infinity?'--':peg.toFixed(2);
+  document.getElementById('psVal').textContent=ps!==null?ps.toFixed(2):'--';
+  document.getElementById('pbVal').textContent=pb!==null?pb.toFixed(2):'--';
+
+  const fairPrice=earnGrowth>0?earnGrowth*eps:null;
+  document.getElementById('fairPrice').textContent=fairPrice!==null?('$'+fairPrice.toFixed(2)):'--';
+  document.getElementById('safePrice').textContent=fairPrice!==null?('$'+(fairPrice*0.7).toFixed(2)):'--';
+
+  let score=0;
+  let totalChecks=0;
+  let verdictClass='verdict-box ';
+  let verdictText='';
+
+  if(peg!==Infinity){
+    totalChecks++;
+    if(peg<0.8){score+=3;verdictText+='PEG<0.8: Undervalued '}
+    else if(peg<1.2){score+=2;verdictText+='PEG Fair '}
+    else {score+=1;verdictText+='PEG High '}
+  }
+  if(ps!==null){
+    totalChecks++;
+    if(ps<2){score+=3;verdictText+='PS Low '}
+    else if(ps<5){score+=2;verdictText+='PS Neutral '}
+    else {score+=0;verdictText+='PS High '}
+  }
+  if(pb!==null){
+    totalChecks++;
+    if(pb<1){score+=3;verdictText+='PB Below Book '}
+    else if(pb<3){score+=2;verdictText+='PB Fair '}
+    else {score+=1;verdictText+='PB High '}
+  }
+  if(revGrowth>0){
+    totalChecks++;
+    if(revGrowth>30){score+=3;verdictText+='High Growth '}
+    else if(revGrowth>15){score+=2;verdictText+='MediumGrowth '}
+    else {score+=1;verdictText+='Low Growth '}
+  }
+
+  const avgScore=totalChecks>0?score/totalChecks:0;
+  const vbox=document.getElementById('verdict');
+  if(avgScore>=2.2){
+    verdictClass+='undervalued';
+    verdictText='🟢 Overall rating: Undervalued Growth Stock — '+verdictText;
+  }else if(avgScore>=1.5){
+    verdictClass+='fair';
+    verdictText='🟡 Overall rating: Fairly Valued — '+verdictText;
+  }else{
+    verdictClass+='overvalued';
+    verdictText='🔴 Overall rating: Overvalued — '+verdictText;
+  }
+  vbox.className=verdictClass;
+  vbox.textContent=verdictText;
+  vbox.style.display='block';
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});
+}
+
+function clearAll(){
+  document.querySelectorAll('input[type="number"]').forEach(i=>i.value='');
+  document.getElementById('resultCard').style.display='none';
+}
+
+function copyResult(){
+  const lines=[
+    '📈 Growth Stock Valuation Report',
+    'P/E Ratio: '+document.getElementById('peVal').textContent,
+    'PEG: '+document.getElementById('pegVal').textContent,
+    'P/S Ratio: '+document.getElementById('psVal').textContent,
+    'P/B Ratio: '+document.getElementById('pbVal').textContent,
+    'PEG=1 Fair Price: '+document.getElementById('fairPrice').textContent,
+    'Safety Margin Price(70%): '+document.getElementById('safePrice').textContent,
+    '',
+    document.getElementById('verdict').textContent
+  ];
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('✅ Copied to clipboard'));
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function fillExample(){
+  var vals = [["price", "50.00"], ["eps", "2.50"], ["revGrowth", "30"], ["earnGrowth", "25"], ["sps", "15.00"], ["bps", "20.00"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free India GST Calculator. Calculate GST with Add/Remove modes. Auto-splits CGST+SGST or IGST. Supports 5%, 12%, 18%, 28% rates. Pure frontend, no signup.">
+<meta name="keywords" content="GST calculator, India GST, CGST, SGST, IGST, tax calculator, online tool, free">
+<title>Free Online India GST Calculator - CGST SGST IGST</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gst-calculator-india/">
+<meta property="og:title" content="Free Online India GST Calculator - CGST SGST IGST">
+<meta property="og:description" content="Free India GST Calculator. Calculate GST with Add/Remove modes. Auto-splits CGST+SGST or IGST. Supports 5%, 12%, 18%, 28% rates. Pure frontend, no signup.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gst-calculator-india/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gst-calculator-india/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "India GST Calculator", "description": "Free online India GST Calculator. Supports 5%/12%/18%/28% rates, CGST+SGST/IGST split calculation. Pure frontend local computation — data stays on your device.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "India GST Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/gst-calculator-india/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1c40f}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1c40f;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:120px}.mode-toggle{display:flex;gap:4px;margin-bottom:16px;background:#0f172a;border-radius:8px;padding:4px}.mode-toggle button{flex:1;padding:10px;border:none;background:transparent;color:#94a3b8;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}.mode-toggle button.active{background:rgba(6,182,212,.2);color:#22d3ee}.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:500}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);margin-right:8px}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.result-area{display:none;margin-top:16px}.result-area.visible{display:block}.result-card{background:#0f172a;border-radius:8px;padding:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.result-card .label{color:#94a3b8;font-size:.85rem}.result-card .value{font-size:1.3rem;font-weight:700;color:#e2e8f0;margin:4px 0}.result-card .value.highlight{color:#22d3ee}.result-card .unit{color:#64748b;font-size:.8rem}.total-card{border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.05)}.copy-btn{padding:6px 10px;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2);border-radius:6px;cursor:pointer;font-size:.8rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}.toast.show{opacity:1}</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*tgh_toast*/window.showToast=function(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t)}t.textContent=m;t.classList.add("show");clearTimeout(window.__tt);window.__tt=setTimeout(function(){t.classList.remove("show")},2000)};</script>
+</head>
+<body>
+<main class="container">
+  <nav class="nav-back"><a href="../../">← Back to Home</a></nav>
+  <div class="header">
+    <h1>🇮🇳 India GST Calculator</h1>
+    
+  </div>
+  <div class="hero">
+    <span class="badge">🆓 Completely Free</span>
+    <p>India Goods and Services Tax (GST) calculator with Add GST and Remove GST modes. Auto-splits CGST + SGST (intra-state) or IGST (inter-state). Supports the 4 standard rates: 5%, 12%, 18%, 28%.</p>
+  </div>
+  <div class="main-grid">
+    <div>
+      <div class="section">
+        <h2>🧮 GST Calculation</h2>
+        <div class="mode-toggle">
+          <button class="active" data-mode="add">Add GST (Exclusive)</button>
+          <button data-mode="remove">Remove GST (Inclusive)</button>
+        </div>
+        <div class="form-group"><label>Transaction Type</label>
+          <select id="txn-type">
+            <option value="intra">Intra-State (CGST + SGST)</option>
+            <option value="inter">Inter-State (IGST)</option>
+          </select>
+        </div>
+        <div class="form-group"><label id="amount-label">Amount Excluding Tax (₹)</label>
+          <input type="number" id="amount" placeholder="e.g. 1000" min="1" step="0.01" value="1000">
+        </div>
+        <div class="form-group"><label>GST Rate</label>
+          <select id="rate">
+            <option value="5">5% - Essentials</option>
+            <option value="12">12% - Standard Goods</option>
+            <option value="18" selected>18% - Most Services</option>
+            <option value="28">28% - Luxury Items</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="calculate">💰 Calculate GST</button>
+        <button class="btn btn-secondary" id="clear">🔄 Clear & Reset</button>
+        <div class="result-area" id="result">
+          <div class="result-card" id="base-card">
+            <div><div class="label" id="base-label">Amount Excluding Tax</div><div class="value highlight" id="base-val">--</div><div class="unit">₹</div></div>
+            <button class="copy-btn" data-copy="base">📋 Copy</button>
+          </div>
+          <div class="result-card" id="gst-card">
+            <div><div class="label" id="gst-label">GST Amount</div><div class="value" id="gst-val" style="color:#f59e0b">--</div><div class="unit">₹</div></div>
+            <button class="copy-btn" data-copy="gst">📋 Copy</button>
+          </div>
+          <div class="result-card" id="split-card">
+            <div><div class="label" id="split-label">CGST / SGST Each</div><div class="value" id="split-val" style="color:#94a3b8">--</div><div class="unit">₹</div></div>
+            <button class="copy-btn" data-copy="split">📋 Copy</button>
+          </div>
+          <div class="result-card total-card">
+            <div><div class="label">💰 Total Including Tax</div><div class="value highlight" id="total-val" style="font-size:1.8rem">--</div><div class="unit">₹</div></div>
+            <button class="copy-btn" data-copy="total">📋 Copy</button>
+          </div>
+        </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+      </div>
+    </div>
+    <aside>
+      <div class="section">
+        <h2>📖 What is GST?</h2>
+        <p style="color:#94a3b8;font-size:.85rem">GST (Goods and Services Tax) is India's unified indirect tax, implemented on July 1, 2017. Intra-state transactions are split into CGST (Central) and SGST (State), each at half the rate. Inter-state transactions levy IGST (Integrated).</p>
+      </div>
+      <div class="section">
+        <h2>📊 GST Rate Table</h2>
+        <table style="width:100%;color:#94a3b8;font-size:.8rem;border-collapse:collapse">
+          <tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:6px 0">5%</td><td>Food, Essentials</td></tr>
+          <tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:6px 0">12%</td><td>Processed Food, Medicine</td></tr>
+          <tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:6px 0">18%</td><td>Most Services</td></tr>
+          <tr><td style="padding:6px 0">28%</td><td>Luxury Goods, Automobiles</td></tr>
+        </table>
+      </div>
+    </aside>
+  </div>
+</main>
+<div class="footer">© 2024 ToolGuideHub · Pure Frontend · Data Never Uploaded</div>
+<div class="toast" id="toast">✅ Copied to clipboard</div>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const modeBtns=document.querySelectorAll('.mode-toggle button');
+  let mode='add';
+
+  modeBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      modeBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      mode=btn.dataset.mode;
+      $('amount-label').textContent=mode==='add'?'Amount Excluding Tax (₹)':'Amount Including Tax (₹)';
+      $('base-label').textContent=mode==='add'?'Amount Excluding Tax':'Amount After Removing GST';
+      $('gst-label').textContent=mode==='add'?'GST Amount':'GST Included in Price';
+    });
+  });
+
+  $('txn-type').addEventListener('change',()=>{
+    const t=$('txn-type').value;
+    $('split-label').textContent=t==='intra'?'CGST / SGST Each':'IGST';
+  });
+
+  function updateSplitLabel(rate){
+    const t=$('txn-type').value;
+    $('split-label').textContent=t==='intra'?`CGST / SGST Each (${rate/2}%)`:`IGST (${rate}%)`;
+  }
+
+  $('calculate').addEventListener('click',()=>{
+    const amt=parseFloat($('amount').value);
+    const rate=parseFloat($('rate').value);
+    const txn=$('txn-type').value;
+
+    if(!amt||amt<=0){showToast('Please enter a valid amount');return;}
+
+    let baseVal,gstVal;
+    if(mode==='add'){
+      baseVal=amt;
+      gstVal=(amt*rate/100);
+    }else{
+      baseVal=amt/(1+rate/100);
+      gstVal=amt-baseVal;
+    }
+    const total=mode==='add'?baseVal+gstVal:amt;
+    const splitVal=txn==='intra'?gstVal/2:gstVal;
+
+    $('base-val').textContent=baseVal.toFixed(2);
+    $('gst-val').textContent=gstVal.toFixed(2);
+    $('split-val').textContent=splitVal.toFixed(2);
+    $('total-val').textContent=total.toFixed(2);
+    $('result').classList.add('visible');
+    updateSplitLabel(rate);
+  });
+
+  $('clear').addEventListener('click',()=>{
+    $('amount').value='1000';$('rate').value='18';$('txn-type').value='intra';
+    modeBtns.forEach(b=>b.classList.remove('active'));
+    modeBtns[0].classList.add('active');mode='add';
+    $('amount-label').textContent='Amount Excluding Tax (₹)';
+    $('base-label').textContent='Amount Excluding Tax';
+    $('gst-label').textContent='GST Amount';
+    $('split-label').textContent='CGST / SGST Each';
+    $('result').classList.remove('visible');
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const map={base:$('base-val'),gst:$('gst-val'),split:$('split-val'),total:$('total-val')};
+      navigator.clipboard.writeText(map[btn.dataset.copy].textContent).then(()=>{
+        const toast=$('toast');toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),1500);
+      });
+    });
+  });
+})();
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+  <!-- Related Tools -->
+  <section class="related-tools" style="margin-top:40px;padding:24px;background:#0f172a;border-radius:12px;border:1px solid #e2e8f0">
+    <h3 style="margin:0 0 16px;font-size:1.1rem;color:#475569">🔧 More Useful Tools</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <a href="../../en/unit-converter/" class="related-link">Unit Converter</a>
+<a href="../../en/bmi-calculator/" class="related-link">BMI Calculator</a>
+<a href="../../en/age-calculator/" class="related-link">Age Calculator</a>
+
+    </div>
+  </section>
+  <style>
+    .related-link{display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid #e2e8f0;border-radius:8px;color:#4F46E5;text-decoration:none;font-size:.9rem;transition:all .2s}
+    .related-link:hover{background:#4F46E5;color:#fff;border-color:#4F46E5}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gst-calculator-india/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

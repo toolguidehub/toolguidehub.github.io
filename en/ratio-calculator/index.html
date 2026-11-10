@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online ratio calculator. Simplify ratios, find missing values, convert to percentages. Supports fractions and decimals. Works in your browser.">
+<meta name="keywords" content="ratio calculator,simplify ratio,proportion calculator,ratio to percentage,online tool,free">
+<title>Free Online Ratio Calculator - Simplify, Find X, Percentage</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ratio-calculator/">
+<meta property="og:title" content="Free Online Ratio Calculator - Simplify, Find X, Percentage">
+<meta property="og:description" content="Free online ratio calculator. Simplify ratios, find missing values, convert to percentages. Supports fractions and decimals. Works in your browser.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ratio-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Ratio Calculator", "description": "Free online ratio calculator. Simplify ratios, find missing values in proportions, convert ratios to percentages. Client-side only.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What calculation modes does the Ratio Calculator support?", "acceptedAnswer": {"@type": "Answer", "text": "Three modes: 1) Simplify Ratio — reduce a ratio to its simplest form (e.g. 8:12→2:3); 2) Find Missing Value — given a:b=c:x, solve for x; 3) Ratio to Percentage — convert a part-to-whole ratio to a percentage."}}, {"@type": "Question", "name": "How does ratio simplification work?", "acceptedAnswer": {"@type": "Answer", "text": "Ratio simplification finds the Greatest Common Divisor (GCD) of both numbers, then divides both by the GCD. For example, 8 and 12 have a GCD of 4, so 8:12 simplifies to 2:3. The simplified ratio has coprime numbers."}}, {"@type": "Question", "name": "How do I find a missing value in a proportion?", "acceptedAnswer": {"@type": "Answer", "text": "Using the proportion property: if a:b=c:x, then x=c×b÷a. For example, 2:3=6:x gives x=6×3÷2=9. This is based on cross-multiplication: a×x=b×c."}}, {"@type": "Question", "name": "Does it support fractions and decimals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The tool handles integer, decimal, and fractional ratio inputs. For fractions, convert to decimal first. Results are displayed with up to 4 decimal places."}}, {"@type": "Question", "name": "What are common use cases for ratio calculations?", "acceptedAnswer": {"@type": "Answer", "text": "Common applications include: recipe scaling, map scale conversion, model scaling, engineering proportion allocation, investment share ratios, chemical mixing ratios, and educational demonstrations."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use the Ratio Calculator", "description": "Use the ratio calculator for simplification, finding missing values, and percentage conversion", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Ratio Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Select mode", "text": "Choose Simplify, Find X, or Percentage mode"}, {"@type": "HowToStep", "position": 2, "name": "Enter values", "text": "Fill in the known values in the input fields"}, {"@type": "HowToStep", "position": 3, "name": "View result", "text": "Click Calculate or modify inputs to see results automatically"}, {"@type": "HowToStep", "position": 4, "name": "Copy result", "text": "Click the copy button to copy the result to clipboard"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Ratio Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/ratio-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],input[type=number],input[type=range]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.rc-mode-tabs{display:flex;gap:4px;background:rgba(148,163,184,.05);border-radius:8px;padding:4px;margin-bottom:12px}
+.rc-mode-tab{padding:8px 16px;border-radius:6px;font-size:.85rem;cursor:pointer;color:#94a3b8;transition:all .2s;border:none;background:transparent}
+.rc-mode-tab.active{background:#0f172a;color:#22d3ee}
+.rc-result{background:#0f172a;border-radius:10px;padding:16px;margin:8px 0;text-align:center;border:1px solid rgba(148,163,184,.1)}
+.rc-result .val{font-size:1.5rem;font-weight:700;color:#22d3ee;font-family:monospace}
+.rc-result .lbl{font-size:.8rem;color:#64748b;margin-top:4px}
+.rc-detail{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.rc-detail .item{background:#0f172a;border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;font-size:.85rem}
+.rc-detail .item .lbl{color:#94a3b8}
+.rc-detail .item .val{color:#f1f5f9;font-weight:600;font-family:monospace}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:640px){.rc-detail{grid-template-columns:1fr}.row .field{min-width:100%}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ratio-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📐 Ratio Calculator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Ratio Calculator</p>
+
+<div class="input-section">
+<div class="rc-mode-tabs">
+<button class="rc-mode-tab active" id="tabSimplify">Simplify</button>
+<button class="rc-mode-tab" id="tabMissing">Find X</button>
+<button class="rc-mode-tab" id="tabPct">As %</button>
+</div>
+<div id="rcSimplify">
+<h2>Simplify Ratio</h2>
+<div class="row">
+<div class="field"><label>First Number (a)</label><input type="number" id="rcA" value="8" min="0" step="any"></div>
+<div class="field"><label>Second Number (b)</label><input type="number" id="rcB" value="12" min="0" step="any"></div>
+</div>
+</div>
+<div id="rcMissing" style="display:none">
+<h2>Find Missing Value (a:b = c:x)</h2>
+<div class="row">
+<div class="field"><label>a</label><input type="number" id="rcM1" value="2" min="0" step="any"></div>
+<div class="field"><label>b</label><input type="number" id="rcM2" value="3" min="0" step="any"></div>
+</div>
+<div class="row">
+<div class="field"><label>c</label><input type="number" id="rcM3" value="6" min="0" step="any"></div>
+<div class="field"><label>x (unknown)</label><input class="rc-x-input" value="?" disabled style="width:100%;padding:10px 12px;background:#0f172a;color:#64748b;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px"></div>
+</div>
+</div>
+<div id="rcPct" style="display:none">
+<h2>Ratio to Percentage</h2>
+<div class="row">
+<div class="field"><label>Part</label><input type="number" id="rcP1" value="25" min="0" step="any"></div>
+<div class="field"><label>Whole</label><input type="number" id="rcP2" value="200" min="0" step="any"></div>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" id="btnCalc">Calculate</button>
+<button class="btn btn-success" id="btnCopyResult">📋 Copy Result</button>
+<button class="btn btn-secondary" id="btnClear">🗑️ Clear</button>
+</div>
+</div>
+
+<div class="result-section" id="resultSection">
+<h2>Result</h2>
+<div id="rcResultArea">
+<div class="rc-result"><div class="val" id="rcResult">2 : 3</div><div class="lbl">Simplified Ratio</div></div>
+<div class="rc-detail">
+<div class="item"><span class="lbl">Original</span><span class="val" id="rcOrig">8 : 12</span></div>
+<div class="item"><span class="lbl">Value (a/b)</span><span class="val" id="rcRatioVal">0.6667</span></div>
+</div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>About Ratio Calculator</h2>
+<p>Free online ratio calculator. Simplify ratios (e.g. 8:12→2:3), find missing values in proportions (a:b=c:x), convert ratios to percentages. Supports fractional, decimal, and integer ratios. Perfect for recipe scaling, map scales, model scaling, engineering, data analysis, investment allocation, and education. Client-side only, no data upload.</p>
+</div>
+
+<div class="info-section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>What calculation modes does the Ratio Calculator support?</h3><p>Three modes: 1) Simplify Ratio — reduce a ratio to its simplest form (e.g. 8:12→2:3); 2) Find Missing Value — given a:b=c:x, solve for x; 3) Ratio to Percentage — convert a part-to-whole ratio to a percentage.</p></div>
+<div class="faq-item"><h3>How does ratio simplification work?</h3><p>Ratio simplification finds the Greatest Common Divisor (GCD) of both numbers, then divides both by the GCD. For example, 8 and 12 have a GCD of 4, so 8:12 simplifies to 2:3.</p></div>
+<div class="faq-item"><h3>How do I find a missing value in a proportion?</h3><p>Using the proportion property: if a:b=c:x, then x=c×b÷a. For example, 2:3=6:x gives x=6×3÷2=9. This is based on cross-multiplication: a×x=b×c.</p></div>
+<div class="faq-item"><h3>Does it support fractions and decimals?</h3><p>Yes. The tool handles integer, decimal, and fractional ratio inputs. For fractions, convert to decimal first. Results are displayed with up to 4 decimal places.</p></div>
+<div class="faq-item"><h3>What are common use cases for ratio calculations?</h3><p>Common applications include: recipe scaling, map scale conversion, model scaling, engineering proportion allocation, investment share ratios, chemical mixing ratios, and educational demonstrations.</p></div>
+</div>
+
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../../en/ratio-calculator/">中文</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+var rcCurrent='simplify';
+var modeTabs=[
+  {id:'tabSimplify',mode:'simplify'},
+  {id:'tabMissing',mode:'missing'},
+  {id:'tabPct',mode:'pct'}
+];
+modeTabs.forEach(function(tab){
+  document.getElementById(tab.id).addEventListener('click',function(){rcMode(tab.mode)});
+});
+
+function rcMode(m){
+  rcCurrent=m;
+  modeTabs.forEach(function(tab){
+    document.getElementById(tab.id).classList.toggle('active',tab.mode===m);
+  });
+  document.getElementById('rcSimplify').style.display=m==='simplify'?'':'none';
+  document.getElementById('rcMissing').style.display=m==='missing'?'':'none';
+  document.getElementById('rcPct').style.display=m==='pct'?'':'none';
+  rcCalc();
+}
+
+function gcd(a,b){a=Math.abs(Math.round(a));b=Math.abs(Math.round(b));while(b){var t=b;b=a%b;a=t;}return a;}
+
+function rcCalc(){
+  var area=document.getElementById('rcResultArea');
+  if(rcCurrent==='simplify'){
+    var a=parseFloat(document.getElementById('rcA').value)||0;
+    var b=parseFloat(document.getElementById('rcB').value)||0;
+    if(a<=0||b<=0){area.innerHTML='<div class="rc-result"><div class="val" style="color:#ef4444">Enter valid positive numbers</div></div>';return;}
+    var g=gcd(a,b);
+    var sa=a/g,sb=b/g;
+    area.innerHTML='<div class="rc-result"><div class="val" id="rcResult">'+sa+' : '+sb+'</div><div class="lbl">Simplified Ratio</div></div><div class="rc-detail"><div class="item"><span class="lbl">Original</span><span class="val">'+a+' : '+b+'</span></div><div class="item"><span class="lbl">Value (a/b)</span><span class="val">'+(a/b).toFixed(4)+'</span></div></div>';
+  }else if(rcCurrent==='missing'){
+    var a=parseFloat(document.getElementById('rcM1').value)||0;
+    var b=parseFloat(document.getElementById('rcM2').value)||0;
+    var c=parseFloat(document.getElementById('rcM3').value)||0;
+    if(a<=0||b<=0||c<=0){area.innerHTML='<div class="rc-result"><div class="val" style="color:#ef4444">Enter valid positive numbers</div></div>';return;}
+    var x=c*b/a;
+    area.innerHTML='<div class="rc-result"><div class="val" id="rcResult">x = '+x.toFixed(4)+'</div><div class="lbl">Missing Value</div></div><div class="rc-detail"><div class="item"><span class="lbl">Proportion</span><span class="val">'+a+' : '+b+' = '+c+' : '+x.toFixed(4)+'</span></div><div class="item"><span class="lbl">Simplified</span><span class="val">'+(a/gcd(a,b))+' : '+(b/gcd(a,b))+'</span></div></div>';
+  }else{
+    var p=parseFloat(document.getElementById('rcP1').value)||0;
+    var w=parseFloat(document.getElementById('rcP2').value)||0;
+    if(w<=0){area.innerHTML='<div class="rc-result"><div class="val" style="color:#ef4444">Whole must be greater than 0</div></div>';return;}
+    var pct=(p/w*100);
+    area.innerHTML='<div class="rc-result"><div class="val" id="rcResult">'+pct.toFixed(2)+'%</div><div class="lbl">Percentage</div></div><div class="rc-detail"><div class="item"><span class="lbl">Ratio</span><span class="val">'+p+' : '+w+'</span></div><div class="item"><span class="lbl">Value</span><span class="val">'+(p/w).toFixed(4)+'</span></div></div>';
+  }
+}
+
+['rcA','rcB','rcM1','rcM2','rcM3','rcP1','rcP2'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('input',rcCalc);
+});
+
+document.getElementById('btnCalc').addEventListener('click',rcCalc);
+document.getElementById('btnCopyResult').addEventListener('click',function(){
+  var el=document.getElementById('rcResult');
+  if(!el)return;
+  var t=el.textContent||el.innerText;
+  navigator.clipboard.writeText(t).then(function(){showToast('Copied: '+t)}).catch(function(){showToast('Copy failed')});
+});
+document.getElementById('btnClear').addEventListener('click',function(){
+  ['rcA','rcB','rcM1','rcM2','rcM3','rcP1','rcP2'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.value='';
+  });
+  document.getElementById('rcResultArea').innerHTML='<div class="rc-result"><div class="val" id="rcResult">-</div><div class="lbl">Enter values</div></div>';
+  showToast('Cleared');
+});
+
+document.addEventListener('DOMContentLoaded',rcCalc);
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

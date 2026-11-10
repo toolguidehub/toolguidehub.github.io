@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubic Bezier Visualizer - CSS Easing Curve Preview</title>
+  <meta name="description" content="Drag cubic-bezier control points to shape CSS easing curves, preview the animation and copy the timing function.">
+  <meta property="og:title" content="Cubic Bezier Visualizer - CSS Easing Curve Preview | ToolGuideHub">
+  <meta property="og:description" content="Drag cubic-bezier control points to shape CSS easing curves, preview the animation and copy the timing function.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cubic-bezier/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cubic Bezier Visualizer",
+    "description": "Free online CSS cubic-bezier visualizer with drag-and-drop curve editing",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+  header { background: #1e293b; color: #fff; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  header a { color: #22d3ee; text-decoration: none; }
+  .container{ max-width:960px; margin: 0 auto; padding: 24px 16px; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .subtitle { color: #94a3b8; margin-bottom: 24px; }
+  .canvas-wrap { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+  canvas { display: block; width: 100%; max-width: 500px; margin: 0 auto; touch-action: none; }
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .preset-btn { padding: 6px 14px; border: 1px solid rgba(148,163,184,.1); border-radius: 20px; background: #0f172a; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+  .preset-btn:hover, .preset-btn.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .control-group { display: flex; align-items: center; gap: 6px; }
+  .control-group label { font-size: 0.85rem; font-weight: 600; }
+  .control-group input { width: 70px; padding: 6px 8px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-size: 0.9rem; text-align: center; }
+  .output { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+  .output code { background: #0f172a; color: #e2e8f0; padding: 8px 14px; border-radius: 12px; font-size: 1rem; flex: 1; min-width: 200px; border: 1px solid rgba(148,163,184,.2); }
+  .btn { display: inline-block; padding: 10px 20px; background: #22d3ee; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-size: 0.95rem; font-weight: 600; }
+  .btn:hover { opacity: 0.9; }
+  .btn-copy { background: #059669; padding: 8px 16px; }
+  .preview-box { width: 60px; height: 60px; background: #22d3ee; border-radius: 8px; animation: previewAnim 2s infinite; margin-left: 12px; }
+  .toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 12px; z-index: 9999; opacity: 0; transition: opacity 0.3s; pointer-events: none; font-size: 0.9rem; }
+  .toast.show { opacity: 1; }
+  footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; }
+  footer a { color: #22d3ee; text-decoration: none; }
+  @media (max-width: 375px) { h1 { font-size: 1.3rem; } }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cubic-bezier/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Cubic Bezier Visualizer - CSS Easing Curve Preview", "item": "https://adi63586.github.io/Toolguidehub/en/cubic-bezier/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Cubic Bezier FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Cubic Bezier?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Cubic Bezier free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: P1.x and P1.y are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Cubic Bezier?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Cubic Bezier","description":"Step-by-step guide for using Cubic Bezier","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Cubic Bezier"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cubic-bezier/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../">🏠 ToolGuideHub</a>
+  <span>Cubic Bezier Visualizer</span>
+  <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/cubic-bezier/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a><a href="index.html" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a></div>
+</header>
+<main class="container">
+  <h1>📈 Cubic Bezier Visualizer</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online CSS cubic-bezier visualizer. Drag control points to preview animation easing curves in real time. Supports presets (ease, ease-in, ease-out, ease-in-out, linear, back, snap) and exports the CSS code with one click.</p>
+  <p class="subtitle">Drag control points to preview CSS cubic-bezier easing curves in real time</p>
+
+  <div class="presets" id="presets">
+    <button class="preset-btn active" data-bezier="0.25,0.1,0.25,1">ease</button>
+    <button class="preset-btn" data-bezier="0,0,1,1">linear</button>
+    <button class="preset-btn" data-bezier="0.42,0,1,1">ease-in</button>
+    <button class="preset-btn" data-bezier="0,0,0.58,1">ease-out</button>
+    <button class="preset-btn" data-bezier="0.42,0,0.58,1">ease-in-out</button>
+    <button class="preset-btn" data-bezier="0.68,-0.55,0.27,1.55">back</button>
+    <button class="preset-btn" data-bezier="0.87,0,0.13,1">snap</button>
+  </div>
+
+  <div class="canvas-wrap">
+    <canvas id="canvas" width="500" height="300"></canvas>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <label>P1.x:</label>
+      <input type="number" id="p1x" value="0.25" min="0" max="1" step="0.01">
+    </div>
+    <div class="control-group">
+      <label>P1.y:</label>
+      <input type="number" id="p1y" value="0.1" min="-2" max="3" step="0.01">
+    </div>
+    <div class="control-group">
+      <label>P2.x:</label>
+      <input type="number" id="p2x" value="0.25" min="0" max="1" step="0.01">
+    </div>
+    <div class="control-group">
+      <label>P2.y:</label>
+      <input type="number" id="p2y" value="1" min="-2" max="3" step="0.01">
+    </div>
+  </div>
+
+  <div class="output">
+    <code id="cssCode">cubic-bezier(0.25, 0.1, 0.25, 1)</code>
+    <button class="btn btn-copy" id="copyBtn">📋 Copy</button>
+    <div class="preview-box" id="previewBox"></div>
+  </div>
+
+<h2>What is Cubic Bezier Visualizer - CSS Easing Curve Preview?</h2><p>Cubic Bezier Visualizer - CSS Easing Curve Preview is a free online tool that runs entirely in your browser. No download or signup needed — enter P1.x and P1.y to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Generate CSS code snippets quickly during frontend development</li><li>Experiment with different color schemes and effects while designing</li><li>Preview CSS changes in real-time while learning</li><li>Check designs on mobile without opening a code editor</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<div class="toast" id="toast">
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/cubic-bezier/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function(){
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const p1xEl = document.getElementById('p1x');
+  const p1yEl = document.getElementById('p1y');
+  const p2xEl = document.getElementById('p2x');
+  const p2yEl = document.getElementById('p2y');
+  const cssCodeEl = document.getElementById('cssCode');
+  const copyBtn = document.getElementById('copyBtn');
+  const previewBox = document.getElementById('previewBox');
+  const toastEl = document.getElementById('toast');
+
+  const padding = 40;
+  let p1 = { x: 0.25, y: 0.1 };
+  let p2 = { x: 0.25, y: 1 };
+  let dragging = null;
+
+  function showToast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    setTimeout(() => toastEl.classList.remove('show'), 2000);
+  }
+
+  function toCanvas(p) {
+    return {
+      x: padding + p.x * (canvas.width - 2 * padding),
+      y: canvas.height - padding - p.y * (canvas.height - 2 * padding)
+    };
+  }
+
+  function fromCanvas(cx, cy) {
+    return {
+      x: Math.max(0, Math.min(1, (cx - padding) / (canvas.width - 2 * padding))),
+      y: Math.max(-2, Math.min(3, (canvas.height - padding - cy) / (canvas.height - 2 * padding)))
+    };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+      const x = padding + (i / 4) * (canvas.width - 2 * padding);
+      const y = padding + (i / 4) * (canvas.height - 2 * padding);
+      ctx.beginPath(); ctx.moveTo(x, padding); ctx.lineTo(x, canvas.height - padding); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(padding, y); ctx.lineTo(canvas.width - padding, y); ctx.stroke();
+    }
+
+    const p0c = toCanvas({x:0, y:0});
+    const p1c = toCanvas(p1);
+    const p2c = toCanvas(p2);
+    const p3c = toCanvas({x:1, y:1});
+
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath(); ctx.moveTo(p0c.x, p0c.y); ctx.lineTo(p1c.x, p1c.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(p3c.x, p3c.y); ctx.lineTo(p2c.x, p2c.y); ctx.stroke();
+    ctx.setLineDash([]);
+
+    ctx.strokeStyle = '#06b6d4';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(p0c.x, p0c.y);
+    ctx.bezierCurveTo(p1c.x, p1c.y, p2c.x, p2c.y, p3c.x, p3c.y);
+    ctx.stroke();
+
+    [p1c, p2c].forEach((pc, i) => {
+      ctx.fillStyle = i === 0 ? '#F97316' : '#8B5CF6';
+      ctx.beginPath();
+      ctx.arc(pc.x, pc.y, 8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    });
+
+    [[p0c, '#059669'], [p3c, '#059669']].forEach(([ep, c]) => {
+      ctx.fillStyle = c;
+      ctx.beginPath();
+      ctx.arc(ep.x, ep.y, 5, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    updateCode();
+  }
+
+  function updateCode() {
+    const x1 = Math.round(p1.x * 100) / 100;
+    const y1 = Math.round(p1.y * 100) / 100;
+    const x2 = Math.round(p2.x * 100) / 100;
+    const y2 = Math.round(p2.y * 100) / 100;
+    const code = `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
+    cssCodeEl.textContent = code;
+    previewBox.style.animation = 'none';
+    previewBox.offsetHeight;
+    const keyframes = `@keyframes previewAnim { from { transform: translateX(-20px); } to { transform: translateX(40px); } }`;
+    const styleId = 'bezier-preview-style';
+    let styleEl = document.getElementById(styleId);
+    if (!styleEl) {
+      styleEl = document.createElement('style');
+      styleEl.id = styleId;
+      document.head.appendChild(styleEl);
+    }
+    styleEl.textContent = keyframes + `.preview-box { animation: previewAnim 2s infinite; animation-timing-function: ${code} !important; }`;
+  }
+
+  function updateInputs() {
+    p1xEl.value = Math.round(p1.x * 100) / 100;
+    p1yEl.value = Math.round(p1.y * 100) / 100;
+    p2xEl.value = Math.round(p2.x * 100) / 100;
+    p2yEl.value = Math.round(p2.y * 100) / 100;
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
+    [p1, p2].forEach((p, i) => {
+      const pc = toCanvas(p);
+      if (Math.hypot(mx - pc.x, my - pc.y) < 15) {
+        dragging = i === 0 ? 'p1' : 'p2';
+      }
+    });
+  });
+
+  canvas.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
+    const np = fromCanvas(mx, my);
+    if (dragging === 'p1') { p1.x = np.x; p1.y = np.y; }
+    else { p2.x = np.x; p2.y = np.y; }
+    updateInputs();
+    draw();
+  });
+
+  canvas.addEventListener('mouseup', () => { dragging = null; });
+  canvas.addEventListener('mouseleave', () => { dragging = null; });
+
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.touches[0].clientX - rect.left) * scaleX;
+    const my = (e.touches[0].clientY - rect.top) * scaleY;
+    [p1, p2].forEach((p, i) => {
+      const pc = toCanvas(p);
+      if (Math.hypot(mx - pc.x, my - pc.y) < 25) {
+        dragging = i === 0 ? 'p1' : 'p2';
+      }
+    });
+  }, {passive: false});
+
+  canvas.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.touches[0].clientX - rect.left) * scaleX;
+    const my = (e.touches[0].clientY - rect.top) * scaleY;
+    const np = fromCanvas(mx, my);
+    if (dragging === 'p1') { p1.x = np.x; p1.y = np.y; }
+    else { p2.x = np.x; p2.y = np.y; }
+    updateInputs();
+    draw();
+  }, {passive: false});
+
+  canvas.addEventListener('touchend', () => { dragging = null; });
+
+  [p1xEl, p1yEl, p2xEl, p2yEl].forEach(el => {
+    el.addEventListener('input', () => {
+      p1.x = parseFloat(p1xEl.value) || 0;
+      p1.y = parseFloat(p1yEl.value) || 0;
+      p2.x = parseFloat(p2xEl.value) || 0;
+      p2.y = parseFloat(p2yEl.value) || 0;
+      draw();
+    });
+  });
+
+  document.getElementById('presets').addEventListener('click', (e) => {
+    if (!e.target.classList.contains('preset-btn')) return;
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const vals = e.target.dataset.bezier.split(',').map(Number);
+    p1.x = vals[0]; p1.y = vals[1];
+    p2.x = vals[2]; p2.y = vals[3];
+    updateInputs();
+    draw();
+  });
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(cssCodeEl.textContent).then(() => showToast('📋 Copied'));
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

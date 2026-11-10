@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Paste a TypeScript interface to auto-generate Partial, Required, Readonly, Pick and Omit utility types based on its properties.">
+<meta name="keywords" content="TypeScript utility types,Partial,Required,Readonly,Pick,Omit,TypeScript type generator">
+<title>Free TypeScript Utility Types Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/typescript-utility-types/">
+<meta property="og:title" content="Free TypeScript Utility Types Generator - ToolGuideHub">
+<meta property="og:description" content="Paste a TypeScript interface to auto-generate Partial, Required, Readonly, Pick and Omit utility types based on its properties.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/typescript-utility-types/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "TypeScript Utility Types Generator", "description": "Free online TypeScript utility types generator. Input interface to auto-generate types. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What are TypeScript utility types?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are TypeScript utility types?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Built-in TypeScript type transformation tools, such as Partial making all properties optional, Required making all properties required, Readonly making all properties read-only, etc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Partial vs Required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partial\u003cT\u003e makes all T properties optional (adds ?), Required\u003cT\u003e makes all optional T properties required (removes ?). They are inverse operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pick vs Omit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick\u003cT,K\u003e selects a subset of properties specified by K from T, Omit\u003cT,K\u003e excludes properties specified by K from T. They are complementary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Record?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Record\u003cK,V\u003e creates an object type with keys of type K and values of type V, commonly used for mapped types."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is data uploaded to servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All type generation happens locally in your browser."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "TypeScript Utility Types Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/typescript-utility-types/"
+    }
+  ],
+  "name": "TypeScript Utility Types Generator"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.ad-sidebar-wrap{display:flex;flex-direction:column;gap:0}.input-section,.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2,.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;font-family:monospace;resize:vertical;min-height:200px}textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-success{background:rgba(34,197,94,.2);color:#4ade80}.btn-success:hover{background:rgba(34,197,94,.3)}.btn-danger{background:rgba(239,68,68,.2);color:#f87171}.btn-danger:hover{background:rgba(239,68,68,.3)}.error-msg{color:#f87171;font-size:.85rem;margin-top:8px;display:none}.type-card{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:14px;margin-bottom:10px}.type-card h3{color:#22d3ee;font-size:.9rem;margin-bottom:6px;font-family:monospace}.type-card pre{color:#cbd5e1;font-size:.8rem;white-space:pre-wrap;font-family:monospace}.type-card .desc{color:#64748b;font-size:.75rem;margin-top:4px}.pick-omit-input{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}.pick-omit-input input{padding:6px 10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:.85rem;flex:1;min-width:150px}
+.ad-slot.ad-sidebar{max-width:300px}.seo-content{margin-top:32px;padding-top:24px;border-top:1px solid rgba(148,163,184,.1)}.seo-content h2{color:#f1f5f9;font-size:1.2rem;margin:24px 0 12px}.seo-content h3{color:#e2e8f0;font-size:1rem;margin:16px 0 8px}.seo-content p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}.seo-content ul{color:#94a3b8;font-size:.9rem;padding-left:20px;margin-bottom:8px}.faq-item{background:#1e293b;border-radius:8px;padding:14px 18px;margin-bottom:10px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem}.footer{text-align:center;padding:24px 16px;color:#64748b;font-size:.85rem;border-top:1px solid rgba(148,163,184,.08);margin-top:32px}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#22d3ee}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/typescript-utility-types/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use TypeScript Utility Types Generator","description":"Step-by-step guide for using TypeScript Utility Types Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"TypeScript Utility Types Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><h1>🔷 TypeScript Utility Types Generator</h1></div>
+  <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › TypeScript Utility Types</p>
+  <p class="hero-sub">Input a TypeScript interface to auto-generate Partial/Required/Readonly/Pick/Omit utility types</p>
+  <span class="badge">Zero Dependencies · Works Offline</span>
+  <div class="main-grid">
+    <div>
+      <div class="input-section">
+        <h2>📥 TypeScript Interface Definition</h2>
+        <textarea id="tsInput" placeholder="Enter TypeScript interface definition..."></textarea>
+        <div class="error-msg" id="inputError"></div>
+        <div class="pick-omit-input">
+          <span style="color:#94a3b8;font-size:.85rem">Pick/Omit keys:</span>
+          <input type="text" id="pickKeys" placeholder="name,email,age" oninput="generate()">
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="generate()">🔄 Generate Types</button>
+          <button class="btn btn-success" onclick="loadExample()">📝 Load Example</button>
+          <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+      </div>
+      <div class="result-section">
+        <h2>📋 Utility Type Results</h2>
+        <div id="typeCards"></div>
+        <div class="btn-row">
+          <button class="btn btn-success" onclick="copyAll()">📋 Copy All</button>
+          <button class="btn btn-primary" onclick="downloadAll()">💾 Download TS</button>
+        </div>
+      </div>
+    </div>
+    <div class="ad-sidebar-wrap">
+      </div>
+  </div>
+  <div class="seo-content">
+    <h2>What can TypeScript Utility Types Generator do?</h2>
+    <p>TypeScript Utility Types Generator is a free online developer tool that automatically generates expanded results for all common utility types from a TypeScript interface definition. It supports Partial, Required, Readonly, Pick, Omit, Record, ReturnType, Parameters, and more — visually showing property changes for each transformation. Ideal for TypeScript learning, type design, and code refactoring. Everything runs locally: name,email,age and other values are processed on your device, never sent to a server.</p>
+    <h2>Core Features</h2>
+    <ul>
+      <li><strong>Partial</strong>: Make all properties optional</li>
+      <li><strong>Required</strong>: Make all optional properties required</li>
+      <li><strong>Readonly</strong>: Make all properties read-only</li>
+      <li><strong>Pick</strong>: Select a subset of specified properties</li>
+      <li><strong>Omit</strong>: Exclude specified properties</li>
+      <li><strong>Record</strong>: Generate key-value mapping type</li>
+    </ul>
+    <h2>How to Use</h2>
+    <p>1. Enter a TypeScript interface definition in the input box.</p>
+    <p>2. For Pick/Omit, enter property names in the keys field (comma-separated).</p>
+    <p>3. Click "Generate Types" to see all transformation results.</p>
+    <p>4. Click "Copy All" or "Download TS" to get the code.</p>
+    <h2>Use Cases</h2>
+    <h3>Case 1: API Type Design</h3>
+    <p>Use Partial for update interfaces (fields optional), Required for create interfaces (fields required).</p>
+    <h3>Case 2: Form Types</h3>
+    <p>Use Partial<User> for form initial values (all fields optional), then Required for submission validation.</p>
+    <h3>Case 3: Learning TypeScript</h3>
+    <p>Visually compare original types with utility type results to understand type transformations.</p>
+    <h2>Extended Knowledge</h2>
+    <p>TypeScript Utility Types are built-in type transformation tools. Partial<T> uses keyof T to iterate all keys and add ? modifiers. Required<T> removes ? with -?. Readonly<T> adds readonly. Pick<T,K> filters keys with K & keyof T. Omit<T,K> equals Pick<T,Exclude<keyof T,K>>. Record<K,V> equals {[key in K]:V}. Advanced utility types include Exclude/Extract/NonNullable/ReturnType/Parameters/InstanceType.</p>
+  </div>
+  <div class="input-section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item"><h3>What are utility types?</h3><p>Built-in TypeScript type transformers like Partial (optional), Required (mandatory), etc.</p></div>
+  <div class="faq-item"><h3>Partial vs Required?</h3><p>Partial adds ? making properties optional, Required removes ? making them mandatory. Inverse operations.</p></div>
+  <div class="faq-item"><h3>Pick vs Omit?</h3><p>Pick selects specified properties, Omit excludes them. Complementary operations.</p></div>
+  <div class="faq-item"><h3>What is Record?</h3><p>Record&lt;K,V&gt; creates object type with keys K and values V, commonly for mapped types.</p></div>
+  <div class="faq-item"><h3>Does it support nested types?</h3><p>Current version handles one level of properties. Nested types need manual deep Partial.</p></div>
+  <div class="faq-item"><h3>Is data uploaded to servers?</h3><p>No. All type generation happens locally in your browser.</p></div>
+  </div>
+  </main>
+<footer class="footer container">
+  <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/typescript-utility-types/">中文</a>
+</div>
+
+
+</footer>
+  
+<script>
+window.loadExample=function(){
+  document.getElementById('tsInput').value='interface User {\n  id: number;\n  name: string;\n  email: string;\n  age?: number;\n  avatar?: string;\n  role: "admin" | "user" | "guest";\n}';
+  document.getElementById('pickKeys').value='name,email';
+  generate();
+};
+window.generate=function(){
+  var errEl=document.getElementById('inputError');
+  errEl.style.display='none';
+  var raw=document.getElementById('tsInput').value.trim();
+  if(!raw){errEl.textContent='Please enter a TypeScript interface definition';errEl.style.display='block';return;}
+  var parsed=parseInterface(raw);
+  if(!parsed){errEl.textContent='Cannot parse interface definition, check syntax';errEl.style.display='block';return;}
+  var pickKeys=document.getElementById('pickKeys').value.split(',').map(function(k){return k.trim();}).filter(Boolean);
+  var cards=document.getElementById('typeCards');
+  cards.innerHTML='';
+  var allCode=[];
+  allCode.push('// Original\n'+raw);
+  addCard(cards,'Partial<'+parsed.name+'>',makePartial(parsed),'All properties become optional',allCode);
+  addCard(cards,'Required<'+parsed.name+'>',makeRequired(parsed),'All properties become required',allCode);
+  addCard(cards,'Readonly<'+parsed.name+'>',makeReadonly(parsed),'All properties become read-only',allCode);
+  if(pickKeys.length>0){
+    addCard(cards,'Pick<'+parsed.name+','+pickKeys.map(function(k){return "'"+k+"'";}).join('|')+'>',makePick(parsed,pickKeys),'Select specified properties',allCode);
+    addCard(cards,'Omit<'+parsed.name+','+pickKeys.map(function(k){return "'"+k+"'";}).join('|')+'>',makeOmit(parsed,pickKeys),'Exclude specified properties',allCode);
+  }
+  addCard(cards,'Record<keyof '+parsed.name+', string>','{ [K in keyof '+parsed.name+']: string }','Key-value mapping type',allCode);
+  window._allCode=allCode.join('\n\n');
+};
+function parseInterface(raw){
+  var match=raw.match(/interface\s+(\w+)(?:\s*<[^>]*>)?\s*\{([\s\S]*)\}/);
+  if(!match)return null;
+  var name=match[1];
+  var body=match[2];
+  var props=[];
+  body.split('\n').forEach(function(line){
+    line=line.trim().replace(/;$/,'').replace(/,$/,'');
+    if(!line)return;
+    var propMatch=line.match(/^(\w+)(\??):\s*(.+)$/);
+    if(propMatch){
+      props.push({name:propMatch[1],optional:propMatch[2]==='?',type:propMatch[3].trim()});
+    }
+  });
+  return {name:name,props:props};
+}
+function makePartial(parsed){
+  var lines=['interface Partial'+parsed.name+' {'];
+  parsed.props.forEach(function(p){lines.push('  '+p.name+'?: '+p.type+';');});
+  lines.push('}');
+  return lines.join('\n');
+}
+function makeRequired(parsed){
+  var lines=['interface Required'+parsed.name+' {'];
+  parsed.props.forEach(function(p){lines.push('  '+p.name+': '+p.type+';');});
+  lines.push('}');
+  return lines.join('\n');
+}
+function makeReadonly(parsed){
+  var lines=['interface Readonly'+parsed.name+' {'];
+  parsed.props.forEach(function(p){lines.push('  readonly '+p.name+(p.optional?'?':'')+': '+p.type+';');});
+  lines.push('}');
+  return lines.join('\n');
+}
+function makePick(parsed,keys){
+  var lines=['interface Pick'+parsed.name+' {'];
+  parsed.props.forEach(function(p){
+    if(keys.indexOf(p.name)!==-1)lines.push('  '+p.name+(p.optional?'?':'')+': '+p.type+';');
+  });
+  lines.push('}');
+  return lines.join('\n');
+}
+function makeOmit(parsed,keys){
+  var lines=['interface Omit'+parsed.name+' {'];
+  parsed.props.forEach(function(p){
+    if(keys.indexOf(p.name)===-1)lines.push('  '+p.name+(p.optional?'?':'')+': '+p.type+';');
+  });
+  lines.push('}');
+  return lines.join('\n');
+}
+function addCard(container,title,code,desc,allCode){
+  var div=document.createElement('div');
+  div.className='type-card';
+  div.innerHTML='<h3>'+escapeHtml(title)+'</h3><pre>'+escapeHtml(code)+'</pre><div class="desc">'+desc+'</div>';
+  container.appendChild(div);
+  allCode.push('// '+title+'\n'+code);
+}
+window.copyAll=function(){
+  if(navigator.clipboard&&window._allCode)navigator.clipboard.writeText(window._allCode).then(showMsg);
+};
+window.downloadAll=function(){
+  if(!window._allCode)return;
+  var b=new Blob([window._allCode],{type:'text/typescript'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='utility-types.ts';a.click();
+};
+window.clearAll=function(){
+  document.getElementById('tsInput').value='';
+  document.getElementById('pickKeys').value='';
+  document.getElementById('typeCards').innerHTML='';
+  document.getElementById('inputError').style.display='none';
+  window._allCode='';
+};
+function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function showMsg(){var m=document.createElement('div');m.textContent='✓ Copied';m.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(m);setTimeout(function(){m.remove();},2000);}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){generate();e.preventDefault();}});
+loadExample();
+
+</script>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">CSS Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">CSS Specificity Calculator</a></div></section>
+
+</body>
+</html>

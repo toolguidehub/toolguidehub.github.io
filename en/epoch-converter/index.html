@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Convert Unix timestamps in seconds or milliseconds to readable dates, and turn dates back into timestamps.">
+<meta name="keywords" content="unix timestamp converter epoch converter timestamp to date date to timestamp unix time converter epoch time millisecond timestamp online timestamp tool">
+<title>Free Unix Timestamp Converter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/epoch-converter/">
+<meta property="og:title" content="Free Unix Timestamp Converter - ToolGuideHub">
+<meta property="og:description" content="Convert Unix timestamps in seconds or milliseconds to readable dates, and turn dates back into timestamps.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/epoch-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unix Timestamp Converter", "description": "Free online Unix timestamp converter. Convert between Unix timestamps and human-readable dates instantly. Supports millisecond precision, multiple timezones, batch conversion. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is Unix Timestamp Converter free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Unix Timestamp Converter free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It uses pure front-end technology — all processing happens in your browser. No data is uploaded to any server. It works even without internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Unix timestamp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unix timestamp (Epoch time) is the number of seconds (or milliseconds) since January 1, 1970 (UTC). It is widely used in computer systems as a timezone-independent time representation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support millisecond timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool automatically detects whether the input is seconds or milliseconds (≥1e12 = milliseconds) and displays both formats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is fully responsive and works on phones, tablets, and desktops. The interface adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Unix Timestamp Converter",
+  "description": "Simple steps to use the 🕒 Unix Timestamp Converter online tool. Everything runs locally: Date & Time and other values are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🕒 Unix Timestamp Converter"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Input content",
+      "text": "Enter your data in the input fields provided.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/epoch-converter/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure options",
+      "text": "Adjust any available options or settings as needed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/epoch-converter/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View results",
+      "text": "Click process and view results instantly in your browser. Every operation runs on your device — Date & Time and other values are never sent to a server.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/epoch-converter/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+input, textarea, select{font-family:inherit}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+@media(max-width:600px){
+  #nowDisplay, #tsOutput > div, #dtOutput > div{grid-template-columns:1fr !important}
+  #nowSec, #nowMs{font-size:1rem !important;word-break:break-all}
+  #tsOutput [style*="1.1rem"], #dtOutput [style*="1.5rem"]{font-size:1rem !important;word-break:break-all}
+  #tsOutput [style*="grid-template-columns"]{gap:8px}
+}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dev",
+      "item": "https://adi63586.github.io/Toolguidehub/#dev"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Unix Timestamp Converter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/epoch-converter/"
+    }
+  ],
+  "name": "Unix Timestamp Converter"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/epoch-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🕒 Unix Timestamp Converter</h1>
+
+</div>
+<p class="nav-back"><a href="../../en/index.html">← All Tools</a></p>
+<div class="ad-slot"></div>
+<div id="app"></div>
+<div class="ad-slot"></div>
+<div class="content-section">
+<h2>📖 How to Use</h2>
+<p>Enter a Unix timestamp (seconds or milliseconds) to convert to a readable date, or pick a date/time to get its timestamp.</p><p>Get current timestamp instantly, millisecond precision, and batch conversion support.</p><p>All processing happens in your browser — no data is uploaded to any server.</p>
+</div>
+<div class="content-section">
+<h2>⚡ How It Works</h2>
+<p>This tool uses pure front-end technology. All data processing is done locally in your browser. No server support needed — your data never leaves your device, ensuring privacy and security.</p>
+</div>
+<div class="content-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><div class="q">❓ Is Unix Timestamp Converter free to use?</div><div class="a">Yes, it is completely free to use. No registration or login required — all features are available directly.</div></div><div class="faq-item"><div class="q">❓ Does it upload my data to a server?</div><div class="a">No. It uses pure front-end technology — all processing happens in your browser. No data is uploaded to any server. It works even without internet.</div></div><div class="faq-item"><div class="q">❓ What is a Unix timestamp?</div><div class="a">A Unix timestamp (Epoch time) is the number of seconds (or milliseconds) since January 1, 1970 (UTC). It is widely used in computer systems as a timezone-independent time representation.</div></div><div class="faq-item"><div class="q">❓ Does it support millisecond timestamps?</div><div class="a">Yes. The tool automatically detects whether the input is seconds or milliseconds (≥1e12 = milliseconds) and displays both formats.</div></div><div class="faq-item"><div class="q">❓ Can I use it on my phone?</div><div class="a">Yes. It is fully responsive and works on phones, tablets, and desktops. The interface adapts to your screen size.</div></div><div class="faq-item"><div class="q">❓ Do I need to install software?</div><div class="a">No. Just open the webpage in your browser. No downloads, plugins, or installations needed.</div></div>
+</div>
+</main>
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/base32-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base32 Encode Decode</a><a href="../../en/base45-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base45 Encoder</a><a href="../../en/base64-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base64 Encode Decode</a></div></section>
+<footer>
+<p><a href="../../en/index.html">Home</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/terms/">Terms</a></p>
+<p style="margin-top:8px">© 2026 WebTools | No Signup, Client-Side · Privacy First</p>
+<p style="margin-top:4px;font-size:.75rem;color:#475569">Contact: <a href="../contact/">Contact</a></p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<!-- Feedback -->
+</div>
+
+<script>
+var app=document.getElementById('app');
+app.innerHTML='<div class="input-section"><h2>📥 Timestamp → Date</h2><div class="row"><div class="field"><label>Unix Timestamp (seconds or ms)</label><input type="text" id="tsInput" value="'+(Math.floor(Date.now()/1000))+'" placeholder="Enter timestamp..."></div><div class="field"><label> </label><button class="btn btn-primary" id="tsToDateBtn" style="width:100%;padding:10px">Convert to Date</button></div></div></div><div class="result-section" id="tsResult"><h2>✅ Converted Date</h2><div id="tsOutput" style="padding:16px;text-align:center"></div></div><div class="input-section"><h2>📅 Date → Timestamp</h2><div class="row"><div class="field"><label>Date & Time (local)</label><input type="datetime-local" id="dtInput" value="'+new Date().toISOString().slice(0,16)+'"></div><div class="field"><label> </label><button class="btn btn-primary" id="dateToTsBtn" style="width:100%;padding:10px">Convert to Timestamp</button></div></div></div><div class="result-section" id="dtResult"><h2>✅ Converted Timestamp</h2><div id="dtOutput" style="padding:16px;text-align:center"></div></div><div class="input-section"><h2>⚡ Current Timestamp</h2><div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:12px 0"><button class="btn btn-primary" id="nowBtn">🔄 Refresh Now</button></div><div id="nowDisplay" style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="font-size:.8rem;color:#64748b;margin-bottom:4px">Seconds (10-digit)</div><div style="font-size:1.5rem;color:#22d3ee;font-family:monospace" id="nowSec">'+(Math.floor(Date.now()/1000))+'</div></div><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="font-size:.8rem;color:#64748b;margin-bottom:4px">Milliseconds (13-digit)</div><div style="font-size:1.5rem;color:#22d3ee;font-family:monospace" id="nowMs">'+Date.now()+'</div></div></div></div>';
+// Timestamp to Date
+document.getElementById('tsToDateBtn').addEventListener('click',function(){
+var ts=document.getElementById('tsInput').value.trim();
+if(!ts){document.getElementById('tsResult').classList.remove('show');return;}
+var num=parseFloat(ts);
+if(isNaN(num)){document.getElementById('tsOutput').innerHTML='<div style="color:#ef4444">❌ Invalid timestamp</div>';document.getElementById('tsResult').classList.add('show');return;}
+var isMs=num>=1000000000000;
+var d=isMs?new Date(num):new Date(num*1000);
+var html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+html+='<div style="background:#0f172a;border-radius:8px;padding:12px"><div style="font-size:.75rem;color:#64748b">UTC</div><div style="font-size:1.1rem;color:#22d3ee">'+d.toUTCString()+'</div></div>';
+html+='<div style="background:#0f172a;border-radius:8px;padding:12px"><div style="font-size:.75rem;color:#64748b">Local</div><div style="font-size:1.1rem;color:#22d3ee">'+d.toLocaleString()+'</div></div>';
+html+='<div style="background:#0f172a;border-radius:8px;padding:12px"><div style="font-size:.75rem;color:#64748b">ISO 8601</div><div style="font-size:.9rem;color:#94a3b8;font-family:monospace;word-break:break-all">'+d.toISOString()+'</div></div>';
+html+='<div style="background:#0f172a;border-radius:8px;padding:12px"><div style="font-size:.75rem;color:#64748b">Detected Format</div><div style="font-size:.9rem;color:'+(isMs?'#fbbf24':'#4ade80')+'">'+(isMs?'Milliseconds (13-digit)':'Seconds (10-digit)')+'</div></div>';
+html+='</div>';
+document.getElementById('tsOutput').innerHTML=html;
+document.getElementById('tsResult').classList.add('show');
+});
+// Date to Timestamp
+document.getElementById('dateToTsBtn').addEventListener('click',function(){
+var val=document.getElementById('dtInput').value;
+if(!val){document.getElementById('dtResult').classList.remove('show');return;}
+var d=new Date(val);
+if(isNaN(d.getTime())){document.getElementById('dtOutput').innerHTML='<div style="color:#ef4444">❌ Invalid date</div>';document.getElementById('dtResult').classList.add('show');return;}
+var secs=Math.floor(d.getTime()/1000);
+var ms=d.getTime();
+document.getElementById('dtOutput').innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="font-size:.8rem;color:#64748b">Seconds</div><div style="font-size:1.5rem;color:#22d3ee;font-family:monospace">'+secs+'</div><button class="btn btn-secondary" style="margin-top:8px;font-size:.8rem;padding:4px 12px" onclick="navigator.clipboard.writeText(\''+secs+'\');this.textContent=\'✅ Copied\';setTimeout(()=>this.textContent=\'📋 Copy\',1500)">📋 Copy</button></div><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="font-size:.8rem;color:#64748b">Milliseconds</div><div style="font-size:1.5rem;color:#22d3ee;font-family:monospace">'+ms+'</div><button class="btn btn-secondary" style="margin-top:8px;font-size:.8rem;padding:4px 12px" onclick="navigator.clipboard.writeText(\''+ms+'\');this.textContent=\'✅ Copied\';setTimeout(()=>this.textContent=\'📋 Copy\',1500)">📋 Copy</button></div></div>';
+document.getElementById('dtResult').classList.add('show');
+});
+// Now button
+document.getElementById('nowBtn').addEventListener('click',function(){
+document.getElementById('nowSec').textContent=Math.floor(Date.now()/1000);
+document.getElementById('nowMs').textContent=Date.now();
+});
+// Auto-run initial
+setTimeout(function(){
+document.getElementById('tsToDateBtn').click();
+document.getElementById('dateToTsBtn').click();
+},100);
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* Example button injection */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

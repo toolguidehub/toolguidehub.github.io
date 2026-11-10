@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XIRR Calculator | Extended IRR | ToolGuideHub</title>
+  <meta name="description" content="Calculate the annualised extended internal rate of return for irregularly spaced cash flows, such as investments and dividends.">
+  <meta name="keywords" content="XIRR calculator, internal rate of return, irregular cash flows, annualized return, investment return, IRR calculation">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/xirr-calculator/">
+    <link rel="icon" href="../../favicon.svg" type="image/x-icon">
+  <meta property="og:title" content="XIRR Calculator | Extended IRR | ToolGuideHub">
+  <meta property="og:description" content="Calculate the annualised extended internal rate of return for irregularly spaced cash flows, such as investments and dividends.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/xirr-calculator/">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.png">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "XIRR Calculator",
+    "description": "Online XIRR (Extended Internal Rate of Return) calculator for irregular cash flows",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "url": "https://adi63586.github.io/Toolguidehub/en/xirr-calculator/",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+      {"@type": "ListItem", "position": 2, "name": "XIRR Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/xirr-calculator/"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Xirr Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Xirr Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Xirr Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Amount and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Xirr Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Xirr Calculator","description":"Step-by-step guide for using Xirr Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Xirr Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);--danger-light:rgba(239,68,68,.1);--success-light:rgba(16,185,129,.1);}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a; color: #e2e8f0; line-height: 1.6;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    header {
+      background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1);
+      padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow);
+    }
+    header .logo {
+      font-size: 1.25rem; font-weight: 700; color: #22d3ee; text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    header .logo span { font-size: 1.5rem; }
+    header nav { display: flex; gap: 16px; align-items: center; }
+    header nav a {
+      text-decoration: none; color: #94a3b8; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    header nav a:hover { color: #22d3ee; }
+    header nav .lang { font-weight: 600; color: #22d3ee; }
+
+    main {
+      flex: 1; max-width: 800px; margin: 0 auto; padding: 24px 16px 40px; width: 100%;
+    }
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #94a3b8; margin-bottom: 24px; font-size: 0.95rem; }
+
+    .card {
+      background: var(--card-bg); border: 1px solid rgba(148,163,184,.1);
+      border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow);
+    }
+    .section h2 { font-size: 1.1rem; margin-bottom: 16px; }
+
+    .flow-list { display: flex; flex-direction: column; gap: 10px; }
+    .flow-row {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      padding: 10px; background: #0f172a; border-radius: 8px; border: 1px solid rgba(148,163,184,.1);
+    }
+    .flow-row input { padding: 8px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 6px; font-size: 0.9rem; }
+    .flow-row input[type="number"] { width: 160px; }
+    .flow-row input[type="date"] { width: 170px; font-family: inherit; }
+    .flow-row .flow-label { font-size: 0.8rem; color: #94a3b8; min-width: 40px; }
+    .btn-del {
+      background: var(--danger-light); color: #ef4444; border: 1px solid #ef4444;
+      padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-del:hover { background: #ef4444; color: #fff; }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .btn {
+      padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; border: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-primary { background: #22d3ee; color: #fff; }
+    .btn-primary:hover { background: #0891b2; }
+    .btn-outline { background: #0f172a; color: #22d3ee; border: 1.5px solid #22d3ee; }
+    .btn-outline:hover { background: var(--primary-light); }
+    .btn-sm { padding: 6px 14px; font-size: 0.82rem; }
+
+    .result-box {
+      background: var(--success-light); border: 1px solid #10b981;
+      border-radius: 12px; padding: 20px; margin-top: 16px; text-align: center;
+    }
+    .result-box .rate { font-size: 2.5rem; font-weight: 800; color: #10b981; }
+    .result-box .detail { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+
+    .note { font-size: 0.85rem; color: #94a3b8; margin-top: 16px; padding: 12px; background: #0f172a; border-radius: 8px; border-left: 3px solid #f59e0b; }
+
+    footer {
+      background: var(--card-bg); border-top: 1px solid rgba(148,163,184,.1);
+      padding: 16px 24px; text-align: center; font-size: 0.85rem; color: #94a3b8;
+    }
+    footer a { color: #22d3ee; text-decoration: none; }
+
+    .toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      padding: 10px 24px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+      z-index: 9999; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+      background: #1e293b; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .toast.show { opacity: 1; }
+    .toast.error { background: #ef4444; }
+
+    @media (max-width: 600px) {
+      main { padding: 16px 12px 32px; }
+      .flow-row { flex-direction: column; align-items: stretch; }
+      .flow-row input[type="number"],
+      .flow-row input[type="date"] { width: 100%; }
+      h1 { font-size: 1.4rem; }
+      .result-box .rate { font-size: 1.8rem; }
+    }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/xirr-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+
+<header>
+  <a href="../../" class="logo"><span>🛠️</span> ToolGuideHub</a>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../en/xirr-calculator/" class="lang">中文</a>
+  </nav>
+</header>
+
+<main>
+  <h1>XIRR Calculator</h1>
+  <p class="subtitle">Calculate the annualized Extended Internal Rate of Return for irregularly spaced cash flows</p>
+
+  <div class="section">
+    <h2>📋 Cash Flow Inputs</h2>
+    <div class="flow-list" id="flowList">
+      <!-- JS dynamically populated -->
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-outline btn-sm" id="btnAdd">+ Add Cash Flow</button>
+      <button class="btn btn-outline btn-sm" id="btnClear">🔄 Clear All</button>
+      <button class="btn btn-outline btn-sm" id="btnLoadDemo">📊 Load Example</button>
+    </div>
+    <div class="btn-row" style="margin-top: 16px;">
+      <button class="btn btn-primary" id="btnCalc">📈 Calculate XIRR</button>
+      <button class="btn btn-outline btn-sm" id="btnCopy">📋 Copy Result</button>
+    </div>
+    <div id="resultArea"></div>
+  </div>
+
+  <div class="note">
+    <strong>💡 Instructions:</strong> The first row is typically the initial investment (negative = outflow). Subsequent rows represent dividends/contributions/withdrawals (positive = inflow, negative = outflow). Dates can be at any interval. XIRR iteratively computes the annualized return, matching Excel's XIRR function.
+  </div>
+  <div class="note">
+    <strong>📌 Excel Reference:</strong> Excel formula <code>=XIRR(values, dates, guess)</code>. This tool uses the Newton-Raphson method. If convergence fails, check that cash flows have both positive and negative signs.
+  </div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="//en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="//en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/xirr-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  const flowList = document.getElementById('flowList');
+  const resultArea = document.getElementById('resultArea');
+  const toastEl = document.getElementById('toast');
+  let toastTimer = null;
+  const today = new Date().toISOString().slice(0, 10);
+
+  function showToast(msg, isError) {
+    clearTimeout(toastTimer);
+    toastEl.textContent = msg;
+    toastEl.className = 'toast' + (isError ? ' error' : '') + ' show';
+    toastTimer = setTimeout(function() { toastEl.className = 'toast'; }, 2500);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() { showToast('Copied to clipboard'); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('Copied to clipboard');
+    }
+  }
+
+  function createFlowRow(amount, dateStr, index) {
+    var div = document.createElement('div');
+    div.className = 'flow-row';
+    div.innerHTML = '<span class="flow-label">#' + (index + 1) + '</span>' +
+      '<input type="number" class="flow-amount" step="any" placeholder="Amount (- = outflow)" value="' + (amount !== undefined ? amount : '') + '">' +
+      '<input type="date" class="flow-date" value="' + (dateStr || today) + '">' +
+      '<button class="btn-del" onclick="this.closest(\'.flow-row\').remove()">✕ Delete</button>';
+    return div;
+  }
+
+  function getFlows() {
+    var rows = flowList.querySelectorAll('.flow-row');
+    var flows = [];
+    rows.forEach(function(row) {
+      var amt = parseFloat(row.querySelector('.flow-amount').value);
+      var dt = row.querySelector('.flow-date').value;
+      if (!isNaN(amt) && dt) {
+        flows.push({ amount: amt, date: new Date(dt) });
+      }
+    });
+    return flows;
+  }
+
+  function daysBetween(d1, d2) {
+    return (d1.getTime() - d2.getTime()) / (1000 * 60 * 60 * 24);
+  }
+
+  function xirr(flows) {
+    if (flows.length < 2) return null;
+    flows.sort(function(a, b) { return a.date - b.date; });
+    var refDate = flows[0].date;
+    var amounts = [];
+    var years = [];
+    for (var i = 0; i < flows.length; i++) {
+      amounts.push(flows[i].amount);
+      years.push(daysBetween(flows[i].date, refDate) / 365.0);
+    }
+
+    function npvDeriv(rate) {
+      var npv = 0, dnpv = 0;
+      for (var i = 0; i < amounts.length; i++) {
+        var factor = Math.pow(1 + rate, years[i]);
+        npv += amounts[i] / factor;
+        dnpv -= years[i] * amounts[i] / (factor * (1 + rate));
+      }
+      return [npv, dnpv];
+    }
+
+    var guess = 0.1;
+    var maxIter = 100;
+    var tol = 1e-7;
+    for (var iter = 0; iter < maxIter; iter++) {
+      var nd = npvDeriv(guess);
+      var npv = nd[0], dnpv = nd[1];
+      if (Math.abs(dnpv) < 1e-12) break;
+      var newGuess = guess - npv / dnpv;
+      if (Math.abs(newGuess - guess) < tol) return newGuess;
+      guess = newGuess;
+    }
+    return guess;
+  }
+
+  function calc() {
+    var flows = getFlows();
+    if (flows.length < 2) {
+      resultArea.innerHTML = '<div class="result-box" style="background:#fef2f2;border-color:#ef4444;"><div class="rate" style="color:#ef4444;font-size:1.2rem;">Please enter at least 2 cash flows</div></div>';
+      return;
+    }
+    var hasPos = flows.some(function(f) { return f.amount > 0; });
+    var hasNeg = flows.some(function(f) { return f.amount < 0; });
+    if (!hasPos || !hasNeg) {
+      resultArea.innerHTML = '<div class="result-box" style="background:#fef2f2;border-color:#ef4444;"><div class="rate" style="color:#ef4444;font-size:1.2rem;">Cash flows must include both positive and negative values</div></div>';
+      return;
+    }
+    var result = xirr(flows);
+    if (result === null || isNaN(result) || !isFinite(result)) {
+      resultArea.innerHTML = '<div class="result-box" style="background:#fef2f2;border-color:#ef4444;"><div class="rate" style="color:#ef4444;font-size:1.2rem;">Calculation did not converge. Please check your cash flow data.</div></div>';
+      return;
+    }
+    var pct = (result * 100).toFixed(4);
+    resultArea.innerHTML = '<div class="result-box"><div class="rate">' + pct + '%</div><div class="detail">Annualized XIRR | ' + flows.length + ' cash flows</div></div>';
+  }
+
+  function init() {
+    flowList.innerHTML = '';
+    flowList.appendChild(createFlowRow(-10000, '2024-01-15', 0));
+    flowList.appendChild(createFlowRow(2000, '2024-06-20', 1));
+    flowList.appendChild(createFlowRow(3000, '2024-09-10', 2));
+    flowList.appendChild(createFlowRow(4000, '2024-12-31', 3));
+    flowList.appendChild(createFlowRow(2500, '2025-03-15', 4));
+  }
+
+  document.getElementById('btnAdd').addEventListener('click', function() {
+    flowList.appendChild(createFlowRow('', today, flowList.querySelectorAll('.flow-row').length));
+  });
+
+  document.getElementById('btnClear').addEventListener('click', function() {
+    flowList.innerHTML = '';
+    flowList.appendChild(createFlowRow('', today, 0));
+    flowList.appendChild(createFlowRow('', today, 1));
+    resultArea.innerHTML = '';
+  });
+
+  document.getElementById('btnLoadDemo').addEventListener('click', function() {
+    init();
+    resultArea.innerHTML = '';
+  });
+
+  document.getElementById('btnCalc').addEventListener('click', calc);
+
+  document.getElementById('btnCopy').addEventListener('click', function() {
+    var rateEl = resultArea.querySelector('.rate');
+    if (rateEl && rateEl.textContent) {
+      copyText('XIRR: ' + rateEl.textContent);
+    } else {
+      showToast('Please calculate XIRR first', true);
+    }
+  });
+
+  init();
+})();</script>
+
+</body>
+</html>

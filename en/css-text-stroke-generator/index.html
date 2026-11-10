@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate CSS text-stroke outlines with adjustable width and color, including multi-layer strokes, and copy the code.">
+<meta name="keywords" content="CSS text stroke,text-stroke,text outline,stroke effect,CSS outline text">
+<title>Free CSS Text Stroke Generator - text-stroke|Outline Effects</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-text-stroke-generator/">
+<meta property="og:title" content="CSS Text Stroke Generator - text-stroke | Outline Effects">
+<meta property="og:description" content="Generate CSS text-stroke outlines with adjustable width and color, including multi-layer strokes, and copy the code.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-text-stroke-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Text Stroke Generator - text-stroke·Outline Effects", "description": "Free online CSS text stroke generator. Create text outline effects using -webkit-text-stroke and text-shadow. Custom stroke width, color, multi-layer shadows. Live preview, one-click copy. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-17"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is CSS text stroke?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CSS text stroke?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS text stroke uses -webkit-text-stroke property to add outline effects to text, setting stroke width and color. Combined with text-shadow for richer stroke effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is -webkit-text-stroke compatibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "-webkit-text-stroke works well in Chrome, Safari, Edge (WebKit/Blink-based). Firefox supports it from version 49. Provide text-shadow as fallback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to create multi-layer stroke effects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stack multiple text-shadow layers, each offset 1px with increasing blur. For example, 4-layer stroke needs 8 text-shadow values (2 per direction)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does stroked text affect readability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Overly thick strokes reduce readability. Keep stroke width under 2px, use light stroke on dark text and vice versa. Ensure sufficient contrast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everything runs locally: CSS Text Stroke Generator and other values are processed on your device, never sent to a server. Your data is never uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:900px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}input[type=text],input[type=number]{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}input:focus{border-color:rgba(6,182,212,.5)}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.85rem;min-height:40px;word-break:break-all;max-height:300px;overflow-y:auto;white-space:pre-wrap;margin-top:12px}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}.info-section ul{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}.info-section li{margin-bottom:4px}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}select{cursor:pointer;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;padding:6px 10px;font-size:.85rem;outline:none}input[type=range]{width:200px;accent-color:#06b6d4;cursor:pointer}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;height:24px}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:#334155;border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#06b6d4;margin-top:-5px;cursor:pointer}
+input[type=range]::-moz-range-track{height:6px;background:#334155;border-radius:3px}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border:none;border-radius:50%;background:#06b6d4;cursor:pointer}.preview-box{background:#1e293b;border:2px solid rgba(148,163,184,.1);border-radius:12px;padding:40px;display:flex;justify-content:center;align-items:center;min-height:150px;margin-top:12px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free CSS Text Stroke Generator - text-stroke|Outline Effects", "item": "https://adi63586.github.io/Toolguidehub/en/css-text-stroke-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Text Stroke Generator - text-stroke·Outline Effects","description":"Step-by-step guide for using CSS Text Stroke Generator - text-stroke·Outline Effects","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Text Stroke Generator - text-stroke·Outline Effects"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-text-stroke-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+
+<h1>CSS Text Stroke Generator</h1>
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="tool-section">
+<h2>✏️ Text Stroke Settings</h2>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">Customize text stroke effects, preview in real-time and generate CSS code.</p>
+<div class="options">
+<label>Text: <input type="text" id="text-content" value="Stroke Text" style="width:200px" oninput="updatePreview()"></label>
+</div>
+<div class="options">
+<label>Font size: <input type="range" id="font-size" min="20" max="120" value="60"> <span id="size-val">60px</span></label>
+</div>
+<div class="options">
+<label>Method: <select id="stroke-method" onchange="updatePreview()">
+<option value="text-stroke">-webkit-text-stroke</option>
+<option value="text-shadow">text-shadow (Better compatibility)</option>
+<option value="both">Both combined</option>
+</select></label>
+</div>
+<div class="options">
+<label>Stroke width: <input type="range" id="stroke-width" min="1" max="10" value="2"> <span id="width-val">2px</span></label>
+</div>
+<div class="options">
+<label>Stroke color: <input type="color" id="stroke-color" value="#06b6d4" onchange="updatePreview()" style="width:40px;height:30px;border:none;cursor:pointer"></label>
+</div>
+<div class="options">
+<label>Text color: <input type="color" id="text-color" value="#0f172a" onchange="updatePreview()" style="width:40px;height:30px;border:none;cursor:pointer"></label>
+</div>
+<div class="options">
+<label>Fill text: <input type="checkbox" id="fill-text" checked onchange="updatePreview()"></label>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="updatePreview()">▶️ Preview</button>
+<button class="btn btn-secondary" onclick="generateCode()">📋 Generate</button>
+<button class="btn btn-secondary" onclick="copyCode()">📄 Copy</button>
+</div>
+<div class="preview-box" id="preview-area"></div>
+<div id="code-output" class="result-box" style="display:none"></div>
+</div>
+
+<div class="info-section">
+<h2>📖 CSS Text Stroke Guide</h2>
+<h3>Two Implementation Methods</h3>
+<ul>
+<li><strong>-webkit-text-stroke</strong>: Directly set stroke width and color, simple but needs webkit prefix</li>
+<li><strong>text-shadow</strong>: Uses multiple shadow layers to simulate stroke edges. Better compatibility but longer code.</li>
+</ul>
+<h3>text-shadow Stroke Principle</h3>
+<p>Add 1px offset shadows in all directions to simulate stroke. Multi-layer strokes need more shadow values.</p>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is CSS text stroke?</h3><p>CSS text stroke uses -webkit-text-stroke property to add outline effects to text, setting stroke width and color. Combined with text-shadow for richer stroke effects.</p></div>
+<div class="faq-item"><h3>How is -webkit-text-stroke compatibility?</h3><p>-webkit-text-stroke works well in Chrome, Safari, Edge (WebKit/Blink-based). Firefox supports it from version 49. Provide text-shadow as fallback.</p></div>
+<div class="faq-item"><h3>How to create multi-layer stroke effects?</h3><p>Stack multiple text-shadow layers, each offset 1px with increasing blur. For example, 4-layer stroke needs 8 text-shadow values (2 per direction).</p></div>
+<div class="faq-item"><h3>Does stroked text affect readability?</h3><p>Overly thick strokes reduce readability. Keep stroke width under 2px, use light stroke on dark text and vice versa. Ensure sufficient contrast.</p></div>
+<div class="faq-item"><h3>Is my data uploaded?</h3><p>No. All effects, generation, and preview run locally in your browser.</p></div>
+</div>
+
+</main>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/css-text-stroke-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.getElementById('font-size').addEventListener('input',function(){document.getElementById('size-val').textContent=this.value+'px';updatePreview();});
+document.getElementById('stroke-width').addEventListener('input',function(){document.getElementById('width-val').textContent=this.value+'px';updatePreview();});
+
+function generateShadowStroke(width, color) {
+  const shadows = [];
+  for (let i = 1; i <= width; i++) {
+    shadows.push(
+      `${i}px 0 0 ${color}`, `-${i}px 0 0 ${color}`,
+      `0 ${i}px 0 ${color}`, `0 -${i}px 0 ${color}`,
+      `${i}px ${i}px 0 ${color}`, `-${i}px -${i}px 0 ${color}`,
+      `${i}px -${i}px 0 ${color}`, `-${i}px ${i}px 0 ${color}`
+    );
+  }
+  return shadows.join(', ');
+}
+
+function updatePreview() {
+  const text = document.getElementById('text-content').value || 'Stroke Text';
+  const size = document.getElementById('font-size').value;
+  const method = document.getElementById('stroke-method').value;
+  const width = document.getElementById('stroke-width').value;
+  const strokeColor = document.getElementById('stroke-color').value;
+  const textColor = document.getElementById('text-color').value;
+  const fill = document.getElementById('fill-text').checked;
+  
+  const area = document.getElementById('preview-area');
+  let style = `font-size:${size}px;font-weight:bold;`;
+  
+  if (method === 'text-stroke' || method === 'both') {
+    style += `-webkit-text-stroke: ${width}px ${strokeColor};`;
+    if (!fill) style += `-webkit-text-fill-color: transparent;`;
+    else style += `color: ${textColor};`;
+  }
+  if (method === 'text-shadow' || method === 'both') {
+    style += `text-shadow: ${generateShadowStroke(parseInt(width), strokeColor)};`;
+    style += `color: ${fill ? textColor : 'transparent'};`;
+  }
+  
+  area.innerHTML = `<div style="${style}">${text}</div>`;
+  generateCode();
+}
+
+function generateCode() {
+  const text = document.getElementById('text-content').value || 'Stroke Text';
+  const size = document.getElementById('font-size').value;
+  const method = document.getElementById('stroke-method').value;
+  const width = document.getElementById('stroke-width').value;
+  const strokeColor = document.getElementById('stroke-color').value;
+  const textColor = document.getElementById('text-color').value;
+  const fill = document.getElementById('fill-text').checked;
+  
+  let code = `.stroke-text {\n  font-size: ${size}px;\n  font-weight: bold;\n`;
+  
+  if (method === 'text-stroke' || method === 'both') {
+    code += `  -webkit-text-stroke: ${width}px ${strokeColor};\n`;
+    if (!fill) code += `  -webkit-text-fill-color: transparent;\n`;
+    else code += `  color: ${textColor};\n`;
+  }
+  if (method === 'text-shadow' || method === 'both') {
+    code += `  text-shadow: ${generateShadowStroke(parseInt(width), strokeColor)};\n`;
+    code += `  color: ${fill ? textColor : 'transparent'};\n`;
+  }
+  code += `}`;
+  
+  document.getElementById('code-output').style.display = 'block';
+  document.getElementById('code-output').textContent = code;
+}
+
+function copyCode() {
+  const code = document.getElementById('code-output').textContent;
+  if (!code) return;
+  navigator.clipboard.writeText(code).then(() => showToast('✅ Code copied to clipboard'));
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+if(!text)return;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**pageside**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+function showToast(msg){const t=document.getElementById('toast')||(()=>{const d=document.createElement('div');d.id='toast';d.className='toast';document.body.appendChild(d);return d;})();t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+updatePreview();
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+</body>
+</html>

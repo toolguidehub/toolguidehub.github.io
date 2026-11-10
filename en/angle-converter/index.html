@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert angles between degrees, radians, gradians, arcminutes, arcseconds, and turns.">
+<meta name="keywords" content="angle converter,angle unit converter,degrees to radians,radians to degrees,angle calculator">
+<title>Free Angle Converter - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/angle-converter/">
+<meta property="og:title" content="Angle Converter - Free Online Tool">
+<meta property="og:description" content="Convert angles between degrees, radians, gradians, arcminutes, arcseconds, and turns.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/angle-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Angle Converter","description":"Free online angle unit converter. Convert between degrees, radians, gradians, arcminutes, arcseconds, and turns. 100% client-side.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Angle Converter","item":"https://adi63586.github.io/Toolguidehub/en/angle-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Angle Converter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Angle Converter?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Angle Converter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Enter Value and From are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Angle Converter?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Angle Converter","description":"Step-by-step guide for using Angle Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Angle Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none} a:hover{color:#22d3ee}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1c40f}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px} .nav-back a{color:#64748b} .nav-back a:hover{color:#94a3b8}
+.hero{margin-bottom:24px} .hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1c40f;margin-bottom:12px}
+.form-group{margin-bottom:14px} .form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.ad-slot.ad-sidebar{min-height:250px;max-width:300px}
+.seo-content{margin-top:24px;padding:20px;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}
+.seo-content h2{font-size:1.1rem;color:#f1c40f;margin:16px 0 8px}
+.seo-content h3{font-size:1rem;color:#e2e8f0;margin:12px 0 6px}
+.seo-content p,.seo-content li{color:#94a3b8;margin-bottom:8px;font-size:.9rem}
+.seo-content ul,.seo-content ol{margin-left:20px;margin-bottom:8px;color:#94a3b8;font-size:.9rem}
+.faq-item{margin-bottom:12px;padding:12px;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer}
+.faq-item p{color:#94a3b8;font-size:.85rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px} .footer a:hover{color:#94a3b8} .footer p{margin-bottom:8px}
+.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:12px 20px;border-radius:8px;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;z-index:1000;pointer-events:none}
+.toast.show{opacity:1}
+.result-card{background:#1e293b;border-radius:12px;padding:20px;margin:12px 0;border:1px solid rgba(148,163,184,.1)}
+.result-card h3{color:#22d3ee;font-size:.9rem;margin-bottom:8px}
+.result-value{font-size:1.5rem;color:#f1c40f;font-weight:700;word-break:break-all}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/angle-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Angle Converter</h1></div>
+<p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#tools">Tools</a> › Angle Converter</p>
+<div class="hero"><p>Free online angle unit converter. Convert between degrees, radians, gradians, arcminutes, arcseconds, and turns. 100% client-side. · 100% client-side · Your data never leaves your device</p><span class="badge">Zero dependency · Offline-capable</span></div>
+<div class="main-grid">
+<div>
+<div class="section">
+<div class="tool-area">
+  <div class="form-group">
+    <label>📐 Enter Value</label>
+    <input type="number" id="angleValue" value="180" step="any">
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>From</label>
+      <select id="fromUnit">
+        <option value="deg">Degree (°)</option>
+        <option value="rad">Radian (rad)</option>
+        <option value="grad">Gradian (grad)</option>
+        <option value="arcmin">Arcminute (arcmin)</option>
+        <option value="arcsec">Arcsecond (arcsec)</option>
+        <option value="turn">Turn</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>To</label>
+      <select id="toUnit">
+        <option value="deg">Degree (°)</option>
+        <option value="rad" selected>Radian (rad)</option>
+        <option value="grad">Gradian (grad)</option>
+        <option value="arcmin">Arcminute (arcmin)</option>
+        <option value="arcsec">Arcsecond (arcsec)</option>
+        <option value="turn">Turn</option>
+      </select>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="convertAngle()">🔄 Convert</button>
+    <button class="btn btn-secondary" onclick="swapUnits()">⇄ Swap Units</button>
+  </div>
+  <div id="resultArea" class="result-card">
+    <h3>Result</h3>
+    <div class="result-value" id="resultDisplay">180° = 3.1416 rad</div>
+    <div style="margin-top:8px;color:#64748b;font-size:.85rem" id="resultDetail"></div>
+  </div>
+</div>
+</div>
+<div class="seo-content">
+<h2>Angle Converter - Free Online Unit Conversion Tool</h2>
+<p>Angle Converter is a free online tool for converting between degrees (°), radians (rad), gradians (grad), arcminutes (arcmin), arcseconds (arcsec), and turns. 100% client-side processing ensures your data never leaves your device.</p>
+<h3>Why choose Angle Converter</h3>
+<ul>
+<li>6 angle units supported: Degree, Radian, Gradian, Arcminute, Arcsecond, Turn</li>
+<li>Instant conversion with real-time results</li>
+<li>One-click unit swapping</li>
+<li>High precision with 6 decimal places</li>
+</ul>
+<h3>Angle Converter in 3 steps</h3>
+<ol>
+<li><strong>Enter value</strong>: Type the angle value you want to convert</li>
+<li><strong>Select units</strong>: Choose source and target units from the dropdowns</li>
+<li><strong>View result</strong>: The converted value and intermediate calculation are displayed instantly</li>
+</ol>
+</div>
+<div class="section"><h2>FAQ</h2>
+<div class="faq-item"><h3>How do you convert between angle units?</h3><p>The core approach is to convert all units to radians first, then from radians to the target unit. 1 turn = 2π radians = 360° = 400 gradians = 21,600 arcminutes = 1,296,000 arcseconds.</p></div>
+<div class="faq-item"><h3>What is a radian?</h3><p>A radian is the SI unit for measuring angles. One radian is the angle subtended at the center of a circle by an arc equal in length to the radius. 180° = π radians.</p></div>
+<div class="faq-item"><h3>What is a gradian?</h3><p>A gradian defines a right angle as 100 grad, so a full circle = 400 grad. It's commonly used in surveying and civil engineering.</p></div>
+<div class="faq-item"><h3>What are arcminutes and arcseconds used for?</h3><p>Arcminutes and arcseconds are used in astronomy, navigation, and optics. 1° = 60 arcminutes, 1 arcminute = 60 arcseconds.</p></div>
+</div>
+</div>
+</div>
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#22d3ee;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/base32-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base32 Encode Decode</a><a href="../../en/base45-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base45 Encoder</a><a href="../../en/base64-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base64 Encode Decode</a></div></section>
+
+<p>Angle Converter · 100% client-side processing</p>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function toRadians(val, unit){switch(unit){case'deg':return val*Math.PI/180;case'rad':return val;case'grad':return val*Math.PI/200;case'arcmin':return val*Math.PI/10800;case'arcsec':return val*Math.PI/648000;case'turn':return val*2*Math.PI;default:return val}}
+function fromRadians(val, unit){switch(unit){case'deg':return val*180/Math.PI;case'rad':return val;case'grad':return val*200/Math.PI;case'arcmin':return val*10800/Math.PI;case'arcsec':return val*648000/Math.PI;case'turn':return val/(2*Math.PI);default:return val}}
+var unitNames={deg:'Degree (°)',rad:'Radian (rad)',grad:'Gradian (grad)',arcmin:'Arcminute (arcmin)',arcsec:'Arcsecond (arcsec)',turn:'Turn'};
+function convertAngle(){
+  var val=parseFloat(document.getElementById('angleValue').value);
+  if(isNaN(val)){showToast('Please enter a valid number');return}
+  var from=document.getElementById('fromUnit').value;
+  var to=document.getElementById('toUnit').value;
+  var rad=toRadians(val,from);
+  var result=fromRadians(rad,to);
+  var fmt=function(n){return n%1===0?n.toString():n.toFixed(6).replace(/\.?0+$/,'')};
+  document.getElementById('resultDisplay').textContent=fmt(val)+' '+unitNames[from]+' = '+fmt(result)+' '+unitNames[to];
+  var detail='';
+  if(from!=='rad')detail+=fmt(val)+' '+unitNames[from]+' = '+fmt(rad)+' radians\n';
+  if(to!=='rad')detail+=fmt(rad)+' radians = '+fmt(result)+' '+unitNames[to];
+  document.getElementById('resultDetail').textContent=detail;
+}
+function swapUnits(){
+  var from=document.getElementById('fromUnit');
+  var to=document.getElementById('toUnit');
+  var tmp=from.value;from.value=to.value;to.value=tmp;
+  convertAngle();
+}
+document.addEventListener('DOMContentLoaded',convertAngle);
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+
+<footer>
+<div style="margin-bottom:12px">
+<a href="../../">Home</a> | <a href="../index.html#tools">All Tools</a> | <a href="../contact/">Contact</a> | <a href="../privacy/">Privacy</a> | <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> | <a href="../../en/angle-converter/">中文</a>
+</footer>
+</main>
+</body>
+</html>

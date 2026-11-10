@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Food Calorie Calculator - ToolGuideHub</title>
+ <meta name="description" content="Add foods to a meal and total up the calories, then compare the result against daily intake guidelines for women and men.">
+ <meta property="og:title" content="Food Calorie Calculator - ToolGuideHub">
+ <meta property="og:description" content="Add foods to a meal and total up the calories, then compare the result against daily intake guidelines for women and men.">
+ <meta property="og:type" content="website">
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Food Calorie Calculator",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "description": "Free online food calorie calculator. Search and select common foods to calculate total calorie intake."
+  }
+  </script>
+ <style>:root{--primary-light:rgba(6,182,212,.15);}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+    header nav{display:flex;gap:16px}
+    header nav a{color:#94a3b8;text-decoration:none;font-size:.9rem;transition:color .2s}
+    header nav a:hover{color:#22d3ee}
+    main{flex:1;max-width:800px;margin:0 auto;padding:32px 20px;width:100%}
+    h1{font-size:1.75rem;margin-bottom:8px;color:#e2e8f0}
+    .subtitle{color:#94a3b8;margin-bottom:28px;font-size:.95rem}
+    .section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:24px;margin-bottom:20px}
+    .section h2{font-size:1.1rem;margin-bottom:16px;color:#e2e8f0}
+    label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px;color:#e2e8f0}
+    input,select{width:100%;padding:10px 14px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:1rem;font-family:inherit;transition:border-color .2s;background:#0f172a;color:#e2e8f0}
+    input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px var(--primary-light)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;gap:6px}
+    .btn-primary{background:#22d3ee;color:#fff;width:100%}
+    .btn-primary:hover{background:#06b6d4;transform:translateY(-1px)}
+    .btn-sm{padding:6px 16px;font-size:.85rem}
+    .search-box{position:relative}
+    .search-box input{padding-right:40px}
+    .search-box .clear-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2rem;line-height:1}
+    .food-list{max-height:400px;overflow-y:auto;margin-top:12px}
+    .food-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(148,163,184,.1);transition:background .2s}
+    .food-item:hover{background:var(--primary-light)}
+    .food-item:last-child{border-bottom:none}
+    .food-name{font-weight:500;font-size:.95rem}
+    .food-cal{color:#22d3ee;font-weight:600;font-size:.95rem;white-space:nowrap}
+    .food-unit{color:#94a3b8;font-size:.8rem;margin-left:4px}
+    .category-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .cat-tab{padding:6px 14px;border:1px solid rgba(148,163,184,.1);border-radius:20px;background:#1e293b;cursor:pointer;font-size:.85rem;transition:all .2s}
+    .cat-tab.active{background:#22d3ee;color:#fff;border-color:#22d3ee}
+    .total-card{background:var(--primary-light);border-radius:8px;padding:16px;margin-top:16px;display:flex;justify-content:space-between;align-items:center}
+    .total-cal{font-size:1.4rem;font-weight:700;color:#22d3ee}
+    .selected-list{margin-top:12px}
+    .selected-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#0f172a;border-radius:6px;margin-bottom:6px}
+    .selected-item .remove-btn{background:none;border:none;color:#EF4444;cursor:pointer;font-size:1.1rem;padding:0 4px}
+    footer{background:#1e293b;border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.85rem;color:#94a3b8}
+    footer a{color:#22d3ee;text-decoration:none}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:1.4rem}.category-tabs{gap:4px}.cat-tab{padding:5px 10px;font-size:.8rem}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Food Calorie Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/food-calorie-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Food Calorie Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Food Calorie Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Food Calorie Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: food names and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Food Calorie Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Food Calorie Calculator","description":"Step-by-step guide for using Food Calorie Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Food Calorie Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/food-calorie-calculator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/food-calorie-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ <nav>
+ <a href="../../">Home</a>
+ <a href="../../en/food-calorie-calculator/">中文</a>
+ </nav>
+</header>
+<main>
+ <h1>🍎 Food Calorie Calculator</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/calorie-calculator/" style="color:#22d3ee;text-decoration:underline">calorie calculator</a>. Please use the new version.</div>
+ <p class="subtitle">Search and select foods to calculate total calorie intake. Data based on common foods per 100g/serving.</p>
+ <div class="section">
+ <div class="category-tabs" id="cat-tabs"></div>
+ <div class="search-box">
+ <input type="text" id="food-search" placeholder="Search food name...">
+ <button class="clear-btn" id="clear-search">✕</button>
+ </div>
+ <div class="food-list" id="food-list"></div>
+ <div id="selected-section" style="display:none">
+ <h3 style="font-size:1rem;margin:16px 0 8px">📋 Selected Foods</h3>
+ <div class="selected-list" id="selected-list"></div>
+ <div class="total-card">
+ <span>Total Calories</span>
+ <span class="total-cal" id="total-cal">0 kcal</span>
+ </div>
+ <button class="btn btn-primary" id="clear-all" style="margin-top:12px">Clear All</button>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+ <button class="btn btn-secondary btn-sm" id="fill-example">🎲 Example Meal</button>
+ <button class="btn btn-success btn-sm" id="copy-result">📋 Copy Result</button>
+ </div>
+ <canvas id="calChart" width="600" height="240" style="max-width:100%;margin-top:16px;display:none"></canvas>
+ </div>
+ </div>
+ <div class="section">
+ <h2>📖 Daily Calorie Reference</h2>
+ <p style="font-size:.9rem;color:#94a3b8;line-height:1.8">
+ Adult women need about <strong>1800-2200 kcal</strong> per day, adult men about <strong>2200-2800 kcal</strong>.
+ For weight loss, reduce 300-500 kcal daily; for weight gain, add 300-500 kcal.
+ These are estimates — actual needs vary by age, activity level, and other factors.
+ </p>
+ </div>
+
+<h2>What is Food Calorie Calculator?</h2><p>Food Calorie Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter food names and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Track health metrics when monitoring personal wellness</li><li>Adjust fitness plans based on calculated results</li><li>Interpret medical checkup reports with accurate numbers</li><li>Quick access on mobile without installing health apps</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/food-calorie-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function(){
+  var foodData={
+    'Grains':[
+      {n:'White Rice',cal:116,u:'per 100g'},{n:'Steamed Bun',cal:223,u:'per 100g'},{n:'Noodles (cooked)',cal:110,u:'per 100g'},{n:'Whole Wheat Bread',cal:246,u:'per 100g'},{n:'White Bread',cal:266,u:'per 100g'},{n:'Millet Porridge',cal:46,u:'per 100g'},{n:'Corn',cal:112,u:'per 100g'},{n:'Sweet Potato',cal:86,u:'per 100g'},{n:'Potato',cal:81,u:'per 100g'},{n:'Oatmeal',cal:377,u:'per 100g'},{n:'Brown Rice',cal:123,u:'per 100g'},{n:'Dumplings (pork)',cal:240,u:'per 100g'}
+    ],
+    'Meat':[
+      {n:'Chicken Breast',cal:133,u:'per 100g'},{n:'Chicken Thigh',cal:181,u:'per 100g'},{n:'Pork (lean)',cal:143,u:'per 100g'},{n:'Pork Belly',cal:395,u:'per 100g'},{n:'Beef (lean)',cal:125,u:'per 100g'},{n:'Beef (fatty)',cal:250,u:'per 100g'},{n:'Lamb',cal:203,u:'per 100g'},{n:'Duck',cal:240,u:'per 100g'},{n:'Sausage',cal:212,u:'per 100g'},{n:'Bacon',cal:541,u:'per 100g'},{n:'Luncheon Meat',cal:229,u:'per 100g'}
+    ],
+    'Seafood':[
+      {n:'Salmon',cal:208,u:'per 100g'},{n:'Shrimp',cal:99,u:'per 100g'},{n:'Hairtail Fish',cal:127,u:'per 100g'},{n:'Squid',cal:92,u:'per 100g'},{n:'Crab',cal:95,u:'per 100g'},{n:'Clams',cal:56,u:'per 100g'},{n:'Tuna (canned)',cal:198,u:'per 100g'},{n:'Cod',cal:82,u:'per 100g'},{n:'Lobster',cal:90,u:'per 100g'}
+    ],
+    'Eggs & Dairy':[
+      {n:'Egg (boiled)',cal:155,u:'per 100g (~2 eggs)'},{n:'Egg (scrambled)',cal:196,u:'per 100g'},{n:'Duck Egg',cal:180,u:'per 100g'},{n:'Whole Milk',cal:61,u:'per 100ml'},{n:'Skim Milk',cal:34,u:'per 100ml'},{n:'Yogurt (plain)',cal:63,u:'per 100g'},{n:'Cheese',cal:350,u:'per 100g'},{n:'Butter',cal:717,u:'per 100g'}
+    ],
+    'Soy Products':[
+      {n:'Tofu',cal:76,u:'per 100g'},{n:'Soy Milk',cal:33,u:'per 100ml'},{n:'Dried Tofu',cal:140,u:'per 100g'},{n:'Tofu Skin',cal:459,u:'per 100g'},{n:'Edamame',cal:131,u:'per 100g'},{n:'Soybeans',cal:390,u:'per 100g'}
+    ],
+    'Vegetables':[
+      {n:'Broccoli',cal:34,u:'per 100g'},{n:'Spinach',cal:23,u:'per 100g'},{n:'Tomato',cal:18,u:'per 100g'},{n:'Cucumber',cal:15,u:'per 100g'},{n:'Carrot',cal:41,u:'per 100g'},{n:'Cabbage',cal:13,u:'per 100g'},{n:'Lettuce',cal:15,u:'per 100g'},{n:'Celery',cal:16,u:'per 100g'},{n:'Bell Pepper',cal:20,u:'per 100g'},{n:'Eggplant',cal:25,u:'per 100g'},{n:'Pumpkin',cal:26,u:'per 100g'},{n:'Mushroom',cal:22,u:'per 100g'},{n:'Onion',cal:40,u:'per 100g'},{n:'Garlic',cal:149,u:'per 100g'},{n:'Corn Kernels',cal:96,u:'per 100g'}
+    ],
+    'Fruits':[
+      {n:'Apple',cal:52,u:'per 100g'},{n:'Banana',cal:89,u:'per 100g'},{n:'Orange',cal:47,u:'per 100g'},{n:'Grapes',cal:69,u:'per 100g'},{n:'Watermelon',cal:30,u:'per 100g'},{n:'Strawberry',cal:32,u:'per 100g'},{n:'Blueberry',cal:57,u:'per 100g'},{n:'Mango',cal:60,u:'per 100g'},{n:'Kiwi',cal:61,u:'per 100g'},{n:'Pear',cal:57,u:'per 100g'},{n:'Peach',cal:39,u:'per 100g'},{n:'Cherry',cal:63,u:'per 100g'},{n:'Grapefruit',cal:42,u:'per 100g'},{n:'Avocado',cal:160,u:'per 100g'},{n:'Durian',cal:147,u:'per 100g'}
+    ],
+    'Snacks':[
+      {n:'Potato Chips',cal:536,u:'per 100g'},{n:'Chocolate',cal:546,u:'per 100g'},{n:'Biscuits',cal:433,u:'per 100g'},{n:'Cake',cal:347,u:'per 100g'},{n:'Ice Cream',cal:207,u:'per 100g'},{n:'Mixed Nuts',cal:607,u:'per 100g'},{n:'Peanuts',cal:567,u:'per 100g'},{n:'Sunflower Seeds',cal:582,u:'per 100g'},{n:'Instant Noodles',cal:473,u:'per 100g'},{n:'Cola',cal:42,u:'per 100ml'},{n:'Orange Juice',cal:45,u:'per 100ml'},{n:'Beer',cal:43,u:'per 100ml'}
+    ],
+    'Condiments':[
+      {n:'Vegetable Oil',cal:899,u:'per 100g'},{n:'Olive Oil',cal:884,u:'per 100g'},{n:'Mayonnaise',cal:680,u:'per 100g'},{n:'Ketchup',cal:100,u:'per 100g'},{n:'Honey',cal:304,u:'per 100g'},{n:'White Sugar',cal:387,u:'per 100g'}
+    ]
+  };
+
+  var selected={};
+  var cats=Object.keys(foodData);
+  var activeCat='All';
+
+  function renderCats(){
+    var html='<div class="cat-tab active" data-cat="All">All</div>';
+    cats.forEach(function(c){html+='<div class="cat-tab" data-cat="'+c+'">'+c+'</div>';});
+    document.getElementById('cat-tabs').innerHTML=html;
+    document.querySelectorAll('.cat-tab').forEach(function(t){
+      t.addEventListener('click',function(){
+        document.querySelectorAll('.cat-tab').forEach(function(x){x.classList.remove('active')});
+        this.classList.add('active');
+        activeCat=this.dataset.cat;
+        filterFoods();
+      });
+    });
+  }
+
+  function filterFoods(){
+    var q=(document.getElementById('food-search').value||'').toLowerCase();
+    var list=document.getElementById('food-list');
+    var html='';
+    var results=[];
+    if(activeCat==='All'){
+      cats.forEach(function(c){
+        foodData[c].forEach(function(f){
+          if(!q||f.n.toLowerCase().includes(q)) results.push({cat:c,name:f.n,cal:f.cal,unit:f.u});
+        });
+      });
+    }else{
+      (foodData[activeCat]||[]).forEach(function(f){
+        if(!q||f.n.toLowerCase().includes(q)) results.push({cat:activeCat,name:f.n,cal:f.cal,unit:f.u});
+      });
+    }
+    if(results.length===0){
+      html='<div style="padding:20px;text-align:center;color:#94a3b8">No matching foods found</div>';
+    }else{
+      results.forEach(function(r,i){
+        html+='<div class="food-item" data-idx="'+i+'" data-name="'+r.name+'" data-cal="'+r.cal+'" data-unit="'+r.unit+'" data-cat="'+r.cat+'"><span><span class="food-name">'+r.name+'</span><span class="food-unit">'+r.unit+'</span></span><span class="food-cal">'+r.cal+' kcal</span></div>';
+      });
+    }
+    list.innerHTML=html;
+    list.querySelectorAll('.food-item').forEach(function(item){
+      item.addEventListener('click',function(){
+        var key=this.dataset.name;
+        if(selected[key]){selected[key].qty++}else{selected[key]={name:key,cal:parseInt(this.dataset.cal),unit:this.dataset.unit,qty:1}}
+        renderSelected();
+      });
+    });
+  }
+
+  function renderSelected(){
+    var keys=Object.keys(selected);
+    var sec=document.getElementById('selected-section');
+    var list=document.getElementById('selected-list');
+    if(keys.length===0){sec.style.display='none';drawChart();return}
+    sec.style.display='block';
+    var html='';
+    var total=0;
+    keys.forEach(function(k){
+      var s=selected[k];
+      total+=s.cal*s.qty;
+      html+='<div class="selected-item"><span>'+s.name+' ×'+s.qty+' ('+s.unit+')</span><span>'+ (s.cal*s.qty) +' kcal <button class="remove-btn" data-key="'+k+'">✕</button></span></div>';
+    });
+    list.innerHTML=html;
+    document.getElementById('total-cal').textContent=total+' kcal';
+    list.querySelectorAll('.remove-btn').forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        var k=this.dataset.key;
+        if(selected[k]&&selected[k].qty>1){selected[k].qty--}else{delete selected[k]}
+        renderSelected();
+      });
+    });
+    drawChart();
+  }
+
+  function findFood(name){for(var c in foodData){for(var j=0;j<foodData[c].length;j++){if(foodData[c][j].n===name)return foodData[c][j]}}return null}
+
+  function drawChart(){
+    var cv=document.getElementById('calChart');
+    var keys=Object.keys(selected);
+    if(keys.length===0){cv.style.display='none';return}
+    cv.style.display='block';
+    var ctx=cv.getContext('2d');
+    var W=cv.width,H=cv.height,padL=10,padR=10,padT=24,padB=28;
+    ctx.clearRect(0,0,W,H);
+    var items=keys.map(function(k){return {name:selected[k].name,cal:selected[k].cal*selected[k].qty}});
+    var maxCal=Math.max.apply(null,items.map(function(i){return i.cal}))||1;
+    var bw=Math.min(46,(W-padL-padR)/items.length*0.55);
+    var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b','#22d3ee','#34d399'];
+    ctx.textAlign='center';ctx.font='10px sans-serif';
+    items.forEach(function(item,i){
+      var bh=(H-padT-padB)*item.cal/maxCal;
+      var x=padL+(W-padL-padR)*(i+0.5)/items.length;
+      var y=padT+(H-padT-padB)-bh;
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(x-bw/2,y,bw,bh);
+      ctx.fillStyle='#e2e8f0';
+      ctx.fillText(item.cal,x,y-4);
+      ctx.fillStyle='#94a3b8';ctx.font='9px sans-serif';
+      var label=item.name.length>8?item.name.slice(0,7)+'…':item.name;
+      ctx.fillText(label,x,H-8);
+      ctx.font='10px sans-serif';
+    });
+  }
+
+  var _toast=document.createElement('div');_toast.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s';document.body.appendChild(_toast);
+  function showToast(m){_toast.textContent=m;_toast.style.opacity='1';clearTimeout(_toast._t);_toast._t=setTimeout(function(){_toast.style.opacity='0'},2000)}
+
+  document.getElementById('copy-result').addEventListener('click',function(){
+    var keys=Object.keys(selected);
+    if(keys.length===0){showToast('Nothing selected yet');return}
+    var lines=keys.map(function(k){return selected[k].name+' ×'+selected[k].qty+' ('+selected[k].unit+') = '+(selected[k].cal*selected[k].qty)+' kcal'});
+    lines.push('Total: '+document.getElementById('total-cal').textContent);
+    var t=lines.join('\n');
+    function ok(){showToast('📋 Copied')}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);ok()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(fallback)}else{fallback()}
+  });
+
+  document.getElementById('fill-example').addEventListener('click',function(){
+    var picks=['White Rice','Chicken Breast','Broccoli','Banana'];
+    picks.forEach(function(name){
+      if(!selected[name]){var f=findFood(name);if(f)selected[name]={name:name,cal:f.cal,unit:f.u,qty:1}}
+    });
+    renderSelected();
+    showToast('🎲 Example meal added');
+  });
+
+  document.getElementById('clear-all').addEventListener('click',function(){selected={};renderSelected()});
+  document.getElementById('food-search').addEventListener('input',filterFoods);
+  document.getElementById('clear-search').addEventListener('click',function(){
+    document.getElementById('food-search').value='';
+    filterFoods();
+  });
+
+  renderCats();
+  filterFoods();
+})();
+</script>
+</body>
+</html>

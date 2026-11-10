@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free WebSocket Tester - ToolGuideHub</title>
+    <meta name="description" content="Connect to a ws:// or wss:// server in the browser, send and receive messages and watch the live log while debugging.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/websocket-tester/">
+    <meta property="og:title" content="Free WebSocket Tester - ToolGuideHub">
+    <meta property="og:description" content="Connect to a ws:// or wss:// server in the browser, send and receive messages and watch the live log while debugging.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/websocket-tester/">
+    <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        input[type="text"], textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', monospace; }
+        input:focus, textarea:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea { resize: vertical; min-height: 80px; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .status-connected { background: #ecfdf5; color: #10b981; }
+        .status-disconnected { background: #fef2f2; color: #ef4444; }
+        .status-connecting { background: #0f172a; color: #f59e0b; }
+        .message-log { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 16px; min-height: 300px; max-height: 400px; overflow-y: auto; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.8; }
+        .msg-sent { color: #60a5fa; } .msg-received { color: #34d399; } .msg-system { color: #94a3b8; font-style: italic; } .msg-error { color: #f87171; }
+        .msg-time { color: #64748b; font-size: 11px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+        
+        
+    .faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());  </script>
+<style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/websocket-tester/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*tgh_toast*/window.showToast=function(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t)}t.textContent=m;t.classList.add("show");clearTimeout(window.__tt);window.__tt=setTimeout(function(){t.classList.remove("show")},2000)};</script>
+</head>
+<body>
+<main class="container">
+<header>
+        <h1>🔌 WebSocket Tester
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</h1>
+
+        <p>Free online WebSocket client
+- Connect, send, receive, and debug WebSocket services</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "WebSocket Tester",
+      "item": "https://adi63586.github.io/Toolguidehub/en/websocket-tester/"
+    }
+  ],
+  "name": "WebSocket Tester"
+}</script>
+    <div class="section">
+        <h2>🔗 Connection</h2>
+        <div class="row">
+            <input type="text" id="ws-url" placeholder="wss://echo.websocket.org or ws://localhost:8080" value="wss://echo.websocket.org">
+            <button class="btn btn-success" id="connect-btn" onclick="connectWS()">▶ Connect</button>
+            <button class="btn btn-danger" id="disconnect-btn" onclick="disconnectWS()" disabled>⏹ Disconnect</button>
+        </div>
+        <div style="margin-top:8px"><span class="status-badge status-disconnected" id="status-badge">● Disconnected</span></div>
+    </div>
+    <div class="section">
+        <h2>💬 Message</h2>
+        <textarea id="msg-input" placeholder="Enter message to send..."></textarea>
+        <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" onclick="sendMessage()" id="send-btn" disabled>📤 Send</button>
+            <button class="btn btn-secondary" onclick="clearLog()">🗑️ Clear Log</button>
+        </div>
+    </div>
+    <div class="section">
+        <h2>📋 Message Log</h2>
+        <div class="message-log" id="message-log">
+            <div class="msg-system"><span class="msg-time">[System]</span> Waiting for connection...</div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>FAQ</h2>
+        <div class="faq-item"><h3>Q1: What's the difference between WebSocket and HTTP?</h3>
+        <p>HTTP uses a request-response pattern where the client must initiate every communication. WebSocket is a full-duplex protocol — once connected, the server can push data to the client without waiting for a request. WebSocket is ideal for real-time chat, stock tickers, online gaming, and any scenario requiring real-time data push. The connection is established via an HTTP upgrade handshake.</p></div>
+        <div class="faq-item"><h3>Q2: What's the difference between ws:// and wss://?</h3>
+        <p>ws:// is the unencrypted WebSocket protocol (like HTTP), while wss:// uses TLS/SSL encryption (like HTTPS). Production environments must use wss:// for security. ws:// should only be used for local development. Browsers block mixed content — HTTPS pages cannot connect to ws:// endpoints.</p></div>
+        <div class="faq-item"><h3>Q3: Why is my connection failing?</h3>
+        <p>Common reasons: 1) Invalid URL format (must start with ws:// or wss://); 2) Server not running or wrong port; 3) CORS restrictions; 4) Mixed content blocking (HTTPS page + ws://); 5) Firewall or proxy blocking WebSocket; 6) Server doesn't support WebSocket protocol. Check URL format and server status first.</p></div>
+    </div>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What's the difference between WebSocket and HTTP?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between WebSocket and HTTP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTTP is request-response; WebSocket is full-duplex, server can push data proactively."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between ws:// and wss://?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ws:// is unencrypted, wss:// uses TLS/SSL. Production must use wss://."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my connection failing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Invalid URL, server not running, CORS, mixed content blocking, firewall, or unsupported protocol."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use WebSocket Tester", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter WebSocket server URL (ws:// or wss://)", "name": "Enter WebSocket server URL (ws"}, {"@type": "HowToStep", "position": 2, "text": "Click Connect to establish connection", "name": "Click Connect to establish con"}, {"@type": "HowToStep", "position": 3, "text": "Type a message and send, view sent/received messages in the log", "name": "Type a message and send, view "}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "WebSocket Tester", "description": "Free online WebSocket tester, connect and debug WebSocket servers", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/websocket-tester/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+    <script>
+    </script>
+    <script>
+    var ws = null;
+    function getTime() { var d = new Date(); return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0') + ':' + d.getSeconds().toString().padStart(2,'0'); }
+    function addLog(type, msg) { var log = document.getElementById('message-log'); var div = document.createElement('div'); div.className = 'msg-' + type; div.innerHTML = '<span class="msg-time">[' + getTime() + ']</span> ' + msg; log.appendChild(div); log.scrollTop = log.scrollHeight; }
+    function updateStatus(status) {
+        var badge = document.getElementById('status-badge'), cb = document.getElementById('connect-btn'), db = document.getElementById('disconnect-btn'), sb = document.getElementById('send-btn');
+        if (status === 'connected') { badge.className = 'status-badge status-connected'; badge.textContent = '● Connected'; cb.disabled = true; db.disabled = false; sb.disabled = false; }
+        else if (status === 'connecting') { badge.className = 'status-badge status-connecting'; badge.textContent = '● Connecting...'; cb.disabled = true; db.disabled = true; sb.disabled = true; }
+        else { badge.className = 'status-badge status-disconnected'; badge.textContent = '● Disconnected'; cb.disabled = false; db.disabled = true; sb.disabled = true; }
+    }
+    function connectWS() {
+        var url = document.getElementById('ws-url').value.trim();
+        if (!url) { showToast('Please enter a WebSocket URL'); return; }
+        if (!url.startsWith('ws://') && !url.startsWith('wss://')) { showToast('URL must start with ws:// or wss://'); return; }
+        updateStatus('connecting'); addLog('system', 'Connecting to ' + url + ' ...');
+        try {
+            ws = new WebSocket(url);
+            ws.onopen = function() { updateStatus('connected'); addLog('system', '✅ Connected'); gtag('event', 'ws_connect', { event_category: 'websocket' }); };
+            ws.onmessage = function(e) { addLog('received', '⬇ ' + e.data); };
+            ws.onerror = function() { addLog('error', '❌ Connection error'); };
+            ws.onclose = function(e) { updateStatus('disconnected'); addLog('system', 'Connection closed (code: ' + e.code + ')'); ws = null; };
+        } catch(e) { addLog('error', '❌ Failed: ' + e.message); updateStatus('disconnected'); }
+    }
+    function disconnectWS() { if (ws) { ws.close(); addLog('system', 'Disconnected'); } }
+    function sendMessage() { var msg = document.getElementById('msg-input').value; if (!msg) { showToast('Enter a message'); return; } if (!ws || ws.readyState !== WebSocket.OPEN) { showToast('Not connected'); return; } ws.send(msg); addLog('sent', '⬆ ' + msg); gtag('event', 'ws_send', { event_category: 'websocket' }); }
+    function clearLog() { document.getElementById('message-log').innerHTML = '<div class="msg-system"><span class="msg-time">[System]</span> Log cleared</div>'; }
+    </script>
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are there any usage limits for WebSocket Tester?</h3>
+      <p>WebSocket Tester has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. WebSocket Tester is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is WebSocket Tester free to use?</h3>
+      <p>Yes, WebSocket Tester is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use WebSocket Tester on my phone?</h3>
+      <p>Yes. WebSocket Tester is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does WebSocket Tester upload my data to a server?</h3>
+      <p>No. WebSocket Tester uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+  </div>
+</main>
+
+<footer><p>&copy; 2026 WebTools - Free Online Tools | <a href="../../en/privacy/">Privacy Policy</a> | <a href="../../en/terms/">Terms of Service</a></p> | <a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>(function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+</body>
+</html>

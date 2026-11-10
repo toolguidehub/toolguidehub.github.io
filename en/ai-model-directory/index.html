@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Browse a directory of GPT-4o, Claude, Gemini, and Llama models with specs, pricing, and capability notes.">
+<meta name="keywords" content="AI model comparison,AI model directory,GPT-4,Claude,Gemini,Llama,LLM comparison,AI pricing,model specs">
+<title>Free AI Model Directory - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ai-model-directory/">
+<meta property="og:title" content="Free AI Model Directory - ToolGuideHub">
+<meta property="og:description" content="Browse a directory of GPT-4o, Claude, Gemini, and Llama models with specs, pricing, and capability notes.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ai-model-directory/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Model Directory", "description": "Free online AI model directory. Compare GPT-4o, Claude, Gemini, Llama models by specs, pricing, and capabilities. Pure frontend, no server upload.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "AI Model Directory FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which models are included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Includes GPT-4o, GPT-4o-mini, Claude 4 Sonnet, Claude 4 Opus, Gemini 2.5 Pro, Gemini 2.5 Flash, Llama 4 Maverick, Llama 4 Scout, DeepSeek V3, Mistral Large and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often is data updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Model data is based on public information and updated regularly. Prices and capabilities may change — verify with official sources."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What dimensions can I compare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sort and filter by context window, input/output pricing, model type, vendor, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is data uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. All comparisons happen locally."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dev Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Model Directory",
+      "item": "https://adi63586.github.io/Toolguidehub/en/ai-model-directory/"
+    }
+  ],
+  "name": "AI Model Directory"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the AI Model Directory",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Browse Models",
+      "text": "Browse all AI models with basic info, specs, and pricing."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Filter & Sort",
+      "text": "Filter by vendor, type, price. Sort by any column."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Compare",
+      "text": "Select models for detailed side-by-side comparison."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.breadcrumb{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.breadcrumb a{color:#64748b}
+.breadcrumb a:hover{color:#94a3b8}
+.hero{margin-bottom:24px}
+.hero p,.hero .subtitle{color:#94a3b8;font-size:1rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-bottom:24px}
+.main-grid>div{min-width:0}
+.panel{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+.panel h2,.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.control-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.control-row label{color:#94a3b8;font-size:.9rem}
+.control-row select{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:8px 12px;font-size:.9rem;outline:none}
+.control-row select:focus{border-color:rgba(6,182,212,.4)}
+.model-table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:560px}
+.model-table th{padding:8px 12px;text-align:left;color:#94a3b8;border-bottom:1px solid rgba(148,163,184,.1);cursor:pointer;font-weight:500;white-space:nowrap}
+.model-table th:hover{color:#22d3ee}
+.model-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.05);color:#e2e8f0}
+.model-table tbody tr:hover td{background:rgba(148,163,184,.03)}
+.vendor-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600;text-transform:capitalize}
+.vendor-openai{background:rgba(6,182,212,.15);color:#22d3ee}
+.vendor-anthropic{background:rgba(248,113,113,.15);color:#f87171}
+.vendor-google{background:rgba(251,191,36,.15);color:#fbbf24}
+.vendor-meta{background:rgba(59,130,246,.15);color:#60a5fa}
+.vendor-deepseek{background:rgba(34,197,94,.15);color:#4ade80}
+.vendor-mistral{background:rgba(217,70,239,.15);color:#e879f9}
+.model-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;margin-right:4px}
+.tag-open{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.tag-closed{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.tag-free{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.sidebar-panel{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px}
+.sidebar-panel h3{color:#22d3ee;font-size:1rem;margin-bottom:12px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+.seo-content{margin-top:24px;padding:20px;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}
+.seo-content h2{color:#f1f5f9;font-size:1.35rem;margin-bottom:12px}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.seo-content ul{margin-left:20px;margin-bottom:8px}
+.faq-section{margin-top:24px}
+.faq-section h2{color:#f1f5f9;font-size:1.2rem;margin-bottom:12px}
+.faq-item{margin-bottom:12px;padding:12px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1);cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;color:#e2e8f0;font-size:.95rem}
+.faq-q .arrow{color:#64748b;transition:transform .2s}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.faq-a{display:none;color:#94a3b8;font-size:.85rem;margin-top:8px}
+.faq-item.open .faq-a{display:block}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.btn{padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.copy-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:all .3s;pointer-events:none}
+.copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}.header{flex-direction:column;align-items:flex-start;gap:8px}h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.panel{padding:16px}}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ai-model-directory/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🤖 AI Model Directory</h1></div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Dev Tools</a> › AI Model Directory</div>
+<div class="hero"><p class="subtitle">Compare GPT-4o, Claude, Gemini, Llama models by specs, pricing & capabilities</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2>🔍 Filter</h2>
+<div class="control-row">
+<label>🏢 Vendor</label>
+<select id="filter-vendor" onchange="renderTable()"><option value="all">All</option><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option><option value="google">Google</option><option value="meta">Meta</option><option value="deepseek">DeepSeek</option><option value="mistral">Mistral</option></select>
+<label>📋 Type</label>
+<select id="filter-type" onchange="renderTable()"><option value="all">All</option><option value="open">Open Source</option><option value="closed">Closed Source</option><option value="free">Free Tier</option></select>
+</div>
+<div style="overflow-x:auto">
+<table class="model-table" id="model-table">
+<thead><tr><th onclick="sortBy('name')">Model ▾</th><th onclick="sortBy('vendor')">Vendor</th><th onclick="sortBy('ctx')">Context</th><th onclick="sortBy('input_price')">Input $</th><th onclick="sortBy('output_price')">Output $</th><th onclick="sortBy('type')">Type</th></tr></thead>
+<tbody id="model-tbody"></tbody>
+</table>
+</div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel"><h3>💡 Quick Picks</h3><div style="font-size:.8rem;color:#94a3b8;line-height:1.8"><p>🎯 <strong>Best Overall</strong>: GPT-4o / Claude 4 Opus</p><p>💰 <strong>Best Value</strong>: GPT-4o-mini / DeepSeek V3</p><p>🆓 <strong>Free</strong>: Gemini 2.5 Flash / Llama 4</p><p>🔓 <strong>Open Source</strong>: Llama 4 / DeepSeek V3</p><p>📝 <strong>Long Context</strong>: Gemini 2.5 Pro (1M)</p></div></div>
+</div>
+</div>
+<div class="section">
+<h2>📊 Pricing Comparison</h2>
+<canvas id="model-chart" style="width:100%;height:240px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px"></canvas>
+<div style="display:flex;align-items:center;gap:16px;margin-top:10px;font-size:.8rem;color:#94a3b8;flex-wrap:wrap">
+<span><span style="display:inline-block;width:10px;height:10px;background:#06b6d4;border-radius:2px;margin-right:4px"></span>Input $/M</span>
+<span><span style="display:inline-block;width:10px;height:10px;background:#8b5cf6;border-radius:2px;margin-right:4px"></span>Output $/M</span>
+<button class="btn btn-secondary" onclick="copyModels()" style="margin-left:auto;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:.8rem">📋 Copy Table (CSV)</button>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the AI Model Directory Do?</h2>
+<p>The AI Model Directory is a free online tool that aggregates and compares specs, pricing, and capabilities of major AI models including GPT-4o, Claude 4, Gemini 2.5, Llama 4, DeepSeek V3, and Mistral Large. Filter by vendor and type, sort by context window, pricing, and more to find the best model for your needs.</p>
+<h2>Core Features</h2>
+<ul><li><strong>Model Overview</strong>: 10+ major AI models at a glance</li><li><strong>Price Comparison</strong>: Clear input/output token pricing</li><li><strong>Filter & Sort</strong>: By vendor, open/closed source, price</li><li><strong>Context Comparison</strong>: 128K to 10M context windows</li><li><strong>Regular Updates</strong>: Model data kept current</li></ul>
+<h2>Use Cases</h2>
+<h3>API Selection</h3><p>When building AI apps, compare pricing and capabilities to find the best fit for your budget and requirements.</p>
+<h3>Cost Optimization</h3><p>Reduce API costs by comparing models and finding cheaper alternatives, like GPT-4o-mini instead of GPT-4o.</p>
+<h3>Tech Research</h3><p>Stay updated on the latest AI models, compare open vs closed source capabilities, and make data-driven technology decisions.</p>
+<h2>Background</h2>
+<p>The 2026 AI model landscape: OpenAI's GPT series leads in general capability, Anthropic's Claude excels in safety and long-form, Google's Gemini features multimodal and ultra-long context, Meta's Llama is the open-source benchmark, and DeepSeek has rapidly emerged with ultra-low pricing and open-source strategy. When choosing a model, consider: task type (code/text/multimodal), context needs, budget, latency requirements, and data privacy (local deployment needs).</p>
+</div>
+<div class="faq-section">
+<h2>FAQ</h2>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>Which models are included?</span><span class="arrow">▼</span></div><div class="faq-a">GPT-4o, GPT-4o-mini, Claude 4 Sonnet/Opus, Gemini 2.5 Pro/Flash, Llama 4 Maverick/Scout, DeepSeek V3/R1, Mistral Large/Small and more.</div></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>Is pricing accurate?</span><span class="arrow">▼</span></div><div class="faq-a">Pricing is based on public information and may change. Verify with official sources for the latest rates.</div></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span>How to choose a model?</span><span class="arrow">▼</span></div><div class="faq-a">General tasks: GPT-4o/Claude. Budget: GPT-4o-mini/DeepSeek. Open source: Llama/DeepSeek. Long context: Gemini Pro.</div></div>
+</div>
+</main>
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/ai-model-directory/">中文</a>
+</div>
+
+
+</footer>
+
+
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools" data-tool="ai-model-directory"></div>
+<script src="../../related-tools.js"></script>
+<div class="copy-toast" id="copy-toast">Copied to clipboard</div>
+<script>
+const MODELS=[
+{name:'GPT-4o',vendor:'openai',ctx:128,input_price:2.5,output_price:10,type:'closed',free:false},
+{name:'GPT-4o-mini',vendor:'openai',ctx:128,input_price:0.15,output_price:0.6,type:'closed',free:false},
+{name:'o3',vendor:'openai',ctx:200,input_price:2,output_price:8,type:'closed',free:false},
+{name:'o4-mini',vendor:'openai',ctx:200,input_price:1.1,output_price:4.4,type:'closed',free:false},
+{name:'Claude 4 Sonnet',vendor:'anthropic',ctx:200,input_price:3,output_price:15,type:'closed',free:false},
+{name:'Claude 4 Opus',vendor:'anthropic',ctx:200,input_price:15,output_price:75,type:'closed',free:false},
+{name:'Gemini 2.5 Pro',vendor:'google',ctx:1000,input_price:1.25,output_price:10,type:'closed',free:true},
+{name:'Gemini 2.5 Flash',vendor:'google',ctx:1000,input_price:0.15,output_price:0.6,type:'closed',free:true},
+{name:'Llama 4 Maverick',vendor:'meta',ctx:1000,input_price:0.2,output_price:0.2,type:'open',free:true},
+{name:'Llama 4 Scout',vendor:'meta',ctx:10000,input_price:0.15,output_price:0.15,type:'open',free:true},
+{name:'DeepSeek V3',vendor:'deepseek',ctx:128,input_price:0.27,output_price:1.1,type:'open',free:false},
+{name:'DeepSeek R1',vendor:'deepseek',ctx:128,input_price:0.55,output_price:2.19,type:'open',free:false},
+{name:'Mistral Large',vendor:'mistral',ctx:128,input_price:2,output_price:6,type:'closed',free:false},
+{name:'Mistral Small',vendor:'mistral',ctx:128,input_price:0.2,output_price:0.6,type:'closed',free:false}
+];
+let sortKey='name',sortAsc=true;
+function sortBy(key){if(sortKey===key)sortAsc=!sortAsc;else{sortKey=key;sortAsc=true}renderTable()}
+function getFiltered(){const v=document.getElementById('filter-vendor').value;const t=document.getElementById('filter-type').value;return MODELS.filter(m=>{if(v!=='all'&&m.vendor!==v)return false;if(t==='open'&&m.type!=='open')return false;if(t==='closed'&&m.type!=='closed')return false;if(t==='free'&&!m.free)return false;return true}).sort((a,b)=>{let va=a[sortKey],vb=b[sortKey];if(typeof va==='string')return sortAsc?va.localeCompare(vb):vb.localeCompare(va);return sortAsc?va-vb:vb-va})}
+function renderTable(){const models=getFiltered();document.getElementById('model-tbody').innerHTML=models.map(m=>`<tr><td><strong>${m.name}</strong></td><td><span class="vendor-badge vendor-${m.vendor}">${m.vendor}</span></td><td>${m.ctx>=1000?(m.ctx/1000)+'M':m.ctx+'K'}</td><td>$${m.input_price}/M</td><td>$${m.output_price}/M</td><td><span class="model-tag ${m.type==='open'?'tag-open':'tag-closed'}">${m.type==='open'?'Open':'Closed'}</span>${m.free?'<span class="model-tag tag-free">Free</span>':''}</td></tr>`).join('');drawPriceChart()}
+function copyModels(){
+  const models=getFiltered();
+  if(!models.length){showCopyToast('No models to copy');return;}
+  let text='Model,Vendor,Context,Input $/M,Output $/M,Type\n';
+  models.forEach(m=>{text+=m.name+','+m.vendor+','+(m.ctx>=1000?(m.ctx/1000)+'M':m.ctx+'K')+','+m.input_price+','+m.output_price+','+(m.type==='open'?'Open':'Closed')+'\n';});
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text.trim()).then(()=>showCopyToast('Copied to clipboard')).catch(()=>copyModelsFallback(text));}
+  else{copyModelsFallback(text);}
+}
+function copyModelsFallback(text){
+  const ta=document.createElement('textarea');ta.value=text.trim();ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');showCopyToast('Copied to clipboard');}catch(e){showCopyToast('Copy failed');}
+  document.body.removeChild(ta);
+}
+function showCopyToast(msg){
+  const t=document.getElementById('copy-toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2000);
+}
+function drawPriceChart(){
+  const cv=document.getElementById('model-chart');
+  if(!cv||!cv.getContext)return;
+  const models=getFiltered();
+  const dpr=window.devicePixelRatio||1;
+  const w=cv.clientWidth||720,h=240;
+  cv.width=w*dpr;cv.height=h*dpr;cv.style.width=w+'px';cv.style.height=h+'px';
+  const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);
+  const padL=48,padR=16,padT=14,padB=34;
+  const maxP=Math.max(0.01,...models.map(m=>Math.max(m.input_price,m.output_price)));
+  const innerW=w-padL-padR,innerH=h-padT-padB;
+  ctx.font='9px sans-serif';ctx.fillStyle='#94a3b8';ctx.textAlign='right';
+  ctx.strokeStyle='rgba(148,163,184,.15)';
+  for(let i=0;i<=3;i++){
+    const gy=padT+innerH*i/3;
+    ctx.beginPath();ctx.moveTo(padL,gy);ctx.lineTo(w-padR,gy);ctx.stroke();
+    ctx.fillText('$'+((maxP*(1-i/3)).toFixed(maxP<10?2:1)),padL-6,gy+3);
+  }
+  if(!models.length)return;
+  const n=models.length,slot=innerW/n,barW=Math.min(14,slot*0.28);
+  models.forEach((m,i)=>{
+    const x=padL+slot*i+slot/2;
+    const bhIn=m.input_price/maxP*innerH,bhOut=m.output_price/maxP*innerH;
+    ctx.fillStyle='#06b6d4';
+    ctx.fillRect(x-barW-1.5,padT+innerH-bhIn,barW,bhIn);
+    ctx.fillStyle='#8b5cf6';
+    ctx.fillRect(x+1.5,padT+innerH-bhOut,barW,bhOut);
+    ctx.fillStyle='#e2e8f0';ctx.textAlign='center';ctx.font='8px sans-serif';
+    ctx.fillText(m.name,padL+slot*i+slot/2,h-6);
+  });
+}
+window.addEventListener('load',renderTable);
+</script>
+
+</body>
+</html>

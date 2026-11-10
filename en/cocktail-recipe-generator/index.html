@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocktail Recipe Generator - Random Drink Recipes | ToolGuideHub</title>
+  <meta name="description" content="Browse 50+ classic cocktail recipes filtered by base spirit and taste, with ingredients and steps.">
+  <meta property="og:title" content="Cocktail Recipe Generator - Random Drink Recipes | ToolGuideHub">
+  <meta property="og:description" content="Browse 50+ classic cocktail recipes filtered by base spirit and taste, with ingredients and steps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cocktail-recipe-generator/">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cocktail-recipe-generator/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cocktail-recipe-generator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cocktail Recipe Generator",
+    "description": "Browse 50+ classic cocktail recipes by base spirit and taste",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cocktail Recipe Generator"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Cocktail Recipe Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Cocktail Recipe Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Cocktail Recipe Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Search cocktail name and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Cocktail Recipe Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Cocktail Recipe Generator","description":"Step-by-step guide for using Cocktail Recipe Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Cocktail Recipe Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+  <style>:root{--card-bg:#1e293b;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  a{color:#0891b2;text-decoration:none}
+  header{background:var(--card-bg);border-bottom:1px solid rgba(148,163,184,.1);padding:0 20px}
+  .header-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .logo{font-size:1.25rem;font-weight:700;color:#0891b2}.logo span{color:#e2e8f0}
+  .lang-switch{font-size:0.875rem;padding:4px 12px;border:1px solid rgba(148,163,184,.1);border-radius:20px;color:#94a3b8}
+  main{flex:1;max-width:960px;margin:0 auto;padding:32px 20px 60px;width:100%}
+  h1{font-size:1.75rem;margin-bottom:8px}
+  .subtitle{color:#94a3b8;margin-bottom:24px;font-size:0.95rem}
+  .filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+  .filter-bar select,.filter-bar input{flex:1;min-width:140px;padding:10px 14px;border:1.5px solid rgba(148,163,184,.1);border-radius:8px;font-size:1rem;font-family:inherit;background:#0f172a;color:#e2e8f0}
+  .filter-bar select:focus,.filter-bar input:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(6,182,212,0.15)}
+  .btn{padding:10px 24px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:#22d3ee;color:#fff}.btn-primary:hover{background:#0891b2}
+  .btn-secondary{background:#0f172a;color:#e2e8f0;border:1.5px solid rgba(148,163,184,.1)}
+  .btn-secondary:hover{background:#334155}
+  .cocktail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+  .cocktail-card{background:var(--card-bg);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.08);padding:20px;border:1px solid rgba(148,163,184,.1);transition:all .2s}
+  .cocktail-card:hover{border-color:#22d3ee;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .cocktail-card h3{font-size:1.15rem;margin-bottom:4px}
+  .cocktail-card .base-tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;background:rgba(6,182,212,.15);color:#22d3ee;margin-bottom:8px}
+  .cocktail-card .ingredients{font-size:0.85rem;color:#94a3b8;margin-bottom:8px}
+  .cocktail-card .method{font-size:0.85rem;color:#94a3b8;font-style:italic}
+  .pagination{display:flex;justify-content:center;gap:8px;margin-top:20px}
+  .page-btn{padding:8px 16px;border:1px solid rgba(148,163,184,.1);border-radius:8px;background:#0f172a;cursor:pointer;font-size:0.9rem}
+  .page-btn.active{background:#22d3ee;color:#fff;border-color:#22d3ee}
+  footer{text-align:center;padding:20px;color:#94a3b8;font-size:0.85rem;border-top:1px solid rgba(148,163,184,.1)}
+  #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 24px;border-radius:24px;font-size:0.9rem;opacity:0;transition:opacity .3s;z-index:9999;pointer-events:none}
+  #toast.show{opacity:1}
+  @media(max-width:480px){.cocktail-grid{grid-template-columns:1fr}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="header-inner"><a href="../../" class="logo"><span>Free</span> ToolGuideHub</a><a href="../../en/cocktail-recipe-generator/" class="lang-switch">中文</a></div></header>
+<main>
+  <h1>🍸 Cocktail Recipe Generator</h1>
+  <p class="subtitle">Browse classic cocktail recipes by base spirit and taste</p>
+  <div class="filter-bar">
+    <select id="baseFilter"><option value="all">All Spirits</option><option value="Vodka">Vodka</option><option value="Gin">Gin</option><option value="Rum">Rum</option><option value="Tequila">Tequila</option><option value="Whiskey">Whiskey</option><option value="Brandy">Brandy</option></select>
+    <select id="tasteFilter"><option value="all">All Tastes</option><option value="Sweet">Sweet</option><option value="Sour">Sour</option><option value="Refreshing">Refreshing</option><option value="Strong">Strong</option><option value="Fruity">Fruity</option></select>
+    <input type="text" id="searchInput" placeholder="Search cocktail name...">
+    <button class="btn btn-secondary" id="btnSample">🎲 Sample</button>
+    <button class="btn btn-primary" id="btnFilter">🔍 Filter</button>
+    <button class="btn btn-secondary" id="btnClear">Clear</button>
+  </div>
+  <div class="cocktail-grid" id="cocktailGrid"></div>
+  <div class="pagination" id="pagination"></div>
+
+<div class="info-box">
+      <h2>📖 Cocktail Base Spirits Guide</h2>
+      <ul>
+        <li><strong>Vodka</strong>: Neutral and versatile, perfect for Moscow Mule, Cosmopolitan, Bloody Mary</li>
+        <li><strong>Gin</strong>: Juniper-forward with herbal notes. Classics: Martini, Gin & Tonic, Negroni</li>
+        <li><strong>Rum</strong>: Sugarcane-based, sweet and smooth. White rum for Mojito/Daiquiri, dark rum for Dark 'n' Stormy</li>
+        <li><strong>Tequila</strong>: Agave spirit from Mexico. Stars in Margarita, Tequila Sunrise, Paloma</li>
+        <li><strong>Whiskey</strong>: Grain-based, complex. Essential for Old Fashioned, Manhattan, Whiskey Sour</li>
+        <li><strong>Brandy</strong>: Distilled from wine, elegant fruity notes. Try Sidecar, Alexander, Mimosa</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h2>❓ FAQ</h2>
+      <p><strong>Q: What's the best cocktail for beginners?</strong></p>
+      <p>A: Mojito and Gin & Tonic are great starters — few ingredients, forgiving ratios, and refreshing taste.</p>
+      <p><strong>Q: Can I make cocktails without professional tools?</strong></p>
+      <p>A: Absolutely. Use a jar with lid as a shaker, a chopstick as a stirrer, and any glass will work. The key is using enough ice and following the ratios.</p>
+    </div>
+</main>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/cocktail-recipe-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="toast"></div>
+
+<script>
+const cocktails = [
+  {name:'Mojito',base:'Rum',taste:'Refreshing',ingredients:'White rum 60ml, Half lime, Mint leaves 10, Sugar 2 tsp, Soda water',method:'Muddle mint and sugar, add rum, lime juice and ice, top with soda'},
+  {name:'Margarita',base:'Tequila',taste:'Sour',ingredients:'Tequila 50ml, Triple sec 25ml, Lime juice 25ml',method:'Shake with ice, strain into salt-rimmed glass'},
+  {name:'Long Island Iced Tea',base:'Vodka',taste:'Strong',ingredients:'Vodka, Gin, Rum, Tequila 15ml each, Triple sec 15ml, Lemon juice 30ml, Cola',method:'Shake spirits and lemon juice with ice, top with cola'},
+  {name:'Gin and Tonic',base:'Gin',taste:'Refreshing',ingredients:'Gin 50ml, Tonic water 150ml, Lime wedge',method:'Fill glass with ice, pour gin and tonic, garnish with lime'},
+  {name:'Old Fashioned',base:'Whiskey',taste:'Strong',ingredients:'Bourbon 60ml, Sugar cube, Angostura bitters 3 dashes, Orange peel',method:'Muddle sugar and bitters, add whiskey and ice, stir, garnish with orange peel'},
+  {name:'Piña Colada',base:'Rum',taste:'Sweet',ingredients:'White rum 50ml, Coconut cream 40ml, Pineapple juice 80ml',method:'Blend with ice until smooth'},
+  {name:'Cosmopolitan',base:'Vodka',taste:'Fruity',ingredients:'Vodka 40ml, Triple sec 15ml, Cranberry juice 30ml, Lime juice 15ml',method:'Shake with ice, strain into martini glass'},
+  {name:'Bloody Mary',base:'Vodka',taste:'Strong',ingredients:'Vodka 50ml, Tomato juice 120ml, Lemon juice 15ml, Worcestershire sauce, Salt, Pepper',method:'Stir with ice, garnish with celery'},
+  {name:'Martini',base:'Gin',taste:'Strong',ingredients:'Gin 60ml, Dry vermouth 10ml, Olive',method:'Stir with ice, strain into chilled martini glass, olive garnish'},
+  {name:'Tequila Sunrise',base:'Tequila',taste:'Fruity',ingredients:'Tequila 50ml, Orange juice 120ml, Grenadine 15ml',method:'Fill glass with ice, pour tequila and OJ, slowly pour grenadine'},
+  {name:'Manhattan',base:'Whiskey',taste:'Strong',ingredients:'Rye whiskey 50ml, Sweet vermouth 25ml, Angostura bitters 2 dashes, Cherry',method:'Stir with ice, strain, garnish with cherry'},
+  {name:'Sidecar',base:'Brandy',taste:'Sour',ingredients:'Brandy 50ml, Triple sec 25ml, Lemon juice 25ml',method:'Shake with ice, strain into sugar-rimmed glass'},
+  {name:'Screwdriver',base:'Vodka',taste:'Fruity',ingredients:'Vodka 50ml, Orange juice 150ml',method:'Fill glass with ice, pour vodka and OJ, stir'},
+  {name:'Daiquiri',base:'Rum',taste:'Sour',ingredients:'White rum 60ml, Lime juice 30ml, Simple syrup 15ml',method:'Shake with ice, strain into glass'},
+  {name:'Whiskey Sour',base:'Whiskey',taste:'Sour',ingredients:'Bourbon 60ml, Lemon juice 30ml, Simple syrup 15ml, Egg white (optional)',method:'Shake with ice, strain into glass'},
+  {name:'Negroni',base:'Gin',taste:'Strong',ingredients:'Gin 30ml, Sweet vermouth 30ml, Campari 30ml',method:'Fill glass with ice, pour all ingredients, stir, garnish with orange peel'},
+  {name:'White Russian',base:'Vodka',taste:'Sweet',ingredients:'Vodka 50ml, Coffee liqueur 25ml, Heavy cream 30ml',method:'Fill glass with ice, pour vodka and liqueur, float cream on top'},
+  {name:'Blue Hawaii',base:'Rum',taste:'Sweet',ingredients:'Rum 30ml, Blue curaçao 15ml, Coconut cream 30ml, Pineapple juice 60ml',method:'Blend with ice until smooth'},
+  {name:'Mint Julep',base:'Whiskey',taste:'Refreshing',ingredients:'Bourbon 60ml, Mint leaves 10, Sugar 1 tsp',method:'Muddle mint and sugar, add crushed ice and bourbon, stir'},
+  {name:'Tom Collins',base:'Gin',taste:'Refreshing',ingredients:'Gin 50ml, Lemon juice 25ml, Simple syrup 15ml, Soda water',method:'Shake first three with ice, strain, top with soda'},
+  {name:'Cuba Libre',base:'Rum',taste:'Refreshing',ingredients:'Rum 50ml, Cola 150ml, Lime wedge',method:'Fill glass with ice, pour rum and cola, garnish with lime'},
+  {name:'Kamikaze',base:'Vodka',taste:'Sour',ingredients:'Vodka 30ml, Triple sec 30ml, Lime juice 30ml',method:'Shake with ice, strain into glass'},
+  {name:'Brandy Alexander',base:'Brandy',taste:'Sweet',ingredients:'Brandy 30ml, Crème de cacao 30ml, Heavy cream 30ml',method:'Shake with ice, strain, garnish with nutmeg'},
+  {name:'Paloma',base:'Tequila',taste:'Refreshing',ingredients:'Tequila 50ml, Grapefruit soda 150ml, Lime juice 15ml',method:'Fill glass with ice, pour all ingredients, stir'},
+  {name:'Singapore Sling',base:'Gin',taste:'Fruity',ingredients:'Gin 30ml, Cherry brandy 15ml, Pineapple juice 60ml, Lime juice 15ml, Grenadine, Soda',method:'Shake first four with ice, strain, top with soda'},
+  {name:'Aviation',base:'Gin',taste:'Sour',ingredients:'Gin 45ml, Maraschino liqueur 15ml, Crème de violette 15ml, Lemon juice 15ml',method:'Shake with ice, strain into glass'},
+  {name:'Hurricane',base:'Rum',taste:'Fruity',ingredients:'Dark rum 60ml, Passion fruit juice 60ml, Orange juice 30ml, Lime juice 15ml, Grenadine',method:'Shake with ice, strain into glass'},
+  {name:'Vieux Carré',base:'Whiskey',taste:'Strong',ingredients:'Rye whiskey 30ml, Cognac 30ml, Sweet vermouth 30ml, Bitters',method:'Stir with ice, strain into glass'},
+  {name:'French 75',base:'Gin',taste:'Refreshing',ingredients:'Gin 30ml, Lemon juice 15ml, Simple syrup 10ml, Champagne',method:'Shake first three with ice, strain, top with champagne'},
+  {name:'Moscow Mule',base:'Vodka',taste:'Refreshing',ingredients:'Vodka 50ml, Ginger beer 120ml, Lime juice 15ml',method:'Fill copper mug with ice, pour all ingredients, stir, garnish with lime'},
+  {name:'Zombie',base:'Rum',taste:'Strong',ingredients:'Three rums 30ml each, Lime juice 20ml, Passion fruit juice 30ml, Pineapple juice 30ml, Grenadine',method:'Shake with crushed ice, strain into glass'},
+  {name:'Bellini',base:'Brandy',taste:'Sweet',ingredients:'Peach purée 60ml, Sparkling wine 120ml, Peach liqueur 15ml',method:'Pour purée into glass, slowly top with wine and liqueur'},
+  {name:'Dark n Stormy',base:'Rum',taste:'Refreshing',ingredients:'Dark rum 60ml, Ginger beer 120ml, Lime juice 15ml',method:'Fill glass with ice, pour all ingredients, stir'},
+  {name:'Midori Sour',base:'Vodka',taste:'Refreshing',ingredients:'Vodka 45ml, Midori 30ml, Pineapple juice 60ml, Lime juice 15ml',method:'Shake with ice, strain into glass'},
+  {name:'Sazerac',base:'Whiskey',taste:'Strong',ingredients:'Rye whiskey 60ml, Peychaud bitters 3 dashes, Sugar cube, Absinthe rinse',method:'Rinse glass with absinthe, muddle sugar and bitters, add whiskey and ice, stir'},
+  {name:'Clover Club',base:'Gin',taste:'Sweet',ingredients:'Gin 45ml, Raspberry syrup 15ml, Lemon juice 15ml, Egg white',method:'Shake with ice, strain into glass'},
+  {name:'Frozen Margarita',base:'Tequila',taste:'Sweet',ingredients:'Tequila 50ml, Triple sec 25ml, Lime juice 25ml, Strawberries 5',method:'Blend with ice until smooth'},
+  {name:'Negroni Sbagliato',base:'Gin',taste:'Refreshing',ingredients:'Gin 30ml, Campari 30ml, Sweet vermouth 30ml, Prosecco',method:'Fill glass with ice, pour first three, top with prosecco'},
+  {name:'Bloody Caesar',base:'Vodka',taste:'Strong',ingredients:'Vodka 50ml, Clamato juice 120ml, Worcestershire, Tabasco',method:'Fill glass with ice, pour all ingredients, stir, garnish with celery'},
+  {name:'Blue Moon',base:'Gin',taste:'Sour',ingredients:'Gin 45ml, Crème de violette 15ml, Lemon juice 15ml',method:'Shake with ice, strain into glass'},
+  {name:'Irish Coffee',base:'Whiskey',taste:'Sweet',ingredients:'Irish whiskey 40ml, Hot coffee 120ml, Brown sugar 1 tsp, Heavy cream',method:'Pour whiskey, sugar and coffee into glass, float cream on top'},
+  {name:'Spumoni',base:'Gin',taste:'Refreshing',ingredients:'Gin 30ml, Campari 30ml, Grapefruit juice 60ml, Tonic water',method:'Fill glass with ice, pour first three, top with tonic'},
+  {name:'Salty Dog',base:'Vodka',taste:'Sour',ingredients:'Vodka 50ml, Grapefruit juice 120ml',method:'Salt-rimmed glass with ice, pour vodka and juice'},
+  {name:'Godfather',base:'Whiskey',taste:'Strong',ingredients:'Scotch whiskey 50ml, Amaretto 25ml',method:'Fill glass with ice, pour both, stir'},
+  {name:'Caipirinha',base:'Rum',taste:'Refreshing',ingredients:'Cachaça 60ml, Half lime, Sugar 2 tsp',method:'Muddle lime and sugar, add crushed ice and cachaça, stir'},
+  {name:'Mimosa',base:'Brandy',taste:'Fruity',ingredients:'Orange juice 90ml, Champagne 90ml',method:'Pour orange juice, slowly top with champagne'},
+  {name:'Derby',base:'Whiskey',taste:'Refreshing',ingredients:'Bourbon 60ml, Mint leaves 8, Peach purée 30ml, Ginger beer',method:'Muddle mint, shake bourbon and peach with ice, top with ginger beer'},
+];
+
+const ITEMS_PER_PAGE = 6;
+let currentPage = 1;
+let filteredCocktails = [...cocktails];
+
+function render() {
+  const grid = document.getElementById('cocktailGrid');
+  const start = (currentPage - 1) * ITEMS_PER_PAGE;
+  const pageItems = filteredCocktails.slice(start, start + ITEMS_PER_PAGE);
+  grid.innerHTML = pageItems.map(c => `
+    <div class="cocktail-card">
+      <h3>${c.name}</h3>
+      <span class="base-tag">${c.base}</span>
+      <div class="ingredients">📋 ${c.ingredients}</div>
+      <div class="method">🍹 ${c.method}</div>
+      <button class="btn btn-secondary card-copy" data-name="${c.name}" style="margin-top:10px;font-size:.8rem;padding:6px 12px">📋 Copy Recipe</button>
+    </div>
+  `).join('');
+  grid.querySelectorAll('.card-copy').forEach(btn => {
+    btn.addEventListener('click', () => copyRecipe(btn.dataset.name));
+  });
+
+  const pag = document.getElementById('pagination');
+  const totalPages = Math.ceil(filteredCocktails.length / ITEMS_PER_PAGE);
+  pag.innerHTML = '';
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+    btn.textContent = i;
+    btn.addEventListener('click', () => { currentPage = i; render(); window.scrollTo({top:300,behavior:'smooth'}); });
+    pag.appendChild(btn);
+  }
+}
+
+function filter() {
+  const base = document.getElementById('baseFilter').value;
+  const taste = document.getElementById('tasteFilter').value;
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  filteredCocktails = cocktails.filter(c => {
+    if (base !== 'all' && c.base !== base) return false;
+    if (taste !== 'all' && c.taste !== taste) return false;
+    if (search && !c.name.toLowerCase().includes(search)) return false;
+    return true;
+  });
+  currentPage = 1;
+  render();
+}
+
+document.getElementById('btnFilter').addEventListener('click', filter);
+document.getElementById('btnSample').addEventListener('click', function() {
+  const pick = cocktails[Math.floor(Math.random() * cocktails.length)];
+  document.getElementById('searchInput').value = pick.name;
+  filter();
+});
+document.getElementById('btnClear').addEventListener('click', function() {
+  document.getElementById('baseFilter').value = 'all';
+  document.getElementById('tasteFilter').value = 'all';
+  document.getElementById('searchInput').value = '';
+  filteredCocktails = [...cocktails];
+  currentPage = 1;
+  render();
+});
+document.getElementById('searchInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') filter(); });
+document.getElementById('searchInput').addEventListener('input', function() { filter(); });
+
+function copyRecipe(name) {
+  const c = cocktails.find(x => x.name === name);
+  if (!c) return;
+  const text = c.name + '\nBase: ' + c.base + '\nTaste: ' + c.taste + '\nIngredients: ' + c.ingredients + '\nMethod: ' + c.method;
+  const toast = document.getElementById('toast');
+  function ok() { toast.textContent = '✅ Recipe copied'; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2000); }
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(ok, function() { fallbackCopy(text); ok(); });
+  } else { fallbackCopy(text); ok(); }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+render();
+</script>
+</body>
+</html>

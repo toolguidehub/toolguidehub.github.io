@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shrink HTML by stripping comments, extra whitespace, empty attributes, and boolean attribute values, then copy or download the minified output.">
+<meta name="keywords" content="HTML minifier,HTML compressor,HTML optimizer,web compression,code minifier,online HTML tool,HTML shrinker,frontend optimization">
+<title>Free Online HTML Minifier - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/html-minifier/">
+<meta property="og:title" content="Free Online HTML Minifier - ToolGuideHub">
+<meta property="og:description" content="Shrink HTML by stripping comments, extra whitespace, empty attributes, and boolean attribute values, then copy or download the minified output.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/html-minifier/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online HTML Minifier", "description": "Free online HTML minifier tool. Remove extra whitespace, comments, and line breaks to reduce HTML file size and improve page load speed.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Does HTML minification affect functionality?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does HTML minification affect functionality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. HTML minification only removes whitespace characters, line breaks, and comments that do not affect functionality. It does not modify tag structure or attribute values, so your web pages will display and function exactly the same."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I restore minified HTML back to its original form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, minification is not reversible. Whitespace and comments are permanently removed. It is recommended to keep a backup of your original HTML file. When needed, you can use an HTML formatter or beautifier tool to reformat the code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can HTML minification reduce file size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 20%-40% reduction, depending on the amount of whitespace and comments in the original code. Code with more consistent indentation and line breaks will see greater compression benefits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my HTML code safe when using this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool runs entirely in your browser. All processing is done client-side, and your code is never uploaded to any server. Your privacy is completely protected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I minify multiple HTML files at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current version supports pasting code and uploading a single file. For batch processing, consider merging files or using CLI tools like html-minifier-terser or Terser in your build pipeline."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Online HTML Minifier",
+  "description": "Simple steps to use the Online HTML Minifier online tool. Everything runs locally: ️ Online HTML Minifier and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online HTML Minifier"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-minifier/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-minifier/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-minifier/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-section h2::before{content:"📝 "}
+textarea{width:100%;min-height:160px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.85rem;resize:vertical}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.options{display:flex;gap:16px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+.options input[type=checkbox]{accent-color:#06b6d4}
+.stats{display:flex;gap:16px;margin-top:8px;font-size:.8rem;color:#64748b}
+.stats span{background:rgba(148,163,184,.08);padding:4px 10px;border-radius:4px}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-section h2::before{content:"✅ "}
+.output-wrap{position:relative}
+.output-wrap textarea{width:100%;min-height:160px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.85rem;resize:vertical}
+.copy-btn{position:absolute;top:8px;right:8px;padding:4px 10px;border-radius:4px;font-size:.75rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.copy-btn:hover{background:rgba(6,182,212,.3)}
+.comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.comparison .card{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:8px;padding:12px;text-align:center}
+.comparison .card .label{font-size:.75rem;color:#94a3b8;margin-bottom:4px}
+.comparison .card .value{font-size:1.2rem;color:#22d3ee;font-weight:600}
+.comparison .card .sub{font-size:.7rem;color:#64748b;margin-top:2px}
+
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h2::before{content:"📖 "}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px;color:#94a3b8;font-size:.9rem}
+.info-section ul li{margin-bottom:6px}
+.faq-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.faq-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.faq-section h2::before{content:"❓ "}
+.faq-item{margin-bottom:12px}
+.faq-item .q{font-weight:600;color:#e2e8f0;margin-bottom:4px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem}
+.footer{text-align:center;padding:20px;color:#64748b;font-size:.8rem;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}
+.footer a{color:#06b6d4}
+.footer .email{margin-top:8px}
+.footer .brand{color:#22d3ee;font-weight:600}
+@media(max-width:600px){.header h1{font-size:1.2rem}.comparison{grid-template-columns:1fr 1fr}
+.drop-zone{border:2px dashed rgba(6,182,212,.3);border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:12px}
+.drop-zone:hover{border-color:rgba(6,182,212,.6);background:rgba(6,182,212,.05)}
+.drop-zone.dragover{background:rgba(6,182,212,.1);border-color:#22d3ee}
+.drop-zone .icon{font-size:2rem;margin-bottom:8px}
+.drop-zone .text{font-size:.85rem;color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Online HTML Minifier",
+      "item": "https://adi63586.github.io/Toolguidehub/en/html-minifier/"
+    }
+  ],
+  "name": "Online HTML Minifier"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/html-minifier/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🛠️ Online HTML Minifier</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="input-section">
+    <h2>Input HTML Code</h2>
+    <div class="drop-zone" id="dropZone">
+      <div class="icon">📁</div>
+      <div class="text">Drag & drop HTML file here, or click to upload</div>
+      <input type="file" id="fileInput" accept=".html,.htm,.txt" style="display:none">
+    </div>
+    <textarea id="inputHtml" placeholder="Paste your HTML code here...
+
+Example:
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Online HTML Minifier",
+      "item": "https://adi63586.github.io/Toolguidehub/en/html-minifier/"
+    }
+  ],
+  "name": "Online HTML Minifier"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+</head>
+  <body>
+    <h2>Hello World</h2>
+  
+<!-- Feedback Widget -->
+</div>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<div class="toast" id="toast"><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+
+</div>
+</main>
+</body>
+</html>
+"></textarea>
+    <div class="options">
+      <label><input type="checkbox" id="keepLineBreaks" checked> Keep line breaks between tags</label>
+      <label><input type="checkbox" id="removeComments" checked> Remove comments</label>
+      <label><input type="checkbox" id="removeEmptyAttributes" checked> Remove empty attributes</label>
+      <label><input type="checkbox" id="collapseBoolean"> Collapse boolean attributes</label>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="minifyBtn">🔧 Minify HTML</button>
+      <button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+      <button class="btn btn-secondary" id="sampleBtn">📄 Sample</button>
+    </div>
+  </div>
+
+  <div class="result-section" id="resultSection" style="display:none">
+    <h2>Minified Result</h2>
+    <div class="output-wrap">
+      <textarea id="outputHtml" readonly></textarea>
+      <button class="copy-btn" id="copyBtn">📋 Copy</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="downloadBtn">💾 Download</button>
+    </div>
+    <div class="comparison" id="comparison"></div>
+  </div>
+
+  <div class="info-section">
+    <h2>How to Use</h2>
+    <p>HTML minification is an optimization technique that reduces HTML file size by removing unnecessary whitespace, line breaks, and comments. This tool provides a simple online solution to help you quickly optimize your web code.</p>
+    <p><strong>Steps:</strong></p>
+    <ul>
+      <li>Paste the HTML code you want to minify into the input box, or drag and drop an HTML file</li>
+      <li>Choose your preferred options (keep line breaks, remove comments, etc.)</li>
+      <li>Click the "Minify HTML" button to see the result and size comparison</li>
+      <li>Use "Copy" or "Download" to save the minified code</li>
+    </ul>
+    <p><strong>Advanced Options:</strong></p>
+    <ul>
+      <li><strong>Keep line breaks between tags:</strong> Preserve line breaks between block-level elements for readability</li>
+      <li><strong>Remove comments:</strong> Delete all HTML comments (<!-- -->) for further size reduction</li>
+      <li><strong>Remove empty attributes:</strong> Remove attributes with empty values, like class=""</li>
+      <li><strong>Collapse boolean attributes:</strong> Shorten boolean attributes, e.g. disabled="disabled" → disabled</li>
+    </ul>
+  </div>
+
+  <div class="info-section">
+    <h2>Use Cases</h2>
+    <p>HTML minification plays an important role in various scenarios and is an essential optimization step in modern frontend development.</p>
+    <p><strong>Common use cases:</strong></p>
+    <ul>
+      <li><strong>Production deployment:</strong> Deploy minified HTML to reduce transfer size and speed up page loading</li>
+      <li><strong>Email templates:</strong> Email clients have size limits; minification ensures emails send and display correctly</li>
+      <li><strong>Mobile pages:</strong> Smaller HTML size significantly improves user experience on mobile networks</li>
+      <li><strong>Embedded platforms:</strong> WeChat Mini Programs, Alipay Mini Programs have strict code size limits</li>
+      <li><strong>SEO optimization:</strong> Page load speed is an important factor in search engine rankings</li>
+    </ul>
+  </div>
+
+  <div class="info-section">
+    <h2>Additional Knowledge</h2>
+    <p>HTML minification is a foundational step in frontend performance optimization, but it typically needs to be combined with other techniques for best results.</p>
+    <p><strong>Related optimization techniques:</strong></p>
+    <ul>
+      <li><strong>Gzip/Brotli compression:</strong> Server-side compression that can reduce size by 70% or more during transfer</li>
+      <li><strong>Lazy loading:</strong> Defer loading non-critical resources and prioritize above-the-fold content</li>
+      <li><strong>CSS and JS minification:</strong> Similar to this tool, compress CSS and JavaScript code</li>
+      <li><strong>Image optimization:</strong> Use WebP format, responsive images, and other techniques to reduce image size</li>
+      <li><strong>CDN acceleration:</strong> Reduce physical distance between users and servers via content delivery networks</li>
+    </ul>
+    <p>It is recommended to integrate automated minification tools like Terser or html-minifier into your build pipeline for continuous optimization.</p>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="q">Q1: Does HTML minification affect functionality?</div>
+      <div class="a">No. HTML minification only removes whitespace, line breaks, and comments that do not affect functionality. It does not modify tag structure or attribute values.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q2: Can I restore minified HTML?</div>
+      <div class="a">No, minification is not reversible. Whitespace and comments are permanently removed. Keep a backup of your original file and use an HTML formatter when needed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q3: How much can HTML minification reduce file size?</div>
+      <div class="a">Typically 20%-40%, depending on the amount of whitespace and comments. More consistently formatted code with lots of indentation sees greater compression.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q4: Is my HTML code safe with this tool?</div>
+      <div class="a">Yes. This tool runs entirely in your browser. All processing is client-side, and your code is never uploaded to any server.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q5: Can I minify multiple HTML files at once?</div>
+      <div class="a">The current version supports single-file processing. For batch processing, merge files or use CLI tools like Terser.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q6: Is minified HTML good for SEO?</div>
+      <div class="a">It helps somewhat. Page load speed is a ranking factor, and minified HTML improves loading. However, SEO requires comprehensive optimization of content quality, keywords, and more.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q7: Why does minified HTML still work in browsers?</div>
+      <div class="a">HTML parsers ignore extra whitespace and line breaks by default. Minification simply removes what browsers would ignore anyway.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q8: Can I still view minified HTML in browser developer tools?</div>
+      <div class="a">Yes. Modern browser developer tools (F12) have "Prettify" or "Format" features that reformat compressed HTML for debugging.</div>
+    </div>
+  </div>
+
+  <div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/html-minifier/" style="color:#94a3b8;text-decoration:none;font-size:14px"></a>
+  </div>
+  
+</footer>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+
+</body>
+</html>

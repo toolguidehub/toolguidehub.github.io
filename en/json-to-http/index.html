@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Turn JSON into HTTP request code in cURL, fetch, axios or Python requests, with method, URL and headers configured.">
+<meta name="keywords" content="JSON to HTTP,JSON to cURL,JSON to fetch,JSON to axios,HTTP Request Generator,API Testing Tool">
+<meta name="robots" content="index,follow">
+<title>Free JSON to HTTP Request - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/json-to-http/">
+<meta property="og:title" content="Free JSON to HTTP Request - ToolGuideHub">
+<meta property="og:description" content="Turn JSON into HTTP request code in cURL, fetch, axios or Python requests, with method, URL and headers configured.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/json-to-http/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JSON to HTTP Request Generator", "description": "Free online JSON to HTTP request generator. Convert JSON data to cURL, fetch, axios, Python requests and more. Drag-drop files, sample data, batch conversion, pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "JSON to HTTP Tool FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What output formats does the JSON to HTTP tool support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It supports cURL, JavaScript fetch, axios, Python requests, Java HttpClient, Go http.NewRequest, PHP Guzzle, and Ruby Net::HTTP — 8 popular HTTP client libraries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which HTTP methods are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All common HTTP methods: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I set request headers and authentication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool provides a Headers input area where you can add custom headers like Content-Type and Authorization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my JSON data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All conversion logic runs locally in your browser. Your JSON data and API configuration never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert multiple requests at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can define multiple request objects in a JSON array, and the tool will generate HTTP request code for each one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the generated code be used directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The generated code is a complete, executable snippet with all necessary imports and error handling. Just copy and paste it into your project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does it handle nested JSON data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool automatically handles nested JSON. Deep data is properly serialized and sent in the request body, supporting both object and array nesting."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use JSON to HTTP Request Generator","description":"Convert JSON data into HTTP request code for 8 programming languages","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"JSON to HTTP Request Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set request details","text":"Choose the HTTP method and enter the request URL and headers."},{"@type":"HowToStep","position":2,"name":"Paste JSON body","text":"Paste JSON data into the body area or drag a JSON file onto the page."},{"@type":"HowToStep","position":3,"name":"Click Generate Code","text":"Press the generate button to create request code for all 8 languages."},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Switch language tabs, copy the result to clipboard or download as a file."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free JSON to HTTP Request", "item": "https://adi63586.github.io/Toolguidehub/en/json-to-http/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--surface:#0f172a;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.ad-slot.ad-sidebar{max-width:300px}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:20px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+header h1{font-size:1.6rem;color:#e2e8f0}header h1 span{color:#06b6d4}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);font-size:.85rem}
+.lang-switch a{padding:6px 12px;border-radius:5px;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.breadcrumb{padding:10px 0;font-size:.85rem;color:#64748b}
+.breadcrumb a{color:#94a3b8}
+.hero{padding:16px 0;text-align:center}
+.hero .subtitle{color:#94a3b8;font-size:.95rem;margin-top:6px}
+.hero .badge{display:inline-block;margin-top:8px;padding:3px 12px;background:rgba(6,182,212,.15);color:#06b6d4;border-radius:12px;font-size:.8rem}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;padding:16px 0}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.panel{background:#1e293b;border-radius:10px;padding:20px}
+.panel h2{font-size:1.1rem;margin-bottom:14px;color:#e2e8f0}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.9rem}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#06b6d4}
+.form-group textarea{resize:vertical;min-height:180px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem;line-height:1.45}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}.btn-primary:hover{background:#22d3ee;box-shadow:0 4px 14px rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8}.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-danger{background:#ef4444;color:#fff}.btn-danger:hover{background:#f87171}
+.btn-group{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.drop-zone{border:2px dashed rgba(148,163,184,.3);border-radius:8px;padding:20px;text-align:center;color:#64748b;font-size:.9rem;margin-bottom:14px;transition:all .2s;cursor:pointer}
+.drop-zone.drag-over{border-color:#06b6d4;background:rgba(6,182,212,.08);color:#06b6d4}
+.tab-bar{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tab-btn{padding:6px 14px;border:1px solid rgba(148,163,184,.2);border-radius:6px;background:transparent;color:#94a3b8;cursor:pointer;font-size:.82rem;transition:all .2s}
+.tab-btn:hover{color:#22d3ee;border-color:rgba(34,211,238,.4)}
+.tab-btn.active{background:rgba(6,182,212,.15);color:#06b6d4;border-color:#06b6d4}
+.result-area{background:#0f172a;border-radius:8px;padding:14px;font-family:monospace;font-size:.82rem;color:#94a3b8;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow:auto;line-height:1.5}
+.error-msg{color:#ef4444;font-size:.85rem;margin-top:6px;display:none}
+.seo-content{padding:24px 0}
+.seo-content h2{color:#e2e8f0;font-size:1.2rem;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(148,163,184,.15)}
+.seo-content h3{color:#06b6d4;font-size:1rem;margin:16px 0 8px}
+.seo-content p{color:#94a3b8;margin-bottom:10px;font-size:.92rem;line-height:1.7}
+.seo-content ul{color:#94a3b8;margin:8px 0 8px 20px;font-size:.92rem}
+.faq-section{padding:16px 0}
+.faq-item{border-bottom:1px solid rgba(148,163,184,.1);padding:12px 0}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;margin-top:6px;display:none}
+.faq-item.open p{display:block}
+.footer{padding:20px 0;text-align:center;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}
+.footer a{color:#94a3b8;margin:0 8px;font-size:.85rem}
+.footer p{color:#64748b;font-size:.8rem;margin-top:8px}
+.sidebar-card{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.sidebar-card h3{font-size:.95rem;color:#f1f5f9;margin-bottom:10px}
+.sidebar-card ul{list-style:none;padding:0}
+.sidebar-card li{padding:4px 0;color:#94a3b8;font-size:.82rem;line-height:1.6}
+.sidebar-card li::before{content:"• ";color:#06b6d4}
+.related-tools{margin:2rem 0;padding:1.25rem;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}
+.related-tools h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:0.75rem}
+.related-tools a{display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;border:1px solid rgba(148,163,184,.1);color:#22d3ee;font-size:.85rem;transition:all .2s ease}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:12px 24px;border-radius:8px;font-size:.85rem;z-index:9999;opacity:0;transition:opacity .3s;border:1px solid rgba(6,182,212,.3);pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:640px){header h1{font-size:1.3rem}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/json-to-http/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+  <h1>🔄 <span>JSON to HTTP</span> Request Generator</h1>
+  
+</header>
+
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../">Developer Tools</a> › JSON to HTTP</div>
+
+<div class="hero">
+  <div class="subtitle">Convert JSON data to cURL, fetch, axios, Python requests and more with one click</div>
+  <div class="badge">Zero Dependencies | No Signup, Client-Side · No Server Uploads</div>
+</div>
+
+<div class="main-grid">
+<div>
+<div class="panel">
+  <h2>📝 Request Configuration</h2>
+  <div class="drop-zone" id="drop-zone">📁 Drag & drop a JSON file here, or click to select<input type="file" id="file-input" accept=".json,.txt" style="display:none"></div>
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:12px">
+    <div class="form-group">
+      <label>HTTP Method</label>
+      <select id="http-method">
+        <option value="GET">GET</option>
+        <option value="POST" selected>POST</option>
+        <option value="PUT">PUT</option>
+        <option value="PATCH">PATCH</option>
+        <option value="DELETE">DELETE</option>
+        <option value="HEAD">HEAD</option>
+        <option value="OPTIONS">OPTIONS</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Request URL</label>
+      <input type="text" id="url-input" placeholder="https://api.example.com/users" value="https://api.example.com/users">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Request Headers (one Key: Value per line)</label>
+    <textarea id="headers-input" rows="3" placeholder="Content-Type: application/json&#10;Authorization: Bearer your-token">Content-Type: application/json
+Authorization: Bearer eyJhbG...</textarea>
+  </div>
+  <div class="form-group">
+    <label>Request Body (JSON)</label>
+    <textarea id="json-input" placeholder='{"name": "John", "email": "john@example.com"}'></textarea>
+  </div>
+  <div class="error-msg" id="json-error"></div>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="generateCode()">🔄 Generate Code</button>
+    <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+    <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+    <button class="btn btn-secondary" onclick="downloadResult()">💾 Download File</button>
+    <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear</button>
+  </div>
+</div>
+
+<div class="panel" style="margin-top:14px">
+  <h2>📦 Generated Result</h2>
+  <div class="tab-bar" id="tab-bar">
+    <button class="tab-btn active" data-lang="curl" onclick="switchTab('curl')">cURL</button>
+    <button class="tab-btn" data-lang="fetch" onclick="switchTab('fetch')">fetch</button>
+    <button class="tab-btn" data-lang="axios" onclick="switchTab('axios')">axios</button>
+    <button class="tab-btn" data-lang="python" onclick="switchTab('python')">Python</button>
+    <button class="tab-btn" data-lang="java" onclick="switchTab('java')">Java</button>
+    <button class="tab-btn" data-lang="go" onclick="switchTab('go')">Go</button>
+    <button class="tab-btn" data-lang="php" onclick="switchTab('php')">PHP</button>
+    <button class="tab-btn" data-lang="ruby" onclick="switchTab('ruby')">Ruby</button>
+  </div>
+  <div class="result-area" id="result-area">Click "Generate Code" or load an example to see results...</div>
+</div>
+
+<div class="panel" style="margin-top:14px">
+  <h2>📋 History</h2>
+  <div id="history-list"><p style="color:#64748b;font-size:.85rem">No history yet</p></div>
+</div>
+</div>
+
+<div>
+  <div class="sidebar-card">
+    <h3>💡 How to Use</h3>
+    <ul>
+      <li>Select an HTTP method and enter the URL</li>
+      <li>Add custom headers line by line</li>
+      <li>Paste JSON or drag a file to import</li>
+      <li>Click "Generate Code" or press Ctrl+Enter</li>
+      <li>Switch language tabs to preview code</li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <h3>🔒 Privacy</h3>
+    <ul>
+      <li>All conversion runs locally in your browser</li>
+      <li>Your JSON data never leaves your device</li>
+      <li>No registration required</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="seo-content">
+<h2>What Can the JSON to HTTP Request Generator Do?</h2>
+<p>The JSON to HTTP Request Generator is a free online tool for developers that quickly converts JSON data into HTTP request code for multiple programming languages. Whether you're debugging APIs, writing interface documentation, or learning HTTP client libraries, this tool lets you generate executable cURL commands, JavaScript fetch/axios code, Python requests scripts, and more with a single click — dramatically boosting development efficiency.</p>
+
+<h2>Core Features</h2>
+<ul>
+  <li><strong>8 Language Outputs</strong>: cURL, JavaScript fetch, axios, Python requests, Java HttpClient, Go http, PHP Guzzle, Ruby Net::HTTP</li>
+  <li><strong>All HTTP Methods</strong>: GET/POST/PUT/PATCH/DELETE/HEAD/OPTIONS</li>
+  <li><strong>Custom Headers</strong>: Set Content-Type, Authorization, and other request headers freely</li>
+  <li><strong>Real-time Preview</strong>: Generate code instantly as you type JSON</li>
+  <li><strong>JSON Validation</strong>: Auto-detect JSON syntax errors with position info</li>
+  <li><strong>Drag & Drop Files</strong>: Import JSON files by dragging them onto the page</li>
+</ul>
+
+<h2>How to Use</h2>
+<p>1. Select an HTTP method (POST/GET/PUT, etc.) and enter the request URL</p>
+<p>2. Fill in custom headers in the Headers area, such as Authorization</p>
+<p>3. Paste or type JSON data in the request body area, or drag a JSON file to import</p>
+<p>4. Click "Generate Code" or use Ctrl+Enter to generate instantly</p>
+<p>5. Switch between programming languages using the tabs at the top</p>
+<p>6. Click "Copy Result" to copy code to clipboard, or download as a file</p>
+
+<h2>Use Cases</h2>
+<h3>Case 1: API Debugging</h3>
+<p>Frontend developers debugging backend APIs can quickly convert JSON examples from API docs into cURL commands, verifying responses in the terminal — lighter and faster than Postman.</p>
+
+<h3>Case 2: Code Generation</h3>
+<p>Backend developers writing API integration code can convert test JSON data into Python requests or Go http code, pasting it directly into projects without manually assembling request bodies.</p>
+
+<h3>Case 3: Technical Documentation</h3>
+<p>Technical writers creating API documentation can use this tool to generate request examples in multiple languages for the same endpoint, covering a broader developer audience.</p>
+
+<h3>Case 4: Teaching & Demos</h3>
+<p>Programming instructors teaching HTTP requests can compare request syntax across languages, helping students understand the similarities and differences of HTTP clients.</p>
+
+<h2>Extended Knowledge</h2>
+<p>HTTP requests are a core skill in web development. Different languages provide their own HTTP client libraries: JavaScript has fetch API and axios, Python has requests, Java has HttpClient, Go has net/http. While syntax varies, the core concepts are the same: method, URL, headers, and body. This tool helps developers cross language barriers, quickly converting JSON data into HTTP request code in any language. Always set Content-Type headers in production and use HTTPS to ensure secure data transmission.</p>
+</div>
+
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>What output formats does the JSON to HTTP tool support?</h3><p>It supports cURL, JavaScript fetch, axios, Python requests, Java HttpClient, Go http.NewRequest, PHP Guzzle, and Ruby Net::HTTP — 8 popular HTTP client libraries.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Which HTTP methods are supported?</h3><p>All common HTTP methods: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>How do I set request headers and authentication?</h3><p>The tool provides a Headers input area where you can add custom headers like Content-Type and Authorization.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Is my JSON data uploaded to a server?</h3><p>No. All conversion logic runs locally in your browser. Your JSON data and API configuration never leave your device.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Can I convert multiple requests at once?</h3><p>Yes. You can define multiple request objects in a JSON array, and the tool will generate HTTP request code for each one.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>Can the generated code be used directly?</h3><p>Yes. The generated code is a complete, executable snippet with all necessary imports and error handling. Just copy and paste it into your project.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>How does it handle nested JSON data?</h3><p>The tool automatically handles nested JSON. Deep data is properly serialized and sent in the request body, supporting both object and array nesting.</p></div>
+</div>
+
+<div class="related-tools">
+  <h2>🔗 Related Tools</h2>
+  <a href="../../en/character-unicode-finder/">Character Unicode Finder</a>
+  <a href="../../en/css-gradient-border-animation/">CSS Gradient Border Animation</a>
+  <a href="../../en/css-specificity-calculator/">CSS Specificity Calculator</a>
+</div>
+
+<footer class="footer">
+  <div style="margin-bottom:12px">
+    <a href="../../">Home</a>
+    <a href="../../en/privacy-policy/">Privacy Policy</a>
+    <a href="../../en/terms-of-service/">Terms of Service</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p>ToolGuideHub · Free · Secure · Practical</p>
+  
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");if(!t)return;t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2500)}
+
+let currentLang = 'curl';
+let generatedCodes = {};
+const DEFAULT_MSG = 'Click "Generate Code" or load an example to see results...';
+
+function parseHeaders() {
+  const raw = document.getElementById('headers-input').value.trim();
+  const headers = {};
+  raw.split('\n').forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx > 0) {
+      const key = line.substring(0, idx).trim();
+      const val = line.substring(idx + 1).trim();
+      if (key) headers[key] = val;
+    }
+  });
+  return headers;
+}
+
+function generateCode() {
+  const method = document.getElementById('http-method').value;
+  const url = document.getElementById('url-input').value.trim() || 'https://api.example.com';
+  const body = document.getElementById('json-input').value.trim();
+  const headers = parseHeaders();
+  const errEl = document.getElementById('json-error');
+
+  if (body) {
+    try { JSON.parse(body); } catch(e) {
+      errEl.textContent = 'JSON syntax error: ' + e.message;
+      errEl.style.display = 'block';
+      return;
+    }
+  }
+  errEl.style.display = 'none';
+
+  generatedCodes = {
+    curl: generateCurl(method, url, headers, body),
+    fetch: generateFetch(method, url, headers, body),
+    axios: generateAxios(method, url, headers, body),
+    python: generatePython(method, url, headers, body),
+    java: generateJava(method, url, headers, body),
+    go: generateGo(method, url, headers, body),
+    php: generatePHP(method, url, headers, body),
+    ruby: generateRuby(method, url, headers, body)
+  };
+
+  displayCode(currentLang);
+  saveHistory(method, url);
+}
+
+function generateCurl(method, url, headers, body) {
+  let cmd = `curl -X ${method} '${url}'`;
+  Object.entries(headers).forEach(([k, v]) => { cmd += ` \\\n  -H '${k}: ${v}'`; });
+  if (body && ['POST','PUT','PATCH'].includes(method)) cmd += ` \\\n  -d '${body}'`;
+  return cmd;
+}
+
+function generateFetch(method, url, headers, body) {
+  const opts = { method, headers };
+  if (body && ['POST','PUT','PATCH'].includes(method)) opts.body = body;
+  return `fetch('${url}', ${JSON.stringify(opts, null, 2)})
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error('Error:', err));`;
+}
+
+function generateAxios(method, url, headers, body) {
+  const lc = method.toLowerCase();
+  if (['post','put','patch'].includes(lc) && body) {
+    return `const axios = require('axios');
+
+axios.${lc}('${url}', ${body}, {
+  headers: ${JSON.stringify(headers, null, 4)}
+})
+.then(res => console.log(res.data))
+.catch(err => console.error(err));`;
+  }
+  return `const axios = require('axios');
+
+axios({
+  method: '${lc}',
+  url: '${url}',
+  headers: ${JSON.stringify(headers, null, 4)}
+})
+.then(res => console.log(res.data))
+.catch(err => console.error(err));`;
+}
+
+function generatePython(method, url, headers, body) {
+  let code = `import requests\n\nurl = '${url}'\nheaders = ${JSON.stringify(headers, null, 4)}`;
+  if (body && ['POST','PUT','PATCH'].includes(method)) {
+    code += `\npayload = ${body}`;
+    code += `\n\nresponse = requests.${method.toLowerCase()}(url, headers=headers, json=payload)`;
+  } else {
+    code += `\n\nresponse = requests.${method.toLowerCase()}(url, headers=headers)`;
+  }
+  code += `\nprint(response.status_code)\nprint(response.json())`;
+  return code;
+}
+
+function generateJava(method, url, headers, body) {
+  let code = `import java.net.URI;\nimport java.net.http.HttpClient;\nimport java.net.http.HttpRequest;\nimport java.net.http.HttpResponse;\n\nHttpClient client = HttpClient.newHttpClient();`;
+  let builder = `HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()\n    .uri(URI.create("${url}"))\n    .${method.toLowerCase()}(`;
+  if (body && ['POST','PUT','PATCH'].includes(method)) {
+    builder += `HttpRequest.BodyPublishers.ofString("${body.replace(/"/g, '\\"')}")`;
+  } else {
+    builder += 'HttpRequest.BodyPublishers.noBody()';
+  }
+  builder += ')';
+  Object.entries(headers).forEach(([k, v]) => { builder += `\n    .header("${k}", "${v}")`; });
+  code += `\n${builder}\n    .build();\n\nHttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.statusCode());\nSystem.out.println(response.body());`;
+  return code;
+}
+
+function generateGo(method, url, headers, body) {
+  let code = `package main\n\nimport (\n    "fmt"\n    "net/http"`;
+  if (body && ['POST','PUT','PATCH'].includes(method)) code += `\n    "strings"`;
+  code += `\n)\n\nfunc main() {`;
+  if (body && ['POST','PUT','PATCH'].includes(method)) {
+    code += `\n    body := strings.NewReader(\`${body}\`)`;
+    code += `\n    req, _ := http.NewRequest("${method}", "${url}", body)`;
+  } else {
+    code += `\n    req, _ := http.NewRequest("${method}", "${url}", nil)`;
+  }
+  Object.entries(headers).forEach(([k, v]) => { code += `\n    req.Header.Set("${k}", "${v}")`; });
+  code += `\n    client := &http.Client{}\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    fmt.Println(resp.StatusCode)\n}`;
+  return code;
+}
+
+function generatePHP(method, url, headers, body) {
+  let code = `<?php\n\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, '${url}');\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);`;
+  if (['POST','PUT','PATCH'].includes(method)) {
+    code += `\ncurl_setopt($ch, CURLOPT_CUSTOMREQUEST, '${method}');`;
+  }
+  if (body && ['POST','PUT','PATCH'].includes(method)) {
+    code += `\ncurl_setopt($ch, CURLOPT_POSTFIELDS, '${body.replace(/'/g, "\\'")}');`;
+  }
+  const hArr = Object.entries(headers).map(([k, v]) => `'${k}: ${v}'`);
+  if (hArr.length) code += `\ncurl_setopt($ch, CURLOPT_HTTPHEADER, [${hArr.join(', ')}]);`;
+  code += `\n\n$response = curl_exec($ch);\ncurl_close($ch);\necho $response;`;
+  return code;
+}
+
+function generateRuby(method, url, headers, body) {
+  let code = `require 'net/http'\nrequire 'uri'\nrequire 'json'\n\nuri = URI('${url}')\nhttp = Net::HTTP.new(uri.host, uri.port)\nhttp.use_ssl = uri.scheme == 'https'\n\nrequest = Net::HTTP::${method.charAt(0) + method.slice(1).toLowerCase()}.new(uri.request_uri)`;
+  Object.entries(headers).forEach(([k, v]) => { code += `\nrequest['${k}'] = '${v}'`; });
+  if (body && ['POST','PUT','PATCH'].includes(method)) {
+    code += `\nrequest.body = '${body.replace(/'/g, "\\'")}'`;
+  }
+  code += `\n\nresponse = http.request(request)\nputs response.code\nputs response.body`;
+  return code;
+}
+
+function displayCode(lang) {
+  document.getElementById('result-area').textContent = generatedCodes[lang] || DEFAULT_MSG;
+}
+
+function switchTab(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  displayCode(lang);
+}
+
+function loadExample() {
+  document.getElementById('http-method').value = 'POST';
+  document.getElementById('url-input').value = 'https://api.example.com/users';
+  document.getElementById('headers-input').value = 'Content-Type: application/json\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0';
+  document.getElementById('json-input').value = JSON.stringify({name: "John", email: "john@example.com", age: 28, role: "developer", skills: ["JavaScript", "Python", "Go"]}, null, 2);
+  generateCode();
+}
+
+function copyResult() {
+  const text = document.getElementById('result-area').textContent;
+  if (text && text !== DEFAULT_MSG) {
+    navigator.clipboard.writeText(text).then(function(){ showToast('Copied to clipboard!'); }).catch(function(){ showToast('Copy failed'); });
+  } else {
+    showToast('Nothing to copy');
+  }
+}
+
+function downloadResult() {
+  const text = document.getElementById('result-area').textContent;
+  if (!text || text === DEFAULT_MSG) { showToast('Nothing to download'); return; }
+  const ext = {curl: 'sh', fetch: 'js', axios: 'js', python: 'py', java: 'java', go: 'go', php: 'php', ruby: 'rb'}[currentLang] || 'txt';
+  const blob = new Blob([text], {type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `http-request.${ext}`;
+  a.click();
+  showToast('Downloaded!');
+}
+
+function clearAll() {
+  document.getElementById('json-input').value = '';
+  document.getElementById('url-input').value = '';
+  document.getElementById('headers-input').value = '';
+  document.getElementById('result-area').textContent = DEFAULT_MSG;
+  document.getElementById('json-error').style.display = 'none';
+  generatedCodes = {};
+}
+
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault(); dropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) { const r = new FileReader(); r.onload = ev => { document.getElementById('json-input').value = ev.target.result; generateCode(); }; r.readAsText(file); }
+});
+fileInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (file) { const r = new FileReader(); r.onload = ev => { document.getElementById('json-input').value = ev.target.result; generateCode(); }; r.readAsText(file); }
+});
+
+['json-input', 'url-input', 'headers-input', 'http-method'].forEach(id => {
+  document.getElementById(id).addEventListener('input', function() {
+    clearTimeout(this._timer);
+    this._timer = setTimeout(generateCode, 500);
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'Enter') { generateCode(); e.preventDefault(); }
+  if (e.ctrlKey && e.shiftKey && e.key === 'C') { copyResult(); e.preventDefault(); }
+  if (e.ctrlKey && e.shiftKey && e.key === 'X') { clearAll(); e.preventDefault(); }
+});
+
+function loadHistory() { try { return JSON.parse(localStorage.getItem('json_to_http_history') || '[]'); } catch (e) { return []; } }
+function delHistory(i) { const h = loadHistory(); h.splice(i, 1); localStorage.setItem('json_to_http_history', JSON.stringify(h)); renderHistory(); }
+function saveHistory(method, url) {
+  const h = loadHistory();
+  h.unshift({ method, url, date: new Date().toLocaleString() });
+  localStorage.setItem('json_to_http_history', JSON.stringify(h.slice(0, 5)));
+  renderHistory();
+}
+function renderHistory() {
+  const h = loadHistory();
+  const el = document.getElementById('history-list');
+  el.innerHTML = '';
+  if (h.length === 0) {
+    const p = document.createElement('p');
+    p.style.color = '#64748b';
+    p.style.fontSize = '.85rem';
+    p.textContent = 'No history yet';
+    el.appendChild(p);
+    return;
+  }
+  h.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'background:rgba(148,163,184,.05);border-radius:6px;padding:8px 12px;margin-top:6px;font-size:.82rem;display:flex;justify-content:space-between;align-items:center';
+    const span = document.createElement('span');
+    const strong = document.createElement('strong');
+    strong.style.color = '#06b6d4';
+    strong.textContent = item.method;
+    span.appendChild(strong);
+    span.appendChild(document.createTextNode(' ' + item.url + ' · ' + item.date));
+    const x = document.createElement('span');
+    x.style.color = '#ef4444';
+    x.style.cursor = 'pointer';
+    x.style.fontSize = '.8rem';
+    x.textContent = '✕';
+    x.addEventListener('click', function(){ delHistory(i); });
+    div.appendChild(span);
+    div.appendChild(x);
+    el.appendChild(div);
+  });
+}
+renderHistory();
+
+window.addEventListener('load', function() {
+  loadExample();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Frequency Period Converter — ToolGuideHub</title>
+<meta name="description" content="Free online frequency and period converter. Convert between Hz, kHz, MHz, GHz and seconds/milliseconds. Ideal for physics, electronics, signal processing.">
+<meta property="og:title" content="Frequency Period Converter — ToolGuideHub">
+<meta property="og:description" content="Free online frequency and period converter. Convert between Hz, kHz, MHz, GHz and seconds/milliseconds. Ideal for physics, electronics, signal processing.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/frequency-calculator/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/frequency-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Frequency Period Converter","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the relationship between frequency and period?","acceptedAnswer":{"@type":"Answer","text":"Frequency (f) and period (T) are reciprocals: f=1/T, T=1/f. For example, a 50Hz AC current has a period of 1/50=0.02 seconds=20 milliseconds."}},{"@type":"Question","name":"What are the common units of frequency?","acceptedAnswer":{"@type":"Answer","text":"The SI unit of frequency is Hertz (Hz), where 1Hz=1 cycle per second. Common units include kilohertz (kHz)=1000Hz, megahertz (MHz)=1,000,000Hz, and gigahertz (GHz)=10^9Hz."}},{"@type":"Question","name":"What is angular frequency?","acceptedAnswer":{"@type":"Answer","text":"Angular frequency (omega) represents radians rotated per unit time, related to frequency by omega=2*pi*f, measured in radians per second (rad/s). It is commonly used in simple harmonic motion and wave analysis."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Frequency Period Converter","item":"https://adi63586.github.io/Toolguidehub/en/frequency-calculator/"}]}</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<style>
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --primary: #06b6d4;
+  --primary-hover: #22d3ee;
+  --border: rgba(148,163,184,.1);
+  --danger: #ef4444;
+  --success: #10b981;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+header a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 18px; }
+.lang-switch a { padding: 6px 12px; border-radius: 6px; font-size: .85rem; color: var(--text-secondary); border: 1px solid var(--border); }
+.lang-switch a:hover { color: var(--primary); border-color: var(--primary); }
+.lang-switch a.active { color: var(--primary); border-color: var(--primary); background: rgba(6,182,212,.1); }
+main { flex: 1; max-width: 720px; margin: 0 auto; padding: 32px 20px 48px; width: 100%; }
+h1 { font-size: 28px; margin-bottom: 8px; text-align: center; }
+.subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 28px; }
+.card { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); margin-bottom: 20px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: var(--text-secondary); }
+.form-group input, .form-group select { width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-size: 16px; background: var(--bg); color: var(--text); transition: border-color .2s; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+.btn { width: 100%; padding: 14px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600; background: var(--primary); color: #fff; transition: opacity .2s; }
+.btn:hover { opacity: .9; }
+.result { background: var(--bg); border-radius: 8px; padding: 20px; margin-top: 20px; border: 1px solid rgba(6,182,212,.2); display: none; }
+.result .val { font-size: 36px; font-weight: 700; color: var(--primary); }
+.result .detail { color: var(--text-secondary); font-size: .9rem; margin-top: 4px; }
+.seo-section { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+.seo-section h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--text); }
+.seo-section p, .seo-section li { color: var(--text-secondary); line-height: 1.7; font-size: .95rem; margin-bottom: 8px; }
+.seo-section ul { padding-left: 20px; margin-bottom: 20px; }
+.faq { margin-top: 24px; }
+.faq h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 8px; }
+.faq p { color: var(--text-secondary); margin-bottom: 16px; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--card-bg); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; z-index: 9999; opacity: 0; transition: all .3s; pointer-events: none; border: 1px solid var(--border); }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+footer { text-align: center; padding: 24px; color: var(--text-secondary); font-size: 13px; border-top: 1px solid var(--border); margin-top: auto; }
+footer a { color: var(--primary); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media(max-width:600px) { main { padding: 20px 12px; } h1 { font-size: 22px; } .result .val { font-size: 28px; } }
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><a href="../../">🧰 ToolGuideHub</a></header>
+<main>
+<h1>Frequency Period Converter</h1>
+<p class="subtitle">Enter frequency or period to automatically calculate the corresponding value (f=1/T)</p>
+<div class="card">
+<div class="form-group">
+  <label for="freq">Frequency (f)</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="number" id="freq" value="50" step="any" min="0" style="flex:1;min-width:140px">
+    <select id="freqUnit" style="width:110px">
+      <option value="1">Hz</option>
+      <option value="1000">kHz</option>
+      <option value="1000000">MHz</option>
+      <option value="1000000000">GHz</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label for="period">Period (T)</label>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input type="number" id="period" step="any" min="0" style="flex:1;min-width:140px">
+    <select id="periodUnit" style="width:110px">
+      <option value="1">s</option>
+      <option value="0.001">ms</option>
+      <option value="0.000001">µs</option>
+    </select>
+  </div>
+</div>
+<button class="btn" onclick="calc()">🧮 Calculate</button>
+</div>
+<div class="result" id="result"><div class="val" id="rv">—</div><div class="detail" id="rd"></div></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+
+<div class="seo-section">
+<h2>About  Frequency Period Converter</h2>
+<p>Frequency and period are fundamental physical quantities describing periodic motion. Frequency (f) represents the number of cycles completed per unit time, and period (T) represents the time required to complete one cycle. They are reciprocal: f=1/T. This converter helps physics students, electronics engineers, and signal processing practitioners quickly convert between frequency and period.</p>
+<h3>How to Use </h3>
+<ol>
+  <li>Enter frequency (Hz/kHz/MHz) or period (seconds/milliseconds)</li>
+  <li>Select the input unit</li>
+  <li>The corresponding value is calculated and displayed automatically</li>
+</ol>
+</div>
+<div class="seo-section"><h2>Related Tools</h2><ul><li><a href="../../en/frequency-converter/">Frequency Converter</a> — Multi-unit frequency conversion</li><li><a href="../../en/antenna-wavelength-calculator/">Wavelength Calculator</a> — Frequency to wavelength</li><li><a href="../../en/speed-converter/">Speed Converter</a> — Speed unit conversion</li></ul></div>
+<div class="faq"><div class="faq-item"><h3>What is the relationship between frequency and period?</h3><p>Frequency (f) and period (T) are reciprocals: f=1/T, T=1/f. For example, a 50Hz AC current has a period of 1/50=0.02 seconds=20 milliseconds.</p></div>
+<div class="faq-item"><h3>What are the common units of frequency?</h3><p>The SI unit of frequency is Hertz (Hz), where 1Hz=1 cycle per second. Common units include kilohertz (kHz)=1000Hz, megahertz (MHz)=1,000,000Hz, and gigahertz (GHz)=10⁹Hz.</p></div>
+<div class="faq-item"><h3>What is angular frequency?</h3><p>Angular frequency (ω) represents radians rotated per unit time, related to frequency by ω=2πf, measured in radians per second (rad/s). It is commonly used in simple harmonic motion and wave analysis.</p></div>
+</div>
+</main>
+<footer>
+  <div class="footer" style="display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:8px;">
+    <a href="../index.html">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/">Privacy Policy</a>
+    <a href="../terms/">Terms of Service</a>
+    <a href="../about/">About Us</a>
+  </div>
+  <div>© 2026 ToolGuideHub — All calculations run locally in your browser. All data stays in your browser</div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function calc(){
+  var fv=parseFloat(document.getElementById('freq').value);
+  var fu=parseFloat(document.getElementById('freqUnit').value)||1;
+  var pv=parseFloat(document.getElementById('period').value);
+  var pu=parseFloat(document.getElementById('periodUnit').value)||1;
+  var fe=isNaN(fv)?NaN:fv*fu;
+  var pe=isNaN(pv)?NaN:pv*pu;
+  var res=document.getElementById('result');
+  if((isNaN(fe)||fe<=0)&&(isNaN(pe)||pe<=0)){show('Please enter a positive frequency or period');return}
+  if(!isNaN(fe)&&fe>0){
+    var T=1/fe;
+    document.getElementById('period').value=(T/pu).toFixed(6);
+    res.style.display='block';
+    document.getElementById('rv').textContent=fe+' Hz';
+    document.getElementById('rd').textContent='Period: '+T+' s  |  '+(T*1000)+' ms';
+  }else{
+    var F=1/pe;
+    document.getElementById('freq').value=(F/fu).toFixed(6);
+    res.style.display='block';
+    document.getElementById('rv').textContent=pe+' s';
+    document.getElementById('rd').textContent='Frequency: '+F+' Hz  |  '+(F/1000)+' kHz';
+  }
+}
+function show(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

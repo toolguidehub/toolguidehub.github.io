@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free File Encryption Tool | No Signup</title>
+<meta name="description" content="Encrypt or decrypt a file with AES-256-GCM straight in your browser: pick a file, set a 6-character minimum password, and download the locked result.">
+<meta property="og:title" content="File Encryption Tool - ToolGuideHub">
+<meta property="og:description" content="Encrypt or decrypt a file with AES-256-GCM straight in your browser: pick a file, set a 6-character minimum password, and download the locked result.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "File Encryption Tool",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "description": "Free online file encryption tool using AES-256-GCM algorithm. Encrypt/decrypt any file with password protection. All processing done locally in your browser.",
+  "publisher": {"@type": "Organization", "name": "ToolGuideHub"},
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--error:#EF4444;--card-bg:#1e293b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+header{background:var(--card-bg);border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+header nav{display:flex;gap:16px;flex-wrap:wrap}
+header nav a{color:#94a3b8;text-decoration:none;font-size:.9rem;transition:color .2s}
+header nav a:hover{color:#22d3ee}
+.lang-switch{display:flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.15)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+main{max-width:800px;margin:0 auto;padding:32px 24px}
+h1{font-size:1.75rem;margin-bottom:8px}
+.subtitle{color:#94a3b8;margin-bottom:32px}
+.section{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow);padding:24px;margin-bottom:24px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:#94a3b8}
+.form-group input[type="file"],.form-group input[type="password"]{width:100%;padding:10px 14px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.9rem;background:#0f172a;color:#e2e8f0;transition:border-color .2s}
+.form-group input:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.file-drop{width:100%;padding:40px;border:2px dashed rgba(148,163,184,.1);border-radius:12px;text-align:center;cursor:pointer;transition:all .2s;color:#94a3b8}
+.file-drop:hover,.file-drop.dragover{border-color:#22d3ee;background:rgba(6,182,212,.05);color:#22d3ee}
+.file-drop .icon{font-size:2.5rem;margin-bottom:8px}
+.file-info{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#0f172a;border-radius:8px;margin-bottom:16px}
+.file-info .name{font-weight:600;flex:1;word-break:break-all}
+.file-info .size{color:#94a3b8;font-size:.85rem;white-space:nowrap}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-encrypt{background:#22d3ee;color:#fff}
+.btn-encrypt:hover{background:var(--primary-hover)}
+.btn-encrypt:disabled{background:#9ca3af;cursor:not-allowed}
+.btn-decrypt{background:#10b981;color:#fff}
+.btn-decrypt:hover{background:#059669}
+.btn-decrypt:disabled{background:#9ca3af;cursor:not-allowed}
+.btn-reset{background:#94a3b8;color:#fff}
+.btn-reset:hover{background:#475569}
+.password-input{position:relative}
+.password-input input{padding-right:50px}
+.toggle-pw{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;color:#94a3b8}
+.strength-bar{height:4px;background:rgba(148,163,184,.1);border-radius:2px;margin-top:8px;overflow:hidden}
+.strength-fill{height:100%;border-radius:2px;transition:all .3s}
+.strength-weak{width:33%;background:var(--error)}
+.strength-medium{width:66%;background:#f59e0b}
+.strength-strong{width:100%;background:#10b981}
+.result-area{background:#1e293b;color:#e2e8f0;padding:16px;border-radius:8px;font-family:monospace;font-size:.85rem;word-break:break-all;min-height:60px;display:none}
+.progress-bar{height:6px;background:rgba(148,163,184,.1);border-radius:3px;margin:16px 0;overflow:hidden;display:none}
+.progress-fill{height:100%;background:#22d3ee;border-radius:3px;transition:width .3s;width:0%}
+footer{text-align:center;padding:32px 24px;color:#94a3b8;font-size:.85rem;border-top:1px solid rgba(148,163,184,.1);margin-top:48px}
+footer a{color:#22d3ee;text-decoration:none}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .3s;z-index:9999}
+#toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/file-encryption/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free File Encryption Tool | No Signup", "item": "https://adi63586.github.io/Toolguidehub/en/file-encryption/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"File Encryption FAQ","mainEntity":[{"@type":"Question","name":"Is the File Encryption free and secure?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free and all encoding/decoding happens locally in your browser. Your data is never uploaded to any server, ensuring full privacy and security."}},{"@type":"Question","name":"Is the File Encryption free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Select File and Password are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What encoding formats does the File Encryption support?","acceptedAnswer":{"@type":"Answer","text":"The tool supports standard encoding and decoding formats. All operations are performed locally in your browser using well-established algorithms, ensuring both accuracy and privacy."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use File Encryption","description":"Step-by-step guide for using File Encryption","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"File Encryption"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Type or paste the text you want to encode or decode"},{"@type":"HowToStep","position":2,"name":"Choose direction","text":"Select encode or decode operation"},{"@type":"HowToStep","position":3,"name":"Execute","text":"Click the button to perform the encoding or decoding"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the output and copy to clipboard"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/file-encryption/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<a href="../../" class="logo">ToolGuideHub</a>
+<nav>
+<a href="../../">Home</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</nav>
+
+</header>
+<main>
+<h1>🔒 File Encryption Tool</h1>
+<p class="subtitle">Encrypt/decrypt files using AES-256-GCM. All computation happens on your device — Select File, Password and other inputs stay in your browser.</p>
+<div class="section">
+<div class="form-group">
+<label>Select File</label>
+<div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
+<div class="icon">📁</div>
+<div>Click to select or drag and drop a file</div>
+<div style="font-size:.8rem;margin-top:4px">Supports any file format</div>
+</div>
+<input type="file" id="fileInput" style="display:none" onchange="handleFile(this.files[0])">
+</div>
+<div id="fileInfo" class="file-info" style="display:none">
+<span>📄</span>
+<span class="name" id="fileName"></span>
+<span class="size" id="fileSize"></span>
+</div>
+<div class="form-group">
+<label>Password</label>
+<div class="password-input">
+<input type="password" id="password" placeholder="Enter encryption/decryption password (min 6 chars)" oninput="checkStrength()">
+<button class="toggle-pw" onclick="togglePassword()">👁</button>
+</div>
+<div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+<div style="font-size:.8rem;color:#94a3b8;margin-top:4px" id="strengthLabel"></div>
+</div>
+<div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="btn-row">
+<button class="btn btn-encrypt" id="encryptBtn" disabled onclick="processFile('encrypt')">🔒 Encrypt</button>
+<button class="btn btn-decrypt" id="decryptBtn" disabled onclick="processFile('decrypt')">🔓 Decrypt</button>
+<button class="btn btn-reset" onclick="resetAll()">🔄 Reset</button>
+</div>
+</div>
+<div class="result-area" id="resultArea"></div>
+
+<h2>What is Free File Encryption Tool | No Signup?</h2><p>Free File Encryption Tool | No Signup is a free online tool that runs entirely in your browser. No download or signup needed — enter Select File and Password to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/file-encryption/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var selectedFile=null,fileBuffer=null;
+
+document.getElementById("fileInput").addEventListener("change",function(){handleFile(this.files[0])});
+
+var dropZone=document.getElementById("fileDrop");
+dropZone.addEventListener("dragover",function(e){e.preventDefault();dropZone.classList.add("dragover")});
+dropZone.addEventListener("dragleave",function(){dropZone.classList.remove("dragover")});
+dropZone.addEventListener("drop",function(e){e.preventDefault();dropZone.classList.remove("dragover");if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])});
+
+function handleFile(file){
+if(!file){return}
+selectedFile=file;
+document.getElementById("fileName").textContent=file.name;
+document.getElementById("fileSize").textContent=formatSize(file.size);
+document.getElementById("fileInfo").style.display="flex";
+document.getElementById("fileDrop").style.display="none";
+var reader=new FileReader();
+reader.onload=function(){fileBuffer=new Uint8Array(reader.result);updateButtons()};
+reader.readAsArrayBuffer(file);
+}
+
+function formatSize(bytes){
+if(bytes<1024)return bytes+" B";
+if(bytes<1048576)return (bytes/1024).toFixed(1)+" KB";
+return (bytes/1048576).toFixed(2)+" MB";
+}
+
+function checkStrength(){
+var pw=document.getElementById("password").value;
+var fill=document.getElementById("strengthFill");
+var label=document.getElementById("strengthLabel");
+fill.className="strength-fill";
+if(!pw){fill.style.width="0";label.textContent="";updateButtons();return}
+var score=0;
+if(pw.length>=6)score++;
+if(pw.length>=10)score++;
+if(/[a-z]/.test(pw)&&/[A-Z]/.test(pw))score++;
+if(/[0-9]/.test(pw))score++;
+if(/[^a-zA-Z0-9]/.test(pw))score++;
+if(score<=2){fill.className="strength-fill strength-weak";label.textContent="Weak - Use a more complex password";label.style.color="#ef4444"}
+else if(score<=3){fill.className="strength-fill strength-medium";label.textContent="Medium - Acceptable";label.style.color="#f59e0b"}
+else{fill.className="strength-fill strength-strong";label.textContent="Strong - Good password";label.style.color="#10b981"}
+updateButtons();
+}
+
+function updateButtons(){
+var hasFile=!!fileBuffer;
+var hasPw=document.getElementById("password").value.length>=6;
+document.getElementById("encryptBtn").disabled=!(hasFile&&hasPw);
+document.getElementById("decryptBtn").disabled=!(hasFile&&hasPw);
+}
+
+function togglePassword(){
+var pw=document.getElementById("password");
+pw.type=pw.type==="password"?"text":"password";
+}
+
+async function processFile(mode){
+var pw=document.getElementById("password").value;
+if(!fileBuffer||pw.length<6){showToast("Please select a file and enter password (min 6 chars)");return}
+try{
+document.getElementById("progressBar").style.display="block";
+document.getElementById("progressFill").style.width="20%";
+var keyMaterial=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),{name:"PBKDF2"},false,["deriveKey"]);
+var salt=new Uint8Array(16);crypto.getRandomValues(salt);
+var key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:100000,hash:"SHA-256"},keyMaterial,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+document.getElementById("progressFill").style.width="50%";
+var result;
+if(mode==="encrypt"){
+var iv=crypto.getRandomValues(new Uint8Array(12));
+var encrypted=await crypto.subtle.encrypt({name:"AES-GCM",iv:iv},key,fileBuffer);
+var combined=new Uint8Array(16+12+encrypted.byteLength);
+combined.set(salt,0);
+combined.set(iv,16);
+combined.set(new Uint8Array(encrypted),28);
+result=combined;
+}else{
+if(fileBuffer.length<28){showToast("Invalid encrypted file format");document.getElementById("progressBar").style.display="none";return}
+var fileSalt=fileBuffer.slice(0,16);
+var fileIv=fileBuffer.slice(16,28);
+var fileData=fileBuffer.slice(28);
+key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:fileSalt,iterations:100000,hash:"SHA-256"},keyMaterial,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+try{
+var decrypted=await crypto.subtle.decrypt({name:"AES-GCM",iv:fileIv},key,fileData);
+result=new Uint8Array(decrypted);
+}catch(e){showToast("Decryption failed: wrong password or corrupted file");document.getElementById("progressBar").style.display="none";return}
+}
+document.getElementById("progressFill").style.width="80%";
+var blob=new Blob([result]);
+var ext=mode==="encrypt"?".encrypted":".decrypted";
+var downloadName=selectedFile.name.replace(/(\.encrypted|\.decrypted)?$/,"")+ext;
+var url=URL.createObjectURL(blob);
+document.getElementById("progressFill").style.width="100%";
+var resultArea=document.getElementById("resultArea");
+resultArea.style.display="block";
+resultArea.innerHTML='<div style="color:#86efac;margin-bottom:8px">✅ '+(mode==="encrypt"?"Encryption":"Decryption")+' complete!</div><div>Original: '+selectedFile.name+' ('+formatSize(selectedFile.size)+')</div><div>Result: '+downloadName+' ('+formatSize(blob.size)+')</div><div style="margin-top:8px"><a href="'+url+'" download="'+downloadName+'" style="color:#93c5fd;text-decoration:underline">⬇️ Download File</a></div>';
+setTimeout(function(){document.getElementById("progressBar").style.display="none";document.getElementById("progressFill").style.width="0%"},1000);
+}catch(e){
+showToast("Processing failed: "+e.message);
+document.getElementById("progressBar").style.display="none";
+}
+}
+
+function resetAll(){
+selectedFile=null;fileBuffer=null;
+document.getElementById("fileInput").value="";
+document.getElementById("password").value="";
+document.getElementById("fileInfo").style.display="none";
+document.getElementById("fileDrop").style.display="block";
+document.getElementById("resultArea").style.display="none";
+document.getElementById("strengthFill").style.width="0";
+document.getElementById("strengthLabel").textContent="";
+updateButtons();
+}
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

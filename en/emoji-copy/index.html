@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Emoji Copy & Paste - ToolGuideHub</title>
+ <meta name="description" content="Browse and search thousands of emojis by category or keyword, then click to copy one to the clipboard.">
+ <meta property="og:title" content="Emoji Copy & Paste - ToolGuideHub">
+ <meta property="og:description" content="Browse and search thousands of emojis by category or keyword, then click to copy one to the clipboard.">
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Emoji Copy & Paste","description":"Browse and search emojis by category, one-click copy to clipboard.","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://adi63586.github.io/Toolguidehub/en/emoji-copy/"}</script>
+ <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    header a { color: #22d3ee; text-decoration: none; font-weight: 600; font-size: 18px; }
+     header nav a { font-size: 14px; margin-left: 16px; color: #94a3b8; }
+     .lang-switch a { padding: 6px 12px; border-radius: 6px; font-size: .85rem; color: #94a3b8; border: 1px solid rgba(148,163,184,.1); text-decoration: none; }
+     .lang-switch a:hover { color: #22d3ee; border-color: #22d3ee; }
+    main { flex: 1; max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; width: 100%; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .desc { color: #94a3b8; margin-bottom: 28px; font-size: 15px; line-height: 1.6; }
+    .search-box { width: 100%; padding: 12px 16px 12px 44px; border: 2px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; outline: none; margin-bottom: 20px; transition: border-color .2s; }
+    .search-box:focus { border-color: #22d3ee; }
+    .search-wrapper { position: relative; }
+    .search-wrapper::before { content: '🔍'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; pointer-events: none; }
+    .categories { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .cat-btn { padding: 8px 16px; border: 1px solid rgba(148,163,184,.1); border-radius: 20px; background: var(--card-bg); cursor: pointer; font-size: 13px; transition: all .2s; }
+    .cat-btn:hover, .cat-btn.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+    .emoji-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 8px; }
+    .emoji-item { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 28px; background: var(--card-bg); border-radius: 8px; cursor: pointer; transition: all .15s; border: 1px solid rgba(148,163,184,.1); user-select: none; }
+    .emoji-item:hover { transform: scale(1.15); box-shadow: var(--shadow); z-index: 1; }
+    .emoji-item.copied { animation: popAnim 0.3s ease; }
+    @keyframes popAnim { 0% { transform: scale(1); } 50% { transform: scale(1.3); } 100% { transform: scale(1); } }
+    .category-title { font-size: 18px; font-weight: 600; margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+    .no-results { text-align: center; padding: 40px; color: #94a3b8; font-size: 16px; }
+    footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+    #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+    #toast.show { opacity: 1; }
+    @media (max-width: 375px) { main { padding: 20px 12px 40px; } h1 { font-size: 22px; } .emoji-grid { grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px; } .emoji-item { font-size: 22px; } }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/emoji-copy/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Emoji Copy & Paste", "item": "https://adi63586.github.io/Toolguidehub/en/emoji-copy/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"EmojiCopy FAQ","mainEntity":[{"@type":"Question","name":"How do I use the EmojiCopy?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the EmojiCopy free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Emoji Copy & Paste and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the EmojiCopy?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use EmojiCopy","description":"Step-by-step guide for using EmojiCopy","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"EmojiCopy"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/emoji-copy/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <header>
+  <a href="../../">🔧 ToolGuideHub</a>
+  <nav><a href="../../">Home</a></nav>
+  
+  </header>
+ <main>
+  <h1>😊 Emoji Copy & Paste</h1>
+  <p class="desc">Browse and search thousands of emojis. Click to copy to clipboard. Supports category filtering and keyword search.</p>
+  <div class="search-wrapper">
+  <input type="text" class="search-box" id="searchInput" placeholder="Search emojis, e.g. smile, heart, cat, sun...">
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+  <button class="cat-btn" id="exampleBtn">🎲 Fill Example</button>
+  <button class="cat-btn" id="copyAllBtn">📋 Copy All Visible</button>
+  <span id="emojiCount" style="color:#64748b;font-size:.8rem;margin-left:auto"></span>
+  </div>
+  <div class="categories" id="categories"></div>
+ <div id="emojiContainer"></div>
+ </main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Emoji Copy &amp; Paste is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Emoji Copy &amp; Paste to quickly find and copy any emoji for chats, documents, and social media. Built with pure front-end technology, it works on all modern browsers and mobile devices. Emoji Copy &amp; Paste provides results instantly. Everything runs locally: your emojis are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/emoji-copy-paste/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Emoji Copy & Paste</a> <a href="../../en/emoji-copier/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Emoji Copy & Paste Online</a> <a href="../../en/emoji-search/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Emoji Search Online - 2…</a> <a href="../../en/emoji-picker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Emoji Picker - 2000+ Em…</a> <a href="../../en/symbol-explorer/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Symbol Explorer - Unicode Ch…</a> <a href="../../en/emoji-translator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Emoji Translator</a> <a href="../../en/emojify/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Text to Emoji - Online Emoji…</a> <a href="../../en/emoji-to-image/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Emoji to Image</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+  </div>
+  
+</footer>
+ <div id="toast"></div>
+ <script>
+    const emojiData = {
+      '😊 Smileys & Emotion': ['😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','☺️','😚','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','🤤','😴','😷','🤒','🤕','🤢','🤮','🥴','😵','🤯','🥳','🥺','😢','😭','😤','😠','😡','🤬','💀','☠️','💩','🤡','👹','👺','👻','👽','👾','🤖'],
+      '👋 Gestures & People': ['👋','🤚','🖐','✋','🖖','👌','🤏','✌️','🤞','🤟','🤘','🤙','👈','👉','👆','🖕','👇','☝️','👍','👎','✊','👊','🤛','🤜','👏','🙌','👐','🤲','🤝','🙏','💪','🦵','🦶','👂','👃','🧠','🦷','🦴','👀','👁','👅','👄','👶','🧒','👦','👧','🧑','👱','👨','🧔','👩','🧓','👴','👵','🙍','🙎','🙅','🙆','💁','🙋','🧏','🙇','🤦','🤷'],
+      '🐱 Animals & Nature': ['🐶','🐱','🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐮','🐷','🐸','🐵','🙈','🙉','🙊','🐒','🐔','🐧','🐦','🐤','🦆','🦅','🦉','🦇','🐺','🐗','🐴','🦄','🐝','🐛','🦋','🐌','🐞','🐜','🦟','🦗','🕷','🦂','🐢','🐍','🦎','🦖','🦕','🐙','🦑','🦐','🦞','🦀','🐡','🐠','🐟','🐬','🐳','🐋','🦈','🐊','🐅','🐆','🦓','🦍','🐘','🦏','🦛','🐪','🐫','🦒','🦘','🐃','🐂','🐄','🐎','🐖','🐏','🐑','🦙','🐐','🦌','🐕','🐩','🐈','🐓','🦃','🦚','🦜','🦢','🕊','🐇','🦝','🦡','🐁','🐀','🐿','🦔'],
+      '🍕 Food & Drink': ['🍏','🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🫐','🍈','🍒','🍑','🥭','🍍','🥥','🥝','🍅','🍆','🥑','🥦','🥬','🥒','🌶','🫑','🌽','🥕','🧄','🧅','🥔','🍠','🥐','🍞','🥖','🥨','🧀','🥚','🍳','🧈','🥞','🧇','🥓','🥩','🍗','🍖','🦴','🌭','🍔','🍟','🍕','🥪','🥙','🧆','🌮','🌯','🥗','🥘','🥫','🍝','🍜','🍲','🍛','🍣','🍱','🥟','🦪','🍤','🍙','🍚','🍘','🍥','🥠','🥮','🍢','🍡','🍧','🍨','🍦','🥧','🧁','🍰','🎂','🍮','🍭','🍬','🍫','🍿','🍩','🍪','🌰','🥜','🍯','🥛','🍼','☕','🍵','🧃','🥤','🍶','🍺','🍻','🥂','🍷','🥃','🍸','🍹','🧉','🍾','🧊'],
+      '⚽ Sports & Activities': ['⚽','🏀','🏈','⚾','🥎','🎾','🏐','🏉','🥏','🎱','🪀','🏓','🏸','🏒','🏑','🥍','🏏','⛳','🏹','🎣','🤿','🥊','🥋','🎽','⛸','🛷','⛷','🏂','🪂','🏋️','🤼','🤸','⛹️','🤺','🤾','🏌️','🏇','🧘','🏄','🏊','🤽','🚣','🧗','🚵','🚴','🎯','🎳','🎮','🎰','🎲','🧩','♟','🎭','🎨','🧵','🧶'],
+      '✈️ Travel & Places': ['🚗','🚕','🚙','🚌','🚎','🏎','🚓','🚑','🚒','🚐','🚚','🚛','🚜','🏍','🛵','🚲','🛴','🛹','🚏','🛣','🛤','⛽','🚨','🚥','🚦','🛑','🚧','⚓','⛵','🛶','🚤','🛳','⛴','🛥','🚢','✈️','🛩','🛫','🛬','🪂','💺','🚁','🚟','🚠','🚡','🛰','🚀','🛸','🏠','🏡','🏘','🏚','🏗','🏢','🏭','🏣','🏤','🏥','🏦','🏨','🏩','🏪','🏫','🏬','🏯','🏰','💒','🗼','🗽','⛪','🕌','🛕','🕍','⛩','🕋','⛲','⛺','🌁','🌃','🏙','🌄','🌅','🌆','🌇','🌉','🗾','🏔','⛰','🌋','🗻','🏕','🏖','🏜','🏝'],
+      '💡 Objects & Symbols': ['💌','💘','💝','💖','💗','💓','💞','💕','💟','❣','💔','❤','🧡','💛','💚','💙','💜','🤎','🖤','🤍','💯','💢','💥','💫','💦','💨','🕳','💣','💬','🗨','🗯','💭','💤','🛏','🛋','🚪','🪑','🚽','🚿','🛁','🪒','🧴','🧷','🧹','🧺','🧻','🧼','🧽','🧯','🛒','🚬','⚰','⚱','🗿','🔮','📿','🧿','💈','⚗','🔭','🔬','🕯','💡','🔦','🏮','📔','📕','📖','📗','📘','📙','📚','📓','📒','📃','📜','📄','📰','🗞','📑','🔖','🏷','💰','💴','💵','💶','💷','💸','💳','🧾','✉','📧','📨','📩','📤','📥','📦','📫','📪','📬','📭','📮','🗳','✏','✒','🖋','🖊','🖌','🖍','📝','💼','📁','📂','🗂','📅','📆','🗒','🗓','📇','📈','📉','📊','📋','📌','📍','📎','🖇','📏','📐','✂','🗃','🗄','🗑','🔒','🔓','🔏','🔐','🔑','🗝','🔨','🪓','⛏','⚒','🛠','🗡','⚔','🔫','🏹','🛡','🔧','🔩','⚙','🗜','⚖','🦯','🔗','⛓','🧰','🧲','⚗','🧪','🧫','🧬','🔬','🔭','📡','💉','💊','🩹','🩺','🧬'],
+      '🏁 Flags': ['🏳','🏴','🏁','🚩','🎌','🏴‍☠️','🇨🇳','🇺🇸','🇬🇧','🇯🇵','🇰🇷','🇩🇪','🇫🇷','🇮🇹','🇪🇸','🇷🇺','🇧🇷','🇮🇳','🇨🇦','🇦🇺','🇲🇽','🇦🇷','🇿🇦','🇪🇬','🇳🇬','🇰🇪','🇸🇪','🇳🇴','🇩🇰','🇫🇮','🇳🇱','🇧🇪','🇨🇭','🇦🇹','🇵🇱','🇺🇦','🇹🇷','🇸🇦','🇦🇪','🇮🇱','🇸🇬','🇹🇭','🇻🇳','🇵🇭','🇲🇾','🇮🇩'],
+    };
+
+    const searchInput = document.getElementById('searchInput');
+    const categoriesDiv = document.getElementById('categories');
+    const container = document.getElementById('emojiContainer');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2000); }
+
+    let activeCategory = 'all';
+
+    // Build category buttons
+    let catHtml = '<button class="cat-btn active" data-cat="all">All</button>';
+    for (const cat of Object.keys(emojiData)) {
+      catHtml += `<button class="cat-btn" data-cat="${cat}">${cat.split(' ')[1] || cat}</button>`;
+    }
+    categoriesDiv.innerHTML = catHtml;
+
+    function render(searchTerm = '') {
+      let html = '';
+      let hasResults = false;
+      for (const [cat, emojis] of Object.entries(emojiData)) {
+        if (activeCategory !== 'all' && cat !== activeCategory) continue;
+        let filtered = emojis;
+        if (searchTerm) {
+          filtered = emojis.filter(e => {
+            // Use a simple keyword map for search
+            const kwMap = { '': '😀😃😄😁😆😅🤣😂🙂😊', '': '😢😭🥺', '': '❤🧡💛💚💙💜🤎🖤🤍💕💗💖💘💝💞💓', '': '🐱🐈', '': '🐶🐕', '': '🍕🍔🍟🌭🍿🍩', '': '☕🍵🧃🥤🍺🍻🥂🍷', '': '🌸💮🏵🌹🥀🌺🌻🌼🌷', '': '⭐🌟✨💫🌠', '': '🔥💥', '': '☀🌞🌤🌅🌄', '': '🌙🌛🌜🌝🌚', '': '💰💵💶💷💸🤑' };
+            for (const [kw, matchEmojis] of Object.entries(kwMap)) {
+              if (searchTerm.includes(kw)) return matchEmojis.includes(e);
+            }
+            // Direct search in category name
+            if (cat.includes(searchTerm)) return true;
+            return false;
+          });
+        }
+        if (filtered.length === 0) continue;
+        hasResults = true;
+        html += `<div class="category-title">${cat}</div><div class="emoji-grid">`;
+        filtered.forEach(e => {
+          html += `<div class="emoji-item" data-emoji="${e}" title="Click to copy">${e}</div>`;
+        });
+        html += '</div>';
+      }
+      if (!hasResults) html = '<div class="no-results">😕 No matching emojis found. Try other keywords.</div>';
+      container.innerHTML = html;
+      const countEl = document.getElementById('emojiCount');
+      if (countEl) countEl.textContent = hasResults ? container.querySelectorAll('.emoji-item').length + ' emojis' : '0 emojis';
+
+      // Bind click events
+      container.querySelectorAll('.emoji-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const emoji = item.dataset.emoji;
+          navigator.clipboard.writeText(emoji).then(() => {
+          item.classList.add('copied');
+          showToast('Copied ' + emoji + ' to clipboard');
+          setTimeout(() => item.classList.remove('copied'), 300);
+          }).catch(() => showToast('Copy failed. Please copy manually.'));
+        });
+      });
+    }
+
+    // Category click
+    categoriesDiv.addEventListener('click', e => {
+      if (e.target.classList.contains('cat-btn')) {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        activeCategory = e.target.dataset.cat;
+        render(searchInput.value.trim());
+      }
+    });
+
+    // Search
+    searchInput.addEventListener('input', () => render(searchInput.value.trim()));
+
+    // Fill example
+    const exampleWords = ['smile', 'heart', 'cat', 'dog', 'sun', 'pizza', 'star'];
+    document.getElementById('exampleBtn').addEventListener('click', () => {
+      const word = exampleWords[Math.floor(Math.random() * exampleWords.length)];
+      searchInput.value = word;
+      render(word);
+      showToast('Example: ' + word);
+    });
+
+    // Copy all visible
+    document.getElementById('copyAllBtn').addEventListener('click', () => {
+      const items = container.querySelectorAll('.emoji-item');
+      if (!items.length) { showToast('No emojis to copy'); return; }
+      const text = Array.from(items).map(i => i.dataset.emoji).join(' ');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast('Copied ' + items.length + ' emojis ✓')).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    });
+    function fallbackCopy(t) {
+      const ta = document.createElement('textarea');
+      ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); showToast('Copied ✓'); } catch (e) { showToast('Copy failed'); }
+      document.body.removeChild(ta);
+    }
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

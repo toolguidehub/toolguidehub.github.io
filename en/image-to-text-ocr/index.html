@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Extract editable text from a JPEG, PNG, GIF, BMP, or WebP scan in 12 languages using Tesseract.js, up to 10MB; copy the result or download a .txt.">
+<meta name="keywords" content="image to text,OCR,online OCR,text from image,image text extraction,Tesseract,optical character recognition,free OCR tool,picture to text">
+<title>Free Image to Text OCR - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/">
+<meta property="og:title" content="Free Image to Text OCR - ToolGuideHub">
+<meta property="og:description" content="Extract editable text from a JPEG, PNG, GIF, BMP, or WebP scan in 12 languages using Tesseract.js, up to 10MB; copy the result or download a .txt.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free Image to Text OCR Tool", "description": "Free online image to text OCR tool. Extract text from images using Tesseract.js with support for 100+ languages. Pure frontend processing, no data uploaded to servers.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How accurate is OCR recognition?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is OCR recognition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OCR accuracy depends on several factors: image clarity, text contrast, font type, and text layout. For clear printed text, accuracy typically reaches 95% or higher. Handwriting or low-quality images will yield lower accuracy. We recommend using high-resolution, high-contrast images for best results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool supports over 100 languages including Chinese (Simplified/Traditional), English, Japanese, Korean, French, German, Spanish, Russian, Portuguese, Italian, and Dutch. The first time you use a language, the corresponding training data will be downloaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my image data get uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All image processing happens locally in your browser using the Tesseract.js engine. Image data is never uploaded to any server, ensuring complete privacy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are there garbled characters or errors in the results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possible reasons include: 1) The selected language does not match the text in the image; 2) The image resolution is too low or the text is blurry; 3) Insufficient contrast between text and background; 4) Text is tilted at a steep angle; 5) Artistic fonts or handwriting are used. Try adjusting the image quality or selecting a different language."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it recognize handwritten text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but handwritten text accuracy is typically lower than printed text. Neat handwriting produces better results, while messy or cursive handwriting may have lower accuracy. We recommend uploading clear images with clean backgrounds for the best recognition results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What image formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPEG, PNG, GIF, BMP, and WebP formats are supported. We recommend images with a resolution of at least 300 DPI and a file size not exceeding 10MB for the best recognition results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I save the recognition results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After recognition is complete, click the 'Copy Result' button to copy the recognized text to your clipboard, or click 'Download TXT' to save the results as a text file. You can also manually select and copy text from the result area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What affects recognition speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recognition speed mainly depends on: 1) Image size and resolution; 2) Amount of text in the image; 3) Device performance (CPU/GPU); 4) Whether this is the first time using the selected language (language pack needs to be downloaded). Larger images and complex layouts will take longer to process."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Free Image to Text OCR Tool",
+  "description": "Simple steps to use the 📋 Free Image to Text OCR Tool online tool. Everything runs locally: Image to Text OCR and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📋 Free Image to Text OCR Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+.drop-zone{background:#1e293b;border:2px dashed rgba(6,182,212,.3);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:20px}
+.drop-zone:hover,.drop-zone.dragover{border-color:#06b6d4;background:rgba(6,182,212,.05)}
+.drop-zone svg{width:48px;height:48px;margin-bottom:12px;color:#06b6d4}
+.drop-zone h3{font-size:1.1rem;color:#f1f5f9;margin-bottom:6px}
+.drop-zone p{color:#94a3b8;font-size:.9rem}
+.drop-zone .formats{color:#475569;font-size:.8rem;margin-top:8px}
+.preview-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.preview-section.show{display:block}
+.preview-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.preview-img{max-width:100%;max-height:300px;border-radius:8px;display:block;margin:0 auto}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8}
+.options select{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:6px 10px;font-size:.85rem;cursor:pointer}
+.options select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-box{width:100%;min-height:120px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;resize:vertical;white-space:pre-wrap;word-wrap:break-word}
+.result-box:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.progress-container{background:#0f172a;border-radius:6px;height:8px;margin:12px 0;overflow:hidden;display:none}
+.progress-container.show{display:block}
+.progress-bar{height:100%;background:rgba(6,182,212,.5);border-radius:6px;width:0%;transition:width .3s}
+.progress-text{color:#94a3b8;font-size:.8rem;text-align:center;margin-top:4px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.15rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;margin-bottom:8px;font-size:.9rem}
+.info-section p strong{color:#e2e8f0}
+.info-section code{background:rgba(148,163,184,.1);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.faq-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(148,163,184,.1)}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{text-align:center;padding:24px 16px;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}
+.footer a{color:#64748b;margin:0 8px;font-size:.85rem}
+.footer a:hover{color:#94a3b8}
+.footer p{color:#475569;font-size:.8rem;margin-top:8px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:8px;border:1px solid rgba(148,163,184,.2);font-size:.9rem;opacity:0;transition:all .3s;z-index:1000;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.drop-zone{padding:24px 16px}
+.ad-slot.ad-sidebar{max-width:300px}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Image Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#image-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image to Text OCR",
+      "item": "https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/"
+    }
+  ],
+  "name": "Image to Text OCR"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-to-text-ocr/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+
+<div class="nav-back container">
+  <a href="../../">Home</a> &gt; Image to Text OCR
+</div>
+
+<main class="container">
+  <div class="header">
+    <h1>📝 Image to Text OCR</h1>
+    
+  </div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="drop-zone" id="dropZone">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+    <h3>Drag &amp; drop an image here, or click to upload</h3>
+    <p>Supports JPEG, PNG, GIF, BMP, WebP formats</p>
+    <p class="formats">Max 10MB, recommend at least 300 DPI resolution</p>
+    <input type="file" id="fileInput" accept="image/*" style="display:none">
+  </div>
+
+  <div class="preview-section" id="previewSection">
+    <h2>📷 Image Preview</h2>
+    <img class="preview-img" id="previewImg" alt="Uploaded image preview">
+    <div class="options">
+      <label>Recognition Language:
+        <select id="langSelect">
+          <option value="eng" selected>English</option>
+          <option value="chi_sim">Chinese (Simplified)</option>
+          <option value="chi_tra">Chinese (Traditional)</option>
+          <option value="jpn">Japanese</option>
+          <option value="kor">Korean</option>
+          <option value="fra">French</option>
+          <option value="deu">German</option>
+          <option value="spa">Spanish</option>
+          <option value="rus">Russian</option>
+          <option value="por">Portuguese</option>
+          <option value="ita">Italian</option>
+          <option value="nld">Dutch</option>
+        </select>
+      </label>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="recognizeBtn">🔍 Start Recognition</button>
+      <button class="btn btn-danger" id="removeBtn">🗑️ Remove Image</button>
+    </div>
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-text" id="progressText">Preparing...</div>
+    </div>
+  </div>
+
+  <div class="result-section" id="resultSection">
+    <h2>✅ Recognition Result</h2>
+    <textarea class="result-box" id="resultBox" placeholder="Recognition results will appear here..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="copyBtn">📋 Copy Result</button>
+      <button class="btn btn-secondary" id="downloadBtn">⬇️ Download TXT</button>
+      <button class="btn btn-secondary" id="clearBtn">🧹 Clear Result</button>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>How to Use</h2>
+    <p>This image-to-text OCR tool is powered by Tesseract.js and runs entirely in your browser. No images are uploaded to any server, ensuring complete privacy. Here's a step-by-step guide:</p>
+    <p><strong>Upload an Image:</strong> Click the upload area or drag and drop an image into the page. The tool supports JPEG, PNG, GIF, BMP, and WebP formats. We recommend images under 10MB with a resolution of at least 300 DPI for optimal results.</p>
+    <p><strong>Select Language:</strong> Choose the recognition language that matches the text in your image. The tool supports over 100 languages including Chinese (Simplified/Traditional), English, Japanese, Korean, French, German, Spanish, Russian, and more. The first time you use a language, the corresponding training data will be downloaded automatically.</p>
+    <p><strong>Start Recognition:</strong> Click the "Start Recognition" button and the tool will process the image and extract the text. A progress indicator shows the real-time status. Processing time depends on image size, text amount, and device performance.</p>
+    <p><strong>Handle Results:</strong> After recognition completes, the extracted text appears in the text box below. You can edit it directly, copy it to your clipboard with the "Copy Result" button, or save it as a text file with the "Download TXT" button. If the results are not ideal, try adjusting the image quality or changing the language setting.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Use Cases</h2>
+    <p>OCR technology has a wide range of applications in daily work and study:</p>
+    <p><strong>Document Digitization:</strong> Convert text from scanned documents, screenshots, or photos into editable digital text for further editing, searching, and archiving. Whether it's contracts, reports, invoices, or business cards, you can quickly convert them to editable text, significantly boosting productivity.</p>
+    <p><strong>Study Material Organization:</strong> Extract text from textbook screenshots, PowerPoint slides, or web page captures to create notes, study materials, and knowledge bases. Students can convert photos of lecture boards or whiteboards into text, saving time on manual transcription.</p>
+    <p><strong>Image Information Extraction:</strong> Extract key text information from social media screenshots, chat message screenshots, or CAPTCHA images. When dealing with large volumes of image-based information, OCR helps quickly locate and extract the content you need.</p>
+    <p><strong>Multi-language Translation:</strong> Recognize text in foreign language images and copy it to translation tools for instant translation, breaking down language barriers. When traveling abroad, you can photograph signs, menus, or labels for quick understanding.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Learn More</h2>
+    <p><strong>Tesseract OCR Engine:</strong> Tesseract is an open-source OCR engine originally developed by Hewlett-Packard and now maintained by Google. It supports text recognition in over 100 languages and is considered one of the most accurate open-source OCR engines available. Tesseract.js is the JavaScript port, enabling OCR directly in the browser without server support.</p>
+    <p><strong>How OCR Works:</strong> Optical Character Recognition (OCR) is the process of converting text in images into machine-readable text using optical scanning and pattern recognition. Modern OCR systems typically include preprocessing (noise removal, binarization, skew correction), text detection (locating text regions), character segmentation, and character recognition (pattern matching / deep learning).</p>
+    <p><strong>Tips for Better Accuracy:</strong> 1) Ensure the image is sharp with crisp text edges; 2) Maintain sufficient contrast between text and background; 3) Avoid text tilt - keep it horizontal; 4) Select the correct recognition language; 5) For complex layouts, crop the area you want to recognize before uploading. For printed text, Tesseract typically achieves over 95% accuracy.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How accurate is OCR recognition?</h3>
+      <p>OCR accuracy depends on several factors: image clarity, text contrast, font type, and text layout. For clear printed text, accuracy typically reaches 95% or higher. Handwriting or low-quality images will yield lower accuracy. We recommend using high-resolution, high-contrast images for best results.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What languages are supported?</h3>
+      <p>This tool supports over 100 languages including Chinese (Simplified/Traditional), English, Japanese, Korean, French, German, Spanish, Russian, Portuguese, Italian, and Dutch. The first time you use a language, the corresponding training data will be downloaded.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does my image data get uploaded to a server?</h3>
+      <p>No. All image processing happens locally in your browser using the Tesseract.js engine. Image data is never uploaded to any server, ensuring complete privacy.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why are there garbled characters or errors in the results?</h3>
+      <p>Possible reasons include: 1) The selected language does not match the text in the image; 2) The image resolution is too low or the text is blurry; 3) Insufficient contrast between text and background; 4) Text is tilted at a steep angle; 5) Artistic fonts or handwriting are used. Try adjusting the image quality or selecting a different language.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can it recognize handwritten text?</h3>
+      <p>Yes, but handwritten text accuracy is typically lower than printed text. Neat handwriting produces better results, while messy or cursive handwriting may have lower accuracy. We recommend uploading clear images with clean backgrounds for the best recognition results.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What image formats are supported?</h3>
+      <p>JPEG, PNG, GIF, BMP, and WebP formats are supported. We recommend images with a resolution of at least 300 DPI and a file size not exceeding 10MB for the best recognition results.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I save the recognition results?</h3>
+      <p>After recognition is complete, click the "Copy Result" button to copy the recognized text to your clipboard, or click "Download TXT" to save the results as a text file. You can also manually select and copy text from the result area.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What affects recognition speed?</h3>
+      <p>Recognition speed mainly depends on: 1) Image size and resolution; 2) Amount of text in the image; 3) Device performance (CPU/GPU); 4) Whether this is the first time using the selected language (language pack needs to be downloaded). Larger images and complex layouts will take longer to process.</p>
+    </div>
+  </div>
+
+  </main>
+
+<div>
+<p>Image to Text OCR Tool | No Signup, Client-Side Processing · Data Never Leaves Your Browser</p>
+  <p>100+ Languages Supported · Tesseract.js Engine · Completely Free</p>
+  
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.4/dist/tesseract.min.js"></script>
+<script>
+  'use strict';
+  var dropZone = document.getElementById('dropZone');
+  var fileInput = document.getElementById('fileInput');
+  var previewSection = document.getElementById('previewSection');
+  var previewImg = document.getElementById('previewImg');
+  var langSelect = document.getElementById('langSelect');
+  var recognizeBtn = document.getElementById('recognizeBtn');
+  var removeBtn = document.getElementById('removeBtn');
+  var resultSection = document.getElementById('resultSection');
+  var resultBox = document.getElementById('resultBox');
+  var copyBtn = document.getElementById('copyBtn');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var progressContainer = document.getElementById('progressContainer');
+  var progressBar = document.getElementById('progressBar');
+  var progressText = document.getElementById('progressText');
+  var toast = document.getElementById('toast');
+  var currentFile = null;
+  var scheduler = null;
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2000);
+  }
+
+  function setProgress(percent, text) {
+    progressBar.style.width = percent + '%';
+    progressText.textContent = text || ('Processing ' + percent + '%');
+    progressContainer.classList.add('show');
+  }
+
+  function hideProgress() {
+    progressBar.style.width = '0%';
+    progressContainer.classList.remove('show');
+  }
+
+  function handleFile(file) {
+    if (!file || !file.type.startsWith('image/')) {
+      showToast('Please select an image file');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      showToast('Image size must not exceed 10MB');
+      return;
+    }
+    currentFile = file;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      previewImg.src = e.target.result;
+      previewSection.classList.add('show');
+      resultSection.classList.remove('show');
+      resultBox.value = '';
+      hideProgress();
+    };
+    reader.readAsDataURL(file);
+  }
+
+  dropZone.addEventListener('click', function(){ fileInput.click(); });
+  fileInput.addEventListener('change', function(e){ handleFile(e.target.files[0]); });
+
+  dropZone.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+  });
+  dropZone.addEventListener('dragleave', function() {
+    dropZone.classList.remove('dragover');
+  });
+  dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    var files = e.dataTransfer.files;
+    if (files.length > 0) handleFile(files[0]);
+  });
+
+  removeBtn.addEventListener('click', function() {
+    currentFile = null;
+    previewSection.classList.remove('show');
+    resultSection.classList.remove('show');
+    resultBox.value = '';
+    previewImg.src = '';
+    fileInput.value = '';
+    hideProgress();
+    if (scheduler) {
+      try { scheduler.terminate(); } catch(err) {}
+      scheduler = null;
+    }
+  });
+
+  recognizeBtn.addEventListener('click', async function() {
+    if (!previewImg.src) {
+      showToast('Please upload an image first');
+      return;
+    }
+    try {
+      recognizeBtn.disabled = true;
+      setProgress(0, 'Initializing engine...');
+      var lang = langSelect.value;
+      if (!scheduler) {
+        scheduler = await Tesseract.createScheduler();
+        var worker = await Tesseract.createWorker(lang);
+        scheduler.addWorker(worker);
+      }
+      setProgress(10, 'Loading language pack...');
+      setProgress(20, 'Recognizing...');
+      var result = await scheduler.addJob('recognize', previewImg.src);
+      setProgress(100, 'Done');
+      resultBox.value = result.data.text || '';
+      resultSection.classList.add('show');
+      showToast('Recognition complete!');
+      setTimeout(hideProgress, 1000);
+    } catch (err) {
+      setProgress(0, 'Recognition error');
+      showToast('Failed: ' + (err.message || 'Unknown error'));
+    } finally {
+      recognizeBtn.disabled = false;
+    }
+  });
+
+  copyBtn.addEventListener('click', async function() {
+    if (!resultBox.value) { showToast('Nothing to copy'); return; }
+    try {
+      await navigator.clipboard.writeText(resultBox.value);
+      showToast('Copied to clipboard');
+    } catch (e) {
+      resultBox.select();
+      document.execCommand('copy');
+      showToast('Copied to clipboard');
+    }
+  });
+
+  downloadBtn.addEventListener('click', function() {
+    if (!resultBox.value) { showToast('Nothing to download'); return; }
+    var blob = new Blob([resultBox.value], {type: 'text/plain;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'ocr-result.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('TXT file downloaded');
+  });
+
+  clearBtn.addEventListener('click', function() {
+    resultBox.value = '';
+    showToast('Result cleared');
+  });</script>
+
+<!-- Feedback Widget -->
+</div>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+<footer>
+  <div>
+    <a href="../../">Home</a>
+    <a href="../../">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/image-to-text-ocr/">中文</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

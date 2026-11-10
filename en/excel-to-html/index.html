@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert an Excel sheet into an HTML table in the browser, with markup ready to paste into a page.">
+<meta name="keywords" content="Excel to HTML,XLSX to HTML,XLS to HTML,Excel to HTML table,Excel to HTML converter,spreadsheet to HTML,online Excel converter,free Excel to HTML">
+<title>Free Online Excel to HTML Converter | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/excel-to-html/">
+<meta property="og:title" content="Free Excel to HTML Converter - ToolGuideHub">
+<meta property="og:description" content="Convert an Excel sheet into an HTML table in the browser, with markup ready to paste into a page.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/excel-to-html/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Excel to HTML Converter", "description": "Free online Excel to HTML converter. Convert XLSX/XLS files to HTML tables instantly. 100% client-side, no upload.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is 100% free with no hidden charges, no sign-up required, and no usage limits. All features are accessible to everyone for both personal and commercial use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to any server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool processes everything entirely in your browser using client-side JavaScript. Your data never leaves your device, is never uploaded to any server, and is not stored or logged. This ensures complete privacy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this tool offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Once the page is loaded, this tool works offline without any internet connection. Everything runs locally: Excel to HTML Converter and other values are processed on your device, never sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool is fully responsive and works on all devices including smartphones, tablets, and desktop computers. No app installation is needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Excel To Html do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Excel To Html processes documents entirely in your browser. Your files are never uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.upload-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(15,23,42,.5)}
+.upload-zone:hover,.upload-zone.dragover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.05)}
+.upload-zone-icon{font-size:3rem;margin-bottom:12px;opacity:.6}
+.upload-zone p{color:#94a3b8;font-size:.9rem}
+.upload-zone .hint{color:#64748b;font-size:.8rem;margin-top:8px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.2);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.btn-success:hover{background:rgba(34,197,94,.3)}
+.btn-warning{background:rgba(234,179,8,.15);color:#eab308;border:1px solid rgba(234,179,8,.3)}
+.btn-warning:hover{background:rgba(234,179,8,.25)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs .tab{padding:6px 16px;border-radius:16px;font-size:.8rem;cursor:pointer;border:1px solid rgba(148,163,184,.2);background:transparent;color:#94a3b8}
+.tabs .tab.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:#22d3ee}
+.tabs .tab:hover{border-color:rgba(6,182,212,.4);color:#22d3ee}
+.result-section{display:none}
+.result-section.show{display:block}
+.preview-table{width:100%;overflow:auto;background:#0f172a;border-radius:8px;padding:8px;margin:12px 0}
+.preview-table table{border-collapse:collapse;font-size:.8rem;margin:0 auto}
+.preview-table td,.preview-table th{border:1px solid #475569;padding:6px 10px;text-align:left;white-space:nowrap}
+.preview-table th{background:#1e293b;color:#22d3ee;font-weight:600}
+.html-output{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;margin:12px 0;position:relative}
+.html-output pre{overflow:auto;max-height:300px;font-size:.8rem;color:#e2e8f0;font-family:"SF Mono","Fira Code","Consolas",monospace;line-height:1.4}
+.html-output .copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;font-size:.75rem;background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3);border-radius:4px;cursor:pointer}
+.html-output .copy-btn:hover{background:rgba(6,182,212,.3)}
+
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section code{background:#0f172a;padding:2px 6px;border-radius:4px;font-size:.85rem;color:#22d3ee}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem;display:flex;justify-content:center;gap:16px}
+.footer a{color:#06b6d4}
+.status-bar{padding:12px;border-radius:8px;margin:12px 0;font-size:.85rem;display:none}
+.status-bar.success{display:block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#22c55e}
+.status-bar.error{display:block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
+.status-bar.info{display:block;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:#22d3ee}
+@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Excel to HTML Converter", "item": "https://adi63586.github.io/Toolguidehub/en/excel-to-html/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Excel to HTML Converter","description":"Step-by-step guide for using Excel to HTML Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Excel to HTML Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/excel-to-html/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Excel to HTML Converter</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="upload-section">
+    <div class="upload-zone" id="dropZone">
+      <div class="upload-zone-icon">📊</div>
+      <p><strong>Drop Excel file here</strong> or click to select</p>
+      <p class="hint">Supports .xlsx and .xls • All processing is local • No upload</p>
+      <input type="file" id="fileInput" accept=".xlsx,.xls" style="display:none">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="convertBtn" disabled>🔄 Convert to HTML</button>
+      <button class="btn btn-secondary" id="clearBtn" disabled>🗑️ Clear</button>
+    </div>
+    <div class="status-bar" id="statusBar"></div>
+  </div>
+
+  <div class="result-section" id="resultSection">
+    <div class="tabs" id="sheetTabs"></div>
+    <div class="html-output">
+      <button class="copy-btn" id="copyBtn">📋 Copy HTML</button>
+      <pre id="htmlOutput">&lt;!-- Select a sheet to see HTML --&gt;</pre>
+    </div>
+    <div class="preview-table" id="previewTable"></div>
+  </div>
+
+  <div class="info-section">
+    <h2>About Excel to HTML Converter</h2>
+    <p>This <strong>free online Excel to HTML converter</strong> transforms your spreadsheets into clean, responsive HTML tables. Whether you need to embed Excel data on a website, share tabular data in emails, or convert reports to web format, this tool handles it all — with zero server uploads.</p>
+    <h3>Common Use Cases</h3>
+    <ul>
+      <li><strong>Web Publishing:</strong> Convert spreadsheets to HTML tables for embedding on websites, blogs, or CMS platforms</li>
+      <li><strong>Email Newsletters:</strong> Create HTML tables from Excel data for email campaigns that display correctly across all email clients</li>
+      <li><strong>Documentation:</strong> Transform data sheets into HTML format for internal wikis, knowledge bases, or technical documentation</li>
+      <li><strong>Data Sharing:</strong> Share tabular data with users who don't have spreadsheet software</li>
+    </ul>
+    <h3>Why choose Excel to HTML Converter</h3>
+    <ul>
+      <li><strong>100% Client-Side:</strong> Uses SheetJS library — your file never leaves your device</li>
+      <li><strong>Multi-Sheet Support:</strong> Browse all sheets in your workbook with tab navigation</li>
+      <li><strong>Formatting Preserved:</strong> Cell colors, text styling, borders, and merged cells are kept</li>
+      <li><strong>Clean HTML Output:</strong> Semantic table structure with inline CSS for maximum compatibility</li>
+      <li><strong>One-Click Copy:</strong> Copy HTML code to clipboard instantly</li>
+    </ul>
+  </div>
+
+  <div class="info-section">
+    <h2>Frequently Asked Questions</h2>
+    <h3>What file formats are supported?</h3>
+    <p>This converter supports .XLSX (Excel 2007 and newer) and .XLS (Excel 97-2003) formats. If your file uses .CSV format, please use our dedicated CSV to HTML table converter instead.</p>
+    <h3>Can I use the HTML output on any website?</h3>
+    <p>Yes. The generated HTML uses standard table tags with inline CSS styles, making it compatible with virtually all website builders, CMS platforms (WordPress, Joomla, etc.), and email clients.</p>
+    <h3>How is privacy handled?</h3>
+    <p>Everything runs locally: Excel to HTML Converter and other values are processed on your device, never sent to a server using the SheetJS library. Your Excel file is never uploaded to any server. This makes the tool safe for sensitive business data, financial reports, and personal information.</p>
+    <h3>Does it support formulas and charts?</h3>
+    <p>Formulas are evaluated and the resulting values are displayed in the HTML table. Charts are not converted — only the underlying data is shown. For chart data, the numbers in the chart's source range are included in the output.</p>
+    <h3>What's the maximum file size?</h3>
+    <p>Since all processing is done in-browser, the limit depends on your device's memory. Files up to 10MB typically work well. For very large Excel files with thousands of rows, consider splitting them before conversion.</p>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const convertBtn = document.getElementById('convertBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const resultSection = document.getElementById('resultSection');
+  const sheetTabs = document.getElementById('sheetTabs');
+  const htmlOutput = document.getElementById('htmlOutput');
+  const previewTable = document.getElementById('previewTable');
+  const copyBtn = document.getElementById('copyBtn');
+  const statusBar = document.getElementById('statusBar');
+
+  let currentFile = null;
+  let workbook = null;
+  let currentSheet = null;
+
+  function showStatus(msg, type) {
+    statusBar.className = 'status-bar ' + type;
+    statusBar.textContent = msg;
+  }
+
+  dropZone.addEventListener('click', function() { fileInput.click(); });
+  dropZone.addEventListener('dragover', function(e) {
+    e.preventDefault(); dropZone.classList.add('dragover');
+  });
+  dropZone.addEventListener('dragleave', function() {
+    dropZone.classList.remove('dragover');
+  });
+  dropZone.addEventListener('drop', function(e) {
+    e.preventDefault(); dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', function() {
+    if (this.files.length) handleFile(this.files[0]);
+    this.value = '';
+  });
+
+  function handleFile(file) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['xlsx','xls'].includes(ext)) {
+      showStatus('Please select an Excel file (.xlsx or .xls)', 'error');
+      return;
+    }
+    currentFile = file;
+    convertBtn.disabled = false;
+    clearBtn.disabled = false;
+    showStatus('File loaded: ' + file.name + ' (' + (file.size/1024).toFixed(1) + ' KB)', 'info');
+  }
+
+  convertBtn.addEventListener('click', function() {
+    if (!currentFile) return;
+    convertFile();
+  });
+
+  clearBtn.addEventListener('click', function() {
+    currentFile = null;
+    workbook = null;
+    resultSection.classList.remove('show');
+    convertBtn.disabled = true;
+    clearBtn.disabled = true;
+    hideStatus();
+  });
+
+  function hideStatus() { statusBar.className = 'status-bar'; statusBar.textContent = ''; }
+
+  async function convertFile() {
+    showStatus('Parsing Excel file...', 'info');
+    try {
+      const data = await readFileAsArrayBuffer(currentFile);
+      workbook = XLSX.read(data, {type: 'array', cellStyles: true});
+      renderSheetList();
+      showSheet(workbook.SheetNames[0]);
+      resultSection.classList.add('show');
+      showStatus('✅ Converted successfully — ' + workbook.SheetNames.length + ' sheet(s) found', 'success');
+    } catch(err) {
+      showStatus('Error: ' + err.message, 'error');
+    }
+  }
+
+  function readFileAsArrayBuffer(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = function(e) { resolve(e.target.result); };
+      reader.onerror = function() { reject(new Error('Failed to read file')); };
+      reader.readAsArrayBuffer(file);
+    });
+  }
+
+  function renderSheetList() {
+    sheetTabs.innerHTML = '';
+    workbook.SheetNames.forEach(function(name, i) {
+      const tab = document.createElement('button');
+      tab.className = 'tab' + (i === 0 ? ' active' : '');
+      tab.textContent = name;
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        showSheet(name);
+      });
+      sheetTabs.appendChild(tab);
+    });
+  }
+
+  function showSheet(sheetName) {
+    currentSheet = sheetName;
+    const sheet = workbook.Sheets[sheetName];
+    if (!sheet) return;
+
+    const html = XLSX.utils.sheet_to_html(sheet, {header: '', footer: ''});
+    const cleanedHtml = html.replace(/<table[^>]*>/, '<table>');
+
+    // Generate clean HTML with inline styles for formatting
+    const ref = sheet['!ref'];
+    if (!ref) { htmlOutput.textContent = '<!-- Empty sheet -->'; previewTable.innerHTML = ''; return; }
+    const range = XLSX.utils.decode_range(ref);
+    const mergedCells = sheet['!merges'] || [];
+
+    let tableHtml = '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px">\n';
+    let colStyles = sheet['!cols'] || [];
+
+    for (let R = range.s.r; R <= range.e.r; R++) {
+      tableHtml += '  <tr>\n';
+      for (let C = range.s.c; C <= range.e.c; C++) {
+        const addr = XLSX.utils.encode_cell({r: R, c: C});
+        const cell = sheet[addr];
+        // Check if cell is merged and is NOT the top-left of merge (skip non-top-left)
+        let merged = false, rowspan = 1, colspan = 1;
+        for (let m of mergedCells) {
+          if (m.s.r <= R && m.e.r >= R && m.s.c <= C && m.e.c >= C) {
+            if (m.s.r !== R || m.s.c !== C) { merged = true; break; }
+            rowspan = m.e.r - m.s.r + 1;
+            colspan = m.e.c - m.s.c + 1;
+          }
+        }
+        if (merged) continue;
+
+        const isHeader = R === range.s.r;
+        const tag = isHeader ? 'th' : 'td';
+        let style = 'border:1px solid #ccc;padding:6px 10px;text-align:' + (cell && cell.t === 'n' ? 'right' : 'left');
+
+        if (cell && cell.s) {
+          const fmt = cell.s;
+          if (fmt.fill && fmt.fill.fgColor && fmt.fill.fgColor.rgb) {
+            style += ';background-color:#' + fmt.fill.fgColor.rgb;
+          }
+          if (fmt.font) {
+            if (fmt.font.bold) style += ';font-weight:bold';
+            if (fmt.font.italic) style += ';font-style:italic';
+            if (fmt.font.color && fmt.font.color.rgb) style += ';color:#' + fmt.font.color.rgb;
+            if (fmt.font.sz) style += ';font-size:' + fmt.font.sz + 'px';
+          }
+          if (fmt.alignment && fmt.alignment.horizontal) {
+            style += ';text-align:' + fmt.alignment.horizontal;
+          }
+        }
+        if (isHeader) { style += ';font-weight:bold;background-color:#1e293b;color:#22d3ee'; }
+
+        let extras = '';
+        if (rowspan > 1) extras += ' rowspan="' + rowspan + '"';
+        if (colspan > 1) extras += ' colspan="' + colspan + '"';
+
+        const val = cell ? cell.v !== undefined ? cell.v : '' : '';
+        tableHtml += '    <' + tag + ' style="' + style + '"' + extras + '>' + escapeHtml(String(val)) + '</' + tag + '>\n';
+      }
+      tableHtml += '  </tr>\n';
+    }
+    tableHtml += '</table>';
+
+    htmlOutput.textContent = tableHtml;
+    previewTable.innerHTML = tableHtml;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  copyBtn.addEventListener('click', function() {
+    const text = htmlOutput.textContent;
+    if (!text || text.startsWith('<!--')) return;
+    navigator.clipboard.writeText(text).then(function() {
+      copyBtn.textContent = '✅ Copied!';
+      setTimeout(function() { copyBtn.textContent = '📋 Copy HTML'; }, 2000);
+    }).catch(function() {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      copyBtn.textContent = '✅ Copied!';
+      setTimeout(function() { copyBtn.textContent = '📋 Copy HTML'; }, 2000);
+    });
+  });</script>
+
+<!-- Feedback Widget -->
+</main>
+
+<!-- Feedback Widget -->
+
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');if(!p)return;p.style.display=p.style.display==='none'?'block':'none';}
+var _ft=document.getElementById('feedback-text');if(_ft){_ft.addEventListener('input',function(){var c=document.getElementById('feedback-count');if(c)c.textContent=this.value.length+'/1000';});}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const text=document.getElementById('feedback-text').value.trim();
+if(!text){var ft=document.getElementById('feedback-text');if(ft){ft.style.borderColor='#ef4444';setTimeout(function(){ft.style.borderColor=''},2000)};return;}
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+setTimeout(()=>{document.getElementById('feedback-success').style.display='none';toggleFeedback();document.getElementById('feedback-text').value='';document.getElementById('feedback-count').textContent='0/1000';},3000);}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js">
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:960px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../../" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../../en/privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../../en/about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/excel-to-html/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+  </div>
+  <p style="text-align:center;color:#64748b;font-size:12px;margin-top:12px">© 2026 ToolGuideHub — All conversions run locally in your browser</p>
+</footer>
+</body>
+</html>

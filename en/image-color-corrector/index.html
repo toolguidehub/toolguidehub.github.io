@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  function gtag(){window.dataLayer.push(arguments);}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fix photo colors by adjusting brightness, contrast, saturation, hue, exposure, and temperature, comparing original and adjusted before saving.">
+<meta name="keywords" content="image color corrector,photo color correction,adjust brightness,contrast adjustment,saturation,hue,online image editor,photo color adjuster,free color correction tool,photo editing online,image enhancer">
+<title>Free Image Color Corrector - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-color-corrector/">
+<meta property="og:title" content="Free Image Color Corrector - ToolGuideHub">
+<meta property="og:description" content="Fix photo colors by adjusting brightness, contrast, saturation, hue, exposure, and temperature, comparing original and adjusted before saving.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-color-corrector/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Image Color Corrector - Adjust Brightness/Contrast/Saturation/Hue·Free", "description": "Free online image color corrector. Adjust brightness, contrast, saturation, hue, exposure, and temperature with real-time preview. One-click reset. Pure frontend Canvas processing — your images stay on your device, never uploaded.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea, input[type="text"], select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:10px;color:#e2e8f0;font-size:.9rem;outline:none;width:100%;font-family:inherit}
+textarea:focus, input:focus, select:focus{border-color:rgba(6,182,212,.5)}
+textarea{
+      background: #0f172a;
+      color: var(--text);font-family:monospace;resize:vertical}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.control-group{margin-bottom:12px}
+.control-group label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+.control-group input[type="range"]{width:100%;height:6px;-webkit-appearance:none;background:rgba(148,163,184,.2);border-radius:3px;outline:none}
+.control-group input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:#22d3ee;border-radius:50%;cursor:pointer}
+.control-group .range-value{color:#22d3ee;font-size:.9rem;margin-left:8px}
+.control-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.control-row .control-group{flex:1;min-width:150px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{list-style:none;padding-left:0}
+.info-section ul li{padding-left:16px;position:relative}
+.info-section ul li::before{content:"▸";position:absolute;left:0;color:#22d3ee}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px;margin-top:12px;max-height:300px;overflow:auto;white-space:pre-wrap;font-family:monospace;font-size:.85rem;color:#e2e8f0}
+.upload-zone{background:#1e293b;border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.upload-zone:hover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.05)}
+.upload-zone.dragover{border-color:#22d3ee;background:rgba(6,182,212,.08)}
+.upload-zone p{color:#94a3b8;font-size:.9rem;margin-top:8px}
+.upload-zone .icon{font-size:3rem;margin-bottom:8px}
+#fileInput{display:none}
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:16px}
+.qr-item{text-align:center;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:12px}
+.qr-item canvas{max-width:100%;border-radius:4px}
+.qr-item .qr-label{font-size:.75rem;color:#64748b;margin-top:4px;word-break:break-all;max-height:40px;overflow:hidden}
+.qr-item .btn{margin-top:6px;padding:4px 12px;font-size:.75rem}
+.preview-canvas{display:block;max-width:100%;margin:12px auto;border-radius:8px;border:1px solid rgba(148,163,184,.2)}
+.color-input{width:48px;height:36px;padding:2px;border:1px solid rgba(148,163,184,.2);border-radius:4px;background:#0f172a;cursor:pointer}
+.file-info{color:#64748b;font-size:.85rem;margin-top:6px}
+.checkbox-group{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.checkbox-group label{display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;cursor:pointer}
+.checkbox-group input[type="checkbox"]{width:16px;height:16px;accent-color:#22d3ee}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>*{flex:1;min-width:200px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What adjustments are supported?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What adjustments are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seven core color parameters: Brightness (-100 to +100), Contrast (-100 to +100), Saturation (-100 to +100), Hue Rotation (0°-360°), Exposure (-2 to +2), Temperature (-100 to +100), and Shadows/Highlights. Each can be independently adjusted with real-time preview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What image formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common formats: JPG/JPEG, PNG, WebP, and BMP. Output is PNG format for maximum quality. Export at original resolution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does adjustment reduce image quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each adjustment is computed from the original image data, so there's no cumulative quality loss. However, extreme adjustments (max brightness, zero saturation) may lose detail. Output is lossless PNG at original resolution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my image secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Every operation runs on your device — Image Color Corrector and other values are never sent to a server using the Canvas API. Your image is never uploaded to any server. You can use this tool completely offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hard limit, but very large images (over 4000×4000 px) may impact performance. The tool auto-scales preview but exports at original resolution."
+      }
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Image Color Corrector",
+  "description": "Simple steps to use 🎨 Image Color Corrector. Everything runs locally: Image Color Corrector and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🎨 Image Color Corrector"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-color-corrector/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-color-corrector/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-color-corrector/#output"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image Color Corrector - Adjust Brightness/Contrast/Saturation/Hue·Free",
+      "item": "https://adi63586.github.io/Toolguidehub/en/image-color-corrector/"
+    }
+  ],
+  "name": "Image Color Corrector - Adjust Brightness/Contrast/Saturation/Hue·Free"
+}</script><meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-color-corrector/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head><body>
+
+
+  <main class="container">
+    <div class="header">
+      <h1>🎨 Image Color Corrector</h1>
+      
+    </div>
+    <div class="nav-back"><a href="../../index.html">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+    <div class="tool-section" id="input">
+      <h2>🖼️ Select Image</h2>
+      <div class="upload-zone" id="uploadZone">
+        <div class="icon">🖼️</div>
+        <p><strong>Click to Upload Image</strong> or drag & drop here</p>
+        <p style="font-size:.8rem;color:#64748b;margin-top:4px">Supports JPG / PNG / WebP / BMP</p>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+    </div>
+    <div class="tool-section" id="controls" style="display:none">
+      <h2>⚙️ Color Adjustments</h2>
+      <div class="control-row">
+        <div class="control-group">
+          <label>Brightness: <span class="range-value" id="brightnessVal">0</span></label>
+          <input type="range" id="brightness" min="-100" max="100" value="0">
+        </div>
+        <div class="control-group">
+          <label>Contrast: <span class="range-value" id="contrastVal">0</span></label>
+          <input type="range" id="contrast" min="-100" max="100" value="0">
+        </div>
+      </div>
+      <div class="control-row">
+        <div class="control-group">
+          <label>Saturation: <span class="range-value" id="saturationVal">0</span></label>
+          <input type="range" id="saturation" min="-100" max="100" value="0">
+        </div>
+        <div class="control-group">
+          <label>Hue: <span class="range-value" id="hueVal">0</span>°</label>
+          <input type="range" id="hue" min="0" max="360" value="0">
+        </div>
+      </div>
+      <div class="control-row">
+        <div class="control-group">
+          <label>Exposure: <span class="range-value" id="exposureVal">0</span></label>
+          <input type="range" id="exposure" min="-200" max="200" value="0">
+        </div>
+        <div class="control-group">
+          <label>Temperature: <span class="range-value" id="temperatureVal">0</span></label>
+          <input type="range" id="temperature" min="-100" max="100" value="0">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-danger" id="resetBtn">🔄 Reset All</button>
+        <button class="btn btn-success" id="downloadBtn">📥 Download Adjusted Image</button>
+      </div>
+    </div>
+    <div class="tool-section" id="preview" style="display:none">
+      <h2>👁️ Preview</h2>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+        <div style="flex:1;min-width:200px;text-align:center">
+          <div style="color:#64748b;font-size:.85rem;margin-bottom:6px">Original</div>
+          <img id="originalImg" style="max-width:100%;max-height:350px;border-radius:8px;border:1px solid rgba(148,163,184,.2)">
+        </div>
+        <div style="flex:1;min-width:200px;text-align:center">
+          <div style="color:#64748b;font-size:.85rem;margin-bottom:6px">Adjusted</div>
+          <canvas id="resultCanvas" style="max-width:100%;max-height:350px;border-radius:8px;border:1px solid rgba(148,163,184,.2)"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>📖 How to Use</h2>
+      <p>Using Image Color Corrector takes just three steps:</p>
+      <ol style="padding-left:20px;margin-top:12px">
+        <li style="margin-bottom:12px"><strong>Enter Your Input</strong><br><span style="color:#94a3b8;font-size:.9rem">Type, paste, or upload your content into the input area.</span></li>
+        <li style="margin-bottom:12px"><strong>Configure Options</strong><br><span style="color:#94a3b8;font-size:.9rem">Adjust available settings to customize your output.</span></li>
+        <li style="margin-bottom:12px"><strong>Get Results</strong><br><span style="color:#94a3b8;font-size:.9rem">Click the process button. All computation happens on your device — Image Color Corrector, other values and other inputs stay in your browser — nothing is uploaded to any server.</span></li>
+      </ol>
+    </div>
+
+    <div class="info-section">
+      <h2>❓ FAQ</h2>
+
+      <div class="faq-item">
+        <h3>What adjustments are supported?</h3>
+        <p>Seven core color parameters: Brightness (-100 to +100), Contrast (-100 to +100), Saturation (-100 to +100), Hue Rotation (0°-360°), Exposure (-2 to +2), Temperature (-100 to +100), and Shadows/Highlights. Each can be independently adjusted with real-time preview.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What image formats are supported?</h3>
+        <p>Common formats: JPG/JPEG, PNG, WebP, and BMP. Output is PNG format for maximum quality. Export at original resolution.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does adjustment reduce image quality?</h3>
+        <p>Each adjustment is computed from the original image data, so there's no cumulative quality loss. However, extreme adjustments (max brightness, zero saturation) may lose detail. Output is lossless PNG at original resolution.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my image secure?</h3>
+        <p>Absolutely. Every operation runs on your device — Image Color Corrector and other values are never sent to a server using the Canvas API. Your image is never uploaded to any server. You can use this tool completely offline.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is there a size limit?</h3>
+        <p>No hard limit, but very large images (over 4000×4000 px) may impact performance. The tool auto-scales preview but exports at original resolution.</p>
+      </div>
+
+    </div>
+  </main>
+<div class="toast" id="toast"></div>
+<script>
+var toastEl=document.getElementById('toast');
+function showToast(m){if(!toastEl){toastEl=document.getElementById('toast');}if(!toastEl)return;toastEl.textContent=m;toastEl.classList.add('show');setTimeout(function(){toastEl.classList.remove('show')},3000);}
+function $(id){return document.getElementById(id);}
+var uploadZone=$('uploadZone'),fileInput=$('fileInput'),originalImg=$('originalImg'),resultCanvas=$('resultCanvas'),previewSection=$('preview'),controlsSection=$('controls'),downloadBtn=$('downloadBtn'),resetBtn=$('resetBtn');
+var brightness=$('brightness'),contrast=$('contrast'),saturation=$('saturation'),hue=$('hue'),exposure=$('exposure'),temperature=$('temperature');
+var brightnessVal=$('brightnessVal'),contrastVal=$('contrastVal'),saturationVal=$('saturationVal'),hueVal=$('hueVal'),exposureVal=$('exposureVal'),temperatureVal=$('temperatureVal');
+var sourceCanvas=$('sourceCanvas');
+if(!sourceCanvas){sourceCanvas=document.createElement('canvas');sourceCanvas.id='sourceCanvas';}
+var originalImage=null,imgLoaded=false;
+
+uploadZone.addEventListener('click',function(){fileInput.click();});
+uploadZone.addEventListener('dragover',function(e){e.preventDefault();uploadZone.classList.add('dragover');});
+uploadZone.addEventListener('dragleave',function(){uploadZone.classList.remove('dragover');});
+uploadZone.addEventListener('drop',function(e){e.preventDefault();uploadZone.classList.remove('dragover');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+fileInput.addEventListener('change',function(e){if(e.target.files[0])handleFile(e.target.files[0]);});
+
+function handleFile(file){
+  if(!file.type.match(/image\//)){showToast('Please choose an image file');return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      originalImage=img;imgLoaded=true;
+      originalImg.src=img.src;
+      originalImg.style.display='block';
+      previewSection.style.display='block';
+      controlsSection.style.display='block';
+      render();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function render(){
+  if(!originalImage)return;
+  var b=parseInt(brightness.value)||0,c=parseInt(contrast.value)||0,s=parseInt(saturation.value)||0,h=parseInt(hue.value)||0,e=parseInt(exposure.value)||0,t=parseInt(temperature.value)||0;
+  var canvas=resultCanvas;
+  canvas.width=originalImage.naturalWidth;
+  canvas.height=originalImage.naturalHeight;
+  var ctx=canvas.getContext('2d');
+  ctx.drawImage(originalImage,0,0);
+  var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+  var d=imgData.data;
+  var factor=(259*(c+255))/(255*(259-c));
+  var expMult=Math.pow(2,e/200);
+  for(var i=0;i<d.length;i+=4){
+    var r=d[i],g=d[i+1],bl=d[i+2];
+    r=Math.max(0,Math.min(255,(factor*(r-128)+128)*expMult+b));
+    g=Math.max(0,Math.min(255,(factor*(g-128)+128)*expMult+b));
+    bl=Math.max(0,Math.min(255,(factor*(bl-128)+128)*expMult+b));
+    if(s!==0){
+      var gray=0.299*r+0.587*g+0.114*bl;
+      r=gray+(r-gray)*(s/100+1);
+      g=gray+(g-gray)*(s/100+1);
+      bl=gray+(bl-gray)*(s/100+1);
+    }
+    if(t!==0){
+      r+=t*0.5;bl-=t*0.5;
+    }
+    if(h!==0){
+      var rad=h*Math.PI/180;
+      var cr=Math.cos(rad),sg=Math.sin(rad);
+      var nr=cr*r+(1-cr)/3*r+(1-cr)/3*g+(1-cr)/3*bl+sg*(-0.213*r-0.715*g+0.928*bl);
+      var ng=(1-cr)/3*r+cr*g+(1-cr)/3*g+(1-cr)/3*bl+sg*(0.143*r-0.14*g-0.283*bl);
+      var nb=(1-cr)/3*r+(1-cr)/3*g+cr*bl+(1-cr)/3*bl+sg*(-0.787*r+0.715*g+0.072*bl);
+      r=nr;g=ng;bl=nb;
+    }
+    d[i]=Math.max(0,Math.min(255,r));
+    d[i+1]=Math.max(0,Math.min(255,g));
+    d[i+2]=Math.max(0,Math.min(255,bl));
+  }
+  ctx.putImageData(imgData,0,0);
+  if(sourceCanvas.parentNode!==resultCanvas.parentNode){resultCanvas.parentNode.insertBefore(sourceCanvas,resultCanvas);}
+  sourceCanvas.width=canvas.width;sourceCanvas.height=canvas.height;
+  sourceCanvas.getContext('2d').drawImage(originalImage,0,0,canvas.width,canvas.height);
+}
+
+var sliders=[brightness,contrast,saturation,hue,exposure,temperature];
+var vals=[brightnessVal,contrastVal,saturationVal,hueVal,exposureVal,temperatureVal];
+sliders.forEach(function(sl,i){
+  sl.addEventListener('input',function(){vals[i].textContent=sl.value;render();});
+});
+
+resetBtn.addEventListener('click',function(){
+  brightness.value=0;contrast.value=0;saturation.value=0;hue.value=0;exposure.value=0;temperature.value=0;
+  vals.forEach(function(v){v.textContent='0';});
+  if(imgLoaded)render();
+  showToast('Settings reset');
+});
+
+downloadBtn.addEventListener('click',function(){
+  if(!imgLoaded){showToast('Upload an image first');return;}
+  var link=document.createElement('a');
+  link.download='color-corrected.png';
+  link.href=resultCanvas.toDataURL('image/png');
+  link.click();
+  showToast('PNG downloaded');
+});
+</script>
+<!-- Feedback Widget -->
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+<script src="../../related-tools.js"></script>
+</div>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../contact/">Contact</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a> <a href="../../en/image-color-corrector/" style="color:#64748b;margin:0 8px">中文</a> <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body></html>

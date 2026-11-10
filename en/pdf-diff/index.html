@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Diff Tool - Online Compare Two PDF Files | ToolGuideHub</title>
+    <meta name="description" content="Highlight text differences between two PDFs line by line, marking added and removed content in green and red.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pdf-diff/">
+    <meta property="og:title" content="PDF Diff Tool - Free Online Compare Two PDF Files">
+    <meta property="og:description" content="Highlight text differences between two PDFs line by line, marking added and removed content in green and red.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pdf-diff/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+        .header h1{font-size:2rem;color:#f1f5f9;margin-bottom:0}
+        .lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+        .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+        .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+        .nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+        .nav-back a{color:#64748b;text-decoration:none}
+        .nav-back a:hover{color:#94a3b8}
+        header { text-align: center; padding: 30px 0 20px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .upload-area { border: 2px dashed rgba(148,163,184,.1); border-radius: 12px; padding: 30px; text-align: center; cursor: pointer; transition: all .2s; margin-bottom: 12px; }
+        .upload-area:hover { border-color: #22d3ee; background: rgba(59,130,246,.04); }
+        .upload-area.dragover { border-color: #22d3ee; background: rgba(59,130,246,.08); }
+        .upload-area .icon { font-size: 2.5rem; margin-bottom: 8px; }
+        .upload-area .label { font-weight: 600; margin-bottom: 4px; }
+        .upload-area .hint { font-size: 0.85rem; color: #94a3b8; }
+        .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .diff-container { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.8; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; overflow-x: auto; max-height: 500px; overflow-y: auto; }
+        .diff-line { padding: 2px 12px; white-space: pre-wrap; word-break: break-all; }
+        .diff-line.added { background: #dcfce7; color: #166534; }
+        .diff-line.removed { background: #fee2e2; color: #991b1b; }
+        .diff-line.unchanged { background: transparent; }
+        .diff-line.line-num { display: inline-block; min-width: 40px; color: #94a3b8; font-size: 11px; user-select: none; }
+        .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .stat-item { padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+        .stat-added { background: #dcfce7; color: #166534; }
+        .stat-removed { background: #fee2e2; color: #991b1b; }
+        .stat-unchanged { background: rgba(148,163,184,.15); color: #94a3b8; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .upload-grid { grid-template-columns: 1fr; } }
+        
+        
+    </style>
+    <style>
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pdf-diff/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+<div class="header"><h1>📄 PDF Diff Tool</h1></div>
+<p class="nav-back"><a href="../index.html">← All Tools</a></p>
+        <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+            <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 No Upload — Everything runs in your browser</span>
+            <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No registration, no limits</span>
+            <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+        </div>
+        
+        <p>Free online PDF comparison tool — highlight text differences line by line, pure frontend processing</p>
+    </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "PDF Diff Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/pdf-diff/"
+    }
+  ],
+  "name": "PDF Diff Tool"
+}</script>
+
+    <div class="section">
+        <h2>📤 Upload PDF Files</h2>
+        <div class="upload-grid">
+            <div>
+                <div class="upload-area" id="drop1" onclick="document.getElementById('file1').click()">
+                    <div class="icon">📄</div>
+                    <div class="label">Original PDF</div>
+                    <div class="hint">Click or drag to upload</div>
+                </div>
+                <input type="file" id="file1" accept=".pdf" style="display:none" onchange="handleFile(1,this)">
+                <div id="file1-info" style="font-size:13px;color:#94a3b8;text-align:center"></div>
+            </div>
+            <div>
+                <div class="upload-area" id="drop2" onclick="document.getElementById('file2').click()">
+                    <div class="icon">📄</div>
+                    <div class="label">Modified PDF</div>
+                    <div class="hint">Click or drag to upload</div>
+                </div>
+                <input type="file" id="file2" accept=".pdf" style="display:none" onchange="handleFile(2,this)">
+                <div id="file2-info" style="font-size:13px;color:#94a3b8;text-align:center"></div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:16px">
+            <button class="btn btn-primary" onclick="comparePDFs()" id="compareBtn" disabled>🔍 Compare</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+    </div>
+
+    <div class="section" id="result-card" style="display:none">
+        <h2>📊 Comparison Results</h2>
+        <div class="stats" id="stats"></div>
+        <canvas id="ftChart" width="640" height="200" style="width:100%;height:200px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px;margin-bottom:12px"></canvas>
+        <div class="diff-container" id="diff-output"></div>
+    </div>
+
+    <div class="section">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+            <h3>Q1: How does the PDF diff tool work?</h3>
+            <p>The tool uses pdf.js to extract text from both PDF files in your browser, then applies the LCS (Longest Common Subsequence) algorithm to compare them line by line. Added lines are highlighted in green, removed lines in red, and unchanged lines have no highlight. All processing happens locally — your files never leave your device.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q2: Does it support scanned PDFs?</h3>
+            <p>This tool extracts the text layer from PDFs for comparison. Scanned PDFs that are images without a text layer cannot be compared. We recommend using an OCR tool first to convert scanned PDFs to searchable PDFs.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q3: What do the colors in the diff mean?</h3>
+            <p>Green background indicates added lines (present in the modified PDF but not in the original), red background indicates removed lines (present in the original but not in the modified), and no background means unchanged lines.</p>
+        </div>
+    </div>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How does the PDF diff tool work?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the PDF diff tool work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool uses pdf.js to extract text from both PDFs in your browser, then applies the LCS algorithm to compare line by line. Added=green, removed=red, unchanged=default. All processing is local."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support scanned PDFs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool extracts the text layer. Scanned image PDFs without text layer cannot be compared. Use OCR first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the colors in the diff mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Green=added lines, red=removed lines, no background=unchanged lines."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use PDF Diff Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Upload the original PDF and the modified PDF", "name": "Upload the original PDF and th"}, {"@type": "HowToStep", "position": 2, "text": "Click the Compare button", "name": "Click the Compare button"}, {"@type": "HowToStep", "position": 3, "text": "Review the line-by-line diff results", "name": "Review the line-by-line diff r"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF Diff Tool", "description": "Free online PDF comparison tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/pdf-diff/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    var fileTexts={1:null,2:null};
+
+    function handleFile(n,input){
+        var file=input.files[0];
+        if(!file)return;
+        document.getElementById('file'+n+'-info').textContent=file.name+' ('+formatSize(file.size)+')';
+        var reader=new FileReader();
+        reader.onload=function(e){
+            extractText(e.target.result,n);
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    async function extractText(data,n){
+        try{
+            var pdf=await pdfjsLib.getDocument({data:data}).promise;
+            var text='';
+            for(var i=1;i<=pdf.numPages;i++){
+                var page=await pdf.getPage(i);
+                var content=await page.getTextContent();
+                var pageText=content.items.map(function(item){return item.str}).join(' ');
+                text+=pageText+'\n\n';
+            }
+            fileTexts[n]=text.trim();
+            checkReady();
+        }catch(err){
+            document.getElementById('file'+n+'-info').textContent='Extraction failed: '+err.message;
+        }
+    }
+
+    function checkReady(){
+        var btn=document.getElementById('compareBtn');
+        btn.disabled=!(fileTexts[1]&&fileTexts[2]);
+    }
+
+    function formatSize(bytes){
+        if(bytes<1024)return bytes+' B';
+        if(bytes<1048576)return(bytes/1024).toFixed(1)+' KB';
+        return(bytes/1048576).toFixed(1)+' MB';
+    }
+
+    function computeLCS(a,b){
+        var m=a.length,n=b.length;
+        var dp=[];
+        for(var i=0;i<=m;i++){dp[i]=[];for(var j=0;j<=n;j++)dp[i][j]=0;}
+        for(var i=1;i<=m;i++)for(var j=1;j<=n;j++){
+            if(a[i-1]===b[j-1])dp[i][j]=dp[i-1][j-1]+1;
+            else dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
+        }
+        var result=[];var i=m,j=n;
+        while(i>0||j>0){
+            if(i>0&&j>0&&a[i-1]===b[j-1]){result.unshift({type:'unchanged',text:a[i-1],lineA:i,lineB:j});i--;j--;}
+            else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])){result.unshift({type:'added',text:b[j-1],lineB:j});j--;}
+            else{result.unshift({type:'removed',text:a[i-1],lineA:i});i--;}
+        }
+        return result;
+    }
+
+    function comparePDFs(){
+        if(!fileTexts[1]||!fileTexts[2])return;
+        var linesA=fileTexts[1].split('\n');
+        var linesB=fileTexts[2].split('\n');
+        var diff=computeLCS(linesA,linesB);
+        var added=0,removed=0,unchanged=0;
+        diff.forEach(function(d){if(d.type==='added')added++;else if(d.type==='removed')removed++;else unchanged++;});
+        document.getElementById('stats').innerHTML=
+            '\x3Cdiv class="stat-item stat-added">➕ Added: '+added+' lines\x3C/div>'+
+            '\x3Cdiv class="stat-item stat-removed">➖ Removed: '+removed+' lines\x3C/div>'+
+            '\x3Cdiv class="stat-item stat-unchanged">⏸ Unchanged: '+unchanged+' lines\x3C/div>';
+        var html='';
+        diff.forEach(function(d){
+            var cls=d.type==='added'?'added':d.type==='removed'?'removed':'unchanged';
+            var prefix=d.type==='added'?'+ ':d.type==='removed'?'- ':'  ';
+            var lineNum=d.type==='removed'?'L'+d.lineA:d.type==='added'?'L'+d.lineB:'L'+(d.lineA||d.lineB);
+            html+='\x3Cdiv class="diff-line '+cls+'">\x3Cspan class="line-num">'+lineNum+'\x3C/span>'+prefix+escapeHtml(d.text)+'\x3C/div>';
+        });
+        document.getElementById('diff-output').innerHTML=html;
+        document.getElementById('result-card').style.display='';
+        ftDrawDiffChart(added,removed,unchanged);
+    }
+
+    function ftDrawDiffChart(added,removed,unchanged){
+        var cv=document.getElementById('ftChart');
+        if(!cv)return;
+        var ctx=cv.getContext('2d');
+        var W=cv.width,H=cv.height,padL=44,padR=10,padT=18,padB=30;
+        ctx.clearRect(0,0,W,H);
+        var data=[{label:'Added',v:added,color:'#10b981'},{label:'Removed',v:removed,color:'#ef4444'},{label:'Unchanged',v:unchanged,color:'#64748b'}];
+        var maxV=Math.max.apply(null,data.map(function(x){return x.v}));
+        if(maxV<=0)return;
+        ctx.font='10px sans-serif';ctx.textAlign='right';
+        for(var g=0;g<=4;g++){
+            var y=padT+(H-padT-padB)*g/4,val=maxV*(4-g)/4;
+            ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+            ctx.fillStyle='#94a3b8';ctx.fillText(Math.round(val),padL-6,y+3);
+        }
+        var bw=(W-padL-padR)/data.length*0.4;
+        ctx.textAlign='center';
+        for(var i=0;i<data.length;i++){
+            var bh=(H-padT-padB)*data[i].v/maxV;
+            var x=padL+(W-padL-padR)*(i+0.5)/data.length;
+            ctx.fillStyle=data[i].color;
+            ctx.fillRect(x-bw/2,padT+(H-padT-padB)-bh,bw,bh);
+            ctx.fillStyle='#e2e8f0';ctx.fillText(data[i].v,x,padT+(H-padT-padB)-bh-4);
+            ctx.fillStyle='#94a3b8';ctx.fillText(data[i].label,x,padT+(H-padT-padB)+14);
+        }
+    }
+
+    function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/\x3C/g,'&lt;').replace(/>/g,'&gt;');}
+
+    function clearAll(){
+        fileTexts={1:null,2:null};
+        document.getElementById('file1').value='';document.getElementById('file2').value='';
+        document.getElementById('file1-info').textContent='';document.getElementById('file2-info').textContent='';
+        document.getElementById('result-card').style.display='none';
+        document.getElementById('compareBtn').disabled=true;
+    }
+
+    // Drag and drop
+    [1,2].forEach(function(n){
+        var drop=document.getElementById('drop'+n);
+        drop.addEventListener('dragover',function(e){e.preventDefault();drop.classList.add('dragover');});
+        drop.addEventListener('dragleave',function(){drop.classList.remove('dragover');});
+        drop.addEventListener('drop',function(e){e.preventDefault();drop.classList.remove('dragover');var file=e.dataTransfer.files[0];if(file&&file.type==='application/pdf'){document.getElementById('file'+n).files=e.dataTransfer.files;handleFile(n,{files:[file]});}});
+    });
+
+    // Rating widget
+    // Feedback widget
+        var d=document,c=d.createElement('div');
+</script>
+    
+
+<div class="seo-content"><h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-item"><h3>How does the PDF diff tool work?</h3><p>The tool uses pdf.js to extract text from both PDFs in your browser, then applies the LCS algorithm to compare line by line. Added=green, removed=red, unchanged=default. All processing is local.</p></div>
+    <div class="faq-item"><h3>Does it support scanned PDFs?</h3><p>This tool extracts the text layer. Scanned image PDFs without text layer cannot be compared. Use OCR first.</p></div>
+    <div class="faq-item"><h3>What do the colors in the diff mean?</h3><p>Green=added lines, red=removed lines, no background=unchanged lines.</p></div>
+</div>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div></div></main><footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/pdf-diff/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="faq-section">
+    <script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

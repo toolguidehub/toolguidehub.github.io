@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create random coupon, promo and gift-card codes with custom prefix, length and character set.">
+<title>Coupon Code Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/coupon-generator/">
+<meta property="og:title" content="Coupon Code Generator - ToolGuideHub">
+<meta property="og:description" content="Create random coupon, promo and gift-card codes with custom prefix, length and character set.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/coupon-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Coupon Code Generator", "description": "Free online coupon/promo code generator. Generate random coupon codes, discount codes, and gift card codes. Customizable prefix, length, quantity, and character set. Pure client-side.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Coupon Code Generator", "item": "https://adi63586.github.io/Toolguidehub/en/coupon-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Coupon Code Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Coupon Code Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Coupon Code Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Prefix and Suffix are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Coupon Code Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Coupon Code Generator","description":"Step-by-step guide for using Coupon Code Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Coupon Code Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],input[type=number]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace;resize:vertical;min-height:100px;margin-bottom:12px}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.output-box{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace;min-height:60px;word-break:break-all;margin-bottom:12px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-warning{background:rgba(234,179,8,.15);color:#facc15;border:1px solid rgba(234,179,8,.2)}
+.btn-warning:hover{background:rgba(234,179,8,.25)}
+.color-preview{width:48px;height:48px;border-radius:8px;border:2px solid rgba(148,163,184,.2);display:inline-block;vertical-align:middle}
+.info-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:#94a3b8;font-size:.85rem}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.85rem;border:1px solid rgba(148,163,184,.1);z-index:1000;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.8rem;border-top:1px solid rgba(148,163,184,.05);margin-top:32px}
+@media(max-width:600px){.header h1{font-size:1.3rem}.container{padding:16px 12px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/coupon-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<nav class="nav-back"><a href="../../">← Back to Home</a></nav>
+<header class="header">
+<h1>Coupon Code Generator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online coupon/promo code generator. Generate random coupon codes, discount codes, and gift card codes. Customizable prefix, length, quantity, and character set.</p>
+
+</header>
+<div class="input-section" id="app">
+<h2>Batch Coupon Code Generation</h2>
+<div class="row">
+<div class="field"><label>Prefix (optional)</label><input type="text" id="prefix" placeholder="VIP-"></div>
+<div class="field"><label>Suffix (optional)</label><input type="text" id="suffix" placeholder="-2024"></div>
+</div>
+<div class="row">
+<div class="field"><label>Segment Length</label><input type="number" id="seg-len" value="4" min="1" max="20"></div>
+<div class="field"><label>Segments</label><input type="number" id="seg-count" value="3" min="1" max="10"></div>
+<div class="field"><label>Quantity</label><input type="number" id="count" value="10" min="1" max="500"></div>
+</div>
+<div class="row"><div class="field"><label>Character Set</label><select id="charset" style="width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px"><option value="upper">Uppercase</option><option value="upper-num">Uppercase + Numbers</option><option value="upper-num-safe">Uppercase + Numbers (no confusing chars)</option><option value="all">All Letters + Numbers</option></select></div></div>
+<div class="btn-row">
+<button class="btn btn-primary" id="btn-generate">Generate</button>
+<button class="btn btn-success" id="btn-copy-all">Copy All</button>
+<button class="btn btn-warning" id="btn-clear">Clear</button>
+</div>
+<div class="output-box" id="output" style="margin-top:12px;white-space:pre-wrap;font-family:monospace;min-height:120px;"></div>
+
+<h2>What is Coupon Code Generator?</h2><p>Coupon Code Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Prefix and Suffix to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/regex-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Regex Code Generator</a> <a href="../../en/discount-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Discount Code Generator</a> <a href="../../en/css-beautify/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS Code Beautifier</a> <a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/otp-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free TOTP Code Generator Onl…</a> <a href="../../en/curl-to-rust/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free cURL to Rust Code Gener…</a> <a href="../../en/morse-decoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Morse Code Decoder & En…</a> <a href="../../en/qr-code-reader/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free QR Code Reader Online -…</a></div></section>
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/coupon-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)} function copyText(text){navigator.clipboard.writeText(text).then(function(){showToast('Copied!')}).catch(function(){showToast('Copy failed')})} var charsets={upper:'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"upper-num":'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',"upper-num-safe":'ABCDEFGHJKLMNPQRSTUVWXYZ23456789',all:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'}; function randomChar(set){return set[Math.floor(Math.random()*set.length)]} function genSegment(len,set){var s='';for(var i=0;i<len;i++)s+=randomChar(set);return s}
+document.getElementById('btn-generate').addEventListener('click',function(){
+  var prefix=document.getElementById('prefix').value;
+  var suffix=document.getElementById('suffix').value;
+  var segLen=parseInt(document.getElementById('seg-len').value)||4;
+  var segCount=parseInt(document.getElementById('seg-count').value)||3;
+  var count=parseInt(document.getElementById('count').value)||10;
+  var charsetName=document.getElementById('charset').value;
+  var set=charsets[charsetName]||charsets['upper-num'];
+  var codes=[];
+  for(var i=0;i<count;i++){
+    var code='';
+    for(var j=0;j<segCount;j++){code+=(j>0?'-':'')+genSegment(segLen,set)} codes.push(prefix+code+suffix); } document.getElementById('output').textContent=codes.join('\n'); }); document.getElementById('btn-copy-all').addEventListener('click',function(){var v=document.getElementById('output').textContent;if(v)copyText(v);else showToast('Nothing to copy')}); document.getElementById('btn-clear').addEventListener('click',function(){document.getElementById('output').textContent=''});</script>
+</body>
+</html>

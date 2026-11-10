@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayPal Fee Calculator - ToolGuideHub</title>
+  <meta name="description" content="Calculate PayPal fees and your net amount for domestic, international and micropayment rates across currencies.">
+  <meta property="og:title" content="PayPal Fee Calculator - ToolGuideHub">
+  <meta property="og:description" content="Calculate PayPal fees and your net amount for domestic, international and micropayment rates across currencies.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PayPal Fee Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Calculate PayPal transaction fees and net received amount across domestic, international and micropayment rates for all currencies."}</script>
+  <style>:root{--sub:#94a3b8;}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+    header a{color:#22d3ee;text-decoration:none;font-weight:600;font-size:18px}
+    .lang-switch a{color:var(--sub);font-size:14px;text-decoration:none;padding:4px 12px;border-radius:6px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a:hover{color:#22d3ee;border-color:#22d3ee}
+    main{flex:1;max-width:700px;margin:0 auto;padding:40px 20px;width:100%}
+    h1{font-size:28px;margin-bottom:8px;text-align:center}
+    .subtitle{text-align:center;color:var(--sub);margin-bottom:32px}
+    .section{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+    .form-group input,.form-group select{width:100%;padding:12px;border:2px solid rgba(148,163,184,.1);border-radius:8px;font-size:16px;background:#0f172a;color:#e2e8f0}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee}
+    .row{display:flex;gap:12px}.row>*{flex:1}
+    .btn{width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;background:#22d3ee;color:#fff;transition:all .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .btn-secondary{background:rgba(148,163,184,.1);color:#e2e8f0;margin-bottom:8px}
+    .result{background:#1e293b;border-radius:8px;padding:20px;margin-top:20px;border:1px solid rgba(148,163,184,.1)}
+    .result .final{font-size:36px;font-weight:700;color:#22d3ee}
+    .result .detail{font-size:14px;color:var(--sub);margin-top:8px;line-height:1.8}
+    .result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+    .result-item:last-child{border-bottom:none}
+    .result-item .label{color:var(--sub);font-size:13px}
+    .result-item .value{font-weight:600;font-size:15px}
+    .highlight{color:#22d3ee;font-weight:700}
+    .copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px}
+    .copy-btn:hover{background:rgba(6,182,212,.25)}
+    .copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+    footer{text-align:center;padding:24px;color:var(--sub);font-size:13px;border-top:1px solid rgba(148,163,184,.1)}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:22px}.row{flex-direction:column}}
+    @media(max-width:640px){h1{font-size:1.2rem}}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;opacity:0;transition:all .3s ease;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/paypal-fee-calculator/">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/paypal-fee-calculator/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PayPal Fee Calculator","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"PayPal Fee Calculator"}]}</script>
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"PayPal Fee Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the PayPal Fee Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the PayPal Fee Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Amount Received and Transaction Type are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the PayPal Fee Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use PayPal Fee Calculator","description":"Step-by-step guide for using PayPal Fee Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"PayPal Fee Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<header>
+  <a href="../../">🧰 ToolGuideHub</a>
+  
+</header>
+<main>
+  <h1>💸 PayPal Fee Calculator</h1>
+  <p class="subtitle">Calculate PayPal fees and know your net received amount</p>
+
+  <div class="section">
+    <div class="form-group">
+      <label>💰 Amount Received</label>
+      <input type="number" id="amount" placeholder="e.g. 100" step="0.01" min="0">
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label>🌍 Transaction Type</label>
+        <select id="type">
+          <option value="domestic">Domestic (2.9% + $0.30)</option>
+          <option value="international">International (4.4% + fixed)</option>
+          <option value="micropayment">Micropayment (&lt;$10, 5% + $0.05)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>💱 Currency</label>
+        <select id="currency" onchange="updateSymbol()">
+          <option value="USD">USD - US Dollar ($)</option>
+          <option value="EUR">EUR - Euro (€)</option>
+          <option value="GBP">GBP - British Pound (£)</option>
+          <option value="CNY">CNY - Chinese Yuan ($)</option>
+          <option value="JPY">JPY - Japanese Yen ($)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group" id="fixedFeeGroup">
+      <label>📌 Fixed Fee</label>
+      <input type="number" id="fixedFee" value="0.30" step="0.01" min="0">
+    </div>
+    <div class="form-group" id="rateGroup">
+      <label>📊 Rate (%)</label>
+      <input type="number" id="rate" value="2.9" step="0.1" min="0" max="100">
+    </div>
+    <button class="btn" onclick="calculate()">📊 Calculate Fees</button>
+  </div>
+
+  <div class="card result" id="result" style="display:none">
+    <div class="final" id="netAmount">$0.00</div>
+    <div class="detail" id="netLabel">Net Received Amount</div>
+    <div class="result-item"><span class="label">💸 Gross Amount</span><span class="value" id="grossAmount">$0.00</span></div>
+    <div class="result-item"><span class="label">📊 Fee Rate</span><span class="value" id="feeRateDisplay">0%</span></div>
+    <div class="result-item"><span class="label">📌 Fixed Fee</span><span class="value" id="fixedFeeDisplay">$0.00</span></div>
+    <div class="result-item highlight"><span class="label">💳 Total Fee</span><span class="value" id="totalFee">$0.00</span></div>
+    <div class="result-item"><span class="label">📈 Fee Percentage</span><span class="value" id="feePercent">0%</span></div>
+    <button class="btn copy-btn" onclick="copyResult()" style="margin-top:12px">📋 Copy Results</button>
+    <button class="btn btn-secondary" onclick="clearAll()" style="margin-top:8px">🔄 Clear & Reset</button>
+  </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+
+  <section class="faq-section card" style="margin-top:32px">
+    <h2 style="font-size:20px;margin-bottom:16px">About PayPal Fee Calculator</h2>
+    <div class="faq-item" style="margin-bottom:12px">
+      <h3 style="font-size:15px">How to use PayPal Fee Calculator?</h3>
+      <p style="color:var(--sub);font-size:14px;line-height:1.8">Enter the amount received, select transaction type and currency, then click calculate to see PayPal fees and net received amount. Supports domestic, international, and micropayment rate structures to help sellers accurately estimate profit.</p>
+    </div>
+    <div class="faq-item">
+      <h3 style="font-size:15px">Is this tool free?</h3>
+      <p style="color:var(--sub);font-size:14px;line-height:1.8">PayPal Fee Calculator is a free online tool. No registration required — all data is processed locally in your browser, protecting your privacy.</p>
+    </div>
+  </section>
+
+  <section class="section" style="margin-top:24px">
+    <h2 style="font-size:20px;margin-bottom:16px">Related Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <a href="../ebay-fee-calculator/index.html" style="display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:20px;text-decoration:none;color:#e2e8f0;font-size:14px;transition:all .2s">Ebay Fee Calculator</a>
+      <a href="../profit-margin-calculator/index.html" style="display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:20px;text-decoration:none;color:#e2e8f0;font-size:14px;transition:all .2s">Profit Margin Calculator</a>
+      <a href="../commission-calculator/index.html" style="display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:20px;text-decoration:none;color:#e2e8f0;font-size:14px;transition:all .2s">Commission Calculator</a>
+    </div>
+  </section>
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/paypal-fee-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");if(!t)return;t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+const presetRates={
+  domestic:{rate:2.9,fixed:0.30},
+  international:{rate:4.4,fixed:0.30},
+  micropayment:{rate:5,fixed:0.05}
+};
+const symbols={USD:'$',EUR:'€',GBP:'£',CNY:'$',JPY:'$'};
+let currentSymbol='$';
+
+function updateSymbol(){
+  currentSymbol=symbols[document.getElementById('currency').value]||'$';
+  updateType();
+}
+
+function updateType(){
+  const type=document.getElementById('type').value;
+  const preset=presetRates[type];
+  document.getElementById('rate').value=preset.rate;
+  document.getElementById('fixedFee').value=preset.fixed;
+}
+
+document.getElementById('type').addEventListener('change',updateType);
+
+function calculate(){
+  const amount=parseFloat(document.getElementById('amount').value)||0;
+  const rate=parseFloat(document.getElementById('rate').value)||0;
+  const fixedFee=parseFloat(document.getElementById('fixedFee').value)||0;
+  
+  if(amount<=0){showToast('Please fill in all fields');return;}
+  
+  const percentageFee=amount*(rate/100);
+  const totalFee=percentageFee+fixedFee;
+  const netAmount=amount-totalFee;
+  const feePercent=totalFee/amount*100;
+  
+  document.getElementById('grossAmount').textContent=currentSymbol+amount.toFixed(2);
+  document.getElementById('feeRateDisplay').textContent=rate+'%';
+  document.getElementById('fixedFeeDisplay').textContent=currentSymbol+fixedFee.toFixed(2);
+  document.getElementById('totalFee').textContent=currentSymbol+totalFee.toFixed(2);
+  document.getElementById('feePercent').textContent=feePercent.toFixed(1)+'%';
+  document.getElementById('netAmount').textContent=currentSymbol+netAmount.toFixed(2);
+  document.getElementById('netLabel').textContent='Net Received Amount';
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+function copyResult(){
+  const items=[];
+  document.querySelectorAll('#result .result-item').forEach(el=>{
+    items.push(el.querySelector('.label').textContent+' '+el.querySelector('.value').textContent);
+  });
+  const text='PayPalTransaction feeCalculateResult:\n'+items.join('\n')+'\nActual amount received: '+document.getElementById('netAmount').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=event.target;
+    btn.textContent='✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Copy Results';btn.classList.remove('copied');},2000);
+  });
+}
+
+function clearAll(){
+  document.getElementById('amount').value='';
+  document.getElementById('type').value='domestic';
+  document.getElementById('currency').value='USD';
+  updateType();
+  updateSymbol();
+  document.getElementById('result').style.display='none';
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+</script>
+</body>
+</html>

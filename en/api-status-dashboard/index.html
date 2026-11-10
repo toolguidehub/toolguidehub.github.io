@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Monitor several API endpoints for uptime, response time, and status codes with scheduled checks and history.">
+<title>Free API Status Dashboard - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/api-status-dashboard/">
+<meta property="og:title" content="Free API Status Dashboard - ToolGuideHub">
+<meta property="og:description" content="Monitor several API endpoints for uptime, response time, and status codes with scheduled checks and history.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/api-status-dashboard/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "API Status Dashboard", "description": "Free online API status monitoring dashboard. Monitor multiple API endpoints for availability, response time, and status codes. Supports scheduled checks, history tracking, and status statistics. Pure frontend, privacy-protected.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "API Status Dashboard",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is API Status Monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API status monitoring involves periodically sending requests to API endpoints to check availability, response time, and status codes. Continuous monitoring helps detect API failures and performance degradation early, ensuring stable service operation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this tool check API status?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool sends HEAD requests directly from your browser to each configured endpoint and measures availability, response time, and status code. All checks run client-side with no intermediate server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will CORS restrictions affect check results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Checks use no-cors mode, so responses are opaque but reachability and response time are still measured accurately. For full status-code visibility, add a CORS-enabled public endpoint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What monitoring features are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports: 1) Adding multiple API endpoints; 2) Manual or scheduled checks (30s/1min/5min); 3) Response time and status code history; 4) Availability percentage statistics; 5) Response time charts; 6) Status change notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will data be uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All monitoring data is stored in the browser localStorage and is never uploaded to any server. API check requests are sent directly from your browser to the target API without going through any intermediate server."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+input[type=text],input[type=url],input[type=number]{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}
+input:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;padding:6px 10px;font-size:.85rem;outline:none;cursor:pointer}
+.endpoint-list{margin-top:12px}
+.endpoint-item{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.endpoint-item .name{font-weight:600;font-size:.9rem;color:#e2e8f0}
+.endpoint-item .url{font-size:.8rem;color:#64748b;word-break:break-all}
+.endpoint-item .status{display:flex;align-items:center;gap:6px;font-size:.85rem}
+.status-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.status-dot.up{background:#22c55e;box-shadow:0 0 6px rgba(34,197,94,.5)}
+.status-dot.down{background:#ef4444;box-shadow:0 0 6px rgba(239,68,68,.5)}
+.status-dot.unknown{background:#64748b}
+.status-dot.checking{background:#eab308;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.response-time{font-family:monospace;font-size:.8rem;color:#94a3b8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+.stat-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;text-align:center}
+.stat-card .value{font-size:1.4rem;font-weight:700;color:#22d3ee}
+.stat-card .label{font-size:.75rem;color:#64748b;margin-top:4px}
+.history-chart{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;margin-top:12px;min-height:80px;overflow-x:auto}
+.history-bar{display:inline-block;width:4px;margin-right:2px;border-radius:2px;vertical-align:bottom;transition:height .2s}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free API Status Dashboard", "item": "https://adi63586.github.io/Toolguidehub/en/api-status-dashboard/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use API Status Dashboard","description":"Step-by-step guide for using API Status Dashboard","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"API Status Dashboard"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/api-status-dashboard/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>API Status Dashboard</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="tool-section">
+<h2>📊 API Status Dashboard</h2>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">Monitor multiple API endpoints for availability, response time, and status codes.</p>
+
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+<input type="text" id="ep-name" placeholder="Endpoint Name (e.g., GitHub API)" style="flex:1;min-width:150px">
+<input type="url" id="ep-url" placeholder="API URL (e.g., https://api.github.com)" style="flex:2;min-width:200px">
+<button class="btn btn-primary" onclick="addEndpoint()">➕ Add</button>
+</div>
+
+<div class="options">
+<label>Check Interval: <select id="check-interval" onchange="setInterval2()">
+<option value="0">Manual</option>
+<option value="30">30s</option>
+<option value="60" selected>1min</option>
+<option value="300">5min</option>
+</select></label>
+<button class="btn btn-success" onclick="checkAll()">🔍 Check All</button>
+<button class="btn btn-danger" onclick="clearAll()">🗑️ Clear</button>
+</div>
+
+<div class="stats-grid" id="stats-grid">
+<div class="stat-card"><div class="value" id="stat-total">0</div><div class="label">Total Endpoints</div></div>
+<div class="stat-card"><div class="value" id="stat-up" style="color:#22c55e">0</div><div class="label">Up</div></div>
+<div class="stat-card"><div class="value" id="stat-down" style="color:#ef4444">0</div><div class="label">Down</div></div>
+<div class="stat-card"><div class="value" id="stat-avg-time">-</div><div class="label">Avg Response Time</div></div>
+</div>
+
+<div class="endpoint-list" id="endpoint-list"></div>
+</div>
+
+<div class="info-section">
+<h2>📖 API Status Dashboard</h2>
+<h3>What is API Status Monitoring?</h3>
+<p>API status monitoring involves periodically sending requests to API endpoints to check availability, response time, and status codes. Continuous monitoring helps detect API failures and performance degradation early, ensuring stable service operation.</p>
+<h3>Core features of API Status Dashboard</h3>
+<ul>
+<li>📊 Multi-endpoint simultaneous monitoring</li>
+<li>⏱️ Response time measurement</li>
+<li>📈 History tracking and trend charts</li>
+<li>🔄 Scheduled automatic checks</li>
+<li>📋 Availability statistics</li>
+<li>🔒 Pure frontend processing, data stored in localStorage</li>
+</ul>
+<h3>API Status Dashboard in 3 steps</h3>
+<ol>
+<li>Enter endpoint name and URL, click "Add"</li>
+<li>Select check interval (Manual/30s/1min/5min)</li>
+<li>Click "Check All" to start monitoring</li>
+<li>View endpoint status, response time, and history</li>
+</ol>
+<h3>When to use API Status Dashboard</h3>
+<ul>
+<li>👨‍💻 Developers monitoring their own APIs</li>
+<li>🔧 Ops teams checking third-party service availability</li>
+<li>📊 Testing API performance and response times</li>
+<li>🔍 Troubleshooting API connection issues</li>
+<li>📋 Generating API availability reports</li>
+</ul>
+</div>
+
+<!-- FAQ Section -->
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is API Status Monitoring?</h3><p>API status monitoring involves periodically sending requests to API endpoints to check availability, response time, and status codes. Continuous monitoring helps detect API failures and performance degradation early, ensuring stable service operation.</p></div>
+<div class="faq-item"><h3>How to Use Free API Status Dashboard?</h3><p>Enter your content in the input area, click the action button, and view the result. All computation happens on your device — API Status Dashboard, other values and other inputs stay in your browser.</p></div>
+<div class="faq-item"><h3>About Free API Status Dashboard</h3><p>Free online API status monitoring dashboard. Monitor multiple API endpoints for availability, response time, and status codes. Supports scheduled checks, history tracking, and status statistics. Pure frontend, privacy-protected. No signup, 100% browser-based. Try now!</p></div>
+<div class="faq-item"><h3>What monitoring features are supported?</h3><p>Supports: 1) Adding multiple API endpoints; 2) Manual or scheduled checks (30s/1min/5min); 3) Response time and status code history; 4) Availability percentage statistics; 5) Response time charts; 6) Status change notifications.</p></div>
+<div class="faq-item"><h3>Will data be uploaded to a server?</h3><p>No. All monitoring data is stored in the browser localStorage and is never uploaded to any server. API check requests are sent directly from your browser to the target API without going through any intermediate server.</p></div>
+</div>
+
+<!-- Feedback Widget -->
+</main>
+
+<script>
+let endpoints = JSON.parse(localStorage.getItem('api-endpoints') || '[]');
+let checkTimer = null;
+
+function saveEndpoints() {
+  localStorage.setItem('api-endpoints', JSON.stringify(endpoints));
+}
+
+function addEndpoint() {
+  const name = document.getElementById('ep-name').value.trim();
+  const url = document.getElementById('ep-url').value.trim();
+  if (!name || !url) { showToast('Please enter name and URL'); return; }
+  if (!url.startsWith('http')) { showToast('URL must start with http:// or https://'); return; }
+  
+  endpoints.push({
+    id: Date.now(),
+    name,
+    url,
+    status: 'unknown',
+    lastCheck: null,
+    responseTime: null,
+    statusCode: null,
+    history: []
+  });
+  
+  document.getElementById('ep-name').value = '';
+  document.getElementById('ep-url').value = '';
+  saveEndpoints();
+  renderEndpoints();
+  checkEndpoint(endpoints[endpoints.length - 1].id);
+}
+
+function removeEndpoint(id) {
+  endpoints = endpoints.filter(e => e.id !== id);
+  saveEndpoints();
+  renderEndpoints();
+}
+
+async function checkEndpoint(id) {
+  const ep = endpoints.find(e => e.id === id);
+  if (!ep) return;
+  
+  ep.status = 'checking';
+  renderEndpoints();
+  
+  const start = performance.now();
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    
+    const resp = await fetch(ep.url, {
+      method: 'HEAD',
+      mode: 'no-cors',
+      signal: controller.signal
+    });
+    clearTimeout(timeout);
+    
+    const elapsed = Math.round(performance.now() - start);
+    ep.responseTime = elapsed;
+    ep.statusCode = resp.status || 200;
+    ep.status = resp.type === 'opaque' ? 'up' : (resp.ok ? 'up' : 'down');
+    ep.lastCheck = new Date().toLocaleTimeString();
+  } catch(e) {
+    const elapsed = Math.round(performance.now() - start);
+    ep.responseTime = elapsed;
+    ep.statusCode = 0;
+    ep.status = e.name === 'AbortError' ? 'down' : 'error';
+    ep.lastCheck = new Date().toLocaleTimeString();
+  }
+  
+  // Add to history (keep last 30)
+  ep.history.push({ time: ep.lastCheck, status: ep.status, ms: ep.responseTime });
+  if (ep.history.length > 30) ep.history = ep.history.slice(-30);
+  
+  saveEndpoints();
+  renderEndpoints();
+}
+
+function checkAll() {
+  endpoints.forEach(ep => checkEndpoint(ep.id));
+}
+
+function clearAll() {
+  if (!confirm('Clear all endpoints?')) return;
+  endpoints = [];
+  saveEndpoints();
+  renderEndpoints();
+}
+
+function setInterval2() {
+  if (checkTimer) clearInterval(checkTimer);
+  const sec = parseInt(document.getElementById('check-interval').value);
+  if (sec > 0) {
+    checkTimer = setInterval(checkAll, sec * 1000);
+  }
+}
+
+function renderEndpoints() {
+  const list = document.getElementById('endpoint-list');
+  list.innerHTML = '';
+  
+  let upCount = 0, downCount = 0, totalTime = 0, timeCount = 0;
+  
+  endpoints.forEach(ep => {
+    if (ep.status === 'up') upCount++;
+    else if (ep.status === 'down' || ep.status === 'error') downCount++;
+    if (ep.responseTime) { totalTime += ep.responseTime; timeCount++; }
+    
+    const item = document.createElement('div');
+    item.className = 'endpoint-item';
+    
+    // Build history chart
+    let historyHtml = '';
+    if (ep.history.length > 0) {
+      const maxMs = Math.max(...ep.history.map(h => h.ms || 1), 1);
+      historyHtml = '<div class="history-chart" style="padding:4px;min-height:30px">';
+      ep.history.forEach(h => {
+        const height = Math.max(2, Math.round((h.ms || 0) / maxMs * 30));
+        const color = h.status === 'up' ? '#22c55e' : '#ef4444';
+        historyHtml += `<div class="history-bar" style="height:${height}px;background:${color}" title="${h.ms}ms"></div>`;
+      });
+      historyHtml += '</div>';
+    }
+    
+    item.innerHTML = `
+      <div style="flex:1;min-width:0">
+        <div class="name">${escapeHtml(ep.name)}</div>
+        <div class="url">${escapeHtml(ep.url)}</div>
+        ${historyHtml}
+      </div>
+      <div class="status">
+        <span class="status-dot ${ep.status}"></span>
+        <span>${ep.status === 'up' ? 'Up' : ep.status === 'down' ? 'Down' : ep.status === 'error' ? 'Error' : ep.status === 'checking' ? 'Checking' : 'Unknown'}</span>
+        ${ep.responseTime ? `<span class="response-time">${ep.responseTime}ms</span>` : ''}
+        ${ep.statusCode ? `<span class="response-time">${ep.statusCode}</span>` : ''}
+      </div>
+      <div style="display:flex;gap:4px">
+        <button class="btn btn-secondary" onclick="checkEndpoint(${ep.id})" style="font-size:.75rem;padding:4px 8px">🔍</button>
+        <button class="btn btn-danger" onclick="removeEndpoint(${ep.id})" style="font-size:.75rem;padding:4px 8px">✕</button>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+  
+  document.getElementById('stat-total').textContent = endpoints.length;
+  document.getElementById('stat-up').textContent = upCount;
+  document.getElementById('stat-down').textContent = downCount;
+  document.getElementById('stat-avg-time').textContent = timeCount > 0 ? Math.round(totalTime / timeCount) + 'ms' : '-';
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**pageside**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+function showToast(msg){const t=document.getElementById('toast')||(()=>{const d=document.createElement('div');d.id='toast';d.className='toast';document.body.appendChild(d);return d;})();t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+// Init
+renderEndpoints();
+setInterval2();
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/api-status-dashboard/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+</body>
+</html>

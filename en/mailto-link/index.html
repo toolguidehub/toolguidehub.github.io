@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build a mailto: link with recipient, CC, BCC, subject and body, then copy it as a URL or ready-to-paste HTML.">
+<meta name="keywords" content="mailto link generator, mailto generator, email link, HTML mailto, contact link creator, mailto URL builder">
+<title>Mailto Link Generator - Online Email Link Builder | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/mailto-link/">
+<meta property="og:title" content="Free Mailto Link Generator - Online Email Link Builder">
+<meta property="og:description" content="Build a mailto: link with recipient, CC, BCC, subject and body, then copy it as a URL or ready-to-paste HTML.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/mailto-link/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Mailto Link Generator","description":"Free online Mailto Link Generator: visually create email links with recipients, CC, BCC, subject, and body. Copy as URL or HTML code instantly.","applicationCategory":"DeveloperApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a mailto link?","acceptedAnswer":{"@type":"Answer","text":"A mailto link is an HTML hyperlink that opens the user's default email client with pre-filled recipient, subject, and body. Format: mailto:email@example.com?subject=Hello&body=Message."}},{"@type":"Question","name":"What parameters does mailto support?","acceptedAnswer":{"@type":"Answer","text":"Mailto links support to (recipient), cc (carbon copy), bcc (blind carbon copy), subject, and body parameters. Multiple recipients are separated by commas."}},{"@type":"Question","name":"Why doesn't the mailto link work?","acceptedAnswer":{"@type":"Answer","text":"Mailto links require a configured default email client (Outlook, Apple Mail, Gmail, etc.). Set your default email app in system settings if the link doesn't respond."}},{"@type":"Question","name":"Does mailto work on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. Most mobile browsers support the mailto protocol. Tapping a mailto link opens the system's default email app."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Mailto Link Generator","description":"Steps to generate email links online","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Mailto Link Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter Recipient","text":"Type the target email address. Multiple recipients separated by commas."},{"@type":"HowToStep","position":2,"name":"Add Email Details","text":"Optionally fill in CC, BCC, subject, and body content."},{"@type":"HowToStep","position":3,"name":"Generate & Copy","text":"Click Generate to preview. Copy the mailto link or HTML code to use on your website."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Mailto Link Generator","item":"https://adi63586.github.io/Toolguidehub/en/mailto-link/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="email"],.form-group input[type="text"],.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s;font-family:inherit}
+.form-group textarea{min-height:80px;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:500}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-success{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.btn-success:hover{background:rgba(34,197,94,.3)}
+.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.code-input{font-family:"Cascadia Code","Fira Code","Consolas",monospace;font-size:.85rem;tab-size:2}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:16px;min-height:40px;overflow:auto;word-break:break-all}
+.result-box{background:#0f172a;border:1px solid rgba(34,197,94,.15);border-radius:8px;padding:16px;text-align:center}
+.result-box .link-text{color:#22d3ee;font-size:.95rem;word-break:break-all;font-family:monospace}
+.preview-link{display:inline-block;margin:8px 0;padding:8px 20px;background:rgba(6,182,212,.2);color:#22d3ee;border-radius:8px;font-size:1rem;cursor:pointer;border:1px solid rgba(6,182,212,.3);transition:all .2s}
+.preview-link:hover{background:rgba(6,182,212,.35)}
+.faq-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(148,163,184,.1)}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:6px;cursor:pointer}
+.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.5}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:16px;text-align:center;color:#64748b;font-size:.85rem}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.2rem}.btn{width:100%;text-align:center}}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/mailto-link/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Mailto Link Generator - Online Email Link Builder | ToolGuideHub</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Mailto Link Generator</p>
+<div class="hero"><p>Free online Mailto Link Generator. Visually create email links with recipient, CC, BCC, subject, and body. Copy as mailto URL or HTML code and paste directly into your website. Perfect for web developers who need quick contact email links without manually writing mailto protocol syntax. | No registration · Pure frontend · Data never uploaded</p><span class="badge">Zero dependencies · Instant use</span></div>
+
+<div class="main-grid">
+<div>
+<div class="section">
+<h2>📧 Email Settings</h2>
+<div class="form-group">
+  <label>To (Recipient) *</label>
+  <input type="text" id="toEmail" placeholder="user@example.com, admin@example.com" value="">
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>CC (Carbon Copy)</label>
+    <input type="text" id="ccEmail" placeholder="cc@example.com">
+  </div>
+  <div class="form-group">
+    <label>BCC (Blind Carbon Copy)</label>
+    <input type="text" id="bccEmail" placeholder="bcc@example.com">
+  </div>
+</div>
+<div class="form-group">
+  <label>Subject</label>
+  <input type="text" id="subject" placeholder="Inquiry about..." value="">
+</div>
+<div class="form-group">
+  <label>Body</label>
+  <textarea id="bodyText" placeholder="Hello,&#10;&#10;I would like to inquire about...&#10;&#10;Thank you!" rows="5"></textarea>
+</div>
+<div class="btn-group">
+  <button class="btn btn-primary" id="btnGenerate">🔗 Generate Link</button>
+  <button class="btn btn-secondary" id="btnClear">🔄 Clear</button>
+</div>
+</div>
+
+<div class="section" id="resultSection" style="display:none">
+<h2>📋 Result</h2>
+<div class="form-group">
+  <label>Mailto Link (Click to Test)</label>
+  <div class="preview-box">
+    <a id="previewLink" href="#" class="preview-link">📧 Send Email</a>
+    <div class="link-text" id="mailtoUrl" style="margin-top:8px;font-size:.8rem;color:#94a3b8"></div>
+  </div>
+</div>
+<div class="form-group">
+  <label>HTML Code</label>
+  <div class="preview-box">
+    <code id="htmlCode" style="word-break:break-all;font-size:.8rem;color:#22d3ee"></code>
+  </div>
+</div>
+<div class="btn-group">
+  <button class="btn btn-success" id="btnCopyUrl">📋 Copy Link</button>
+  <button class="btn btn-success" id="btnCopyHtml">📋 Copy HTML</button>
+</div>
+</div>
+
+<div class="section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What is a mailto link?</h3><p>A mailto link is an HTML hyperlink in the format mailto:email@example.com?subject=Hello&body=Message. Clicking it opens the user's default email client with pre-filled fields.</p></div>
+<div class="faq-item"><h3>What parameters are supported?</h3><p>Supports to (recipient), cc (carbon copy), bcc (blind carbon copy), subject, and body. Multiple recipients separated by commas.</p></div>
+<div class="faq-item"><h3>Why doesn't the link work?</h3><p>Mailto requires a configured default email client. Set your default mail app in system settings (Outlook / Apple Mail / Gmail).</p></div>
+<div class="faq-item"><h3>Does it work on mobile?</h3><p>Yes. Mobile browsers support the mailto protocol. Tapping a mailto link opens the device's email app.</p></div>
+</div>
+</div>
+</div>
+
+<div class="seo-content">
+<h2>How to Use the Mailto Link Generator</h2>
+<p>Generate email links in three easy steps:</p>
+<ol style="padding-left:20px;margin-top:12px">
+<li style="margin-bottom:16px"><strong>Enter Recipient</strong><br><span style="color:#94a3b8;font-size:.9rem">Type the target email address. Use commas for multiple recipients.</span></li>
+<li style="margin-bottom:16px"><strong>Add Details</strong><br><span style="color:#94a3b8;font-size:.9rem">Optionally fill in CC, BCC, subject, and body text.</span></li>
+<li style="margin-bottom:16px"><strong>Copy & Use</strong><br><span style="color:#94a3b8;font-size:.9rem">Click Generate, then copy the link or HTML code to your website.</span></li>
+</ol>
+</div>
+</main>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-25
+  </span>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/mailto-link/">中文</a>
+</div>
+
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Mailto Link Generator | No registration · Data never uploaded</p>
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+function generateMailto(){
+  var to = document.getElementById("toEmail").value.trim();
+  if(!to){showToast("Please enter at least one recipient email");return;}
+  
+  var cc = document.getElementById("ccEmail").value.trim();
+  var bcc = document.getElementById("bccEmail").value.trim();
+  var subject = document.getElementById("subject").value.trim();
+  var body = document.getElementById("bodyText").value;
+  
+  var params = [];
+  if(cc) params.push("cc=" + encodeURIComponent(cc));
+  if(bcc) params.push("bcc=" + encodeURIComponent(bcc));
+  if(subject) params.push("subject=" + encodeURIComponent(subject));
+  if(body) params.push("body=" + encodeURIComponent(body));
+  
+  var mailtoUrl = "mailto:" + encodeURIComponent(to);
+  if(params.length > 0) mailtoUrl += "?" + params.join("&");
+  
+  document.getElementById("mailtoUrl").textContent = mailtoUrl;
+  document.getElementById("previewLink").href = mailtoUrl;
+  
+  var displayText = subject || "Contact Us";
+  var htmlCode = '<a href="' + mailtoUrl.replace(/&/g, "&amp;") + '">' + displayText + '</a>';
+  document.getElementById("htmlCode").textContent = htmlCode;
+  
+  document.getElementById("resultSection").style.display = "block";
+  document.getElementById("resultSection").scrollIntoView({behavior:"smooth"});
+  showToast("Link generated");
+}
+
+function clearAll(){
+  document.getElementById("toEmail").value = "";
+  document.getElementById("ccEmail").value = "";
+  document.getElementById("bccEmail").value = "";
+  document.getElementById("subject").value = "";
+  document.getElementById("bodyText").value = "";
+  document.getElementById("resultSection").style.display = "none";
+  showToast("Cleared");
+}
+
+function copyUrl(){
+  var url = document.getElementById("mailtoUrl").textContent;
+  if(!url){showToast("Please generate the link first");return;}
+  navigator.clipboard.writeText(url).then(function(){showToast("Link copied to clipboard")}).catch(function(){showToast("Copy failed, please select and copy manually")});
+}
+
+function copyHtml(){
+  var html = document.getElementById("htmlCode").textContent;
+  if(!html){showToast("Please generate the link first");return;}
+  navigator.clipboard.writeText(html).then(function(){showToast("HTML code copied to clipboard")}).catch(function(){showToast("Copy failed, please select and copy manually")});
+}
+
+document.getElementById("btnGenerate").addEventListener("click", generateMailto);
+document.getElementById("btnClear").addEventListener("click", clearAll);
+document.getElementById("btnCopyUrl").addEventListener("click", copyUrl);
+document.getElementById("btnCopyHtml").addEventListener("click", copyHtml);
+
+var inputs = document.querySelectorAll("input, textarea");
+inputs.forEach(function(el){
+  el.addEventListener("keydown", function(e){
+    if(e.key === "Enter" && e.ctrlKey){
+      generateMailto();
+    }
+  });
+});
+
+(function(){
+  document.getElementById("toEmail").value = "hello@example.com";
+  document.getElementById("subject").value = "Business Inquiry";
+  document.getElementById("bodyText").value = "Hello,\n\nI'm interested in your products and would like to learn more.\n\nLooking forward to hearing from you!\nThank you";
+  generateMailto();
+})();
+</script>
+
+</body>
+</html>

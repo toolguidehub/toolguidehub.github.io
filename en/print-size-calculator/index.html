@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Find the largest print size your photo allows at 300, 240, or 150 DPI, converted to inches and centimetres.">
+<meta name="keywords" content="print size calculator,photo print size,DPI calculator,print resolution,image print size,pixels to inches,pixels to cm,print DPI,photo printing guide,large format print,megapixel print size">
+<title>Free Photo Print Size Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/print-size-calculator/">
+<meta property="og:title" content="Free Photo Print Size Calculator - ToolGuideHub">
+<meta property="og:description" content="Find the largest print size your photo allows at 300, 240, or 150 DPI, converted to inches and centimetres.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/print-size-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Photo Print Size Calculator", "description": "Free online print size calculator. Calculate print sizes, DPI, and file sizes.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this print size calculator free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this print size calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely free to use. No registration or login required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What DPI should I use for printing photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "General recommendations: 300 DPI is the standard for photo-quality prints (best quality). 240 DPI gives good quality for general photo prints. 150 DPI is acceptable for large format prints viewed from a distance. Screen display only needs 72-96 DPI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How big can I print my photo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide your image's pixel width by the target DPI to get the maximum print width in inches. For example: a 6000×4000 pixel image at 300 DPI can print 20×13.3 inches (50.8×33.9 cm). At 150 DPI it can print 40×26.7 inches (101.6×67.7 cm). This calculator automatically computes printable sizes at various DPI levels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between PPI and DPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PPI (Pixels Per Inch) refers to the pixel density in a digital image file. DPI (Dots Per Inch) refers to the ink dots a printer outputs per inch. While technically different, they're often used interchangeably in printing contexts. When we say 'print at 300 DPI', we actually mean the image is output at 300 PPI to the printer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What print size can I get from my phone camera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 12MP phone photo (4000×3000 pixels) can print 13.3×10 inches at 300 DPI — excellent quality. A 48MP phone (8000×6000 pixels) can print 26.7×20 inches at 300 DPI. However, phone sensor noise and lens quality also affect large print results. Always check the image quality before ordering large prints."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;padding:20px}.container{max-width:880px;margin:0 auto}h1{text-align:center;font-size:2rem;margin:20px 0;color:#f1f5f9}.card{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}.card-title{font-size:1.1rem;font-weight:600;margin-bottom:16px;color:#e2e8f0}.form-group{margin-bottom:16px}.form-group label{display:block;font-weight:500;margin-bottom:6px;color:#94a3b8;font-size:0.9rem}.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:0.95rem;background:#0f172a;color:#e2e8f0;transition:border-color .2s}.form-group input:focus,.form-group select:focus{outline:none;border-color:#06b6d4;box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s}.btn-primary{background:#06b6d4;color:#fff;width:100%;justify-content:center}.btn-primary:hover{background:#0891b2}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}.result-item{text-align:center;padding:16px;background:#0f172a;border-radius:10px;border:1px solid rgba(148,163,184,.15)}.result-item .label{font-size:0.8rem;color:#94a3b8;margin-bottom:4px}.result-item .value{font-size:1.5rem;font-weight:700;color:#e2e8f0}.result-item .unit{font-size:0.85rem;color:#94a3b8}.result-item.highlight{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3)}.result-item.highlight .value{color:#22d3ee}.size-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.85rem}.size-table th,.size-table td{padding:8px 12px;text-align:left;border-bottom:1px solid rgba(148,163,184,.1)}.size-table th{background:rgba(148,163,184,.1);font-weight:600;color:#e2e8f0}.size-table tr:hover{background:rgba(148,163,184,.05)}.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:500}.badge-excellent{background:rgba(34,197,94,.15);color:#22c55e}.badge-good{background:rgba(59,130,246,.15);color:#60a5fa}.badge-fair{background:rgba(245,158,11,.15);color:#f59e0b}.badge-poor{background:rgba(239,68,68,.15);color:#ef4444}.info-text{font-size:0.9rem;color:#94a3b8;padding:12px 16px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:8px;line-height:1.7;margin-top:12px}.faq-section{margin-top:32px}.faq-section h2{font-size:1.3rem;margin-bottom:16px;color:#f1f5f9}.faq-item{border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:8px;overflow:hidden;background:#1e293b}.faq-q{padding:12px 16px;cursor:pointer;font-weight:500;display:flex;justify-content:space-between;align-items:center;background:#0f172a;transition:background .2s}.faq-q:hover{background:rgba(148,163,184,.05)}.faq-q .arrow{transition:transform .3s;font-size:0.8rem}.faq-item.open .faq-q .arrow{transform:rotate(180deg)}.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease}.faq-item.open .faq-a{max-height:300px;padding:12px 16px}.faq-a p{margin:0;font-size:0.9rem;color:#94a3b8;line-height:1.7}@media(max-width:600px){.form-row{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}}
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+.faq-section{margin-top:24px}
+.faq-section h2{font-size:1.3rem;color:#f1f5f9;margin-bottom:16px}
+.faq-item{background:#1e293b;border-radius:12px;margin-bottom:12px;border:1px solid rgba(148,163,184,.1);overflow:hidden}
+.faq-q{padding:16px 20px;cursor:pointer;font-weight:600;color:#e2e8f0;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq-q:hover{background:rgba(148,163,184,.05)}
+.faq-q .arrow{transition:transform .2s;font-size:.8rem;color:#94a3b8}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s ease;color:#94a3b8;line-height:1.7;font-size:.9rem}
+.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}
+.info-text{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:16px;margin-top:16px;color:#94a3b8;font-size:.9rem}
+.info-text strong{color:#e2e8f0}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
+.badge-excellent{background:rgba(34,197,94,.15);color:#22c55e}
+.badge-good{background:rgba(59,130,246,.15);color:#60a5fa}
+.badge-fair{background:rgba(245,158,11,.15);color:#f59e0b}
+.badge-poor{background:rgba(239,68,68,.15);color:#ef4444}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Photo Print Size Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/print-size-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Photo Print Size Calculator","description":"Step-by-step guide for using Photo Print Size Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Photo Print Size Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/print-size-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    
+  </div>
+  <h1>🖨️ Photo Print Size Calculator</h1>
+  <p style="text-align:center;color:#94a3b8;margin-bottom:24px;font-size:0.95rem">Calculate print sizes from pixel dimensions · DPI-based · Inches/cm · Reference table</p>
+
+  <div class="card">
+    <div class="card-title">📐 Image Information</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Image Width (pixels)</label>
+        <input type="number" id="imgWidth" min="1" max="100000" value="6000" placeholder="e.g. 6000">
+      </div>
+      <div class="form-group">
+        <label>Image Height (pixels)</label>
+        <input type="number" id="imgHeight" min="1" max="100000" value="4000" placeholder="e.g. 4000">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Target DPI</label>
+        <input type="number" id="targetDpi" min="50" max="2400" step="1" value="300" placeholder="e.g. 300">
+      </div>
+      <div class="form-group">
+        <label>Unit</label>
+        <select id="unitSelect">
+          <option value="inch">Inches (in)</option>
+          <option value="cm">Centimeters (cm)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="calcBtn">📊 Calculate Print Size</button>
+  </div>
+
+  <div class="card" id="resultCard" style="display:none">
+    <div class="card-title">📊 Results</div>
+    <div class="result-grid">
+      <div class="result-item highlight">
+        <div class="label">Print Width</div>
+        <div class="value" id="printWidth">--</div>
+        <div class="unit" id="printWidthUnit">inches</div>
+      </div>
+      <div class="result-item highlight">
+        <div class="label">Print Height</div>
+        <div class="value" id="printHeight">--</div>
+        <div class="unit" id="printHeightUnit">inches</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Total Pixels</div>
+        <div class="value" id="totalPixels">--</div>
+        <div class="unit">megapixels (MP)</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Aspect Ratio</div>
+        <div class="value" id="aspectRatio">--</div>
+        <div class="unit">:1</div>
+      </div>
+    </div>
+
+    <div class="card-title" style="margin-top:16px">📋 Print Sizes at Different DPI Levels</div>
+    <table class="size-table">
+      <thead><tr><th>Quality</th><th>DPI</th><th>Print Size</th><th>Best For</th></tr></thead>
+      <tbody id="dpiTableBody"></tbody>
+    </table>
+
+    <div class="info-text" id="qualityInfo">
+      <strong>💡 Quality Assessment</strong>: Your image at <span id="qualityDpiLabel">300</span> DPI prints <span id="qualitySizeLabel">--</span>.
+      Using <strong>300 DPI</strong> is recommended for best photo print quality.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Common Print Size Reference (300 DPI)</div>
+    <table class="size-table">
+      <thead><tr><th>Size</th><th>Inches</th><th>Centimeters</th><th>Required Pixels (300 DPI)</th></tr></thead>
+      <tbody>
+        <tr><td>6×4"</td><td>6×4</td><td>15.2×10.2</td><td>1800×1200</td></tr>
+        <tr><td>7×5"</td><td>7×5</td><td>17.8×12.7</td><td>2100×1500</td></tr>
+        <tr><td>A5</td><td>5.8×8.3</td><td>14.8×21.0</td><td>1748×2480</td></tr>
+        <tr><td>A4</td><td>8.3×11.7</td><td>21.0×29.7</td><td>2480×3508</td></tr>
+        <tr><td>A3</td><td>11.7×16.5</td><td>29.7×42.0</td><td>3508×4961</td></tr>
+        <tr><td>A2</td><td>16.5×23.4</td><td>42.0×59.4</td><td>4961×7016</td></tr>
+        <tr><td>8×10"</td><td>8×10</td><td>20.3×25.4</td><td>2400×3000</td></tr>
+        <tr><td>11×14"</td><td>11×14</td><td>27.9×35.6</td><td>3300×4200</td></tr>
+        <tr><td>16×20"</td><td>16×20</td><td>40.6×50.8</td><td>4800×6000</td></tr>
+        <tr><td>24×36"</td><td>24×36</td><td>61.0×91.4</td><td>7200×10800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="faq-section">
+    <h2>❓ FAQs</h2>
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">What is DPI and why does it matter for printing?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>DPI (Dots Per Inch) measures how many ink dots a printer places per inch. Higher DPI produces sharper, more detailed prints. 300 DPI is the gold standard for photo printing, delivering crisp results at normal viewing distances. Below 150 DPI, individual pixels become visible up close. Large format prints (posters, banners) can use 150 DPI since they're viewed from farther away.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I calculate how big I can print my photo?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Divide your photo's pixel width by the target DPI. Example: 6000×4000 pixels ÷ 300 DPI = 20×13.3 inches (50.8×33.9 cm). At 150 DPI: 40×26.7 inches (101.6×67.7 cm). This calculator automates all these calculations and shows print sizes across multiple DPI levels for easy comparison.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What's the difference between PPI and DPI?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>PPI (Pixels Per Inch) describes the pixel density in a digital image file. DPI (Dots Per Inch) describes the ink dot density a printer produces. In common usage they're often used interchangeably, but technically PPI is the input (your image) and DPI is the output (printer). Most inkjet printers produce best results when the image is supplied at 300 PPI.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What print size can I get from my smartphone photos?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Modern smartphones capture 12MP to 48MP photos. A 12MP photo (4000×3000px) prints beautifully at 13.3×10 inches at 300 DPI. A 48MP photo (8000×6000px) can print 26.7×20 inches at 300 DPI — poster size with excellent quality. However, noise levels and lens sharpness also affect large print results.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What DPI do I need for large format printing (posters/banners)?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Large format DPI depends on viewing distance: Close viewing (under 3ft/1m) — 200-300 DPI; Medium distance (3-10ft/1-3m) — 100-200 DPI; Far distance (over 10ft/3m) — 50-100 DPI. A 6ft×3ft outdoor banner at 150 DPI is perfectly adequate. This calculator works for any print size and DPI combination.</p></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <p style="font-size:0.85rem;color:#94a3b8;text-align:center">💡 All calculations run locally in your browser. No data uploaded. Works offline.</p>
+  </div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔧 Meeting Cost Calculator</a></div></section>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem">
+<a href="../../" style="color:#64748b;margin:0 8px;text-decoration:none">Home</a>
+<a href="../../en/privacy/" style="color:#64748b;margin:0 8px;text-decoration:none">Privacy</a>
+<a href="../../en/terms/" style="color:#64748b;margin:0 8px;text-decoration:none">Terms</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#64748b;margin:0 8px;text-decoration:none">GitHub</a>
+<a href="../../en/print-size-calculator/" style="color:#64748b;margin:0 8px;text-decoration:none">中文</a>
+</footer>
+</main>
+
+<script>
+function toggleFaq(el){var item=el.parentElement;item.classList.toggle('open')}
+
+document.getElementById('calcBtn').addEventListener('click',function(){
+  const w=parseFloat(document.getElementById('imgWidth').value);
+  const h=parseFloat(document.getElementById('imgHeight').value);
+  const dpi=parseFloat(document.getElementById('targetDpi').value);
+  const unit=document.getElementById('unitSelect').value;
+  if(!w||!h||!dpi||w<=0||h<=0||dpi<=0){showToast('Please enter valid pixel dimensions and DPI');return}
+  const printWIn=w/dpi;const printHIn=h/dpi;const totalMP=(w*h/1000000).toFixed(1);const ratio=(w/h).toFixed(3);
+  const unitLabel=unit==='inch'?'inches':'cm';const multiplier=unit==='cm'?2.54:1;
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('printWidth').textContent=(printWIn*multiplier).toFixed(1);
+  document.getElementById('printWidthUnit').textContent=unitLabel;
+  document.getElementById('printHeight').textContent=(printHIn*multiplier).toFixed(1);
+  document.getElementById('printHeightUnit').textContent=unitLabel;
+  document.getElementById('totalPixels').textContent=totalMP;
+  document.getElementById('aspectRatio').textContent=ratio;
+  const dpiLevels=[{dpi:350,label:'Premium',badge:'badge-excellent',scene:'Fine art / Gallery'},{dpi:300,label:'Excellent',badge:'badge-excellent',scene:'Photo prints / Albums'},{dpi:240,label:'High',badge:'badge-good',scene:'General photo printing'},{dpi:200,label:'Good',badge:'badge-good',scene:'Documents / Brochures'},{dpi:150,label:'Acceptable',badge:'badge-fair',scene:'Posters / Large format'},{dpi:100,label:'Standard',badge:'badge-fair',scene:'Backdrops / Displays'},{dpi:72,label:'Screen',badge:'badge-poor',scene:'Web / Screen display'}];
+  const tbl=document.getElementById('dpiTableBody');tbl.innerHTML='';
+  dpiLevels.forEach(function(lv){const pw=w/lv.dpi;const ph=h/lv.dpi;const sizeStr=unit==='cm'?(pw*2.54).toFixed(1)+'×'+(ph*2.54).toFixed(1)+' cm':pw.toFixed(1)+'×'+ph.toFixed(1)+' in';tbl.innerHTML+='<tr><td><span class="badge '+lv.badge+'">'+lv.label+'</span></td><td>'+lv.dpi+'</td><td>'+sizeStr+'</td><td>'+lv.scene+'</td></tr>'});
+  document.getElementById('qualityDpiLabel').textContent=dpi;
+  document.getElementById('qualitySizeLabel').textContent=unit==='cm'?(printWIn*2.54).toFixed(1)+'×'+(printHIn*2.54).toFixed(1)+'cm':printWIn.toFixed(1)+'×'+printHIn.toFixed(1)+'in';
+  let quality='';if(dpi>=300)quality='<strong>🟢 Excellent</strong> — Photo-quality standard, sharp and detailed';else if(dpi>=240)quality='<strong>🟡 Good</strong> — Suitable for general photo prints, minor pixel visibility up close';else if(dpi>=150)quality='<strong>🟠 Acceptable</strong> — Suitable for posters or distant viewing';else quality='<strong>🔴 Low</strong> — Pixels visible up close, reduce print size or increase DPI';
+  document.getElementById('qualityInfo').innerHTML='<strong>📊 Quality Assessment</strong>: '+quality+'<br><br>💡 For larger prints, reduce DPI or use higher resolution images.';
+});
+
+function showToast(msg){const t=document.createElement('div');t.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 20px;border-radius:8px;font-size:0.9rem;z-index:1000;opacity:0;transition:opacity .3s;border:1px solid rgba(148,163,184,.15)';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.style.opacity='1'},10);setTimeout(function(){t.style.opacity='0';setTimeout(function(){t.remove()},300)},2000)}
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  addCopyBtns();
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

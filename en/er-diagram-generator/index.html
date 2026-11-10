@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ER Diagram Generator - Entity Relationship Diagrams Online</title>
+  <meta name="description" content="Write entity relationship diagrams in simple text syntax and export them as PNG or SVG.">
+  <meta property="og:title" content="ER Diagram Generator - Entity Relationship Diagrams Online | ToolGuideHub">
+  <meta property="og:description" content="Write entity relationship diagrams in simple text syntax and export them as PNG or SVG.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/er-diagram-generator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ER Diagram Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "description": "Free online ER diagram generator. Draw entity relationship diagrams with simple text syntax."
+  }
+  </script>
+  <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--surface:#1e293b;--text:#e2e8f0}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+    header { background: var(--surface); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; }
+    header nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; }
+    header nav a { color: #94a3b8; text-decoration: none; font-size: 14px; }
+    header nav a:hover { color: #22d3ee; }
+    header nav .logo { font-weight: 700; font-size: 18px; color: #22d3ee; }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .desc { color: #94a3b8; margin-bottom: 24px; }
+    .editor-layout { display: flex; gap: 16px; flex-wrap: wrap; }
+    .editor-pane { flex: 1; min-width: 320px; }
+    .card { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
+    .section h2 { font-size: 16px; margin-bottom: 12px; }
+    textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; height: 280px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 12px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.5; resize: vertical; }
+    textarea:focus { outline: none; border-color: #22d3ee; }
+    .output-pane { flex: 1; min-width: 320px; }
+    .diagram-svg { width: 100%; min-height: 300px; background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; overflow: auto; display: flex; align-items: center; justify-content: center; }
+    .diagram-svg svg { max-width: 100%; }
+    .toolbar { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer; font-size: 14px; font-weight: 500; transition: all .2s; }
+    .btn-primary { background: rgba(6,182,212,.2); color: #22d3ee; border: 1px solid rgba(6,182,212,.3); }
+    .btn-primary:hover { background: rgba(6,182,212,.3); }
+    .btn-secondary { background: rgba(148,163,184,.1); color: #94a3b8; border: 1px solid rgba(148,163,184,.2); }
+    .btn-secondary:hover { background: rgba(148,163,184,.2); }
+    .examples { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .example-link { color: #22d3ee; cursor: pointer; font-size: 13px; text-decoration: underline; }
+    .toast { position: fixed; top: 20px; right: 20px; background: #1e293b; color: #fff; padding: 12px 20px; border-radius: 12px; font-size: 14px; z-index: 9999; opacity: 0; transform: translateY(-10px); transition: all .3s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.error { background: #ef4444; }
+    footer { text-align: center; padding: 32px 20px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); margin-top: 40px; }
+    @media (max-width: 768px) { .editor-layout { flex-direction: column; } }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/er-diagram-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "ER Diagram Generator - Entity Relationship Diagrams Online", "item": "https://adi63586.github.io/Toolguidehub/en/er-diagram-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Er Diagram Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Er Diagram Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Er Diagram Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Enter ER diagram syn and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Er Diagram Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Er Diagram Generator","description":"Step-by-step guide for using Er Diagram Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Er Diagram Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/er-diagram-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../../" class="logo">ToolGuideHub</a>
+      <a href="../../">Home</a>
+      <a href="../../en/er-diagram-generator/">CN</a>
+    </nav>
+  </header>
+  <main>
+    <h1>ER Diagram Generator</h1>
+    <p class="desc">Generate entity relationship diagrams using simple text syntax. Export to PNG or SVG.</p>
+    <div class="editor-layout">
+      <div class="editor-pane">
+        <div class="section">
+          <h2>📝 Syntax Input</h2>
+          <textarea id="codeInput" placeholder="Enter ER diagram syntax..."># E-commerce ER Diagram
+
+User {
+  id PK
+  username
+  email
+  created_at
+}
+
+Order {
+  id PK
+  user_id FK
+  total
+  status
+  created_at
+}
+
+Product {
+  id PK
+  name
+  price
+  stock
+}
+
+OrderItem {
+  id PK
+  order_id FK
+  product_id FK
+  quantity
+  price
+}
+
+User ||--o{ Order : places
+Order ||--|{ OrderItem : contains
+Product ||--o{ OrderItem : includes</textarea>
+          <div class="examples">
+            <span style="font-size:12px;color:#94a3b8;line-height:22px;">Examples:</span>
+            <span class="example-link" data-example="blog">Blog System</span>
+            <span class="example-link" data-example="school">School Mgmt</span>
+            <span class="example-link" data-example="simple">Simple</span>
+          </div>
+          <div class="toolbar">
+            <button class="btn btn-primary" id="renderBtn">🔄 Render Diagram</button>
+          </div>
+        </div>
+      </div>
+      <div class="output-pane">
+        <div class="section">
+          <h2>📊 ER Diagram</h2>
+          <div class="diagram-svg" id="diagramOutput">
+            <p style="color:#94a3b8">Click "Render Diagram" to generate</p>
+          </div>
+          <div class="toolbar">
+            <button class="btn btn-secondary" id="downloadSvg">📥 Export SVG</button>
+            <button class="btn btn-secondary" id="downloadPng">🖼 Export PNG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="toast" id="toast"></div>
+
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/er-diagram-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+function showToast(msg, isErr) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + (isErr ? 'error' : '');
+      t.classList.add('show');
+      clearTimeout(t._t);
+      t._t = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function parseER(text) {
+      const lines = text.split('\n');
+      const entities = [], relations = [];
+      let current = null, currentFields = [];
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+
+        if (trimmed.endsWith('{')) {
+          if (current) entities.push({ name: current, fields: currentFields });
+          current = trimmed.slice(0, -1).trim();
+          currentFields = [];
+        } else if (trimmed === '}') {
+          if (current) entities.push({ name: current, fields: currentFields });
+          current = null;
+          currentFields = [];
+        } else if (current) {
+          const parts = trimmed.split(/\s+/);
+          const field = parts[0];
+          const attrs = parts.slice(1).join(' ');
+          currentFields.push({ name: field, attrs: attrs });
+        } else {
+          const relMatch = trimmed.match(/^(\S+)\s+(.+?)\s+(\S+)\s*:?\s*(.*)$/);
+          if (relMatch) {
+            relations.push({
+              from: relMatch[1],
+              type: relMatch[2],
+              to: relMatch[3],
+              label: relMatch[4] || ''
+            });
+          }
+        }
+      }
+      if (current) entities.push({ name: current, fields: currentFields });
+      return { entities, relations };
+    }
+
+    function renderSVG(diagram) {
+      const entities = diagram.entities;
+      const relations = diagram.relations;
+
+      if (entities.length === 0) return '<p>Please enter at least one entity definition.</p>';
+
+      const colW = 220, rowH = 22, padding = 40;
+      const cols = Math.min(entities.length, 4);
+      const svgW = cols * colW + padding * 2;
+      const svgH = Math.ceil(entities.length / cols) * 300 + padding * 2;
+
+      const positions = {};
+      entities.forEach((e, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        positions[e.name] = {
+          x: padding + col * colW + 10,
+          y: padding + row * 280,
+          w: colW - 20,
+          h: (e.fields.length + 1) * rowH + 10
+        };
+      });
+
+      let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${svgW}" height="${svgH}" style="font-family: -apple-system, sans-serif; font-size: 12px;">`;
+      svg += `<rect width="100%" height="100%" fill="white"/>`;
+
+      relations.forEach(r => {
+        const fromPos = positions[r.from];
+        const toPos = positions[r.to];
+        if (!fromPos || !toPos) return;
+
+        const fx = fromPos.x + fromPos.w / 2;
+        const fy = fromPos.y + fromPos.h / 2;
+        const tx = toPos.x + toPos.w / 2;
+        const ty = toPos.y + toPos.h / 2;
+
+        svg += `<line x1="${fx}" y1="${fy}" x2="${tx}" y2="${ty}" stroke="#94a3b8" stroke-width="1.5"/>`;
+        if (r.label) {
+          const mx = (fx + tx) / 2, my = (fy + ty) / 2;
+          svg += `<text x="${mx}" y="${my - 5}" text-anchor="middle" fill="#64748b" font-size="11">${escapeXl(r.label)}</text>`;
+        }
+
+        const angle = Math.atan2(ty - fy, tx - fx);
+        const arrowSize = 8;
+        svg += `<polygon points="${tx},${ty} ${tx - arrowSize * Math.cos(angle - Math.PI/6)},${ty - arrowSize * Math.sin(angle - Math.PI/6)} ${tx - arrowSize * Math.cos(angle + Math.PI/6)},${ty - arrowSize * Math.sin(angle + Math.PI/6)}" fill="#94a3b8"/>`;
+      });
+
+      entities.forEach(e => {
+        const p = positions[e.name];
+        if (!p) return;
+
+        svg += `<rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.5" rx="4"/>`;
+        svg += `<rect x="${p.x}" y="${p.y}" width="${p.w}" height="${rowH}" fill="#0ea5e9" rx="4"/>`;
+        svg += `<rect x="${p.x}" y="${p.y + rowH/2}" width="${p.w}" height="${rowH/2}" fill="#0ea5e9"/>`;
+        svg += `<text x="${p.x + p.w/2}" y="${p.y + 15}" text-anchor="middle" fill="white" font-weight="bold" font-size="13">${escapeXl(e.name)}</text>`;
+
+        e.fields.forEach((f, fi) => {
+          const fy = p.y + rowH + fi * rowH;
+          svg += `<line x1="${p.x}" y1="${fy}" x2="${p.x + p.w}" y2="${fy}" stroke="#e2e8f0" stroke-width="0.5"/>`;
+          const isPK = f.attrs.includes('PK');
+          const isFK = f.attrs.includes('FK');
+          const prefix = isPK ? '🔑 ' : isFK ? '🔗 ' : '  ';
+          svg += `<text x="${p.x + 8}" y="${fy + 15}" fill="#1e293b" font-size="12">${escapeXl(prefix + f.name)}</text>`;
+          if (f.attrs) {
+            svg += `<text x="${p.x + p.w - 8}" y="${fy + 15}" text-anchor="end" fill="#64748b" font-size="10">${escapeXl(f.attrs.replace('PK','').replace('FK','').trim())}</text>`;
+          }
+        });
+      });
+
+      svg += `</svg>`;
+      return svg;
+    }
+
+    function escapeXl(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderDiagram() {
+      const text = document.getElementById('codeInput').value;
+      const output = document.getElementById('diagramOutput');
+      try {
+        const diagram = parseER(text);
+        const svg = renderSVG(diagram);
+        output.innerHTML = typeof svg === 'string' && svg.startsWith('<svg') ? svg : '<p>' + svg + '</p>';
+        showToast('Diagram rendered');
+      } catch (e) {
+        output.innerHTML = `<p style="color:#ef4444">Parse error: ${e.message}</p>`;
+      }
+    }
+
+    function downloadSVG() {
+      const svgEl = document.getElementById('diagramOutput').querySelector('svg');
+      if (!svgEl) { showToast('Render a diagram first', true); return; }
+      const blob = new Blob([svgEl.outerHTML], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'er-diagram.svg'; a.click();
+      URL.revokeObjectURL(url);
+      showToast('SVG downloaded');
+    }
+
+    function downloadPNG() {
+      const svgEl = document.getElementById('diagramOutput').querySelector('svg');
+      if (!svgEl) { showToast('Render a diagram first', true); return; }
+      const svgData = new XMLSerializer().serializeToString(svgEl);
+      const canvas = document.createElement('canvas');
+      const w = parseInt(svgEl.getAttribute('width'));
+      const h = parseInt(svgEl.getAttribute('height'));
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.onload = () => {
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0);
+        canvas.toBlob(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url; a.download = 'er-diagram.png'; a.click();
+          URL.revokeObjectURL(url);
+          showToast('PNG downloaded');
+        }, 'image/png');
+      };
+      img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+    }
+
+    const examples = {
+      simple: '# Simple ER\nUser {\n  id PK\n  name\n  email\n}\n\nPost {\n  id PK\n  user_id FK\n  title\n  content\n}\n\nUser ||--o{ Post : writes',
+      blog: '# Blog System\nUser {\n  id PK\n  username\n  email\n  avatar\n}\n\nPost {\n  id PK\n  author_id FK\n  title\n  body\n  published_at\n}\n\nComment {\n  id PK\n  post_id FK\n  user_id FK\n  content\n  created_at\n}\n\nTag {\n  id PK\n  name\n}\n\nPostTag {\n  post_id FK\n  tag_id FK\n}\n\nUser ||--o{ Post : authors\nPost ||--o{ Comment : has\nUser ||--o{ Comment : writes\nPost ||--o{ PostTag : tagged\nTag ||--o{ PostTag : belongs',
+      school: '# School Management\nStudent {\n  id PK\n  name\n  email\n  grade\n}\n\nCourse {\n  id PK\n  name\n  teacher_id FK\n  credits\n}\n\nTeacher {\n  id PK\n  name\n  department\n}\n\nEnrollment {\n  id PK\n  student_id FK\n  course_id FK\n  score\n}\n\nStudent ||--o{ Enrollment : enrolls\nCourse ||--o{ Enrollment : has\nTeacher ||--o{ Course : teaches'
+    };
+
+    document.getElementById('renderBtn').addEventListener('click', renderDiagram);
+    document.getElementById('downloadSvg').addEventListener('click', downloadSVG);
+    document.getElementById('downloadPng').addEventListener('click', downloadPNG);
+    document.querySelectorAll('.example-link').forEach(el => {
+      el.addEventListener('click', () => {
+        const key = el.dataset.example;
+        if (examples[key]) document.getElementById('codeInput').value = examples[key];
+        renderDiagram();
+      });
+    });
+    renderDiagram();
+
+
+</script>
+</body>
+</html>

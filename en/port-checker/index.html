@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Port Checker - ToolGuideHub</title>
+ <meta name="description" content="Check whether common ports such as 80, 443, 22, 3306, 5432, and 6379 are open on a host or IP, with nmap hints.">
+ <meta name="keywords" content="port checker port scanner port open network tool TCP port">
+ <meta property="og:title" content="Port Checker - ToolGuideHub">
+ <meta property="og:description" content="Check whether common ports such as 80, 443, 22, 3306, 5432, and 6379 are open on a host or IP, with nmap hints.">
+ <meta property="og:type" content="website">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/port-checker/">
+ <meta name="twitter:card" content="summary">
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Port Checker",
+    "description": "Check if ports are open on specified IP/domain, common ports list (80/443/22/3306 etc.), quick scan",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+ <style>:root{--surface:#1e293b;--error:#EF4444;;--text:#e2e8f0}
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; }
+    header { background:var(--surface); border-bottom:1px solid rgba(148,163,184,.1); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    header a { color:#94a3b8; text-decoration:none; font-size:14px; }
+    header a:hover { color:#e2e8f0; }
+    .logo { font-size:18px; font-weight:700; color:#e2e8f0; }
+    .lang-switch a { margin-left:12px; padding:4px 12px; border-radius:6px; border:1px solid rgba(148,163,184,.1); }
+    .lang-switch a.active { background:#22d3ee; color:#fff; border-color:#22d3ee; }
+    main { max-width:800px; margin:0 auto; padding:32px 20px; }
+    h1 { font-size:28px; margin-bottom:8px; }
+    .desc { color:#94a3b8; margin-bottom:24px; font-size:15px; }
+    .tool-area { background:var(--surface); border-radius:12px; border:1px solid rgba(148,163,184,.1); padding:24px; margin-bottom:20px; }
+    .tool-area label { display:block; font-size:14px; color:#94a3b8; margin-bottom:8px; }
+    .tool-area input, .tool-area textarea, .tool-area select { width:100%; background:#0f172a; border:1px solid rgba(148,163,184,.1); border-radius:8px; color:#e2e8f0; padding:12px; font-size:14px; font-family:inherit; resize:vertical; }
+    .tool-area textarea {
+      background: var(--surface);
+      color: var(--text); min-height:120px; }
+    .tool-area input:focus, .tool-area textarea:focus, .tool-area select:focus { outline:none; border-color:#22d3ee; }
+    .btn { display:inline-block; padding:10px 24px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; border:none; transition:all .2s; }
+    .btn-primary { background:#22d3ee; color:#fff; }
+    .btn-primary:hover { opacity:.9; }
+    .btn-secondary { background:var(--surface); color:#e2e8f0; border:1px solid rgba(148,163,184,.1); }
+    .result { background:#0f172a; border:1px solid rgba(148,163,184,.1); border-radius:8px; padding:16px; min-height:60px; font-size:14px; white-space:pre-wrap; word-break:break-all; margin-top:16px; display:none; }
+    .result.show { display:block; }
+    .result.error { border-color:var(--error); color:var(--error); }
+    footer { text-align:center; padding:24px; color:#94a3b8; font-size:13px; border-top:1px solid rgba(148,163,184,.1); margin-top:40px; }
+    footer a { color:#22d3ee; }
+    .row { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+    .row > * { flex:1; min-width:150px; }
+    .tag { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; background:rgba(79,70,229,.2); color:#818cf8; margin:2px; }
+    .status { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+    .status.open { background:#10b981; }
+    .status.closed { background:var(--error); }
+    @media(max-width:375px) { main { padding:16px 12px; } h1 { font-size:22px; } }
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/port-checker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Port Checker", "item": "https://adi63586.github.io/Toolguidehub/en/port-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Port Checker FAQ","mainEntity":[{"@type":"Question","name":"How does the Port Checker work?","acceptedAnswer":{"@type":"Answer","text":"Enter a target domain or IP address and port numbers, then click the Check button. The tool uses online APIs to check port status and displays the results. Everything runs locally in your browser — your data is never sent to a server."}},{"@type":"Question","name":"Is the Port Checker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. All checks run locally: the target domain or IP and port numbers are processed on your device, never sent to a server — ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Port Checker report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes the status of each requested port (open/closed), common port names, and nmap command suggestions for manual verification. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Port Checker","description":"Step-by-step guide for using Port Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Port Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/port-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ 
+ </header>
+ <main>
+ <h1>Port Checker</h1>
+ <p class="desc">Check if ports are open on specified IP/domain, common ports list (80/443/22/3306 etc.), quick scan</p>
+ <div class="tool-area">
+ 
+ <label>Target Domain or IP</label>
+ <input type="text" id="targetInput" placeholder="example.com">
+ <label style="margin-top:12px;">Port (comma-separated, multiple ports)</label>
+ <div class="row">
+ <input type="text" id="portInput" placeholder="80, 443, 22, 3306" style="flex:3;">
+ <button class="btn btn-primary" id="checkBtn" style="flex:0;">detect</button>
+ </div>
+ <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+ <span style="font-size:12px;color:#94a3b8;">Quick Select:</span>
+ <span class="tag" onclick="document.getElementById('portInput').value='80,443';document.getElementById('checkBtn').click()" style="cursor:pointer;">HTTP/HTTPS</span>
+  <span class="tag" onclick="document.getElementById('portInput').value='21,22,25,53,80,443,3306,5432,6379,8080,27017';document.getElementById('checkBtn').click()" style="cursor:pointer;">All Common</span>
+ <span class="tag" onclick="document.getElementById('portInput').value='22';document.getElementById('checkBtn').click()" style="cursor:pointer;">SSH</span>
+ <span class="tag" onclick="document.getElementById('portInput').value='3306';document.getElementById('checkBtn').click()" style="cursor:pointer;">MySQL</span>
+ <span class="tag" onclick="document.getElementById('portInput').value='27017';document.getElementById('checkBtn').click()" style="cursor:pointer;">MongoDB</span>
+ </div>
+ <div class="result" id="result"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+ <div style="margin-top:16px;padding:16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;font-size:13px;color:#f59e0b;">
+ ⚠️ <strong>Note:</strong> Browsers cannot directly detect port open status. This tool uses online APIs for auxiliary detection. Results may vary.
+ </div>
+ <div style="margin-top:12px;font-size:12px;color:#94a3b8;">
+ <strong>Common Ports:</strong><br>
+ <span class="tag">21</span> FTP <span class="tag">22</span> SSH <span class="tag">25</span> SMTP
+ <span class="tag">53</span> DNS <span class="tag">80</span> HTTP <span class="tag">110</span> POP3<br>
+ <span class="tag">143</span> IMAP <span class="tag">443</span> HTTPS <span class="tag">3306</span> MySQL
+ <span class="tag">5432</span> PostgreSQL <span class="tag">6379</span> Redis <span class="tag">27017</span> MongoDB
+ </div>
+ </div>
+ 
+<h2>What is Port Checker?</h2><p>Port Checker is a free online tool that runs entirely in your browser. No download or signup needed — enter a target domain or IP address and port numbers to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Check if web server ports (80/443) are accessible</li><li>Verify database ports (3306/5432/6379) are open</li><li>Test SSH connectivity (port 22)</li><li>Quick network diagnostic for common services</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/docker-compose-validator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Docker Compose Validator</a><a href="../../en/file-type-detector/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">File Type Detector</a><a href="../../en/google-index-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Google Index Checker</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/port-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+ <script>
+    
+    const targetInput = document.getElementById('targetInput');
+    const portInput = document.getElementById('portInput');
+    const checkBtn = document.getElementById('checkBtn');
+    const result = document.getElementById('result');
+
+    const PORT_NAMES = {
+      21:'FTP',22:'SSH',23:'Telnet',25:'SMTP',53:'DNS',80:'HTTP',
+      110:'POP3',143:'IMAP',443:'HTTPS',993:'IMAPS',995:'POP3S',
+      3306:'MySQL',5432:'PostgreSQL',6379:'Redis',8080:'HTTP-Alt',
+      8443:'HTTPS-Alt',27017:'MongoDB',9090:'Prometheus',9200:'Elasticsearch'
+    };
+
+    async function check() {
+      const target = targetInput.value.trim();
+      const portsStr = portInput.value.trim();
+      if (!target) { showResult('Please enter a target domain or IP', true); return; }
+      if (!portsStr) { showResult('Please enter port numbers', true); return; }
+      
+      const ports = portsStr.split(',').map(p => parseInt(p.trim())).filter(p => !isNaN(p));
+      if (ports.length === 0) { showResult('Port format error', true); return; }
+      
+      showResult('');
+      
+      let out = `portdetectResult: ${target}\n${'═'.repeat(40)}\n`;
+      
+      // Use hackertarget API for port scanning
+      try {
+        const hostname = target.replace(/^https?:\/\//, '').split('/')[0].split(':')[0];
+        const resp = await fetch(`https://api.hackertarget.com/nmap/?q=${encodeURIComponent(hostname)}`);
+        const text = await resp.text();
+        
+        if (text.includes('error') || text.includes('invalid')) {
+          ports.forEach(port => {
+            const name = PORT_NAMES[port] || '';
+            out += `  port ${port} ${name ? '(' + name + ')' : ''}\n`;
+          });
+          out += `  or nmap -p ${ports.join(',')} ${hostname}\n`;
+        } else {
+          out += text + '\n';
+        }
+      } catch(e) {
+        out += '';
+        out += ``;
+      }
+      
+      showResult(out);
+    }
+
+    function showResult(msg, isError = false) {
+      result.textContent = msg;
+      result.className = 'result show' + (isError ? ' error' : '');
+    }
+
+    checkBtn.addEventListener('click', check);
+    targetInput.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

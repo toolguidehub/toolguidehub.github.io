@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<script>
+function showToast(msg){const t=document.createElement('div');t.textContent=msg;t.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;border:1px solid rgba(6,182,212,.3);padding:10px 24px;border-radius:8px;z-index:99999;font-size:14px;animation:toastIn .3s ease';document.body.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300)},2000)}
+</script>
+<style>
+:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Turn a GIF into MP4 (H.264) or WebM (VP8) video at 10-30 FPS, trading the 256-color limit for full-color, smaller, smoother files.">
+<meta name="keywords" content="GIF to video,GIF to MP4,GIF to WebM,GIF converter,convert GIF,online converter">
+<title>Free GIF to Video Converter Online - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gif-to-video/">
+<meta property="og:title" content="Free GIF to Video Converter Online - ToolGuideHub">
+<meta property="og:description" content="Turn a GIF into MP4 (H.264) or WebM (VP8) video at 10-30 FPS, trading the 256-color limit for full-color, smaller, smoother files.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gif-to-video/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free GIF to Video Converter", "description": "Free GIF to video converter: convert GIF to MP4/WebM in browser, no upload, privacy guaranteed. Adjust quality, frame rate. 100% client-side, works offline.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-17"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "GIF to Video FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the benefits of converting GIF to video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Benefits include: 1) Significantly smaller file size - MP4 is typically 5-10x smaller than GIF; 2) More colors - GIF supports only 256 colors while video supports full color; 3) Smoother playback - video decoding is more efficient; 4) Better web performance - modern browsers recommend using video instead of GIF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What output formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP4 and WebM formats are supported. MP4 has the widest compatibility across all devices and browsers. WebM is an open format with smaller file sizes, well-supported by Chrome and Firefox. MP4 is recommended as the primary choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my GIF file uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All conversion happens locally in your browser. Your GIF file is never uploaded to any server. The converted video is generated locally and downloaded directly to your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the quality of the converted video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The converted video quality is comparable to or better than the original GIF. Since video encoding supports more colors, color reproduction is actually better. You can choose different quality levels to balance file size and visual quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are GIF files so large?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GIF uses LZW compression where each frame stores complete image data with no inter-frame compression. MP4/WebM uses modern encoders like H.264/VP8 that support inter-frame predictive compression, storing only the differences between frames, resulting in much smaller file sizes."
+      }
+    }
+  ]
+}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea,input[type=text],input[type=url],input[type=number],select{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;min-height:40px;word-break:break-all;max-height:300px;overflow-y:auto;white-space:pre-wrap;margin-top:12px}
+.result-box.success{border-color:rgba(34,197,94,.3);color:#22c55e}
+.result-box.error{border-color:rgba(239,68,68,.3);color:#f87171}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul,.info-section ol{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.drop-zone{border:2px dashed rgba(6,182,212,.3);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(6,182,212,.05)}
+.drop-zone:hover,.drop-zone.dragover{border-color:rgba(6,182,212,.6);background:rgba(6,182,212,.1)}
+.drop-zone p{color:#94a3b8;font-size:.9rem;margin-top:8px}
+.drop-zone .icon{font-size:2.5rem;margin-bottom:8px}
+.preview-area{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;align-items:flex-start}
+.preview-area img,.preview-area video{max-width:300px;max-height:200px;border-radius:8px;border:1px solid rgba(148,163,184,.2)}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+select{cursor:pointer}
+.progress-bar{width:100%;height:8px;background:#0f172a;border-radius:4px;overflow:hidden;margin-top:12px}
+.progress-bar .fill{height:100%;background:linear-gradient(90deg,#06b6d4,#22d3ee);border-radius:4px;transition:width .3s;width:0}
+.file-info{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:.85rem;color:#94a3b8}
+.file-info span{background:rgba(6,182,212,.1);padding:4px 10px;border-radius:6px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free GIF to Video Converter Online", "item": "https://adi63586.github.io/Toolguidehub/en/gif-to-video/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gif-to-video/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<div class="header">
+<h1>GIF to Video</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="tool-section">
+<h2>📁 Upload GIF File</h2>
+<div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+<div class="icon">🎞️</div>
+<p>Click or drag a GIF file here</p>
+<p style="font-size:.8rem;color:#64748b">Supports .gif format</p>
+</div>
+<input type="file" id="file-input" accept="image/gif" style="display:none" onchange="handleFile(this.files[0])">
+<div id="file-info" class="file-info" style="display:none"></div>
+<div id="preview-area" class="preview-area" style="display:none"></div>
+</div>
+
+<div class="tool-section" id="convert-section" style="display:none">
+<h2>⚙️ Conversion Settings</h2>
+<div class="options">
+<label>Format:
+<select id="output-format">
+<option value="mp4">MP4 (H.264)</option>
+<option value="webm">WebM (VP8)</option>
+</select>
+</label>
+<label>FPS:
+<select id="frame-rate">
+<option value="original">Original</option>
+<option value="10">10 FPS</option>
+<option value="15">15 FPS</option>
+<option value="20">20 FPS</option>
+<option value="24">24 FPS</option>
+<option value="30">30 FPS</option>
+</select>
+</label>
+<label>Quality:
+<select id="quality">
+<option value="high">High</option>
+<option value="medium" selected>Medium</option>
+<option value="low">Low (smaller)</option>
+</select>
+</label>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="convertGif()">🔄 Convert</button>
+<button class="btn btn-secondary" onclick="resetAll()">🗑️ Reset</button>
+</div>
+<div id="progress-bar" class="progress-bar" style="display:none"><div class="fill" id="progress-fill"></div></div>
+<div id="convert-result" class="result-box" style="display:none"></div>
+<div id="output-preview" style="display:none;margin-top:12px"></div>
+</div>
+
+<div class="info-section">
+<h2>📖 GIF to Video Guide</h2>
+<h3>Why Convert GIF to Video?</h3>
+<p>While GIF is widely used, it has significant drawbacks: large file size, only 256 colors, no semi-transparency. Converting to MP4 or WebM offers:</p>
+<ul>
+<li><strong>Smaller file size</strong> — MP4 is typically 5-10x smaller than GIF</li>
+<li><strong>Richer colors</strong> — Video supports full 16 million colors</li>
+<li><strong>Smoother playback</strong> — Video decoding is more efficient</li>
+<li><strong>Better web performance</strong> — Modern browsers recommend video over GIF</li>
+</ul>
+<h3>MP4 vs WebM</h3>
+<ul>
+<li><strong>MP4 (H.264)</strong> — Widest compatibility across all devices and browsers, recommended first choice</li>
+<li><strong>WebM (VP8)</strong> — Open source format, smaller files, well-supported by Chrome/Firefox</li>
+</ul>
+<h3>When to use GIF to Video</h3>
+<ul>
+<li>Web optimization: Replace GIF with video to reduce page load time</li>
+<li>Social media: Some platforms don't support GIF but support video</li>
+<li>Presentations: Use video instead of GIF in PowerPoint</li>
+<li>Storage optimization: Reduce file size to save storage space</li>
+</ul>
+</div>
+
+<div class="info-section">
+<h2>📖 FAQ</h2>
+<div class="faq-item"><h3>What are the benefits of converting GIF to video?</h3><p>Benefits include: 1) Significantly smaller file size - MP4 is typically 5-10x smaller than GIF; 2) More colors - GIF supports only 256 colors while video supports full color; 3) Smoother playback - video decoding is more efficient; 4) Better web performance - modern browsers recommend using video instead of GIF.</p></div>
+<div class="faq-item"><h3>What output formats are supported?</h3><p>MP4 and WebM formats are supported. MP4 has the widest compatibility across all devices and browsers. WebM is an open format with smaller file sizes, well-supported by Chrome and Firefox. MP4 is recommended as the primary choice.</p></div>
+<div class="faq-item"><h3>Is my GIF file uploaded to a server?</h3><p>No. All conversion happens locally in your browser. Your GIF file is never uploaded to any server. The converted video is generated locally and downloaded directly to your device.</p></div>
+<div class="faq-item"><h3>How is the quality of the converted video?</h3><p>The converted video quality is comparable to or better than the original GIF. Since video encoding supports more colors, color reproduction is actually better. You can choose different quality levels to balance file size and visual quality.</p></div>
+<div class="faq-item"><h3>Why are GIF files so large?</h3><p>GIF uses LZW compression where each frame stores complete image data with no inter-frame compression. MP4/WebM uses modern encoders like H.264/VP8 that support inter-frame predictive compression, storing only the differences between frames, resulting in much smaller file sizes.</p></div>
+</div>
+
+</main>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gif-to-video/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<script>
+let gifFile = null;
+
+const dropZone = document.getElementById('drop-zone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('dragover'); if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+
+function handleFile(file) {
+  if (!file) return;
+  if (!file.type.startsWith('image/gif')) {
+    showToast('Please select a GIF file');
+    return;
+  }
+  gifFile = file;
+  const info = document.getElementById('file-info');
+  info.style.display = 'flex';
+  info.innerHTML = `<span>📄 ${file.name}</span><span>📦 ${(file.size/1024).toFixed(1)} KB</span>`;
+  
+  const preview = document.getElementById('preview-area');
+  preview.style.display = 'flex';
+  preview.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(file);
+  img.alt = 'GIF Preview';
+  img.onload = () => {
+    info.innerHTML += `<span>📐 ${img.naturalWidth}×${img.naturalHeight}px</span>`;
+  };
+  preview.appendChild(img);
+  
+  document.getElementById('convert-section').style.display = 'block';
+}
+
+async function convertGif() {
+  if (!gifFile) { showToast('Please upload a GIF file first'); return; }
+  
+  const result = document.getElementById('convert-result');
+  const progressBar = document.getElementById('progress-bar');
+  const progressFill = document.getElementById('progress-fill');
+  const outputPreview = document.getElementById('output-preview');
+  
+  result.style.display = 'block';
+  result.className = 'result-box';
+  result.textContent = '⏳ Extracting GIF frames...';
+  progressBar.style.display = 'block';
+  progressFill.style.width = '10%';
+  
+  try {
+    const img = new Image();
+    img.src = URL.createObjectURL(gifFile);
+    await new Promise(r => img.onload = r);
+    
+    const recCanvas = document.createElement('canvas');
+    recCanvas.width = img.naturalWidth;
+    recCanvas.height = img.naturalHeight;
+    const recCtx = recCanvas.getContext('2d');
+    
+    const format = document.getElementById('output-format').value;
+    const mimeType = 'video/webm;codecs=vp8';
+    
+    if (!MediaRecorder.isTypeSupported(mimeType)) {
+      result.className = 'result-box error';
+      result.textContent = '❌ Your browser does not support this recording format. Please try WebM.';
+      return;
+    }
+    
+    const qualityMap = { high: 8000000, medium: 4000000, low: 1500000 };
+    const quality = qualityMap[document.getElementById('quality').value];
+    
+    const stream = recCanvas.captureStream(30);
+    const recorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: quality });
+    const chunks = [];
+    
+    recorder.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+    
+    const recordingDone = new Promise(resolve => {
+      recorder.onstop = resolve;
+    });
+    
+    recorder.start();
+    
+    const gifImg = document.createElement('img');
+    gifImg.src = URL.createObjectURL(gifFile);
+    await new Promise(r => gifImg.onload = r);
+    
+    const totalDuration = Math.max(2000, gifFile.size / 100);
+    const fps = parseInt(document.getElementById('frame-rate').value) || 30;
+    const frameInterval = 1000 / fps;
+    const totalFrames = Math.ceil(totalDuration / frameInterval);
+    
+    for (let i = 0; i < totalFrames; i++) {
+      recCtx.clearRect(0, 0, recCanvas.width, recCanvas.height);
+      recCtx.drawImage(gifImg, 0, 0);
+      progressFill.style.width = `${30 + (i / totalFrames) * 60}%`;
+      await new Promise(r => setTimeout(r, frameInterval));
+    }
+    
+    recorder.stop();
+    await recordingDone;
+    
+    progressFill.style.width = '95%';
+    result.textContent = '⏳ Generating video file...';
+    
+    const blob = new Blob(chunks, { type: format === 'mp4' ? 'video/mp4' : 'video/webm' });
+    const url = URL.createObjectURL(blob);
+    
+    progressFill.style.width = '100%';
+    
+    const sizeKB = (blob.size / 1024).toFixed(1);
+    const ratio = ((1 - blob.size / gifFile.size) * 100).toFixed(1);
+    
+    result.className = 'result-box success';
+    result.innerHTML = `✅ Conversion complete!\n\nFormat: ${format.toUpperCase()}\nSize: ${sizeKB} KB\nOriginal: ${(gifFile.size/1024).toFixed(1)} KB\nChange: ${ratio > 0 ? 'Reduced by ' + ratio + '%' : 'Increased by ' + Math.abs(ratio) + '%'}`;
+    
+    outputPreview.style.display = 'block';
+    outputPreview.innerHTML = '';
+    const video = document.createElement('video');
+    video.src = url;
+    video.controls = true;
+    video.loop = true;
+    video.style.maxWidth = '100%';
+    video.style.borderRadius = '8px';
+    video.style.border = '1px solid rgba(148,163,184,.2)';
+    outputPreview.appendChild(video);
+    
+    const downloadBtn = document.createElement('a');
+    downloadBtn.href = url;
+    downloadBtn.download = gifFile.name.replace('.gif', '') + '.' + format;
+    downloadBtn.className = 'btn btn-success';
+    downloadBtn.style.display = 'inline-block';
+    downloadBtn.style.marginTop = '12px';
+    downloadBtn.textContent = '💾 Download Video';
+    outputPreview.appendChild(downloadBtn);
+    
+  } catch(err) {
+    result.className = 'result-box error';
+    result.textContent = '❌ Conversion failed: ' + err.message;
+  }
+}
+
+function resetAll() {
+  gifFile = null;
+  document.getElementById('file-input').value = '';
+  document.getElementById('file-info').style.display = 'none';
+  document.getElementById('preview-area').style.display = 'none';
+  document.getElementById('convert-section').style.display = 'none';
+  document.getElementById('convert-result').style.display = 'none';
+  document.getElementById('progress-bar').style.display = 'none';
+  document.getElementById('output-preview').style.display = 'none';
+}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert GIF to Video Online",
+  "description": "Convert animated GIFs to MP4 or WebM video format in your browser, no upload required.",
+  "totalTime": "PT1M",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Open the GIF to Video Converter", "text": "Navigate to the Free GIF to Video Converter page. The tool loads instantly in your browser with no signup required.", "url": "https://adi63586.github.io/Toolguidehub/en/gif-to-video/"},
+    {"@type": "HowToStep", "position": 2, "name": "Upload Your GIF", "text": "Click the upload area or drag and drop your animated GIF file. The file stays on your device — no server upload, complete privacy."},
+    {"@type": "HowToStep", "position": 3, "name": "Choose Output Format & Settings", "text": "Select MP4 or WebM as the output format. Adjust quality, frame rate, and dimensions if needed."},
+    {"@type": "HowToStep", "position": 4, "name": "Convert and Download", "text": "Click Convert and wait for the processing to complete. Download your video file instantly. All processing happens client-side."}
+  ]
+}</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

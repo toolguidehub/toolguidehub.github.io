@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<script>
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create layered SVG wave graphics with custom colours, amplitude and frequency, then copy the SVG for a section divider.">
+<meta name="keywords" content="SVG wave generator wave maker SVG background wave pattern CSS wave SVG shape generator">
+<title>Free Online SVG Wave Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
+<meta property="og:title" content="Free Online SVG Wave Generator - ToolGuideHub">
+<meta property="og:description" content="Create layered SVG wave graphics with custom colours, amplitude and frequency, then copy the SVG for a section divider.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free OnlineTools - No Signup Required">
+<meta name="twitter:description" content="Free online svg wave generator - toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free Online SVG Wave Generator - Multi-layer Waves with Custom Colors", "description": "Free online SVG wave generator. Create beautiful multi-layer wave graphics with custom colors, amplitude, and frequency. One-click copy SVG code. Pure frontend local generation.", "applicationCategory": "DesignApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Free Online SVG Wave Generator - Multi-layer Waves with Custom Colors", "step": [{"@type": "HowToStep", "text": "Follow the on-screen instructions to complete the operation.", "position": 1, "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "text": "Follow the on-screen instructions to complete the operation.", "position": 2, "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "text": "Follow the on-screen instructions to complete the operation.", "position": 3, "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "text": "Follow the on-screen instructions to complete the operation.", "position": 4, "name": "Follow the on-screen instructi"}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/wave-generator/"
+    }
+  ],
+  "name": "Tools"
+}</script>
+
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:20px}
+h1{font-size:1.6rem;text-align:center;margin-bottom:8px;background:linear-gradient(135deg,#22d3ee,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#94a3b8;font-size:.9rem;margin-bottom:24px}
+.card{background:#1e293b;border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:20px;margin-bottom:16px}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+@media(max-width:640px){.controls{grid-template-columns:1fr 1fr}}
+.ctrl-group label{display:block;color:#94a3b8;font-size:.75rem;margin-bottom:3px}
+.ctrl-group input,.ctrl-group select{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:5px 7px;color:#e2e8f0;font-size:.8rem;outline:none}
+.layer-row{display:grid;grid-template-columns:40px 1fr 1fr 1fr 1fr 40px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.layer-row:last-child{border-bottom:none}
+.layer-label{color:#94a3b8;font-size:.8rem}
+.preview-box{background:#0f172a;border-radius:12px;overflow:hidden;margin-bottom:16px;min-height:200px;position:relative}
+.preview-box svg{display:block;width:100%}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.4)}
+.btn-secondary{background:rgba(139,92,246,.2);color:#a78bfa;border:1px solid rgba(139,92,246,.3)}
+.btn-secondary:hover{background:rgba(139,92,246,.4)}
+.btn-sm{padding:6px 12px;font-size:.8rem}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.code-area{background:#1e293b;border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:16px;margin-bottom:16px;position:relative}
+.code-area pre{background:#0f172a;border-radius:8px;padding:12px;overflow-x:auto;font-family:'Fira Code',monospace;font-size:.7rem;color:#a78bfa;line-height:1.4;white-space:pre-wrap;max-height:200px;overflow-y:auto}
+.faq-section{margin-top:32px}
+.faq-item{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#f1f5f9;font-size:.9rem;font-weight:500}
+.faq-q:hover{background:rgba(6,182,212,.05)}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:all .3s;color:#94a3b8;font-size:.85rem;line-height:1.6}
+.faq-item.open .faq-a{padding:12px 16px;max-height:300px}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-q::after{content:'+';color:#06b6d4;font-weight:700}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;border:1px solid rgba(34,197,94,.3);color:#22c55e;padding:10px 20px;border-radius:8px;font-size:.85rem;z-index:9999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+
+</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"SVG Wave Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the SVG Wave Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the SVG Wave Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: layernumber and Width are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the SVG Wave Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<h1>SVG Wave Generator
+</h1>
+
+<p class="subtitle">Free online SVG wave generator. Create beautiful multi-layer wave graphics with ...</p>
+
+<div class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+<div style="display:flex;align-items:center;gap:8px;">
+<span style="font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#22d3ee,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SVG Wave Generator</span>
+</div>
+<div class="lang-switch" style="display:flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;"><a href="../../en/wave-generator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;">中文</a><a href="../../en/wave-generator/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee;">EN</a></div>
+</div>
+<div class="controls">
+<div class="ctrl-group">
+<label>layernumber</label>
+<input type="number" id="layers" value="3" min="1" max="5" onchange="renderLayers()">
+</div>
+<div class="ctrl-group">
+<label>Width</label>
+<input type="number" id="svgWidth" value="1440" value="1440" min="400" max="2000">
+</div>
+<div class="ctrl-group">
+<label>Height</label>
+<input type="number" id="svgHeight" value="200" min="50" max="500">
+</div>
+<div class="ctrl-group">
+<label>Background </label>
+<input type="color" id="bgColor" value="#0f172a">
+</div>
+</div>
+
+<div id="layer-controls"></div>
+
+<div class="btn-group">
+<button class="btn btn-primary" onclick="generateWave()">🎲 randomGenerate</button>
+<button class="btn btn-secondary" onclick="copySVG()">📋 CopySVG</button>
+<button class="btn btn-secondary" onclick="downloadSVG()">💾 DownloadSVG</button>
+</div>
+</div>
+
+<div class="preview-box" id="preview-box"></div>
+
+<div class="code-area">
+<button class="btn btn-primary btn-sm" style="position:absolute;top:12px;right:12px" onclick="copySVG()">📋 Copy</button>
+<div style="color:#94a3b8;font-size:.8rem;margin-bottom:8px">SVGcode</div>
+<pre id="code-output">click"randomGenerate"Start</pre>
+</div>
+
+<div class="faq-section">
+<h2 style="font-size:1.1rem;margin-bottom:12px;color:#f1f5f9">❓ Frequently Asked Questions</h2>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">Where can I use SVG waves on a website?</div>
+<div class="faq-a">SVG waves are commonly used for page section dividers, hero section bottom accents, footer top decorations, card backgrounds, and decorative page elements. They add visual interest to any web design.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">What are the benefits of multiple layers?</div>
+<div class="faq-a">Multiple layers add depth and visual richness compared to single-layer waves. By adjusting each layer's color, opacity, amplitude, and offset, you can create unique and dynamic effects.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">How do I make the SVG responsive?</div>
+<div class="faq-a">Set the SVG width to 100% and keep the viewBox set to your desired width (e.g. 1440). The SVG will automatically scale to fit its container. Using the viewBox attribute ensures proper scaling at any width.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">What do amplitude and frequency control?</div>
+<div class="faq-a">Amplitude controls wave height (how high the peaks are) — higher values mean taller waves. Frequency controls the number of wave cycles — higher values create more waves. Combining these lets you create everything from gentle ripples to dramatic peaks.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">Can I use the generated SVG in React or Vue?</div>
+<div class="faq-a">Yes! SVG code is standard and can be used directly as inline SVG components in React (JSX) or Vue templates. You can also save it as a .svg file and reference it via an img tag.</div>
+</div>
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let currentSVG='';
+const defaultColors=['#06b6d4','#8b5cf6','#ec4899'];
+
+function renderLayers(){
+const n=parseInt(document.getElementById('layers').value)||3;
+const container=document.getElementById('layer-controls');
+let html='';
+for(let i=0;i<n;i++){
+const c=defaultColors[i%defaultColors.length];
+html+=`<div class="layer-row">
+<span class="layer-label">L${i+1}</span>
+<input type="color" id="lc${i}" value="${c}" style="width:40px;padding:2px">
+<input type="number" id="la${i}" value="${30+i*15}" min="5" max="100" placeholder="amplitude" style="font-size:.8rem">
+<input type="number" id="lf${i}" value="${1+i*0.5}" min="0.5" max="5" step="0.5" placeholder="frequency" style="font-size:.8rem">
+<input type="number" id="lo${i}" value="${i*20}" min="0" max="100" placeholder="" style="font-size:.8rem">
+<input type="number" id="lop${i}" value="${80-i*15}" min="10" max="100" placeholder="transparent%" style="font-size:.8rem">
+</div>`;
+}
+container.innerHTML=html;
+}
+
+function generateWave(){
+const w=parseInt(document.getElementById('svgWidth').value)||1440;
+const h=parseInt(document.getElementById('svgHeight').value)||200;
+const bg=document.getElementById('bgColor').value;
+const n=parseInt(document.getElementById('layers').value)||3;
+
+let paths='';
+for(let i=n-1;i>=0;i--){
+const color=document.getElementById('lc'+i)?.value||defaultColors[i%3];
+const amp=parseInt(document.getElementById('la'+i)?.value)||30;
+const freq=parseFloat(document.getElementById('lf'+i)?.value)||1;
+const offset=parseInt(document.getElementById('lo'+i)?.value)||0;
+const op=(parseInt(document.getElementById('lop'+i)?.value)||80)/100;
+
+const baseY=h*0.5+offset*0.5;
+const points=[];
+for(let x=0;x<=w;x+=2){
+const y=baseY+Math.sin((x/w)*Math.PI*2*freq+i*1.5)*amp;
+points.push(`${x},${y.toFixed(1)}`);
+}
+const d=`M0,${h} L0,${points[0].split(',')[1]} `+
+points.map(p=>`L${p}`).join(' ')+
+` L${w},${h} Z`;
+
+paths+=`  <path d="${d}" fill="${color}" opacity="${op}"/>\n`;
+}
+
+currentSVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none">\n  <rect width="${w}" height="${h}" fill="${bg}"/>\n${paths}</svg>`;
+
+document.getElementById('preview-box').innerHTML=currentSVG;
+document.getElementById('code-output').textContent=currentSVG;
+}
+
+function copySVG(){
+if(!currentSVG){showToast('');return;}
+navigator.clipboard.writeText(currentSVG).then(()=>showToast('SVGcodeAlreadyCopy'));
+}
+
+function downloadSVG(){
+if(!currentSVG){showToast('');return;}
+const blob=new Blob([currentSVG],{type:'image/svg+xml'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;a.download='wave.svg';a.click();
+URL.revokeObjectURL(url);showToast('SVGAlreadyDownload');
+}
+
+function showToast(msg){
+const t=document.getElementById('toast');
+t.textContent=msg;t.classList.add('show');
+setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+renderLayers();
+generateWave();
+</script>
+
+<!-- Feedback Widget -->
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+if(!text){showToast('PleaseInputanti-feedbackcontent');return;}
+const typeLabel={feedback:'💡 featuresuggestion',bug:'🐛 questionanti-feedback',other:''}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**pageside**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){var s=document.getElementById('related-tools-section');if(!s)return;var p=window.location.pathname;var en=p.indexOf('/en/')!==-1;p=p.replace(/\/en\//g,'/');var slug=p.split('/').filter(Boolean).pop()||'';if(!slug){s.innerHTML='';return;}var depth=en?'../../':'../';fetch(depth+'related-tools.json').then(function(r){if(!r.ok)throw new Error('');return r.json();}).then(function(d){var data=en?d.en:d.cn;var t=data[slug];if(!t||!t.related||!t.related.length){s.innerHTML='';return;}var h='<div class="related-tools-inner"><h3 class="related-tools-title">'+(en?'🔗 You May Also Like':'🔗 RelatedToolsRecommended')+'</h3><div class="related-tools-grid">';t.related.forEach(function(r){var link=en?'../../en/'+r.slug+'/':'../'+r.slug+'/';h+='<a href="'+link+'" class="related-tool-card"><span class="related-tool-icon">'+(r.icon||'🔧')+'</span><span class="related-tool-name">'+r.name+'</span></a>';});h+='</div></div>';s.innerHTML=h;}).catch(function(){s.innerHTML='';});})();</script>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

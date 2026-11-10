@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Hours Calculator - Free Online Time Tracker</title>
+  <meta name="description" content="Free Work Hours Calculator. Calculate work hours, overtime and break deductions. Multi-session clock-in with auto lunch deduction. Export to CSV.">
+  <meta property="og:title" content="Work Hours Calculator - Free Online Time Tracker">
+  <meta property="og:description" content="Free Work Hours Calculator. Calculate work hours, overtime and break deductions. Multi-session clock-in with auto lunch deduction. Export to CSV.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/work-hours-calculator/">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/work-hours-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Work Hours Calculator",
+    "description": "Free online work hours calculator. Accurately calculate working hours, overtime, and break deductions.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-hover: #4338CA;
+      --primary-light: #22d3ee;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: rgba(148,163,184,.1);
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 20px;
+    }
+    header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    header nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    header nav a:hover { color: var(--primary); }
+    .container { max-width: 800px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .time-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 12px;
+      padding: 12px;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 500px) {
+      .time-entry {
+        grid-template-columns: 1fr 1fr;
+      }
+      .time-entry .btn-remove { grid-column: span 2; }
+    }
+    .field { display: flex; flex-direction: column; gap: 4px; }
+    .field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .field input {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      background: var(--card-bg);
+    }
+    .field input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-outline {
+      background: var(--card-bg);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary-light); }
+    .btn-remove {
+      background: var(--card-bg);
+      color: var(--danger);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      font-size: 18px;
+    }
+    .btn-remove:hover { background: rgba(239,68,68,.1); border-color: var(--danger); }
+    .btn-sm { padding: 6px 14px; font-size: 13px; }
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .result-item {
+      text-align: center;
+      padding: 16px 12px;
+      background: var(--primary-light);
+      border-radius: 8px;
+    }
+    .result-item .value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .result-item .label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .result-item.highlight {
+      background: var(--primary);
+    }
+    .result-item.highlight .value { color: #fff; }
+    .result-item.highlight .label { color: rgba(255,255,255,0.8); }
+    .result-item.overtime {
+      background: rgba(245,158,11,.15);
+    }
+    .result-item.overtime .value { color: #D97706; }
+    .settings-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+    .settings-row .field { flex: 1; min-width: 120px; }
+    .settings-row input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--card-bg);
+    }
+    .settings-row input[type="number"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .summary-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+    .summary-bar strong { color: var(--text); }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .toast.show { opacity: 1; }
+  
+    ::placeholder { color: #64748b; opacity: 1; }
+    input, textarea, select { color: #f1f5f9; background-color: #0f172a; }
+    input:focus, textarea:focus, select:focus { background-color: #0f172a; }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../">ToolGuideHub</a>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../../#utility-tools">Utilities</a>
+      <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+      <a href="../../en/work-hours-calculator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a>
+      <a href="../../en/work-hours-calculator/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2);text-decoration:none">EN</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>⏱️ Work Hours Calculator</h1>
+    <p class="subtitle">Accurately calculate daily working hours, overtime, and break deductions. Supports multiple clock-in sessions and automatic lunch break deduction. Perfect for employees, freelancers, and HR professionals.</p>
+
+    <!-- Settings -->
+    <div class="card">
+      <h2>⚙️ Work Settings</h2>
+      <div class="settings-row">
+        <div class="field">
+          <label>Standard Hours (per day)</label>
+          <input type="number" id="standardHours" value="8" min="1" max="24" step="0.5">
+        </div>
+        <div class="field">
+          <label>Lunch Break (minutes)</label>
+          <input type="number" id="breakMinutes" value="60" min="0" max="240" step="5">
+        </div>
+        <div class="field">
+          <label>Break Start (optional)</label>
+          <input type="time" id="breakStart" value="12:00">
+        </div>
+        <div class="field">
+          <label>Break End (optional)</label>
+          <input type="time" id="breakEnd" value="13:00">
+        </div>
+      </div>
+    </div>
+
+    <!-- Clock-in Records -->
+    <div class="card">
+      <h2>📋 Clock-in Records</h2>
+      <div id="timeEntries">
+        <div class="time-entry">
+          <div class="field">
+            <label>Clock In</label>
+            <input type="time" class="time-start" value="09:00">
+          </div>
+          <div class="field">
+            <label>Clock Out</label>
+            <input type="time" class="time-end" value="18:00">
+          </div>
+          <button class="btn btn-remove" onclick="removeEntry(this)" title="Remove this row">✕</button>
+        </div>
+      </div>
+      <div class="summary-bar" id="summaryBar" style="display:none;">
+        📊 Total <strong id="totalHours">0</strong> hrs | 
+        Overtime <strong id="overtimeHours">0</strong> hrs | 
+        Break deducted <strong id="breakDeducted">0</strong> min
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline btn-sm" onclick="addEntry()">+ Add Session</button>
+        <button class="btn btn-primary" onclick="calculate()">🔢 Calculate</button>
+        <button class="btn btn-outline btn-sm" onclick="exportCSV()">📥 Export CSV</button>
+        <button class="btn btn-outline btn-sm" onclick="resetAll()">🔄 Reset</button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="card" id="resultCard" style="display:none;">
+      <h2>📊 Results</h2>
+      <div class="result-grid">
+        <div class="result-item">
+          <div class="value" id="rTotalHours">0</div>
+          <div class="label">Total Work Time (hours)</div>
+        </div>
+        <div class="result-item">
+          <div class="value" id="rTotalMinutes">0</div>
+          <div class="label">Total Work Time (minutes)</div>
+        </div>
+        <div class="result-item overtime">
+          <div class="value" id="rOvertime">0</div>
+          <div class="label">Overtime (hours)</div>
+        </div>
+        <div class="result-item highlight">
+          <div class="value" id="rSessions">0</div>
+          <div class="label">Sessions</div>
+        </div>
+        <div class="result-item">
+          <div class="value" id="rBreakTime">0</div>
+          <div class="label">Break Deducted (min)</div>
+        </div>
+        <div class="result-item">
+          <div class="value" id="rEfficiency">0%</div>
+          <div class="label">Efficiency Rate</div>
+        </div>
+      </div>
+    </div>
+  
+<h2>What is Work Hours Calculator?</h2><p>Work Hours Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Standard Hours and Lunch Break to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Track my daily clock-in and clock-out times to see how many hours I actually worked</li><li>Calculate overtime hours for my weekly payroll and timesheet submission</li><li>Log billable hours for client projects as a freelancer or consultant</li><li>Compare work efficiency across different time blocks for remote teams</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+<h2>FAQ</h2><p><strong>How do I calculate my work hours?</strong><br>Enter your standard hours per day and lunch break length, then add your clock-in and clock-out times. The tool subtracts the break and shows your net working time and any overtime.</p><p><strong>Does it support multiple clock-in sessions?</strong><br>Yes. You can add several time blocks (for example morning and afternoon sessions) and the tool sums them up while deducting the configured break.</p><p><strong>Is overtime calculated automatically?</strong><br>Yes. Once your standard daily hours are set, any time worked beyond that is reported as overtime.</p><p><strong>Is my data stored anywhere?</strong><br>No. Everything runs locally in your browser and nothing is uploaded to any server.</p>
+
+</main>
+
+  <section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="color:#e2e8f0;font-size:18px;margin-bottom:12px">🔗 Related Tools</h2>
+<a href="../../en/time-card-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">⏱ Time Card Calculator</a>
+<a href="../../en/business-days-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">📅 Business Days Calculator</a>
+<a href="../../en/workdays-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">💼 Workdays Calculator</a>
+<a href="../../en/time-duration-calc/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">🕒 Time Duration Calculator</a>
+<a href="../../en/timesheet-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">📋 Timesheet Calculator</a>
+</section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/work-hours-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function timeToMinutes(timeStr) {
+      if (!timeStr) return 0;
+      const [h, m] = timeStr.split(':').map(Number);
+      return h * 60 + m;
+    }
+
+    function minutesToTimeStr(totalMin) {
+      const sign = totalMin < 0 ? '-' : '';
+      const abs = Math.abs(totalMin);
+      const h = Math.floor(abs / 60);
+      const m = abs % 60;
+      return sign + h + 'h' + (m > 0 ? ' ' + m + 'min' : '');
+    }
+
+    function addEntry() {
+      const container = document.getElementById('timeEntries');
+      const entry = document.createElement('div');
+      entry.className = 'time-entry';
+      entry.innerHTML = `
+        <div class="field">
+          <label>Clock In</label>
+          <input type="time" class="time-start" value="09:00">
+        </div>
+        <div class="field">
+          <label>Clock Out</label>
+          <input type="time" class="time-end" value="18:00">
+        </div>
+        <button class="btn btn-remove" onclick="removeEntry(this)" title="Remove this row">✕</button>
+      `;
+      container.appendChild(entry);
+    }
+
+    function removeEntry(btn) {
+      const entries = document.querySelectorAll('#timeEntries .time-entry');
+      if (entries.length <= 1) {
+        showToast('At least one session required');
+        return;
+      }
+      btn.closest('.time-entry').remove();
+      calculate();
+    }
+
+    function getBreakOverlap(sessionStart, sessionEnd, breakStart, breakEnd) {
+      if (breakStart === undefined || breakEnd === undefined) return 0;
+      const overlapStart = Math.max(sessionStart, breakStart);
+      const overlapEnd = Math.min(sessionEnd, breakEnd);
+      return Math.max(0, overlapEnd - overlapStart);
+    }
+
+    function calculate() {
+      const starts = document.querySelectorAll('.time-start');
+      const ends = document.querySelectorAll('.time-end');
+      const standardHours = parseFloat(document.getElementById('standardHours').value) || 8;
+      const breakMinutes = parseInt(document.getElementById('breakMinutes').value) || 0;
+      const breakStartVal = document.getElementById('breakStart').value;
+      const breakEndVal = document.getElementById('breakEnd').value;
+
+      let breakStartMin = breakStartVal ? timeToMinutes(breakStartVal) : undefined;
+      let breakEndMin = breakEndVal ? timeToMinutes(breakEndVal) : undefined;
+
+      if (breakStartMin !== undefined && breakEndMin !== undefined && breakEndMin <= breakStartMin) {
+        breakEndMin += 24 * 60;
+      }
+
+      let totalWorkMin = 0;
+      let totalBreakDeducted = 0;
+      let sessionCount = 0;
+
+      for (let i = 0; i < starts.length; i++) {
+        const startVal = starts[i].value;
+        const endVal = ends[i].value;
+        if (!startVal || !endVal) continue;
+
+        let startMin = timeToMinutes(startVal);
+        let endMin = timeToMinutes(endVal);
+
+        if (endMin <= startMin) {
+          endMin += 24 * 60;
+        }
+
+        const sessionMin = endMin - startMin;
+        if (sessionMin <= 0) continue;
+
+        let breakOverlap = 0;
+        if (breakStartMin !== undefined && breakEndMin !== undefined && breakMinutes > 0) {
+          breakOverlap = getBreakOverlap(startMin, endMin, breakStartMin, breakEndMin);
+          if (breakEndMin > 24 * 60) {
+            breakOverlap += getBreakOverlap(startMin, endMin, breakStartMin - 24 * 60, breakEndMin - 24 * 60);
+          }
+          breakOverlap = Math.min(breakOverlap, breakMinutes);
+        }
+
+        totalWorkMin += (sessionMin - breakOverlap);
+        totalBreakDeducted += breakOverlap;
+        sessionCount++;
+      }
+
+      const totalHours = (totalWorkMin / 60).toFixed(2);
+      const standardMin = standardHours * 60;
+      const overtimeMin = Math.max(0, totalWorkMin - standardMin);
+      const overtimeHours = (overtimeMin / 60).toFixed(2);
+      const efficiency = standardMin > 0 ? Math.round((totalWorkMin / standardMin) * 100) : 0;
+
+      document.getElementById('summaryBar').style.display = 'flex';
+      document.getElementById('totalHours').textContent = totalHours;
+      document.getElementById('overtimeHours').textContent = overtimeHours;
+      document.getElementById('breakDeducted').textContent = totalBreakDeducted;
+
+      document.getElementById('resultCard').style.display = 'block';
+      document.getElementById('rTotalHours').textContent = totalHours;
+      document.getElementById('rTotalMinutes').textContent = totalWorkMin;
+      document.getElementById('rOvertime').textContent = overtimeHours;
+      document.getElementById('rSessions').textContent = sessionCount;
+      document.getElementById('rBreakTime').textContent = totalBreakDeducted;
+      document.getElementById('rEfficiency').textContent = efficiency + '%';
+    }
+
+    function exportCSV() {
+      const starts = document.querySelectorAll('.time-start');
+      const ends = document.querySelectorAll('.time-end');
+      let csv = 'Session,Clock In,Clock Out,Duration (min)\n';
+      let hasData = false;
+
+      for (let i = 0; i < starts.length; i++) {
+        const startVal = starts[i].value;
+        const endVal = ends[i].value;
+        if (!startVal || !endVal) continue;
+        let startMin = timeToMinutes(startVal);
+        let endMin = timeToMinutes(endVal);
+        if (endMin <= startMin) endMin += 24 * 60;
+        const duration = endMin - startMin;
+        csv += `${i + 1},${startVal},${endVal},${duration}\n`;
+        hasData = true;
+      }
+
+      if (!hasData) {
+        showToast('Please fill in clock-in times first');
+        return;
+      }
+
+      const totalWorkMin = parseInt(document.getElementById('rTotalMinutes').textContent) || 0;
+      const overtimeHours = document.getElementById('rOvertime').textContent;
+      csv += `\nTotal Work Time (min),${totalWorkMin}\n`;
+      csv += `Overtime (hours),${overtimeHours}\n`;
+
+      const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'work-hours-' + new Date().toISOString().slice(0, 10) + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('CSV downloaded');
+    }
+
+    function resetAll() {
+      document.getElementById('standardHours').value = '8';
+      document.getElementById('breakMinutes').value = '60';
+      document.getElementById('breakStart').value = '12:00';
+      document.getElementById('breakEnd').value = '13:00';
+
+      const container = document.getElementById('timeEntries');
+      container.innerHTML = `
+        <div class="time-entry">
+          <div class="field">
+            <label>Clock In</label>
+            <input type="time" class="time-start" value="09:00">
+          </div>
+          <div class="field">
+            <label>Clock Out</label>
+            <input type="time" class="time-end" value="18:00">
+          </div>
+          <button class="btn btn-remove" onclick="removeEntry(this)" title="Remove this row">✕</button>
+        </div>
+      `;
+
+      document.getElementById('resultCard').style.display = 'none';
+      document.getElementById('summaryBar').style.display = 'none';
+      showToast('Reset complete');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    calculate();
+
+    document.addEventListener('input', function(e) {
+      if (e.target.closest('#timeEntries') || e.target.closest('.settings-row') || e.target.closest('.card')) {
+        calculate();
+      }
+    });
+  </script>
+</body>
+</html>

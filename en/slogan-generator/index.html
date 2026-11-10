@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate catchy business slogans and taglines from your keywords, with patterns tailored to your industry.">
+<meta name="keywords" content="slogan generator, tagline generator, business slogan, catchy slogan, brand tagline, free slogan generator">
+<title>Free Online Slogan Generator - Catchy Tagline Creator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/slogan-generator/">
+<meta property="og:title" content="Free Online Slogan Generator - Catchy Tagline Creator">
+<meta property="og:description" content="Generate catchy business slogans and taglines from your keywords, with patterns tailored to your industry.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/slogan-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Slogan Generator", "description": "Free online slogan generator. Create catchy business slogans from keywords. Pure frontend.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Slogan Generator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free with no registration or usage limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are slogans generated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on preset sentence patterns and word libraries combined with your keywords."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use slogans commercially?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generated slogans are creative inspiration. Do trademark research before commercial use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many slogans per click?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 20 slogan options per generation."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],select{width:100%;padding:10px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.88rem;outline:none;font-family:inherit}
+input[type=text]:focus,select:focus{border-color:rgba(6,182,212,.4)}
+.controls-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.btn{padding:10px 20px;border:none;border-radius:6px;font-size:.88rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.35)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.25)}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.slogan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.slogan-card{background:#0f172a;border-radius:8px;padding:14px;border:1px solid rgba(148,163,184,.1);cursor:pointer;transition:all .2s}
+.slogan-card:hover{border-color:rgba(6,182,212,.4);background:#0a0f1e}
+.slogan-card .sl-text{font-size:.92rem;color:#e2e8f0}
+.slogan-card .sl-cat{font-size:.7rem;color:#64748b;margin-top:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+@media(max-width:640px){.header{flex-direction:column;gap:12px}}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Slogan Generator - Online Catchy Tagline Creator", "item": "https://adi63586.github.io/Toolguidehub/en/slogan-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Slogan Generator","description":"Step-by-step guide for using Slogan Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Slogan Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/slogan-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🏷️ Slogan Generator</h1></div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div class="section">
+<h2>🏷️ Generate Slogans</h2>
+<div class="form-group"><label>Keywords (comma separated)</label><input type="text" id="keywordInput" placeholder="e.g. eco-friendly, sustainable, green"></div>
+<div class="form-group"><label>Industry</label><select id="industrySelect"><option value="general">General</option><option value="tech">Technology</option><option value="health">Health & Wellness</option><option value="food">Food & Beverage</option><option value="fashion">Fashion & Beauty</option><option value="education">Education</option><option value="finance">Finance</option></select></div>
+<div class="controls-row">
+<button class="btn btn-primary" id="generateBtn">✦ Generate Slogans</button>
+<button class="btn btn-success" id="loadSampleBtn">📄 Load Sample</button>
+<button class="btn btn-secondary" id="clearBtn">✕ Clear</button>
+</div>
+</div>
+
+<div class="section" id="resultSection" style="display:none">
+<h2>🎯 Generated Slogans</h2>
+<p style="color:#94a3b8;font-size:.85rem;margin-bottom:12px">Click any slogan to copy it.</p>
+<div class="controls-row"><button class="btn btn-secondary" id="regenerateBtn">🔄 Regenerate</button></div>
+<div class="slogan-grid" id="sloganGrid"></div>
+</div>
+
+<div class="section"><h2>💡 About This Tool</h2><p>Free online slogan generator. Create catchy business slogans and taglines from your keywords. Hundreds of pattern combinations for brands and campaigns. Pure frontend.</p><p>All computation happens on your device — Industry, other values and other inputs stay in your browser. No data is uploaded to any server.</p></div>
+
+<div class="section">
+<h2>How to Use</h2>
+<ol style="padding-left:20px;margin-top:12px">
+<li style="margin-bottom:16px"><strong>Enter Keywords</strong><br><span style="color:#94a3b8;font-size:.9rem">Enter keywords related to your brand or product.</span></li>
+<li style="margin-bottom:16px"><strong>Select Industry</strong><br><span style="color:#94a3b8;font-size:.9rem">Choose your industry for more targeted slogan suggestions.</span></li>
+<li style="margin-bottom:16px"><strong>Generate & Copy</strong><br><span style="color:#94a3b8;font-size:.9rem">Click generate, browse slogans, click any to copy.</span></li>
+</ol>
+</div>
+
+<div class="section">
+<h2>❓ Frequently Asked Questions</h2>
+<div class="faq-item"><h3>Is Slogan Generator free?</h3><p>Yes, completely free with no registration or usage limits.</p></div>
+<div class="faq-item"><h3>How are slogans generated?</h3><p>Based on preset sentence patterns and word libraries combined with your keywords.</p></div>
+<div class="faq-item"><h3>Can I use slogans commercially?</h3><p>Generated slogans are creative inspiration. Do trademark research before commercial use.</p></div>
+<div class="faq-item"><h3>How many slogans per click?</h3><p>Up to 20 slogan options per generation.</p></div>
+</div>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/slogan-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000);}
+document.addEventListener('DOMContentLoaded',function(){
+var kw=document.getElementById('keywordInput'),ind=document.getElementById('industrySelect'),gen=document.getElementById('generateBtn'),clr=document.getElementById('clearBtn'),ld=document.getElementById('loadSampleBtn'),res=document.getElementById('resultSection'),grid=document.getElementById('sloganGrid'),rgn=document.getElementById('regenerateBtn');
+var PATTERNS={general:['{kw} - Simply Better','Experience the Best in {kw}','Your {kw} Solution','{kw} at Its Finest','Discover {kw} Today','{kw} for Everyone','The Power of {kw}','{kw} Made Easy','Choose {kw}, Choose Quality','{kw} - Excellence Delivered','Go {kw}','Think {kw}','{kw} First','{kw} Next','Always {kw}'],tech:['{kw}: Powering the Future','{kw} - Innovation Starts Here','Next-Gen {kw} Solutions','{kw} for a Connected World','Smarter {kw}, Better Results','Transform with {kw}','{kw} - Built for Tomorrow','The Future of {kw}','Elevate Your {kw} Game','{kw} Without Limits'],health:['Better Health with {kw}','{kw} for a Healthier You','Feel the Difference with {kw}','{kw} - Your Health, Our Mission','Wellness Starts with {kw}','Natural {kw}, Real Results','{kw} for Life'],food:['Taste the {kw} Difference','Fresh {kw} Every Day','{kw} - Good Food, Good Life','Savor {kw}','Made with {kw}','{kw} - Your Daily Delight','Pure {kw}, Pure Joy'],fashion:['Style Redefined with {kw}','{kw} - Wear Your Statement','Fashion Forward with {kw}','Express Yourself with {kw}','{kw} for the Bold','Elegance in Every {kw}','{kw} - Where Style Meets Comfort'],education:['Learn Better with {kw}','{kw} - Unlock Your Potential','Empower Minds with {kw}','Knowledge Through {kw}','{kw} for Every Learner','Shape Your Future with {kw}','{kw} - Education Reimagined'],finance:['Grow Your Wealth with {kw}','{kw} - Smart Financial Choices','Secure Your Future with {kw}','{kw} for Financial Freedom','Trust {kw}','Build Wealth with {kw}','{kw} - Invest with Confidence']};
+var SUFFIXES=['Pro','Plus','Max','Go','Hub','Lab','Zone','First','360','Prime','Smart','Easy','Fast','Fresh','Pure','Core','Ultra','Now','Live','Next'];
+function generate(){
+var keys=kw.value.trim(),industry=ind.value;
+if(!keys){showToast('Please enter keywords');return;}
+var list=keys.split(',').map(function(k){return k.trim();}).filter(Boolean);
+if(!list.length)return;
+var mainKw=list[0],patterns=PATTERNS[industry]||PATTERNS.general;
+var slogans=[];
+patterns.forEach(function(p){var s=p.replace(/\{kw\}/g,mainKw);s=s.charAt(0).toUpperCase()+s.slice(1);slogans.push({text:s,cat:'Pattern'});});
+SUFFIXES.forEach(function(suf){slogans.push({text:mainKw+' '+suf,cat:'Style'});});
+slogans.push({text:'The '+mainKw+' Company',cat:'Classic'});
+slogans.push({text:mainKw+' Technologies',cat:'Classic'});
+if(list.length>1){list.slice(1).forEach(function(k){slogans.push({text:mainKw+' & '+k,cat:'Combined'});slogans.push({text:'Where '+mainKw+' Meets '+k,cat:'Combined'});});}
+slogans.sort(function(){return Math.random()-0.5;});
+slogans=slogans.slice(0,20);
+var html='';
+slogans.forEach(function(s){var e=s.text.replace(/'/g,"\\'");html+='<div class="slogan-card" onclick="navigator.clipboard.writeText(\''+e+'\').then(function(){showToast(\'Copied\')})"><div class="sl-text">'+s.text+'</div><div class="sl-cat">#'+s.cat+'</div></div>';});
+grid.innerHTML=html;
+res.style.display='block';
+}
+gen.addEventListener('click',generate);
+rgn.addEventListener('click',generate);
+clr.addEventListener('click',function(){kw.value='';res.style.display='none';});
+ld.addEventListener('click',function(){kw.value='eco-friendly, sustainable, green';ind.value='general';generate();});
+kw.addEventListener('keydown',function(e){if(e.key==='Enter')generate();});
+});
+</script>
+
+</main>
+<script>
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+</script>
+
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+</body>
+</html>

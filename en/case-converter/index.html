@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Switch text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case and more, with live preview.">
+<title>Free Online Case Converter | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/case-converter/">
+<meta property="og:title" content="Free Case Converter - ToolGuideHub">
+<meta property="og:description" content="Switch text between UPPERCASE, lowercase, Title Case, camelCase, PascalCase, snake_case and more, with live preview.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/case-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Case Converter", "description": "Free online case converter tool. Convert text to UPPERCASE, lowercase, Capitalized, camelCase, PascalCase, snake_case, SCREAMING_SNAKE and more. Real-time preview, one-click copy, pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What's the difference between camelCase and PascalCase?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between camelCase and PascalCase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PascalCase (e.g., MyClassName) capitalizes the first letter of every word — commonly used for class names and components. camelCase (e.g., myVariableName) keeps the first word lowercase then capitalizes subsequent words — used for variable and function names. This tool supports both formats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between snake_case and SCREAMING_SNAKE_CASE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "snake_case (e.g., my_variable_name) uses lowercase with underscores between words — common in Python/C variables and filenames. SCREAMING_SNAKE_CASE (e.g., MAX_BUFFER_SIZE) uses all uppercase with underscores — used for constants and environment variables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a case converter used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common uses: standardizing text copied from different sources, converting database column names to code variables, batch-converting API field naming styles, normalizing user input, refactoring naming conventions during code restructuring, and formatting article titles to different requirements. This tool supports 8 common formats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I quickly use the converted result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each result card has a copy button (📋) that copies the converted text to clipboard. All conversions happen in real-time as you type — no button to press. You can also select text directly from any result card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this case converter support Chinese text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool is optimized for English text and programming naming conventions. Chinese characters remain unchanged since they don't have case distinctions. For mixed Chinese-English text, English parts are correctly converted while Chinese stays as-is. camelCase/snake_case work best with pure English or identifier text."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:monospace;resize:vertical;min-height:100px}
+textarea:focus{border-color:rgba(6,182,212,.5)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:12px}
+.result-card .card-title{color:#64748b;font-size:.75rem;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.result-card .card-content{color:#e2e8f0;font-size:.85rem;font-family:monospace;word-break:break-all;min-height:24px;padding:4px 0}
+.copy-btn{background:none;border:none;color:#06b6d4;font-size:.7rem;cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .2s}
+.copy-btn:hover{background:rgba(6,182,212,.15)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:600px){.result-grid{grid-template-columns:1fr}.header{flex-direction:column;gap:12px}.header h1{font-size:1.3rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Case Converter", "item": "https://adi63586.github.io/Toolguidehub/en/case-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Case Converter","description":"Step-by-step guide for using Case Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Case Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/case-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>Case Converter</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div class="tool-section">
+<h2>🔤 Text Case Converter</h2>
+<textarea id="input-text" placeholder="Type or paste text to convert..." oninput="convertText()" autofocus></textarea>
+<div class="result-grid" id="results"></div>
+</div>
+
+<script>
+function convertText(){
+  const text = document.getElementById('input-text').value;
+  const container = document.getElementById('results');
+  if(!text){ container.innerHTML = ''; return; }
+  
+  const cases = [
+    {label:'UPPERCASE', fn:()=>text.toUpperCase()},
+    {label:'lowercase', fn:()=>text.toLowerCase()},
+    {label:'Capitalized', fn:()=>text.replace(/\b\w/g,c=>c.toUpperCase())},
+    {label:'Sentence case', fn:()=>{
+      let s = text.toLowerCase();
+      return s.replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase());
+    }},
+    {label:'camelCase', fn:()=>{
+      let words = text.toLowerCase().split(/[\s_\-]+/);
+      return words[0] + words.slice(1).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join('');
+    }},
+    {label:'PascalCase', fn:()=>{
+      return text.toLowerCase().split(/[\s_\-]+/).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join('');
+    }},
+    {label:'snake_case', fn:()=>text.toLowerCase().trim().split(/[\s\-]+/).join('_')},
+    {label:'SCREAMING_SNAKE', fn:()=>text.toUpperCase().trim().split(/[\s\-]+/).join('_')}
+  ];
+  
+  container.innerHTML = cases.map(c => `
+    <div class="result-card">
+      <div class="card-title">
+        <span>${c.label}</span>
+        <button class="copy-btn" onclick="copyText(this)" data-text="${encodeURIComponent(c.fn())}">📋 Copy</button>
+      </div>
+      <div class="card-content">${c.fn() || '(empty)'}</div>
+    </div>
+  `).join('');
+}
+
+function copyText(btn){
+  const text = decodeURIComponent(btn.dataset.text);
+  navigator.clipboard.writeText(text).then(()=>showToast('Copied')).catch(()=>showToast('Copy failed'));
+}
+</script>
+
+<!-- FAQ Section -->
+<div class="info-section">
+<h2>📖 Frequently Asked Questions</h2>
+<div class="faq-item"><h3>What's the difference between camelCase and PascalCase?</h3><p>PascalCase capitalizes every first letter (e.g., MyClassName) — used for classes. camelCase starts lowercase then capitalizes (e.g., myVariableName) — used for variables/functions. This tool supports both.</p></div>
+<div class="faq-item"><h3>What's the difference between snake_case and SCREAMING_SNAKE_CASE?</h3><p>snake_case (my_variable_name) — lowercase with underscores, for Python/C variables. SCREAMING_SNAKE_CASE (MAX_BUFFER_SIZE) — uppercase with underscores, for constants and env variables.</p></div>
+<div class="faq-item"><h3>What is a case converter used for?</h3><p>Common uses: standardizing text from different sources, converting database column names to code variables, batch-converting API field naming styles, normalizing user input, refactoring naming conventions, and formatting article titles.</p></div>
+<div class="faq-item"><h3>How do I use the converted result?</h3><p>Each card has a copy button (📋) to copy to clipboard. Conversions are real-time as you type. You can also select text directly from any result card.</p></div>
+<div class="faq-item"><h3>Does this support Chinese text?</h3><p>This tool is optimized for English and programming naming conventions. Chinese characters remain unchanged. camelCase/snake_case work best with English or identifier text.</p></div>
+</div>
+
+<!-- Feedback Widget -->
+</main>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/case-converter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+function showToast(msg){const t=document.getElementById('toast')||(()=>{const d=document.createElement('div');d.id='toast';d.className='toast';document.body.appendChild(d);return d;})();t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

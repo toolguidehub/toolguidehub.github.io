@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salary Comparison Calculator - ToolGuideHub</title>
+  <meta name="description" content="Compare two job offers side by side, factoring in base salary, bonuses, and benefits, to see which pays more overall.">
+  <meta property="og:title" content="Salary Comparison Calculator - ToolGuideHub">
+  <meta property="og:description" content="Compare two job offers side by side, factoring in base salary, bonuses, and benefits, to see which pays more overall.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/salary-comparison-calculator/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Salary Comparison Calculator">
+  <meta name="twitter:description" content="Free online salary comparison calculator tool. Fast, secure, and no registration required. Works entirely in your browser.">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/salary-comparison-calculator/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/salary-comparison-calculator/">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Salary Comparison Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "Compare two job offers side by side with salary, bonuses, and benefits.",
+    "url": "https://adi63586.github.io/Toolguidehub/en/salary-comparison-calculator/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+      {"@type": "ListItem", "position": 2, "name": "Salary Comparison Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/salary-comparison-calculator/"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Salary Comparison Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Salary Comparison Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Salary Comparison Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Annual Salary and Annual Bonus are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Salary Comparison Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Salary Comparison Calculator","description":"Step-by-step guide for using Salary Comparison Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Salary Comparison Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <style>:root{--red:#EF4444;--shadow:0 1px 3px rgba(0,0,0,.3);--green:#10B981;--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+    header a { text-decoration: none; color: #22d3ee; font-weight: 700; font-size: 18px; }
+    header nav { margin-left: auto; display: flex; gap: 16px; }
+    header nav a { font-size: 14px; font-weight: 500; color: #94a3b8; }
+    main { max-width: 800px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #94a3b8; margin-bottom: 24px; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 20px; }
+    .card.job-a { border-top: 3px solid #22d3ee; }
+    .card.job-b { border-top: 3px solid var(--green); }
+    .section h2 { font-size: 16px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 13px; }
+    .form-group input, .form-group select { width: 100%; padding: 8px 12px; border: 1.5px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px var(--primary-light); }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: #22d3ee; color: white; width: 100%; justify-content: center; }
+    .btn-primary:hover { background: #4338CA; }
+    .result-section { margin-top: 20px; }
+    .result-card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
+    .result-card h2 { font-size: 18px; margin-bottom: 16px; }
+    .comparison-table { width: 100%; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(148,163,184,.1); font-size: 14px; }
+    .comparison-table th { font-weight: 600; color: #94a3b8; font-size: 12px; text-transform: uppercase; }
+    .comparison-table .highlight { font-weight: 700; }
+    .comparison-table .winner { color: var(--green); }
+    .comparison-table .loser { color: var(--red); }
+    .winner-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+    .winner-badge.a { background: var(--primary-light); color: #22d3ee; }
+    .winner-badge.b { background: var(--green-light); color: #065F46; }
+    .diff-row td { font-weight: 700; background: #0f172a; }
+    footer { text-align: center; padding: 24px 16px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); margin-top: 32px; }
+    footer a { color: #22d3ee; text-decoration: none; }
+    @media (max-width: 600px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+    }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../">🧰 ToolGuideHub</a>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../../en/blog/">Blog</a>
+      <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Salary Comparison Calculator</h1>
+    <p class="subtitle">Compare two job offers side by side. Enter salary, bonuses, and benefits to see which offer is better.</p>
+
+    <div class="compare-grid">
+      <div class="card job-a">
+        <h2>🅰️ Job A</h2>
+        <div class="form-group">
+          <label>Annual Salary ($)</label>
+          <input type="number" id="salaryA" value="80000" min="0" step="1000">
+        </div>
+        <div class="form-group">
+          <label>Annual Bonus ($)</label>
+          <input type="number" id="bonusA" value="8000" min="0" step="500">
+        </div>
+        <div class="form-group">
+          <label>Monthly Transport ($)</label>
+          <input type="number" id="transportA" value="150" min="0" step="10">
+        </div>
+        <div class="form-group">
+          <label>Monthly Meal ($)</label>
+          <input type="number" id="mealA" value="100" min="0" step="10">
+        </div>
+        <div class="form-group">
+          <label>Monthly Deductions ($)</label>
+          <input type="number" id="insuranceA" value="800" min="0" step="50">
+        </div>
+      </div>
+      <div class="card job-b">
+        <h2>🅱️ Job B</h2>
+        <div class="form-group">
+          <label>Annual Salary ($)</label>
+          <input type="number" id="salaryB" value="90000" min="0" step="1000">
+        </div>
+        <div class="form-group">
+          <label>Annual Bonus ($)</label>
+          <input type="number" id="bonusB" value="5000" min="0" step="500">
+        </div>
+        <div class="form-group">
+          <label>Monthly Transport ($)</label>
+          <input type="number" id="transportB" value="0" min="0" step="10">
+        </div>
+        <div class="form-group">
+          <label>Monthly Meal ($)</label>
+          <input type="number" id="mealB" value="200" min="0" step="10">
+        </div>
+        <div class="form-group">
+          <label>Monthly Deductions ($)</label>
+          <input type="number" id="insuranceB" value="1000" min="0" step="50">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="calcBtn">📊 Compare Salaries</button>
+
+    <div class="result-section" id="resultSection" style="display:none;">
+      <div class="result-card">
+        <h2>💰 Annual Income Comparison</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Item</th><th>Job A</th><th>Job B</th><th>Diff (B-A)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Salary</td><td id="rSalaryA">--</td><td id="rSalaryB">--</td><td id="dSalary">--</td></tr>
+            <tr><td>Bonus</td><td id="rBonusA">--</td><td id="rBonusB">--</td><td id="dBonus">--</td></tr>
+            <tr><td>Transport</td><td id="rTransportA">--</td><td id="rTransportB">--</td><td id="dTransport">--</td></tr>
+            <tr><td>Meals</td><td id="rMealA">--</td><td id="rMealB">--</td><td id="dMeal">--</td></tr>
+            <tr><td>Deductions (-)</td><td id="rInsuranceA">--</td><td id="rInsuranceB">--</td><td id="dInsurance">--</td></tr>
+            <tr class="diff-row"><td><strong>Net Total</strong></td><td id="rTotalA" style="font-size:18px;">--</td><td id="rTotalB" style="font-size:18px;">--</td><td id="dTotal" style="font-size:18px;">--</td></tr>
+          </tbody>
+        </table>
+        <div style="text-align:center;margin-top:16px;" id="winnerBadge"></div>
+      </div>
+    </div>
+  
+
+
+<h2>What is Salary Comparison Calculator?</h2><p>Salary Comparison Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Annual Salary and Annual Bonus to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Compare two job offers before making a career decision</li><li>Evaluate salary packages with bonuses, transport, and meal benefits</li><li>Calculate total compensation differences between employers</li><li>Make informed salary negotiation decisions with data</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:var(--text,#e2e8f0);">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../?q=take+home+pay+calculator" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">💵 Take-Home Pay</a><a href="../../en/income-tax-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📊 Income Tax</a><a href="../../en/hourly-to-salary/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">⏰ Hourly to Salary</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/salary-comparison-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+  <script>
+  (function() {
+    var calcBtn = document.getElementById('calcBtn');
+    var resultSection = document.getElementById('resultSection');
+
+    function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+    function diff(v) {
+      var cls = v > 0 ? 'winner' : (v < 0 ? 'loser' : '');
+      var sign = v > 0 ? '+' : '';
+      return '<span class="' + cls + '">' + sign + fmt(v) + '</span>';
+    }
+
+    calcBtn.addEventListener('click', function() {
+      var sA = parseFloat(document.getElementById('salaryA').value) || 0;
+      var bA = parseFloat(document.getElementById('bonusA').value) || 0;
+      var tA = parseFloat(document.getElementById('transportA').value) || 0;
+      var mA = parseFloat(document.getElementById('mealA').value) || 0;
+      var iA = parseFloat(document.getElementById('insuranceA').value) || 0;
+
+      var sB = parseFloat(document.getElementById('salaryB').value) || 0;
+      var bB = parseFloat(document.getElementById('bonusB').value) || 0;
+      var tB = parseFloat(document.getElementById('transportB').value) || 0;
+      var mB = parseFloat(document.getElementById('mealB').value) || 0;
+      var iB = parseFloat(document.getElementById('insuranceB').value) || 0;
+
+      var totalA = sA + bA + tA * 12 + mA * 12 - iA * 12;
+      var totalB = sB + bB + tB * 12 + mB * 12 - iB * 12;
+
+      document.getElementById('rSalaryA').textContent = fmt(sA);
+      document.getElementById('rSalaryB').textContent = fmt(sB);
+      document.getElementById('rBonusA').textContent = fmt(bA);
+      document.getElementById('rBonusB').textContent = fmt(bB);
+      document.getElementById('rTransportA').textContent = fmt(tA * 12);
+      document.getElementById('rTransportB').textContent = fmt(tB * 12);
+      document.getElementById('rMealA').textContent = fmt(mA * 12);
+      document.getElementById('rMealB').textContent = fmt(mB * 12);
+      document.getElementById('rInsuranceA').textContent = '-' + fmt(iA * 12);
+      document.getElementById('rInsuranceB').textContent = '-' + fmt(iB * 12);
+
+      document.getElementById('dSalary').innerHTML = diff(sB - sA);
+      document.getElementById('dBonus').innerHTML = diff(bB - bA);
+      document.getElementById('dTransport').innerHTML = diff((tB - tA) * 12);
+      document.getElementById('dMeal').innerHTML = diff((mB - mA) * 12);
+      document.getElementById('dInsurance').innerHTML = diff(-(iB - iA) * 12);
+
+      document.getElementById('rTotalA').textContent = fmt(totalA);
+      document.getElementById('rTotalB').textContent = fmt(totalB);
+      document.getElementById('dTotal').innerHTML = diff(totalB - totalA);
+
+      var winnerDiv = document.getElementById('winnerBadge');
+      if (totalB > totalA) {
+        winnerDiv.innerHTML = '<span class="winner-badge b">🏆 Job B pays more by ' + fmt(totalB - totalA) + '</span>';
+      } else if (totalA > totalB) {
+        winnerDiv.innerHTML = '<span class="winner-badge a">🏆 Job A pays more by ' + fmt(totalA - totalB) + '</span>';
+      } else {
+        winnerDiv.innerHTML = '<span style="color:#94a3b8;">⚖️ Both offers are equal in net pay</span>';
+      }
+
+      resultSection.style.display = 'block';
+      resultSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+  
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Invisible Character Generator - ToolGuideHub</title>
+ <meta name="description" content="Copy zero-width spaces, joiners and other blank Unicode characters, stack them with a repeat count, and check the resulting text length.">
+ <meta property="og:title" content="Invisible Character Generator - ToolGuideHub">
+ <meta property="og:description" content="Copy zero-width spaces, joiners and other blank Unicode characters, stack them with a repeat count, and check the resulting text length.">
+ <meta property="og:type" content="website">
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Invisible Character Generator",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "description": "Free online invisible character generator. Create hidden Unicode characters for blank usernames and more."
+  }
+  </script>
+ <style>:root{--primary-light:rgba(6,182,212,.15);--surface:#1e293b;--text:#e2e8f0}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+    header nav{display:flex;gap:16px}
+    header nav a{color:#94a3b8;text-decoration:none;font-size:.9rem;transition:color .2s}
+    header nav a:hover{color:#22d3ee}
+    .lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a{padding:5px 10px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+    .lang-switch a:hover{color:#22d3ee}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    main{flex:1;max-width:800px;margin:0 auto;padding:32px 20px;width:100%}
+    h1{font-size:1.75rem;margin-bottom:8px;color:#e2e8f0}
+    .subtitle{color:#94a3b8;margin-bottom:28px;font-size:.95rem}
+    .section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:24px;margin-bottom:20px}
+    .section h2{font-size:1.1rem;margin-bottom:16px;color:#e2e8f0}
+    label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px;color:#e2e8f0}
+    input,textarea,select{width:100%;padding:10px 14px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:1rem;font-family:inherit;transition:border-color .2s}
+    textarea{
+      background: var(--surface);
+      color: var(--text);resize:vertical;min-height:80px}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px var(--primary-light)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;gap:6px}
+    .btn-primary{background:#22d3ee;color:#fff}
+    .btn-primary:hover{background:#0891b2;transform:translateY(-1px)}
+    .btn-outline{background:#1e293b;color:#22d3ee;border:1px solid #22d3ee}
+    .btn-outline:hover{background:var(--primary-light)}
+    .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px}
+    .char-item{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:12px;cursor:pointer;transition:all .2s}
+    .char-item:hover{background:var(--primary-light);border-color:#22d3ee}
+    .char-item .name{font-weight:600;font-size:.9rem;color:#e2e8f0}
+    .char-item .code{font-size:.8rem;color:#94a3b8}
+    .char-item .preview{border:1px dashed #94a3b8;padding:4px 8px;border-radius:4px;font-size:.85rem;background:#0f172a;margin-top:6px;min-height:24px}
+    .output-box{background:#1e293b;color:#10b981;border-radius:8px;padding:16px;font-family:monospace;font-size:.9rem;word-break:break-all;margin-top:12px;min-height:60px;position:relative}
+    .output-box .copy-btn{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.1);color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:.8rem}
+    .output-box .copy-btn:hover{background:rgba(255,255,255,.2)}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 24px;border-radius:20px;font-size:.9rem;z-index:1000;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+    footer{background:#1e293b;border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.85rem;color:#94a3b8}
+    footer a{color:#22d3ee;text-decoration:none}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:1.4rem}.char-grid{grid-template-columns:1fr}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Invisible Character Generator", "item": "https://adi63586.github.io/Toolguidehub/en/invisible-character/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Invisible Character FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Invisible Character?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Invisible Character free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Invisible Character Generator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Invisible Character?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Invisible Character","description":"Step-by-step guide for using Invisible Character","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Invisible Character"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/invisible-character/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/invisible-character/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ <nav>
+ <a href="../../">Home</a>
+ 
+ </nav>
+</header>
+<main>
+ <h1>👻 Invisible Character Generator</h1>
+ <p class="subtitle">Generate various invisible Unicode characters for blank usernames, hidden messages, and format control.</p>
+ <div class="section">
+ <h2>📦 Invisible Character Library</h2>
+ <div class="char-grid" id="char-grid"></div>
+ <div style="margin-top:16px">
+ <label for="count-input">Repeat Count (can stack characters)</label>
+ <input type="number" id="count-input" value="10" min="1" max="9999">
+ </div>
+ <div class="output-box" id="output-box">
+ <span id="output-text"></span>
+ <button class="copy-btn" id="copy-btn">📋 Copy</button>
+ </div>
+ <div class="btn-row">
+ <button class="btn btn-primary" id="gen-btn">Generate</button>
+ <button class="btn btn-outline" id="clear-btn">Clear</button>
+ <button class="btn btn-outline" id="length-btn">Check Length</button>
+ </div>
+ <p style="font-size:.8rem;color:#94a3b8;margin-top:8px">Selected: <span id="selected-label" style="color:#22d3ee;font-weight:500">None</span></p>
+ </div>
+ <div class="section">
+ <h2>📖 About These Characters</h2>
+ <p style="font-size:.9rem;color:#94a3b8;line-height:1.8">
+ <strong>Zero-Width Space (ZWSP)</strong>: Indicates line break opportunities, invisible but takes a position.<br>
+ <strong>Zero-Width Non-Joiner (ZWNJ)</strong>: Prevents adjacent characters from joining (Arabic, etc).<br>
+ <strong>Zero-Width Joiner (ZWJ)</strong>: Forces adjacent characters to join.<br>
+ <strong>Left-to-Right Mark (LRM)</strong>: Controls text direction.<br>
+ <strong>Hangul Filler</strong>: Placeholder in Korean, appears as blank on some platforms.<br>
+ <strong>Mongolian Vowel Separator</strong>: Invisible formatting control character.<br>
+ ⚠️ Do not use these characters for fraud or harassment.
+ </p>
+ </div>
+ <div class="toast" id="toast"></div>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/invisible-character/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function(){
+  var chars=[
+    {name:'Zero-Width Space (ZWSP)',code:'U+200B',char:'\u200B'},
+    {name:'Zero-Width Non-Joiner (ZWNJ)',code:'U+200C',char:'\u200C'},
+    {name:'Zero-Width Joiner (ZWJ)',code:'U+200D',char:'\u200D'},
+    {name:'Left-to-Right Mark (LRM)',code:'U+200E',char:'\u200E'},
+    {name:'Right-to-Left Mark (RLM)',code:'U+200F',char:'\u200F'},
+    {name:'Hangul Filler',code:'U+3164',char:'\u3164'},
+    {name:'Mongolian Vowel Separator',code:'U+180E',char:'\u180E'},
+    {name:'Word Joiner (WJ)',code:'U+2060',char:'\u2060'},
+    {name:'BOM / Zero-Width No-Break Space',code:'U+FEFF',char:'\uFEFF'}
+  ];
+  var selectedChar=chars[0].char;
+
+  function renderChars(){
+    var html='';
+    chars.forEach(function(c,i){
+      html+='<div class="char-item'+(i===0?' selected':'')+'" data-idx="'+i+'"><div class="name">'+c.name+'</div><div class="code">'+c.code+'</div><div class="preview">Display: ['+c.char+']</div></div>';
+    });
+    document.getElementById('char-grid').innerHTML=html;
+    document.querySelectorAll('.char-item').forEach(function(item){
+      item.addEventListener('click',function(){
+        document.querySelectorAll('.char-item').forEach(function(x){x.classList.remove('selected')});
+        this.classList.add('selected');
+        selectedChar=chars[parseInt(this.dataset.idx)].char;
+        document.getElementById('selected-label').textContent=chars[parseInt(this.dataset.idx)].name;
+      });
+    });
+  }
+
+  function generate(){
+    var count=parseInt(document.getElementById('count-input').value)||10;
+    var result='';
+    for(var i=0;i<count;i++)result+=selectedChar;
+    document.getElementById('output-text').textContent=result;
+  }
+
+  document.getElementById('gen-btn').addEventListener('click',generate);
+  document.getElementById('clear-btn').addEventListener('click',function(){
+    document.getElementById('output-text').textContent='';
+  });
+
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')},2000);
+  }
+
+  document.getElementById('copy-btn').addEventListener('click',function(){
+    var text=document.getElementById('output-text').textContent;
+    if(!text){toast('Please generate characters first');return}
+    navigator.clipboard.writeText(text).then(function(){toast('Copied to clipboard!')}).catch(function(){toast('Copy failed')});
+  });
+
+  document.getElementById('length-btn').addEventListener('click',function(){
+    var text=document.getElementById('output-text').textContent;
+    toast('Generated '+text.length+' invisible characters');
+  });
+
+  renderChars();
+  generate();
+})();
+</script>
+</body>
+</html>

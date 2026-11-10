@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calculate the portfolio you need to retire early using the 4% rule, testing 3% to 5% withdrawal rates and projecting your FIRE age from savings.">
+<meta name="keywords" content="FIRE calculator, financial independence, early retirement, 4% rule, FIRE number, savings goal, retirement planning, free online tool">
+<title>FIRE Number Calculator - 4% Rule | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/fire-number-calculator/">
+<meta property="og:title" content="FIRE Number Calculator - 4% Rule | ToolGuideHub">
+<meta property="og:description" content="Calculate the portfolio you need to retire early using the 4% rule, testing 3% to 5% withdrawal rates and projecting your FIRE age from savings.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/fire-number-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FIRE Number Calculator","description":"Calculate your FIRE number using the 4% rule. Enter annual expenses and savings rate to plan your journey to financial independence.","applicationCategory":"FinanceApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is FIRE?","acceptedAnswer":{"@type":"Answer","text":"FIRE stands for Financial Independence, Retire Early. The core idea is to achieve a high savings rate (typically 50%+) and invest wisely to accumulate enough assets before traditional retirement age, freeing yourself from the need to work for money."}},{"@type":"Question","name":"What is the 4% rule?","acceptedAnswer":{"@type":"Answer","text":"The 4% rule comes from the Trinity Study: if you withdraw no more than 4% of your initial portfolio each year (adjusted for inflation), your retirement assets have a 95%+ probability of lasting 30+ years. For example, $40,000 annual expenses means a FIRE target of $40,000÷0.04=$1,000,000."}},{"@type":"Question","name":"What is a FIRE number?","acceptedAnswer":{"@type":"Answer","text":"Your FIRE number = Annual Expenses ÷ Safe Withdrawal Rate. The most common SWR is 4% (FIRE number = annual expenses × 25). Conservative investors may use 3.5% or 3%, giving multipliers of 28.6x and 33.3x respectively."}},{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Completely safe. All calculations happen locally in your browser. Your income, expenses, and other sensitive financial data are never uploaded to any server. Works offline."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the FIRE Number Calculator","description":"Enter your annual expenses, current savings, savings rate, and expected returns to calculate your FIRE target and timeline","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"FIRE Number Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter annual expenses","text":"Fill in your estimated annual expenses in retirement (including taxes, healthcare, etc.)"},{"@type":"HowToStep","position":2,"name":"Set withdrawal rate and savings","text":"Choose a safe withdrawal rate (typically 4%), enter your current savings and annual savings amount"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Click the calculate button to see your FIRE target, current progress, and estimated timeline"},{"@type":"HowToStep","position":4,"name":"Review results","text":"View detailed analysis with one-click copy to share"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"FIRE Number Calculator","item":"https://adi63586.github.io/Toolguidehub/en/fire-number-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(34,211,238,.05));border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero p{color:#94a3b8;font-size:.9rem;flex:1;min-width:200px}
+.badge{background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 10px;border-radius:20px;font-size:.8rem;white-space:nowrap}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.input-grid{grid-template-columns:1fr}}
+.input-group{background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1)}
+.input-group label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:8px}
+.input-group input,.input-group select{width:100%;padding:10px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.95rem;transition:border-color .2s}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.input-group .hint{font-size:.8rem;color:#64748b;margin-top:4px}
+.calculator-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.calculator-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+@media(max-width:640px){.results-grid{grid-template-columns:1fr}}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:16px;text-align:center}
+.result-card .label{font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.result-card .value{font-size:1.4rem;color:#22d3ee;font-weight:600}
+.result-card .sub{font-size:.8rem;color:#64748b;margin-top:4px}
+.result-card.highlight{border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.05)}
+.progress-bar{background:#1e293b;border-radius:8px;height:24px;margin:8px 0;overflow:hidden;border:1px solid rgba(148,163,184,.1)}
+.progress-fill{background:linear-gradient(90deg,#06b6d4,#22d3ee);height:100%;border-radius:8px;transition:width .5s;min-width:2px}
+.progress-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.progress-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.chart-container{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:16px;margin-bottom:16px;height:300px;position:relative}
+.chart-container canvas{width:100%;height:100%}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p,.info-section ul{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:24px}
+.info-section ul li{margin-bottom:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/fire-number-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🔥 FIRE Number Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> › <a href="../index.html#tools">Tools</a> › FIRE Number Calculator</p>
+<div class="hero"><p>Calculate your FIRE number using the 4% rule. Enter your annual expenses, current savings, and savings capacity to find exactly how much you need for financial independence and how many years it will take.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="ad-slot"></div>
+
+<div class="calculator-section">
+  <h2>📊 Input Parameters</h2>
+  <div class="input-grid">
+    <div class="input-group"><label for="annualExpense">Annual Expenses ($)</label><input type="number" id="annualExpense" value="40000" min="0" step="1000"><div class="hint">Estimated annual spending in retirement</div></div>
+    <div class="input-group"><label for="safeWithdrawalRate">Safe Withdrawal Rate (%)</label><select id="safeWithdrawalRate"><option value="3">3.0% - Conservative</option><option value="3.5">3.5% - Moderately Conservative</option><option value="4" selected>4.0% - Standard</option><option value="4.5">4.5% - Moderately Aggressive</option><option value="5">5.0% - Aggressive</option></select><div class="hint">4% is the industry standard; lower = more conservative</div></div>
+    <div class="input-group"><label for="currentSavings">Current Savings ($)</label><input type="number" id="currentSavings" value="100000" min="0" step="1000"><div class="hint">Total investable assets accumulated so far</div></div>
+    <div class="input-group"><label for="annualSavings">Annual Savings ($)</label><input type="number" id="annualSavings" value="30000" min="0" step="1000"><div class="hint">How much you can save each year</div></div>
+    <div class="input-group"><label for="annualReturn">Expected Annual Return (%)</label><input type="number" id="annualReturn" value="7" min="1" max="20" step="0.1"><div class="hint">S&P 500 long-term average ~7-10%</div></div>
+    <div class="input-group"><label for="inflationRate">Expected Inflation (%)</label><input type="number" id="inflationRate" value="3" min="0" max="10" step="0.1"><div class="hint">Historical average ~2-3%</div></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="calcBtn">🔥 Calculate FIRE Number</button>
+    <button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+    <button class="btn btn-secondary" id="copyBtn">📋 Copy Results</button>
+  </div>
+</div>
+
+<div class="results-grid">
+  <div class="result-card highlight"><div class="label">🎯 FIRE Target</div><div class="value" id="fireNumber">-</div><div class="sub">Annual Expenses ÷ SWR</div></div>
+  <div class="result-card"><div class="label">📈 Progress</div><div class="value" id="progressPct">-</div><div class="sub">% of FIRE target reached</div></div>
+  <div class="result-card"><div class="label">⏳ Years to FIRE</div><div class="value" id="yearsToFire">-</div><div class="sub">At current savings rate</div></div>
+  <div class="result-card"><div class="label">💰 Still Needed</div><div class="value" id="remainingNeeded">-</div><div class="sub">FIRE target - current savings</div></div>
+  <div class="result-card"><div class="label">📊 Savings Rate</div><div class="value" id="savingsRate">-</div><div class="sub">Annual savings ÷ total income</div></div>
+  <div class="result-card"><div class="label">🏁 FIRE Age</div><div class="value" id="fireAge">-</div><div class="sub">Enter current age to see</div></div>
+</div>
+
+<div class="progress-section">
+  <h2>📊 Progress Bar</h2>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <p style="color:#94a3b8;font-size:.9rem;text-align:center" id="progressLabel">Current Progress: -</p>
+</div>
+
+<div class="chart-container"><canvas id="projectionChart"></canvas></div>
+
+<div class="input-group" style="margin-bottom:16px">
+  <label for="currentAgeInput">Current Age (optional, for FIRE age estimate)</label>
+  <input type="number" id="currentAgeInput" value="30" min="18" max="70" step="1">
+  <div class="hint">Enter your age to see estimated FIRE age</div>
+</div>
+
+<div class="info-section">
+  <h2>📖 About FIRE & the 4% Rule</h2>
+  <h3>What is FIRE?</h3>
+  <p>FIRE = Financial Independence, Retire Early. The core philosophy: achieve a high savings rate (50%+) and invest wisely to accumulate enough assets before traditional retirement age, achieving freedom from mandatory work.</p>
+  <h3>The 4% Rule Explained</h3>
+  <p>The Trinity Study found: if you withdraw no more than 4% of your initial portfolio annually (inflation-adjusted), your assets have a 95%+ probability of lasting 30+ years.</p>
+  <p>Formula: <strong>FIRE Number = Annual Expenses ÷ Safe Withdrawal Rate</strong></p>
+  <h3>FIRE Multipliers by Withdrawal Rate</h3>
+  <ul>
+    <li>3.0% SWR → 33.3× multiplier (extremely conservative)</li>
+    <li>3.5% SWR → 28.6× multiplier (fairly conservative)</li>
+    <li>4.0% SWR → 25× multiplier (standard FIRE)</li>
+    <li>4.5% SWR → 22.2× multiplier (moderately aggressive)</li>
+    <li>5.0% SWR → 20× multiplier (aggressive, higher risk)</li>
+  </ul>
+  <h3>FIRE Types</h3>
+  <ul>
+    <li><strong>Lean FIRE</strong>: Minimalist lifestyle, expenses &lt;$25,000/year, target ~$625,000</li>
+    <li><strong>Regular FIRE</strong>: Normal lifestyle, expenses $40,000-60,000/year, target $1-1.5M</li>
+    <li><strong>Fat FIRE</strong>: Comfortable lifestyle, expenses &gt;$100,000/year, target $2.5M+</li>
+    <li><strong>Coast FIRE</strong>: Enough principal saved, no further contributions needed, let compound interest work</li>
+    <li><strong>Barista FIRE</strong>: Semi-retired, part-time work covers some expenses</li>
+  </ul>
+</div>
+
+</main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+const $=s=>document.getElementById(s);
+const annualExpense=$('annualExpense'),safeWithdrawalRate=$('safeWithdrawalRate'),
+currentSavings=$('currentSavings'),annualSavings=$('annualSavings'),
+annualReturn=$('annualReturn'),inflationRate=$('inflationRate'),currentAgeInput=$('currentAgeInput');
+
+function fmt(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}
+function fmtPct(n){return n.toFixed(1)+'%'}
+
+function calc(){
+const expense=+annualExpense.value,swr=+safeWithdrawalRate.value/100,
+savings=+currentSavings.value,savePerYear=+annualSavings.value,
+ret=+annualReturn.value/100,inf=+inflationRate.value/100,age=+currentAgeInput.value;
+
+if(expense<=0){showToast('Please enter valid annual expenses');return}
+if(swr<=0){showToast('Withdrawal rate must be greater than 0');return}
+
+const fireNumber=expense/swr;
+const progressPct=(savings/fireNumber*100);
+let yearsToFire=0;
+if(savePerYear>0){
+  let current=savings;
+  while(current<fireNumber && yearsToFire<100){
+    current=current*(1+ret)+savePerYear;
+    yearsToFire++;
+  }
+}
+
+const remaining=Math.max(0,fireNumber-savings);
+const totalIncome=expense+savePerYear;
+const savingsRt=totalIncome>0?(savePerYear/totalIncome*100):0;
+
+$('fireNumber').textContent=fmt(fireNumber);
+$('progressPct').textContent=fmtPct(Math.min(progressPct,100));
+$('yearsToFire').textContent=savePerYear<=0?'Infinite':yearsToFire+' yrs';
+$('remainingNeeded').textContent=fmt(remaining);
+$('savingsRate').textContent=fmtPct(savingsRt);
+$('fireAge').textContent=(age>0&&savePerYear>0)?(age+yearsToFire)+' yrs':'Enter age to calculate';
+
+$('progressFill').style.width=Math.min(progressPct,100)+'%';
+$('progressLabel').textContent='Current Progress: '+fmtPct(Math.min(progressPct,100));
+
+drawChart(fireNumber,savings,savePerYear,ret,yearsToFire);
+}
+
+function drawChart(target,savings,savePerYear,ret,maxYears){
+const canvas=$('projectionChart'),ctx=canvas.getContext('2d');
+const dpr=window.devicePixelRatio||1;
+const w=canvas.parentElement.clientWidth-32,h=260;
+canvas.width=w*dpr;canvas.height=h*dpr;
+canvas.style.width=w+'px';canvas.style.height=h+'px';
+ctx.scale(dpr,dpr);
+ctx.clearRect(0,0,w,h);
+
+const years=Math.min(maxYears+5,50);
+const yrData=[];let v=savings;
+for(let i=0;i<=years;i++){yrData.push(v);v=v*(1+ret)+savePerYear}
+const maxVal=Math.max(target,yrData[yrData.length-1],1);
+const scaleY=(h-40)/(maxVal*1.1);
+
+// Grid lines
+for(let i=0;i<=5;i++){
+  const y=h-30-(maxVal/5*i*scaleY);
+  ctx.fillStyle='#64748b';ctx.font='10px sans-serif';ctx.fillText(fmt(maxVal/5*i),2,y+4);
+  ctx.strokeStyle='rgba(148,163,184,.15)';ctx.beginPath();ctx.moveTo(60,y);ctx.lineTo(w-20,y);ctx.stroke();
+}
+
+// FIRE target line
+const targetY=h-30-target*scaleY;
+ctx.strokeStyle='rgba(6,182,212,.6)';ctx.setLineDash([6,4]);ctx.lineWidth=2;
+ctx.beginPath();ctx.moveTo(60,targetY);ctx.lineTo(w-20,targetY);ctx.stroke();
+ctx.setLineDash([]);ctx.lineWidth=1;
+ctx.fillStyle='#22d3ee';ctx.font='11px sans-serif';ctx.fillText('FIRE Target: '+fmt(target),65,targetY-6);
+
+// Projection area
+const barW=Math.max(2,(w-80)/(years+1));
+ctx.fillStyle='rgba(6,182,212,.4)';
+for(let i=0;i<=years;i++){
+  const x=60+i*barW,ht=Math.max(2,yrData[i]*scaleY);
+  ctx.fillRect(x,h-30-ht,barW-1,ht);
+}
+
+ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+ctx.fillText('0 yrs',60,h-12);
+ctx.fillText(years+' yrs',w-50,h-12);
+ctx.fillStyle='#22d3ee';ctx.fillText('📈 Asset Growth Projection',w-200,20);
+}
+
+function reset(){
+annualExpense.value=40000;safeWithdrawalRate.value='4';
+currentSavings.value=100000;annualSavings.value=30000;
+annualReturn.value=7;inflationRate.value=3;currentAgeInput.value=30;
+$('fireNumber').textContent='-';$('progressPct').textContent='-';$('yearsToFire').textContent='-';
+$('remainingNeeded').textContent='-';$('savingsRate').textContent='-';$('fireAge').textContent='-';
+$('progressFill').style.width='0%';$('progressLabel').textContent='Current Progress: -';
+const canvas=$('projectionChart'),ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+function copyResult(){
+const lines=['=== FIRE Number Analysis ===',
+'FIRE Target: '+$('fireNumber').textContent,
+'Progress: '+$('progressPct').textContent,
+'Years to FIRE: '+$('yearsToFire').textContent,
+'Still Needed: '+$('remainingNeeded').textContent,
+'Savings Rate: '+$('savingsRate').textContent,
+'FIRE Age: '+$('fireAge').textContent];
+function done(){showToast('✅ Copied to clipboard')}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(lines.join('\n')).then(done).catch(function(){fallbackCopy(lines.join('\n'));done()})}else{fallbackCopy(lines.join('\n'));done()}
+}
+function fallbackCopy(t){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
+
+function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+$('calcBtn').addEventListener('click',calc);
+$('resetBtn').addEventListener('click',reset);
+$('copyBtn').addEventListener('click',copyResult);
+calc();
+})();
+</script>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="../biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="../extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/fire-number-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

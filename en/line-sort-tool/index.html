@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Sort Tool - ToolGuideHub</title>
+  <meta name="description" content="Sort, deduplicate or randomize text lines by alphabetical, length or custom order in a single step.">
+  <meta property="og:title" content="Line Sort Tool - ToolGuideHub">
+  <meta property="og:description" content="Sort, deduplicate or randomize text lines by alphabetical, length or custom order in a single step.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Line Sort Tool","applicationCategory":"UtilityApplication","operatingSystem":"Any","description":"Free online line sorting tool","url":"https://adi63586.github.io/Toolguidehub/en/line-sort-tool/"}
+  </script>
+  <style>:root{--primary-hover:rgba(6,182,212,.3);--surface:#1e293b;;--text:#e2e8f0}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+  header { background: var(--surface); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; }
+  header a { color: #22d3ee; text-decoration: none; font-weight: 600; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 16px; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .subtitle { color: #94a3b8; margin-bottom: 24px; }
+  .card { background: var(--surface); border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+  label { display: block; font-weight: 600; margin-bottom: 6px; }
+  textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-size: .9rem; font-family: monospace; resize: vertical; min-height: 150px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: #22d3ee; color: #fff; border: none; border-radius: 12px; font-size: 1rem; cursor: pointer; font-weight: 600; margin-top: 12px; }
+  .btn:hover { background: var(--primary-hover); }
+  .btn-sm { padding: 6px 12px; font-size: .85rem; margin-top: 0; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+  .row > div { flex: 1; min-width: 120px; }
+  select { width: 100%; padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; font-size: 1rem; background: #0f172a; color: #e2e8f0; }
+  .output-area { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 12px; font-family: monospace; font-size: .85rem; white-space: pre-wrap; max-height: 400px; overflow-y: auto; margin-top: 12px; }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .stat { font-size: .85rem; color: #94a3b8; }
+  .stat strong { color: #22d3ee; }
+  #toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: #fff; padding: 12px 20px; border-radius: 12px; opacity: 0; transition: opacity .3s; z-index: 999; pointer-events: none; }
+  #toast.show { opacity: 1; }
+  footer { text-align: center; padding: 24px; color: #94a3b8; font-size: .85rem; }
+  @media (max-width: 375px) { main { padding: 16px 8px; } .card { padding: 16px; } }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/line-sort-tool/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Line Sort Tool", "item": "https://adi63586.github.io/Toolguidehub/en/line-sort-tool/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Line Sort Tool FAQ","mainEntity":[{"@type":"Question","name":"What does the Line Sort Tool analyze?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your data, click Analyze, and the tool provides detailed statistics, patterns, and insights. All analysis runs locally in your browser for instant results and data privacy."}},{"@type":"Question","name":"Is the Line Sort Tool free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Sort Mode and Deduplication are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I export the analysis results from the Line Sort Tool?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can copy the analysis results to clipboard or download them. All analysis is performed locally in your browser, so your data never leaves your device."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Line Sort Tool","description":"Step-by-step guide for using Line Sort Tool","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Line Sort Tool"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Input or paste the data you want to analyze"},{"@type":"HowToStep","position":2,"name":"Click Analyze","text":"Press the analyze button to start processing"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the analysis results and statistics"},{"@type":"HowToStep","position":4,"name":"Export data","text":"Copy or download the analysis output"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/line-sort-tool/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header style="display:flex;justify-content:space-between;align-items:center"><a href="../../">🧰 ToolGuideHub</a></header>
+<main>
+  <h1>📋 Line Sort Tool</h1>
+  <p class="subtitle">Sort, deduplicate, or randomize text lines</p>
+  <div class="section">
+    <label for="input">Input Text (one item per line)</label>
+    <textarea id="input" placeholder="banana&#10;apple&#10;cherry&#10;apple&#10;date"></textarea>
+    <div class="row" style="margin-top:12px;">      <div>
+        <label for="sortType">Sort Mode</label>
+        <select id="sortType">
+          <option value="asc">Alphabetical (A→Z)</option>
+          <option value="desc">Alphabetical (Z→A)</option>
+          <option value="num-asc">Numerical Ascending</option>
+          <option value="num-desc">Numerical Descending</option>
+          <option value="random">Random Shuffle</option>
+          <option value="reverse">Reverse Order</option>
+          <option value="length-asc">By Length (Short→Long)</option>
+          <option value="length-desc">By Length (Long→Short)</option>
+        </select>
+      </div>
+      <div>
+        <label for="unique">Deduplication</label>
+        <select id="unique">
+          <option value="false" selected>Keep Duplicates</option>
+          <option value="true">Remove Duplicates</option>
+          <option value="dup-only">Show Duplicates Only</option>
+          <option value="unique-only">Show Unique Only</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="sortBtn">🔄 Sort</button>
+    <button class="btn" id="fillExampleBtn" style="background:#1e293b;color:#22d3ee;border:1px solid #22d3ee;">🎲 Fill Example</button>
+    <div id="outputSection"></div>
+  </div>
+
+<h2>What is Line Sort Tool?</h2><p>Line Sort Tool is a free online tool that runs entirely in your browser. No download or signup needed — enter Sort Mode and Deduplication to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Sort lists of names, items, or data alphabetically</li><li>Remove duplicate entries from datasets</li><li>Shuffle lines for random selection or testing</li><li>Organize code imports or configuration entries</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#22d3ee;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/line-sort-tool/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="toast"></div>
+<script>
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+function runSort(){
+  var text = document.getElementById('input').value;
+  if (!text.trim()) { toast('Please enter text'); return; }
+  var lines = text.split('\n');
+  var sortType = document.getElementById('sortType').value;
+  var unique = document.getElementById('unique').value;
+
+  if (unique === 'true') {
+    var seen = {};
+    lines = lines.filter(function(l){ var key = l; if (seen[key]) return false; seen[key] = true; return true; });
+  } else if (unique === 'dup-only') {
+    var counts = {};
+    lines.forEach(function(l){ counts[l] = (counts[l]||0)+1; });
+    var seen2 = {};
+    lines = lines.filter(function(l){
+      if (counts[l] > 1 && !seen2[l]) { seen2[l] = true; return true; }
+      return false;
+    });
+  } else if (unique === 'unique-only') {
+    var counts2 = {};
+    lines.forEach(function(l){ counts2[l] = (counts2[l]||0)+1; });
+    lines = lines.filter(function(l){ return counts2[l] === 1; });
+  }
+
+  switch(sortType) {
+    case 'asc':
+      lines.sort(function(a,b){ return a.localeCompare(b); });
+      break;
+    case 'desc':
+      lines.sort(function(a,b){ return b.localeCompare(a); });
+      break;
+    case 'num-asc':
+      lines.sort(function(a,b){
+        var na = parseFloat(a), nb = parseFloat(b);
+        if (isNaN(na) && isNaN(nb)) return a.localeCompare(b);
+        if (isNaN(na)) return 1;
+        if (isNaN(nb)) return -1;
+        return na - nb;
+      });
+      break;
+    case 'num-desc':
+      lines.sort(function(a,b){
+        var na = parseFloat(a), nb = parseFloat(b);
+        if (isNaN(na) && isNaN(nb)) return b.localeCompare(a);
+        if (isNaN(na)) return 1;
+        if (isNaN(nb)) return -1;
+        return nb - na;
+      });
+      break;
+    case 'random':
+      for (var i = lines.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = lines[i]; lines[i] = lines[j]; lines[j] = tmp;
+      }
+      break;
+    case 'reverse':
+      lines.reverse();
+      break;
+    case 'length-asc':
+      lines.sort(function(a,b){ return a.length - b.length || a.localeCompare(b); });
+      break;
+    case 'length-desc':
+      lines.sort(function(a,b){ return b.length - a.length || a.localeCompare(b); });
+      break;
+  }
+
+  var output = lines.join('\n');
+  document.getElementById('outputSection').innerHTML =
+    '<div class="stats"><div class="stat">📄 Lines: <strong>' + lines.length + '</strong></div>' +
+    '<div class="stat">📏 Chars: <strong>' + output.length + '</strong></div></div>' +
+    '<div class="output-area">' + output.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>') + '</div>' +
+    '<button class="btn btn-sm" id="copyBtn" style="margin-top:8px;">📋 Copy Result</button>';
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    navigator.clipboard.writeText(output).then(function(){ toast('Copied!'); });
+  });
+}
+document.getElementById('sortBtn').addEventListener('click', runSort);
+function debounce(fn, ms){
+  var t;
+  return function(){ clearTimeout(t); t = setTimeout(fn, ms); };
+}
+var fillExampleBtn = document.getElementById('fillExampleBtn');
+if (fillExampleBtn) {
+  fillExampleBtn.addEventListener('click', function(){
+    document.getElementById('input').value = 'banana\napple\ncherry\napple\ndate\nfig\nelephant\ngrape';
+    runSort();
+    toast('Example loaded');
+  });
+}
+document.getElementById('input').addEventListener('input', debounce(runSort, 400));
+document.getElementById('sortType').addEventListener('change', runSort);
+document.getElementById('unique').addEventListener('change', runSort);
+</script>
+</body>
+</html>

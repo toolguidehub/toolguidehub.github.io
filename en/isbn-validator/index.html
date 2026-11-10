@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online ISBN Validator | No Signup</title>
+    <meta name="description" content="Check any ISBN-10 or ISBN-13 using the mod-11 and mod-10 check digit algorithms, then convert between the two formats in one click.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/isbn-validator/">
+    <meta property="og:title" content="Free Online ISBN Validator - ToolGuideHub">
+    <meta property="og:description" content="Check any ISBN-10 or ISBN-13 using the mod-11 and mod-10 check digit algorithms, then convert between the two formats in one click.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/isbn-validator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:2rem;color:#e2e8f0;margin-bottom:8px}
+header p{color:#94a3b8;font-size:1.05rem}
+.section{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(148,163,184,.1);padding:24px;margin-bottom:20px}
+.section h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid rgba(148,163,184,.1)}
+textarea,input[type="text"],input[type="url"],input[type="number"],select{width:100%;padding:12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:14px;font-family:'SF Mono','Fira Code','Consolas',monospace;transition:border .2s}
+textarea:focus,input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+textarea{
+      background: var(--surface);
+      color: var(--text);resize:vertical;min-height:120px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px)}
+.btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1)}
+.btn-secondary:hover{background:rgba(148,163,184,.1)}
+.btn-success{background:#10b981;color:#fff}
+.btn-success:hover{opacity:.9}
+.result-box{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:16px;font-family:'SF Mono','Fira Code','Consolas',monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto;min-height:60px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:1.05rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:0.95rem;line-height:1.6}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.row>*{flex:1;min-width:120px}
+footer{text-align:center;padding:30px 0;color:#94a3b8;font-size:0.85rem}
+footer a{color:#22d3ee;text-decoration:none}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-green{background:#d1fae5;color:#065f46}
+.tag-yellow{background:#fef3c7;color:#92400e}
+.tag-red{background:#fee2e2;color:#991b1b}
+@media(max-width:768px){.container{padding:12px}header h1{font-size:1.5rem}}
+
+.valid-box{padding:16px;border-radius:8px;margin:12px 0;text-align:center}
+.valid-box.success{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+.valid-box.error{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+.valid-box .icon{font-size:2rem;margin-bottom:8px}
+.valid-box .msg{font-size:1.1rem;font-weight:600}
+.detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.detail-row:last-child{border-bottom:none}
+.detail-key{color:#94a3b8;font-size:13px}
+.detail-val{font-weight:600;font-size:13px}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/isbn-validator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*gtag_stub: analytics removed*/window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+</head>
+<body>
+<main class="container">
+<header>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <h1>📚 ISBN Validator</h1>
+        <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../isbn-validator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a><a href="../../en/isbn-validator/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a></div>
+        </div>
+        <p style="margin-top:12px;color:#94a3b8;font-size:.95rem">Validate ISBN book numbers - ISBN-10/13 validation, check digit calculation, format conversion</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ISBN Validator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/isbn-validator/"
+    }
+  ],
+  "name": "ISBN Validator"
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is ISBN?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is ISBN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISBN (International Standard Book Number) is a unique identifier for books. ISBN-10 is 10 digits (used before 2007), ISBN-13 is 13 digits (current standard). The last digit is a check digit for validation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between ISBN-10 and ISBN-13?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISBN-10 uses mod-11 check algorithm, check digit can be 0-9 or X (representing 10). ISBN-13 uses mod-10 check algorithm (same as EAN), check digit is 0-9. ISBN-13 starts with 978 or 979."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the ISBN check digit calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISBN-10: Multiply each digit by position weight (10 to 1), sum mod 11, subtract from 11. ISBN-13: Odd positions ×1, even positions ×3, sum mod 10, subtract from 10 (if remainder is 0, check digit is 0)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does ISBN validation failure mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possible reasons: 1) Input error (wrong or missing digits); 2) Incorrect check digit; 3) Invalid ISBN format; 4) Fabricated ISBN. It doesn't mean the book doesn't exist, just the number is invalid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ISBN look up book information?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool only validates ISBN format and check digit. For book details (title, author, publisher), use Open Library API (https://openlibrary.org/isbn/ISBN) or Google Books API."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use ISBN Validator", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter ISBN number (10 or 13 digits)", "name": "Enter ISBN number (10 or 13 di"}, {"@type": "HowToStep", "position": 2, "text": "Click the 'Validate ISBN' button", "name": "Click the 'Validate ISBN' butt"}, {"@type": "HowToStep", "position": 3, "text": "View validation result and check digit info", "name": "View validation result and che"}, {"@type": "HowToStep", "position": 4, "text": "Optional: Convert between ISBN-10/13 formats", "name": "Optional: Convert between ISBN"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ISBN Validator", "description": "Free online ISBN Validator", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/isbn-validator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+    <div class="section">
+        <h2>🔍 Enter ISBN</h2>
+        <input type="text" id="isbnInput" placeholder="Enter ISBN, e.g. 978-0-306-40615-7 or 0306406152">
+        <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" onclick="validateISBN()">✅ Validate ISBN</button>
+            <button class="btn btn-secondary" onclick="convertISBN()">🔄 Convert Format</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+    </div>
+    <div class="section" id="resultCard" style="display:none">
+        <h2>📊 Validation Result</h2>
+        <div id="validResult"></div>
+        <div id="detailResult" style="margin-top:12px"></div>
+    </div>
+    <div class="section" id="convertCard" style="display:none">
+        <h2>🔄 Conversion Result</h2>
+        <div id="convertResult"></div>
+    </div>
+    <div class="section">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item"><h3>What is ISBN?</h3><p>ISBN (International Standard Book Number) is a unique identifier for books. ISBN-10 is 10 digits (used before 2007), ISBN-13 is 13 digits (current standard). The last digit is a check digit for validation.</p></div><div class="faq-item"><h3>What's the difference between ISBN-10 and ISBN-13?</h3><p>ISBN-10 uses mod-11 check algorithm, check digit can be 0-9 or X (representing 10). ISBN-13 uses mod-10 check algorithm (same as EAN), check digit is 0-9. ISBN-13 starts with 978 or 979.</p></div><div class="faq-item"><h3>How is the ISBN check digit calculated?</h3><p>ISBN-10: Multiply each digit by position weight (10 to 1), sum mod 11, subtract from 11. ISBN-13: Odd positions ×1, even positions ×3, sum mod 10, subtract from 10 (if remainder is 0, check digit is 0).</p></div><div class="faq-item"><h3>What does ISBN validation failure mean?</h3><p>Possible reasons: 1) Input error (wrong or missing digits); 2) Incorrect check digit; 3) Invalid ISBN format; 4) Fabricated ISBN. It doesn't mean the book doesn't exist, just the number is invalid.</p></div><div class="faq-item"><h3>Can ISBN look up book information?</h3><p>This tool only validates ISBN format and check digit. For book details (title, author, publisher), use Open Library API (https://openlibrary.org/isbn/ISBN) or Google Books API.</p></div>
+    </div>
+    <script>
+    function validateISBN(){
+        var input=document.getElementById('isbnInput').value.trim().replace(/[-\s]/g,'');
+        if(!input){showToast('Please enter an ISBN');return}
+        document.getElementById('resultCard').style.display='block';
+        document.getElementById('convertCard').style.display='none';
+        var isValid=false,type='',checkDigit='',calcCheck='';
+        if(input.length===10){
+            type='ISBN-10';var result=calcISBN10(input);
+            isValid=result.valid;checkDigit=input[9];calcCheck=result.checkDigit;
+        }else if(input.length===13){
+            type='ISBN-13';var result=calcISBN13(input);
+            isValid=result.valid;checkDigit=input[12];calcCheck=result.checkDigit;
+        }else{
+            document.getElementById('validResult').innerHTML='<div class="valid-box error"><div class="icon">❌</div><div class="msg">Invalid ISBN length (need 10 or 13 digits)</div></div>';
+            document.getElementById('detailResult').innerHTML='';return;
+        }
+        var html=isValid?'<div class="valid-box success"><div class="icon">✅</div><div class="msg">Valid '+type+'</div></div>':'<div class="valid-box error"><div class="icon">❌</div><div class="msg">Invalid '+type+' - Check digit mismatch</div></div>';
+        document.getElementById('validResult').innerHTML=html;
+        var detail='<div class="detail-row"><span class="detail-key">Type</span><span class="detail-val">'+type+'</span></div>';
+        detail+='<div class="detail-row"><span class="detail-key">ISBN Entered</span><span class="detail-val">'+formatISBN(input)+'</span></div>';
+        detail+='<div class="detail-row"><span class="detail-key">Check Digit (entered)</span><span class="detail-val">'+checkDigit+'</span></div>';
+        detail+='<div class="detail-row"><span class="detail-key">Check Digit (calculated)</span><span class="detail-val">'+calcCheck+'</span></div>';
+        detail+='<div class="detail-row"><span class="detail-key">Result</span><span class="detail-val" style="color:'+(isValid?'#10b981':'#ef4444')+'">'+(isValid?'Pass':'Fail')+'</span></div>';
+        if(input.length===10){
+            var isbn13='978'+input.substring(0,9);var r=calcISBN13(isbn13+'0');isbn13+=r.checkDigit;
+            detail+='<div class="detail-row"><span class="detail-key">ISBN-13 Conversion</span><span class="detail-val">'+formatISBN(isbn13)+'</span></div>';
+        }else if(input.startsWith('978')){
+            var isbn10=input.substring(3,12);var r=calcISBN10(isbn10+'0');isbn10+=r.checkDigit;
+            detail+='<div class="detail-row"><span class="detail-key">ISBN-10 Conversion</span><span class="detail-val">'+formatISBN(isbn10)+'</span></div>';
+        }
+        document.getElementById('detailResult').innerHTML=detail;
+        gtag('event','validate_isbn',{event_category:'isbn_validator',event_label:isValid?'valid':'invalid'});
+    }
+    function calcISBN10(isbn){
+        var sum=0;for(var i=0;i<9;i++){var d=parseInt(isbn[i]);if(isNaN(d))return{valid:false,checkDigit:'?'};sum+=d*(10-i)}
+        var check=11-(sum%11);check=check===11?'0':check===10?'X':check.toString();
+        return{valid:isbn[9].toUpperCase()===check,checkDigit:check};
+    }
+    function calcISBN13(isbn){
+        var sum=0;for(var i=0;i<12;i++){var d=parseInt(isbn[i]);if(isNaN(d))return{valid:false,checkDigit:'?'};sum+=d*(i%2===0?1:3)}
+        var check=(10-(sum%10))%10;
+        return{valid:parseInt(isbn[12])===check,checkDigit:check.toString()};
+    }
+    function formatISBN(isbn){
+        if(isbn.length===10)return isbn[0]+'-'+isbn.substring(1,6)+'-'+isbn.substring(6,9)+'-'+isbn[9];
+        if(isbn.length===13)return isbn.substring(0,3)+'-'+isbn[3]+'-'+isbn.substring(4,9)+'-'+isbn.substring(9,12)+'-'+isbn[12];
+        return isbn;
+    }
+    function convertISBN(){
+        var input=document.getElementById('isbnInput').value.trim().replace(/[-\s]/g,'');
+        if(!input){showToast('Please enter an ISBN');return}
+        document.getElementById('convertCard').style.display='block';
+        var html='';
+        if(input.length===10){
+            var isbn13='978'+input.substring(0,9);var r=calcISBN13(isbn13+'0');isbn13+=r.checkDigit;
+            html='<p><strong>ISBN-10 → ISBN-13:</strong></p><p style="font-size:1.2rem;font-family:monospace;color:#22d3ee">'+formatISBN(isbn13)+'</p>';
+        }else if(input.length===13&&input.startsWith('978')){
+            var isbn10=input.substring(3,12);var r=calcISBN10(isbn10+'0');isbn10+=r.checkDigit;
+            html='<p><strong>ISBN-13 → ISBN-10:</strong></p><p style="font-size:1.2rem;font-family:monospace;color:#22d3ee">'+formatISBN(isbn10)+'</p>';
+        }else if(input.length===13){
+            html='<p style="color:#f59e0b">ISBN-13 starting with 979 cannot be converted to ISBN-10</p>';
+        }else{
+            html='<p style="color:#ef4444">Please enter a valid 10 or 13 digit ISBN</p>';
+        }
+        document.getElementById('convertResult').innerHTML=html;
+        gtag('event','convert_isbn',{event_category:'isbn_validator'});
+    }
+    function clearAll(){document.getElementById('isbnInput').value='';document.getElementById('resultCard').style.display='none';document.getElementById('convertCard').style.display='none'}
+    </script>
+</main>
+
+<script>
+</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/isbn-validator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer - Focused Learning Time Management | ToolGuideHub</title>
+  <meta name="description" content="Run a Pomodoro-style study timer with custom focus and break lengths, then track how many minutes you studied today, with all data kept on your device.">
+  <meta property="og:title" content="Study Timer - ToolGuideHub">
+  <meta property="og:description" content="Run a Pomodoro-style study timer with custom focus and break lengths, then track how many minutes you studied today, with all data kept on your device.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Study Timer","description":"Free online study timer for focused learning. Customize study duration, break intervals, track daily progress.","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://adi63586.github.io/Toolguidehub/en/study-timer/"}</script>
+  <style>:root{--text-light:#94a3b8;--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { font-size: 22px; font-weight: 700; color: #22d3ee; text-decoration: none; }
+    header nav a { color: var(--text-light); text-decoration: none; margin-left: 20px; font-size: 14px; }
+    main { flex: 1; max-width: 720px; margin: 0 auto; padding: 30px 20px; width: 100%; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 15px; }
+    .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; }
+    .timer-display { text-align: center; padding: 30px 0; }
+    .time { font-size: 72px; font-weight: 700; color: #22d3ee; font-variant-numeric: tabular-nums; letter-spacing: 2px; }
+    .phase-label { font-size: 16px; color: var(--text-light); margin-top: 8px; }
+    .controls { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+    .btn { padding: 12px 28px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all .2s; }
+    .btn-primary { background: #22d3ee; color: #fff; }
+    .btn-primary:hover { background: #0891b2; }
+    .btn-secondary { background: rgba(148,163,184,.1); color: #e2e8f0; }
+    .btn-secondary:hover { background: #cbd5e1; }
+    .btn-danger { background: #ef4444; color: #fff; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .settings { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 500px) { .settings { grid-template-columns: 1fr; } }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-light); margin-bottom: 4px; }
+    .form-group input { width: 100%; padding: 10px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .stat-item { text-align: center; padding: 16px; background: #0f172a; border-radius: 12px; }
+    .stat-value { font-size: 28px; font-weight: 700; color: #22d3ee; }
+    .stat-label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+    .session-log { max-height: 200px; overflow-y: auto; margin-top: 12px; }
+    .session-log li { padding: 8px 0; border-bottom: 1px solid rgba(148,163,184,.1); font-size: 14px; color: var(--text-light); }
+    .progress-bar { height: 8px; background: rgba(148,163,184,.1); border-radius: 4px; margin-top: 12px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #22d3ee; border-radius: 4px; transition: width .3s; }
+    footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+    .toast { position: fixed; top: 20px; right: 20px; background: #10b981; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 1000; opacity: 0; transform: translateY(-10px); transition: all .3s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/study-timer/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Study Timer - Focused Learning Time Management | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/study-timer/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Study Timer FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Study Timer?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Study Timer free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Study and Short Break are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Study Timer?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Study Timer","description":"Step-by-step guide for using Study Timer","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Study Timer"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/study-timer/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">ToolGuideHub</a>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../../">CN</a>
+    </nav>
+  </header>
+  <main>
+    <h1>📚 Study Timer</h1>
+    <p class="subtitle">Focused learning time management — customize study & break intervals, track daily progress</p>
+
+    <div class="section">
+      <div class="timer-display">
+        <div class="time" id="timerDisplay">25:00</div>
+        <div class="phase-label" id="phaseLabel">Study Time</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-primary" id="btnStart" onclick="startTimer()">Start</button>
+        <button class="btn btn-secondary" id="btnPause" onclick="pauseTimer()" disabled>Pause</button>
+        <button class="btn btn-danger" id="btnReset" onclick="resetTimer()">Reset</button>
+        <button class="btn btn-secondary" id="btnSkip" onclick="skipPhase()" disabled>Skip</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 style="margin-bottom:16px">⚙️ Settings</h3>
+      <div class="settings">
+        <div class="form-group"><label>Study (min)</label><input type="number" id="studyDuration" value="25" min="1" max="120" onchange="updateSettings()"></div>
+        <div class="form-group"><label>Short Break (min)</label><input type="number" id="shortBreak" value="5" min="1" max="30" onchange="updateSettings()"></div>
+        <div class="form-group"><label>Long Break (min)</label><input type="number" id="longBreak" value="15" min="1" max="60" onchange="updateSettings()"></div>
+        <div class="form-group"><label>Rounds before long break</label><input type="number" id="roundsBeforeLong" value="4" min="1" max="10" onchange="updateSettings()"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 style="margin-bottom:16px">📊 Today's Stats</h3>
+      <div class="stats">
+        <div class="stat-item"><div class="stat-value" id="totalSessions">0</div><div class="stat-label">Sessions</div></div>
+        <div class="stat-item"><div class="stat-value" id="totalMinutes">0</div><div class="stat-label">Minutes Studied</div></div>
+        <div class="stat-item"><div class="stat-value" id="totalBreaks">0</div><div class="stat-label">Breaks</div></div>
+      </div>
+      <h4 style="margin-top:16px;margin-bottom:8px;font-size:14px">Today's Log</h4>
+      <ul class="session-log" id="sessionLog"></ul>
+    </div>
+  
+<h2>What is Study Timer - Focused Learning Time ManagementBase?</h2><p>Study Timer - Focused Learning Time ManagementBase is a free online tool that runs entirely in your browser. No download or signup needed — enter Study and Short Break to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Calculate time intervals when scheduling events</li><li>Convert time zones for international communication</li><li>Track important dates like age or countdowns</li><li>Quick time checks on mobile without calendar apps</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/study-timer/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer><div class="toast" id="toast"></div><script>
+
+  
+
+  
+    let timer = null, secondsLeft = 25 * 60, totalSeconds = 25 * 60;
+    let isRunning = false, isPaused = false, currentPhase = 'study', completedRounds = 0;
+    let settings = { studyDuration: 25, shortBreak: 5, longBreak: 15, roundsBeforeLong: 4 };
+    let todayStats = { sessions: 0, minutes: 0, breaks: 0, log: [] };
+    const saved = JSON.parse(localStorage.getItem('studyTimer') || '{}');
+    if (saved.settings) settings = saved.settings;
+    if (saved.todayStats && saved.date === new Date().toDateString()) todayStats = saved.todayStats;
+    document.getElementById('studyDuration').value = settings.studyDuration;
+    document.getElementById('shortBreak').value = settings.shortBreak;
+    document.getElementById('longBreak').value = settings.longBreak;
+    document.getElementById('roundsBeforeLong').value = settings.roundsBeforeLong;
+    setPhase('study'); updateDisplay(); updateStats(); updateButtons();
+
+    function updateSettings() {
+      settings.studyDuration = parseInt(document.getElementById('studyDuration').value) || 25;
+      settings.shortBreak = parseInt(document.getElementById('shortBreak').value) || 5;
+      settings.longBreak = parseInt(document.getElementById('longBreak').value) || 15;
+      settings.roundsBeforeLong = parseInt(document.getElementById('roundsBeforeLong').value) || 4;
+      saveState();
+      if (!isRunning && !isPaused) { setPhase('study'); updateDisplay(); }
+    }
+    function setPhase(phase) {
+      currentPhase = phase;
+      if (phase === 'study') { secondsLeft = settings.studyDuration * 60; totalSeconds = settings.studyDuration * 60; document.getElementById('phaseLabel').textContent = '📖 Study Time'; }
+      else if (phase === 'shortBreak') { secondsLeft = settings.shortBreak * 60; totalSeconds = settings.shortBreak * 60; document.getElementById('phaseLabel').textContent = '☕ Short Break'; }
+      else { secondsLeft = settings.longBreak * 60; totalSeconds = settings.longBreak * 60; document.getElementById('phaseLabel').textContent = '🌴 Long Break'; }
+      updateDisplay();
+    }
+    function updateDisplay() {
+      const m = Math.floor(secondsLeft / 60), s = secondsLeft % 60;
+      document.getElementById('timerDisplay').textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+      document.getElementById('progressFill').style.width = (totalSeconds > 0 ? ((totalSeconds - secondsLeft) / totalSeconds) * 100 : 0) + '%';
+    }
+    function updateButtons() {
+      document.getElementById('btnStart').disabled = isRunning;
+      document.getElementById('btnPause').disabled = !isRunning;
+      document.getElementById('btnSkip').disabled = !isRunning && !isPaused;
+    }
+    function startTimer() { isRunning = true; isPaused = false; updateButtons(); timer = setInterval(tick, 1000); }
+    function pauseTimer() { isRunning = false; isPaused = true; clearInterval(timer); updateButtons(); }
+    function resetTimer() { isRunning = false; isPaused = false; clearInterval(timer); completedRounds = 0; setPhase('study'); updateButtons(); }
+    function skipPhase() { clearInterval(timer); completePhase(); }
+    function tick() { if (secondsLeft > 0) { secondsLeft--; updateDisplay(); } else { clearInterval(timer); completePhase(); } }
+    function completePhase() {
+      const now = new Date().toLocaleTimeString();
+      if (currentPhase === 'study') {
+        completedRounds++; todayStats.sessions++; todayStats.minutes += settings.studyDuration;
+        todayStats.log.unshift(now + ' - ✅ Completed ' + settings.studyDuration + 'min study');
+        showToast('Great job! Session completed 🎉');
+        setPhase(completedRounds % settings.roundsBeforeLong === 0 ? 'longBreak' : 'shortBreak');
+        todayStats.breaks++;
+      } else {
+        todayStats.log.unshift(now + ' - 🔄 Break over, back to study');
+        showToast('Break over, keep going! 💪');
+        setPhase('study');
+      }
+      updateStats(); saveState(); isRunning = false; isPaused = false; updateButtons();
+    }
+    function updateStats() {
+      document.getElementById('totalSessions').textContent = todayStats.sessions;
+      document.getElementById('totalMinutes').textContent = todayStats.minutes;
+      document.getElementById('totalBreaks').textContent = todayStats.breaks;
+      document.getElementById('sessionLog').innerHTML = todayStats.log.slice(0,20).map(l => '<li>' + l + '</li>').join('');
+    }
+    function saveState() { localStorage.setItem('studyTimer', JSON.stringify({settings, todayStats, date: new Date().toDateString()})); }
+    function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
+</script>
+
+</body>
+</html>

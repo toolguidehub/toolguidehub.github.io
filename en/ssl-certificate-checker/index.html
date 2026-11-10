@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>SSL Certificate Checker - ToolGuideHub</title>
+ <meta name="description" content="Check an SSL/TLS certificate's issuer, validity dates, and chain - this tool now redirects to the newer SSL Checker.">
+ <meta name="keywords" content="SSL certificate TLS certificate HTTPS check certificate validity certificate chain SSL checker">
+ <meta property="og:title" content="SSL Certificate Checker - ToolGuideHub">
+ <meta property="og:description" content="Check an SSL/TLS certificate's issuer, validity dates, and chain - this tool now redirects to the newer SSL Checker.">
+ <meta property="og:type" content="website">
+ <meta name="twitter:card" content="summary">
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "SSL Certificate Checker",
+ "description": "Check SSL/TLS certificate details online, including issuer, validity, encryption algorithm, certificate chain",
+ "applicationCategory": "UtilityApplication",
+ "operatingSystem": "Any",
+ "offers": { "@type": "Offer", "price": "0" }
+ }
+ </script>
+ <style>:root{--surface:#1e293b;--error:#EF4444;--text:#e2e8f0}
+ * { margin:0; padding:0; box-sizing:border-box; }
+ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#0f172a; color:#e2e8f0; min-height:100vh; }
+ header { background:var(--surface); border-bottom:1px solid rgba(148,163,184,.1); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+ header a { color:#94a3b8; text-decoration:none; font-size:14px; }
+ header a:hover { color:#e2e8f0; }
+ .logo { font-size:18px; font-weight:700; color:#e2e8f0; }
+ .lang-switch a { margin-left:12px; padding:4px 12px; border-radius:6px; border:1px solid rgba(148,163,184,.1); }
+ .lang-switch a.active { background:#22d3ee; color:#fff; border-color:#22d3ee; }
+ main { max-width:800px; margin:0 auto; padding:32px 20px; }
+ h1 { font-size:28px; margin-bottom:8px; }
+ .desc { color:#94a3b8; margin-bottom:24px; font-size:15px; }
+ .tool-area { background:var(--surface); border-radius:12px; border:1px solid rgba(148,163,184,.1); padding:24px; margin-bottom:20px; }
+ .tool-area label { display:block; font-size:14px; color:#94a3b8; margin-bottom:8px; }
+ .tool-area input, .tool-area textarea, .tool-area select { width:100%; background:#0f172a; border:1px solid rgba(148,163,184,.1); border-radius:8px; color:#e2e8f0; padding:12px; font-size:14px; font-family:inherit; resize:vertical; }
+ .tool-area textarea {
+      background: var(--surface);
+      color: var(--text); min-height:120px; }
+ .tool-area input:focus, .tool-area textarea:focus, .tool-area select:focus { outline:none; border-color:#22d3ee; }
+ .btn { display:inline-block; padding:10px 24px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; border:none; transition:all .2s; }
+ .btn-primary { background:#22d3ee; color:#fff; }
+ .btn-primary:hover { opacity:.9; }
+ .btn-secondary { background:var(--surface); color:#e2e8f0; border:1px solid rgba(148,163,184,.1); }
+ .result { background:#0f172a; border:1px solid rgba(148,163,184,.1); border-radius:8px; padding:16px; min-height:60px; font-size:14px; white-space:pre-wrap; word-break:break-all; margin-top:16px; display:none; }
+ .result.show { display:block; }
+ .result.error { border-color:var(--error); color:var(--error); }
+ footer { text-align:center; padding:24px; color:#94a3b8; font-size:13px; border-top:1px solid rgba(148,163,184,.1); margin-top:40px; }
+ footer a { color:#22d3ee; }
+ .row { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+ .row > * { flex:1; min-width:150px; }
+ .tag { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; background:rgba(79,70,229,.2); color:#818cf8; margin:2px; }
+ .status { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+ .status.open { background:#10b981; }
+ .status.closed { background:var(--error); }
+ @media(max-width:375px) { main { padding:16px 12px; } h1 { font-size:22px; } }
+ 
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ssl-certificate-checker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ssl-certificate-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "SSL Certificate Checker", "item": "https://adi63586.github.io/Toolguidehub/en/ssl-certificate-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Ssl Certificate Checker FAQ","mainEntity":[{"@type":"Question","name":"How does the Ssl Certificate Checker check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: network domain and other values are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the Ssl Certificate Checker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: network domain and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Ssl Certificate Checker report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Ssl Certificate Checker","description":"Step-by-step guide for using Ssl Certificate Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Ssl Certificate Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ 
+ </header>
+ <main>
+ <h1>SSL Certificate Checker</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/ssl-checker/" style="color:#22d3ee;text-decoration:underline">ssl checker</a>. Please use the new version.</div>
+
+ <p class="desc">Check SSL/TLS certificate details online, including issuer, validity, encryption algorithm, certificate chain</p>
+ <div class="tool-area">
+ 
+ <label>network domain</label>
+ <div class="row">
+ <input type="text" id="domainInput" placeholder="example.com" style="flex:3;">
+ <button class="btn btn-primary" id="checkBtn" style="flex:0;">CheckCertificate</button>
+ </div>
+ <div class="result" id="result"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+ <div style="margin-top:16px;padding:16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;font-size:13px;color:#f59e0b;">
+ ⚠️ <strong>Note:</strong> Browser tools cannot directly retrieve SSL certificate details. Use online APIs to query certificate status for full results.
+ </div>
+ <div style="margin-top:12px;font-size:12px;color:#94a3b8;">
+ <strong>Manual dynamic check:</strong><br>
+ Browser tool: Click the lock icon in the address bar to view certificate details<br>
+ Command line: <code>openssl s_client -connect example.com:443 -servername example.com</code>
+ </div>
+ </div>
+ 
+<h2>What is SSL Certificate Checker?</h2><p>SSL Certificate Checker is a free online tool that runs entirely in your browser. No download or signup needed — enter network domain and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/ssl-certificate-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+ <script>
+ 
+ const domainInput = document.getElementById('domainInput');
+ const checkBtn = document.getElementById('checkBtn');
+ const result = document.getElementById('result');
+
+ async function checkCert() {
+ const domain = domainInput.value.trim();
+ if (!domain) { showResult('Please input a domain', true); return; }
+ showResult('Checking...');
+ 
+ const hostname = domain.replace(/^https?:\/\//, '').split('/')[0].split(':')[0];
+ 
+ let out = `SSL Certificate Check: ${hostname}\n${'═'.repeat(40)}\n\n`;
+ out += `Note: Browser tools cannot directly get SSL certificate details.\n`;
+ out += `For detailed info, use online API to query certificate status.\n\n`;
+ out += `Manual dynamic check:\n`;
+ out += `  Browser tool: click lock icon to view certificate\n`;
+ out += `  Command: openssl s_client -connect ${hostname}:443 -servername ${hostname}\n`;
+ 
+ showResult(out);
+ }
+
+ function showResult(text, isError) {
+   const r = document.getElementById('result');
+   if (!r) return;
+   r.textContent = text;
+   r.classList.add('show');
+   r.classList.toggle('error', !!isError);
+ }
+
+ checkBtn.addEventListener('click', checkCert);
+ domainInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') checkCert(); });
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calculate monthly mortgage payments, total interest and a full amortization schedule for equal-payment or equal-principal loans.">
+<meta name="keywords" content="mortgage calculator home loan calculator monthly payment calculator amortization calculator mortgage payment calculator home buying calculator">
+<title>Free Mortgage Calculator Online - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/">
+<meta property="og:title" content="Free Mortgage Calculator Online - ToolGuideHub">
+<meta property="og:description" content="Calculate monthly mortgage payments, total interest and a full amortization schedule for equal-payment or equal-principal loans.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Mortgage Calculator", "description": "Free online mortgage calculator. Calculate monthly payments, total interest, and full amortization schedule. Supports equal payment and equal principal repayment methods. Perfect for home buyers planning their mortgage budget.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is Mortgage Calculator Online free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Mortgage Calculator Online free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Mortgage Calculator Online is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Mortgage Calculator Online upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mortgage Calculator Online uses pure front-end technology. All processing happens in your browser — no data is uploaded to any server. The tool works even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Mortgage Calculator Online on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mortgage Calculator Online is fully responsive and works on phones, tablets, and desktops. The interface automatically adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software to use Mortgage Calculator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mortgage Calculator Online is an online tool — just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using Mortgage Calculator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since all data is processed locally in your browser and never sent to any server, there is no risk of data leakage. Your data stays under your control at all times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for Mortgage Calculator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mortgage Calculator Online is a free online tool with no usage limits. Since processing is done locally, performance depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Mortgage Calculator",
+  "description": "Simple steps to use the Mortgage Calculator online tool. Everything runs locally: Loan Amount and Annual Rate are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Mortgage Calculator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.input-group{flex:1;min-width:120px}
+.input-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.input-group input,.input-group select,.input-group textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:inherit}
+.input-group input:focus,.input-group select:focus,.input-group textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.input-group textarea{resize:vertical;min-height:60px}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3)}
+.btn-success:hover{background:rgba(74,222,128,.25)}
+.preview-wrap{background:#0f172a;border-radius:8px;padding:16px;text-align:center;overflow:auto;margin-bottom:12px}
+.preview-wrap img,.preview-wrap canvas{max-width:100%;height:auto;border-radius:4px}
+.code-output{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:#e2e8f0;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow:auto;margin-top:8px}
+#fileInput{display:none}
+.file-label{display:inline-block;padding:10px 20px;background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.3);border-radius:8px;cursor:pointer;font-size:.85rem;transition:all .2s}
+.file-label:hover{background:rgba(6,182,212,.25)}
+.preset-btn{padding:6px 12px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2);transition:all .2s;font-family:inherit}
+.preset-btn:hover{background:rgba(148,163,184,.2)}
+.preset-btn.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.slider-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.slider-row label{font-size:.85rem;color:#94a3b8}
+.slider-row input[type=range]{flex:1;min-width:100px}
+.result-badge{display:inline-block;padding:10px 20px;background:rgba(74,222,128,.15);color:#4ade80;border-radius:8px;font-size:1rem;font-weight:600}
+.match-highlight{background:rgba(250,204,21,.3);color:#fef08a;border-radius:2px;padding:0 2px}
+.tag-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin:2px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+canvas{max-width:100%}
+.color-swatch{display:inline-block;width:32px;height:32px;border-radius:6px;cursor:pointer;border:2px solid transparent;margin:2px}
+.color-swatch.active{border-color:#22d3ee}
+.contrast-preview{display:flex;align-items:center;justify-content:center;min-height:120px;border-radius:8px;font-size:1.2rem;font-weight:600;margin-bottom:12px;padding:24px}
+@media (max-width:640px){.header{flex-direction:column;gap:12px;align-items:flex-start}
+.ad-slot.ad-sidebar{max-width:300px}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculators",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mortgage Calculator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/"
+    }
+  ],
+  "name": "Mortgage Calculator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/mortgage-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head><body><main class="container">
+<div class="header"><h1>🏠 Mortgage Calculator</h1></div>
+<p class="nav-back"><a href="../../en/index.html">← Back to Home</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div id="app"></div>
+<div class="section">
+ <h2>💰 Loan Details</h2>
+ <div class="input-row">
+ <div class="input-group"><label>Loan Amount ($)</label><input type="number" id="mcAmount" value="300000" min="1000" max="9999999" step="1000" oninput="calcMortgage()"></div>
+ <div class="input-group"><label>Annual Rate (%)</label><input type="number" id="mcRate" value="6.5" min="0.1" max="20" step="0.05" oninput="calcMortgage()"></div>
+ <div class="input-group"><label>Loan Term (years)</label><input type="number" id="mcYears" value="30" min="1" max="50" step="1" oninput="calcMortgage()"></div>
+ </div>
+ <div class="input-row">
+ <div class="input-group" style="min-width:140px">
+ <label>Repayment Method</label>
+ <select id="mcMethod" onchange="calcMortgage()">
+ <option value="equal-payment">Equal Payment</option>
+ <option value="equal-principal">Equal Principal</option>
+ </select>
+ </div>
+ </div>
+</div>
+<div class="section">
+ <h2>📊 Results</h2>
+ <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+ <div style="flex:1;min-width:140px;background:#0f172a;border-radius:8px;padding:12px;text-align:center">
+ <div style="color:#64748b;font-size:.8rem;margin-bottom:4px">Monthly Payment</div>
+ <div id="mcMonthly" class="result-badge">$0</div>
+ </div>
+ <div style="flex:1;min-width:140px;background:#0f172a;border-radius:8px;padding:12px;text-align:center">
+ <div style="color:#64748b;font-size:.8rem;margin-bottom:4px">Total Interest</div>
+ <div id="mcTotalInterest" style="color:#fbbf24;font-size:1.2rem;font-weight:600">$0</div>
+ </div>
+ <div style="flex:1;min-width:140px;background:#0f172a;border-radius:8px;padding:12px;text-align:center">
+ <div style="color:#64748b;font-size:.8rem;margin-bottom:4px">Total Payment</div>
+ <div id="mcTotalPayment" style="color:#e2e8f0;font-size:1.2rem;font-weight:600">$0</div>
+ </div>
+ </div>
+ <div class="btn-row">
+ <button class="btn btn-primary" onclick="toggleMCAmort()">📋 View Amortization Table</button>
+ </div>
+ <div id="mcAmort" style="display:none;margin-top:12px">
+ <div class="code-output" id="mcAmortTable" style="max-height:400px;white-space:pre;font-size:.75rem">
+<canvas id="ftAmortChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px;margin-top:12px"></canvas></div>
+ </div>
+</div><div class="seo-content">
+ <h2>How to Use the Mortgage Calculator</h2>
+ <p>Using the Mortgage Calculator is straightforward:</p>
+ <ol style="padding-left:20px;margin-top:12px">
+
+ <li style="margin-bottom:16px">
+ <strong>Enter Your Values</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Input the required numbers and parameters into the calculator fields. Each field is clearly labeled — simply type your values or use the spinner controls to adjust them.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Configure Options</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Select any additional options such as computation mode, currency, time period, or precision level. The calculator updates automatically as you change values.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>View the Results</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">The calculated result is displayed instantly with clear formatting. You can Copy the result to your clipboard or adjust input values to see how different scenarios affect the outcome.</span>
+ </li>
+
+ </ol>
+ </div>
+
+<div class="section"><h2>FAQ</h2>
+<div class="faq-item"><h3>Do I need to install?</h3><p>No. Mortgage Calculator is a pure frontend tool that runs directly in your browser. No downloads or installations needed. All processing happens locally on your device.</p></div>
+<div class="faq-item"><h3>What features does it offer?</h3><p>This tool provides an intuitive interface with real-time results. Everything runs client-side for fast performance.</p></div>
+<div class="faq-item"><h3>Is my data safe?</h3><p>Absolutely. Mortgage Calculator is a pure client-side tool — all data processing happens in your browser's local memory. Nothing is uploaded to any server.</p></div>
+<div class="faq-item"><h3>Can I use it on mobile?</h3><p>Yes. The tool is fully responsive and works on mobile devices, tablets, and desktops. The interface automatically adjusts to fit your screen.</p></div>
+</div>
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/mortgage-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function ftAmortIsCn(){var l=(document.documentElement.getAttribute('lang')||'').toLowerCase();return l.indexOf('zh')===0||l.indexOf('cn')===0}
+function ftAmortFmtY(v,isCn){
+  if(isCn)return v>=1e8?(v/1e8).toFixed(1)+'M':v>=1e4?(v/1e4).toFixed(1)+'K':v.toFixed(0);
+  return v>=1e9?(v/1e9).toFixed(1)+'B':v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(1)+'K':v.toFixed(0);
+}
+function ftDrawAmortSched(schedule,balKey){
+  var cv=document.getElementById('ftAmortChart');
+  if(!cv||!schedule||!schedule.length)return;
+  var isCn=ftAmortIsCn();
+  var series=[],cumInt=0;
+  for(var i=0;i<schedule.length;i++){
+    var s=schedule[i];
+    cumInt+=(s.interest||0);
+    if((i+1)%12===0||i===schedule.length-1){
+      series.push({y:(i+1)/12,rem:Math.max(0,s[balKey]!==undefined?s[balKey]:s.remaining||s.balance||0),paidInt:cumInt});
+    }
+  }
+  if(!series.length)return;
+  var ctx=cv.getContext('2d');
+  var W=cv.width,H=cv.height,padL=64,padR=14,padT=18,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=0;
+  for(var k=0;k<series.length;k++){maxV=Math.max(maxV,series[k].rem,series[k].paidInt)}
+  if(maxV<=0)return;
+  ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4,val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    ctx.fillStyle='#94a3b8';ctx.fillText(ftAmortFmtY(val,isCn),padL-6,y+3);
+  }
+  function plotLine(getVal,color){
+    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+    for(var i=0;i<series.length;i++){
+      var x=padL+(W-padL-padR)*series[i].y/series[series.length-1].y;
+      var y=padT+(H-padT-padB)*(1-series[i][getVal]/maxV);
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+  plotLine('rem','#06b6d4');
+  plotLine('paidInt','#10b981');
+  ctx.fillStyle='#94a3b8';ctx.textAlign='center';
+  ctx.fillText('0',padL,H-8);
+  ctx.fillText(series[series.length-1].y.toFixed(0)+' '+(isCn?'年':'yr'),W-padR,H-8);
+}
+function ftDrawAmort(principal,mr,n,monthly){
+  var cv=document.getElementById('ftAmortChart');
+  if(!cv)return;
+  var isCn=ftAmortIsCn();
+  var rem=principal,paidInt=0,series=[];
+  for(var i=1;i<=n;i++){
+    var intPart=rem*mr,prinPart=monthly-intPart;
+    rem-=prinPart;paidInt+=intPart;
+    if(i%12===0||i===n){
+      series.push({y:i/12,rem:Math.max(0,rem),paidInt:paidInt});
+    }
+  }
+  if(!series.length)return;
+  var ctx=cv.getContext('2d');
+  var W=cv.width,H=cv.height,padL=64,padR=14,padT=18,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=0;
+  for(var k=0;k<series.length;k++){maxV=Math.max(maxV,series[k].rem,series[k].paidInt)}
+  if(maxV<=0)return;
+  ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4,val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    ctx.fillStyle='#94a3b8';ctx.fillText(ftAmortFmtY(val,isCn),padL-6,y+3);
+  }
+  function plotLine(getVal,color){
+    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+    for(var i=0;i<series.length;i++){
+      var x=padL+(W-padL-padR)*series[i].y/series[series.length-1].y;
+      var y=padT+(H-padT-padB)*(1-series[i][getVal]/maxV);
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+  plotLine('rem','#06b6d4');
+  plotLine('paidInt','#10b981');
+  ctx.fillStyle='#94a3b8';ctx.textAlign='center';
+  ctx.fillText('0',padL,H-8);
+  ctx.fillText(series[series.length-1].y.toFixed(0)+' '+(isCn?'年':'yr'),W-padR,H-8);
+}
+
+
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+var mcAmortVisible=false;
+function calcMortgage(){
+  var amountEl=document.getElementById('mcAmount');
+  var rateEl=document.getElementById('mcRate');
+  var yearsEl=document.getElementById('mcYears');
+  var methodEl=document.getElementById('mcMethod');
+  if(!amountEl||!rateEl||!yearsEl||!methodEl){return;}
+  var amount=parseFloat(amountEl.value)||0;
+  var rate=parseFloat(rateEl.value)||0;
+  var years=parseInt(yearsEl.value)||1;
+  var method=methodEl.value;
+  if(amount<=0||rate<=0||years<=0){return;}
+  var lang=document.documentElement.lang;
+  var isCn=lang==='zh-CN';
+  var principal=amount;
+  var monthlyRate=rate/100/12;
+  var numPayments=years*12;
+  var monthly, totalInterest, totalPayment;
+  if(method==='equal-payment'){
+    if(monthlyRate>0){
+      monthly=principal*monthlyRate*Math.pow(1+monthlyRate,numPayments)/(Math.pow(1+monthlyRate,numPayments)-1);
+    }else{
+      monthly=principal/numPayments;
+    }
+    totalPayment=monthly*numPayments;
+    totalInterest=totalPayment-principal;
+  }else{
+    // Equal principal
+    var monthlyPrincipal=principal/numPayments;
+    var firstMonth=monthlyPrincipal+principal*monthlyRate;
+    var lastMonth=monthlyPrincipal+monthlyRate*(principal-monthlyPrincipal*(numPayments-1));
+    monthly=(firstMonth+lastMonth)/2;
+    totalInterest=0;
+    for(var i=0;i<numPayments;i++){
+      var balance=principal-monthlyPrincipal*i;
+      totalInterest+=balance*monthlyRate;
+    }
+    totalPayment=principal+totalInterest;
+  }
+  var fmt=function(n){return (isCn?'$':'$')+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');};
+  document.getElementById('mcMonthly').textContent=fmt(monthly);
+  document.getElementById('mcTotalInterest').textContent=fmt(totalInterest);
+  document.getElementById('mcTotalPayment').textContent=fmt(totalPayment);
+  if(mcAmortVisible){buildMCAmort(principal,monthlyRate,numPayments,method,isCn);}
+  ftDrawAmort(principal,monthlyRate,numPayments,monthly);
+}
+function toggleMCAmort(){
+  mcAmortVisible=!mcAmortVisible;
+  document.getElementById('mcAmort').style.display=mcAmortVisible?'block':'none';
+  if(mcAmortVisible){calcMortgage();}
+}
+function buildMCAmort(principal,monthlyRate,numPayments,method,isCn){
+  var balance=principal;
+  var monthlyPrincipal=principal/numPayments;
+  var rows='';
+  for(var i=1;i<=numPayments&&i<=360;i++){
+    var interest=balance*monthlyRate;
+    var principalPart;
+    if(method==='equal-payment'){
+      var mp=principal*monthlyRate*Math.pow(1+monthlyRate,numPayments)/(Math.pow(1+monthlyRate,numPayments)-1);
+      principalPart=mp-interest;
+    }else{
+      principalPart=monthlyPrincipal;
+    }
+    balance-=principalPart;
+    if(balance<0) balance=0;
+    rows+=(''+i).padEnd(6)+''+principalPart.toFixed(2).padStart(10)+''+interest.toFixed(2).padStart(10)+''+balance.toFixed(2).padStart(12)+'\n';
+    if(balance<=0.01) break;
+  }
+  document.getElementById('mcAmortTable').textContent=rows;
+}
+calcMortgage();</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+ <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+
+</main>
+</body>
+</html>

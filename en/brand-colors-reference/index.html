@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Browse and copy the HEX colour codes of 100+ well-known brands for design and branding work.">
+<meta name="keywords" content="brand colors, brand color codes, logo colors, web design, color reference, HEX colors, RGB colors, free">
+<title>Brand Colors Reference - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/brand-colors-reference/">
+<meta property="og:title" content="Brand Colors Reference - ToolGuideHub">
+<meta property="og:description" content="Browse and copy the HEX colour codes of 100+ well-known brands for design and branding work.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/brand-colors-reference/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Brand Colors Reference","description":"Free online brand colors reference with 100+ famous brand color codes. Search, browse, and copy HEX codes with one click.","applicationCategory":"DesignApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.panel{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.panel-title{font-size:1.1rem;color:#f1f5f9;margin-bottom:14px;font-weight:600}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.35);transform:translateY(-1px)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.hero{margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;line-height:1.7}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-top:8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.search-box{display:flex;gap:8px;margin-bottom:16px}
+.search-box input{flex:1;padding:10px 12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;background:#0f172a;color:#e2e8f0;font-size:.9rem}
+.search-box input:focus{outline:none;border-color:#06b6d4}
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.brand-card{background:#0f172a;border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:all .2s;border:2px solid transparent;position:relative}
+.brand-card:hover{transform:translateY(-2px);border-color:rgba(148,163,184,.3)}
+.brand-card .color-preview{width:100%;height:60px;border-radius:8px;margin-bottom:8px}
+.brand-card .brand-name{font-size:.8rem;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-card .brand-hex{font-size:.75rem;color:#64748b;margin-top:2px}
+.copied-overlay{position:absolute;inset:0;background:rgba(6,182,212,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#22d3ee;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none}
+.brand-card.copied .copied-overlay{opacity:1}
+.category-tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.category-tab{padding:6px 14px;border-radius:20px;font-size:.8rem;cursor:pointer;transition:all .2s;background:rgba(148,163,184,.08);color:#94a3b8;border:1px solid transparent}
+.category-tab:hover{background:rgba(148,163,184,.15)}
+.category-tab.active{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+@media(max-width:640px){.header h1{font-size:1.3rem}.brand-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.brand-card .color-preview{height:45px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Brand Colors Reference", "item": "https://adi63586.github.io/Toolguidehub/en/brand-colors-reference/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Brand Colors Reference FAQ","mainEntity":[{"@type":"Question","name":"How does the Brand Colors Reference work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Brand Colors Reference free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Brand Colors Reference and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Brand Colors Reference?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Brand Colors Reference","description":"Step-by-step guide for using Brand Colors Reference","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Brand Colors Reference"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/brand-colors-reference/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🎨 Brand Colors Reference</h1></div>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online brand colors reference with 100+ famous brand color codes. Search by brand name, copy HEX codes with one click. Essential tool for designers and ...</p>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../#tools">Tools</a> &rsaquo; Brand Colors Reference</p>
+<div class="hero"><p>100+ famous brand color codes at your fingertips. Click any card to copy the HEX code. Essential reference for designers and developers. <span class="badge">🔒 Client-Side · No Data Upload</span></p></div>
+<div class="panel">
+ <div class="panel-title">🔍 Search Brands</div>
+ <div class="search-box"><input type="text" id="searchInput" placeholder="Search brand name, e.g. Google, Apple..."><button class="btn btn-primary" id="exampleBtn">🎲 Fill Example</button><button class="btn btn-primary" id="clearBtn">Clear</button><button class="btn btn-primary" id="copyAllBtn">📋 Copy All Visible</button></div>
+ <div class="category-tabs" id="categoryTabs"></div>
+ <div class="brand-grid" id="brandGrid"></div>
+</div>
+<div>
+<h2>What is Brand Colors Reference?</h2><p>Brand Colors Reference is a free online tool that runs entirely in your browser. No download or signup needed — enter Brand Colors Reference and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Generate CSS code snippets quickly during frontend development</li><li>Experiment with different color schemes and effects while designing</li><li>Preview CSS changes in real-time while learning</li><li>Check designs on mobile without opening a code editor</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/brand-colors-reference/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+</div>
+<script>
+var brands = [
+  {name:"Google",hex:"#4285F4",rgb:"66,133,244",hex2:"#EA4335",hex3:"#FBBC05",hex4:"#34A853",cat:"Tech"},
+  {name:"Facebook",hex:"#1877F2",rgb:"24,119,242",cat:"Tech"},
+  {name:"Twitter/X",hex:"#000000",rgb:"0,0,0",cat:"Tech"},
+  {name:"Instagram",hex:"#E4405F",rgb:"228,64,95",hex2:"#833AB4",hex3:"#FCAF45",cat:"Tech"},
+  {name:"YouTube",hex:"#FF0000",rgb:"255,0,0",cat:"Tech"},
+  {name:"LinkedIn",hex:"#0A66C2",rgb:"10,102,194",cat:"Tech"},
+  {name:"WhatsApp",hex:"#25D366",rgb:"37,211,102",cat:"Tech"},
+  {name:"TikTok",hex:"#000000",rgb:"0,0,0",hex2:"#FE2C55",hex3:"#25F4EE",cat:"Tech"},
+  {name:"Snapchat",hex:"#FFFC00",rgb:"255,252,0",cat:"Tech"},
+  {name:"Pinterest",hex:"#E60023",rgb:"230,0,35",cat:"Tech"},
+  {name:"Reddit",hex:"#FF4500",rgb:"255,69,0",cat:"Tech"},
+  {name:"Discord",hex:"#5865F2",rgb:"88,101,242",cat:"Tech"},
+  {name:"Slack",hex:"#4A154B",rgb:"74,21,75",hex2:"#36C5F0",hex3:"#2EB67D",hex4:"#ECB22E",cat:"Tech"},
+  {name:"Spotify",hex:"#1DB954",rgb:"29,185,84",cat:"Tech"},
+  {name:"Netflix",hex:"#E50914",rgb:"229,9,20",cat:"Tech"},
+  {name:"Twitch",hex:"#9146FF",rgb:"145,70,255",cat:"Tech"},
+  {name:"GitHub",hex:"#181717",rgb:"24,23,23",cat:"Tech"},
+  {name:"GitLab",hex:"#FC6D26",rgb:"252,109,38",cat:"Tech"},
+  {name:"Stack Overflow",hex:"#F58025",rgb:"245,128,37",cat:"Tech"},
+  {name:"Apple",hex:"#000000",rgb:"0,0,0",cat:"Tech"},
+  {name:"Microsoft",hex:"#5E5E5E",rgb:"94,94,94",hex2:"#F25022",hex3:"#7FBA00",hex4:"#00A4EF",cat:"Tech"},
+  {name:"Amazon",hex:"#FF9900",rgb:"255,153,0",cat:"Tech"},
+  {name:"Samsung",hex:"#1428A0",rgb:"20,40,160",cat:"Tech"},
+  {name:"IBM",hex:"#052FAD",rgb:"5,47,173",cat:"Tech"},
+  {name:"Intel",hex:"#0071C5",rgb:"0,113,197",cat:"Tech"},
+  {name:"AMD",hex:"#ED1C24",rgb:"237,28,36",cat:"Tech"},
+  {name:"NVIDIA",hex:"#76B900",rgb:"118,185,0",cat:"Tech"},
+  {name:"Adobe",hex:"#FF0000",rgb:"255,0,0",cat:"Tech"},
+  {name:"Figma",hex:"#F24E1E",rgb:"242,78,30",hex2:"#A259FF",hex3:"#1ABCFE",cat:"Tech"},
+  {name:"Canva",hex:"#00C4CC",rgb:"0,196,204",cat:"Tech"},
+  {name:"Notion",hex:"#000000",rgb:"0,0,0",cat:"Tech"},
+  {name:"Zoom",hex:"#2D8CFF",rgb:"45,140,255",cat:"Tech"},
+  {name:"Dropbox",hex:"#0061FF",rgb:"0,97,255",cat:"Tech"},
+  {name:"Shopify",hex:"#7AB55C",rgb:"122,181,92",cat:"Tech"},
+  {name:"Stripe",hex:"#008CDD",rgb:"0,140,221",cat:"Tech"},
+  {name:"PayPal",hex:"#003087",rgb:"0,48,135",hex2:"#009CDE",cat:"Finance"},
+  {name:"Visa",hex:"#1A1F71",rgb:"26,31,113",cat:"Finance"},
+  {name:"Mastercard",hex:"#EB001B",rgb:"235,0,27",hex2:"#F79E1B",cat:"Finance"},
+  {name:"American Express",hex:"#2E77BC",rgb:"46,119,188",cat:"Finance"},
+  {name:"Nike",hex:"#111111",rgb:"17,17,17",cat:"Sports"},
+  {name:"Adidas",hex:"#000000",rgb:"0,0,0",cat:"Sports"},
+  {name:"Puma",hex:"#000000",rgb:"0,0,0",cat:"Sports"},
+  {name:"Under Armour",hex:"#000000",rgb:"0,0,0",cat:"Sports"},
+  {name:"Coca-Cola",hex:"#F40009",rgb:"244,0,9",cat:"Food"},
+  {name:"Pepsi",hex:"#004B93",rgb:"0,75,147",cat:"Food"},
+  {name:"McDonald's",hex:"#FFC72C",rgb:"255,199,44",hex2:"#DA291C",cat:"Food"},
+  {name:"Burger King",hex:"#D62300",rgb:"214,35,0",hex2:"#F5A623",cat:"Food"},
+  {name:"Starbucks",hex:"#00704A",rgb:"0,112,74",cat:"Food"},
+  {name:"KFC",hex:"#E4002B",rgb:"228,0,43",cat:"Food"},
+  {name:"Subway",hex:"#009132",rgb:"0,145,50",cat:"Food"},
+  {name:"Domino's",hex:"#1A5CA8",rgb:"26,92,168",cat:"Food"},
+  {name:"Pizza Hut",hex:"#C8102E",rgb:"200,16,46",cat:"Food"},
+  {name:"Target",hex:"#CC0000",rgb:"204,0,0",cat:"Retail"},
+  {name:"Walmart",hex:"#0071DC",rgb:"0,113,220",cat:"Retail"},
+  {name:"IKEA",hex:"#0051BA",rgb:"0,81,186",hex2:"#FFDA1A",cat:"Retail"},
+  {name:"Costco",hex:"#0058A3",rgb:"0,88,163",cat:"Retail"},
+  {name:"Best Buy",hex:"#003B64",rgb:"0,59,100",cat:"Retail"},
+  {name:"eBay",hex:"#E53238",rgb:"229,50,56",hex2:"#0064D2",hex3:"#86B817",hex4:"#F5A623",cat:"Retail"},
+  {name:"Etsy",hex:"#F16521",rgb:"241,101,33",cat:"Retail"},
+  {name:"Uber",hex:"#000000",rgb:"0,0,0",cat:"Transport"},
+  {name:"Lyft",hex:"#FF00BF",rgb:"255,0,191",cat:"Transport"},
+  {name:"Airbnb",hex:"#FF5A5F",rgb:"255,90,95",cat:"Travel"},
+  {name:"Booking.com",hex:"#003580",rgb:"0,53,128",cat:"Travel"},
+  {name:"Expedia",hex:"#FFCB00",rgb:"255,203,0",cat:"Travel"},
+  {name:"TripAdvisor",hex:"#00A680",rgb:"0,166,128",cat:"Travel"},
+  {name:"BBC",hex:"#000000",rgb:"0,0,0",cat:"Media"},
+  {name:"CNN",hex:"#CC0000",rgb:"204,0,0",cat:"Media"},
+  {name:"New York Times",hex:"#000000",rgb:"0,0,0",cat:"Media"},
+  {name:"The Guardian",hex:"#052962",rgb:"5,41,98",cat:"Media"},
+  {name:"Medium",hex:"#000000",rgb:"0,0,0",cat:"Media"},
+  {name:"Wikipedia",hex:"#000000",rgb:"0,0,0",cat:"Media"},
+  {name:"TED",hex:"#E62B1E",rgb:"230,43,30",cat:"Media"},
+  {name:"Toyota",hex:"#EB0A1E",rgb:"235,10,30",cat:"Auto"},
+  {name:"Honda",hex:"#CC0000",rgb:"204,0,0",cat:"Auto"},
+  {name:"BMW",hex:"#1C69D4",rgb:"28,105,212",cat:"Auto"},
+  {name:"Mercedes-Benz",hex:"#000000",rgb:"0,0,0",cat:"Auto"},
+  {name:"Audi",hex:"#000000",rgb:"0,0,0",cat:"Auto"},
+  {name:"Tesla",hex:"#CC0000",rgb:"204,0,0",cat:"Auto"},
+  {name:"Ferrari",hex:"#FF2800",rgb:"255,40,0",cat:"Auto"},
+  {name:"Ford",hex:"#003478",rgb:"0,52,120",cat:"Auto"},
+  {name:"Hyundai",hex:"#002C5F",rgb:"0,44,95",cat:"Auto"},
+  {name:"Volkswagen",hex:"#001E50",rgb:"0,30,80",cat:"Auto"},
+  {name:"UPS",hex:"#351C15",rgb:"53,28,21",cat:"Logistics"},
+  {name:"FedEx",hex:"#4D148C",rgb:"77,20,140",hex2:"#FF6600",cat:"Logistics"},
+  {name:"DHL",hex:"#FFCC00",rgb:"255,204,0",cat:"Logistics"},
+  {name:"LEGO",hex:"#F6C800",rgb:"246,200,0",hex2:"#E3000B",cat:"Other"},
+  {name:"Nintendo",hex:"#E60012",rgb:"230,0,18",cat:"Gaming"},
+  {name:"PlayStation",hex:"#003791",rgb:"0,55,145",cat:"Gaming"},
+  {name:"Xbox",hex:"#107C10",rgb:"16,124,16",cat:"Gaming"},
+  {name:"Steam",hex:"#000000",rgb:"0,0,0",cat:"Gaming"},
+  {name:"Epic Games",hex:"#000000",rgb:"0,0,0",cat:"Gaming"},
+  {name:"Unity",hex:"#000000",rgb:"0,0,0",cat:"Gaming"},
+  {name:"Unreal Engine",hex:"#000000",rgb:"0,0,0",cat:"Gaming"},
+  {name:"Vimeo",hex:"#1AB7EA",rgb:"26,183,234",cat:"Tech"},
+  {name:"Dribbble",hex:"#EA4C89",rgb:"234,76,137",cat:"Design"},
+  {name:"Behance",hex:"#0057FF",rgb:"0,87,255",cat:"Design"},
+  {name:"DeviantArt",hex:"#05CC47",rgb:"5,204,71",cat:"Design"},
+  {name:"500px",hex:"#000000",rgb:"0,0,0",cat:"Design"}
+];
+
+var cats = [];
+brands.forEach(function(b){if(cats.indexOf(b.cat)===-1)cats.push(b.cat);});
+
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},1500);
+}
+
+function renderBrands(filter){
+  var grid=document.getElementById('brandGrid');
+  var search=document.getElementById('searchInput').value.toLowerCase();
+  var list=brands;
+  if(filter&&filter!=='All')list=list.filter(function(b){return b.cat===filter;});
+  if(search)list=list.filter(function(b){return b.name.toLowerCase().indexOf(search)!==-1;});
+  grid.innerHTML=list.map(function(b,i){
+    var colors='';
+    if(b.hex2){
+      if(b.hex3){
+        if(b.hex4){
+          colors='<div class="color-preview" style="background:linear-gradient(135deg,'+b.hex+' 0%,'+b.hex+' 25%,'+b.hex2+' 25%,'+b.hex2+' 50%,'+b.hex3+' 50%,'+b.hex3+' 75%,'+b.hex4+' 75%,'+b.hex4+' 100%)"></div>';
+        }else{
+          colors='<div class="color-preview" style="background:linear-gradient(135deg,'+b.hex+' 0%,'+b.hex+' 33%,'+b.hex2+' 33%,'+b.hex2+' 66%,'+b.hex3+' 66%,'+b.hex3+' 100%)"></div>';
+        }
+      }else{
+        colors='<div class="color-preview" style="background:linear-gradient(135deg,'+b.hex+' 0%,'+b.hex+' 50%,'+b.hex2+' 50%,'+b.hex2+' 100%)"></div>';
+      }
+    }else{
+      colors='<div class="color-preview" style="background:'+b.hex+'"></div>';
+    }
+    return '<div class="brand-card" data-hex="'+b.hex+'" data-name="'+b.name+'">'+colors+'<div class="brand-name">'+b.name+'</div><div class="brand-hex">'+b.hex+'</div><div class="copied-overlay">✓ Copied</div></div>';
+  }).join('');
+
+  grid.querySelectorAll('.brand-card').forEach(function(card){
+    card.addEventListener('click',function(){
+      var hex=this.getAttribute('data-hex');
+      var name=this.getAttribute('data-name');
+      navigator.clipboard.writeText(hex).then(function(){
+        card.classList.add('copied');
+        showToast('Copied '+name+' '+hex);
+        setTimeout(function(){card.classList.remove('copied');},1200);
+      });
+    });
+  });
+}
+
+function renderTabs(){
+  var tabs=document.getElementById('categoryTabs');
+  tabs.innerHTML='<span class="category-tab active" data-cat="All">All</span>'+cats.map(function(c){
+    return '<span class="category-tab" data-cat="'+c+'">'+c+'</span>';
+  }).join('');
+  tabs.querySelectorAll('.category-tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.querySelectorAll('.category-tab').forEach(function(x){x.classList.remove('active');});
+      this.classList.add('active');
+      renderBrands(this.getAttribute('data-cat'));
+    });
+  });
+}
+
+renderTabs();renderBrands();
+document.getElementById('searchInput').addEventListener('input',function(){
+  var activeTab=document.querySelector('.category-tab.active');
+  renderBrands(activeTab?activeTab.getAttribute('data-cat'):'All');
+});
+document.getElementById('clearBtn').addEventListener('click',function(){
+  document.getElementById('searchInput').value='';
+  renderBrands('All');
+  document.querySelectorAll('.category-tab').forEach(function(x){x.classList.remove('active');});
+  document.querySelector('.category-tab[data-cat="All"]').classList.add('active');
+});
+document.getElementById('exampleBtn').addEventListener('click',function(){
+  document.getElementById('searchInput').value='Google';
+  document.querySelectorAll('.category-tab').forEach(function(x){x.classList.remove('active');});
+  var all=document.querySelector('.category-tab[data-cat="All"]');if(all)all.classList.add('active');
+  renderBrands('All');
+  showToast('Example: searched "Google"');
+});
+document.getElementById('copyAllBtn').addEventListener('click',function(){
+  var cards=document.querySelectorAll('#brandGrid .brand-card');
+  if(cards.length===0){showToast('No brands to copy');return;}
+  var txt='Brand Colors (visible)\n====================\n';
+  cards.forEach(function(c){txt+=c.getAttribute('data-name')+': '+c.getAttribute('data-hex')+'\n';});
+  function done(){showToast('Copied '+cards.length+' brand colors');}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(function(){showToast('Copy failed');});
+  }else{
+    var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){showToast('Copy failed');}
+    document.body.removeChild(ta);
+  }
+});
+</script>
+</main>
+
+</body>
+</html>

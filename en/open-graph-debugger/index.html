@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Debug Open Graph tags from a URL or pasted HTML and see how the page renders in Facebook, LinkedIn and Twitter previews.">
+<meta name="keywords" content="OGlabeldebugOpen GraphdebugSharePreviewtoolonlinefree">
+<title>Open Graph Debugger - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/open-graph-debugger/">
+<meta property="og:title" content="Open Graph Debugger">
+<meta property="og:description" content="Debug Open Graph tags from a URL or pasted HTML and see how the page renders in Facebook, LinkedIn and Twitter previews.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/open-graph-debugger/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Open Graph Debugger","description": "Free online Open Graph debugger tool. Enter a URL to preview social media appearance and check OG tag configuration.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Open Graph Debugger free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free to use, no signup or login required."}},{"@type":"Question","name":"How does it work?","acceptedAnswer":{"@type":"Answer","text":"Enter a URL to automatically extract OG tags and render Facebook and Twitter share previews."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Open Graph Debugger","item":"https://adi63586.github.io/Toolguidehub/en/open-graph-debugger/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Open Graph Debugger","description":"Step-by-step guide for using Open Graph Debugger","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Open Graph Debugger"},"step":[{"@type":"HowToStep","position":1,"name":"Enter URL","text":"Enter a URL or paste HTML code to view OG tag analysis"},{"@type":"HowToStep","position":2,"name":"Click Debug","text":"Click the Debug button to extract and analyze OG tags"},{"@type":"HowToStep","position":3,"name":"Review Preview","text":"View Facebook and Twitter share previews with tag status"},{"@type":"HowToStep","position":4,"name":"Copy Tags","text":"Copy the extracted tag information for reference"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.hero{text-align:center;margin-bottom:24px}
+.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.badge{display:inline-block;padding:4px 14px;background:rgba(6,182,212,.1);color:#22d3ee;border-radius:20px;font-size:.8rem;font-weight:500}
+input,textarea{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit;width:100%}
+input:focus,textarea:focus{border-color:rgba(6,182,212,.5)}
+textarea{min-height:120px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.input-area{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.preview-card{background:#f0f2f5;border-radius:8px;overflow:hidden;max-width:500px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.preview-card .card-img{width:100%;height:260px;background:#e4e6eb;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#bec3c9}
+.preview-card .card-img img{width:100%;height:100%;object-fit:cover}
+.preview-card .card-body{padding:10px 12px}
+.preview-card .card-domain{font-size:.75rem;color:#606770;text-transform:uppercase}
+.preview-card .card-title{font-size:1rem;font-weight:600;color:#1d2129;margin:2px 0}
+.preview-card .card-desc{font-size:.85rem;color:#606770;line-height:1.3}
+.twitter-card{background:#15202b;border-radius:12px;overflow:hidden;max-width:500px;margin:12px 0;border:1px solid #38444d}
+.twitter-card .tw-img{width:100%;height:250px;background:#192734;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.twitter-card .tw-img img{width:100%;height:100%;object-fit:cover}
+.twitter-card .tw-body{padding:12px}
+.twitter-card .tw-domain{color:#8899a6;font-size:.8rem}
+.twitter-card .tw-title{color:#e7e9ea;font-size:.95rem;margin:4px 0}
+.twitter-card .tw-desc{color:#8899a6;font-size:.85rem;line-height:1.3}
+.tag-list{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem}
+.tag-row{display:flex;padding:6px 8px;border-bottom:1px solid rgba(148,163,184,.05);align-items:flex-start}
+.tag-prop{color:#22d3ee;width:140px;flex-shrink:0}
+.tag-val{color:#e2e8f0;word-break:break-all}
+.tag-status{font-size:.7rem;padding:2px 6px;border-radius:3px;margin-left:6px}
+.tag-ok{background:rgba(34,197,94,.15);color:#4ade80}
+.tag-warn{background:rgba(251,191,36,.15);color:#fbbf24}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.tag-prop{width:100px}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/open-graph-debugger/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Open Graph Debugger</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Open Graph Debugger</p>
+<div class="hero"><p>Free online Open Graph tag
+. Enter a URL or paste HTML code to preview social media appearance and check OG tag configuration.</p><span class="badge">SEO Tool · Works Offline</span></div>
+
+<div class="tool-section">
+<h2>🔍 OG Tag Debugger</h2>
+<p>Enter a URL or paste HTML code to view OG tag analysis and social previews. | No registration</p>
+<div class="input-area">
+<input type="text" id="urlInput" placeholder="Enter URL (e.g., https://example.com) or paste HTML code" value="https://adi63586.github.io/Toolguidehub/en/js-beautify/">
+<button class="btn btn-primary" id="btnDebug">🔍 Debug</button>
+<button class="btn btn-secondary" id="btnClear">🗑 Clear</button>
+</div>
+
+<div class="tag-list" id="tagList"></div>
+
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div style="flex:1;min-width:300px">
+<h3 style="font-size:.95rem;color:#f1f5f9;margin:12px 0 8px">📘 Facebook / LinkedIn</h3>
+<div class="preview-card" id="fbPreview">
+<div class="card-img"><span>🖼</span></div>
+<div class="card-body">
+<div class="card-domain" id="fbDomain">-</div>
+<div class="card-title" id="fbTitle">-</div>
+<div class="card-desc" id="fbDesc">-</div>
+</div>
+</div>
+</div>
+<div style="flex:1;min-width:300px">
+<h3 style="font-size:.95rem;color:#f1f5f9;margin:12px 0 8px">🐦 Twitter</h3>
+<div class="twitter-card" id="twPreview">
+<div class="tw-img"><span>🖼</span></div>
+<div class="tw-body">
+<div class="tw-domain" id="twDomain">-</div>
+<div class="tw-title" id="twTitle">-</div>
+<div class="tw-desc" id="twDesc">-</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="result-actions" style="margin-top:12px">
+<button class="btn btn-secondary" id="btnCopyTags">📋 Copy Tags</button>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><h3>Is Open Graph Debugger free?</h3><p>Yes, completely free to use, no signup or login required.</p></div>
+<div class="faq-item"><h3>What are OG tags?</h3><p>Open Graph tags are HTML meta tags that control title, description, and image display when sharing on Facebook, Twitter, LinkedIn, etc.</p></div>
+<div class="faq-item"><h3>Why are preview images not showing?</h3><p>May be due to cross-origin restrictions. Check if the og:image URL is correct.</p></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/content-security-policy-generator/">⚙️ CSP Generator</a><a href="//en/seo-title-generator/">⚙️ 📝 SEO Title Generator</a><a href="//en/structured-data-generator/">📋 Structured Data Generator</a></div></section>
+
+<div class="seo-content"><p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Open Graph Debugger</p>
+<div class="hero"><p>Free online Open Graph tag
+. Enter a URL or paste HTML code to preview social media appearance and check OG tag configuration.</p><span class="badge">SEO Tool · Works Offline</span></div>
+
+<div class="tool-section">
+<h2>🔍 OG Tag Debugger</h2>
+<p>Enter a URL or paste HTML code to view OG tag analysis and social previews. | No registration</p>
+<div class="input-area">
+<input type="text" id="urlInput" placeholder="Enter URL (e.g., https://example.com) or paste HTML code" value="https://adi63586.github.io/Toolguidehub/en/js-beautify/">
+<button class="btn btn-primary" id="btnDebug">🔍 Debug</button>
+<button class="btn btn-secondary" id="btnClear">🗑 Clear</button>
+</div>
+
+<div class="tag-list" id="tagList"></div>
+
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div style="flex:1;min-width:300px">
+<h3 style="font-size:.95rem;color:#f1f5f9;margin:12px 0 8px">📘 Facebook / LinkedIn</h3>
+<div class="preview-card" id="fbPreview">
+<div class="card-img"><span>🖼</span></div>
+<div class="card-body">
+<div class="card-domain" id="fbDomain">-</div>
+<div class="card-title" id="fbTitle">-</div>
+<div class="card-desc" id="fbDesc">-</div>
+</div>
+</div>
+</div>
+<div style="flex:1;min-width:300px">
+<h3 style="font-size:.95rem;color:#f1f5f9;margin:12px 0 8px">🐦 Twitter</h3>
+<div class="twitter-card" id="twPreview">
+<div class="tw-img"><span>🖼</span></div>
+<div class="tw-body">
+<div class="tw-domain" id="twDomain">-</div>
+<div class="tw-title" id="twTitle">-</div>
+<div class="tw-desc" id="twDesc">-</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="result-actions" style="margin-top:12px">
+<button class="btn btn-secondary" id="btnCopyTags">📋 Copy Tags</button>
+</div>
+</div>
+
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/content-security-policy-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSP Generator</a><a href="../../en/seo-title-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">SEO Title Generator</a><a href="../../en/structured-data-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Structured Data Generator</a></div></section>
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../../" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/open-graph-debugger/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+function extractMetaTags(html){
+  var tags = {};
+  var re = /<meta\s+[^>]*?(?:property|name)\s*=\s*["']([^"']+)["'][^>]*?content\s*=\s*["']([^"']*)["'][^>]*?\/?\s*>/gi;
+  var match;
+  while(match = re.exec(html)){
+    var prop = match[1].toLowerCase();
+    tags[prop] = match[2];
+  }
+  // Also try property first pattern
+  var re2 = /<meta\s+[^>]*?property\s*=\s*["']([^"']+)["'][^>]*?content\s*=\s*["']([^"']*)["'][^>]*?\/?\s*>/gi;
+  while(match = re2.exec(html)){
+    var prop = match[1].toLowerCase();
+    if(!tags[prop]) tags[prop] = match[2];
+  }
+  // Get title
+  var titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+  if(titleMatch) tags['title'] = titleMatch[1];
+  return tags;
+}
+
+function parseDomain(url){
+  try {
+    var u = new URL(url.startsWith('http') ? url : 'https://' + url);
+    return u.hostname;
+  } catch(e){ return url; }
+}
+
+function renderResults(tags, url){
+  var tagList = document.getElementById('tagList');
+  var props = [
+    {key:'og:title', label:'og:title', required:true},
+    {key:'og:description', label:'og:description', required:true},
+    {key:'og:image', label:'og:image', required:true},
+    {key:'og:url', label:'og:url', required:false},
+    {key:'og:type', label:'og:type', required:false},
+    {key:'og:site_name', label:'og:site_name', required:false},
+    {key:'twitter:card', label:'twitter:card', required:false},
+    {key:'twitter:title', label:'twitter:title', required:false},
+    {key:'twitter:description', label:'twitter:description', required:false},
+    {key:'twitter:image', label:'twitter:image', required:false},
+    {key:'description', label:'meta description', required:true},
+    {key:'title', label:'<title>', required:true}
+  ];
+
+  var html = '';
+  for(var i = 0; i < props.length; i++){
+    var p = props[i];
+    var val = tags[p.key] || '';
+    var status = '';
+    if(p.required && !val) status = '<span class="tag-status tag-warn">Missing</span>';
+    else if(val) status = '<span class="tag-status tag-ok">✓</span>';
+    html += '<div class="tag-row"><span class="tag-prop">' + p.label + '</span><span class="tag-val">' + (val || '<em style="color:#64748b">Not set</em>') + '</span>' + status + '</div>';
+  }
+  tagList.innerHTML = html;
+
+  // Parse domain from URL
+  var domain = parseDomain(url);
+
+  // FB Preview
+  document.getElementById('fbDomain').textContent = domain;
+  document.getElementById('fbTitle').textContent = tags['og:title'] || tags['title'] || 'Not set';
+  document.getElementById('fbDesc').textContent = (tags['og:description'] || tags['description'] || 'Not set').substring(0, 200);
+  var fbImg = document.querySelector('#fbPreview .card-img');
+  if(tags['og:image']){
+    fbImg.innerHTML = '<img src="' + tags['og:image'] + '" alt="OG Image" onerror="this.parentElement.innerHTML=\'<span>Image load failed</span>\'">';
+  } else {
+    fbImg.innerHTML = '<span>No image</span>';
+  }
+
+  // Twitter Preview
+  document.getElementById('twDomain').textContent = domain;
+  document.getElementById('twTitle').textContent = tags['twitter:title'] || tags['og:title'] || tags['title'] || 'Not set';
+  document.getElementById('twDesc').textContent = (tags['twitter:description'] || tags['og:description'] || tags['description'] || 'Not set').substring(0, 200);
+  var twImg = document.querySelector('#twPreview .tw-img');
+  if(tags['twitter:image'] || tags['og:image']){
+    twImg.innerHTML = '<img src="' + (tags['twitter:image'] || tags['og:image']) + '" alt="Twitter Image" onerror="this.parentElement.innerHTML=\'<span>Image load failed</span>\'">';
+  } else {
+    twImg.innerHTML = '<span>No image</span>';
+  }
+}
+
+document.getElementById('btnDebug').addEventListener('click', function(){
+  var input = document.getElementById('urlInput').value.trim();
+  if(!input){ showToast('Please enter a URL or HTML code'); return; }
+
+  if(input.startsWith('<') || input.startsWith('<')){
+    // Direct HTML
+    var tags = extractMetaTags(input);
+    renderResults(tags, 'https://example.com');
+    showToast('HTML code parsed');
+  } else {
+    // Fetch URL
+    showToast('Fetching page...');
+    var url = input.startsWith('http') ? input : 'https://' + input;
+    fetch(url, {mode:'no-cors'}).then(function(resp){
+      return resp.text();
+    }).then(function(html){
+      var tags = extractMetaTags(html);
+      renderResults(tags, url);
+      showToast('Debug complete!');
+    }).catch(function(){
+      // Fallback: parse as HTML snippet
+      var tags = extractMetaTags(input);
+      renderResults(tags, url);
+      showToast('Cannot fetch URL, trying to parse as HTML');
+    });
+  }
+});
+
+document.getElementById('btnClear').addEventListener('click', function(){
+  document.getElementById('urlInput').value = '';
+  document.getElementById('tagList').innerHTML = '';
+  document.getElementById('fbDomain').textContent = '-';
+  document.getElementById('fbTitle').textContent = '-';
+  document.getElementById('fbDesc').textContent = '-';
+  document.querySelector('#fbPreview .card-img').innerHTML = '<span>🖼</span>';
+  document.getElementById('twDomain').textContent = '-';
+  document.getElementById('twTitle').textContent = '-';
+  document.getElementById('twDesc').textContent = '-';
+  document.querySelector('#twPreview .tw-img').innerHTML = '<span>🖼</span>';
+});
+
+document.getElementById('btnCopyTags').addEventListener('click', function(){
+  var rows = document.querySelectorAll('.tag-row');
+  var lines = [];
+  for(var i = 0; i < rows.length; i++){
+    var prop = rows[i].querySelector('.tag-prop').textContent;
+    var val = rows[i].querySelector('.tag-val').textContent;
+    lines.push(prop + ': ' + val);
+  }
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){ showToast('Copied to clipboard'); });
+});
+
+// Auto-debug on load
+setTimeout(function(){ document.getElementById('btnDebug').click(); }, 300);
+</script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build a modular type scale from a ratio like the golden ratio, generating responsive font sizes with clamp().">
+<meta name="keywords" content="Typography Scale,Modular Scale,CSS font size,type scale,font hierarchy,Golden Ratio,responsive typography,clamp,web typography,css font generator">
+<title>Free Online CSS Typography Scale Generator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/">
+<meta property="og:title" content="Free CSS Typography Scale Generator - ToolGuideHub">
+<meta property="og:description" content="Build a modular type scale from a ratio like the golden ratio, generating responsive font sizes with clamp().">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Typography Scale Generator", "description": "Free online CSS Typography Scale generator.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is CSS Typography Scale Generator free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CSS Typography Scale Generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, CSS Typography Scale Generator is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CSS Typography Scale Generator upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSS Typography Scale Generator uses pure front-end technology. All processing happens in your browser — no data is uploaded to any server. The tool works even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use CSS Typography Scale Generator on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CSS Typography Scale Generator is fully responsive and works on phones, tablets, and desktops. The interface automatically adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software to use CSS Typography Scale Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSS Typography Scale Generator is an online tool — just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using CSS Typography Scale Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since all data is processed locally in your browser and never sent to any server, there is no risk of data leakage. Your data stays under your control at all times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for CSS Typography Scale Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS Typography Scale Generator is a free online tool with no usage limits. Since processing is done locally, performance depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the CSS Typography Scale Generator",
+  "description": "Simple steps to use the CSS Typography Scale Generator online tool. Everything runs locally: Base Size and Ratio are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "CSS Typography Scale Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/#output"
+    }
+  ]
+}</script>
+<style>
+:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}
+.btn-copy{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.2);padding:6px 14px;font-size:.8rem;border-radius:6px;cursor:pointer}
+.btn-copy:hover{background:rgba(6,182,212,.25)}
+.btn-success{background:linear-gradient(135deg,#10b981,#059669);color:#fff}
+.btn-success:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(16,185,129,.3)}
+.code-box{background:#0a0f1e;border-radius:8px;padding:16px;font-family:"SFMono-Regular","Fira Code",Consolas,monospace;font-size:.85rem;color:#22d3ee;overflow-x:auto;position:relative;white-space:pre-wrap;word-break:break-all;margin-top:8px;max-height:400px;overflow-y:auto}
+input[type="range"]{width:100%;accent-color:#06b6d4;height:6px;border-radius:3px;background:#334155;outline:none;margin:6px 0}
+input[type="number"]{width:80px;padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem;outline:none}
+input[type="number"]:focus{border-color:rgba(6,182,212,.4)}
+select{padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem;outline:none}
+select:focus{border-color:rgba(6,182,212,.4)}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.footer{text-align:center;color:#64748b;font-size:.85rem;margin-top:32px;padding-top:20px;border-top:1px solid rgba(148,163,184,.08)}
+.footer a{color:#64748b}
+.faq-item{margin-bottom:16px;border-bottom:1px solid rgba(148,163,184,.08);padding-bottom:16px}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:4px}
+.faq-item p{color:#94a3b8;font-size:.85rem;margin-top:6px;line-height:1.7}
+.scale-table{width:100%;border-collapse:collapse;margin:12px 0}
+.scale-table th{text-align:left;padding:8px 12px;color:#64748b;font-size:.82rem;font-weight:500;border-bottom:1px solid rgba(148,163,184,.1)}
+.scale-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.05);font-size:.9rem}
+.scale-table .level-name{color:#94a3b8;font-weight:500}
+.scale-table .size-value{color:#22d3ee;font-weight:600}
+.scale-table .clamp-value{color:#34d399;font-size:.82rem}
+.preview-box{padding:24px;background:#0f172a;border-radius:8px;margin-top:12px;border:1px solid rgba(148,163,184,.08)}
+.preview-box h1{color:#f1f5f9;margin-bottom:4px}
+.preview-box h2{color:#f1f5f9;margin-bottom:4px}
+.preview-box h3{color:#f1f5f9;margin-bottom:4px}
+.preview-box h4{color:#f1f5f9;margin-bottom:4px}
+.preview-box h5{color:#f1f5f9;margin-bottom:4px}
+.preview-box h6{color:#f1f5f9;margin-bottom:4px}
+.preview-box p{color:#94a3b8;margin-bottom:8px}
+.preview-box .label{display:inline-block;font-size:.7rem;color:#64748b;margin-left:8px;font-weight:400}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS Typography Scale Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/"
+    }
+  ],
+  "name": "CSS Typography Scale Generator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-typography-scale-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🔤 CSS Typography Scale Generator</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section">
+    <h2>Scale Settings</h2>
+    <div class="row">
+      <div class="form-group" style="flex:1;min-width:180px">
+        <label>Base Size (px)</label>
+        <input type="number" id="baseSize" value="16" min="10" max="32">
+      </div>
+      <div class="form-group" style="flex:1;min-width:180px">
+        <label>Ratio</label>
+        <select id="scaleRatio">
+          <option value="1.067">Minor Second (1.067)</option>
+          <option value="1.125">Major Second (1.125)</option>
+          <option value="1.200">Minor Third (1.200)</option>
+          <option value="1.250">Major Third (1.250)</option>
+          <option value="1.333" selected>Perfect Fourth (1.333)</option>
+          <option value="1.414">Augmented Fourth (1.414)</option>
+          <option value="1.500">Perfect Fifth (1.500)</option>
+          <option value="1.618">Golden Ratio (1.618)</option>
+          <option value="2.000">Octave (2.000)</option>
+        </select>
+      </div>
+      <div class="form-group" style="flex:1;min-width:150px">
+        <label>Custom Ratio</label>
+        <input type="number" id="customRatio" value="1.333" min="1.0" max="3.0" step="0.001">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group" style="flex:1;min-width:150px">
+        <label>Min Viewport (px)</label>
+        <input type="number" id="minViewport" value="360">
+      </div>
+      <div class="form-group" style="flex:1;min-width:150px">
+        <label>Max Viewport (px)</label>
+        <input type="number" id="maxViewport" value="1440">
+      </div>
+      <div class="form-group" style="flex:1;min-width:150px">
+        <label>Min Scale</label>
+        <input type="number" id="minScale" value="0.75" min="0.3" max="1.0" step="0.05">
+      </div>
+      <div class="form-group" style="display:flex;align-items:center;gap:6px">
+        <label style="margin-bottom:0"><input type="checkbox" id="useClamp" checked> Generate clamp()</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Type Scale</h2>
+    <div style="overflow-x:auto">
+    <table class="scale-table">
+      <thead>
+        <tr><th>Level</th><th>Step</th><th>Desktop Size</th><th>Mobile Size</th><th>clamp()</th></tr>
+      </thead>
+      <tbody id="scaleTableBody"></tbody>
+    </table>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-primary" id="copyCssBtn">📋 Copy CSS</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Live Preview</h2>
+    <div class="preview-box" id="previewBox">
+      <h2 id="previewH1">Heading 1<span class="label">h1</span></h2>
+      <h2 id="previewH2">Heading 2<span class="label">h2</span></h2>
+      <h3 id="previewH3">Heading 3<span class="label">h3</span></h3>
+      <h4 id="previewH4">Heading 4<span class="label">h4</span></h4>
+      <h5 id="previewH5">Heading 5<span class="label">h5</span></h5>
+      <h6 id="previewH6">Heading 6<span class="label">h6</span></h6>
+      <p id="previewBody">Body text - The quick brown fox jumps over the lazy dog. A modular scale creates consistent visual hierarchy between headings and body text, making your typography look professional and harmonious.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💡 How to Use</h2>
+    <p style="color:#94a3b8;font-size:.85rem;line-height:1.8">
+      1. Choose a ratio (Perfect Fourth 1.333 or Golden Ratio 1.618 are recommended)<br>
+      2. Set your base font size (16px is standard for body text)<br>
+      3. Optionally adjust viewport ranges for clamp() generation<br>
+      4. View the generated type scale and live preview<br>
+      5. Copy the CSS code to your project with one click
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item">
+      <h3>What is a Modular Scale?</h3>
+      <p>A modular scale is a sequence of numbers that relate to one another in a meaningful way using a fixed ratio. In typography, this means multiplying your base font size by the ratio repeatedly to create heading sizes. For example, with a Perfect Fourth ratio (1.333) and 16px body text, h3 would be 16×1.333≈21px, h2 would be 21×1.333≈28px, and so on.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why use clamp() for fluid typography?</h3>
+      <p>clamp(MIN, PREFERRED, MAX) is a CSS function that creates fluid font sizes that scale smoothly between viewport sizes. It combines the minimum size (mobile), preferred size (fluid calculation), and maximum size (desktop) into one value — eliminating the need for media queries and preventing abrupt size changes at breakpoints.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which ratio should I choose?</h3>
+      <p>Perfect Fourth (1.333) and Perfect Fifth (1.500) are the most commonly used web typography ratios, offering clear hierarchy distinction. Golden Ratio (1.618) is great for designs with strong visual contrast. Smaller ratios (1.200-1.250) work well for dense interfaces like dashboards. Start with 1.333 and adjust from there.</p>
+    </div>
+  </div>
+</main>
+
+  <div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+  const baseSize = document.getElementById('baseSize');
+  const scaleRatio = document.getElementById('scaleRatio');
+  const customRatio = document.getElementById('customRatio');
+  const minViewport = document.getElementById('minViewport');
+  const maxViewport = document.getElementById('maxViewport');
+  const minScale = document.getElementById('minScale');
+  const useClamp = document.getElementById('useClamp');
+  const tableBody = document.getElementById('scaleTableBody');
+  const previewH1 = document.getElementById('previewH1');
+  const previewH2 = document.getElementById('previewH2');
+  const previewH3 = document.getElementById('previewH3');
+  const previewH4 = document.getElementById('previewH4');
+  const previewH5 = document.getElementById('previewH5');
+  const previewH6 = document.getElementById('previewH6');
+  const previewBody = document.getElementById('previewBody');
+  const levels = [{name:'h6',step:-3,label:'h6 (Heading 6)'},{name:'h5',step:-2,label:'h5 (Heading 5)'},{name:'h4',step:-1,label:'h4 (Heading 4)'},{name:'h3',step:0,label:'h3 (Heading 3)'},{name:'h2',step:1,label:'h2 (Heading 2)'},{name:'h1',step:2,label:'h1 (Heading 1)'}];
+
+  function getRatio(){return parseFloat(customRatio.value) || 1.333;}
+  function scaleSize(base, step, ratio){return base * Math.pow(ratio, step);}
+  function roundPx(val){return Math.round(val * 100) / 100;}
+  function generateClamp(minSize, maxSize, minVp, maxVp, minScaleVal){
+    const min = roundPx(minSize), max = roundPx(maxSize);
+    if(min === max) return `${max}px`;
+    const slope = (max - min) / (maxVp - minVp);
+    const intercept = min - slope * minVp;
+    return `clamp(${min}px, ${roundPx(slope * 100)}vw + ${roundPx(intercept)}px, ${max}px)`;
+  }
+
+  function update(){
+    const base = parseFloat(baseSize.value) || 16, ratio = getRatio();
+    const minVp = parseFloat(minViewport.value) || 360, maxVp = parseFloat(maxViewport.value) || 1440;
+    const minScaleFactor = parseFloat(minScale.value) || 0.75;
+    let bodyMax = roundPx(scaleSize(base, -1, ratio)), bodyMin = roundPx(bodyMax * minScaleFactor);
+    let rows = '';
+    levels.forEach(level => {
+      const sizeMax = roundPx(scaleSize(base, level.step, ratio)), sizeMin = roundPx(sizeMax * minScaleFactor);
+      let cv = useClamp.checked ? generateClamp(sizeMin, sizeMax, minVp, maxVp, minScaleFactor) : `${sizeMax}px`;
+      rows += `<tr><td class="level-name">${level.label}</td><td style="color:#64748b">${level.step>=0?'+':''}${level.step}</td><td class="size-value">${sizeMax}px</td><td style="color:#94a3b8">${sizeMin}px</td><td class="clamp-value">${cv}</td></tr>`;
+    });
+    let bcv = useClamp.checked ? generateClamp(bodyMin, bodyMax, minVp, maxVp, minScaleFactor) : `${bodyMax}px`;
+    rows += `<tr><td class="level-name">body (Body text)</td><td style="color:#64748b">-1</td><td class="size-value">${bodyMax}px</td><td style="color:#94a3b8">${bodyMin}px</td><td class="clamp-value">${bcv}</td></tr>`;
+    tableBody.innerHTML = rows;
+    const sizes = {};
+    levels.forEach(l => {sizes[l.name] = useClamp.checked ? generateClamp(roundPx(scaleSize(base,l.step,ratio)*minScaleFactor), roundPx(scaleSize(base,l.step,ratio)), minVp, maxVp, minScaleFactor) : `${roundPx(scaleSize(base,l.step,ratio))}px`;});
+    previewH1.style.fontSize = sizes.h1; previewH2.style.fontSize = sizes.h2; previewH3.style.fontSize = sizes.h3;
+    previewH4.style.fontSize = sizes.h4; previewH5.style.fontSize = sizes.h5; previewH6.style.fontSize = sizes.h6;
+    previewBody.style.fontSize = useClamp.checked ? generateClamp(bodyMin, bodyMax, minVp, maxVp, minScaleFactor) : `${bodyMax}px`;
+  }
+
+  scaleRatio.addEventListener('change', function(){customRatio.value=this.value;update();});
+  customRatio.addEventListener('input', function(){scaleRatio.value=this.value;update();});
+  [baseSize, minViewport, maxViewport, minScale, useClamp].forEach(el=>{el.addEventListener('input',update);if(el.type==='checkbox')el.addEventListener('change',update);});
+
+  document.getElementById('copyCssBtn').addEventListener('click', function(){
+    const base=parseFloat(baseSize.value)||16,ratio=getRatio(),minVp=parseFloat(minViewport.value)||360,maxVp=parseFloat(maxViewport.value)||1440,ms=parseFloat(minScale.value)||0.75;
+    let css='/* CSS Typography Scale */\n/* Base: '+base+'px, Ratio: '+ratio+', Viewport: '+minVp+'px - '+maxVp+'px */\n\n:root {\n';
+    const levels2 = [{n:'body',s:-1},{n:'h6',s:-3},{n:'h5',s:-2},{n:'h4',s:-1},{n:'h3',s:0},{n:'h2',s:1},{n:'h1',s:2}];
+    levels2.forEach(l=>{const v=useClamp.checked?generateClamp(roundPx(scaleSize(base,l.s,ratio)*ms),roundPx(scaleSize(base,l.s,ratio)),minVp,maxVp,ms):`${roundPx(scaleSize(base,l.s,ratio))}px`;css+=`  --${l.n}: ${v};\n`;});
+    css+='}\n\nbody { font-size: var(--body); }\nh6 { font-size: var(--h6); }\nh5 { font-size: var(--h5); }\nh4 { font-size: var(--h4); }\nh3 { font-size: var(--h3); }\nh2 { font-size: var(--h2); }\nh1 { font-size: var(--h1); }\n';
+    navigator.clipboard.writeText(css).then(()=>showToast('CSS copied ✓')).catch(()=>showToast('Copy failed'));
+  });
+
+  function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+  update();</script>
+
+<!-- Feedback Widget -->
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<footer>
+    <p><a href="../../">Home</a> | <a href="../../en/privacy/">Privacy</a> | <a href="../../en/terms/">Terms</a></p>
+    <p style="margin-top:8px">© 2026 WebTools - Runs locally in browser, nothing uploaded to server</p>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tag Checker - ToolGuideHub</title>
+  <meta name="description" content="Paste page HTML to audit its meta tags for completeness, checking title, description, robots, OG and Twitter tags.">
+  <meta property="og:title" content="Meta Tag Checker - ToolGuideHub">
+  <meta property="og:description" content="Paste page HTML to audit its meta tags for completeness, checking title, description, robots, OG and Twitter tags.">
+  <meta property="og:type" content="website">
+  
+  <style>:root{--sub:#94a3b8;;--surface:#1e293b;--text:#e2e8f0}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+    header a{color:#22d3ee;text-decoration:none;font-weight:600;font-size:18px}
+    .lang-switch a{color:var(--sub);font-size:14px;text-decoration:none;padding:4px 12px;border-radius:6px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a:hover{color:#22d3ee;border-color:#22d3ee}
+    main{flex:1;max-width:800px;margin:0 auto;padding:40px 20px;width:100%}
+    h1{font-size:28px;margin-bottom:8px;text-align:center}
+    .subtitle{text-align:center;color:var(--sub);margin-bottom:32px}
+    .section{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+    .form-group textarea{
+      background: var(--surface);
+      color: var(--text);width:100%;padding:12px;border:2px solid rgba(148,163,184,.1);border-radius:8px;font-size:14px;resize:vertical;min-height:100px;font-family:monospace}
+    .form-group textarea:focus{outline:none;border-color:#22d3ee}
+    .btn{width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;background:#22d3ee;color:#fff;transition:all .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    table{width:100%;border-collapse:collapse;margin-top:16px}
+    th,td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(148,163,184,.1);font-size:14px}
+    th{background:rgba(148,163,184,.1);font-weight:600}
+    td.meta-value{word-break:break-all;max-width:400px}
+    .score{text-align:center;font-size:36px;font-weight:700}
+    .score.good{color:#22c55e}.score.warn{color:#f59e0b}.score.bad{color:#ef4444}
+    .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px}
+    .tag.ok{background:rgba(34,197,94,.15);color:#4ade80}.tag.miss{background:rgba(234,179,8,.15);color:#facc15}.tag.warn{background:rgba(239,68,68,.15);color:#f87171}
+    .notice{background:rgba(6,182,212,.08);border-radius:8px;padding:12px;font-size:13px;color:#22d3ee;margin-top:16px}
+    .copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s}
+    .copy-btn:hover{background:rgba(6,182,212,.25)}
+    .copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+    .toast.show{opacity:1}
+    footer{text-align:center;padding:24px;color:var(--sub);font-size:13px;border-top:1px solid rgba(148,163,184,.1)}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:22px}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/metatag-checker/">
+        <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Meta Tag Checker","item":"https://adi63586.github.io/Toolguidehub/en/metatag-checker/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the Meta Tag Checker do?","acceptedAnswer":{"@type":"Answer","text":"It analyzes HTML source code for SEO meta tags — checking title, description, Open Graph, Twitter Card, robots, and other key tags for completeness."}},{"@type":"Question","name":"Why check meta tags?","acceptedAnswer":{"@type":"Answer","text":"Meta tags affect search engine rankings, social sharing appearance, and user experience. Missing or incorrect meta tags lead to lower click-through rates and poor SEO."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Paste HTML source code and analysis happens entirely in your browser. No data ever leaves your device."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MetaTagsChecker","applicationCategory":"UtilityApplication","operatingSystem":"Web","description":"Free online Meta Tag Checker tool. Analyze webpage SEO meta tags for completeness.","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use MetaTagsChecker","description":"Step-by-step guide for using MetaTagsChecker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"MetaTagsChecker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/metatag-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><a href="../../">🧰 ToolGuideHub</a></header>
+<main>
+  <h1>🔍 Meta Tag Checker</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online Meta tag checker. Paste HTML source code to analyze SEO meta tags. Check title, description, OG, Twitter, robots tags. Pure frontend, no signup.</p>
+  <p class="subtitle">Paste HTML source to analyze SEO meta tags completeness</p>
+  <div class="section">
+    <div class="form-group">
+      <label for="htmlInput">HTML Source Code</label>
+      <textarea id="htmlInput" rows="10"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example Page</title>
+<meta name="description" content="A sample page used to demonstrate the meta tag checker.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<p>Sample content</p>
+</body>
+</html></textarea>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <button class="btn" id="btnCheck">🔍 Analyze Meta Tags</button>
+      <button class="btn" id="btnExample" style="flex:0 0 auto;background:#1e293b;color:#22d3ee;border:1px solid rgba(6,182,212,.3)">🎲 Use Sample HTML</button>
+    </div>
+    <div id="results" style="display:none"></div>
+    <div class="notice">💡 Tip: Right-click on a webpage → View Page Source, copy and paste here.</div>
+  </div>
+
+
+<h2>What is Meta Tag Checker?</h2><p>Meta Tag Checker is a free online tool that runs entirely in your browser. No download or signup needed — enter Meta Tag Checker and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/docker-compose-validator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Docker Compose Validator</a><a href="../../en/file-type-detector/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">File Type Detector</a><a href="../../en/google-index-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Google Index Checker</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/metatag-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+var checks=[
+  {name:'Title Tag',tag:'<title>',key:'title',desc:'Page title shown in search results and browser tabs'},
+  {name:'Meta Description',tag:'<meta name="description"',key:'description',desc:'Search result snippet, affects click-through rate'},
+  {name:'Meta Keywords',tag:'<meta name="keywords"',key:'keywords',desc:'Keywords (mostly ignored by modern engines)'},
+  {name:'Meta Robots',tag:'<meta name="robots"',key:'robots',desc:'Controls search engine indexing behavior'},
+  {name:'Canonical URL',tag:'<link rel="canonical"',key:'canonical',desc:'Specifies the canonical URL to prevent duplicate content'},
+  {name:'OG Title',tag:'<meta property="og:title"',key:'og:title',desc:'Title shown when shared on social media'},
+  {name:'OG Description',tag:'<meta property="og:description"',key:'og:description',desc:'Description shown when shared on social media'},
+  {name:'OG Image',tag:'<meta property="og:image"',key:'og:image',desc:'Thumbnail shown when shared on social media'},
+  {name:'OG URL',tag:'<meta property="og:url"',key:'og:url',desc:'Canonical URL for social sharing'},
+  {name:'Twitter Card',tag:'<meta name="twitter:card"',key:'twitter:card',desc:'Twitter sharing card type'},
+  {name:'Viewport',tag:'<meta name="viewport"',key:'viewport',desc:'Mobile viewport settings'},
+  {name:'Charset',tag:'<meta charset',key:'charset',desc:'Character encoding declaration'},
+  {name:'Hreflang',tag:'<link rel="alternate" hreflang',key:'hreflang',desc:'Multi-language version declaration'}
+];
+document.getElementById('btnCheck').addEventListener('click',analyze);
+document.getElementById('btnExample').addEventListener('click',function(){
+  document.getElementById('htmlInput').value='<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<title>Example Page</title>\n<meta name="description" content="A sample page used to demonstrate the meta tag checker.">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n</head>\n<body>\n<p>Sample content</p>\n</body>\n</html>';
+  analyze();
+});
+var debounceTimer=null;
+document.getElementById('htmlInput').addEventListener('input',function(){
+  clearTimeout(debounceTimer);
+  debounceTimer=setTimeout(analyze,600);
+});
+function analyze(){
+  var html=document.getElementById('htmlInput').value.trim();
+  if(!html){showToast('Please paste HTML source code');return}
+  var results=checks.map(function(c){
+    var found=html.indexOf(c.tag)!==-1;
+    var status=found?'ok':'miss';
+    return {name:c.name,desc:c.desc,status:status,tag:c.tag};
+  });
+  var ok=results.filter(function(r){return r.status==='ok'}).length;
+  var total=results.length;
+  var pct=Math.round(ok/total*100);
+  var scoreClass=pct>=80?'good':pct>=50?'warn':'bad';
+  var html='<div style="text-align:center;margin-top:16px"><div class="score '+scoreClass+'">'+ok+'/'+total+'</div><div style="color:var(--sub);font-size:14px">Meta tag completeness '+pct+'%</div></div>';
+  html+='<canvas id="metaChart" width="640" height="60" style="width:100%;max-width:640px;height:60px;margin:10px auto;display:block"></canvas>';
+  html+='<div style="text-align:center;margin:8px 0"><button class="copy-btn" id="copyReportBtn" onclick="copyReport()">📋 Copy Report</button></div>';
+  html+='<table><tr><th>Tag</th><th>Status</th><th>Description</th></tr>';
+  results.forEach(function(r){
+    var cls=r.status==='ok'?'ok':r.status==='miss'?'miss':'warn';
+    var txt=r.status==='ok'?'✅ Present':'❌ Missing';
+    html+='<tr><td><strong>'+r.name+'</strong></td><td><span class="tag '+cls+'">'+txt+'</span></td><td>'+r.desc+'</td></tr>';
+  });
+  html+='</table>';
+  var box=document.getElementById('results');
+  box.innerHTML=html;
+  box.style.display='block';
+  drawMetaChart(ok,total);
+  window.__metaReport=(function(){
+    var lines=['Meta Tag Checker Report','Score: '+ok+'/'+total+' ('+pct+'%)',''];
+    results.forEach(function(r){lines.push((r.status==='ok'?'[OK]   ':'[MISS] ')+r.name);});
+    return lines.join('\n');
+  })();
+}
+function drawMetaChart(ok,total){
+  var c=document.getElementById('metaChart');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  ctx.clearRect(0,0,c.width,c.height);
+  var miss=total-ok;
+  var barW=260,barH=40,x0=30,y0=10;
+  ctx.fillStyle='rgba(34,197,94,.25)';
+  ctx.fillRect(x0,y0,barW,barH);
+  ctx.fillStyle='rgba(239,68,68,.25)';
+  ctx.fillRect(x0+barW,y0,barW,barH);
+  var okW=total?barW*ok/total:0;
+  ctx.fillStyle='#22c55e';
+  ctx.fillRect(x0,y0,okW,barH);
+  ctx.fillStyle='#ef4444';
+  ctx.fillRect(x0+okW,y0,barW-okW,barH);
+  ctx.fillStyle='#22c55e';
+  ctx.fillRect(x0,y0+barH+4,12,8);
+  ctx.fillStyle='#e2e8f0';ctx.font='12px sans-serif';ctx.textBaseline='top';
+  ctx.fillText(ok+' present',x0+16,y0+barH+2);
+  ctx.fillStyle='#f87171';
+  ctx.fillRect(x0+barW,y0+barH+4,12,8);
+  ctx.fillStyle='#e2e8f0';
+  ctx.fillText(miss+' missing',x0+barW+16,y0+barH+2);
+}
+function copyReport(){
+  var text=window.__metaReport||'';
+  var btn=document.getElementById('copyReportBtn');
+  function done(){btn.textContent='✅ Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent='📋 Copy Report';btn.classList.remove('copied');},2000);}
+  function fb(){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(fb);}else fb();
+}
+function showToast(msg){
+  var t=document.getElementById('toast');
+  if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2000);
+}
+</script>
+</body>
+</html>

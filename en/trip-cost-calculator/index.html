@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Cost Calculator - Smart Travel Budget Planner</title>
+  <meta name="description" content="Track transport, lodging, food and attraction costs for a trip, auto-total the budget and generate a simple expense report.">
+  <meta property="og:title" content="Trip Cost Calculator - ToolGuideHub">
+  <meta property="og:description" content="Track transport, lodging, food and attraction costs for a trip, auto-total the budget and generate a simple expense report.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Trip Cost Calculator","description":"Free online trip cost calculator — track transportation, lodging, food, attractions expenses. Auto-total and generate reports.","applicationCategory":"TravelApplication","operatingSystem":"Web","url":"https://adi63586.github.io/Toolguidehub/en/trip-cost-calculator/"}</script>
+  <style>:root{--text-light:#94a3b8;--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { font-size: 22px; font-weight: 700; color: #22d3ee; text-decoration: none; }
+    header nav a { color: var(--text-light); text-decoration: none; margin-left: 20px; font-size: 14px; }
+    main { flex: 1; max-width: 800px; margin: 0 auto; padding: 30px 20px; width: 100%; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 15px; }
+    .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; }
+    .card input, .card select { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.2); }
+    .card input:focus, .card select:focus { outline: none; border-color: #06b6d4; }
+    .expense-row { display: grid; grid-template-columns: 2fr 1fr 1fr 40px; gap: 8px; margin-bottom: 8px; align-items: center; }
+    @media (max-width: 500px) { .expense-row { grid-template-columns: 1fr 1fr 1fr; } }
+    .expense-row input { width: 100%; padding: 10px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; background: #0f172a; color: #e2e8f0; }
+    .expense-row select { width: 100%; padding: 10px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; background: #0f172a; color: #e2e8f0; }
+    .btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .btn-primary { background: #22d3ee; color: #fff; } .btn-primary:hover { background: #0891b2; }
+    .btn-secondary { background: rgba(148,163,184,.1); color: #e2e8f0; }
+    .del-btn { background: #fee2e2; color: #ef4444; border: none; border-radius: 6px; cursor: pointer; font-size: 18px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .summary-item { text-align: center; padding: 16px; background: #0f172a; border-radius: 12px; }
+    .summary-value { font-size: 24px; font-weight: 700; color: #22d3ee; } .summary-label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+    .total-row { background: #0f172a; padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 18px; font-weight: 700; }
+    footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+    .toast { position: fixed; top: 20px; right: 20px; background: #22c55e; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 1000; opacity: 0; transform: translateY(-10px); transition: all .3s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/trip-cost-calculator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Trip Cost Calculator - Smart Travel Budget Planner", "item": "https://adi63586.github.io/Toolguidehub/en/trip-cost-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Trip Cost Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Trip Cost Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Trip Cost Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Destination and Days are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Trip Cost Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Trip Cost Calculator","description":"Step-by-step guide for using Trip Cost Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Trip Cost Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/trip-cost-calculator/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">ToolGuideHub</a>
+    <nav><a href="../../">Home</a><a href="../../">CN</a></nav>
+  </header>
+  <main>
+    <h1>💰 Trip Cost Calculator</h1>
+    <p class="subtitle">Track transportation, lodging, food, attractions — auto-total your travel budget</p>
+
+    <div class="section">
+      <div class="form-group" style="margin-bottom:12px"><label>Destination</label><input type="text" id="destination" placeholder="e.g., Tokyo"></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px">
+        <div class="form-group" style="flex:1"><label>Days</label><input type="number" id="days" value="5" min="1"></div>
+        <div class="form-group" style="flex:1"><label>Travelers</label><input type="number" id="people" value="1" min="1"></div>
+      </div>
+      <div id="expenseList">
+        <div class="expense-row">
+          <select class="cat-select"><option>Transport</option><option>Lodging</option><option>Food</option><option>Attractions</option><option>Shopping</option><option>Other</option></select>
+          <input type="text" placeholder="Item name" class="item-name"><input type="number" placeholder="Amount" class="item-amount" min="0">
+          <button class="del-btn" onclick="removeRow(this)">×</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="addRow()" style="margin-top:8px">+ Add Item</button>
+      <button class="btn btn-primary" onclick="calculate()" style="margin-top:8px;margin-left:8px">Calculate</button>
+      <div class="total-row" style="margin-top:16px"><span>💰 Total</span><span id="totalCost">$0</span></div>
+    </div>
+
+    <div class="section" id="summaryCard" style="display:none">
+      <h3 style="margin-bottom:16px">📊 Expense Breakdown</h3>
+      <div class="summary">
+        <div class="summary-item"><div class="summary-value" id="sumTransport">$0</div><div class="summary-label">Transport</div></div>
+        <div class="summary-item"><div class="summary-value" id="sumLodging">$0</div><div class="summary-label">Lodging</div></div>
+        <div class="summary-item"><div class="summary-value" id="sumFood">$0</div><div class="summary-label">Food</div></div>
+        <div class="summary-item"><div class="summary-value" id="sumAttractions">$0</div><div class="summary-label">Attractions</div></div>
+        <div class="summary-item"><div class="summary-value" id="sumShopping">$0</div><div class="summary-label">Shopping</div></div>
+        <div class="summary-item"><div class="summary-value" id="sumOther">$0</div><div class="summary-label">Other</div></div>
+      </div>
+      <div style="margin-top:12px;color:var(--text-light);font-size:13px">
+        Per person: <strong id="perPerson">$0</strong> · Per day: <strong id="perDay">$0</strong>
+      </div>
+      <button class="btn btn-secondary" onclick="exportReport()" style="margin-top:12px">📄 Export Report</button>
+    </div>
+  
+<h2>What is Trip Cost Calculator - Smart Travel Budget Planner?</h2><p>Trip Cost Calculator - Smart Travel Budget Planner is a free online tool that runs entirely in your browser. No download or signup needed — enter Destination and Days to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Compare different loan or investment options before committing</li><li>Calculate key figures quickly during financial planning</li><li>Make informed spending decisions with accurate cost analysis</li><li>Mobile calculations without opening a spreadsheet app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#94a3b8;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px;"><a href="../../en/moon-phase-calculator/" style="display:inline-block;padding:6px 12px;background:#1e293b;border-radius:6px;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1)">Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/" style="display:inline-block;padding:6px 12px;background:#1e293b;border-radius:6px;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1)">Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/" style="display:inline-block;padding:6px 12px;background:#1e293b;border-radius:6px;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1)">Meeting Cost Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/trip-cost-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function addRow() {
+      const row = document.createElement('div'); row.className = 'expense-row';
+      row.innerHTML = '<select class="cat-select"><option>Transport</option><option>Lodging</option><option>Food</option><option>Attractions</option><option>Shopping</option><option>Other</option></select><input type="text" placeholder="Item name" class="item-name"><input type="number" placeholder="Amount" class="item-amount" min="0"><button class="del-btn" onclick="removeRow(this)">×</button>';
+      document.getElementById('expenseList').appendChild(row);
+    }
+    function removeRow(btn) { const rows = document.querySelectorAll('#expenseList .expense-row'); if (rows.length <= 1) return; btn.closest('.expense-row').remove(); }
+    function calculate() {
+      const cats = {}; const rows = document.querySelectorAll('#expenseList .expense-row'); let total = 0;
+      rows.forEach(row => { const cat = row.querySelector('.cat-select').value; const amt = parseFloat(row.querySelector('.item-amount').value) || 0; cats[cat] = (cats[cat] || 0) + amt; total += amt; });
+      const days = parseInt(document.getElementById('days').value) || 1, people = parseInt(document.getElementById('people').value) || 1;
+      document.getElementById('totalCost').textContent = '$' + total.toLocaleString();
+      document.getElementById('sumTransport').textContent = '$' + (cats['Transport'] || 0).toLocaleString();
+      document.getElementById('sumLodging').textContent = '$' + (cats['Lodging'] || 0).toLocaleString();
+      document.getElementById('sumFood').textContent = '$' + (cats['Food'] || 0).toLocaleString();
+      document.getElementById('sumAttractions').textContent = '$' + (cats['Attractions'] || 0).toLocaleString();
+      document.getElementById('sumShopping').textContent = '$' + (cats['Shopping'] || 0).toLocaleString();
+      document.getElementById('sumOther').textContent = '$' + (cats['Other'] || 0).toLocaleString();
+      document.getElementById('perPerson').textContent = '$' + Math.round(total / people).toLocaleString();
+      document.getElementById('perDay').textContent = '$' + Math.round(total / days).toLocaleString();
+      document.getElementById('summaryCard').style.display = 'block'; showToast('Calculated! Total: $' + total.toLocaleString());
+    }
+    function exportReport() {
+      const dest = document.getElementById('destination').value || 'Trip'; let text = dest + ' Trip Cost Report\n' + '='.repeat(40) + '\n\n';
+      document.querySelectorAll('#expenseList .expense-row').forEach(row => { const cat = row.querySelector('.cat-select').value, name = row.querySelector('.item-name').value || '-', amt = parseFloat(row.querySelector('.item-amount').value) || 0; text += cat + ' | ' + name + ' | $' + amt.toLocaleString() + '\n'; });
+      text += '\nTotal: ' + document.getElementById('totalCost').textContent;
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], {type:'text/plain;charset=utf-8'})); a.download = 'trip-cost-report.txt'; a.click();
+    }
+    function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
+  </script>
+</body>
+</html>

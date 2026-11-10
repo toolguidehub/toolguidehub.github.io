@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Cron Expression Generator - ToolGuideHub</title>
+    <meta name="description" content="Create and parse cron job schedules visually and preview when the job will next run.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cron-generator/">
+    <meta property="og:title" content="Free Cron Expression Generator - ToolGuideHub">
+    <meta property="og:description" content="Create and parse cron job schedules visually and preview when the job will next run.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cron-generator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--accent:#06b6d4;--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .cron-output { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 1.5rem; text-align: center; padding: 20px; background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 8px; border: 2px solid #22d3ee; margin: 16px 0; word-break: break-all; color: #22d3ee; font-weight: 700; }
+        .field-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+        .field-group { text-align: center; }
+        .field-group label { display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; }
+        .field-group input, .field-group select { text-align: center; padding: 8px 4px; font-size: 13px; }
+        .preset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
+        .preset-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; text-align: center; transition: all .2s; }
+        .preset-btn:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .next-runs { margin-top: 16px; }
+        .next-runs li { padding: 6px 0; border-bottom: 1px solid rgba(148,163,184,.1); font-family: 'SF Mono', monospace; font-size: 13px; color: #94a3b8; }
+        .next-runs li:last-child { border-bottom: none; }
+        .desc { text-align: center; color: var(--accent); font-weight: 600; margin: 8px 0; font-size: 1.05rem; }
+        .lang-switch { display: inline-flex; gap: 4px; background: #1e293b; border-radius: 8px; padding: 4px; border: 1px solid rgba(148,163,184,.1); margin-bottom: 14px; }
+        .lang-switch a { padding: 6px 12px; border-radius: 5px; font-size: .85rem; color: #94a3b8; text-decoration: none; }
+        .lang-switch a:hover { color: #22d3ee; }
+        .lang-switch a.active { background: rgba(6,182,212,.2); color: #22d3ee; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .field-row { grid-template-columns: repeat(3, 1fr); } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+.feedback-section { margin: 24px 0; }
+.feedback-section h3 { font-size: 1.1rem; margin-bottom: 12px; }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cron-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+    <header>
+        
+        <h1>⏱️ Cron Expression Generator</h1>
+
+        <p>Visually build and parse Cron job schedule expressions with real-time next execution preview</p>
+    </header>
+<div class="section">
+        <h2>📝 Quick Presets</h2>
+        <div class="preset-grid">
+            <button class="preset-btn" onclick="setPreset('0 * * * *')">Every hour</button>
+            <button class="preset-btn" onclick="setPreset('0 0 * * *')">Daily at midnight</button>
+            <button class="preset-btn" onclick="setPreset('0 0 * * 1')">Every Monday</button>
+            <button class="preset-btn" onclick="setPreset('0 0 1 * *')">1st of month</button>
+            <button class="preset-btn" onclick="setPreset('*/5 * * * *')">Every 5 min</button>
+            <button class="preset-btn" onclick="setPreset('*/30 * * * *')">Every 30 min</button>
+            <button class="preset-btn" onclick="setPreset('0 9 * * 1-5')">Weekdays 9AM</button>
+            <button class="preset-btn" onclick="setPreset('0 0 1 1 *')">Jan 1st yearly</button>
+            <button class="preset-btn" onclick="setPreset('0 8,18 * * *')">8AM & 6PM daily</button>
+            <button class="preset-btn" onclick="setPreset('0 0 1,15 * *')">1st & 15th monthly</button>
+            <button class="preset-btn" onclick="setPreset('*/10 * * * 1-5')">Every 10min weekdays</button>
+            <button class="preset-btn" onclick="setPreset('0 0 L * *')">Last day of month</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Custom Cron Expression</h2>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Minute</label>
+                <input type="text" id="f-min" value="0" oninput="updateFromFields()">
+            </div>
+            <div class="field-group">
+                <label>Hour</label>
+                <input type="text" id="f-hour" value="*" oninput="updateFromFields()">
+            </div>
+            <div class="field-group">
+                <label>Day</label>
+                <input type="text" id="f-day" value="*" oninput="updateFromFields()">
+            </div>
+            <div class="field-group">
+                <label>Month</label>
+                <input type="text" id="f-month" value="*" oninput="updateFromFields()">
+            </div>
+            <div class="field-group">
+                <label>Week</label>
+                <input type="text" id="f-dow" value="*" oninput="updateFromFields()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Or enter Cron expression directly</label>
+            <input type="text" id="cron-input" value="0 * * * *" oninput="updateFromInput()" placeholder="min hour day month weekday">
+        </div>
+        <div class="cron-output" id="cron-display">0 * * * *</div>
+        <div class="desc" id="cron-desc">Run at minute 0 of every hour</div>
+        <div class="row">
+            <button class="btn btn-primary" onclick="copyCron()">📋 Copy Expression</button>
+            <button class="btn btn-secondary" onclick="resetCron()">🔄 Reset</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📅 Next Execution Times</h2>
+        <ol class="next-runs" id="next-runs">
+            <li>Calculating...</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>📖 Cron Syntax Reference</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+            <tr style="background:#0f172a"><th style="padding:8px;border:1px solid rgba(148,163,184,.1);text-align:left">Field</th><th style="padding:8px;border:1px solid rgba(148,163,184,.1);text-align:left">Range</th><th style="padding:8px;border:1px solid rgba(148,163,184,.1);text-align:left">Special Chars</th></tr>
+            <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Minute</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">0-59</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">, - * /</td></tr>
+            <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Hour</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">0-23</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">, - * /</td></tr>
+            <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Day</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">1-31</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">, - * ? / L W</td></tr>
+            <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Month</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">1-12</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">, - * /</td></tr>
+            <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Weekday</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">0-7</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">, - * ? / L #</td></tr>
+        </table>
+        <div style="margin-top:12px;font-size:13px;color:#94a3b8;">
+            <strong>Special characters:</strong><br>
+            <code>*</code> Any &nbsp; <code>?</code> No specific &nbsp; <code>-</code> Range &nbsp; <code>,</code> List &nbsp; <code>/</code> Step &nbsp; <code>L</code> Last &nbsp; <code>W</code> Weekday &nbsp; <code>#</code> Nth weekday
+        </div>
+    </div>
+
+    
+
+    <div class="section">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item">
+            <h3>What is a Cron expression?</h3>
+            <p>A Cron expression is a time-based string used in Unix/Linux to schedule recurring tasks. It consists of 5 fields (minute hour day month weekday) and is widely used in Linux crontab, Kubernetes CronJob, Spring Boot @Scheduled, and more.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What's the difference between 0 0 * * * and @daily?</h3>
+            <p><code>0 0 * * *</code> is equivalent to <code>@daily</code> — both run at midnight every day. @daily is a shorthand available in some Cron implementations; the standard 5-field expression has better compatibility.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How to use Cron expressions in Kubernetes?</h3>
+            <p>Use the generated expression in your CronJob's spec.schedule field. Kubernetes also supports 6-field format (with seconds) — prefix with <code>0</code>, e.g. <code>0 0 0 * * *</code>.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What's the difference between ? and *?</h3>
+            <p><code>*</code> matches any value, while <code>?</code> means "no specific value" (only for day and weekday fields). When both day and weekday need matching, one must use <code>?</code>.</p>
+        </div>
+    </div>
+
+    
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/cron-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+
+<script>
+const DOW_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+function parseField(field, min, max) {
+    if (field === '*' || field === '?') return null;
+    const values = new Set();
+    for (const part of field.split(',')) {
+        if (part.includes('/')) {
+            const [range, step] = part.split('/');
+            const s = step ? parseInt(step) : 1;
+            let start = min, end = max;
+            if (range !== '*') {
+                if (range.includes('-')) { [start, end] = range.split('-').map(Number); }
+                else { start = parseInt(range); end = max; }
+            }
+            for (let i = start; i <= end; i += s) values.add(i);
+        } else if (part.includes('-')) {
+            const [s, e] = part.split('-').map(Number);
+            for (let i = s; i <= e; i++) values.add(i);
+        } else if (part === 'L' || part === 'W') {
+            values.add(part);
+        } else {
+            const v = parseInt(part);
+            if (!isNaN(v)) values.add(v);
+        }
+    }
+    return values.size > 0 ? values : null;
+}
+
+function describeCron(expr) {
+    const parts = expr.trim().split(/\s+/);
+    if (parts.length < 5) return 'Invalid Cron expression';
+    const [min, hour, day, month, dow] = parts;
+    let desc = [];
+    if (month !== '*') desc.push(`in ${month.includes(',') ? month : 'month ' + month}`);
+    if (day !== '*' && day !== '?') {
+        if (day === 'L') desc.push('on the last day of month');
+        else desc.push(`on day ${day}`);
+    }
+    if (dow !== '*' && dow !== '?') {
+        if (dow.includes('-')) { const [s,e] = dow.split('-').map(Number); desc.push(`from ${DOW_NAMES[s]} to ${DOW_NAMES[e]}`); }
+        else if (dow.includes(',')) desc.push(`on ${dow.split(',').map(d=>DOW_NAMES[parseInt(d)]).join(', ')}`);
+        else desc.push(`on ${DOW_NAMES[parseInt(dow)]}`);
+    }
+    if (hour !== '*') {
+        if (hour.includes(',')) desc.push(`at ${hour.split(',').map(h=>h+':00').join(' and ')}`);
+        else if (hour.includes('/')) { const [,s] = hour.split('/'); desc.push(`every ${s} hours`); }
+        else desc.push(`at ${hour}:00`);
+    }
+    if (min !== '*') {
+        if (min.includes('/')) { const [,s] = min.split('/'); desc.push(`every ${s} minutes`); }
+        else desc.push(`at minute ${min}`);
+    }
+    if (desc.length === 0) return 'Run every minute';
+    return 'Run ' + desc.join(', ');
+}
+
+function getNextRuns(expr, count = 5) {
+    const parts = expr.trim().split(/\s+/);
+    if (parts.length < 5) return ['Invalid Cron expression'];
+    const minSet = parseField(parts[0], 0, 59);
+    const hourSet = parseField(parts[1], 0, 23);
+    const daySet = parseField(parts[2], 1, 31);
+    const monthSet = parseField(parts[3], 1, 12);
+    const dowSet = parseField(parts[4], 0, 7);
+    if (dowSet && dowSet.has(7)) { dowSet.add(0); dowSet.delete(7); }
+    const results = [];
+    let d = new Date();
+    d.setSeconds(0, 0);
+    d.setMinutes(d.getMinutes() + 1);
+    const maxIter = 525600;
+    for (let i = 0; i < maxIter && results.length < count; i++) {
+        const m = d.getMinutes(), h = d.getHours(), dy = d.getDate(), mo = d.getMonth() + 1, wd = d.getDay();
+        let match = true;
+        if (minSet && !minSet.has(m)) match = false;
+        if (hourSet && !hourSet.has(h)) match = false;
+        if (monthSet && !monthSet.has(mo)) match = false;
+        if (daySet && dowSet) {
+            if (!daySet.has(dy) && !dowSet.has(wd)) match = false;
+        } else {
+            if (daySet && !daySet.has(dy)) match = false;
+            if (dowSet && !dowSet.has(wd)) match = false;
+        }
+        if (match) results.push(new Date(d));
+        d.setMinutes(d.getMinutes() + 1);
+    }
+    if (results.length === 0) return ['No matching time within the next year'];
+    return results.map(r => r.toLocaleString('en-US', {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',weekday:'short'}));
+}
+
+function updateFromFields() {
+    const min = document.getElementById('f-min').value || '*';
+    const hour = document.getElementById('f-hour').value || '*';
+    const day = document.getElementById('f-day').value || '*';
+    const month = document.getElementById('f-month').value || '*';
+    const dow = document.getElementById('f-dow').value || '*';
+    const expr = `${min} ${hour} ${day} ${month} ${dow}`;
+    document.getElementById('cron-input').value = expr;
+    displayCron(expr);
+}
+
+function updateFromInput() {
+    const expr = document.getElementById('cron-input').value.trim();
+    const parts = expr.split(/\s+/);
+    if (parts.length >= 5) {
+        document.getElementById('f-min').value = parts[0];
+        document.getElementById('f-hour').value = parts[1];
+        document.getElementById('f-day').value = parts[2];
+        document.getElementById('f-month').value = parts[3];
+        document.getElementById('f-dow').value = parts[4];
+    }
+    displayCron(expr);
+}
+
+function displayCron(expr) {
+    document.getElementById('cron-display').textContent = expr;
+    document.getElementById('cron-desc').textContent = describeCron(expr);
+    const runs = getNextRuns(expr);
+    document.getElementById('next-runs').innerHTML = runs.map(r => `<li>${r}</li>`).join('');
+}
+
+function setPreset(expr) {
+    document.getElementById('cron-input').value = expr;
+    updateFromInput();
+}
+
+function resetCron() { setPreset('0 * * * *'); }
+
+function copyCron() {
+    const expr = document.getElementById('cron-display').textContent;
+    navigator.clipboard.writeText(expr).then(() => {
+        const btn = event.target.closest('.btn');
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copied';
+        setTimeout(() => btn.textContent = orig, 1500);
+    });
+}
+
+document.querySelectorAll('.star').forEach(star => {
+    star.addEventListener('click', function() {
+        document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+        [...this.parentElement.children].filter(s => s.dataset.value <= this.dataset.value).forEach(s => s.classList.add('active'));
+        document.querySelector('.rating-text').textContent = `Rated ${this.dataset.value} star${this.dataset.value > 1 ? 's' : ''}`;
+    });
+});
+
+displayCron('0 * * * *');
+</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a Cron expression?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Cron expression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Cron expression is a time-based string used in Unix/Linux to schedule recurring tasks, consisting of 5 fields (minute hour day month weekday)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between 0 0 * * * and @daily?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0 0 * * * is equivalent to @daily — both run at midnight every day. The standard 5-field expression has better compatibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use Cron expressions in Kubernetes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the expression in your CronJob's spec.schedule field. Kubernetes also supports 6-field format with seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between ? and *?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* matches any value, while ? means no specific value (only for day and weekday fields). When both need matching, one must use ?."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Cron Expression Generator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choose preset or customize",
+      "text": "Select a common preset or manually fill in each field value.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Preview execution times",
+      "text": "View the generated Cron expression and next execution times to confirm it matches your needs.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy and use",
+      "text": "Click copy and paste the expression into crontab, K8s CronJob, or your code.",
+      "position": 3
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cron Expression Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/cron-generator/"
+    }
+  ],
+  "name": "Cron Expression Generator"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Cron Expression Generator", "description": "Free online Cron expression generator. Visually build and parse Cron job schedule expressions, preview next execution times. Pure client-side calculation.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+  (function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+  })();
+</script>
+</body>
+</html>

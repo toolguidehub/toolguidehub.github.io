@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="See how inflation erodes your money over time - what $100 will really be worth in 10 or 20 years at a given rate.">
+<meta name="keywords" content="purchasing power calculator,inflation,currency devaluation,online tool,free">
+<title>Purchasing Power Calculator | PPP Tool | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/purchasing-power-calculator/">
+<meta property="og:title" content="Purchasing Power Calculator - Inflation Impact on Money | Free Online Tool">
+<meta property="og:description" content="See how inflation erodes your money over time - what $100 will really be worth in 10 or 20 years at a given rate.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/purchasing-power-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Purchasing Power Calculator", "description": "Free online purchasing power calculator. Calculate how inflation affects your money's value over time. Pure frontend local computation.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is purchasing power?", "acceptedAnswer": {"@type": "Answer", "text": "Purchasing power is the quantity of goods and services that one unit of currency can buy. Inflation erodes purchasing power over time."}}, {"@type": "Question", "name": "How is purchasing power calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Future Purchasing Power = Current Amount ÷ (1 + Inflation Rate)^Years. For example, $100 at 3% inflation over 10 years: 100÷(1.03)^10≈$74.40."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use the Purchasing Power Calculator", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Purchasing Power Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter Values", "text": "Enter amount, inflation rate, and years"}, {"@type": "HowToStep", "position": 2, "name": "View Results", "text": "View future purchasing power and value loss"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Purchasing Power Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/purchasing-power-calculator/"}]}</script>
+<style>:root{--red:#EF4444;--muted:#64748b;--accent:#06b6d4;--cyan:#06b6d4;--primary-light:rgba(6,182,212,.15);}*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:var(--cyan);text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:var(--accent)}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:var(--muted)}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:var(--muted)}.hero{margin-bottom:24px}.hero p{color:var(--muted);font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:var(--accent);margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.btn{padding:10px 20px;border-radius:8px;font-size:.9rem;cursor:pointer;border:none;font-weight:500;transition:all .2s}.btn-primary{background:#22d3ee;color:#fff}.btn-primary:hover{background:var(--primary-light)}.btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{border-color:rgba(148,163,184,.4)}.result-section{display:none;margin-top:16px}.result-section.show{display:block}.highlight-card{background:rgba(79,70,229,.1);border:1px solid #22d3ee;border-radius:10px;padding:20px;text-align:center;margin-bottom:12px}.highlight-card .big{font-size:2.2rem;font-weight:700;color:var(--accent)}.highlight-card .desc{color:var(--muted);font-size:.9rem;margin-top:4px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}@media(max-width:600px){.result-grid{grid-template-columns:1fr}}.result-card{background:#0f172a;border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(148,163,184,.1)}.result-card .label{color:var(--muted);font-size:.8rem;margin-bottom:4px}.result-card .value{font-size:1.3rem;font-weight:700;color:var(--cyan)}.result-card .sub{font-size:.75rem;color:var(--muted);margin-top:2px}.value.loss{color:var(--red)}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.info-section p{color:var(--muted);font-size:.9rem;margin-bottom:8px}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:var(--muted);font-size:.9rem}.timeline{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.timeline-item{flex:1;min-width:100px;background:#0f172a;border-radius:8px;padding:10px;text-align:center;border:1px solid rgba(148,163,184,.1)}.timeline-item .year{color:var(--accent);font-size:.8rem;margin-bottom:2px}.timeline-item .val{color:var(--cyan);font-size:.95rem;font-weight:600}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/purchasing-power-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>💰 Purchasing Power Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Purchasing Power Calculator</p>
+<div class="hero"><p>Free online purchasing power calculator. Calculate how inflation affects your money's value over time. Pure frontend local computation. | No registration · 100% private</p><span class="badge">Zero dependencies · Works offline</span></div>
+
+<div class="main-grid">
+<div>
+<div class="section">
+<h2>Input Parameters</h2>
+<div class="form-group"><label>Current Amount ($)</label><input type="number" id="amount" placeholder="e.g. 10000" min="0" step="0.01"></div>
+<div class="form-group"><label>Annual Inflation Rate (%)</label><input type="number" id="inflationRate" placeholder="e.g. 3" min="0" step="0.01" value="3"></div>
+<div class="form-group"><label>Number of Years</label><input type="number" id="years" placeholder="e.g. 10" min="1" max="100" value="10"></div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">💰 Calculate</button>
+<button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+</div>
+
+<div class="result-section" id="resultSection">
+<div class="highlight-card">
+<div class="big" id="futureValue">--</div>
+<div class="desc" id="futureDesc">--</div>
+</div>
+<div class="result-grid">
+<div class="result-card"><div class="label">Purchasing Power Lost</div><div class="value loss" id="lossAmount">--</div><div class="sub">$</div></div>
+<div class="result-card"><div class="label">Value Lost</div><div class="value loss" id="lossRate">--</div><div class="sub">%</div></div>
+<div class="result-card"><div class="label">Value Retained</div><div class="value" id="retainRate">--</div><div class="sub">%</div></div>
+<div class="result-card"><div class="label">Equivalent Future Amount</div><div class="value" id="equivalentFuture">--</div><div class="sub">needed to preserve value</div></div>
+</div>
+<div class="timeline" id="timeline"></div>
+</div>
+      <button class="btn btn-outline" onclick="copyResult()" style="margin-top:12px;width:100%">📋 Copy Results</button>
+</div>
+
+<div class="section">
+<h2>Quick Presets</h2>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="setPreset(10000,3,5)">$10K·3%·5 years</button>
+<button class="btn btn-secondary" onclick="setPreset(100000,2,20)">$100K·2%·20 years</button>
+<button class="btn btn-secondary" onclick="setPreset(50000,5,10)">$50K·5%·10 years</button>
+</div>
+</div>
+</div>
+
+<div>
+<div class="info-section"><h2>What is Purchasing Power?</h2>
+<p>Purchasing power is how much goods and services your money can buy. Inflation erodes it — $100 today buys less than $100 did 10 years ago.</p></div>
+<div class="info-section"><h2>Historical Inflation</h2>
+<p>US long-term average: ~3.2%</p>
+<p>Healthy target inflation: 2%-3%</p>
+<p>China recent 10-year CPI: ~2%</p></div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>How to beat inflation?</h3><p>Investing is key: 1) Stocks average 7-10% long-term, well above inflation; 2) Real estate appreciates with inflation; 3) TIPS bonds are directly CPI-linked; 4) Gold is a traditional inflation hedge. Keeping cash in a low-interest savings account means losing purchasing power every year.</p></div>
+<div class="faq-item"><h3>Why does inflation feel higher than CPI?</h3><p>CPI is a weighted average. Your personal spending mix may differ — if you spend more on rent and food, your experienced inflation may be higher. Asset prices (housing, stocks) are not included in CPI.</p></div>
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid = setTimeout(function() { t.classList.remove('show'); }, 2000);
+}
+
+function setPreset(amount, rate, years) {
+  document.getElementById('amount').value = amount;
+  document.getElementById('inflationRate').value = rate;
+  document.getElementById('years').value = years;
+  calculate();
+}
+
+window.calculate = calculate; function calculate() {
+  var amount = parseFloat(document.getElementById('amount').value);
+  var rate = parseFloat(document.getElementById('inflationRate').value);
+  var years = parseInt(document.getElementById('years').value);
+  if (isNaN(amount) || amount <= 0) { showToast('Please enter a valid amount'); return; }
+  if (isNaN(rate) || rate < 0) { showToast('Please enter a valid inflation rate'); return; }
+  if (isNaN(years) || years < 1) { showToast('Please enter valid number of years'); return; }
+  var r = rate / 100;
+  var futureValue = amount / Math.pow(1 + r, years);
+  var loss = amount - futureValue;
+  var lossRate = (loss / amount * 100).toFixed(1);
+  var retainRate = (futureValue / amount * 100).toFixed(1);
+  var equiv = (amount * Math.pow(1 + r, years)).toFixed(2);
+  document.getElementById('futureValue').textContent = '$' + futureValue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  document.getElementById('futureDesc').textContent = 'Future purchasing power after ' + years + ' years (at ' + rate + '% inflation)';
+  document.getElementById('lossAmount').textContent = '$' + loss.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  document.getElementById('lossRate').textContent = lossRate + '%';
+  document.getElementById('retainRate').textContent = retainRate + '%';
+  document.getElementById('equivalentFuture').textContent = '$' + Number(equiv).toLocaleString();
+  document.getElementById('resultSection').classList.add('show');
+  buildTimeline(amount, r, years);
+}
+
+function buildTimeline(amount, r, totalYears) {
+  var timeline = document.getElementById('timeline');
+  var step = Math.max(1, Math.floor(totalYears / 8));
+  var html = '';
+  for (var y = step; y <= totalYears; y += step) {
+    var val = amount / Math.pow(1 + r, y);
+    html += '<div class="timeline-item"><div class="year">Year ' + y + '</div><div class="val">$' + val.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div></div>';
+  }
+  if (totalYears % step !== 0) {
+    var val = amount / Math.pow(1 + r, totalYears);
+    html += '<div class="timeline-item"><div class="year">Year ' + totalYears + '</div><div class="val">$' + val.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</div></div>';
+  }
+  timeline.innerHTML = html;
+}
+
+function resetForm() {
+  document.getElementById('amount').value = '';
+  document.getElementById('inflationRate').value = '3';
+  document.getElementById('years').value = '10';
+  document.getElementById('resultSection').classList.remove('show');
+}
+
+    function copyResult() {
+        const r = document.getElementById('resultSection') || document.getElementById('resultCard') || document.getElementById('mainResult') || document.getElementById('result');
+        if (!r || !r.textContent.trim() || r.textContent.trim() === '--') { 
+            const t = document.querySelector('.toast') || document.createElement('div');
+            t.textContent = 'No results to copy';
+            t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f59e0b;color:#fff;padding:8px 20px;border-radius:8px;z-index:9999';
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2000);
+            return; 
+        }
+        navigator.clipboard.writeText(r.textContent.trim()).then(() => {
+            const t = document.querySelector('.toast') || document.createElement('div');
+            t.textContent = 'Copied!';
+            t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;z-index:9999';
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2000);
+        }).catch(() => {
+            const t = document.querySelector('.toast') || document.createElement('div');
+            t.textContent = 'Copy failed';
+            t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ef4444;color:#fff;padding:8px 20px;border-radius:8px;z-index:9999';
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2000);
+        });
+    }
+
+function fillExample(){
+  var vals = [["amount", "10000"], ["inflationRate", "3"], ["years", "10"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example loaded and calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="//en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="//en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/purchasing-power-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

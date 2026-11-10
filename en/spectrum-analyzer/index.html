@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Visualise the frequency spectrum of live microphone audio or an uploaded file in real time with FFT analysis.">
+<meta name="keywords" content="spectrum analyzer,audio spectrum,frequency analysis,online spectrum,audio visualization,FFT">
+<title>Free Interactive Spectrum Analyzer Online - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/spectrum-analyzer/">
+<meta property="og:title" content="Free Interactive Spectrum Analyzer Online - ToolGuideHub">
+<meta property="og:description" content="Visualise the frequency spectrum of live microphone audio or an uploaded file in real time with FFT analysis.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/spectrum-analyzer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free Spectrum Analyzer", "description": "Free spectrum analyzer: real-time FFT frequency analysis, microphone input & file upload. Visual spectrum & waveform display. No signup, client-side.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-25", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Spectrum Analyzer FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a spectrum analyzer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A spectrum analyzer is a tool that decomposes audio signals into different frequency components and displays them visually, helping users understand the frequency distribution characteristics of audio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What audio input methods are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports real-time microphone input and local audio file upload (MP3, WAV, OGG, FLAC formats), both methods provide real-time analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to read the spectrum display?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The horizontal axis represents frequency (low to high), the vertical axis represents amplitude (volume) at that frequency. Taller bars indicate stronger sound at that frequency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does FFT size affect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FFT size determines frequency resolution. Larger values provide higher frequency resolution but slower response. 2048 is good for general use, 8192 for detailed analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All audio analysis is performed locally in the browser using the Web Audio API. No audio data is uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Media Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/media/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Spectrum Analyzer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/spectrum-analyzer/"
+    }
+  ],
+  "name": "Spectrum Analyzer"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Spectrum Analyzer",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select input source",
+      "text": "Click the microphone button for real-time input, or upload a local audio file."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Adjust parameters",
+      "text": "Set FFT size, smoothing coefficient, and display mode to optimize analysis."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View spectrum",
+      "text": "Observe the spectrum display in real-time to analyze audio frequency characteristics."
+    }
+  ]
+}</script>
+<style>
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/spectrum-analyzer/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*tgh_toast*/window.showToast=function(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t)}t.textContent=m;t.classList.add("show");clearTimeout(window.__tt);window.__tt=setTimeout(function(){t.classList.remove("show")},2000)};</script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📊 Spectrum Analyzer</h1></div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Media Tools</a> › Spectrum Analyzer</div>
+<div class="hero"><p class="subtitle">Real-time audio frequency analysis with visual spectrum display</p><span class="badge">No Dependencies · Works Offline</span></div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2><span class="status-indicator inactive" id="status-dot"></span>Audio Spectrum Analysis</h2>
+<div class="btn-group" style="margin-top:0;margin-bottom:16px">
+<button class="btn btn-primary" id="mic-btn" onclick="toggleMic()">🎤 Microphone</button>
+<button class="btn btn-secondary" onclick="document.getElementById('file-input').click()">📁 Upload Audio</button>
+<input type="file" id="file-input" accept="audio/*" style="display:none" onchange="loadFile(event)">
+<button class="btn btn-secondary" id="stop-btn" onclick="stopAudio()" style="display:none">⏹ Stop</button>
+</div>
+<div class="canvas-container">
+<canvas id="spectrum-canvas" width="800" height="300"></canvas>
+</div>
+<div class="controls-row">
+<div>
+<label>FFT Size</label>
+<select id="fft-size" onchange="updateFFT()">
+<option value="2048">2048</option>
+<option value="4096" selected>4096</option>
+<option value="8192">8192</option>
+<option value="16384">16384</option>
+</select>
+</div>
+<div>
+<label>Smoothing: <span id="smooth-val">0.8</span></label>
+<input type="range" id="smoothing" min="0" max="0.99" step="0.01" value="0.8" oninput="updateSmoothing()">
+</div>
+<div>
+<label>Display</label>
+<select id="display-mode" onchange="drawSpectrum()">
+<option value="bars">Bars</option>
+<option value="line">Line</option>
+<option value="mirror">Mirror</option>
+</select>
+</div>
+</div>
+<div class="freq-info">
+<div class="freq-item"><div class="label">Peak Freq</div><div class="value peak-freq" id="peak-freq">--</div></div>
+<div class="freq-item"><div class="label">Avg Amplitude</div><div class="value" id="avg-amp">--</div></div>
+<div>
+<div class="freq-item"><div class="label">Sample Rate</div><div class="value" id="sample-rate">--</div></div>
+</div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel">
+<h3>📋 Frequency Ranges</h3>
+<div style="font-size:.8rem;color:#94a3b8;line-height:1.8">
+<p><strong>Sub-bass</strong>: 20-60Hz</p>
+<p><strong>Bass</strong>: 60-250Hz</p>
+<p><strong>Low-mid</strong>: 250-500Hz</p>
+<p><strong>Mid</strong>: 500-2kHz</p>
+<p><strong>High-mid</strong>: 2-4kHz</p>
+<p><strong>High</strong>: 4-8kHz</p>
+<p><strong>Very high</strong>: 8-20kHz</p>
+</div>
+</div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the Spectrum Analyzer Do?</h2>
+<p>The Spectrum Analyzer is a free online tool that uses the Web Audio API to analyze audio signals in real-time, decomposing sound into different frequency components and displaying them as a visual spectrum. It supports both real-time microphone input and local audio file upload, helping users intuitively understand audio frequency characteristics.</p>
+<h2>Core Features</h2>
+<ul><li><strong>Real-time Spectrum Analysis</strong>: Uses FFT algorithm to decompose audio signals in real-time, visualizing amplitude of each frequency component</li><li><strong>Multiple Input Sources</strong>: Supports real-time microphone recording and local audio file upload (MP3/WAV/OGG/FLAC)</li><li><strong>Multiple Display Modes</strong>: Bar chart, line chart, and mirror display for different visualization styles</li><li><strong>Adjustable Parameters</strong>: Customizable FFT size and smoothing coefficient for different analysis needs</li><li><strong>Peak Detection</strong>: Real-time display of peak frequency, average amplitude, and sample rate</li></ul>
+<h2>How to Use</h2>
+<p>1. Click the "Microphone" button to authorize microphone access, or click "Upload Audio" to select a local audio file</p>
+<p>2. Adjust FFT size and smoothing parameters to optimize analysis results</p>
+<p>3. Select display mode (Bars/Line/Mirror) to view different spectrum styles</p>
+<p>4. Observe peak frequency and amplitude information to analyze audio characteristics</p>
+<h2>Use Cases</h2>
+<h3>Case 1: Audio Production & Mixing</h3>
+<p>Music producers use spectrum analysis to check frequency balance in mixes, identifying frequency conflicts and resonance issues.</p>
+<h3>Case 2: Acoustic Environment Analysis</h3>
+<p>Use the microphone to analyze room acoustic characteristics in real-time, identifying standing waves and resonant frequencies.</p>
+<h3>Case 3: Equipment Fault Diagnosis</h3>
+<p>Analyze the spectral characteristics of equipment running sounds to identify abnormal frequency components for fault diagnosis.</p>
+<h2>Technical Background</h2>
+<p>The Fast Fourier Transform (FFT) is the core algorithm for spectrum analysis, converting time-domain signals to frequency-domain representations. FFT size determines frequency resolution (Δf = sample rate / FFT size). Larger values provide higher frequency resolution but lower time resolution. The smoothing coefficient controls spectrum display smoothness. The human audible range is 20Hz-20kHz, with different frequency bands corresponding to different sound characteristics.</p>
+</div>
+<div class="faq-section">
+<h2>FAQ</h2>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>Why is there no sound from the microphone?</span><span class="arrow">▼</span></div>
+<div class="faq-a">Ensure the browser has microphone permission, check system microphone settings, and confirm no other application is using the microphone.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>What FFT size should I use?</span><span class="arrow">▼</span></div>
+<div class="faq-a">4096 is good for general use. Use 8192 or 16384 for higher frequency resolution, or 2048 for faster response. Frequency resolution = sample rate / FFT size.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>What audio formats are supported?</span><span class="arrow">▼</span></div>
+<div class="faq-a">All browser-compatible audio formats are supported, including MP3, WAV, OGG, FLAC, and AAC. Specific support depends on your browser.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>What do the axes represent?</span><span class="arrow">▼</span></div>
+<div class="faq-a">The horizontal axis represents frequency (low to high, typically 20Hz to 20kHz), and the vertical axis represents amplitude (volume intensity) at that frequency in decibels (dB).</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q"><span>Is data uploaded to a server?</span><span class="arrow">▼</span></div>
+<div class="faq-a">No. All audio analysis is performed locally in the browser using the Web Audio API. No audio data is uploaded to any server.</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="../spectrum-analyzer/">中文</a>
+</div>
+
+
+</footer>
+
+
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools" data-tool="spectrum-analyzer"></div>
+<script src="../../related-tools.js"></script>
+<div class="copy-toast" id="copy-toast">Copied to clipboard</div>
+<script>
+let audioCtx=null,analyser=null,source=null,animId=null,isActive=false;
+const canvas=document.getElementById('spectrum-canvas');
+const ctx=canvas.getContext('2d');
+function initAudio(){if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)()}if(!analyser){analyser=audioCtx.createAnalyser();analyser.fftSize=parseInt(document.getElementById('fft-size').value);analyser.smoothingTimeConstant=parseFloat(document.getElementById('smoothing').value);analyser.connect(audioCtx.destination)}}
+async function toggleMic(){if(isActive&&source&&source.mediaStream){stopAudio();return}initAudio();try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});source=audioCtx.createMediaStreamSource(stream);source.mediaStream=stream;source.connect(analyser);isActive=true;document.getElementById('mic-btn').textContent='⏹ Stop Mic';document.getElementById('stop-btn').style.display='inline-block';document.getElementById('status-dot').className='status-indicator active';document.getElementById('sample-rate').textContent=audioCtx.sampleRate+'Hz';drawSpectrum()}catch(e){showToast('Cannot access microphone: '+e.message)}}
+function loadFile(e){const file=e.target.files[0];if(!file)return;initAudio();if(source){try{source.disconnect()}catch(ex){}}const reader=new FileReader();reader.onload=function(ev){audioCtx.decodeAudioData(ev.target.result,function(buffer){if(source)try{source.disconnect()}catch(ex){}source=audioCtx.createBufferSource();source.buffer=buffer;source.connect(analyser);source.connect(analyser);source.start(0);isActive=true;document.getElementById('stop-btn').style.display='inline-block';document.getElementById('status-dot').className='status-indicator active';document.getElementById('sample-rate').textContent=audioCtx.sampleRate+'Hz';drawSpectrum()},function(){showToast('Cannot decode audio file')})};reader.readAsArrayBuffer(file)}
+function stopAudio(){if(animId){cancelAnimationFrame(animId);animId=null}if(source){try{source.disconnect()}catch(e){}if(source.mediaStream){source.mediaStream.getTracks().forEach(t=>t.stop())}if(source.stop)try{source.stop()}catch(e){}}source=null;isActive=false;document.getElementById('mic-btn').textContent='🎤 Microphone';document.getElementById('stop-btn').style.display='none';document.getElementById('status-dot').className='status-indicator inactive';ctx.clearRect(0,0,canvas.width,canvas.height)}
+function updateFFT(){if(analyser){analyser.fftSize=parseInt(document.getElementById('fft-size').value)}}
+function updateSmoothing(){const v=parseFloat(document.getElementById('smoothing').value);document.getElementById('smooth-val').textContent=v.toFixed(2);if(analyser)analyser.smoothingTimeConstant=v}
+function drawSpectrum(){if(!analyser||!isActive)return;animId=requestAnimationFrame(drawSpectrum);const bufLen=analyser.frequencyBinCount;const data=new Uint8Array(bufLen);analyser.getByteFrequencyData(data);const w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);const mode=document.getElementById('display-mode').value;let peakVal=0,peakIdx=0,sum=0;for(let i=0;i<bufLen;i++){if(data[i]>peakVal){peakVal=data[i];peakIdx=i}sum+=data[i]}
+const freqRes=audioCtx.sampleRate/analyser.fftSize;const peakFreq=(peakIdx*freqRes).toFixed(1);const avgAmp=(sum/bufLen).toFixed(1);document.getElementById('peak-freq').textContent=peakFreq+'Hz';document.getElementById('avg-amp').textContent=avgAmp;
+if(mode==='bars'){const barW=Math.max(1,w/bufLen*2.5);const gap=1;for(let i=0;i<bufLen;i++){const barH=(data[i]/255)*h*0.9;const x=i*(barW+gap);if(x>w)break;const hue=200+(data[i]/255)*60;ctx.fillStyle=`hsl(${hue},80%,${40+data[i]/255*30}%)`;ctx.fillRect(x,h-barH,barW,barH)}}else if(mode==='line'){ctx.beginPath();ctx.moveTo(0,h);for(let i=0;i<bufLen;i++){const x=(i/bufLen)*w;const y=h-(data[i]/255)*h*0.9;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.lineTo(w,h);ctx.closePath();const grad=ctx.createLinearGradient(0,0,0,h);grad.addColorStop(0,'rgba(6,182,212,0.8)');grad.addColorStop(1,'rgba(6,182,212,0.1)');ctx.fillStyle=grad;ctx.fill();ctx.strokeStyle='#06b6d4';ctx.lineWidth=2;ctx.beginPath();for(let i=0;i<bufLen;i++){const x=(i/bufLen)*w;const y=h-(data[i]/255)*h*0.9;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke()}else if(mode==='mirror'){const halfH=h/2;const barW=Math.max(1,w/bufLen*2.5);const gap=1;for(let i=0;i<bufLen;i++){const barH=(data[i]/255)*halfH*0.85;const x=i*(barW+gap);if(x>w)break;const hue=200+(data[i]/255)*60;ctx.fillStyle=`hsl(${hue},80%,${40+data[i]/255*30}%)`;ctx.fillRect(x,halfH-barH,barW,barH);ctx.fillRect(x,halfH,barW,barH*0.6)}}}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){e.preventDefault();toggleMic()}});
+</script>
+
+</body>
+</html>

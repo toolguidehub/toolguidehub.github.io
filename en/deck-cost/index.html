@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimate the material, labour and permit cost of building a deck from its area, material, height and stairs.">
+<meta name="keywords" content="Deck Building Cost Estimator,Construction Calculators,online tool,free">
+<title>Deck Building Cost Estimator - Tool·Pure Frontend</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/deck-cost/">
+<meta property="og:title" content="🏗️ Deck Building Cost Estimator">
+<meta property="og:description" content="Estimate the material, labour and permit cost of building a deck from its area, material, height and stairs.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/deck-cost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/deck-cost/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Deck Building Cost Estimator", "description": "Free Deck Building Cost Estimator. Automatically calculates material, labor, and permit costs based on area, material type (pressure-treated/cedar/composite/PVC), height, and stair options.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "name": "How much does building a deck cost per m²?", "mainEntity": [{"@type": "Question", "name": "How much does building a deck cost per m²?", "acceptedAnswer": {"@type": "Answer", "text": "Pressure-treated: ~$35-55/m², Cedar/Redwood: ~$70-110/m², Composite: ~$110-165/m², PVC: ~$165-250/m². Includes materials and labor; prices vary significantly by region."}}, {"@type": "Question", "name": "Which material offers the best value?", "acceptedAnswer": {"@type": "Answer", "text": "Pressure-treated has lowest upfront cost but requires annual maintenance. Composite costs more initially but is nearly maintenance-free, offering better long-term value. Cedar is a balanced choice."}}, {"@type": "Question", "name": "Do I need a permit to build a deck?", "acceptedAnswer": {"@type": "Answer", "text": "Most jurisdictions require permits for decks above certain heights (usually 2ft/0.6m) or areas. Check with your local building department before starting."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to useDeck Building Cost Estimator", "description": "Deck Building Cost Estimator", "totalTime": "PT2M", "tool": {"@type": "HowToTool", "name": "Deck Building Cost Estimator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Prepare Input", "text": "Enter or paste data to process"}, {"@type": "HowToStep", "position": 2, "name": "Configure Options", "text": "Adjust parameters as needed"}, {"@type": "HowToStep", "position": 3, "name": "View Results", "text": "Get processed output"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Construction Calculators", "item": "https://adi63586.github.io/Toolguidehub/en/#construction-calculators/"}, {"@type": "ListItem", "position": 3, "name": "Deck Building Cost Estimator", "item": "https://adi63586.github.io/Toolguidehub/en/deck-cost/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:200px}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.btn-success:hover{background:rgba(34,197,94,.25)}.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}.btn-danger:hover{background:rgba(239,68,68,.25)}
+.ad-slot.ad-sidebar{min-height:250px;max-width:300px}.seo-content{margin-top:24px;padding:20px;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.1rem;color:#f1f5f9;margin:16px 0 8px}.seo-content h3{font-size:1rem;color:#e2e8f0;margin:12px 0 6px}.seo-content p{color:#94a3b8;margin-bottom:8px;font-size:.9rem}.seo-content ul,.seo-content ol{margin-left:20px;margin-bottom:8px;color:#94a3b8;font-size:.9rem}.seo-content li{margin-bottom:4px}.faq-item{margin-bottom:12px;padding:12px;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer}.faq-item p{color:#94a3b8;font-size:.85rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}.footer p{margin-bottom:8px}.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:12px 20px;border-radius:8px;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;z-index:1000;pointer-events:none}.toast.show{opacity:1}</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<div class="ad-slot" id="ad-top"></div>
+<main class="container">
+<div class="header"><h1>🏗️ Deck Building Cost Estimator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#construction-calculators">Construction Calculators</a> &rsaquo; Deck Building Cost Estimator</p>
+<div class="hero"><p>Free Deck Building Cost Estimator. Automatically calculates material, labor, and permit costs based on area, material type (pressure-treated/cedar/composite/PVC), height, and stair options. · Pure Frontend · No Server Uploads</p><span class="badge">Zero Dependencies·Works Offline</span></div>
+<div class="main-grid">
+<div><div class="section">
+<div class="form-row"><div class="form-group"><label>Deck Area (m²)</label><input type="number" id="area" placeholder="20" value="20" min="5" max="500"></div><div class="form-group"><label>Material</label><select id="material"><option value="pressure-treated">Pressure-Treated (Budget)</option><option value="cedar" selected>Cedar/Redwood (Mid-Range)</option><option value="composite">Composite (Premium)</option><option value="pvc">PVC (Luxury)</option></select></div></div>
+<div class="form-row"><div class="form-group"><label>Deck Height</label><select id="height"><option value="low">Ground Level (&lt;2ft)</option><option value="mid" selected>Low Rise (2-6ft)</option><option value="high">High Rise (&gt;6ft)</option></select></div><div class="form-group"><label>Include Stairs?</label><select id="stairs"><option value="no" selected>No</option><option value="yes">Yes</option></select></div></div>
+<button class="btn-primary" onclick="calcDeckCost()">Estimate Deck Cost</button>
+<div id="result" class="result-section" style="display:none;margin-top:20px">
+<div class="result-grid" id="resultGrid"></div>
+<div style="background:#0f172a;border-radius:10px;padding:20px;margin-top:16px;border:1px solid rgba(148,163,184,.1);color:#94a3b8;font-size:.85rem" id="breakdown"></div>
+</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+</div></div>
+<div><div class="ad-slot ad-sidebar"></div><div class="ad-slot ad-sidebar" style="margin-top:16px"></div></div>
+</div>
+<div class="ad-slot" style="margin:24px auto"></div>
+<div class="seo-content"></div>
+<div class="section"><h2>FAQ</h2><div class="faq-item"><h3>How much does building a deck cost per m²?</h3><p>Pressure-treated: ~$35-55/m², Cedar/Redwood: ~$70-110/m², Composite: ~$110-165/m², PVC: ~$165-250/m². Includes materials and labor; prices vary significantly by region.</p></div>
+<div class="faq-item"><h3>Which material offers the best value?</h3><p>Pressure-treated has lowest upfront cost but requires annual maintenance. Composite costs more initially but is nearly maintenance-free, offering better long-term value. Cedar is a balanced choice.</p></div>
+<div class="faq-item"><h3>Do I need a permit to build a deck?</h3><p>Most jurisdictions require permits for decks above certain heights (usually 2ft/0.6m) or areas. Check with your local building department before starting.</p></div>
+</div>
+<div class="ad-slot" style="margin:24px auto"></div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied")})["catch"](function(){showToast("Copy failed")})}
+
+function calcDeckCost(){var area=parseFloat(document.getElementById("area").value)||20;var mat=document.getElementById("material").value;var h=document.getElementById("height").value;var stairs=document.getElementById("stairs").value;
+var matCost={};matCost["pressure-treated"]=25;matCost["cedar"]=45;matCost["composite"]=70;matCost["pvc"]=90;
+var hFactor={};hFactor["low"]=1.0;hFactor["mid"]=1.3;hFactor["high"]=1.6;
+var matTotal=area*matCost[mat];
+var laborFactor=mat==="composite"||mat==="pvc"?1.4:1.0;
+var laborTotal=area*30*laborFactor*hFactor[h];
+var frameTotal=area*15*hFactor[h];
+var stairCost=stairs==="yes"?2500:0;
+var subTotal=matTotal+laborTotal+frameTotal+stairCost;
+var permitFee=subTotal*0.05;
+var grandTotal=Math.round(subTotal+permitFee);
+var usdTotal=Math.round(grandTotal/7.2);
+var matName={"pressure-treated":"Pressure-Treated","cedar":"Cedar/Redwood","composite":"Composite","pvc":"PVC"};
+document.getElementById("resultGrid").innerHTML='<div class="result-item"><div class="value">$'+usdTotal.toLocaleString()+'</div><div class="label">Estimated Total Cost</div></div>'+'<div class="result-item"><div class="value">$'+grandTotal.toLocaleString()+'</div><div class="label">≈ RMB Equivalent</div></div>'+'<div class="result-item"><div class="value">$'+Math.round(usdTotal/area).toLocaleString()+'/m²</div><div class="label">Cost per m²</div></div>'+'<div class="result-item"><div class="value">'+area+' m²</div><div class="label">Total Area</div></div>';
+document.getElementById("breakdown").innerHTML='<strong>Cost Breakdown:</strong><br>Material ('+matName[mat]+'): $'+Math.round(matTotal/7.2).toLocaleString()+'<br>Labor: $'+Math.round(laborTotal/7.2).toLocaleString()+'<br>Framing: $'+Math.round(frameTotal/7.2).toLocaleString()+''+(stairs==="yes"?'<br>Stairs: $347':'')+'<br>Permits & Other (5%): $'+Math.round(permitFee/7.2).toLocaleString()+'<br><small>Note: This is an estimate. Actual costs vary by region and complexity. We recommend getting 3+ quotes.</small>';
+document.getElementById("result").style.display="block";}
+
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+  <!-- Related Tools -->
+  <section class="related-tools" style="margin-top:40px;padding:24px;background:#0f172a;border-radius:12px;border:1px solid #e2e8f0">
+    <h3 style="margin:0 0 16px;font-size:1.1rem;color:#e2e8f0">🔧 More Free Tools</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <a href="../../en/unit-converter/" class="related-link">Unit Converter</a>
+<a href="../../en/bmi-calculator/" class="related-link">BMI Calculator</a>
+<a href="../../en/age-calculator/" class="related-link">Age Calculator</a>
+<a href="../../en/password-generator/" class="related-link">Password Generator</a>
+    </div>
+  </section>
+  <style>
+    .related-link{display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid rgba(34,211,238,.4);border-radius:8px;color:#22d3ee;text-decoration:none;font-size:.9rem;transition:all .2s}
+    .related-link:hover{background:#0891b2;color:#fff;border-color:#0891b2}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/deck-cost/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

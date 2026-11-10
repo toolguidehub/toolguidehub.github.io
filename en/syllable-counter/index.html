@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllable Counter - Free Online Syllable Counting</title>
+  <meta name="description" content="Free syllable counter for English text. Count syllables per word with visual breakdowns, Flesch-Kincaid readability scores and Haiku 5-7-5 detection.">
+  <meta property="og:title" content="Syllable Counter - Free Online Syllable Counting">
+  <meta property="og:description" content="Free syllable counter for English text. Count syllables per word with visual breakdowns, Flesch-Kincaid readability scores and Haiku 5-7-5 detection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/syllable-counter/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Syllable Counter - Free Online Syllable Counting">
+  <meta name="twitter:description" content="Free online syllable counter. Per-word breakdowns, readability scores, and Haiku detection — all client-side, no sign-up.">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/syllable-counter/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/syllable-counter/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Syllable Counter",
+    "description": "Free online syllable counter that instantly analyzes English text. Count syllables per word with visual breakdowns, Flesch-Kincaid readability scores, and Haiku 5-7-5 pattern detection. 100% client-side processing, no sign-up required.",
+    "url": "https://adi63586.github.io/Toolguidehub/en/syllable-counter/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+      {"@type": "ListItem", "position": 2, "name": "Syllable Counter", "item": "https://adi63586.github.io/Toolguidehub/en/syllable-counter/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a syllable and how do you count syllables in English words?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A syllable is the basic unit of speech, typically containing one vowel sound. In English, the number of syllables in a word generally equals the number of distinct vowel sounds. For example, 'water' has 2 syllables (wa-ter) and 'beautiful' has 3 (beau-ti-ful). This tool uses an algorithm based on vowel clusters and common English pronunciation rules to count syllables automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Flesch-Kincaid readability score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Flesch-Kincaid score is the standard metric for assessing English text readability. The Reading Ease score ranges from 0-100, where 60-70 is considered standard readability (higher = easier). Grade Level indicates the U.S. school grade needed to understand the text — for instance, 8.0 means an eighth grader should be able to comprehend it. The formula is: 206.835 - 1.015 × (total words / total sentences) - 84.6 × (total syllables / total words)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Haiku and how does the haiku checker work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Haiku is a traditional Japanese poem form. In English, a Haiku typically follows a three-line structure with a 5-7-5 syllable pattern: line one has 5 syllables, line two has 7 syllables, and line three has 5 syllables. This tool's Haiku mode automatically splits your text into three lines and checks whether each line matches the expected syllable count, highlighting matches in green and mismatches in red."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-light: #22d3ee;
+      --primary-dark: #0891b2;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: rgba(148,163,184,.1);
+      --success: #10B981;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    header .lang a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    header .lang a:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      background: #0f172a;
+      border: 1px solid rgba(148,163,184,.2);
+      border-radius: 10px;
+      padding: 16px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      line-height: 1.7;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea:focus { border-color: var(--primary); }
+    textarea::placeholder { color: #64748b; }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 4px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--card-bg);
+      color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+    .tab-btn:hover:not(.active) { color: var(--text); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-item {
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid rgba(148,163,184,.08);
+    }
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .readability-section { margin-bottom: 20px; }
+    .readability-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .readability-score { font-size: 1.4rem; font-weight: 800; }
+    .readability-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .meter-bar-bg {
+      height: 10px;
+      background: rgba(148,163,184,.15);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .meter-bar-fill {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.4s, background 0.4s;
+    }
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .word-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 40px;
+    }
+    .word-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(148,163,184,.15);
+    }
+    .word-tag .syl-count {
+      font-weight: 800;
+      font-size: 0.8rem;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .syl-1 { background: rgba(6,182,212,.15); color: #22d3ee; }
+    .syl-1 .syl-count { background: #0891b2; color: #fff; }
+    .syl-2 { background: rgba(16,185,129,.15); color: #34d399; }
+    .syl-2 .syl-count { background: #059669; color: #fff; }
+    .syl-3 { background: rgba(245,158,11,.15); color: #fbbf24; }
+    .syl-3 .syl-count { background: #d97706; color: #fff; }
+    .syl-4 { background: rgba(239,68,68,.15); color: #f87171; }
+    .syl-4 .syl-count { background: #dc2626; color: #fff; }
+    .syl-5p { background: rgba(139,92,246,.15); color: #a78bfa; }
+    .syl-5p .syl-count { background: #7c3aed; color: #fff; }
+
+    .haiku-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .haiku-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid rgba(148,163,184,.1);
+    }
+    .haiku-line-num {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      min-width: 24px;
+    }
+    .haiku-line-text { flex: 1; font-size: 0.95rem; color: var(--text); }
+    .haiku-line-syl {
+      font-weight: 800;
+      font-size: 0.9rem;
+      min-width: 100px;
+      text-align: right;
+    }
+    .haiku-line.match { border-color: rgba(16,185,129,.4); background: rgba(16,185,129,.08); }
+    .haiku-line.match .haiku-line-syl { color: var(--success); }
+    .haiku-line.no-match { border-color: rgba(239,68,68,.3); background: rgba(239,68,68,.06); }
+    .haiku-line.no-match .haiku-line-syl { color: var(--error); }
+
+    .freq-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .freq-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .freq-table td {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(148,163,184,.05);
+    }
+    .freq-table .syl-badge {
+      display: inline-block;
+      min-width: 28px;
+      text-align: center;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+    .btn:hover { background: rgba(255,255,255,.05); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+    }
+    .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,.05); }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--success);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .toast.show { opacity: 1; }
+
+    .empty-state {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-secondary);
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px 12px 32px; }
+      .card { padding: 16px; }
+      h1 { font-size: 1.4rem; }
+      .stat-value { font-size: 1.4rem; }
+      .tabs { flex-direction: column; }
+    }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="../../">🧰 ToolGuideHub</a>
+    <div class="lang"><a href="../../en/syllable-counter/" class="active">EN</a><a href="../../en/syllable-counter/">CN</a></div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>🔤 Syllable Counter</h1>
+  <p class="subtitle">Instantly count syllables in English text. Per-word visual breakdown, Flesch-Kincaid readability analysis, and Haiku 5-7-5 pattern detection — all processed locally in your browser.</p>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab-btn active" data-mode="normal">📊 Normal Mode</button>
+      <button class="tab-btn" data-mode="haiku">🎋 Haiku Checker</button>
+    </div>
+
+    <textarea id="inputText" placeholder="Paste or type English text here...&#10;&#10;Example: The quick brown fox jumps over the lazy dog.&#10;Or try a haiku (three lines):&#10;An old silent pond&#10;A frog jumps into the pond&#10;Splash! Silence again"></textarea>
+
+    <div class="action-row">
+      <button class="btn btn-ghost" id="clearBtn">🗑️ Clear</button>
+      <button class="btn btn-primary" id="copyStatsBtn">📋 Copy Stats</button>
+    </div>
+  </div>
+
+  <div class="card" id="statsCard">
+    <h2>📈 Statistics Overview</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value" id="totalSyllables">0</div>
+        <div class="stat-label">Total Syllables</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="totalWords">0</div>
+        <div class="stat-label">Total Words</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="totalSentences">0</div>
+        <div class="stat-label">Total Sentences</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="avgSyllables">0</div>
+        <div class="stat-label">Avg Syllables/Word</div>
+      </div>
+    </div>
+
+    <div class="readability-section" style="margin-top:20px;">
+      <div class="readability-header">
+        <span class="readability-label">📖 Flesch-Kincaid Readability</span>
+        <span class="readability-score" id="fkScore">—</span>
+      </div>
+      <div class="meter-bar-bg">
+        <div class="meter-bar-fill" id="fkMeter" style="width:0%;background:var(--text-secondary);"></div>
+      </div>
+      <div class="meter-labels">
+        <span>Very Hard</span><span>Hard</span><span>Standard</span><span>Easy</span><span>Very Easy</span>
+      </div>
+      <div style="margin-top:8px;display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-secondary);">
+        <span>Grade Level: <strong id="fkGrade">—</strong></span>
+        <span id="fkDesc">Enter text to see readability score</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="breakdownCard">
+    <h2>🔍 Per-Word Syllable Breakdown</h2>
+    <div class="word-cloud" id="wordCloud">
+      <div class="empty-state">
+        <div class="icon">📝</div>
+        <p>Each word's syllable count appears here once you enter text</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="haikuCard" style="display:none;">
+    <h2>🎋 Haiku 5-7-5 Checker</h2>
+    <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px;">Splits your text into three lines and checks whether each line matches the expected 5-7-5 syllable pattern. Green = match, red = mismatch.</p>
+    <div class="haiku-lines" id="haikuLines">
+      <div class="empty-state">
+        <div class="icon">🎋</div>
+        <p>Enter three lines of text in Haiku mode to see the breakdown</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="topWordsCard">
+    <h2>🏆 Words Sorted by Syllable Count</h2>
+    <table class="freq-table">
+      <thead>
+        <tr><th>Word</th><th>Syllables</th></tr>
+      </thead>
+      <tbody id="topWordsBody">
+        <tr><td colspan="2"><div class="empty-state"><p>Enter text to see results</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  </main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/syllable-counter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast">✅ Copied!</div>
+
+<script>
+(function(){
+  const inputText = document.getElementById('inputText');
+  const clearBtn = document.getElementById('clearBtn');
+  const copyStatsBtn = document.getElementById('copyStatsBtn');
+  const toast = document.getElementById('toast');
+  const haikuCard = document.getElementById('haikuCard');
+  const breakdownCard = document.getElementById('breakdownCard');
+  const statsCard = document.getElementById('statsCard');
+  const topWordsCard = document.getElementById('topWordsCard');
+  let currentMode = 'normal';
+
+  function countSyllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (!word) return 0;
+    if (word.length <= 2) return 1;
+
+    const special = {
+      'the':1,'he':1,'she':1,'we':1,'me':1,'be':1,'go':1,'to':1,'no':1,'so':1,
+      'are':1,'were':1,'here':1,'there':1,'where':1,'fire':1,'wire':1,'tire':1,
+      'like':1,'make':1,'take':1,'bake':1,'cake':1,'fake':1,'lake':1,'rake':1,
+      'come':1,'some':1,'done':1,'gone':1,'none':1,'one':1,'love':1,'move':1,
+      'have':1,'give':1,'live':1,'leave':1,'believe':1,'receive':1,
+      'people':2,'little':2,'able':2,'simple':2,'table':2,'title':2,'apple':2,
+      'every':2,'very':2,'many':2,'any':2,'only':2,'even':2,'over':2,'ever':2,
+      'beautiful':3,'interesting':3,'different':2,'important':3,'together':3,
+      'actually':3,'usually':3,'especially':3,'probably':3,'definitely':3,
+      'through':1,'though':1,'thought':1,'throughout':2,
+      'education':4,'information':4,'university':5,'communication':5,
+      'everything':3,'everyone':3,'everybody':4,'everywhere':3,
+      'idea':2,'area':2,'really':2,'already':2,
+      'experience':3,'science':2,'society':3,'variety':3,
+      'available':3,'possible':3,'impossible':4,'responsible':4,
+      'knowledge':2,'language':2,'message':2,'village':2,'courage':2,
+      'vegetable':3,'comfortable':3,'fashionable':3,'reasonable':3,
+      'temperature':3,'literature':3,'architecture':4,'agriculture':4,
+      'queue':1,'eye':1,'once':1,'sure':1,'are':1
+    };
+    if (special[word] !== undefined) return special[word];
+
+    let count = 0;
+    let prevVowel = false;
+    const vowels = 'aeiouy';
+    for (let i = 0; i < word.length; i++) {
+      const isVowel = vowels.includes(word[i]);
+      if (isVowel && !prevVowel) count++;
+      prevVowel = isVowel;
+    }
+
+    if (word.endsWith('e') && count > 1 && !word.endsWith('le') && word.length > 3) {
+      const beforeLe = word.slice(-3, -2);
+      if (!(word.endsWith('le') && !vowels.includes(beforeLe))) count--;
+    }
+
+    if (word.endsWith('ed') && count > 1 && word.length > 3) {
+      const before = word.slice(-3, -2);
+      if (before !== 't' && before !== 'd') count--;
+    }
+
+    if (word.endsWith('es') && count > 1 && word.length > 3) {
+      const stem = word.slice(0, -2);
+      if (!/[sxz]|sh|ch/.test(stem.slice(-2)) && stem.slice(-1) !== 's') {
+        if (!['ss','sh','ch','x','z'].some(end => word.slice(-4,-2) === end || word.slice(-3,-2) === end)) count--;
+      }
+    }
+
+    return Math.max(1, count);
+  }
+
+  function splitSentences(text) { return text.split(/[.!?]+/).filter(s => s.trim().length > 0); }
+  function extractWords(text) { return text.match(/[a-zA-Z]+/g) || []; }
+
+  function calcFK(totalWords, totalSentences, totalSyllables) {
+    if (totalWords === 0 || totalSentences === 0) return { ease: null, grade: null };
+    const ease = 206.835 - 1.015 * (totalWords / totalSentences) - 84.6 * (totalSyllables / totalWords);
+    const grade = 0.39 * (totalWords / totalSentences) + 11.8 * (totalSyllables / totalWords) - 15.59;
+    return {
+      ease: Math.max(0, Math.min(120, Math.round(ease * 10) / 10)),
+      grade: Math.max(0, Math.round(grade * 10) / 10)
+    };
+  }
+
+  function getFKDescription(ease) {
+    if (ease === null) return 'Enter text to see readability score';
+    if (ease >= 90) return 'Very Easy — suitable for 5th graders';
+    if (ease >= 80) return 'Easy — suitable for 7th graders';
+    if (ease >= 70) return 'Fairly Easy — suitable for 9th graders';
+    if (ease >= 60) return 'Standard — suitable for general adult readers';
+    if (ease >= 50) return 'Fairly Difficult — suitable for college students';
+    if (ease >= 30) return 'Difficult — suitable for college graduates';
+    return 'Very Difficult — suitable for professional readers';
+  }
+
+  function analyze() {
+    const text = inputText.value;
+    const words = extractWords(text);
+    const sentences = splitSentences(text);
+    const totalWords = words.length;
+    const totalSentences = sentences.length;
+
+    const wordSyls = words.map(w => ({ word: w, syl: countSyllables(w) }));
+    const totalSyllables = wordSyls.reduce((s, ws) => s + ws.syl, 0);
+    const avgSyl = totalWords > 0 ? Math.round(totalSyllables / totalWords * 10) / 10 : 0;
+
+    document.getElementById('totalSyllables').textContent = totalSyllables;
+    document.getElementById('totalWords').textContent = totalWords;
+    document.getElementById('totalSentences').textContent = totalSentences;
+    document.getElementById('avgSyllables').textContent = avgSyl;
+
+    const fk = calcFK(totalWords, totalSentences, totalSyllables);
+    const fkScore = document.getElementById('fkScore');
+    const fkMeter = document.getElementById('fkMeter');
+    const fkGrade = document.getElementById('fkGrade');
+    const fkDesc = document.getElementById('fkDesc');
+
+    if (fk.ease !== null) {
+      fkScore.textContent = fk.ease + ' / 100';
+      fkMeter.style.width = Math.min(100, fk.ease) + '%';
+      const hue = (fk.ease / 100) * 120;
+      fkMeter.style.background = `hsl(${hue}, 70%, 50%)`;
+      fkGrade.textContent = fk.grade;
+      fkDesc.textContent = getFKDescription(fk.ease);
+    } else {
+      fkScore.textContent = '—';
+      fkMeter.style.width = '0%';
+      fkMeter.style.background = 'var(--text-secondary)';
+      fkGrade.textContent = '—';
+      fkDesc.textContent = 'Enter text to see readability score';
+    }
+
+    const wordCloud = document.getElementById('wordCloud');
+    if (totalWords === 0) {
+      wordCloud.innerHTML = '<div class="empty-state"><div class="icon">📝</div><p>Each word\'s syllable count appears here once you enter text</p></div>';
+    } else {
+      const seen = new Map();
+      wordSyls.forEach(ws => {
+        const key = ws.word.toLowerCase();
+        if (!seen.has(key)) seen.set(key, { word: ws.word, syl: ws.syl, count: 0 });
+        seen.get(key).count++;
+      });
+      const sylClass = (n) => n >= 5 ? 'syl-5p' : `syl-${n}`;
+      wordCloud.innerHTML = Array.from(seen.values()).map(w =>
+        `<span class="word-tag ${sylClass(w.syl)}"><span class="syl-count">${w.syl}</span>${w.word}${w.count > 1 ? ` ×${w.count}` : ''}</span>`
+      ).join('');
+    }
+
+    if (currentMode === 'haiku') {
+      const lines = text.split('\n').filter(l => l.trim().length > 0).slice(0, 3);
+      const haikuLines = document.getElementById('haikuLines');
+      if (lines.length < 3) {
+        haikuLines.innerHTML = '<div class="empty-state"><div class="icon">🎋</div><p>Enter three lines of text for Haiku analysis</p></div>';
+      } else {
+        const expected = [5, 7, 5];
+        haikuLines.innerHTML = lines.map((line, i) => {
+          const lineWords = extractWords(line);
+          const lineSyl = lineWords.reduce((s, w) => s + countSyllables(w), 0);
+          const match = lineSyl === expected[i];
+          return `<div class="haiku-line ${match ? 'match' : 'no-match'}">
+            <span class="haiku-line-num">L${i+1}</span>
+            <span class="haiku-line-text">${line.trim() || '&nbsp;'}</span>
+            <span class="haiku-line-syl">${lineSyl} / ${expected[i]} syl ${match ? '✅' : '❌'}</span>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    const topWordsBody = document.getElementById('topWordsBody');
+    if (totalWords === 0) {
+      topWordsBody.innerHTML = '<tr><td colspan="2"><div class="empty-state"><p>Enter text to see results</p></div></td></tr>';
+    } else {
+      const unique = new Map();
+      wordSyls.forEach(ws => {
+        const key = ws.word.toLowerCase();
+        if (!unique.has(key)) unique.set(key, { word: ws.word, syl: ws.syl });
+      });
+      const sorted = Array.from(unique.values()).sort((a, b) => b.syl - a.syl || a.word.localeCompare(b.word));
+      const sylBadgeClass = (n) => n >= 5 ? 'syl-5p' : `syl-${n}`;
+      topWordsBody.innerHTML = sorted.slice(0, 30).map(w =>
+        `<tr><td>${w.word}</td><td><span class="syl-badge ${sylBadgeClass(w.syl)} syl-count">${w.syl}</span></td></tr>`
+      ).join('');
+    }
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentMode = this.dataset.mode;
+      haikuCard.style.display = currentMode === 'haiku' ? 'block' : 'none';
+      analyze();
+    });
+  });
+
+  inputText.addEventListener('input', analyze);
+
+  clearBtn.addEventListener('click', function() {
+    inputText.value = '';
+    analyze();
+    inputText.focus();
+  });
+
+  copyStatsBtn.addEventListener('click', function() {
+    const syl = document.getElementById('totalSyllables').textContent;
+    const wrd = document.getElementById('totalWords').textContent;
+    const sen = document.getElementById('totalSentences').textContent;
+    const avg = document.getElementById('avgSyllables').textContent;
+    const fks = document.getElementById('fkScore').textContent;
+    const fkg = document.getElementById('fkGrade').textContent;
+    const text = `Syllable Counter Results:\nTotal Syllables: ${syl}\nTotal Words: ${wrd}\nTotal Sentences: ${sen}\nAverage Syllables/Word: ${avg}\nFlesch-Kincaid Reading Ease: ${fks}\nFlesch-Kincaid Grade Level: ${fkg}`;
+    navigator.clipboard.writeText(text).then(() => {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  });
+
+  analyze();
+})();
+</script>
+
+</body>
+</html>

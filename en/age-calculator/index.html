@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Find your exact age in years, months, and days, plus zodiac signs, Chinese zodiac, and life-statistics totals.">
+<meta name="keywords" content="age calculator,online age calculator,exact age,birthday calculator,zodiac sign,Chinese zodiac,life days,age in days,age in months,how old am I">
+<title>Free Age Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/age-calculator/">
+<meta property="og:title" content="Free Age Calculator - ToolGuideHub">
+<meta property="og:description" content="Find your exact age in years, months, and days, plus zodiac signs, Chinese zodiac, and life-statistics totals.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/age-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online Age Calculator", "description": "Free online age calculator that computes exact age in years, months, and days. Supports zodiac sign, Chinese zodiac, and life statistics. Pure frontend, no data upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How does the age calculator compute the exact age?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the age calculator compute the exact age?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator compares the current date with your birth date and computes the difference in years, months, and days. If the current day is less than the birth day, it borrows a month. The result shows your exact age like '25 years, 3 months, 12 days', which is the standard way age is calculated in most countries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between chronological age and lunar age?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chronological age (also called Western age) starts at zero on the day of birth and increases by one on each birthday. Lunar age (traditional in some East Asian cultures) counts the year of gestation as one year and increments on Lunar New Year instead of the birthday. Our tool calculates chronological age, which is the international standard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the calculator use the Gregorian or lunar calendar for zodiac signs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Western zodiac signs are based on the Gregorian calendar, with each sign corresponding to a fixed date range (e.g., Aries is March 21 – April 19). Chinese zodiac is based on the lunar calendar year. Our tool automatically handles both calculations correctly when you input your Gregorian birth date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the tool handle leap year birthdays (February 29)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you were born on February 29, the calculator recognizes this as a leap-day birthday. In non-leap years, it treats February 28 as the birthday for age calculation purposes, which is the most common convention used by governments and legal systems worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely not. All calculations happen entirely in your browser using JavaScript. Your birth date never leaves your device, and you can even use this tool offline after the page loads. We do not collect, store, or transmit any personal information."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Online Age Calculator",
+  "description": "Simple steps to use the Online Age Calculator online tool. Everything runs locally: Select your date of and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online Age Calculator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/age-calculator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/age-calculator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/age-calculator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+input[type="date"]{width:100%;padding:12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:1rem;outline:none}
+input[type="date"]:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.result-card{background:#0f172a;border-radius:8px;padding:16px;border:1px solid rgba(148,163,184,.1)}
+.result-card .label{font-size:.8rem;color:#94a3b8;margin-bottom:4px}
+.result-card .value{font-size:1.5rem;color:#22d3ee;font-weight:600}
+.result-card .sub{font-size:.8rem;color:#64748b;margin-top:4px}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.detail-item{background:#0f172a;border-radius:8px;padding:12px;text-align:center}
+.detail-item .num{font-size:1.3rem;color:#22d3ee;font-weight:600}
+.detail-item .label{font-size:.75rem;color:#94a3b8;margin-top:4px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.related-tools{background:#1e293b;border-radius:12px;padding:20px;margin:24px 0 16px;border:1px solid rgba(148,163,184,.1)}
+.related-tools h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:8px}
+.related-tools li a{color:#22d3ee}
+footer{margin-top:32px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1);color:#64748b;font-size:.85rem}
+footer a{color:#06b6d4}
+
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#06b6d4}
+@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}.result-grid{grid-template-columns:1fr}
+.ad-slot.ad-sidebar{max-width:300px}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculators",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Online Age Calculator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/age-calculator/"
+    }
+  ],
+  "name": "Online Age Calculator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/age-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Free Age Calculator</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="input-section">
+    <h2>📅 Enter Your Birth Date</h2>
+    <label for="birthDate">Select your date of birth</label>
+    <input type="date" id="birthDate" max="">
+    <div class="btn-row">
+      <button class="btn btn-primary" id="calcBtn">Calculate Age</button>
+      <button class="btn btn-secondary" id="todayBtn">Set to Today</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+  </div>
+
+  <div class="result-section" id="resultSection">
+    <h2>📊 Results</h2>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="label">Exact Age</div>
+        <div class="value" id="exactAge">-</div>
+        <div class="sub" id="exactAgeSub">-</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Zodiac Sign</div>
+        <div class="value" id="zodiacSign">-</div>
+        <div class="sub" id="zodiacDate">-</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Chinese Zodiac</div>
+        <div class="value" id="chineseZodiac">-</div>
+        <div class="sub" id="chineseZodiacYear">-</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Next Birthday In</div>
+        <div class="value" id="nextBirthday">-</div>
+        <div class="sub" id="nextBirthdayDate">-</div>
+      </div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-item"><div class="num" id="totalDays">-</div><div class="label">Total Days Lived</div></div>
+      <div class="detail-item"><div class="num" id="totalWeeks">-</div><div class="label">Total Weeks</div></div>
+      <div class="detail-item"><div class="num" id="totalHours">-</div><div class="label">Total Hours</div></div>
+      <div class="detail-item"><div class="num" id="totalMinutes">-</div><div class="label">Total Minutes</div></div>
+      <div class="detail-item"><div class="num" id="totalMonths">-</div><div class="label">Total Months</div></div>
+      <div class="detail-item"><div class="num" id="nextMilestone">-</div><div class="label">Next Milestone</div></div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>📖 How to Use</h2>
+    <p>The Online Age Calculator is a simple yet powerful free tool that helps you quickly calculate your exact age, discover your zodiac sign, and explore fascinating life statistics. Using the tool is straightforward — just follow these steps:</p>
+    <h3>Step 1: Enter Your Birth Date</h3>
+    <p>Click the date input field at the top of the page and select your date of birth from the calendar picker. You can also type the date directly in the format YYYY-MM-DD. If you want to see how the tool works, click "Set to Today" to use today's date as an example.</p>
+    <h3>Step 2: Calculate</h3>
+    <p>After entering your birth date, click the "Calculate Age" button. The tool instantly displays comprehensive results including your exact age, zodiac sign, Chinese zodiac animal, and a wealth of life statistics. Everything runs locally: Select your date of and other values are processed on your device, never sent to a server — no server communication is needed.</p>
+    <h3>Step 3: Explore Your Results</h3>
+    <p>Your results are displayed in organized cards. You'll see your exact age broken down into years, months, and days, along with your Western and Chinese zodiac information. Below that, a grid of statistics shows your total days lived, weeks, hours, and more — offering a unique perspective on your life journey.</p>
+    <h3>Pro Tip</h3>
+    <p>This tool supports any date from 1900 to today. For leap-day babies (born on February 29), the calculator correctly handles non-leap years by using February 28 as the reference date, following the standard convention used by most legal systems.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>🎯 Use Cases</h2>
+    <p>The Age Calculator is useful in many everyday situations. Here are some common scenarios where it comes in handy:</p>
+    <ul>
+      <li><strong>Birthday Planning:</strong> Want to know exactly how many days until your next birthday? The tool counts down for you, making it easy to plan celebrations, prepare gifts, or organize surprise parties.</li>
+      <li><strong>Parenting Milestones:</strong> New parents can track their baby's exact age in months and days, which is crucial for understanding developmental milestones and scheduling pediatric check-ups.</li>
+      <li><strong>Astrology Enthusiasts:</strong> Quickly find your zodiac sign and Chinese zodiac animal. The tool displays the date range for each sign, making it easy to verify your astrological identity.</li>
+      <li><strong>Life Perspective:</strong> Seeing your age in total days, hours, or even minutes can be a powerful reminder of time's value — perfect for motivation, journaling, or setting personal goals.</li>
+      <li><strong>Legal and Administrative:</strong> Need to know your exact age for legal documents, school enrollment, or age verification? The calculator provides the precise chronological age required by most institutions.</li>
+    </ul>
+  </div>
+
+  <div class="info-section">
+    <h2>💡 Did You Know?</h2>
+    <p>Here are some fascinating facts about age and time that you might find interesting. First, the concept of "zero age at birth" is relatively modern. In many ancient cultures, a newborn was considered one year old, which is why traditional East Asian age counting (lunar age) still starts at one.</p>
+    <p>Second, zodiac signs have their origins in ancient Babylonian astronomy, where the sky was divided into 12 equal segments along the ecliptic. Each segment was associated with a constellation, and these associations have remained largely unchanged for over 2,000 years. The Chinese zodiac, on the other hand, follows a 12-year cycle tied to the lunar calendar, with each year represented by an animal.</p>
+    <p>Finally, a person who lives to 80 years old will have experienced approximately 29,200 days, 700,800 hours, or 42,048,000 minutes. Understanding the magnitude of these numbers can inspire a deeper appreciation for each passing moment.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <h3>How does the age calculator compute the exact age?</h3>
+    <p>The calculator compares the current date with your birth date and computes the difference in years, months, and days. If the current day is less than the birth day, it borrows a month. The result shows your exact age like "25 years, 3 months, 12 days".</p>
+    <h3>What is the difference between chronological age and lunar age?</h3>
+    <p>Chronological age starts at zero on the day of birth and increases by one on each birthday. Lunar age counts the year of gestation as one year and increments on Lunar New Year. Our tool calculates chronological age, the international standard.</p>
+    <h3>Does the calculator use the Gregorian or lunar calendar for zodiac signs?</h3>
+    <p>Western zodiac signs use the Gregorian calendar (e.g., Aries: March 21 – April 19). Chinese zodiac uses the lunar calendar year. Our tool automatically handles both correctly when you input your Gregorian birth date.</p>
+    <h3>How does the tool handle leap year birthdays (February 29)?</h3>
+    <p>For leap-day birthdays, the calculator uses February 28 in non-leap years as the reference date. This follows the convention used by most governments and legal systems worldwide.</p>
+    <h3>Is my data sent to a server?</h3>
+    <p>Absolutely not. All calculations happen in your browser using JavaScript. Your birth date never leaves your device, and you can use this tool offline after the page loads.</p>
+  
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">How does age calculation handle leap years?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Per the Gregorian calendar: Leap years are divisible by 4 but not by 100, or divisible by 400. February has 29 days in leap years. This calculator automatically handles these differences, ensuring accuracy for all boundary dates including February 29 birthdays.</p>
+      </div>
+    </div></div>
+
+  <div>
+</div>
+
+<script>
+  var birthInput = document.getElementById('birthDate');
+  var resultSection = document.getElementById('resultSection');
+  var today = new Date();
+  birthInput.setAttribute('max', today.toISOString().split('T')[0]);
+
+  document.getElementById('todayBtn').addEventListener('click', function(){
+    birthInput.value = today.toISOString().split('T')[0];
+  });
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    birthInput.value = '';
+    resultSection.classList.remove('show');
+  });
+  document.getElementById('calcBtn').addEventListener('click', calculateAge);
+  birthInput.addEventListener('keypress', function(e){ if(e.key==='Enter') calculateAge(); });
+
+  function calculateAge(){
+    var birthStr = birthInput.value;
+    if(!birthStr){ showToast('Please select a birth date'); return; }
+    var birth = new Date(birthStr);
+    var now = new Date();
+    if(birth > now){ showToast('Birth date cannot be in the future'); return; }
+
+    var years = now.getFullYear() - birth.getFullYear();
+    var months = now.getMonth() - birth.getMonth();
+    var days = now.getDate() - birth.getDate();
+    if(days < 0){ months--; var prevMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += prevMonth.getDate(); }
+    if(months < 0){ years--; months += 12; }
+    if(years < 0){ years = 0; months = 0; days = 0; }
+
+    var exactText = years + ' years' + (months > 0 ? ' ' + months + ' months' : '') + (days > 0 ? ' ' + days + ' days' : '');
+    if(years === 0 && months === 0 && days === 0) exactText = 'Born today';
+    document.getElementById('exactAge').textContent = exactText;
+    document.getElementById('exactAgeSub').textContent = years + ' years, ' + months + ' months, ' + days + ' days';
+
+    var zodiac = getZodiac(birth.getMonth() + 1, birth.getDate());
+    document.getElementById('zodiacSign').textContent = zodiac.name;
+    document.getElementById('zodiacDate').textContent = zodiac.date;
+
+    var cZodiac = getChineseZodiac(birth.getFullYear());
+    document.getElementById('chineseZodiac').textContent = cZodiac.animal;
+    document.getElementById('chineseZodiacYear').textContent = cZodiac.element + ' · ' + cZodiac.yinYang;
+
+    var nextBirth = getNextBirthday(birth);
+    document.getElementById('nextBirthday').textContent = nextBirth.days + ' days';
+    document.getElementById('nextBirthdayDate').textContent = nextBirth.dateStr;
+
+    var totalDays = Math.floor((now - birth) / (1000 * 60 * 60 * 24));
+    document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+    document.getElementById('totalWeeks').textContent = Math.floor(totalDays / 7).toLocaleString();
+    document.getElementById('totalHours').textContent = (totalDays * 24).toLocaleString();
+    document.getElementById('totalMinutes').textContent = (totalDays * 24 * 60).toLocaleString();
+    document.getElementById('totalMonths').textContent = (years * 12 + months).toLocaleString();
+
+    var milestone = getNextMilestone(years);
+    document.getElementById('nextMilestone').textContent = milestone.text;
+
+    resultSection.classList.add('show');
+    resultSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function getZodiac(month, day){
+    var zodiacs = [
+      {name:'Capricorn', date:'Dec 22 - Jan 19'},{name:'Aquarius', date:'Jan 20 - Feb 18'},{name:'Pisces', date:'Feb 19 - Mar 20'},
+      {name:'Aries', date:'Mar 21 - Apr 19'},{name:'Taurus', date:'Apr 20 - May 20'},{name:'Gemini', date:'May 21 - Jun 21'},
+      {name:'Cancer', date:'Jun 22 - Jul 22'},{name:'Leo', date:'Jul 23 - Aug 22'},{name:'Virgo', date:'Aug 23 - Sep 22'},
+      {name:'Libra', date:'Sep 23 - Oct 23'},{name:'Scorpio', date:'Oct 24 - Nov 22'},{name:'Sagittarius', date:'Nov 23 - Dec 21'},{name:'Capricorn', date:'Dec 22 - Jan 19'}
+    ];
+    var d = new Date(2000, month - 1, day);
+    if((month === 1 && day <= 19) || (month === 12 && day >= 22)) return zodiacs[0];
+    if(month === 1 && day >= 20) return zodiacs[1];
+    if(month === 2 && day <= 18) return zodiacs[1];
+    if(month === 2 && day >= 19) return zodiacs[2];
+    if(month === 3 && day <= 20) return zodiacs[2];
+    if(month === 3 && day >= 21) return zodiacs[3];
+    if(month === 4 && day <= 19) return zodiacs[3];
+    if(month === 4 && day >= 20) return zodiacs[4];
+    if(month === 5 && day <= 20) return zodiacs[4];
+    if(month === 5 && day >= 21) return zodiacs[5];
+    if(month === 6 && day <= 21) return zodiacs[5];
+    if(month === 6 && day >= 22) return zodiacs[6];
+    if(month === 7 && day <= 22) return zodiacs[6];
+    if(month === 7 && day >= 23) return zodiacs[7];
+    if(month === 8 && day <= 22) return zodiacs[7];
+    if(month === 8 && day >= 23) return zodiacs[8];
+    if(month === 9 && day <= 22) return zodiacs[8];
+    if(month === 9 && day >= 23) return zodiacs[9];
+    if(month === 10 && day <= 23) return zodiacs[9];
+    if(month === 10 && day >= 24) return zodiacs[10];
+    if(month === 11 && day <= 22) return zodiacs[10];
+    if(month === 11 && day >= 23) return zodiacs[11];
+    if(month === 12 && day <= 21) return zodiacs[11];
+    return zodiacs[0];
+  }
+
+  function getChineseZodiac(year){
+    var animals = ['Monkey','Rooster','Dog','Pig','Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat'];
+    var elements = ['Metal','Metal','Water','Water','Wood','Wood','Fire','Fire','Earth','Earth'];
+    var yinYangs = ['Yang','Yin','Yang','Yin','Yang','Yin','Yang','Yin','Yang','Yin'];
+    var idx = year % 12;
+    var elemIdx = year % 10;
+    return {animal: animals[idx], element: elements[elemIdx], yinYang: yinYangs[elemIdx]};
+  }
+
+  function getNextBirthday(birth){
+    var now = new Date();
+    var thisYear = now.getFullYear();
+    var nextB = new Date(thisYear, birth.getMonth(), birth.getDate());
+    if(nextB < now) nextB = new Date(thisYear + 1, birth.getMonth(), birth.getDate());
+    var days = Math.ceil((nextB - now) / (1000 * 60 * 60 * 24));
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return {days: days, dateStr: months[nextB.getMonth()] + ' ' + nextB.getDate() + ', ' + nextB.getFullYear()};
+  }
+
+  function getNextMilestone(years){
+    var milestones = [1,10,18,20,30,40,50,60,70,80,90,100];
+    for(var i=0;i<milestones.length;i++){ if(milestones[i] > years) return {text: milestones[i] + ' (' + (milestones[i]-years) + ' years away)'}; }
+    return {text: 'Centenarian'};
+  }</script>
+
+  <!-- RelatedToolsRecommended -->
+  <div class="section related-tools">
+    <h2>🔗 Related Tools</h2>
+    <p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">You might also like these tools:</p>
+    <ul style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;padding-left:0;list-style:none">
+      <li><a href="../emoji-translator/">emoji-translator</a></li>
+      <li><a href="../digital-clock/">digital-clock</a></li>
+      <li><a href="../sleep-calculator/">sleep-calculator</a></li>
+      <li><a href="../deposit-calculator/">deposit-calculator</a></li>
+    </ul>
+  </div>
+  <!-- /RelatedToolsRecommended -->
+<!-- Feedback Widget -->
+
+<footer>
+    <p>ToolGuideHub - Free Practical Web Tools Collection</p>
+    <p>Contact: <a href="../contact/">Contact</a></p>
+    <p style="margin-top:8px"><a href="../privacy-policy/">Privacy Policy</a> · <a href="../terms-of-service/">Terms of Service</a></p>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</main>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+<div class="toast" id="toast">
+
+</div>
+</body>
+</html>

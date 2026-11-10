@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Calculator (Blood Alcohol Content) - ToolGuideHub</title>
+    <meta name="description" content="Estimate blood alcohol content after drinking with the Widmark formula, and see roughly how long until you sober up.">
+    <meta property="og:title" content="BAC Calculator (Blood Alcohol Content) - ToolGuideHub">
+    <meta property="og:description" content="Estimate blood alcohol content after drinking with the Widmark formula, and see roughly how long until you sober up.">
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/bac-calculator/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BAC Calculator (Blood Alcohol Content) - ToolGuideHub">
+    <meta name="twitter:description" content="Free online bac calculator (blood alcohol content) tool. Fast, secure, and no registration required. Works entirely in your browser.">
+    <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/bac-calculator/">
+                <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "BAC Calculator (Blood Alcohol Content)",
+        "description": "Estimate your Blood Alcohol Content (BAC) after drinking. Uses the Widmark formula — enter weight, gender, drinks, and time to calculate BAC and estimated sobriety time.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "url": "https://adi63586.github.io/Toolguidehub/en/bac-calculator/",
+        "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+            {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"},
+            {"@type": "ListItem", "position": 3, "name": "BAC Calculator (Blood Alcohol Content)"}
+        ]
+    }
+    </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Bac Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Bac Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Bac Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Gender and Weight are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Bac Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Bac Calculator","description":"Step-by-step guide for using Bac Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Bac Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+    
+    <style>:root{--text-light:#94a3b8;--shadow:0 1px 3px rgba(0,0,0,.3);--primary-light:rgba(6,182,212,.15);}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+        header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:12px 0;position:sticky;top:0;z-index:100}
+        .header-inner{max-width:800px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+        .logo{font-weight:700;font-size:1.2rem;color:#22d3ee;text-decoration:none;display:flex;align-items:center;gap:8px}
+        .lang-switch{color:var(--text-light);text-decoration:none;font-size:.9rem;font-weight:500}
+        .lang-switch:hover{color:#22d3ee}
+        main{max-width:800px;margin:0 auto;padding:24px 20px 48px}
+        h1{font-size:1.5rem;font-weight:700;margin-bottom:8px;color:#e2e8f0}
+        .subtitle{color:var(--text-light);font-size:.95rem;margin-bottom:24px}
+        .section{background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1);padding:24px;box-shadow:var(--shadow);margin-bottom:16px}
+        .section h2{font-size:1.1rem;font-weight:600;margin-bottom:16px;color:#e2e8f0}
+        .form-group{margin-bottom:16px}
+        .form-group label{display:block;font-size:.9rem;font-weight:500;color:#e2e8f0;margin-bottom:6px}
+        .form-group input,.form-group select{width:100%;padding:10px 14px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.95rem;color:#e2e8f0;background:#0f172a;transition:border-color .2s}
+        .form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px var(--primary-light)}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+        .btn-primary{background:#22d3ee;color:#fff}
+        .btn-primary:hover{background:#0891b2;transform:translateY(-1px)}
+        .btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1)}
+        .btn-secondary:hover{background:rgba(148,163,184,.1)}
+        .btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+        .result{margin-top:20px;padding:16px;background:var(--primary-light);border-radius:8px;font-size:1.1rem;font-weight:600;color:#22d3ee;display:none}
+        .result.show{display:block}
+        .result-label{font-size:.85rem;font-weight:400;color:var(--text-light);display:block;margin-bottom:4px}
+        footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+        footer a{color:#64748b;margin:0 8px;text-decoration:none}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:.9rem;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+        .toast.show{opacity:1}
+        @media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.section{padding:16px}.btn{padding:8px 14px;font-size:.85rem}main{padding:16px 12px}}
+    
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/bac-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="../../" class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                ToolGuideHub
+            </a>
+            <a href="../../en/bac-calculator/" class="lang-switch">中文</a>
+        </div>
+    </header>
+    <main>
+        <h1>BAC Calculator (Blood Alcohol Content)</h1>
+        <p class="subtitle">Estimate your Blood Alcohol Content (BAC) after drinking. Uses the Widmark formula — enter weight, gender, drinks, and time to calculate BAC and estimated sobriety time.</p>
+        <div class="section">
+            <h2>Calculator</h2>
+            <div class="form-group">
+                <label>Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Weight (kg)</label>
+                <input type="number" id="weight" placeholder="e.g. 70" min="30" max="300">
+            </div>
+            <div class="form-group">
+                <label>Drinks (standard, 1 drink ≈ 14g alcohol)</label>
+                <input type="number" id="drinks" placeholder="e.g. 3" min="0" max="50" step="0.5">
+            </div>
+            <div class="form-group">
+                <label>Hours Since Drinking</label>
+                <input type="number" id="hours" placeholder="e.g. 1.5" min="0" max="48" step="0.1" value="0">
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" id="calcBtn">Calculate</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+            <div class="result" id="result">
+                <span class="result-label">Result:</span>
+                <span id="resultValue"></span>
+            </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+        </div>
+    
+<h2>What is BAC Calculator (Blood Alcohol Content)?</h2><p>BAC Calculator (Blood Alcohol Content) is a free online tool that runs entirely in your browser. No download or signup needed — enter Gender and Weight to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Estimate your blood alcohol content before driving</li><li>Understand how weight, gender, and drinks affect BAC</li><li>Estimate how long until your BAC reaches zero</li><li>Learn the Widmark formula used by professionals</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Widmark Formula: Industry-standard estimation</li><li>Instant Results: BAC, status, and sober time</li></ul>
+</main>
+    
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../one-rep-max/">💪 One Rep Max Calculator</a><a href="../a1c-calculator/">🩸 HbA1c Calculator</a><a href="../calorie-deficit-calculator/">🔥 Calorie Deficit Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/bac-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+    <div class="toast" id="toast"></div>
+    <script>
+    
+const toast = s => {{ const e = document.getElementById('toast'); e.textContent = s; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 2000); }};
+const copy = s => {{ navigator.clipboard.writeText(s).then(() => toast('Copied!')).catch(() => toast('Copy failed')); }};
+
+document.getElementById('calcBtn').addEventListener('click', () => {{
+    const gender = document.getElementById('gender').value;
+    const weight = parseFloat(document.getElementById('weight').value);
+    const drinks = parseFloat(document.getElementById('drinks').value);
+    const hours = parseFloat(document.getElementById('hours').value) || 0;
+    if (isNaN(weight) || isNaN(drinks)) {{ toast('Please fill required fields'); return; }}
+    // Widmark formula
+    const r = gender === 'male' ? 0.68 : 0.55;
+    const alcoholGrams = drinks * 14;
+    const bac = Math.max(0, (alcoholGrams / (weight * 1000 * r) * 100 - hours * 0.015));
+    const bacPct = (bac * 100).toFixed(3);
+    const toZero = bac > 0 ? (bac / 0.015).toFixed(1) : "0";
+    let level;
+    if (bac === 0) level = 'No Alcohol';
+    else if (bac < 0.03) level = 'Mostly Sober';
+    else if (bac < 0.05) level = 'Slightly Affected';
+    else if (bac < 0.08) level = 'Clearly Impaired (DUI limit in most countries)';
+    else if (bac < 0.15) level = 'Significantly Intoxicated';
+    else level = 'Severely Intoxicated';
+    const msg = `BAC: ${{bacPct}}%  | Status: ${{level}}  | Est. time to sober: ${{toZero}} hours`;
+    document.getElementById('resultValue').textContent = msg;
+    document.getElementById('result').classList.add('show');
+    document.getElementById('resultValue').onclick = () => copy(msg);
+    document.getElementById('resultValue').style.cursor = 'pointer';
+    document.getElementById('resultValue').title = 'Click to copy result';
+}});
+
+document.getElementById('resetBtn').addEventListener('click', () => {{
+    document.getElementById('weight').value = '';
+    document.getElementById('drinks').value = '';
+    document.getElementById('hours').value = '0';
+    document.getElementById('result').classList.remove('show');
+}});
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

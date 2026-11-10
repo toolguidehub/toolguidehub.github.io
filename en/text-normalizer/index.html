@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Normalise messy text by converting smart quotes, unifying dashes, collapsing whitespace, fixing line breaks and removing zero-width characters.">
+<meta name="keywords" content="text normalizertext normalizationtext cleanertext formattersmart quotes converterunicode normalizertext standardizer">
+<title>Free Online Text Normalizer | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/text-normalizer/">
+<meta property="og:title" content="Text Normalizer">
+<meta property="og:description" content="Normalise messy text by converting smart quotes, unifying dashes, collapsing whitespace, fixing line breaks and removing zero-width characters.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/text-normalizer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Text Normalizer", "description": "Free online text normalizer. One-click normalize text formatting. Supports smart quotes conversion, dash unification, extra whitespace cleanup, line break normalization, zero-width character removal. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Do I need to upload data?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to upload data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All normalization is done entirely in your browser. Your text is never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What normalization features are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smart quotes conversion (''\"\"→'\" ), dash unification (various dashes→standard hyphen), extra whitespace cleanup, line break normalization (CRLF→LF), zero-width character removal, punctuation unification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are zero-width characters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero-width characters are invisible Unicode characters (e.g., U+200B zero-width space, U+200D zero-width joiner) often introduced when copying from web pages. They can cause text processing issues and are automatically removed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why convert smart quotes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Text copied from web pages, PDFs, or Word often contains curly/smart quotes ('' \"\"), which can cause problems in programming or certain systems. The tool converts them to straight quotes (' \")."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free. No registration or payment required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I copy the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Normalized text supports one-click copy to clipboard or download as .txt file."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.content-section ul{padding-left:20px;color:#94a3b8;font-size:.9rem}
+.content-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/#online-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Text Normalizer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/text-normalizer/"
+    }
+  ],
+  "name": "Text Normalizer"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/text-normalizer/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Text Normalizer","description":"Step-by-step guide for using Text Normalizer","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Text Normalizer"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>Text Normalizer</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Tools Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div class="ad-slot">Ad Space (Top)</div>
+
+<div class="tool-section" id="input">
+<h2>Text Normalizer</h2>
+
+<div style="margin-bottom:12px">
+<label style="font-size:.85rem;color:#94a3b8;display:block;margin-bottom:6px">Enter text to normalize:</label>
+<textarea id="normInput" placeholder='Paste text with inconsistent formatting...' style="width:100%;height:180px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#e2e8f0;font-size:.85rem;resize:vertical;outline:none;font-family:monospace;white-space:pre;overflow:auto">This is a sample text with “smart quotes” and extra spaces.
+
+It also has mixed line breaks and non-breaking spaces.
+
+Some text with — different — dashes - and more...</textarea>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optSQ" checked> Smart quotes → straight</label>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optDash" checked> Unify dashes</label>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optSpace" checked> Clean extra spaces</label>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optLB" checked> Unify line breaks</label>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optZW" checked> Remove zero-width chars</label>
+<label style="display:flex;align-items:center;gap:6px;color:#94a3b8;font-size:.85rem;background:#1e293b;padding:6px 10px;border-radius:6px;border:1px solid rgba(148,163,184,.1)"><input type="checkbox" id="optPunct" checked> Unify punctuation</label>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+<button id="normalizeBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)">✨ Normalize</button>
+<button id="clearBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">Clear</button>
+<button id="sampleBtn" style="padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">📋 Load Sample</button>
+</div>
+<div id="result" style="display:none">
+<label style="font-size:.85rem;color:#94a3b8;display:block;margin-bottom:6px">Normalized result:</label>
+<textarea id="normOutput" readonly style="width:100%;min-height:120px;background:#0f172a;border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px;color:#e2e8f0;font-size:.85rem;resize:vertical;outline:none;font-family:inherit;line-height:1.5"></textarea>
+<div id="changesReport" style="margin-top:8px;padding:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px;font-size:.8rem;color:#22c55e;line-height:1.5"></div>
+<div style="display:flex;gap:8px;margin-top:8px">
+<button id="copyBtn" style="padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">📋 Copy</button>
+<button id="downloadBtn" style="padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)">⬇️ Download TXT</button>
+</div>
+</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+<div id="errorMsg" style="display:none;margin-top:12px;padding:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;color:#ef4444;font-size:.85rem"></div>
+<script>
+var i=document.getElementById('normInput'),b=document.getElementById('normalizeBtn'),cl=document.getElementById('clearBtn'),s=document.getElementById('sampleBtn'),r=document.getElementById('result'),o=document.getElementById('normOutput'),cb=document.getElementById('copyBtn'),db=document.getElementById('downloadBtn'),e=document.getElementById('errorMsg'),cr=document.getElementById('changesReport');
+var ERR_EMPTY='Please enter text content';
+var TXT_COPIED='✅ Copied',TXT_COPY='📋 Copy';
+function normalize(){
+var txt=i.value;if(!txt.trim()){showToast(ERR_EMPTY);return}
+try{
+var changes=[];
+var original=txt;
+				// Smart quotes
+				if(document.getElementById('optSQ').checked){
+				var sqCount=(txt.match(/[“”]/g)||[]).length;
+				txt=txt.replace(/[“”]/g,'"').replace(/[‘’]/g,"'''");
+				if(sqCount>0)changes.push('  ✅ Smart quotes: '+sqCount+' replaced');
+				}
+// Dashes
+if(document.getElementById('optDash').checked){
+var dashCount=(txt.match(/[–—―]/g)||[]).length;
+txt=txt.replace(/[–—―]/g,'-');
+if(dashCount>0)changes.push('  ✅ Dashes: '+dashCount+' unified');
+}
+// Extra spaces
+if(document.getElementById('optSpace').checked){
+var before=txt.length;
+txt=txt.replace(/[\t ]+/g,' ').replace(/^ +/gm,'').replace(/ +$/gm,'');
+txt=txt.replace(/[\u00A0\u2000-\u200A\u202F\u205F\u3000]/g,' ');
+var after=txt.length;
+if(before!==after)changes.push('  ✅ Extra spaces: '+(before-after)+' chars removed');
+}
+// Line breaks
+if(document.getElementById('optLB').checked){
+var lbBefore=(txt.match(/\r\n/g)||[]).length+(txt.match(/\r(?!\n)/g)||[]).length;
+txt=txt.replace(/\r\n/g,'\n').replace(/\r/g,'\n').replace(/\n{3}/g,'\n\n');
+if(lbBefore>0)changes.push('  ✅ Line breaks: unified to LF');
+}
+// Zero-width chars
+if(document.getElementById('optZW').checked){
+var zwRegex=/[\u200B-\u200D\uFEFF\u2060\u2061\u2062\u2063\u2064\u180E]/g;
+var zwCount=(txt.match(zwRegex)||[]).length;
+txt=txt.replace(zwRegex,'');
+if(zwCount>0)changes.push('  ✅ Zero-width chars: '+zwCount+' removed');
+}
+// Punctuation
+if(document.getElementById('optPunct').checked){
+var before=txt.length;
+txt=txt.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"');
+txt=txt.replace(/[\u2026]/g,'...').replace(/[\u2022]/g,'-').replace(/[\u00B7]/g,'*');
+var after=txt.length;
+}
+o.value=txt;
+if(changes.length>0){cr.innerHTML='📊 Changes:<br>'+changes.join('<br>')}else{cr.innerHTML='ℹ️ No changes needed'}
+r.style.display='block';e.style.display='none'
+}catch(ex){e.style.display='block';e.textContent='Error: '+ex.message;r.style.display='none'}
+}
+b.addEventListener('click',normalize);
+cl.addEventListener('click',function(){i.value='';r.style.display='none';e.style.display='none'});
+s.addEventListener('click',function(){i.value='This is a  sample   text with \u201Csmart quotes\u201D and extra   spaces.\n\nIt also has mixed\r\nline\rbreaks and\u00A0non-breaking\u00A0spaces.\n\nSome text with \u2014 different \u2014 dashes -- and more \u2014 characters.\n\nText with\u200Bzero-width\u200Ccharacters\uFEFFthat are invisible.\n\n\u201CCurly quotes\u201D and \u2018single quotes\u2019 should be normalized.'});
+cb.addEventListener('click',function(){navigator.clipboard.writeText(o.value).then(function(){cb.textContent=TXT_COPIED;setTimeout(function(){cb.textContent=TXT_COPY},2000)})});
+db.addEventListener('click',function(){var b=new Blob([o.value],{type:'text/plain'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='normalized-text.txt';a.click();URL.revokeObjectURL(u)});
+</script>
+</div>
+
+<div class="content-section" id="options">
+<h2>📖 How to Use</h2>
+<p>Paste text to normalize, select the normalization options you want to apply, and click &#39;Normalize&#39;. The tool processes the text step by step according to selected options, showing changes made.</p>
+</div>
+
+<div class="content-section">
+<h2>⚡ How It Works</h2>
+<p>Uses regex and Unicode character mapping for text normalization. Smart quotes are replaced through character mapping; extra whitespace is cleaned via regex; zero-width characters are detected and removed by Unicode range; line breaks are unified (CRLF→LF, CR→LF).</p>
+</div>
+
+<div class="content-section">
+<h2>💼 Use Cases</h2>
+<p>Clean formatting when copying from web pages; unify text formats from different sources; prepare text data for programming; clean content from PDF/Word; standardize user-input text data.</p>
+</div>
+
+<div class="content-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><div class="q">❓ Do I need to upload data?</div><div class="a">No. All normalization is done entirely in your browser. Your text is never uploaded to any server.</div></div>
+<div class="faq-item"><div class="q">❓ What normalization features are available?</div><div class="a">Smart quotes conversion (&#39;&#39;&quot;&quot;→&#39;&quot; ), dash unification (various dashes→standard hyphen), extra whitespace cleanup, line break normalization (CRLF→LF), zero-width character removal, punctuation unification.</div></div>
+<div class="faq-item"><div class="q">❓ What are zero-width characters?</div><div class="a">Zero-width characters are invisible Unicode characters (e.g., U+200B zero-width space, U+200D zero-width joiner) often introduced when copying from web pages. They can cause text processing issues and are automatically removed.</div></div>
+<div class="faq-item"><div class="q">❓ Why convert smart quotes?</div><div class="a">Text copied from web pages, PDFs, or Word often contains curly/smart quotes (&#39;&#39; &quot;&quot;), which can cause problems in programming or certain systems. The tool converts them to straight quotes (&#39; &quot;).</div></div>
+<div class="faq-item"><div class="q">❓ Is this tool free?</div><div class="a">Yes, completely free. No registration or payment required.</div></div>
+<div class="faq-item"><div class="q">❓ Can I copy the result?</div><div class="a">Yes. Normalized text supports one-click copy to clipboard or download as .txt file.</div></div>
+
+</div>
+
+<div class="content-section">
+<h2>🔗 Related Tools</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+<a href="../text-case/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Text Case</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">TextSizewrite</span></a>
+<a href="../text-cleaner/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Text Cleaner</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Textcleanup</span></a>
+<a href="../text-formatter/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Text Formatter</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">TextFormat</span></a>
+<a href="../unicode-converter/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Unicode Converter</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px">Unicode</span></a>
+<a href="../smart-quotes-converter/" style="display:block;padding:12px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85rem;transition:all .2s" onmouseover="this.style.borderColor='rgba(6,182,212,.5)'" onmouseout="this.style.borderColor='rgba(148,163,184,.15)'"><span style="font-size:1.1rem">🔧</span><span style="display:block;font-weight:500;margin-top:4px">Quotes Converter</span><span style="display:block;color:#64748b;font-size:.75rem;margin-top:2px"> No.Convert</span></a>
+
+</div>
+</div>
+
+<div class="ad-slot">Ad Space (Bottom)</div>
+
+<div>
+</div>
+
+<!-- Feedback -->
+<div class="seo-content"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px"><a href="../../en/text-comparison/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">✏️ Text Comparison</a><a href="../../en/text-rewriter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">✏️ Text Rewriter</a><a href="../../en/price-after-discount/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">✏️ Price After Discount</a><a href="../../en/countdown-timer-online/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">✏️ Countdown Timer Online</a><a href="../../en/rich-text-editor/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px">✏️ Rich Text Editor</a></div></div>
+
+</main>
+<footer>
+<p>Online Tools Suite | No Signup, Client-Side · Privacy First</p>
+<p>Contact：<a href="../contact/">Contact</a></p>
+<p><a href="../../">Home</a> · <a href="../privacy-policy/">Privacy Policy</a> · <a href="../terms-of-service/">Terms of Service</a></p>
+<p style="margin-top:8px;font-size:.75rem;color:#475569">© 2026 Online Tools Suite All Rights Reserved</p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+var type=document.getElementById('feedback-type').value;
+var typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+var title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+var body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+<div class="toast" id="toast"></div>
+</body>
+</html>

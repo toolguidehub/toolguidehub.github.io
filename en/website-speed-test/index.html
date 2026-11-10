@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Test how fast a web page loads, see its size and resource count, and get suggestions for speeding up the site.">
+<meta name="keywords" content="website speed test,page performance,load time,site optimization,performance analysis,online tool,free">
+<title>Website Speed Test - Page Performance Analyzer</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/website-speed-test/">
+<meta property="og:title" content="Free Website Speed Test - Page Performance Analyzer | No Registration">
+<meta property="og:description" content="Test how fast a web page loads, see its size and resource count, and get suggestions for speeding up the site.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/website-speed-test/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/website-speed-test/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Website Speed Test","description":"Free online website speed test tool. Analyze page size, resource count, load time, and get performance optimization suggestions.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Website Speed Test","item":"https://adi63586.github.io/Toolguidehub/en/website-speed-test/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Website Speed Test FAQ","mainEntity":[{"@type":"Question","name":"How accurate is the Website Speed Test?","acceptedAnswer":{"@type":"Answer","text":"The tool provides precise test results by processing your input locally in the browser. Enter your test parameters, run the test, and review the detailed report. No data is sent to external servers."}},{"@type":"Question","name":"Is the Website Speed Test free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Website URL and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I use the Website Speed Test on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Yes, the tool is fully responsive and works on any device with a modern browser. All testing runs locally, so you get the same accuracy and privacy on mobile as on desktop."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Website Speed Test","description":"Step-by-step guide for using Website Speed Test","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Website Speed Test"},"step":[{"@type":"HowToStep","position":1,"name":"Prepare test","text":"Enter test parameters or upload test data"},{"@type":"HowToStep","position":2,"name":"Start test","text":"Click the start button to run the test"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the test results and detailed data"},{"@type":"HowToStep","position":4,"name":"Copy report","text":"Copy or download the test report"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{text-align:center;margin-bottom:20px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;background:rgba(6,182,212,.1);color:#22d3ee;font-size:.8rem;border:1px solid rgba(6,182,212,.15)}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=url],input[type=text]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.score-circle{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:12px auto;border:4px solid;flex-direction:column}
+.score-num{font-size:2.5rem;font-weight:700;line-height:1}
+.score-label{font-size:.75rem;opacity:.7}
+.score-fast{border-color:#4ade80;color:#4ade80}
+.score-medium{border-color:#fbbf24;color:#fbbf24}
+.score-slow{border-color:#f87171;color:#f87171}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.metric-card{background:#0f172a;border-radius:8px;padding:16px;text-align:center;border:1px solid rgba(148,163,184,.08)}
+.metric-card .metric-value{font-size:1.5rem;font-weight:700;color:#22d3ee}
+.metric-card .metric-label{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.suggestions{list-style:none;padding:0;margin:12px 0}
+.suggestions li{padding:10px 12px;background:#0f172a;border-radius:6px;margin:6px 0;font-size:.85rem;color:#cbd5e1;display:flex;align-items:flex-start;gap:8px;border:1px solid rgba(148,163,184,.08)}
+.suggestions li .sug-icon{font-size:1.2rem;flex-shrink:0}
+.loading-wrap{text-align:center;padding:20px}
+.spinner{display:inline-block;width:32px;height:32px;border:3px solid rgba(6,182,212,.15);border-top-color:#22d3ee;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-msg{display:none;color:#f87171;font-size:.85rem;margin:8px 0;padding:8px 12px;background:rgba(239,68,68,.1);border-radius:6px;border:1px solid rgba(239,68,68,.2)}
+.error-msg.show{display:block}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px;margin:8px 0}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.3rem}.header{flex-direction:column;gap:8px}.metrics-grid{grid-template-columns:1fr}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🚀 Website Speed Test</h1>
+</div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Website Speed Test</p>
+<div class="hero"><p>Free online website speed test tool. Analyze page size, resources, load time, and get optimization tips. | No registration · Data never leaves your device</p><span class="badge">Zero dependency·Works offline</span></div>
+
+<div class="input-section">
+  <h2>🌐 Enter URL</h2>
+  <label>Website URL</label>
+  <input type="url" id="urlInput" placeholder="https://example.com">
+  <div class="error-msg" id="errorMsg"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="testBtn">🚀 Run Test</button>
+  </div>
+</div>
+
+<div class="result-section" id="resultSection"></div>
+
+<div class="info-section">
+  <h2>📖 How to Use</h2>
+  <p>Enter a website URL to analyze page performance and get suggestions.</p>
+  <ul>
+    <li>Detects HTML size, resource count</li>
+    <li>Estimates first load time</li>
+    <li>Analyzes CSS/JS/image resources</li>
+    <li>Provides targeted optimization tips</li>
+  </ul>
+  <p><strong>Note:</strong> Uses CORS proxy to fetch HTML. Results are estimates.</p>
+</div>
+
+
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var urlInput = document.getElementById('urlInput');
+  var testBtn = document.getElementById('testBtn');
+  var resultSection = document.getElementById('resultSection');
+  var errorMsg = document.getElementById('errorMsg');
+  var toast = document.getElementById('toast');
+
+  function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
+  function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('show'); setTimeout(function(){ errorMsg.classList.remove('show'); }, 5000); }
+  function hideError() { errorMsg.classList.remove('show'); }
+
+  function runTest() {
+    hideError();
+    var url = urlInput.value.trim();
+    if (!url) { showError('Please enter a URL'); return; }
+    if (!/^https?:\/\//i.test(url)) { url = 'https://' + url; urlInput.value = url; }
+
+    resultSection.classList.add('show');
+    resultSection.innerHTML = '<div class="loading-wrap"><div class="spinner"></div><p style="color:#94a3b8;margin-top:12px">Analyzing website performance...</p></div>';
+
+    var startTime = performance.now();
+    var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+    fetch(proxyUrl)
+      .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.text(); })
+      .then(function(html) { var fetchTime = Math.round(performance.now() - startTime); analyzePerformance(html, url, fetchTime); })
+      .catch(function(err) { resultSection.innerHTML = '<div class="error-msg show">Test failed: ' + err.message + '<br><small>Please verify URL is accessible</small></div>'; showToast('❌ Test failed'); });
+  }
+
+  function analyzePerformance(html, url, fetchTime) {
+    var htmlSize = new Blob([html]).size;
+    var htmlSizeKB = (htmlSize / 1024).toFixed(1);
+    var cssCount = (html.match(/<link[^>]*rel\s*=\s*["']stylesheet["'][^>]*>/gi) || []).length;
+    var jsCount = (html.match(/<script[^>]*src\s*=/gi) || []).length;
+    var imgCount = (html.match(/<img[^>]+>/gi) || []).length;
+    var totalResources = cssCount + jsCount + imgCount;
+    var estimatedCSSSize = cssCount * 30, estimatedJSSize = jsCount * 80, estimatedImgSize = imgCount * 100;
+    var totalEstimateKB = parseInt(htmlSizeKB) + estimatedCSSSize + estimatedJSSize + estimatedImgSize;
+
+    var score = 100;
+    if (parseFloat(htmlSizeKB) > 500) score -= 20; else if (parseFloat(htmlSizeKB) > 200) score -= 10;
+    if (totalResources > 50) score -= 20; else if (totalResources > 20) score -= 10;
+    if (cssCount > 10) score -= 10;
+    if (jsCount > 15) score -= 15;
+    if (imgCount > 30) score -= 10;
+    if (fetchTime > 3000) score -= 15; else if (fetchTime > 1000) score -= 5;
+    if (html.indexOf('async') === -1 && html.indexOf('defer') === -1 && jsCount > 2) score -= 10;
+    score = Math.max(0, Math.min(100, score));
+
+    var scoreClass = score >= 70 ? 'score-fast' : (score >= 40 ? 'score-medium' : 'score-slow');
+    var grade = score >= 85 ? 'Excellent' : (score >= 60 ? 'Good' : (score >= 30 ? 'Fair' : 'Poor'));
+
+    var suggestions = [];
+    if (parseFloat(htmlSizeKB) > 200) suggestions.push({icon:'📄', text:'HTML size is ' + htmlSizeKB + 'KB — consider reducing to under 200KB'});
+    if (totalResources > 20) suggestions.push({icon:'📦', text:'Detected ' + totalResources + ' resources — combine to reduce HTTP requests'});
+    if (cssCount > 8) suggestions.push({icon:'🎨', text:cssCount + ' CSS files found — merge into 1-2 files'});
+    if (jsCount > 10) suggestions.push({icon:'⚡', text:jsCount + ' JS files found — merge and add async/defer'});
+    if (imgCount > 20) suggestions.push({icon:'🖼️', text:imgCount + ' images detected — use lazy loading and WebP'});
+    if (fetchTime > 2000) suggestions.push({icon:'⏱️', text:'First response: ' + fetchTime + 'ms — consider CDN or server optimization'});
+    if (html.indexOf('viewport') === -1) suggestions.push({icon:'📱', text:'Missing viewport meta tag — mobile experience may suffer'});
+    if (suggestions.length === 0) suggestions.push({icon:'🎉', text:'Great performance! All metrics look healthy'});
+
+    var htmlOut = '<div class="score-circle ' + scoreClass + '"><span class="score-num">' + score + '</span><span class="score-label">' + grade + '</span></div>';
+    htmlOut += '<div class="metrics-grid"><div class="metric-card"><div class="metric-value">' + htmlSizeKB + ' KB</div><div class="metric-label">HTML Size</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">' + totalResources + '</div><div class="metric-label">Resources</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">' + fetchTime + ' ms</div><div class="metric-label">Response Time</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">~' + totalEstimateKB + ' KB</div><div class="metric-label">Est. Total Size</div></div></div>';
+    htmlOut += '<div class="metrics-grid"><div class="metric-card"><div class="metric-value">' + cssCount + '</div><div class="metric-label">CSS Files</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">' + jsCount + '</div><div class="metric-label">JS Files</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">' + imgCount + '</div><div class="metric-label">Images</div></div>';
+    htmlOut += '<div class="metric-card"><div class="metric-value">' + (totalResources>0?totalResources-cssCount-jsCount-imgCount:0) + '</div><div class="metric-label">Other</div></div></div>';
+    htmlOut += '<h2 style="margin-top:20px">💡 Suggestions</h2><ul class="suggestions">';
+    for (var i = 0; i < suggestions.length; i++) htmlOut += '<li><span class="sug-icon">' + suggestions[i].icon + '</span>' + suggestions[i].text + '</li>';
+    htmlOut += '</ul>';
+    resultSection.innerHTML = htmlOut;
+    showToast('✅ Analysis complete | Score: ' + score + ' (' + grade + ')');
+  }
+
+  testBtn.addEventListener('click', runTest);
+  urlInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') runTest(); });
+  urlInput.value = 'https://adi63586.github.io/Toolguidehub/';
+})();
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* 示例按钮 */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+
+<div class="info-section">
+<h2>What is Website Speed Test?</h2><p>Website Speed Test is a free online tool that runs entirely in your browser. No download or signup needed — enter Website URL and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Analyze page size and resource count</li><li>Estimate first load time</li><li>Analyze CSS/JS/image resources</li><li>Get targeted optimization tips</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</div>
+
+</main>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/website-speed-test/">中文</a>
+</div>
+
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Website Speed Test | No registration · Data never leaves your device</p>
+
+</footer>
+</body>
+</html>

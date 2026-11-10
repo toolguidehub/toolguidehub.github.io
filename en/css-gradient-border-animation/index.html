@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animated Border - Interactive Border Animation</title>
+    <meta name="description" content="Animate a flowing gradient border with @keyframes and copy the code for interactive buttons or feature cards.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-gradient-border-animation/">
+    <meta property="og:title" content="CSS Animated Border - Interactive Border Animation">
+    <meta property="og:description" content="Animate a flowing gradient border with @keyframes and copy the code for interactive buttons or feature cards.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-gradient-border-animation/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        input[type="color"] { width: 50px; height: 40px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; cursor: pointer; padding: 2px; }
+        input[type="range"] { width: 100%; }
+        select { width: 100%; padding: 10px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; background: #1e293b; color: #e2e8f0; }
+        select:focus { outline: none; border-color: #22d3ee; }
+        .preview-area { display: flex; align-items: center; justify-content: center; min-height: 300px; background: #0f172a; border-radius: 12px; padding: 40px; }
+        .preview-box { width: 280px; height: 180px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 600; border-radius: 12px; }
+        .code-box { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: 'SF Mono', monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; margin-top: 12px; }
+        .controls-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+        .controls-row .form-group { flex: 1; min-width: 120px; }
+        .range-value { font-size: 13px; color: #22d3ee; font-weight: 600; }
+        .preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+        .preset-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; text-align: center; transition: all .2s; }
+        .preset-btn:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .preview-box { width: 200px; height: 130px; } }
+    
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+.lang-switch{display:flex;gap:4px;justify-content:center;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);width:fit-content;margin:0 auto 12px}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}</style>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a CSS gradient border animation?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a CSS gradient border animation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CSS gradient border animation is a flowing border effect created using CSS gradients and animations. By rotating or moving the background gradient, it produces a visual effect of colors flowing along the border, without JavaScript."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the gradient border animation work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core principle uses an outer container with a gradient background and rotation animation, and an inner container with a solid background covering the center area, exposing only the gradient at the edges as the border. The @keyframes rotates the gradient angle to create the flowing animation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use the generated CSS code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copy the generated HTML and CSS code. Use the outer div as the container and the inner div as the content area. Modify gradient colors, border width, and animation speed to customize the effect."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Design Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#design-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS Gradient Border Animation Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-gradient-border-animation/"
+    }
+  ],
+  "name": "CSS Gradient Border Animation Generator"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Gradient Border Animation Generator", "description": "Free online CSS gradient border animation generator. Create flowing gradient border effects, multiple animation modes, live preview, one-click copy CSS code.", "applicationCategory": "DesignApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-gradient-border-animation/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Gradient Border Animation Generator","description":"Step-by-step guide for using CSS Gradient Border Animation Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Gradient Border Animation Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+    <header>
+        
+        <h1>🌈 CSS Gradient Border Animation Generator</h1>
+        <p>Create flowing gradient border effects with live preview and one-click copy</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<div class="section">
+        <h2>🎨 Customize</h2>
+        <div class="controls-row">
+            <div class="form-group"><label>Color 1</label><input type="color" id="color1" value="#3b82f6" onchange="updatePreview()"></div>
+            <div class="form-group"><label>Color 2</label><input type="color" id="color2" value="#8b5cf6" onchange="updatePreview()"></div>
+            <div class="form-group"><label>Color 3</label><input type="color" id="color3" value="#ec4899" onchange="updatePreview()"></div>
+            <div class="form-group"><label>Color 4</label><input type="color" id="color4" value="#f59e0b" onchange="updatePreview()"></div>
+        </div>
+        <div class="controls-row">
+            <div class="form-group"><label>Border Width <span class="range-value" id="bw-val">4px</span></label><input type="range" id="border-width" min="1" max="20" value="4" oninput="document.getElementById('bw-val').textContent=this.value+'px';updatePreview()"></div>
+            <div class="form-group"><label>Speed <span class="range-value" id="speed-val">3s</span></label><input type="range" id="speed" min="1" max="10" value="3" oninput="document.getElementById('speed-val').textContent=this.value+'s';updatePreview()"></div>
+            <div class="form-group"><label>Radius <span class="range-value" id="radius-val">12px</span></label><input type="range" id="radius" min="0" max="50" value="12" oninput="document.getElementById('radius-val').textContent=this.value+'px';updatePreview()"></div>
+            <div class="form-group"><label>Animation Type</label><select id="anim-type" onchange="updatePreview()"><option value="rotate">Rotate Gradient</option><option value="hue">Hue Rotate</option><option value="pulse">Pulse Scale</option></select></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👁️ Live Preview</h2>
+        <div class="preview-area">
+            <div class="preview-box" id="preview-outer">
+                <div id="preview-inner" style="background:#0f172a;border-radius:8px;width:100%;height:100%;display:flex;align-items:center;justify-content:center">Gradient Border</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📦 Presets</h2>
+        <div class="preset-grid">
+            <button class="preset-btn" onclick="applyPreset('#3b82f6','#8b5cf6','#ec4899','#f59e0b')">🌈 Rainbow</button>
+            <button class="preset-btn" onclick="applyPreset('#06b6d4','#3b82f6','#8b5cf6','#06b6d4')">🌊 Ocean</button>
+            <button class="preset-btn" onclick="applyPreset('#ef4444','#f59e0b','#ef4444','#f59e0b')">🔥 Fire</button>
+            <button class="preset-btn" onclick="applyPreset('#10b981','#06b6d4','#3b82f6','#10b981')">💚 Emerald</button>
+            <button class="preset-btn" onclick="applyPreset('#f59e0b','#ef4444','#ec4899','#f59e0b')">🌅 Sunset</button>
+            <button class="preset-btn" onclick="applyPreset('#8b5cf6','#ec4899','#f59e0b','#8b5cf6')">✨ Neon</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Generated CSS Code</h2>
+        <div class="code-box" id="code-output"></div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn btn-primary" onclick="copyCode()">📋 Copy CSS</button>
+            <button class="btn btn-secondary" onclick="copyHTML()">📋 Copy HTML</button>
+        </div>
+    </div>
+
+    
+
+    <div class="section">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item"><h3>What is a CSS gradient border animation?</h3><p>A CSS gradient border animation is a flowing border effect created using CSS gradients and animations. By rotating or moving the background gradient, it produces a visual effect of colors flowing along the border, without JavaScript.</p></div>
+        <div class="faq-item"><h3>How does the gradient border animation work?</h3><p>The core principle uses an outer container with a gradient background and rotation animation, and an inner container with a solid background covering the center area, exposing only the gradient at the edges as the border. The @keyframes rotates the gradient angle to create the flowing animation.</p></div>
+        <div class="faq-item"><h3>How to use the generated CSS code?</h3><p>Copy the generated HTML and CSS code. Use the outer div as the container and the inner div as the content area. Modify gradient colors, border width, and animation speed to customize the effect.</p></div>
+        <div class="faq-item"><h3>Browser compatibility?</h3><p>Modern browsers (Chrome, Firefox, Safari, Edge) all support it. Uses conic-gradient and @keyframes animations. IE is not supported.</p></div>
+    </div>
+
+    
+
+    
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a><a href="../../en/css-transform-demo/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Transform Demo</a></div>
+<a href="../../en/gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Animated Gradient Border Generator</a></section>
+
+
+
+
+
+</main>
+
+
+
+<script>
+function getValues() {
+    return { c1: document.getElementById('color1').value, c2: document.getElementById('color2').value, c3: document.getElementById('color3').value, c4: document.getElementById('color4').value, bw: document.getElementById('border-width').value, speed: document.getElementById('speed').value, radius: document.getElementById('radius').value, type: document.getElementById('anim-type').value };
+}
+
+function updatePreview() {
+    const v = getValues(), outer = document.getElementById('preview-outer'), inner = document.getElementById('preview-inner');
+    const r = v.radius + 'px', innerR = Math.max(0, v.radius - v.bw) + 'px';
+    outer.style.background = `conic-gradient(from 0deg, ${v.c1}, ${v.c2}, ${v.c3}, ${v.c4}, ${v.c1})`;
+    outer.style.borderRadius = r; outer.style.padding = v.bw + 'px';
+    outer.style.animation = `gradientBorder${v.type === 'hue' ? 'Hue' : v.type === 'pulse' ? 'Pulse' : ''} ${v.speed}s linear infinite`;
+    inner.style.borderRadius = innerR; inner.style.background = '#0f172a';
+    generateCode();
+}
+
+function generateCode() {
+    const v = getValues(), r = v.radius + 'px', innerR = Math.max(0, v.radius - v.bw) + 'px';
+    let keyframes = '';
+    if (v.type === 'rotate') keyframes = `@keyframes gradientBorder {\n  0% { background: conic-gradient(from 0deg, ${v.c1}, ${v.c2}, ${v.c3}, ${v.c4}, ${v.c1}); }\n  100% { background: conic-gradient(from 360deg, ${v.c1}, ${v.c2}, ${v.c3}, ${v.c4}, ${v.c1}); }\n}`;
+    else if (v.type === 'hue') keyframes = `@keyframes gradientBorderHue {\n  0% { filter: hue-rotate(0deg); }\n  100% { filter: hue-rotate(360deg); }\n}`;
+    else keyframes = `@keyframes gradientBorderPulse {\n  0%, 100% { transform: scale(1); }\n  50% { transform: scale(1.02); }\n}`;
+    const css = `.gradient-border {\n  position: relative;\n  background: conic-gradient(from 0deg, ${v.c1}, ${v.c2}, ${v.c3}, ${v.c4}, ${v.c1});\n  border-radius: ${r};\n  padding: ${v.bw}px;\n  animation: gradientBorder${v.type === 'hue' ? 'Hue' : v.type === 'pulse' ? 'Pulse' : ''} ${v.speed}s linear infinite;\n}\n\n.gradient-border-inner {\n  background: #0f172a;\n  border-radius: ${innerR};\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #fff;\n}\n\n${keyframes}`;
+    const html = `<div class="gradient-border">\n  <div class="gradient-border-inner">\n    Your content here\n  </div>\n</div>`;
+    document.getElementById('code-output').textContent = `/* CSS */\n${css}\n\n/* HTML */\n${html}`;
+    window._htmlCode = html; window._cssCode = css;
+}
+
+function applyPreset(c1, c2, c3, c4) { document.getElementById('color1').value = c1; document.getElementById('color2').value = c2; document.getElementById('color3').value = c3; document.getElementById('color4').value = c4; updatePreview(); }
+function copyCode() { navigator.clipboard.writeText(document.getElementById('code-output').textContent).then(() => { const btn = event.target.closest('.btn'); const orig = btn.textContent; btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 2000); }); }
+function copyHTML() { navigator.clipboard.writeText(window._htmlCode || '').then(() => { const btn = event.target.closest('.btn'); const orig = btn.textContent; btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 2000); }); }
+function rate(value) { document.querySelectorAll('.rating-widget .star').forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= value)); document.getElementById('rating-thanks').style.display = 'inline'; try { localStorage.setItem('rating-css-gradient-border-animation-en', value); } catch(e) {} }
+
+const style = document.createElement('style');
+style.textContent = `@keyframes gradientBorder { 0% { background: conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6); } 100% { background: conic-gradient(from 360deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6); } } @keyframes gradientBorderHue { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } } @keyframes gradientBorderPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }`;
+document.head.appendChild(style);
+updatePreview();
+</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/css-gradient-border-animation/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

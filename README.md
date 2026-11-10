@@ -1,27 +1,35 @@
 # ToolGuideHub
 
-A responsive, static tools directory based on the MIT-licensed `web-tools-hub` starter repository. The homepage design takes inspiration from the supplied reference: light background, purple actions, search bar, category chips, and responsive tool cards.
+A directory of **3,700 free online tools** (calculators, converters, PDF/image/text/developer utilities and more), built from an open-source tools collection and restyled with a purple, AIxploria-inspired design.
 
-## Included
-- Responsive homepage and searchable/filterable directory
-- Existing utility-tool folders preserved from the starter ZIP
-- About, Contact, Privacy Policy, Terms, Disclaimer, and Suggest a Tool pages
-- Favicon, robots.txt, sitemap.xml
-- AdSense preparation note: no fake ad content or ad code has been added
+- Live site: https://adi63586.github.io/Toolguidehub/
+- Repository: https://github.com/adi63586/Toolguidehub
 
-## Publish on GitHub Pages (phone-friendly)
-1. Create/open a **public** GitHub repository named `toolguidehub` (or your preferred name).
-2. Upload the **contents** of this folder, not the outer `ToolGuideHub` folder itself.
-3. In repository **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-4. After GitHub gives you the published URL, update `robots.txt` and `sitemap.xml` by replacing `https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/` with your actual site URL.
-5. Open the site on your phone and test the homepage, categories, search, and each tool link.
+## What is inside
+| Path | What |
+|---|---|
+| `index.html` | Homepage: search, category pills, 24-per-page pagination, favourites, recently viewed |
+| `categories.html`, `pricing.html`, `submit-tool.html`, `404.html` | Supporting pages |
+| `en/<tool>/index.html` | One folder per tool (3,700 listed, plus a few unlisted pages) |
+| `en/about`, `en/contact`, `en/privacy`, `en/terms`, `en/disclaimer` | Info and legal pages |
+| `data/tools-index.json` | The tool list that powers search and filters (generated from the real pages) |
+| `js/config.js` | **The only file you edit** to turn on ads / set a contact email |
+| `sitemap.xml`, `robots.txt` | SEO files |
+| `.github/workflows/pages.yml` | GitHub Pages deployment |
+| `reports/` | Inventory, fixes, exclusions, known issues, test report |
 
-## Before applying for advertising
-- Replace the placeholder contact guidance with a real public contact method.
-- Review every included tool and remove broken or incomplete ones.
-- Add original helpful content, accurate descriptions, and clear privacy/terms pages.
-- Only add your real AdSense code after account/site setup and approval. A placeholder ad area does not display ads and does not guarantee approval or earnings.
-- Do not claim that every tool is fully private or that every file stays local unless you have verified the individual tool's implementation.
+## Publish on GitHub Pages
+1. Copy every file in this ZIP (including hidden `.github` and `.nojekyll`) to the root of the `main` branch of the repository.
+2. Repository **Settings → Pages → Source → GitHub Actions**.
+3. Push. The workflow publishes to https://adi63586.github.io/Toolguidehub/ in about a minute.
 
-## License
-The original starter's MIT license is preserved in `LICENSE`. Keep the original copyright and license notice when redistributing the starter-derived code.
+## AdSense (when you are approved)
+Edit `js/config.js`:
+```js
+adsenseClient: "ca-pub-YOUR_REAL_ID",
+adSlots: { header: "1234567890", content: "", sidebar: "", footer: "", tool: "" }
+```
+Only slots with a real numeric ID appear. A privacy-choice banner appears once an ID is set. Approval is not guaranteed. EEA/UK visitors need a Google-certified consent platform (not included).
+
+## Honest notes
+No ratings, reviews, prices or traffic figures are shown because none exist. See `reports/` for fixed tools, excluded tools (6 tools that cannot run), known issues and what was and was not tested.

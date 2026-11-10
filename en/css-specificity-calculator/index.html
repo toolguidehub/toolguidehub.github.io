@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online CSS Specificity Calculator</title>
+<meta name="description" content="Free online CSS specificity calculator. Paste any CSS selector to instantly get its specificity value with a detailed breakdown. No signup required.">
+<meta property="og:title" content="CSS Specificity Calculator - ToolGuideHub">
+<meta property="og:description" content="Free online CSS specificity calculator. Paste any CSS selector to instantly get its specificity value with a detailed breakdown. No signup required.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CSS Specificity Calculator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Calculate CSS selector specificity values online. Get detailed breakdowns of ID, class, attribute, and type selector weights.","url":"https://adi63586.github.io/Toolguidehub/en/css-specificity-calculator/","offers":{"@type":"Offer","price":"0"}}</script>
+<style>:root{--hover:rgba(6,182,212,.3);--text2:#94a3b8;--surface:#1e293b;--text:#e2e8f0}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100}header .logo{font-size:1.3rem;font-weight:700;color:#22d3ee;text-decoration:none}header nav{display:flex;gap:8px;flex-wrap:wrap}header nav a{color:var(--text2);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:0.9rem;transition:all .2s}header nav a:hover{background:var(--hover);color:#22d3ee}main{flex:1;max-width:900px;width:100%;margin:0 auto;padding:32px 20px 60px}h1{font-size:1.8rem;margin-bottom:8px;color:#e2e8f0}.subtitle{color:var(--text2);margin-bottom:28px;font-size:0.95rem}.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:700px){.calc-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid rgba(148,163,184,.1)}.card h3{font-size:1rem;margin-bottom:16px;color:#e2e8f0}textarea,input[type="text"]{width:100%;padding:12px 14px;border:1.5px solid rgba(148,163,184,.1);border-radius:10px;font-size:0.95rem;font-family:'SF Mono',Monaco,'Cascadia Code',monospace;resize:vertical;background:#0f172a;transition:border-color .2s}textarea:focus,input:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(99,102,241,.15)}textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px}.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border:none;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all .2s}.btn-primary{background:#22d3ee;color:#fff}.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 12px rgba(99,102,241,.3)}.btn-outline{background:#1e293b;color:#22d3ee;border:1.5px solid #22d3ee}.btn-outline:hover{background:var(--hover)}.btn-sm{padding:7px 14px;font-size:0.85rem}.result-box{background:#0f172a;border-radius:10px;padding:16px;margin-top:16px;border:1px dashed rgba(148,163,184,.1)}.result-box .score{font-size:2.2rem;font-weight:800;font-family:'SF Mono',Monaco,monospace;color:#22d3ee}.result-box .label{font-size:0.8rem;color:var(--text2);margin-top:4px}.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.breakdown-item{text-align:center;padding:12px 8px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)}.breakdown-item .num{font-size:1.4rem;font-weight:700;color:#22d3ee}.breakdown-item .tag{font-size:0.7rem;color:var(--text2);margin-top:2px}.example-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.example-bar button{padding:5px 10px;background:var(--hover);border:1px solid rgba(148,163,184,.1);border-radius:6px;font-size:0.8rem;cursor:pointer;font-family:monospace;transition:all .2s}.example-bar button:hover{background:#22d3ee;color:#fff;border-color:#22d3ee}.note{font-size:0.82rem;color:var(--text2);margin-top:12px;line-height:1.5;padding:10px 14px;background: #0f172a;border-radius:8px;border:1px solid #fde68a}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:24px;font-size:0.9rem;z-index:9999;display:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}.toast.show{display:block;animation:slideUp .3s ease}@keyframes slideUp{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}footer{text-align:center;padding:20px;color:var(--text2);font-size:0.85rem;border-top:1px solid rgba(148,163,184,.1);background:#1e293b}footer a{color:#22d3ee;text-decoration:none}
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-specificity-calculator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "CSS Specificity Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/css-specificity-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"CSS Specificity Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the CSS Specificity Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the CSS Specificity Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: CSS Specificity Calculator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the CSS Specificity Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Specificity Calculator","description":"Step-by-step guide for using CSS Specificity Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Specificity Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-specificity-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<a href="../../" class="logo">🧰 ToolGuideHub</a>
+<nav>
+<a href="../../">🏠 Home</a>
+
+<a href="../../">中文</a>
+</nav>
+</header>
+<main>
+<h1>🎨 CSS Specificity Calculator</h1>
+<p class="subtitle">Enter a CSS selector to calculate its specificity value and understand weight rules</p>
+<div class="calc-grid">
+<div class="section">
+<h3>📝 Enter Selector</h3>
+<div class="example-bar">
+<button onclick="setExample('#header .nav > li a:hover')">#header .nav > li a:hover</button>
+<button onclick="setExample('div.container ul li:first-child')">div.container ul li:first-child</button>
+<button onclick="setExample('#main .btn.primary[disabled]')">#main .btn.primary[disabled]</button>
+</div>
+<input type="text" id="selectorInput" placeholder="Enter CSS selector, e.g.: #header .nav > li a:hover" onkeydown="if(event.key==='Enter')calculate()">
+<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-primary" onclick="calculate()">🔍 Calculate</button>
+<button class="btn btn-outline" onclick="clearAll()">🗑 Clear</button>
+</div>
+<div id="resultArea" style="display:none">
+<div class="result-box">
+<div class="score" id="scoreDisplay">(0,0,0,0)</div>
+<div class="label">Specificity (Inline, IDs, Classes/Attrs/Pseudo-classes, Elements/Pseudo-elements)</div>
+<div class="breakdown" id="breakdownDisplay"></div>
+</div>
+<div class="note" id="explanationDisplay"></div>
+</div>
+</div>
+<div class="section">
+<h3>📖 CSS Specificity Quick Reference</h3>
+<table style="width:100%;font-size:0.85rem;border-collapse:collapse">
+<thead><tr style="text-align:left;border-bottom:1px solid rgba(148,163,184,.1)"><th style="padding:8px 4px">Selector</th><th style="padding:8px 4px">Weight</th><th style="padding:8px 4px">Example</th></tr></thead>
+<tbody style="line-height:1.8">
+<tr><td style="padding:4px">!important</td><td style="padding:4px;font-weight:700;color:#ef4444">Highest</td><td style="padding:4px">color:red!important</td></tr>
+<tr><td style="padding:4px">Inline</td><td style="padding:4px;font-weight:700">(1,0,0,0)</td><td style="padding:4px">style="color:red"</td></tr>
+<tr><td style="padding:4px">ID</td><td style="padding:4px;font-weight:700">(0,1,0,0)</td><td style="padding:4px">#header</td></tr>
+<tr><td style="padding:4px">Class/Attr/:pseudo</td><td style="padding:4px;font-weight:700">(0,0,1,0)</td><td style="padding:4px">.btn, [type], :hover</td></tr>
+<tr><td style="padding:4px">Element/::pseudo</td><td style="padding:4px;font-weight:700">(0,0,0,1)</td><td style="padding:4px">div, ::before</td></tr>
+<tr><td style="padding:4px">Universal *</td><td style="padding:4px">(0,0,0,0)</td><td style="padding:4px">*</td></tr>
+</tbody></table>
+</div>
+</div>
+</main>
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-transform-demo/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Transform Demo</a></div></section>
+<script>
+
+
+function showToast(msg){
+  var t=document.getElementById('toast');var m=document.getElementById('toastMsg');
+  m.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2500);
+}
+function setExample(sel){
+  document.getElementById('selectorInput').value=sel;
+  calculate();
+}
+function clearAll(){
+  document.getElementById('selectorInput').value='';
+  document.getElementById('resultArea').style.display='none';
+}
+function calculate(){
+  var sel=document.getElementById('selectorInput').value.trim();
+  if(!sel){showToast('Please enter a CSS selector');return;}
+  var result=computeSpecificity(sel);
+  document.getElementById('scoreDisplay').textContent='('+result.scores.join(',')+')';
+  var bd=document.getElementById('breakdownDisplay');
+  bd.innerHTML='';
+  var labels=['Inline','IDs','Classes/Attrs/:pseudo','Elements/::pseudo'];
+  for(var i=0;i<4;i++){
+    bd.innerHTML+='<div class="breakdown-item"><div class="num">'+result.scores[i]+'</div><div class="tag">'+labels[i]+'</div></div>';
+  }
+  document.getElementById('explanationDisplay').innerHTML='<strong>💡 Analysis: </strong>'+result.explanation;
+  document.getElementById('resultArea').style.display='block';
+}
+function computeSpecificity(sel){
+  var scores=[0,0,0,0];
+  scores[0]=sel.match(/style\s*=\s*["'][^"']*["']/gi)?1:0;
+  var idMatches=sel.match(/#[\w-]+/g)||[];
+  scores[1]=idMatches.length;
+  var withoutId=sel.replace(/#[\w-]+/g,'');
+  var classMatches=withoutId.match(/\.([\w-]+)/g)||[];
+  var attrMatches=withoutId.match(/\[[\w-]+[^\[\]]*\]/g)||[];
+  var pseudoClassMatches=withoutId.match(/:([\w-]+)(?![:\w-])/g)||[];
+  scores[2]=classMatches.length+attrMatches.length+pseudoClassMatches.length;
+  var typeMatches=withoutId.replace(/\.([\w-]+)/g,'').replace(/\[[\w-]+[^\[\]]*\]/g,'').replace(/:([\w-]+)(?![:\w-])/g,'').match(/\b([a-zA-Z][\w-]*)\b/g)||[];
+  var htmlTags=['a','abbr','address','area','article','aside','audio','b','base','bdi','bdo','blockquote','body','br','button','canvas','caption','cite','code','col','colgroup','data','datalist','dd','del','details','dfn','dialog','div','dl','dt','em','embed','fieldset','figcaption','figure','footer','form','h1','h2','h3','h4','h5','h6','head','header','hgroup','hr','html','i','iframe','img','input','ins','kbd','label','legend','li','link','main','map','mark','menu','meta','meter','nav','noscript','object','ol','optgroup','option','output','p','picture','pre','progress','q','rp','rt','ruby','s','samp','script','section','select','slot','small','source','span','strong','style','sub','summary','sup','svg','table','tbody','td','template','textarea','tfoot','th','thead','time','title','tr','track','u','ul','var','video','wbr'];
+  var actualTags=typeMatches.filter(function(t){return htmlTags.includes(t.toLowerCase());});
+  scores[3]=actualTags.length;
+  var pseudoElMatches=withoutId.match(/::[\w-]+/g)||[];
+  scores[3]+=pseudoElMatches.length;
+  var parts=[];
+  if(scores[1]>0) parts.push(scores[1]+' ID selectors');
+  if(scores[2]>0) parts.push(scores[2]+' classes/attributes/:pseudo-classes');
+  if(scores[3]>0) parts.push(scores[3]+' elements/::pseudo-elements');
+  if(parts.length===0) parts.push('No specific selectors (universal weight)');
+  var explanation=parts.join(', ')+'. Specificity = ('+scores.join(',')+')';
+  return {scores:scores,explanation:explanation};
+}
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/css-specificity-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+</body>
+</html>

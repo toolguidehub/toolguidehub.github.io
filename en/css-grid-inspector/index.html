@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Visualize a CSS Grid, name areas by clicking cells and export the grid-template-areas code for your layout.">
+<meta name="keywords" content="CSS Grid inspector,Grid layout generator,CSS grid builder,Grid visualizer,CSS Grid tool">
+<title>Free Online CSS Grid Visual Inspector - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-grid-inspector/">
+<meta property="og:title" content="Free Online CSS Grid Visual Inspector - ToolGuideHub">
+<meta property="og:description" content="Visualize a CSS Grid, name areas by clicking cells and export the grid-template-areas code for your layout.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-grid-inspector/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Grid Visual Inspector", "description": "Free online CSS Grid visual inspector. Interactively build Grid layouts. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is CSS Grid?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CSS Grid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS Grid is a two-dimensional layout system in CSS that controls both rows and columns. It defines grids via grid-template-rows and grid-template-columns, with child elements placed using grid-row and grid-column."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set row/column counts and sizes, click cells in the visual grid to adjust element positions, and the tool auto-generates corresponding CSS code. Supports gap, alignment, and other properties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Grid properties are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports grid-template-columns/rows, gap, grid-column/row (with span), justify/align-items/content, grid-template-areas, and other core properties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize row/column sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Supports px, fr, %, auto, minmax(), repeat() and all CSS Grid size units. Each row and column can have individual sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the generated CSS ready to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The generated CSS uses standard CSS Grid syntax and can be directly copied into your project. Code includes complete Grid styles for container and children."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support Grid Template Areas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can define grid-template-areas through named regions in the visual interface, and the tool auto-generates the corresponding CSS code."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Design Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#design"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CSS Grid Inspector",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-grid-inspector/"
+    }
+  ],
+  "name": "CSS Grid Inspector"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.tool-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.options-area{margin-bottom:12px}
+.options-area .option-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.options-area label{color:#94a3b8;font-size:.85rem}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.ad-slot.ad-sidebar{max-width:300px}
+.code-block{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:6px;padding:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem;color:#22d3ee;overflow-x:auto;margin:8px 0;white-space:pre}
+.grid-preview{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:16px;min-height:200px;position:relative}
+.grid-cell{background:rgba(6,182,212,.15);border:1px solid rgba(6,182,212,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#22d3ee;font-size:.8rem;cursor:pointer;transition:all .2s;min-height:40px}
+.grid-cell:hover{background:rgba(6,182,212,.25);border-color:rgba(6,182,212,.5)}
+.grid-cell.selected{background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.5);color:#4ade80}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-grid-inspector/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Grid Visual Inspector","description":"Step-by-step guide for using CSS Grid Visual Inspector","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Grid Visual Inspector"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Input or paste the data you want to analyze"},{"@type":"HowToStep","position":2,"name":"Click Analyze","text":"Press the analyze button to start processing"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the analysis results and statistics"},{"@type":"HowToStep","position":4,"name":"Export data","text":"Copy or download the analysis output"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header">
+    <h1>📐 CSS Grid Visual Inspector</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+  <div class="tool-section">
+    <h2>⚙️ Grid Configuration</h2>
+    <div class="options-area">
+      <div class="option-row">
+        <label>Columns:</label>
+        <input type="number" id="colCount" value="3" min="1" max="12" style="width:60px" onchange="renderGrid()">
+        <label>Rows:</label>
+        <input type="number" id="rowCount" value="3" min="1" max="12" style="width:60px" onchange="renderGrid()">
+        <label>Gap:</label>
+        <input type="text" id="gapSize" value="16px" style="width:80px" onchange="renderGrid()">
+      </div>
+      <div class="option-row">
+        <label>Column sizes:</label>
+        <input type="text" id="colSizes" value="1fr 1fr 1fr" placeholder="e.g.: 1fr 200px auto" style="flex:1" oninput="renderGrid()">
+      </div>
+      <div class="option-row">
+        <label>Row sizes:</label>
+        <input type="text" id="rowSizes" value="auto auto auto" placeholder="e.g.: 100px 1fr auto" style="flex:1" oninput="renderGrid()">
+      </div>
+      <div class="option-row">
+        <label>justify-items:</label>
+        <select id="justifyItems" onchange="renderGrid()">
+          <option value="stretch">stretch</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+        </select>
+        <label>align-items:</label>
+        <select id="alignItems" onchange="renderGrid()">
+          <option value="stretch">stretch</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+        </select>
+      </div>
+      <div style="margin-top:8px">
+        <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+        <button class="btn btn-secondary" onclick="resetGrid()">🔄 Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-section">
+    <h2>👁️ Grid Preview</h2>
+    <div id="gridPreview" class="grid-preview"></div>
+    <div style="margin-top:8px;color:#94a3b8;font-size:.8rem">Click cells to select and name grid areas. Click again to deselect.</div>
+  </div>
+
+  <div class="tool-section">
+    <h2>💻 Generated CSS Code</h2>
+    <div id="cssOutput" class="code-block"></div>
+    <div style="margin-top:8px">
+      <button class="btn btn-success" onclick="copyCss()">📋 Copy CSS</button>
+      <button class="btn btn-secondary" onclick="copyHtml()">📋 Copy HTML</button>
+      <button class="btn btn-secondary" onclick="downloadCss()">💾 Download CSS</button>
+    </div>
+  </div>
+
+  <div class="tool-section">
+    <h2>📚 What can CSS Grid Inspector do?</h2>
+    <p>CSS Grid Visual Inspector is an interactive tool for visually building and debugging CSS Grid layouts. Through visual grid preview and parameter adjustment, quickly generate Grid layout code.</p>
+    <h3>Core features of CSS Grid Visual Inspector</h3>
+    <p>• Visual grid preview: Real-time Grid layout display</p>
+    <p>• Interactive configuration: Adjust rows, columns, sizes, gaps</p>
+    <p>• Cell selection: Set grid-column/row span</p>
+    <p>• Alignment control: justify/align-items property adjustment</p>
+    <p>• Code generation: Auto-generate CSS+HTML code</p>
+    <p>• Multiple size units: fr/px/%/auto/minmax()</p>
+    <h3>CSS Grid Visual Inspector in 3 steps</h3>
+    <p>1. Set column and row counts</p>
+    <p>2. Configure each column/row size (e.g. 1fr 200px auto)</p>
+    <p>3. Adjust gap spacing and alignment</p>
+    <p>4. Click cells to set span areas</p>
+    <p>5. Copy the generated CSS and HTML code</p>
+    <h3>When to use CSS Grid Visual Inspector</h3>
+    <p>• <strong>Page Layout</strong>: Quickly build responsive page grid layouts</p>
+    <p>• <strong>Component Design</strong>: Design card, dashboard component layouts</p>
+    <p>• <strong>Learning Grid</strong>: Interactive CSS Grid property learning</p>
+    <p>• <strong>Layout Debug</strong>: Visually debug Grid layout issues</p>
+    <h3>Extended Knowledge</h3>
+    <p>CSS Grid Layout is a W3C two-dimensional layout system, supported by all major browsers since 2017. Core concepts include Grid Container (display:grid), Grid Items (children), Grid Lines, Grid Tracks (row/column tracks), Grid Areas (named regions). The fr unit is Grid-specific, representing proportional shares of available space.</p>
+  </div>
+
+  <div class="tool-section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item"><h3>What is CSS Grid?</h3><p>CSS Grid is a two-dimensional layout system in CSS that controls both rows and columns. It defines grids via grid-template-rows/columns, with children placed using grid-row/column.</p></div>
+    <div class="faq-item"><h3>How to use this tool?</h3><p>Set row/column counts and sizes, click cells in the visual grid to adjust positions, and the tool auto-generates CSS code. Supports gap, alignment, and other properties.</p></div>
+    <div class="faq-item"><h3>What Grid properties are supported?</h3><p>Supports grid-template-columns/rows, gap, grid-column/row (with span), justify/align-items, grid-template-areas, and other core properties.</p></div>
+    <div class="faq-item"><h3>Can I customize row/column sizes?</h3><p>Yes. Supports px, fr, %, auto, minmax(), repeat() and all CSS Grid size units.</p></div>
+    <div class="faq-item"><h3>Is the generated CSS ready to use?</h3><p>Yes. Standard CSS Grid syntax, directly copyable into your project.</p></div>
+    <div class="faq-item"><h3>Does it support Grid Template Areas?</h3><p>Yes. Define grid-template-areas through named regions in the visual interface.</p></div>
+  </div>
+
+  
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/sql-formatter/">🗄️ SQL Formatter & Beautifier</a><a href="../../en/unicode-decode/">🔤 Unicode Decoder</a><a href="../../en/kubernetes-yaml-validator/">⚙️ K8s YAML Validator</a></div></section>
+<footer class="footer container">
+    <div style="margin-bottom:12px">
+      <a href="../../">Home</a>
+      <a href="../../">All Tools</a>
+      <a href="../contact/">Contact</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../terms/">Terms</a>
+      <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+      <a href="../../en/css-grid-inspector/">中文</a>
+</div>
+
+
+</footer>
+    
+</main>
+
+<script>
+var selectedCells={};
+
+function showToast(msg){var t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.classList.add('show')},10);setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.remove()},300)},2000);}
+
+function loadExample(){
+  document.getElementById('colCount').value=3;
+  document.getElementById('rowCount').value=4;
+  document.getElementById('colSizes').value='1fr 2fr 1fr';
+  document.getElementById('rowSizes').value='60px 1fr 1fr 80px';
+  document.getElementById('gapSize').value='16px';
+  document.getElementById('justifyItems').value='stretch';
+  document.getElementById('alignItems').value='stretch';
+  selectedCells={'0-0':'header','1-0':'sidebar','1-1':'main','1-2':'aside','2-0':'sidebar','2-1':'main','2-2':'aside','3-0':'footer','3-1':'footer','3-2':'footer'};
+  renderGrid();
+}
+
+function resetGrid(){
+  var cols=parseInt(document.getElementById('colCount').value)||3;
+  var rows=parseInt(document.getElementById('rowCount').value)||3;
+  document.getElementById('colSizes').value=Array(cols).fill('1fr').join(' ');
+  document.getElementById('rowSizes').value=Array(rows).fill('auto').join(' ');
+  document.getElementById('gapSize').value='16px';
+  document.getElementById('justifyItems').value='stretch';
+  document.getElementById('alignItems').value='stretch';
+  selectedCells={};
+  renderGrid();
+}
+
+function renderGrid(){
+  var cols=parseInt(document.getElementById('colCount').value)||3;
+  var rows=parseInt(document.getElementById('rowCount').value)||3;
+  var colSizes=document.getElementById('colSizes').value.trim().split(/\s+/);
+  var rowSizes=document.getElementById('rowSizes').value.trim().split(/\s+/);
+  var gap=document.getElementById('gapSize').value.trim()||'16px';
+  var justifyItems=document.getElementById('justifyItems').value;
+  var alignItems=document.getElementById('alignItems').value;
+
+  while(colSizes.length<cols)colSizes.push('1fr');
+  while(rowSizes.length<rows)rowSizes.push('auto');
+
+  var preview=document.getElementById('gridPreview');
+  preview.style.display='grid';
+  preview.style.gridTemplateColumns=colSizes.slice(0,cols).join(' ');
+  preview.style.gridTemplateRows=rowSizes.slice(0,rows).join(' ');
+  preview.style.gap=gap;
+  preview.style.justifyItems=justifyItems;
+  preview.style.alignItems=alignItems;
+  preview.innerHTML='';
+
+  for(var r=0;r<rows;r++){
+    for(var c=0;c<cols;c++){
+      var cell=document.createElement('div');
+      cell.className='grid-cell';
+      var key=r+'-'+c;
+      var label=selectedCells[key]||(r*cols+c+1);
+      cell.textContent=label;
+      cell.dataset.row=r;cell.dataset.col=c;
+      cell.onclick=(function(k,rr,cc){return function(){
+        if(selectedCells[k]){delete selectedCells[k];}
+        else{var name=prompt('Enter area name (leave empty for default):','');if(name===null)return;selectedCells[k]=name||String(rr*parseInt(document.getElementById('colCount').value)+cc+1);}
+        renderGrid();
+      };})(key,r,c);
+      preview.appendChild(cell);
+    }
+  }
+  generateCss(cols,rows,colSizes,rowSizes,gap,justifyItems,alignItems);
+}
+
+function generateCss(cols,rows,colSizes,rowSizes,gap,justifyItems,alignItems){
+  var css='.grid-container {\n';
+  css+='  display: grid;\n';
+  css+='  grid-template-columns: '+colSizes.slice(0,cols).join(' ')+';\n';
+  css+='  grid-template-rows: '+rowSizes.slice(0,rows).join(' ')+';\n';
+  css+='  gap: '+gap+';\n';
+  if(justifyItems!=='stretch')css+='  justify-items: '+justifyItems+';\n';
+  if(alignItems!=='stretch')css+='  align-items: '+alignItems+';\n';
+  css+='}\n';
+
+  var areas=buildAreas(cols,rows);
+  if(areas){
+    css+='\n.grid-container {\n  grid-template-areas:\n'+areas+'  ;\n}\n';
+    var uniqueNames=[];
+    for(var key in selectedCells){var n=selectedCells[key];if(uniqueNames.indexOf(n)===-1)uniqueNames.push(n);}
+    uniqueNames.forEach(function(name){css+='\n.'+name+' {\n  grid-area: '+name+';\n}\n';});
+  }
+  document.getElementById('cssOutput').textContent=css;
+}
+
+function buildAreas(cols,rows){
+  var hasAreas=false;for(var key in selectedCells){hasAreas=true;break;}
+  if(!hasAreas)return '';
+  var lines=[];
+  for(var r=0;r<rows;r++){
+    var line='    ';
+    for(var c=0;c<cols;c++){var key=r+'-'+c;var name=selectedCells[key]||'.';line+='"'+name+'"';if(c<cols-1)line+=' ';}
+    lines.push(line);
+  }
+  return lines.join('\n')+'\n';
+}
+
+function copyCss(){var css=document.getElementById('cssOutput').textContent;if(!css){showToast('No CSS to copy');return;}navigator.clipboard.writeText(css).then(function(){showToast('CSS copied to clipboard');});}
+
+function copyHtml(){
+  var cols=parseInt(document.getElementById('colCount').value)||3;
+  var rows=parseInt(document.getElementById('rowCount').value)||3;
+  var html='<div class="grid-container">\n';
+  var usedNames=[];
+  for(var r=0;r<rows;r++){
+    for(var c=0;c<cols;c++){
+      var key=r+'-'+c;var name=selectedCells[key];
+      if(name&&usedNames.indexOf(name)===-1){usedNames.push(name);html+='  <div class="'+name+'">'+name+'</div>\n';}
+      else if(!name){html+='  <div class="grid-item">'+(r*cols+c+1)+'</div>\n';}
+    }
+  }
+  html+='</div>';
+  navigator.clipboard.writeText(html).then(function(){showToast('HTML copied to clipboard');});
+}
+
+function downloadCss(){var css=document.getElementById('cssOutput').textContent;if(!css){showToast('No CSS to download');return;}var blob=new Blob([css],{type:'text/css'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='grid-layout.css';a.click();URL.revokeObjectURL(a.href);showToast('Download successful');}
+
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){renderGrid();e.preventDefault();}});
+window.addEventListener('load',function(){loadExample();});
+</script>
+
+<script>
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+
+function fillExample(){
+  var vals = [["colSizes", "1"], ["rowSizes", "100"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  loadExample();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+
+</body>
+</html>

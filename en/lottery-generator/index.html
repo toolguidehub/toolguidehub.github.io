@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Draw random numbers for Powerball, Mega Millions and EuroMillions, or set up a custom game with your own ranges.">
+<title>Lottery Number Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/lottery-generator/">
+<meta property="og:title" content="Lottery Number Generator - ToolGuideHub">
+<meta property="og:description" content="Draw random numbers for Powerball, Mega Millions and EuroMillions, or set up a custom game with your own ranges.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/lottery-generator/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"🎰 Lottery Number Generator","description":"Randomly generate lottery numbers for various lottery games. One-click random number generation.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit;width:100%}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-output{background:#0f172a;border-radius:8px;padding:16px;color:#e2e8f0;font-size:.85rem;overflow-x:auto;max-height:400px;white-space:pre-wrap;word-break:break-all;margin-bottom:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.hero{margin-bottom:16px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:2px 8px;border-radius:4px;font-size:.8rem;margin-right:6px}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}.header h1{font-size:1.3rem}}
+.seo-content{color:#475569;font-size:.85rem;margin-top:24px}
+.seo-content h3{color:#64748b;font-size:1rem;margin-bottom:8px}
+.stat-row{display:flex;gap:24px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-value{color:#22d3ee;font-weight:700;font-size:1.2rem}
+.stat-label{color:#94a3b8;font-size:.8rem}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"🎰 Lottery Number Generator","item":"https://adi63586.github.io/Toolguidehub/en/lottery-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Lottery Number Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Lottery Number Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Lottery Number Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Lottery Number Generator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Lottery Number Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use 🎰 Lottery Number Generator","description":"Step-by-step guide for using 🎰 Lottery Number Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"🎰 Lottery Number Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/lottery-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🎰 Lottery Number Generator</h1>
+
+</div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; 🎰 Lottery Number Generator</p>
+<div class="hero"><p>Free online Lottery Number Generator. Randomly generate numbers for popular lotteries including Powerball, Mega Millions, EuroMillions. Pure random algorithm.</p><span class="badge">Multi-game</span><span class="badge">Random</span><span class="badge">One-click</span></div>
+<div class="main-grid"><div>
+<div class="tool-section"><h2>Select Game</h2><select id="lotteryType" onchange="generateNumbers()" style="margin-bottom:12px"><option value="pb">Powerball (5 white + 1 red)</option><option value="mm">Mega Millions (5 white + 1 gold)</option><option value="eu">EuroMillions (5 main + 2 stars)</option><option value="ssq">Double Color Ball (6 red + 1 blue)</option><option value="dlt">Super Lotto (5 front + 2 back)</option><option value="6d">6-Digit</option></select><button class="btn btn-primary" onclick="generateNumbers()">🎰 Use Now</button></div>
+<div class="tool-section"><h2>Your Numbers</h2><div class="result-output" id="resultOutput" style="font-size:1.8rem;text-align:center;letter-spacing:8px">Click to generate</div><div class="result-actions"><button class="btn btn-primary" onclick="copyResult()">📋 Copy</button><button class="btn btn-secondary" onclick="generateNumbers()">🔄 Generate Again</button></div></div>
+</div></div>
+<div class="seo-content"><h3>Lottery number generator uses pure random algorithm</h3><p>Lottery number generator uses pure random algorithm. For entertainment only. Supports Powerball, Mega Millions, EuroMillions, and more.</p></div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/lottery-number-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Lottery Number Generato…</a> <a href="../../en/number-base/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free number-base - Merged</a> <a href="../../en/extract-phones/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Phone Number Extractor</a> <a href="../../en/random-number-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Random Number Generator</a> <a href="../../en/prime-number-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Prime Number Checker</a> <a href="../../en/test-credit-card-numbers/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Test Credit Card Number Gene…</a> <a href="../../en/armstrong-number-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Armstrong Number Checke…</a> <a href="../../en/number-base-converter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Number Base Converter O…</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../index.html">Home</a><a href="../index.html">All Tools</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../lottery-generator/">CN</a></div>
+<p>🎰 Lottery Number Generator | No signup · Data never leaves your device</p>
+
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min;} function pickUnique(count,min,max){var arr=[];while(arr.length<count){var n=rand(min,max);if(arr.indexOf(n)===-1)arr.push(n);}return arr.sort(function(a,b){return a-b;});} function generateNumbers(){var type=document.getElementById("lotteryType").value,result="";if(type==="ssq"){var r=pickUnique(6,1,33),b=rand(1,16);result="🔴 "+r.join(" ")+"  🔵 "+b;}else if(type==="dlt"){var f=pickUnique(5,1,35),b=pickUnique(2,1,12);result="⚪ "+f.join(" ")+"  🟡 "+b.join(" ");}else if(type==="pb"){var w=pickUnique(5,1,69),r=rand(1,26);result="⚪ "+w.join(" ")+"  🔴 "+r;}else if(type==="mm"){var w=pickUnique(5,1,70),g=rand(1,25);result="⚪ "+w.join(" ")+"  🟡 "+g;}else if(type==="eu"){var m=pickUnique(5,1,50),s=pickUnique(2,1,12);result="⚪ "+m.join(" ")+"  ⭐ "+s.join(" ");}else{result=rand(0,9)+""+rand(0,9)+""+rand(0,9)+""+rand(0,9)+""+rand(0,9)+""+rand(0,9);}document.getElementById("resultOutput").textContent=result;} function copyResult(){var t=document.getElementById("resultOutput").textContent;if(t==="Click to generate"||t==="ClickGenerate")return;navigator.clipboard.writeText(t).then(function(){showToast("Copied!");});} function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2000);} generateNumbers();
+</script>
+</body></html>

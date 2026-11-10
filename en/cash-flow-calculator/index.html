@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Cash Flow Calculator - ToolGuideHub</title>
+    <meta name="description" content="Track money in and money out to see your monthly net cash flow and where your budget is leaking.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cash-flow-calculator/">
+    <meta property="og:title" content="Free Cash Flow Calculator - ToolGuideHub">
+    <meta property="og:description" content="Track money in and money out to see your monthly net cash flow and where your budget is leaking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cash-flow-calculator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; background:#0f172a; color:#e2e8f0; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .result-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; text-align: center; }
+        .result-item .value { font-size: 1.5rem; font-weight: 700; }
+        .result-item .label { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+        .flow-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+        .flow-table th, .flow-table td { padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); text-align: right; }
+        .flow-table th { background: #0f172a; font-weight: 600; text-align: left; }
+        .flow-table tr:hover { background: rgba(148,163,184,.12); }
+        .flow-table .section-header { background: rgba(148,163,184,.15); font-weight: 700; }
+        .flow-table .total-row { font-weight: 700; background: #0f172a; }
+        .chart-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .chart-bar .bar { height: 24px; border-radius: 4px; transition: width .3s; min-width: 2px; }
+        .chart-bar .bar-label { font-size: 12px; min-width: 100px; text-align: right; }
+        .chart-bar .bar-value { font-size: 12px; color: #94a3b8; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cash-flow-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <div style="position:relative;max-width:1000px;margin:0 auto;">
+            <a href="../../en/cash-flow-calculator/" class="lang-switch" style="position:absolute;top:0;right:0;padding:6px 14px;border:1px solid rgba(148,163,184,.2);border-radius:20px;font-size:.85rem;color:#94a3b8;text-decoration:none;">中文</a>
+            <h1>💵 Cash Flow Calculator</h1>
+            </div>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 No data upload</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant</span>
+  </div>
+
+            <p>Online Cash Flow Analysis - Operating / Investing / Financing cash flows</p>
+        </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cash Flow Calculator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/cash-flow-calculator/"
+    }
+  ],
+  "name": "Cash Flow Calculator"
+}</script>
+
+        <div class="section">
+            <h2>🏢 Operating Cash Flow</h2>
+            <div class="form-group"><label>Revenue</label><input type="number" id="revenue" value="500000" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Cost of Goods Sold (COGS)</label><input type="number" id="cogs" value="300000" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Operating Expenses (Salaries, Rent, etc.)</label><input type="number" id="opex" value="80000" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Taxes</label><input type="number" id="taxes" value="30000" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Accounts Receivable Change (increase = negative)</label><input type="number" id="ar-change" value="-10000" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Accounts Payable Change (increase = positive)</label><input type="number" id="ap-change" value="5000" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Inventory Change (increase = negative)</label><input type="number" id="inventory-change" value="-8000" step="any" oninput="calculate()"></div>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ Investing Cash Flow</h2>
+            <div class="form-group"><label>Capital Expenditure (negative)</label><input type="number" id="capex" value="-50000" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Asset Sale Proceeds</label><input type="number" id="asset-sale" value="0" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Investment Income</label><input type="number" id="investment-income" value="2000" min="0" step="any" oninput="calculate()"></div>
+        </div>
+
+        <div class="section">
+            <h2>🏦 Financing Cash Flow</h2>
+            <div class="form-group"><label>Loan Proceeds</label><input type="number" id="loan-proceeds" value="100000" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Loan Repayment (negative)</label><input type="number" id="loan-repayment" value="-20000" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Equity Raised</label><input type="number" id="equity-raise" value="0" min="0" step="any" oninput="calculate()"></div>
+            <div class="form-group"><label>Dividends Paid (negative)</label><input type="number" id="dividends" value="-5000" step="any" oninput="calculate()"></div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Cash Flow Summary</h2>
+            <div class="result-grid" id="result-grid"></div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Cash Flow Composition</h2>
+            <div id="flow-chart"></div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Cash Flow Statement</h2>
+            <div style="overflow-x:auto">
+                <table class="flow-table"><tbody id="flow-table-body"></tbody></table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: What is cash flow?</h3>
+                <p>Cash flow is the net amount of cash moving in and out of a business during a period. It's divided into operating (daily business), investing (buying/selling assets), and financing (borrowing/repaying) activities. The sum of all three is net cash flow.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: What's the difference between cash flow and profit?</h3>
+                <p>Profit uses accrual accounting (includes non-cash items like receivables), while cash flow only counts actual cash received and paid. A company can be profitable but have negative cash flow if customers haven't paid yet.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: Why is accounts receivable increase negative?</h3>
+                <p>An increase in accounts receivable means revenue was recognized but cash hasn't been collected yet — money is tied up with customers. This reduces cash flow. Conversely, a decrease means collecting previous receivables, which is positive for cash flow.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is cash flow?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is cash flow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cash flow is the net amount of cash moving in and out of a business, divided into operating, investing, and financing activities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between cash flow and profit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Profit uses accrual accounting including non-cash items; cash flow only counts actual cash. A company can be profitable but have negative cash flow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is accounts receivable increase negative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AR increase means revenue recognized but cash not collected yet — money tied up with customers, reducing cash flow."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Cash Flow Calculator", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter operating data: revenue, COGS, expenses, taxes, AR/AP changes", "name": "Enter operating data: revenue"}, {"@type": "HowToStep", "position": 2, "text": "Enter investing data: capex, asset sales, investment income", "name": "Enter investing data: capex, a"}, {"@type": "HowToStep", "position": 3, "text": "Enter financing data: loans, repayments, equity, dividends", "name": "Enter financing data: loans, r"}, {"@type": "HowToStep", "position": 4, "text": "View summary, composition chart, and cash flow statement", "name": "View summary, composition char"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Cash Flow Calculator", "description": "Free online cash flow calculator tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/cash-flow-calculator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+        <script>
+        function v(id) { return parseFloat(document.getElementById(id).value) || 0; }
+        function fmt(n) { return '$' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+        function fmtSigned(n) { return (n >= 0 ? '+' : '') + '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+
+        function calculate() {
+            var revenue = v('revenue'), cogs = v('cogs'), opex = v('opex'), taxes = v('taxes');
+            var arChange = v('ar-change'), apChange = v('ap-change'), invChange = v('inventory-change');
+            var capex = v('capex'), assetSale = v('asset-sale'), investIncome = v('investment-income');
+            var loanProceeds = v('loan-proceeds'), loanRepay = v('loan-repayment');
+            var equityRaise = v('equity-raise'), dividends = v('dividends');
+
+            var operatingCF = revenue - cogs - opex - taxes + arChange + apChange + invChange;
+            var investingCF = capex + assetSale + investIncome;
+            var financingCF = loanProceeds + loanRepay + equityRaise + dividends;
+            var netCF = operatingCF + investingCF + financingCF;
+
+            document.getElementById('result-grid').innerHTML =
+                '<div class="result-item"><div class="value ' + (operatingCF >= 0 ? 'positive' : 'negative') + '">' + fmt(operatingCF) + '</div><div class="label">Operating Cash Flow</div></div>' +
+                '<div class="result-item"><div class="value ' + (investingCF >= 0 ? 'positive' : 'negative') + '">' + fmt(investingCF) + '</div><div class="label">Investing Cash Flow</div></div>' +
+                '<div class="result-item"><div class="value ' + (financingCF >= 0 ? 'positive' : 'negative') + '">' + fmt(financingCF) + '</div><div class="label">Financing Cash Flow</div></div>' +
+                '<div class="result-item"><div class="value ' + (netCF >= 0 ? 'positive' : 'negative') + '">' + fmt(netCF) + '</div><div class="label">Net Cash Flow</div></div>';
+
+            var maxAbs = Math.max(Math.abs(operatingCF), Math.abs(investingCF), Math.abs(financingCF), 1);
+            document.getElementById('flow-chart').innerHTML =
+                '<div class="chart-bar"><span class="bar-label">Operating</span><div class="bar" style="width:' + (Math.abs(operatingCF)/maxAbs*100) + '%;background:' + (operatingCF>=0?'#10b981':'#ef4444') + '"></div><span class="bar-value">' + fmtSigned(operatingCF) + '</span></div>' +
+                '<div class="chart-bar"><span class="bar-label">Investing</span><div class="bar" style="width:' + (Math.abs(investingCF)/maxAbs*100) + '%;background:' + (investingCF>=0?'#10b981':'#ef4444') + '"></div><span class="bar-value">' + fmtSigned(investingCF) + '</span></div>' +
+                '<div class="chart-bar"><span class="bar-label">Financing</span><div class="bar" style="width:' + (Math.abs(financingCF)/maxAbs*100) + '%;background:' + (financingCF>=0?'#10b981':'#ef4444') + '"></div><span class="bar-value">' + fmtSigned(financingCF) + '</span></div>' +
+                '<div class="chart-bar"><span class="bar-label" style="font-weight:700">Net</span><div class="bar" style="width:' + (Math.abs(netCF)/maxAbs*100) + '%;background:' + (netCF>=0?'#22d3ee':'#ef4444') + '"></div><span class="bar-value" style="font-weight:700">' + fmtSigned(netCF) + '</span></div>';
+
+            document.getElementById('flow-table-body').innerHTML =
+                '<tr class="section-header"><td colspan="2">I. Operating Activities</td></tr>' +
+                '<tr><td>Revenue</td><td style="text-align:right">' + fmt(revenue) + '</td></tr>' +
+                '<tr><td>COGS</td><td style="text-align:right">-' + fmt(cogs) + '</td></tr>' +
+                '<tr><td>Operating Expenses</td><td style="text-align:right">-' + fmt(opex) + '</td></tr>' +
+                '<tr><td>Taxes</td><td style="text-align:right">-' + fmt(taxes) + '</td></tr>' +
+                '<tr><td>AR Change</td><td style="text-align:right">' + fmtSigned(arChange) + '</td></tr>' +
+                '<tr><td>AP Change</td><td style="text-align:right">' + fmtSigned(apChange) + '</td></tr>' +
+                '<tr><td>Inventory Change</td><td style="text-align:right">' + fmtSigned(invChange) + '</td></tr>' +
+                '<tr class="total-row"><td>Operating CF</td><td style="text-align:right">' + fmtSigned(operatingCF) + '</td></tr>' +
+                '<tr class="section-header"><td colspan="2">II. Investing Activities</td></tr>' +
+                '<tr><td>Capital Expenditure</td><td style="text-align:right">' + fmtSigned(capex) + '</td></tr>' +
+                '<tr><td>Asset Sale</td><td style="text-align:right">+' + fmt(assetSale) + '</td></tr>' +
+                '<tr><td>Investment Income</td><td style="text-align:right">+' + fmt(investIncome) + '</td></tr>' +
+                '<tr class="total-row"><td>Investing CF</td><td style="text-align:right">' + fmtSigned(investingCF) + '</td></tr>' +
+                '<tr class="section-header"><td colspan="2">III. Financing Activities</td></tr>' +
+                '<tr><td>Loan Proceeds</td><td style="text-align:right">+' + fmt(loanProceeds) + '</td></tr>' +
+                '<tr><td>Loan Repayment</td><td style="text-align:right">' + fmtSigned(loanRepay) + '</td></tr>' +
+                '<tr><td>Equity Raised</td><td style="text-align:right">+' + fmt(equityRaise) + '</td></tr>' +
+                '<tr><td>Dividends</td><td style="text-align:right">' + fmtSigned(dividends) + '</td></tr>' +
+                '<tr class="total-row"><td>Financing CF</td><td style="text-align:right">' + fmtSigned(financingCF) + '</td></tr>' +
+                '<tr class="section-header" style="background:#22d3ee;color:#fff"><td colspan="2">Net Cash Flow</td></tr>' +
+                '<tr class="total-row" style="font-size:1.1rem"><td>Net Cash Flow</td><td style="text-align:right;color:' + (netCF>=0?'#10b981':'#ef4444') + '">' + fmtSigned(netCF) + '</td></tr>';
+        }
+        calculate();
+        </script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/cash-flow-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+    </main>
+
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

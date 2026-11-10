@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Validate .env files and detect syntax errors, duplicate keys and insecure values before deployment.">
+<meta name="keywords" content="env file validator,dotenv validator,env syntax check,environment variable validator,dotenv linter">
+<title>Free Online .env File Validator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/env-file-validator/">
+<meta property="og:title" content="Free Online .env File Validator - ToolGuideHub">
+<meta property="og:description" content="Validate .env files and detect syntax errors, duplicate keys and insecure values before deployment.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/env-file-validator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online .env File Validator", "description": "Free online .env file validator. Detect syntax errors, duplicate keys, security risks, and naming issues. Runs entirely in your browser.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": ".env File Validator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a .env file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A .env file is a plain text file used to store environment variables, typically for configuring application runtime parameters like database connections, API keys, etc. It is recommended by the 12-Factor App methodology."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why validate .env files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Syntax errors, duplicate keys, and sensitive information leaks in .env files can cause application errors or security risks. A validator automatically detects these issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are .env file format rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One key-value pair per line in KEY=VALUE format. Lines starting with # are comments. Blank lines are ignored. Key names should use uppercase letters and underscores. Values can be wrapped in single or double quotes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All validation runs locally in your browser. No data is uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the .env File Validator",
+  "description": "Steps to validate environment variable files using the online .env validator.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online .env File Validator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Paste content",
+      "text": "Paste your .env file content into the input area."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Click validate",
+      "text": "Click the validate button to analyze the file content."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View results",
+      "text": "Review validation results including errors, warnings, and suggestions."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Fix issues",
+      "text": "Fix issues based on the suggestions and re-validate until passing."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+header{padding:20px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+header h1{font-size:1.5rem;color:#e2e8f0;margin-bottom:4px}
+.lang-switch{float:right;font-size:.85rem;color:#06b6d4;text-decoration:none}
+.lang-switch:hover{color:#22d3ee}
+.breadcrumb{font-size:.8rem;color:#64748b;margin:8px 0}
+.breadcrumb a{color:#06b6d4;text-decoration:none}
+.breadcrumb a:hover{color:#22d3ee}
+.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#06b6d4;font-size:.75rem;padding:2px 10px;border-radius:12px;margin-right:6px}
+.panel{background:#1e293b;border-radius:12px;padding:20px;border:1px solid rgba(148,163,184,.1);margin-bottom:16px}
+.panel h2{font-size:1.1rem;color:#e2e8f0;margin-bottom:12px}
+textarea{width:100%;min-height:200px;padding:12px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.05);color:#e2e8f0;font-size:.85rem;font-family:'Fira Code',monospace;resize:vertical}
+textarea:focus{outline:none;border-color:#06b6d4}
+.btn{display:inline-block;padding:10px 24px;border-radius:8px;border:none;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}
+.btn-primary:hover{background:#22d3ee}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.result-card{padding:16px;border-radius:8px;text-align:center}
+.result-card.errors{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3)}
+.result-card.warnings{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3)}
+.result-card.info{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3)}
+.result-card.ok{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3)}
+.result-card .count{font-size:2rem;font-weight:700}
+.result-card .label{font-size:.85rem;color:#94a3b8;margin-top:4px}
+.issue-list{list-style:none;padding:0}
+.issue-item{padding:10px 12px;border-radius:8px;margin-bottom:6px;font-size:.85rem;display:flex;gap:8px;align-items:flex-start}
+.issue-item.error{background:rgba(239,68,68,.08);border-left:3px solid #ef4444}
+.issue-item.warning{background:rgba(245,158,11,.08);border-left:3px solid #f59e0b}
+.issue-item.info{background:rgba(6,182,212,.08);border-left:3px solid #06b6d4}
+.issue-icon{font-size:1rem;flex-shrink:0}
+.issue-content{flex:1}
+.issue-line{color:#64748b;font-size:.75rem}
+.seo-content{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1)}
+.seo-content h2{font-size:1.2rem;color:#e2e8f0;margin-bottom:12px;margin-top:24px}
+.seo-content h2:first-child{margin-top:0}
+.seo-content p{color:#94a3b8;line-height:1.8;margin-bottom:12px}
+.seo-content ul{color:#94a3b8;padding-left:20px;margin-bottom:12px}
+.seo-content li{margin-bottom:6px}
+.faq-item{margin-bottom:12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;overflow:hidden}
+.faq-q{padding:12px 16px;cursor:pointer;font-weight:500;color:#e2e8f0;background:rgba(148,163,184,.05);display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:rgba(148,163,184,.1)}
+.faq-q::after{content:'+';font-size:1.2rem;color:#06b6d4}
+.faq-q.open::after{content:'−'}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;color:#94a3b8;font-size:.9rem;transition:all .3s}
+.faq-a.open{padding:12px 16px;max-height:500px}
+.footer{margin-top:40px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#06b6d4;text-decoration:none;margin:0 8px}
+.footer a:hover{color:#22d3ee}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online .env File Validator", "item": "https://adi63586.github.io/Toolguidehub/en/env-file-validator/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/env-file-validator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+<a href="../../en/env-file-validator/" class="lang-switch">中文</a>
+<h1>Online .env File Validator</h1>
+</header>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Dev Tools</a> › ENV Validator</div>
+<p class="hero-sub">Detect syntax errors, duplicate keys, security risks in your .env files <span class="badge">Security Check</span><span class="badge">No Dependencies</span></p>
+
+<div class="panel">
+<h2>📋 .env File Content</h2>
+<textarea id="envInput" placeholder="Paste your .env file content..."># Database config
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=myapp
+DB_USER=admin
+DB_PASSWORD=*** API Keys
+API_KEY=***
+S...n
+# App config
+APP_ENV=production
+DEBUG=false
+PORT=3000
+
+# Duplicate key test
+DB_PORT=3306
+
+# Problem lines
+INVALID LINE WITHOUT EQUALS
+=NO_KEY_NAME
+BAD-KEY=value</textarea>
+<div style="margin-top:12px">
+<button class="btn btn-primary" onclick="validateEnv()">🔍 Validate</button>
+<button class="btn" style="background:rgba(148,163,184,.15);color:#e2e8f0;margin-left:8px" onclick="document.getElementById('envInput').value='';document.getElementById('results').innerHTML=''">Clear</button>
+</div>
+</div>
+
+<div id="results"></div>
+
+<div class="seo-content">
+<h2>.env File Validator</h2>
+<p>Environment variable files (.env) are commonly used in modern application development, but syntax errors, duplicate definitions, and sensitive information leaks can cause application errors or security vulnerabilities. This tool helps you quickly validate .env file format and security, with all checks running locally in your browser.</p>
+<h2>Common .env File Issues</h2>
+<ul>
+<li>Missing equals sign: No = separator between key and value</li>
+<li>Empty key name: No variable name before the equals sign</li>
+<li>Duplicate keys: Same variable defined multiple times</li>
+<li>Sensitive information exposure: Passwords and keys stored unencrypted</li>
+<li>Non-standard key naming: Should use uppercase letters and underscores</li>
+<li>Unmatched quotes: String values with unclosed quotes</li>
+</ul>
+<h2>.env File Best Practices</h2>
+<ul>
+<li>Never commit .env files to version control</li>
+<li>Provide .env.example as a template</li>
+<li>Use uppercase letters and underscores for variable names</li>
+<li>Use different .env files for different environments</li>
+<li>Regularly rotate API keys and passwords</li>
+</ul>
+</div>
+
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a .env file?</div><div class="faq-a">A .env file is a plain text file used to store environment variables, typically for configuring application runtime parameters like database connections, API keys, etc. It is recommended by the 12-Factor App methodology.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why validate .env files?</div><div class="faq-a">Syntax errors, duplicate keys, and sensitive information leaks in .env files can cause application errors or security risks. A validator automatically detects these issues.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What are .env file format rules?</div><div class="faq-a">One key-value pair per line in KEY=VALUE format. Lines starting with # are comments. Blank lines are ignored. Key names should use uppercase letters and underscores. Values can be wrapped in single or double quotes.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is my data uploaded to a server?</div><div class="faq-a">No. All validation runs locally in your browser. No data is uploaded to any server.</div></div>
+
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/docker-compose-validator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Docker Compose Validator</a><a href="../../en/file-type-detector/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">File Type Detector</a><a href="../../en/google-index-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Google Index Checker</a></div></section>
+<footer class="footer">
+<a href="../../">Home</a><a href="../../categories.html">All Tools</a><a href="../../en/contact/">Contact</a><a href="../../en/privacy-policy/">Privacy</a><a href="../../en/terms-of-service/">Terms</a><a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../../en/env-file-validator/">中文</a>
+</footer>
+<script>
+function validateEnv(){
+const input=document.getElementById('envInput').value;
+const lines=input.split('\n');
+const errors=[],warnings=[],infos=[];
+const keys={};
+let lineNum=0,varCount=0,commentCount=0,blankCount=0;
+const sensitivePatterns=[/password/i,/secret/i,/api_key/i,/token/i,/private/i,/credential/i];
+lines.forEach((line,i)=>{
+lineNum=i+1;
+const trimmed=line.trim();
+if(!trimmed){blankCount++;return;}
+if(trimmed.startsWith('#')){commentCount++;return;}
+if(!trimmed.includes('=')){
+errors.push({line:lineNum,msg:'Missing equals sign (=), not a valid key-value pair',code:trimmed});
+return;
+}
+const eqIdx=trimmed.indexOf('=');
+const key=trimmed.slice(0,eqIdx).trim();
+const val=trimmed.slice(eqIdx+1);
+if(!key){
+errors.push({line:lineNum,msg:'Empty key name',code:trimmed});
+return;
+}
+if(!/^[A-Z_][A-Z0-9_]*$/.test(key)){
+warnings.push({line:lineNum,msg:`Key "${key}" does not follow convention (use uppercase + underscores)`,code:key});
+}
+if(keys[key]!==undefined){
+errors.push({line:lineNum,msg:`Duplicate key "${key}" (first defined on line ${keys[key]}, this line will override)`,code:key});
+}else{
+keys[key]=lineNum;
+}
+varCount++;
+if((val.startsWith('"')&&!val.endsWith('"'))||(val.startsWith("'")&&!val.endsWith("'"))){
+errors.push({line:lineNum,msg:'Unmatched quotes in value',code:val});
+}
+sensitivePatterns.forEach(p=>{
+if(p.test(key)&&val&&!val.startsWith('${')&&val.length>0){
+warnings.push({line:lineNum,msg:`Key "${key}" may contain sensitive data, ensure it is not committed to version control`,code:key});
+}
+});
+if(!val.trim()){
+infos.push({line:lineNum,msg:`Key "${key}" has an empty value`,code:key});
+}
+const unquoted=val.replace(/^["']|["']$/g,'');
+if(unquoted.includes('#')&&!val.startsWith('"')&&!val.startsWith("'")){
+infos.push({line:lineNum,msg:'Value contains # which may be treated as a comment (wrap in quotes)',code:val});
+}
+});
+const resultsDiv=document.getElementById('results');
+let html='<div class="result-grid">';
+html+=`<div class="result-card ${errors.length?'errors':'ok'}"><div class="count" style="color:${errors.length?'#ef4444':'#10b981'}">${errors.length}</div><div class="label">Errors</div></div>`;
+html+=`<div class="result-card ${warnings.length?'warnings':'ok'}"><div class="count" style="color:${warnings.length?'#f59e0b':'#10b981'}">${warnings.length}</div><div class="label">Warnings</div></div>`;
+html+=`<div class="result-card ${infos.length?'info':'ok'}"><div class="count" style="color:${infos.length?'#06b6d4':'#10b981'}">${infos.length}</div><div class="label">Suggestions</div></div>`;
+html+=`<div class="result-card ok"><div class="count" style="color:#10b981">${varCount}</div><div class="label">Variables</div></div>`;
+html+='</div>';
+if(errors.length||warnings.length||infos.length){
+html+='<ul class="issue-list">';
+errors.forEach(e=>{html+=`<li class="issue-item error"><span class="issue-icon">❌</span><div class="issue-content"><strong>Error</strong> Line ${e.line}: ${esc(e.msg)}<br><span class="issue-line">${esc(e.code)}</span></div></li>`;});
+warnings.forEach(w=>{html+=`<li class="issue-item warning"><span class="issue-icon">⚠️</span><div class="issue-content"><strong>Warning</strong> Line ${w.line}: ${esc(w.msg)}<br><span class="issue-line">${esc(w.code)}</span></div></li>`;});
+infos.forEach(n=>{html+=`<li class="issue-item info"><span class="issue-icon">💡</span><div class="issue-content"><strong>Info</strong> Line ${n.line}: ${esc(n.msg)}<br><span class="issue-line">${esc(n.code)}</span></div></li>`;});
+html+='</ul>';
+}else{
+html+='<div style="text-align:center;padding:20px;color:#10b981;font-size:1.1rem">✅ Validation passed! No issues found.</div>';
+}
+resultsDiv.innerHTML=html;
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function toggleFaq(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+validateEnv();
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

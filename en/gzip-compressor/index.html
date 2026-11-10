@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shrink text with the DEFLATE-based Gzip algorithm or unpack it again, choosing Base64 or raw output and seeing the live compression ratio.">
+<meta name="keywords" content="gzip compressor,gzip decompressor,text compression,base64 gzip,deflate,compress text online">
+<title>Free Gzip Compressor - Compress &amp; Decompress Text Online</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gzip-compressor/">
+<meta property="og:title" content="Free Gzip Compressor - Compress &amp; Decompress Text Online">
+<meta property="og:description" content="Shrink text with the DEFLATE-based Gzip algorithm or unpack it again, choosing Base64 or raw output and seeing the live compression ratio.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gzip-compressor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+
+
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:6px}
+textarea{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;resize:vertical}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.stats{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem;color:#94a3b8;margin-bottom:12px}
+.stats span{background:rgba(148,163,184,.08);padding:4px 12px;border-radius:4px}
+.stats .highlight{color:#22d3ee}
+select{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;font-size:.85rem;cursor:pointer}
+select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-top:24px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{list-style:none;margin-bottom:12px}
+.info-section li{padding:4px 0;padding-left:20px;position:relative}
+.info-section li::before{content:"•";position:absolute;left:4px;color:#06b6d4}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.2);z-index:1000;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.85rem}
+footer a{color:#64748b}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Gzip Compressor - Compress & Decompress Text Online", "item": "https://adi63586.github.io/Toolguidehub/en/gzip-compressor/"}]}</script>
+
+
+
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Gzip Compressor", "description": "Free online gzip compressor and decompressor. Compress and decompress text data in your browser, supports gzip/deflate format, Base64 encoded output, no server upload, protected data privacy.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gzip-compressor/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Gzip Compressor","description":"Step-by-step guide for using Gzip Compressor","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Gzip Compressor"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the content you want to compress or decompress"},{"@type":"HowToStep","position":2,"name":"Select mode","text":"Choose compress or decompress operation"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the button to process your input"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the output and copy with one click"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Gzip Compressor FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Gzip Compressor?","acceptedAnswer":{"@type":"Answer","text":"Enter your input, select the operation mode, and click the action button. Results appear instantly. Everything runs locally: Output Format and Result are processed on your device, never sent to a server for speed and privacy."}},{"@type":"Question","name":"Is the Gzip Compressor free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Output Format and Result are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Does the Gzip Compressor work on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Yes, the tool is fully responsive and works on any device with a modern browser. All processing runs locally, so you get the same accuracy and privacy on mobile as on desktop."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<div class="header">
+<h1>🗜️ Gzip Compressor</h1>
+
+</div>
+<div class="section">
+<h2>Input Text</h2>
+<div class="input-group"><label>Enter text to compress/decompress</label>
+<textarea id="inputText" rows="8" placeholder="Paste your text here..."></textarea></div>
+<div class="btn-row">
+<button class="btn btn-primary" id="compressBtn">📦 Gzip Compress</button>
+<button class="btn btn-primary" id="decompressBtn">📂 Gzip Decompress</button>
+<button class="btn btn-secondary" id="copyBtn">📋 Copy Result</button>
+<button class="btn btn-secondary" id="swapBtn">🔄 Swap Input/Output</button>
+<button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+</div>
+<div style="margin:8px 0">
+<label style="font-size:.85rem;color:#94a3b8;margin-right:8px">Output Format:</label>
+<select id="outputFormat"><option value="base64">Base64 Encoded</option><option value="text">Raw Text (may be garbled)</option></select>
+</div>
+<div class="stats">
+<span>Input Size: <b id="inputSize">0 B</b></span>
+<span>Output Size: <b id="outputSize">0 B</b></span>
+<span>Compression Ratio: <b class="highlight" id="ratio">—</b></span>
+</div>
+<div class="input-group"><label>Result</label>
+<textarea id="outputText" rows="8" placeholder="Result will appear here..." readonly></textarea></div>
+</div>
+<div class="info-section">
+<h2>About Gzip Compression</h2>
+<h3>What is Gzip?</h3>
+<p>Gzip (GNU zip) is one of the most commonly used compression algorithms, widely used to compress HTTP responses on web servers, compress log files, and more. It is based on the DEFLATE algorithm and typically compresses text data by 60-80%.</p>
+<h3>When to use the Gzip Compressor</h3>
+<ul>
+<li>Compress HTML/CSS/JavaScript code to reduce size</li>
+<li>Compress JSON/XML and other text data</li>
+<li>Compress log files and plain text</li>
+<li>Less effective for already-compressed formats (images, video, ZIP)</li>
+</ul>
+<h3>Privacy Guarantee</h3>
+<p>All operations are completed locally in your browser using the <code>CompressionStream</code> API. Your data is never uploaded to any server.</p>
+</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gzip-compressor/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+const inputText = document.getElementById('inputText');
+const outputText = document.getElementById('outputText');
+const inputSize = document.getElementById('inputSize');
+const outputSize = document.getElementById('outputSize');
+const ratio = document.getElementById('ratio');
+const formatSelect = document.getElementById('outputFormat');
+const toast = document.getElementById('toast');
+
+function showToast(msg) {
+  toast.textContent = msg; toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+function formatBytes(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+  return (b/(1024*1024)).toFixed(2) + ' MB';
+}
+
+function updateStats(inBytes, outBytes) {
+  inputSize.textContent = formatBytes(inBytes);
+  outputSize.textContent = formatBytes(outBytes);
+  if (inBytes > 0) {
+    const pct = ((1 - outBytes/inBytes) * 100).toFixed(1);
+    ratio.textContent = (pct > 0 ? '+' : '') + pct + '%';
+    ratio.style.color = pct > 0 ? '#10b981' : '#f87171';
+  } else {
+    ratio.textContent = '—';
+    ratio.style.color = '#22d3ee';
+  }
+}
+
+async function compressText(text) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const cs = new CompressionStream('gzip');
+  const writer = cs.writable.getWriter();
+  writer.write(data);
+  writer.close();
+  const chunks = [];
+  const reader = cs.readable.getReader();
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) break;
+    chunks.push(value);
+  }
+  let totalLen = 0;
+  for (const c of chunks) totalLen += c.length;
+  const result = new Uint8Array(totalLen);
+  let offset = 0;
+  for (const c of chunks) { result.set(c, offset); offset += c.length; }
+  return result;
+}
+
+async function decompressData(data) {
+  const ds = new DecompressionStream('gzip');
+  const writer = ds.writable.getWriter();
+  writer.write(data);
+  writer.close();
+  const chunks = [];
+  const reader = ds.readable.getReader();
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) break;
+    chunks.push(value);
+  }
+  let totalLen = 0;
+  for (const c of chunks) totalLen += c.length;
+  const result = new Uint8Array(totalLen);
+  let offset = 0;
+  for (const c of chunks) { result.set(c, offset); offset += c.length; }
+  return result;
+}
+
+function uint8ToBase64(arr) {
+  let binary = '';
+  for (let i = 0; i < arr.length; i++) binary += String.fromCharCode(arr[i]);
+  return btoa(binary);
+}
+
+function base64ToUint8(str) {
+  const binary = atob(str);
+  const arr = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) arr[i] = binary.charCodeAt(i);
+  return arr;
+}
+
+document.getElementById('compressBtn').addEventListener('click', async () => {
+  const text = inputText.value;
+  if (!text) { showToast('Please enter text first'); return; }
+  try {
+    const compressed = await compressText(text);
+    const fmt = formatSelect.value;
+    const outStr = fmt === 'base64' ? uint8ToBase64(compressed) : new TextDecoder().decode(compressed);
+    outputText.value = outStr;
+    updateStats(new TextEncoder().encode(text).length, compressed.length);
+    showToast('Compression complete ✓');
+  } catch(e) {
+    showToast('Compression failed: ' + e.message);
+  }
+});
+
+document.getElementById('decompressBtn').addEventListener('click', async () => {
+  const text = inputText.value.trim();
+  if (!text) { showToast('Please enter text first'); return; }
+  try {
+    let data;
+    const fmt = formatSelect.value;
+    if (fmt === 'base64') {
+      try { data = base64ToUint8(text); } catch(e) { showToast('Please enter valid Base64 data'); return; }
+    } else {
+      data = new TextEncoder().encode(text);
+    }
+    const decompressed = await decompressData(data);
+    const outStr = new TextDecoder().decode(decompressed);
+    outputText.value = outStr;
+    updateStats(data.length, decompressed.length);
+    showToast('Decompression complete ✓');
+  } catch(e) {
+    showToast('Decompression failed: not valid Gzip data');
+  }
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const text = outputText.value;
+  if (!text) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard ✓'));
+});
+document.getElementById('swapBtn').addEventListener('click', () => {
+  const tmp = inputText.value;
+  inputText.value = outputText.value;
+  outputText.value = tmp;
+  updateStats(0, 0);
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  inputText.value = ''; outputText.value = '';
+  updateStats(0, 0);
+});
+inputText.addEventListener('input', () => {
+  updateStats(new TextEncoder().encode(inputText.value).length, 0);
+});
+</script>
+</body>
+</html>

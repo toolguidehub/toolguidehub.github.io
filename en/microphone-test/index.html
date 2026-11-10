@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Test your microphone in the browser with a live waveform and volume meter, and check which input device is picking up sound.">
+<meta name="keywords" content="microphone test, mic test, test microphone online, mic tester, microphone tester, online mic test, check microphone, audio test">
+<title>Free Online Microphone Test - Mic Testing Tool | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/microphone-test/">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;color:#f1f5f9;margin-bottom:8px;text-align:center}
+.subtitle{color:#94a3b8;text-align:center;margin-bottom:32px}
+.card{background:#1e293b;border-radius:12px;padding:32px;border:1px solid rgba(148,163,184,.1);margin-bottom:24px}
+.card h2{color:#f1f5f9;margin-bottom:16px;font-size:1.2rem}
+.mic-area{text-align:center}
+.level-meter{position:relative;height:40px;background:#0f172a;border-radius:20px;overflow:hidden;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.level-fill{height:100%;width:0%;border-radius:20px;transition:width .05s ease;
+background:linear-gradient(90deg,#22c55e,#22d3ee,#f59e0b,#ef4444)}
+.level-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:1rem;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.waveform{height:120px;background:#0f172a;border-radius:8px;margin-bottom:16px;overflow:hidden;border:1px solid rgba(148,163,184,.1)}
+.waveform canvas{width:100%;height:100%;display:block}
+.controls{display:flex;justify-content:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:50px;border:none;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;min-width:120px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-start{background:#22d3ee;color:#0f172a}
+.btn-start:hover:not(:disabled){background:#06b6d4}
+.btn-stop{background:#ef4444;color:#fff}
+.btn-stop:hover:not(:disabled){background:#dc2626}
+.mic-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:16px}
+.info-item{background:#0f172a;padding:12px;border-radius:8px;text-align:center}
+.info-item .label{color:#64748b;font-size:.8rem;margin-bottom:4px}
+.info-item .value{color:#f1f5f9;font-size:1.1rem;font-weight:600;font-family:monospace}
+.info-item .value.good{color:#22c55e}
+.info-item .value.warn{color:#f59e0b}
+.info-item .value.bad{color:#ef4444}
+.perm-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px 16px;border-radius:8px;margin-bottom:16px;display:none;font-size:.9rem}
+.error-msg{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px 16px;border-radius:8px;margin-bottom:16px;display:none;font-size:.9rem}
+.lang-nav{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+.lang-nav a{padding:6px 16px;border-radius:6px;font-size:.85rem;color:#94a3b8;border:1px solid rgba(148,163,184,.15);transition:all .2s;text-decoration:none}
+.lang-nav a.active{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.seo-content{background:#0f172a;border-radius:8px;padding:20px;margin-top:16px}
+.seo-content ol{color:#94a3b8;padding-left:20px;font-size:.9rem;line-height:1.8}
+.seo-content ol li{margin-bottom:4px}
+.faq-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(148,163,184,.1)}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:8px;cursor:pointer}
+.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.7}
+.status-text{color:#94a3b8;font-size:.9rem;margin-bottom:12px;min-height:24px}
+@media(max-width:480px){h1{font-size:1.4rem}.card{padding:20px}.mic-info{grid-template-columns:1fr 1fr}}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is the microphone test tool free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the microphone test tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it's completely free to use with no registration or login required. All features are available with no usage limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my microphone data be uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser locally. All audio data stays on your device and is never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the browser ask for microphone permission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool needs access to your microphone to test it. Your browser will show a permission prompt — simply click Allow. Your privacy is protected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I interpret the test results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you speak, the volume level bar should jump above 50%. If the bar doesn't move, your microphone may not be working. Green means normal levels, red means it may be too loud."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my microphone not responding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possible reasons: 1) The mic is being used by another app; 2) Browser permission was denied; 3) Hardware issue or the mic is muted; 4) Wrong audio input device selected in system settings."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Microphone Test - Free Online Mic Testing Tool", "description": "Free online microphone test tool. Test your mic in one click with real-time audio waveform display and volume level meter. Pure frontend, no uploads, privacy safe.", "url": "https://adi63586.github.io/Toolguidehub/en/microphone-test/", "applicationCategory": "UtilityApplication", "operatingSystem": "All", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "browserRequirements": "Requires getUserMedia support", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-10"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Microphone Test Tool",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Click Start Test",
+      "text": "Click 'Start Mic Test' button. Your browser will ask for microphone permission — click Allow."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Speak into your mic",
+      "text": "Talk or make noise into your microphone and watch the volume level bar respond."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Check the results",
+      "text": "The tool shows real-time volume level. If the bar moves when you speak, your mic is working."
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Microphone Test",
+      "item": "https://adi63586.github.io/Toolguidehub/en/microphone-test/"
+    }
+  ],
+  "name": "Microphone Test"
+}</script>
+<meta property="og:title" content="Free Online Microphone Test - Mic Testing Tool | ToolGuideHub">
+<meta property="og:description" content="Test your microphone in the browser with a live waveform and volume meter, and check which input device is picking up sound.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/microphone-test/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="lang-nav">
+<a href="../../en/microphone-test/">🇨🇳</a>
+<a href="../../en/microphone-test/" class="active">🇬🇧 English</a>
+</div>
+
+<h1>🎤 Microphone Test</h1>
+<p class="subtitle">Test your microphone in one click — real-time volume level and waveform display</p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div class="card">
+<div class="mic-area">
+<div id="permMsg" class="perm-msg">⚠️ Microphone permission denied. Click the 🔒 icon in your browser's address bar, change mic permission to "Allow", then refresh.</div>
+<div id="errorMsg" class="error-msg"></div>
+
+<div class="status-text" id="statusText">Click the button below to start testing your mic</div>
+
+<div class="level-meter">
+<div class="level-fill" id="levelFill"></div>
+<div class="level-text" id="levelText">0%</div>
+</div>
+
+<div class="waveform">
+<canvas id="waveformCanvas"></canvas>
+</div>
+
+<div class="controls">
+<button id="startBtn" class="btn btn-start" onclick="startMic()">🎤 Start Mic Test</button>
+<button id="stopBtn" class="btn btn-stop" onclick="stopMic()" disabled>⏹ Stop Test</button>
+</div>
+
+<div id="micInfo" class="mic-info" style="display:none">
+<div class="info-item">
+<div class="label">Current Level</div>
+<div id="levelVal" class="value">0%</div>
+</div>
+<div class="info-item">
+<div class="label">Peak Level</div>
+<div id="peakVal" class="value">0%</div>
+</div>
+<div class="info-item">
+<div class="label">Status</div>
+<div id="micStatusVal" class="value good">Waiting</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>📖 How to Use Mic Test Tool</h2>
+<div class="seo-content">
+<ol>
+<li><strong>Click "Start Mic Test"</strong> — Your browser will prompt for microphone access. Click Allow.</li>
+<li><strong>Speak into your microphone</strong> — Watch the volume level bar and waveform respond in real-time.</li>
+<li><strong>Check results</strong> — The level bar should jump when you speak. If it doesn't move, check your mic.</li>
+<li><strong>Stop the test</strong> — Click "Stop Test" when done to release the microphone.</li>
+</ol>
+</div>
+</div>
+
+<div class="card">
+<h2>❓ Frequently Asked Questions</h2>
+<div class="faq-item">
+<h3>Is the microphone test tool free?</h3>
+<p>Yes, it's completely free to use with no registration or login required. All features are available with no usage limits.</p>
+</div>
+<div class="faq-item">
+<h3>Will my microphone data be uploaded to a server?</h3>
+<p>No. This tool runs entirely in your browser locally. All audio data stays on your device and is never uploaded to any server.</p>
+</div>
+<div class="faq-item">
+<h3>Why does the browser ask for microphone permission?</h3>
+<p>The tool needs access to your microphone to test it. Your browser will show a permission prompt — simply click Allow. If you accidentally denied it, change the permission in your browser's site settings.</p>
+</div>
+<div class="faq-item">
+<h3>How do I interpret the test results?</h3>
+<p>When you speak, the volume level bar should jump above 50%. If the bar doesn't move at all, your microphone may not be working properly. Green means normal levels, red means the audio might be too loud.</p>
+</div>
+<div class="faq-item">
+<h3>Why is my microphone not responding?</h3>
+<p>Possible reasons: 1) The mic is being used by another app (Zoom, Skype, etc.); 2) Browser permission was denied; 3) Hardware issue or the mic is muted; 4) Wrong audio input device selected in your system sound settings.</p>
+</div>
+</div>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/microphone-test/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied")})["catch"](function(){showToast("Copy failed")})}
+
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature request',bug:'🐛 Feedback',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\\\\n**Type**: '+typeLabel);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+}
+
+let stream = null;
+let audioContext = null;
+let analyser = null;
+let animationId = null;
+let peakLevel = 0;
+
+function resizeCanvas() {
+const canvas = document.getElementById('waveformCanvas');
+const rect = canvas.parentElement.getBoundingClientRect();
+canvas.width = rect.width;
+canvas.height = rect.height;
+}
+
+function showError(msg) {
+const el = document.getElementById('errorMsg');
+el.textContent = '⚠️ ' + msg;
+el.style.display = 'block';
+setTimeout(() => el.style.display = 'none', 5000);
+}
+
+async function startMic() {
+resizeCanvas();
+try {
+stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+document.getElementById('permMsg').style.display = 'none';
+document.getElementById('errorMsg').style.display = 'none';
+
+audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const source = audioContext.createMediaStreamSource(stream);
+analyser = audioContext.createAnalyser();
+analyser.fftSize = 256;
+source.connect(analyser);
+
+document.getElementById('micInfo').style.display = 'grid';
+document.getElementById('startBtn').disabled = true;
+document.getElementById('stopBtn').disabled = false;
+document.getElementById('statusText').textContent = '🔴 Listening... speak into the mic to check volume';
+
+peakLevel = 0;
+drawWaveform();
+
+} catch (err) {
+if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+document.getElementById('permMsg').style.display = 'block';
+} else {
+showError('Could not access microphone: ' + err.message);
+}
+}
+}
+
+function drawWaveform() {
+const canvas = document.getElementById('waveformCanvas');
+if (!canvas || !analyser) return;
+
+const ctx = canvas.getContext('2d');
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+analyser.getByteTimeDomainData(dataArray);
+
+// Calculate level
+let sum = 0;
+for (let i = 0; i < bufferLength; i++) {
+const val = Math.abs(dataArray[i] - 128);
+sum += val;
+}
+const avg = sum / bufferLength;
+const level = Math.min(100, Math.round(avg * 100 / 128));
+
+// Update level meter
+document.getElementById('levelFill').style.width = level + '%';
+document.getElementById('levelText').textContent = level + '%';
+document.getElementById('levelVal').textContent = level + '%';
+if (level > peakLevel) peakLevel = level;
+document.getElementById('peakVal').textContent = peakLevel + '%';
+
+// Status
+const statusEl = document.getElementById('micStatusVal');
+if (level > 5) {
+statusEl.textContent = '✅ Working';
+statusEl.className = 'value good';
+} else {
+statusEl.textContent = '⚪ Silent';
+statusEl.className = 'value';
+}
+
+// Draw waveform
+ctx.fillStyle = '#0f172a';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+const sliceWidth = canvas.width / bufferLength;
+let x = 0;
+ctx.lineWidth = 2;
+ctx.strokeStyle = '#22d3ee';
+ctx.beginPath();
+for (let i = 0; i < bufferLength; i++) {
+const v = dataArray[i] / 128.0;
+const y = v * canvas.height / 2;
+if (i === 0) ctx.moveTo(x, y);
+else ctx.lineTo(x, y);
+x += sliceWidth;
+}
+ctx.stroke();
+
+animationId = requestAnimationFrame(drawWaveform);
+}
+
+window.stopMic = stopMic; function stopMic() {
+if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
+if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+if (audioContext) { audioContext.close(); audioContext = null; }
+analyser = null;
+
+document.getElementById('micInfo').style.display = 'none';
+document.getElementById('startBtn').disabled = false;
+document.getElementById('stopBtn').disabled = true;
+document.getElementById('statusText').textContent = 'Click the button to start the mic test';
+document.getElementById('levelFill').style.width = '0%';
+document.getElementById('levelText').textContent = '0%';
+document.getElementById('levelVal').textContent = '0%';
+document.getElementById('peakVal').textContent = '0%';
+document.getElementById('micStatusVal').textContent = 'Stopped';
+document.getElementById('micStatusVal').className = 'value';
+
+const canvas = document.getElementById('waveformCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#0f172a';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+window.addEventListener('resize', resizeCanvas);
+
+</script>
+
+<style>.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:10px 20px;border-radius:12px;font-size:.85rem;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}</style>
+<div class="toast" id="toast"></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1);"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/audio-recorder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎙 Audio Recorder</a><a href="../../en/text-to-speech/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔊 Text to Speech</a><a href="../../en/voice-recorder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🎤 Voice Recorder</a></div></section>
+
+</body>
+</html>

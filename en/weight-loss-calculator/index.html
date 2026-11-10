@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Loss Calculator | ToolGuideHub</title>
+  <meta name="description" content="Estimate how long it will take to reach your goal weight from your daily calorie deficit and exercise burn.">
+  <meta property="og:title" content="Weight Loss Calculator - Calorie Deficit & Timeline Planner | ToolGuideHub">
+  <meta property="og:description" content="Estimate how long it will take to reach your goal weight from your daily calorie deficit and exercise burn.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/weight-loss-calculator/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Weight Loss Calculator","applicationCategory":"HealthApplication","operatingSystem":"Web Browser","description":"Free online weight loss calculator. Calculate time to reach goal weight based on calorie deficit and exercise.","url":"https://adi63586.github.io/Toolguidehub/en/weight-loss-calculator/"}</script>
+  <style>:root{--primary-hover:rgba(6,182,212,.3);--surface:#1e293b;}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--surface);border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header h1{font-size:1.25rem;font-weight:700}
+    header a{color:#22d3ee;text-decoration:none;font-size:.9rem}
+    main{flex:1;padding:24px;max-width:900px;margin:0 auto;width:100%}
+    .section{background:var(--surface);border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:16px}
+    .form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:16px}
+    .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;color:#94a3b8}
+    .form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.9rem;font-family:inherit;background:#0f172a;color:#e2e8f0}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+    .input-with-suffix{position:relative}
+    .input-with-suffix input{padding-right:60px}
+    .input-with-suffix .suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.85rem}
+    .btn-row{display:flex;gap:8px;flex-wrap:wrap}
+    button{padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s}
+    .btn-primary{background:#22d3ee;color:#fff}.btn-primary:hover{background:var(--primary-hover)}
+    .btn-outline{background:var(--surface);color:#22d3ee;border:1px solid #22d3ee}.btn-outline:hover{background:rgba(79,70,229,.05)}
+    .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+    .result-item{background:#1e293b;border-radius:10px;padding:16px;text-align:center}
+    .result-value{font-size:1.5rem;font-weight:700;color:#22d3ee;margin-top:4px}
+    .result-label{font-size:.8rem;color:#94a3b8}
+    .timeline-bar{display:flex;align-items:center;gap:8px;margin-top:16px;padding:12px;background:#0f172a;border-radius:8px}
+    .progress-fill{height:24px;background:linear-gradient(90deg,#4F46E5,#7c3aed);border-radius:12px;transition:width .5s}
+    footer{background:var(--surface);border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.8rem;color:#94a3b8}
+    @media(max-width:600px){main{padding:12px}.section{padding:16px}.results{grid-template-columns:1fr 1fr}}
+    .copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+    .copy-btn:hover{background:rgba(6,182,212,.25)}
+    .copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/weight-loss-calculator/">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Weight Loss Calculator - Calorie Deficit & Timeline Planner","item":"https://adi63586.github.io/Toolguidehub/en/weight-loss-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Weight Loss Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Weight Loss Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Weight Loss Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Current Weight and Target Weight are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Weight Loss Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Weight Loss Calculator","description":"Step-by-step guide for using Weight Loss Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Weight Loss Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/weight-loss-calculator/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <h1>⚖️ Weight Loss Calculator</h1>
+  <p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online weight loss calculator. Calculate how long to reach your goal weight based on calorie deficit and exercise. Science-based 7700 kcal = 1kg formula.</p>
+  <a href="../../">← Back to Home</a>
+</header>
+<main>
+  <div class="section">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Current Weight</label>
+        <div class="input-with-suffix"><input type="number" id="current-weight" placeholder="176" value="176" min="66" max="660" step="0.1"><span class="suffix">lbs</span></div>
+      </div>
+      <div class="form-group">
+        <label>Target Weight</label>
+        <div class="input-with-suffix"><input type="number" id="target-weight" placeholder="143" value="143" min="66" max="660" step="0.1"><span class="suffix">lbs</span></div>
+      </div>
+      <div class="form-group">
+        <label>Daily Calorie Burn (TDEE)</label>
+        <div class="input-with-suffix"><input type="number" id="tdee" placeholder="2200" value="2200" min="1000" max="5000"><span class="suffix">kcal</span></div>
+      </div>
+      <div class="form-group">
+        <label>Weight Loss Rate</label>
+        <select id="deficit">
+          <option value="250">Mild (-250 kcal/day, ~0.55 lb/week)</option>
+          <option value="500" selected>Standard (-500 kcal/day, ~1.1 lb/week)</option>
+          <option value="750">Aggressive (-750 kcal/day, ~1.65 lb/week)</option>
+          <option value="1000">Intense (-1000 kcal/day, ~2.2 lb/week)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Exercise (extra daily burn)</label>
+        <div class="input-with-suffix"><input type="number" id="exercise" placeholder="300" value="300" min="0" max="2000"><span class="suffix">kcal</span></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn-primary" onclick="calculate()">📊 Calculate</button>
+      <button class="btn-outline" onclick="clearForm()">🗑️ Reset</button>
+    </div>
+  </div>
+  <div class="section" id="result-card" style="display:none">
+    <h3 style="margin-bottom:12px;font-size:.95rem;color:#94a3b8">Weight Loss Plan</h3>
+    <div class="results" id="results"></div>
+    <div class="timeline-bar" id="timeline-bar" style="margin-top:16px">
+      <span style="font-size:.85rem;font-weight:600;white-space:nowrap">Progress</span>
+      <div style="flex:1;background:#e2e8f0;border-radius:12px;height:24px"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <span id="progress-text" style="font-size:.85rem;font-weight:600;white-space:nowrap">0%</span>
+    </div>
+  </div>
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#1e293b;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>The Weight Loss Calculator is a free online tool that runs entirely in your browser — no software installation required. Your data stays on your device and is never uploaded to any server, ensuring complete privacy. Compatible with all major browsers and mobile devices, it's available anytime, anywhere. Use this weight loss calculator to scientifically plan your weight loss journey with realistic calorie targets. Based on the proven 7700 kcal = 1 kg (3500 kcal = 1 lb) principle. Simple, intuitive operation with instant results. The weight loss calculator provides accurate timeline predictions and calorie planning for everyday health management. All computation happens on your device — Current Weight, Target Weight and other inputs stay in your browser for speed and security. Whether on desktop or mobile, you get a smooth experience.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/bmi-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📏 BMI Calculator</a><a href="../../en/calorie-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔥 Calorie Calculator</a><a href="../../en/body-fat-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">💪 Body Fat Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/weight-loss-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+function showToast(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#f1f5f9;padding:10px 20px;border-radius:8px;z-index:9999;opacity:0;transition:opacity .3s";document.body.appendChild(t);}t.textContent=m;t.style.opacity="1";setTimeout(function(){t.style.opacity="0"},2500);}
+</script>
+<script>
+function formatNum(n){return n.toFixed(1)}
+function calculate(){
+  var current=parseFloat(document.getElementById('current-weight').value)||0;
+  var target=parseFloat(document.getElementById('target-weight').value)||0;
+  var tdee=parseFloat(document.getElementById('tdee').value)||0;
+  var deficit=parseInt(document.getElementById('deficit').value)||500;
+  var exercise=parseFloat(document.getElementById('exercise').value)||0;
+  if(current<=0||target<=0||tdee<=0){showToast('Please enter valid values');return}
+  if(target>=current){showToast('Target weight must be less than current weight');return}
+  var lbsToLose=current-target;
+  var totalDeficit=lbsToLose*3500;
+  var dailyDeficit=deficit+exercise;
+  var days=Math.ceil(totalDeficit/dailyDeficit);
+  var weeks=(days/7).toFixed(1);
+  var months=(days/30.4).toFixed(1);
+  var dailyCalories=tdee-deficit;
+  document.getElementById('result-card').style.display='block';
+  document.getElementById('results').innerHTML=
+    '<div class="result-item"><div class="result-label">Weight to Lose</div><div class="result-value">'+formatNum(lbsToLose)+' lbs</div></div>'+
+    '<div class="result-item"><div class="result-label">Total Deficit Needed</div><div class="result-value">'+totalDeficit.toLocaleString()+' kcal</div></div>'+
+    '<div class="result-item"><div class="result-label">Daily Net Deficit</div><div class="result-value">'+dailyDeficit.toLocaleString()+' kcal</div></div>'+
+    '<div class="result-item"><div class="result-label">Estimated Days</div><div class="result-value">'+days+' days</div></div>'+
+    '<div class="result-item"><div class="result-label">Estimated Weeks</div><div class="result-value">'+weeks+' weeks</div></div>'+
+    '<div class="result-item"><div class="result-label">Estimated Months</div><div class="result-value">'+months+' months</div></div>'+
+    '<div class="result-item"><div class="result-label">Daily Calorie Target</div><div class="result-value">'+dailyCalories.toLocaleString()+' kcal</div></div>'+
+    '<div class="result-item"><div class="result-label">Target Date</div><div class="result-value" id="target-date"></div></div>';
+  var targetDate=new Date();
+  targetDate.setDate(targetDate.getDate()+days);
+  document.getElementById('target-date').textContent=targetDate.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  var pct=Math.min(100,Math.round((lbsToLose/Math.max(1,current))*100));
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-text').textContent='Lose '+formatNum(lbsToLose)+' lbs ('+pct+'%)';
+}
+function clearForm(){document.getElementById('current-weight').value='176';document.getElementById('target-weight').value='143';document.getElementById('tdee').value='2200';document.getElementById('deficit').value='500';document.getElementById('exercise').value='300';document.getElementById('result-card').style.display='none'}
+calculate();
+</script>
+<script>
+(function(){
+  var processed = new Set();
+  function addCopyBtns(){
+    var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]');
+    results.forEach(function(el){
+      if(processed.has(el)) return;
+      if(el.querySelector('.copy-btn')) return;
+      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return;
+      if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'Copy results';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  addCopyBtns();
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+
+function fillExample(){
+  var vals = [["tdee", "2200"], ["exercise", "300"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

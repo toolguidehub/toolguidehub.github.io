@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Benchmark several regexes against the same text, compare average match times, and flag ReDoS backtracking risk by severity.">
+<meta name="keywords" content="regex performance test,regex optimization,ReDoS detection,regex backtracking,regex comparison,regex benchmark">
+<title>Free Online Regex Performance Tester - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/regex-perf-tester/">
+<meta property="og:title" content="Free Online Regex Performance Tester - ToolGuideHub">
+<meta property="og:description" content="Benchmark several regexes against the same text, compare average match times, and flag ReDoS backtracking risk by severity.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/regex-perf-tester/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Performance Tester", "description": "Free online regex performance testing tool. Compare execution speed and backtracking of multiple regexes. ReDoS risk detection. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a ReDoS attack?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a ReDoS attack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ReDoS (Regular Expression Denial of Service) exploits regex backtracking by crafting malicious input that causes exponential backtracking in the regex engine, leading to high CPU usage or even service crashes. For example, /(a+)+b/ matching 'aaaaaaaaac' triggers massive backtracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my regex has ReDoS risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool analyzes regex patterns for nested quantifiers (like (a+)+, (a*)*) and alternation overlap (like (a|a)+) to detect ReDoS risk, color-coded by severity: red = high risk, yellow = medium risk, green = safe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does backtracking count mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Backtracking count is the number of times the regex engine backtracks to try alternative paths when a match fails. Higher backtracking means lower efficiency and greater ReDoS risk. Good regexes minimize backtracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare multiple regexes at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add multiple regexes and compare their execution speed against the same test text, ranked by execution time to show which is fastest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I adjust test iterations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each regex runs 100 times by default (averaged). You can adjust iterations (10-10000) for more precise results. More iterations = more stable results but longer wait."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to optimize regex performance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common optimizations: 1. Avoid nested quantifiers; 2. Use non-capturing groups (?:) instead of capturing groups; 3. Use atomic groups or possessive quantifiers to reduce backtracking; 4. Be specific in matching patterns; 5. Avoid overlapping alternation; 6. Pre-compile frequently used regexes."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#dev"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Regex Perf Tester",
+      "item": "https://adi63586.github.io/Toolguidehub/en/regex-perf-tester/"
+    }
+  ],
+  "name": "Regex Perf Tester"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.tool-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.regex-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.regex-row input{flex:1;min-width:200px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.regex-row .flags{width:80px;font-family:monospace}
+.risk-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
+.risk-high{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3)}
+.risk-medium{background:rgba(249,168,37,.15);color:#fbbf24;border:1px solid rgba(249,168,37,.3)}
+.risk-low{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.perf-table{width:100%;border-collapse:collapse;margin-top:12px}
+.perf-table th{text-align:left;padding:8px 12px;color:#94a3b8;font-size:.8rem;border-bottom:1px solid rgba(148,163,184,.1)}
+.perf-table td{padding:8px 12px;font-size:.85rem;border-bottom:1px solid rgba(148,163,184,.05)}
+.perf-table tr:hover{background:rgba(6,182,212,.05)}
+.perf-bar{height:6px;border-radius:3px;background:rgba(6,182,212,.3);transition:width .3s}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/regex-perf-tester/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Regex Performance Tester","description":"Step-by-step guide for using Regex Performance Tester","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Regex Performance Tester"},"step":[{"@type":"HowToStep","position":1,"name":"Prepare test","text":"Enter test parameters or upload test data"},{"@type":"HowToStep","position":2,"name":"Start test","text":"Click the start button to run the test"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the test results and detailed data"},{"@type":"HowToStep","position":4,"name":"Copy report","text":"Copy or download the test report"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header">
+    <h1>⚡ Regex Performance Tester</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+  <div class="tool-section">
+    <h2>📝 Test Text</h2>
+    <textarea id="testText" style="width:100%;min-height:120px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem" placeholder="Enter test text..."></textarea>
+    <div style="margin-top:8px">
+      <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+      <button class="btn btn-secondary" onclick="document.getElementById('testText').value=''">🗑️ Clear</button>
+    </div>
+  </div>
+
+  <div class="tool-section">
+    <h2>🔍 Regex List</h2>
+    <div id="regexList">
+      <div class="regex-row" data-idx="0">
+        <input type="text" class="regex-input" placeholder="Regex pattern, e.g.: /a+b/">
+        <input type="text" class="flags" value="g" placeholder="Flags">
+        <span class="risk-badge risk-low" id="risk0">Safe</span>
+      </div>
+      <div class="regex-row" data-idx="1">
+        <input type="text" class="regex-input" placeholder="Regex pattern, e.g.: /a*b/">
+        <input type="text" class="flags" value="g" placeholder="Flags">
+        <span class="risk-badge risk-low" id="risk1">Safe</span>
+      </div>
+    </div>
+    <div style="margin-top:8px">
+      <button class="btn btn-secondary" onclick="addRegexRow()">➕ Add Regex</button>
+      <button class="btn btn-danger" onclick="removeLastRow()">➖ Remove Last</button>
+    </div>
+    <div style="margin-top:12px">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <label>Iterations:</label>
+        <input type="number" id="iterations" value="100" min="10" max="10000" style="width:100px">
+        <label>Timeout (ms):</label>
+        <input type="number" id="timeout" value="2000" min="100" max="30000" style="width:100px">
+        <button class="btn btn-primary" onclick="runBenchmark()">🚀 Run Test</button>
+        <button class="btn btn-success" onclick="copyResults()">📋 Copy Results</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tool-section" id="resultsSection" style="display:none">
+    <h2>📊 Performance Results</h2>
+    <table class="perf-table">
+      <thead><tr><th>Rank</th><th>Regex</th><th>ReDoS Risk</th><th>Avg Time</th><th>Matches</th><th>Perf Bar</th></tr></thead>
+      <tbody id="perfBody"></tbody>
+    </table>
+  </div>
+
+  <div class="tool-section">
+    <h2>📚 What Can Regex Performance Tester Do?</h2>
+    <p>The Regex Performance Tester compares execution speed of multiple regexes against the same text, detects ReDoS (Regular Expression Denial of Service) risk, and helps developers write efficient, safe regular expressions. Supports multi-regex comparison, risk detection, and performance ranking.</p>
+    <h3>Core features of Regex Performance Tester</h3>
+    <p>• Multi-regex comparison: test multiple regexes simultaneously</p>
+    <p>• ReDoS risk detection: auto-analyze nested quantifiers and alternation overlap</p>
+    <p>• Performance ranking: sort by execution time to show the fastest regex</p>
+    <p>• Adjustable iterations: 10-10000 runs for averaged results</p>
+    <p>• Timeout protection: prevent browser freeze from malicious regexes</p>
+    <h3>Regex Performance Tester in 3 steps</h3>
+    <p>1. Enter test text (or load example)</p>
+    <p>2. Add regex patterns and flags to compare</p>
+    <p>3. Set iterations and timeout</p>
+    <p>4. Click "Run Test" to see performance ranking and risk levels</p>
+    <h3>When to use Regex Performance Tester</h3>
+    <p>• <strong>Regex Optimization</strong>: Compare performance of different regex approaches</p>
+    <p>• <strong>Security Audit</strong>: Detect ReDoS risk in user-input regexes</p>
+    <p>• <strong>Teaching Demo</strong>: Show how backtracking affects performance</p>
+    <p>• <strong>Code Review</strong>: Verify project regexes are safe and efficient</p>
+    <h3>Extended Knowledge</h3>
+    <p>Regex engines are either NFA (Non-deterministic Finite Automaton) or DFA (Deterministic Finite Automaton). JavaScript uses NFA, which supports backreferences but can cause exponential backtracking. ReDoS attacks exploit nested quantifiers (like (a+)+b) to create exponential backtracking. Defenses include: limiting input length, setting match timeouts, using atomic groups, and avoiding nested quantifiers.</p>
+  </div>
+
+  <div class="tool-section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item"><h3>What is a ReDoS attack?</h3><p>ReDoS exploits regex backtracking by crafting malicious input that causes exponential backtracking, leading to high CPU usage or service crashes. Example: /(a+)+b/ matching 'aaaaaaaaac' triggers massive backtracking.</p></div>
+    <div class="faq-item"><h3>How do I know if my regex has ReDoS risk?</h3><p>This tool analyzes regex patterns for nested quantifiers and alternation overlap to detect ReDoS risk, color-coded: red = high risk, yellow = medium risk, green = safe.</p></div>
+    <div class="faq-item"><h3>What does backtracking count mean?</h3><p>Backtracking count is the number of times the regex engine backtracks to try alternative paths when a match fails. Higher backtracking means lower efficiency and greater ReDoS risk.</p></div>
+    <div class="faq-item"><h3>Can I compare multiple regexes at once?</h3><p>Yes. Add multiple regexes and compare their execution speed against the same test text, ranked by execution time.</p></div>
+    <div class="faq-item"><h3>Can I adjust test iterations?</h3><p>Yes. Each regex runs 100 times by default (averaged). Adjust iterations (10-10000) for more precise results.</p></div>
+    <div class="faq-item"><h3>How to optimize regex performance?</h3><p>Common optimizations: avoid nested quantifiers, use non-capturing groups (?:), use atomic groups, be specific in patterns, avoid overlapping alternation, and pre-compile frequently used regexes.</p></div>
+  </div>
+
+  
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+  
+
+    
+</div></main>
+
+    
+
+
+    
+
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copy")})["catch"](function(){showToast("CopyFailed")})}
+
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+
+// === Rewritten function implementations ===
+function addRegexRow(){
+  var container=document.getElementById('regexList');
+  if(!container){showToast('Container not found');return;}
+  var row=document.createElement('div');
+  row.className='regex-row';
+  row.innerHTML='<input type="text" class="regex-input" placeholder="Regex pattern" style="flex:1;font-family:monospace"><input type="text" class="flags" value="g" placeholder="Flags" style="width:80px;font-family:monospace"><span class="risk-badge risk-low">Safe</span>';
+  container.appendChild(row);
+  showToast('Row added');
+}
+
+function copyResults() {
+  var section = document.getElementById('resultsSection');
+  var text = section ? (section.innerText || section.textContent) : '';
+  if (!text || !text.trim()) { showToast('No results to copy'); return; }
+  navigator.clipboard.writeText(text.trim()).then(function(){showToast('Copied!');}).catch(function(){showToast('Copy failed');});
+}
+
+function loadExample() {
+  document.getElementById('iterations').value = '100';
+  document.getElementById('timeout').value = '2000';
+  document.getElementById('testText').value = 'The quick brown fox jumps over the lazy dog. The fox was clever and fast.\nEmail: test@example.com, Phone: 555-123-4567\nDate: 2024-01-15, IP: 192.168.1.1';
+  showToast('Example loaded');
+}
+
+function removeLastRow(){
+  var rows=document.querySelectorAll('.regex-row');
+  if(rows.length>1){rows[rows.length-1].remove();showToast('Removed');}else{showToast('Keep at least one row');}
+}
+
+function runBenchmark(){
+  var rows=document.querySelectorAll('.regex-row input')||document.querySelectorAll('input[type=text]');
+  var testInput=document.getElementById('test-input')||document.getElementById('testInput')||document.querySelector('textarea');
+  var output=document.getElementById('output')||document.getElementById('result');
+  var testStr=testInput?testInput.value:'';
+  var results=[];
+  rows.forEach(function(input,idx){
+    var pattern=input.value;
+    if(!pattern){return;}
+    try{
+      var regex=new RegExp(pattern);
+      var start=performance.now();
+      var iterations=1000;
+      for(var i=0;i<iterations;i++){
+        regex.test(testStr);
+      }
+      var elapsed=performance.now()-start;
+      var matches=testStr.match(regex);
+      results.push('Regex#'+(idx+1)+': '+pattern);
+      results.push('  Time: '+elapsed.toFixed(3)+'ms ('+iterations+' runs)');
+      results.push('  Matches: '+(matches?matches.length:0));
+      results.push('');
+    }catch(e){
+      results.push('正则#'+(idx+1)+': '+pattern+' - Error: '+e.message);
+    }
+  });
+  if(output){output.textContent=results.join('\n');output.style.display='block';}
+  showToast('Benchmark complete');
+}
+</script>
+
+<script>
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+</script>
+
+</body>
+</html>

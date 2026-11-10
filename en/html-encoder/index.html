@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Encode HTML entities, URL strings, and Unicode in one place: choose hex or decimal, full or special-chars-only, then copy the result.">
+<meta name="keywords" content="HTML entity encoder, HTML entity decoder, HTML escape, URL encoder, URL decoder, Unicode converter, online HTML tool, HTML entities, unescape HTML">
+<title>Free Online HTML Entity Encoder &amp; Decoder</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/html-encoder/">
+<meta property="og:title" content="HTML Entity Encoder &amp; Decoder - ToolGuideHub">
+<meta property="og:description" content="Encode HTML entities, URL strings, and Unicode in one place: choose hex or decimal, full or special-chars-only, then copy the result.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/html-encoder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HTML Entity Encoder & Decoder", "description": "Free online HTML entity encoder and decoder. Supports HTML entity encoding/decoding, URL encoding/decoding, and Unicode conversion. Pure frontend, data never leaves your browser, one-click copy.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the HTML Entity Encoder & Decoder",
+  "description": "Simple steps to use the 🔤 HTML Entity Encoder & Decoder online tool. Everything runs locally: Free Online HTML Entity Encoder &amp; Decoder - Free Tool... and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🔤 HTML Entity Encoder & Decoder"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-encoder/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-encoder/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-encoder/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tabs{display:flex;gap:4px;background:#1e293b;border-radius:10px;padding:5px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tab{flex:1;padding:10px 16px;border-radius:7px;font-size:.9rem;color:#94a3b8;cursor:pointer;text-align:center;transition:all .2s;border:none;background:none}
+.tab.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.tab:hover:not(.active){color:#cbd5e1}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea{width:100%;min-height:120px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;resize:vertical}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.options{display:flex;gap:16px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer}
+.options input[type=checkbox]{accent-color:#06b6d4}
+.stats{display:flex;gap:16px;margin-top:8px;font-size:.8rem;color:#64748b}
+.stats span{background:rgba(148,163,184,.08);padding:4px 10px;border-radius:4px}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;min-height:80px;word-break:break-all;max-height:300px;overflow-y:auto;white-space:pre-wrap}
+.copy-btn{margin-top:8px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Encoders",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#encoders/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HTML Entity Encoder & Decoder",
+      "item": "https://adi63586.github.io/Toolguidehub/en/html-encoder/"
+    }
+  ],
+  "name": "HTML Entity Encoder & Decoder"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/html-encoder/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"HTML Entity Encoder & Decoder FAQ","mainEntity":[{"@type":"Question","name":"Is the HTML Entity Encoder & Decoder free and secure?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free and all encoding/decoding happens locally in your browser. Your data is never uploaded to any server, ensuring full privacy and security."}},{"@type":"Question","name":"Is the HTML Entity Encoder & Decoder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Free Online HTML Entity Encoder &amp; Decoder - Free Tool... and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What encoding formats does the HTML Entity Encoder & Decoder support?","acceptedAnswer":{"@type":"Answer","text":"The tool supports standard encoding and decoding formats. All operations are performed locally in your browser using well-established algorithms, ensuring both accuracy and privacy."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Free Online HTML Entity Encoder &amp; Decoder - Free Tool...</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('html',this)">HTML Entities</button>
+    <button class="tab" onclick="switchTab('url',this)">URL Encode/Decode</button>
+    <button class="tab" onclick="switchTab('unicode',this)">Unicode</button>
+  </div>
+
+  <div class="input-section">
+    <h2 id="inputTitle">Input Text</h2>
+    <textarea id="inputText" placeholder="Enter text to encode or decode..."></textarea>
+    <div class="options" id="htmlOptions">
+      <label><input type="checkbox" id="fullEncode"> Full encode (encode all non-ASCII chars to numeric entities)</label>
+      <label><input type="checkbox" id="hexEntity"> Use hex entities (&#x; format instead of &#; format)</label>
+    </div>
+    <div class="options" id="urlOptions" style="display:none">
+      <label><input type="checkbox" id="urlComponent"> Use encodeURIComponent (stricter, encodes more chars)</label>
+    </div>
+    <div class="options" id="unicodeOptions" style="display:none">
+      <label><input type="checkbox" id="upperCase"> Uppercase hex (U+4E2D instead of U+4e2d)</label>
+      <label><input type="checkbox" id="padZero"> Pad to 4 digits (\\u0041 instead of \\u41)</label>
+    </div>
+    <div class="stats" id="inputStats"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="encodeBtn" onclick="doEncode()">Encode →</button>
+      <button class="btn btn-primary" id="decodeBtn" onclick="doDecode()">← Decode</button>
+      <button class="btn btn-secondary" onclick="swapText()">⇅ Swap</button>
+      <button class="btn btn-danger" onclick="clearAll()">🗑 Clear</button>
+    </div>
+  </div>
+
+  <div class="result-section">
+    <h2>Result</h2>
+    <div class="result-box" id="resultBox">Result will appear here...</div>
+    <div class="stats" id="resultStats"></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary copy-btn" onclick="copyResult()">📋 Copy Result</button>
+      <button class="btn btn-secondary" onclick="resultToInput()">↑ Result to Input</button>
+    </div>
+  </div>
+
+  <section class="info-section">
+    <h2>How to Use</h2>
+    <p>This tool combines three utilities—HTML Entity encoding, URL encoding/decoding, and Unicode conversion—organized into tabs for quick access. Here is a detailed guide for each function:</p>
+    <p><strong>HTML Entity encode/decode:</strong> The default tab is "HTML Entities." Paste the text you want to convert into the textarea. For example, code snippets containing <code>&lt;</code>, <code>&gt;</code>, or <code>&amp;</code>. Click "Encode →" and the tool converts these characters into their corresponding entity references (e.g., <code>&amp;lt;</code>, <code>&amp;gt;</code>). Enable "Full encode" if you also want non-ASCII characters encoded. Enable "Use hex entities" to output <code>&amp;#x3C;</code> instead of decimal <code>&amp;#60;</code>. Click "← Decode" to reverse the process.</p>
+    <p><strong>URL encode/decode:</strong> Switch to the "URL Encode/Decode" tab. Enter the URL or query parameter to encode, then click "Encode →" to get percent-encoded output (e.g., space becomes <code>%20</code>, Chinese becomes <code>%E4%B8%AD</code>). Enable "Use encodeURIComponent" for stricter encoding appropriate for parameter values rather than full URLs. Click "← Decode" to restore the original URL.</p>
+    <p><strong>Unicode conversion:</strong> Switch to the "Unicode" tab. Enter any text and click "Escape →" to convert it to <code>\uXXXX</code> escape sequences. Enable "Uppercase hex" for uppercase output (e.g., <code>\u4E2D</code>), and "Pad to 4 digits" to ensure all code points are four hex digits. Click "← Unescape" to reverse the conversion.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Use Cases</h2>
+    <p><strong>Safe display of HTML source code:</strong> When writing technical blogs, documentation, or forum posts, you often need to show HTML code snippets on a web page. Pasting raw HTML will cause the browser to render it as actual markup. Use the HTML Entity encoder to convert the code into entity references before pasting, ensuring readers see the code text rather than rendered output.</p>
+    <p><strong>URL parameter construction and debugging:</strong> When building web apps or calling REST APIs, data containing Chinese characters, spaces, or special symbols often needs to be passed as URL parameters. Manual encoding is error-prone. Use the URL encode/decode tool to quickly and accurately encode values, avoiding request failures or security issues caused by improperly escaped characters.</p>
+    <p><strong>Cross-platform character handling:</strong> In JavaScript, JSON, or other environments that do not accept direct Unicode input, non-ASCII characters (like Chinese or Emoji) must be represented as <code>\uXXXX</code> escape sequences. The Unicode converter supports BMP characters as well as supplementary-plane characters such as Emoji (via surrogate pairs or <code>\u{XXXXX}</code> syntax), meeting the internationalization needs of developers.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Extended Knowledge</h2>
+    <p><strong>HTML Entity types:</strong> HTML entities are divided into named entities (e.g., <code>&amp;lt;</code>) and numeric entities (e.g., <code>&amp;#60;</code> or <code>&amp;#x3C;</code>). Named entities cover only a predefined subset (~250 characters), while numeric entities can represent any Unicode character (over 140,000 code points). This tool uses named entities for common characters and converts all non-ASCII characters to numeric entities in full-encode mode.</p>
+    <p><strong>RFC 3986 URL encoding standard:</strong> URL encoding follows RFC 3986, which states that URLs may only contain a subset of ASCII characters (unreserved: A–Z, a–z, 0–9, <code>-</code>, <code>_</code>, <code>.</code>, <code>~</code>). Other characters must be UTF-8 encoded and then percent-encoded. The difference between encodeURI and encodeURIComponent is that the former preserves URL structural characters (e.g., <code>/</code>, <code>?</code>, <code>=</code>), while the latter encodes them—making the latter more suitable for parameter values.</p>
+    <p><strong>Unicode vs. UTF-8:</strong> Unicode is a character-set standard that assigns a unique code point to each character. UTF-8 is the encoding scheme that translates these code points into byte sequences. URL encoding uses the hexadecimal representation of UTF-8 bytes (e.g., the Unicode code point for "in" is U+4E2D, its UTF-8 encoding is <code>E4 B8 AD</code>, and its URL encoding is <code>%E4%B8%AD</code>). Understanding these layers helps you choose the correct encoding mode in this tool.</p>
+  </section>
+
+  <div class="info-section" id="infoHtml">
+    <h2>HTML Entity Encoding</h2>
+    <h3>What is HTML entity encoding?</h3>
+    <p>HTML entity encoding converts special characters in HTML into their corresponding entity references. For example, <code>&amp;lt;</code> represents <code>&lt;</code> and <code>&amp;amp;</code> represents <code>&amp;</code>. This allows these characters to be safely displayed on web pages without being misinterpreted by the browser.</p>
+
+    <h3>Common HTML Entities</h3>
+    <p>• <code>&amp;amp;</code> → <code>&amp;</code> (ampersand)</p>
+    <p>• <code>&amp;lt;</code> → <code>&lt;</code> (less than)</p>
+    <p>• <code>&amp;gt;</code> → <code>&gt;</code> (greater than)</p>
+    <p>• <code>&amp;quot;</code> → <code>"</code> (double quote)</p>
+    <p>• <code>&amp;#39;</code> → <code>'</code> (single quote)</p>
+    <p>• <code>&amp;nbsp;</code> → non-breaking space</p>
+    <p>• <code>&amp;copy;</code> → © (copyright)</p>
+
+    <h3>Named vs Numeric Entities</h3>
+    <p>Named entities use names (e.g., <code>&amp;lt;</code>), while numeric entities use Unicode code points (e.g., <code>&amp;#60;</code> or hex <code>&amp;#x3C;</code>). Numeric entities can represent any Unicode character; named entities only cover predefined characters.</p>
+
+    <div class="faq-item">
+      <h3>What is HTML entity encoding?</h3>
+      <p>HTML entity encoding converts special characters in HTML (such as &lt;, &gt;, &amp;, ", ') into their corresponding entity references (such as &amp;lt;, &amp;gt;, &amp;amp;, &amp;quot;, &amp;#39;), preventing these characters from being parsed as HTML tags or attributes by the browser.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What's the difference between HTML entity encoding and URL encoding?</h3>
+      <p>HTML entity encoding is used to safely display special characters in HTML documents, using entity references starting with &amp;. URL encoding is used to transmit special characters in URLs, using percent-encoding starting with %. They serve different purposes and should not be mixed.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe? Does it get uploaded to a server?</h3>
+      <p>Completely safe. This tool is a pure frontend application. All encoding and decoding operations are performed locally in your browser. Your data is never uploaded to any server.</p>
+    </div>
+  </div>
+
+  <div class="info-section" id="infoUrl" style="display:none">
+    <h2>URL Encoding</h2>
+    <h3>What is URL encoding?</h3>
+    <p>URL encoding (also called percent-encoding) converts special characters in URLs into <code>%XX</code> hexadecimal format. For example, a space becomes <code>%20</code>, and the Chinese character "in" becomes <code>%E4%B8%AD</code>.</p>
+
+    <h3>encodeURI vs encodeURIComponent</h3>
+    <p>• <code>encodeURI</code>: Used for encoding complete URLs, preserves reserved characters like <code>;/?:@&=+$,#</code></p>
+    <p>• <code>encodeURIComponent</code>: Used for encoding URL parameter values, encodes all special characters (except letters, digits, and <code>-_.~!*'</code>)</p>
+
+    <h3>Common Use Cases</h3>
+    <p>• <strong>URL Parameters</strong>: Pass special characters in query strings</p>
+    <p>• <strong>API Requests</strong>: Encode paths and parameters in REST APIs</p>
+    <p>• <strong>International URLs</strong>: Encode non-ASCII characters to percent format</p>
+    <p>• <strong>Form Submission</strong>: application/x-www-form-urlencoded format</p>
+
+    <div class="faq-item">
+      <h3>Is space %20 or + in URL encoding?</h3>
+      <p>Both are valid. <code>%20</code> is the standard URL encoding, while <code>+</code> is used in the application/x-www-form-urlencoded format (primarily for form submissions). This tool uses the standard <code>%20</code> format.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it support Chinese/Unicode?</h3>
+      <p>Yes. The tool uses the browser's native <code>encodeURI</code> / <code>encodeURIComponent</code> APIs, with full support for Chinese, Emoji, and all other Unicode characters.</p>
+    </div>
+  </div>
+
+  <div class="info-section" id="infoUnicode" style="display:none">
+    <h2>Unicode Conversion</h2>
+    <h3>What is Unicode escaping?</h3>
+    <p>Unicode escaping represents characters as <code>\uXXXX</code> escape sequences, where XXXX is the hexadecimal representation of the character's Unicode code point. For example, the Chinese character "in" can be represented as <code>\u4e2d</code>.</p>
+
+    <h3>Common Unicode Notations</h3>
+    <p>• <code>\uXXXX</code>: Escape sequence in JavaScript/JSON</p>
+    <p>• <code>U+XXXX</code>: Unicode standard code point notation</p>
+    <p>• <code>&amp;#XXXX;</code>: HTML numeric entity</p>
+    <p>• <code>%XX</code>: URL percent-encoding (UTF-8 bytes)</p>
+
+    <h3>BMP and Supplementary Planes</h3>
+    <p>Characters within the Basic Multilingual Plane (BMP, U+0000 to U+FFFF) can be represented with a single <code>\uXXXX</code>. Characters beyond the BMP (like some Emoji) require surrogate pairs (two <code>\uXXXX</code> values) or the ES6 <code>\u{XXXXX}</code> syntax.</p>
+
+    <div class="faq-item">
+      <h3>What does the Unicode escape \uXXXX mean?</h3>
+      <p>\uXXXX is a Unicode escape sequence where XXXX is the hexadecimal representation of the character's Unicode code point. For example, \u4e2d represents the Chinese character "in". This notation is commonly used in JavaScript strings, JSON, and other contexts.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How are Emoji converted?</h3>
+      <p>Most Emoji are in the Unicode supplementary plane (above U+10000) and require surrogate pairs (two \uXXXX values). This tool supports encoding and decoding of surrogate pairs, as well as the ES6 \u{XXXXX} syntax.</p>
+    </div>
+  </div>
+
+  <h2>❓ Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>Is this tool free?</h3>
+    <p>Yes, completely free. No registration, no download required. Everything runs locally in your browser.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Are my files uploaded to a server?</h3>
+    <p>Absolutely not. This is a purely client-side application. Everything runs locally: Free Online HTML Entity Encoder &amp; Decoder - Free Tool... and other values are processed on your device, never sent to a server — your data never leaves your device.</p>
+  
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Why is HTML entity encoding important?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Per <a href='https://html.spec.whatwg.org/multipage/syntax.html#character-references' target='_blank' rel='nofollow'>WHATWG HTML character reference specification</a>: HTML entity encoding converts special characters into safe entity representations to prevent XSS attacks and rendering errors. Common encodings: &lt;→&amp;lt;, &gt;→&amp;gt;, &amp;→&amp;amp;, &quot;→&amp;quot;, '→&amp;#39;. User input MUST be entity-encoded before being displayed in HTML pages — this is the most fundamental Web security practice and is listed as a primary mitigation by OWASP.</p>
+      </div>
+    </div></div>
+
+  <p>Online HTML Entity Encoder & Decoder | No Signup, Client-Side · Data Never Leaves Your Browser</p>
+  <p style="margin-top:4px">Supports HTML entity encoding · URL encode/decode · Unicode conversion · One-click copy</p>
+  
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const inputText = document.getElementById('inputText');
+const resultBox = document.getElementById('resultBox');
+const inputStats = document.getElementById('inputStats');
+const resultStats = document.getElementById('resultStats');
+const toast = document.getElementById('toast');
+const fullEncode = document.getElementById('fullEncode');
+const hexEntity = document.getElementById('hexEntity');
+const urlComponent = document.getElementById('urlComponent');
+const upperCase = document.getElementById('upperCase');
+const padZero = document.getElementById('padZero');
+const PLACEHOLDER = 'Result will appear here...';
+
+let currentTab = 'html';
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('htmlOptions').style.display = tab === 'html' ? 'flex' : 'none';
+  document.getElementById('urlOptions').style.display = tab === 'url' ? 'flex' : 'none';
+  document.getElementById('unicodeOptions').style.display = tab === 'unicode' ? 'flex' : 'none';
+  document.getElementById('infoHtml').style.display = tab === 'html' ? 'block' : 'none';
+  document.getElementById('infoUrl').style.display = tab === 'url' ? 'block' : 'none';
+  document.getElementById('infoUnicode').style.display = tab === 'unicode' ? 'block' : 'none';
+  const encBtn = document.getElementById('encodeBtn');
+  const decBtn = document.getElementById('decodeBtn');
+  if (tab === 'html') {
+    encBtn.textContent = 'Encode →';
+    decBtn.textContent = '← Decode';
+  } else if (tab === 'url') {
+    encBtn.textContent = 'Encode →';
+    decBtn.textContent = '← Decode';
+  } else {
+    encBtn.textContent = 'Escape →';
+    decBtn.textContent = '← Unescape';
+  }
+  updateInputStats();
+}
+
+function updateInputStats() {
+  const text = inputText.value;
+  const bytes = new TextEncoder().encode(text).length;
+  inputStats.innerHTML = `<span>Chars: ${text.length}</span><span>Bytes: ${bytes}</span>`;
+}
+
+function updateResultStats(text) {
+  const bytes = new TextEncoder().encode(text).length;
+  resultStats.innerHTML = `<span>Chars: ${text.length}</span><span>Bytes: ${bytes}</span>`;
+}
+
+/* ========== HTML Entity ========== */
+function encodeHtmlEntity(text) {
+  let result = '';
+  for (const ch of text) {
+    const code = ch.codePointAt(0);
+    if (ch === '&') result += '&amp;';
+    else if (ch === '<') result += '&lt;';
+    else if (ch === '>') result += '&gt;';
+    else if (ch === '"') result += '&quot;';
+    else if (ch === "'") result += '&#39;';
+    else if (fullEncode.checked && code > 127) {
+      if (hexEntity.checked) {
+        result += '&#x' + code.toString(16).toUpperCase() + ';';
+      } else {
+        result += '&#' + code + ';';
+      }
+    } else {
+      result += ch;
+    }
+  }
+  return result;
+}
+
+function decodeHtmlEntity(text) {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
+/* ========== URL ========== */
+function encodeUrl(text) {
+  return urlComponent.checked
+    ? encodeURIComponent(text)
+    : encodeURI(text);
+}
+
+function decodeUrl(text) {
+  try {
+    return decodeURIComponent(text);
+  } catch (e) {
+    try {
+      return decodeURI(text);
+    } catch (e2) {
+      throw new Error('Invalid URL encoding');
+    }
+  }
+}
+
+/* ========== Unicode ========== */
+function encodeUnicode(text) {
+  let result = '';
+  const useUpper = upperCase.checked;
+  const usePad = padZero.checked;
+  for (const ch of text) {
+    const code = ch.codePointAt(0);
+    if (code > 127) {
+      if (code > 0xFFFF) {
+        // Supplementary plane: use surrogate pair
+        const high = 0xD800 + ((code - 0x10000) >> 10);
+        const low = 0xDC00 + ((code - 0x10000) & 0x3FF);
+        let h = high.toString(16);
+        let l = low.toString(16);
+        if (usePad) { h = h.padStart(4, '0'); l = l.padStart(4, '0'); }
+        if (useUpper) { h = h.toUpperCase(); l = l.toUpperCase(); }
+        result += '\\u' + h + '\\u' + l;
+      } else {
+        let hex = code.toString(16);
+        if (usePad) hex = hex.padStart(4, '0');
+        if (useUpper) hex = hex.toUpperCase();
+        result += '\\u' + hex;
+      }
+    } else {
+      result += ch;
+    }
+  }
+  return result;
+}
+
+function decodeUnicode(text) {
+  // Decode \uXXXX and \u{XXXXX} sequences
+  let result = text.replace(/\\u\{([0-9a-fA-F]+)\}/g, (_, hex) => {
+    return String.fromCodePoint(parseInt(hex, 16));
+  });
+  result = result.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => {
+    return String.fromCharCode(parseInt(hex, 16));
+  });
+  // Also decode U+XXXX notation
+  result = result.replace(/U\+([0-9a-fA-F]{4,6})/g, (_, hex) => {
+    return String.fromCodePoint(parseInt(hex, 16));
+  });
+  return result;
+}
+
+/* ========== Main actions ========== */
+function doEncode() {
+  const text = inputText.value;
+  if (!text) { showToast('Please enter text'); return; }
+  try {
+    let result;
+    if (currentTab === 'html') result = encodeHtmlEntity(text);
+    else if (currentTab === 'url') result = encodeUrl(text);
+    else result = encodeUnicode(text);
+    resultBox.textContent = result;
+    updateResultStats(result);
+  } catch (e) {
+    resultBox.textContent = 'Encoding error: ' + e.message;
+  }
+}
+
+function doDecode() {
+  const text = inputText.value;
+  if (!text) { showToast('Please enter text'); return; }
+  try {
+    let result;
+    if (currentTab === 'html') result = decodeHtmlEntity(text);
+    else if (currentTab === 'url') result = decodeUrl(text);
+    else result = decodeUnicode(text);
+    resultBox.textContent = result;
+    updateResultStats(result);
+  } catch (e) {
+    resultBox.textContent = 'Decoding error: ' + e.message;
+  }
+}
+
+function swapText() {
+  const input = inputText.value;
+  const result = resultBox.textContent;
+  if (result === PLACEHOLDER) return;
+  inputText.value = result;
+  resultBox.textContent = input;
+  updateInputStats();
+  updateResultStats(input);
+}
+
+function clearAll() {
+  inputText.value = '';
+  resultBox.textContent = PLACEHOLDER;
+  inputStats.innerHTML = '';
+  resultStats.innerHTML = '';
+}
+
+function copyResult() {
+  const result = resultBox.textContent;
+  if (!result || result === PLACEHOLDER) { showToast('No result to copy'); return; }
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(result).then(() => showToast('Copied to clipboard'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = result;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('Copied to clipboard');
+  }
+}
+
+function resultToInput() {
+  const result = resultBox.textContent;
+  if (!result || result === PLACEHOLDER) { showToast('No result'); return; }
+  inputText.value = result;
+  updateInputStats();
+}
+
+inputText.addEventListener('input', updateInputStats);
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey || e.metaKey) {
+    if (e.key === 'Enter') { e.preventDefault(); doEncode(); }
+    if (e.key === 'e' && e.shiftKey) { e.preventDefault(); doEncode(); }
+    if (e.key === 'd' && e.shiftKey) { e.preventDefault(); doDecode(); }
+  }
+});
+
+updateInputStats();
+</script>
+
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+var fs=document.getElementById('feedback-success');if(fs){fs.style.display='block';setTimeout(function(){fs.style.display='none';},3000);}
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<footer class="footer container">
+  <div style="margin-bottom:12px">
+    <a href="../../">Home</a>
+    <a href="../../">All Tools</a>
+    <a href="../contact/">Contact</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

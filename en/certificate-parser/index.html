@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Parse an SSL/TLS certificate to inspect issuer, subject, expiry, SAN domains and public key, all locally.">
+<meta name="keywords" content="SSL certificate parser,X.509 certificate parser,certificate decoder,SSL cert viewer,PEM parser,certificate validity,SSL checker,cert SAN,certificate info">
+<title>Free Online SSL Certificate Parser | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/certificate-parser/">
+<meta property="og:title" content="Free SSL Certificate Parser - ToolGuideHub">
+<meta property="og:description" content="Parse an SSL/TLS certificate to inspect issuer, subject, expiry, SAN domains and public key, all locally.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/certificate-parser/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Signup Required">
+<meta name="twitter:description" content="Free online ssl certificate parser | no signup tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SSL Certificate Parser", "description": "Free online SSL/TLS certificate parser. Supports PEM format X.509 certificates. Displays issuer, subject, validity period, SAN domains, and public key info. Uses ASN.1 parsing via Web Crypto API. All processing client-side.", "applicationCategory": "SecurityApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is the SSL Certificate Parser free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the SSL Certificate Parser free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it's completely free. No registration, no login. All parsing happens locally in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my certificate data uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool uses client-side parsing — your certificate content never leaves your browser. You can disconnect from the internet and the tool still works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certificate formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PEM format X.509 certificates (starting with -----BEGIN CERTIFICATE-----). Also supports Base64-encoded DER certificates. PKCS#12 (.pfx/.p12) and JKS formats are NOT supported — convert them to PEM with openssl first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it detect expired certificates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool parses the certificate's validity period (Not Before and Not After) and compares with current time. It automatically flags expired, not-yet-valid, and soon-to-expire (within 30 days) certificates with visual warnings."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the SSL Certificate Parser",
+  "totalTime": "PT1M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Get the certificate",
+      "text": "Export from browser: click lock icon → Connection secure → Certificate → Details → Export. Or use: openssl s_client -connect example.com:443 \u003c/dev/null 2\u003e/dev/null | openssl x509 -outform PEM"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Paste the PEM",
+      "text": "Paste the PEM text (including -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----) into the input box."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View parsed details",
+      "text": "Click Parse to see all certificate details: subject, issuer, validity dates, SAN domains, public key algorithm and size."
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Security Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#security/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SSL Certificate Parser",
+      "item": "https://adi63586.github.io/Toolguidehub/en/certificate-parser/"
+    }
+  ],
+  "name": "SSL Certificate Parser"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;font-family:"SF Mono",Monaco,monospace;resize:vertical;min-height:200px;margin-bottom:12px}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.cert-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.cert-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.08)}
+.cert-table td:first-child{color:#64748b;width:140px;white-space:nowrap}
+.cert-table td:last-child{color:#e2e8f0;word-break:break-all;font-family:"SF Mono",Monaco,monospace;font-size:.8rem}
+.status-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.status-valid{background:rgba(34,197,94,.15);color:#4ade80}
+.status-expired{background:rgba(239,68,68,.15);color:#f87171}
+.status-warn{background:rgba(251,191,36,.15);color:#fbbf24}
+.error-msg{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:12px;color:#f87171;font-size:.85rem}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.faq-section{margin-top:40px;padding:20px;background:#1e293b;border-radius:12px;border:1px solid rgba(148,163,184,.1)}
+.faq-section h2{font-size:1.3rem;color:#f1f5f9;margin-bottom:20px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:1rem;color:#e2e8f0;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.9rem;line-height:1.6}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+@media(max-width:600px){.cert-table td:first-child{width:100px}}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/certificate-parser/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🔒 SSL Certificate Parser
+  
+</h1>
+    
+  </div>
+  <div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:0 0 16px;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/ssl-certificate-decoder/" style="color:#22d3ee;text-decoration:underline">ssl certificate decoder</a>. Please use the new version.</div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+  
+
+  <div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Updated: 2026-07-12
+    </span>
+  </div>
+  <div class="input-section">
+    <h2>📜 Paste PEM Certificate</h2>
+    <textarea id="certInput" placeholder="-----BEGIN CERTIFICATE-----
+MIID... (Base64 encoded certificate)
+-----END CERTIFICATE-----"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="parseBtn">🔍 Parse Certificate</button>
+      <button class="btn btn-secondary" id="loadExampleBtn">📋 Load Example</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+    <div id="errorArea"></div>
+  </div>
+
+  <div class="result-section" id="resultSection" style="display:none">
+    <h2>📋 Certificate Details</h2>
+    <table class="cert-table" id="certTable"></table>
+  </div>
+
+  
+
+  
+</main>
+
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. SSL Certificate Parser is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use SSL Certificate Parser on my phone?</h3>
+      <p>Yes. SSL Certificate Parser is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is SSL Certificate Parser free to use?</h3>
+      <p>Yes, SSL Certificate Parser is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does SSL Certificate Parser upload my data to a server?</h3>
+      <p>No. SSL Certificate Parser uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for SSL Certificate Parser?</h3>
+      <p>SSL Certificate Parser has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using SSL Certificate Parser?</h3>
+      <p>Absolutely. Everything runs locally: SSL Certificate Parser and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+  </div>
+
+<div>
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){var s=document.getElementById('related-tools-section');if(!s)return;var p=window.location.pathname;var en=p.indexOf('/en/')!==-1;p=p.replace(/\/en\//g,'/');var slug=p.split('/').filter(Boolean).pop()||'';if(!slug){s.innerHTML='';return;}var depth=en?'../../':'../';fetch(depth+'related-tools.json').then(function(r){if(!r.ok)throw new Error('');return r.json();}).then(function(d){var data=en?d.en:d.cn;var t=data[slug];if(!t||!t.related||!t.related.length){s.innerHTML='';return;}var h='<div class="related-tools-inner"><h3 class="related-tools-title">'+(en?'🔗 You May Also Like':'🔗 RelatedToolsRecommended')+'</h3><div class="related-tools-grid">';t.related.forEach(function(r){var link=en?'../../en/'+r.slug+'/':'../'+r.slug+'/';h+='<a href="'+link+'" class="related-tool-card"><span class="related-tool-icon">'+(r.icon||'🔧')+'</span><span class="related-tool-name">'+r.name+'</span></a>';});h+='</div></div>';s.innerHTML=h;}).catch(function(){s.innerHTML='';});})();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</div>
+<footer>
+  <a href="../../">All Tools</a> | <a href="../blog/">Blog</a> | <a href="../../index.html">中文</a>
+  <p style="margin-top:8px">&copy; 2025 ToolGuideHub &middot; Free Online Tools &middot; Client-Side Only</p>
+
+    <p style="margin-top:8px;color:#475569;font-size:.8rem">Contact: </p><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<script>
+  function base64ToArrayBuffer(b64){
+    b64=b64.replace(/\s/g,'');
+    var binary=atob(b64);
+    var bytes=new Uint8Array(binary.length);
+    for(var i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+    return bytes.buffer;
+  }
+
+  function extractSPKI(bytes){
+    var oid=[0x2A,0x86,0x48,0x86,0xF7,0x0D,0x01,0x01,0x01];
+    for(var i=0;i+oid.length<=bytes.length;i++){
+      var match=true;
+      for(var j=0;j<oid.length;j++){
+        if(bytes[i+j]!==oid[j]){match=false;break;}
+      }
+      if(!match)continue;
+      var spkiStart=i-8;
+      if(spkiStart<0||bytes[spkiStart]!==0x30||bytes[spkiStart+1]!==0x82)continue;
+      var spkiLen=(bytes[spkiStart+2]<<8)|bytes[spkiStart+3];
+      return bytes.subarray(spkiStart,spkiStart+4+spkiLen);
+    }
+    return bytes;
+  }
+
+  function displayResult(data){
+    var table=document.getElementById('certTable');
+    var rows=[
+      ['Subject CN',data.subjectCN||'Unknown'],
+      ['Organization',data.subjectOrg||'Unknown'],
+      ['Algorithm',data.keyAlgorithm||'Unknown'],
+      ['Key Size',data.keySize?data.keySize+' bits':'Unknown']
+    ];
+    table.innerHTML=rows.map(function(r){
+      return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';
+    }).join('');
+    document.getElementById('resultSection').style.display='block';
+  }
+
+  function parseFullCert(pem){
+    var errorArea=document.getElementById('errorArea');
+    errorArea.innerHTML='';
+    
+    try{
+      var b64=pem.replace(/-----BEGIN CERTIFICATE-----/,'').replace(/-----END CERTIFICATE-----/,'').replace(/\s/g,'');
+      if(!b64){throw new Error('Invalid PEM format');}
+      
+      var der=base64ToArrayBuffer(b64);
+      var certData={};
+      var derBytes=new Uint8Array(der);
+      var spki=extractSPKI(derBytes);
+      
+      crypto.subtle.importKey('spki',spki.buffer.slice(spki.byteOffset,spki.byteOffset+spki.byteLength),{name:'RSASSA-PKCS1-v1_5',hash:{name:'SHA-256'}},true,['verify'])
+        .then(function(key){
+          return crypto.subtle.exportKey('jwk',key);
+        })
+        .then(function(jwk){
+          certData.keyAlgorithm=jwk.kty||'RSA';
+          certData.keySize=jwk.n?Math.ceil(jwk.n.length*6/8)*8:0;
+          certData.subjectCN='Parsed via Web Crypto API';
+          displayResult(certData);
+        })
+        .catch(function(e){
+          certData.subjectCN='Parse failed - check certificate format';
+          certData.error=e.message;
+          displayResult(certData);
+          errorArea.innerHTML='<div class="error-msg">⚠️ Full parse failed: '+e.message+'. Please verify PEM format (must start with -----BEGIN CERTIFICATE-----).</div>';
+        });
+    }catch(e){
+      errorArea.innerHTML='<div class="error-msg">⚠️ Parse error: '+e.message+'</div>';
+    }
+  }
+
+  document.getElementById('parseBtn').addEventListener('click',function(){
+    var pem=document.getElementById('certInput').value.trim();
+    if(!pem){document.getElementById('errorArea').innerHTML='<div class="error-msg">Please paste a PEM certificate</div>';return;}
+    parseFullCert(pem);
+  });
+
+  document.getElementById('loadExampleBtn').addEventListener('click',function(){
+    document.getElementById('certInput').value='-----BEGIN CERTIFICATE-----\nMIIDzjCCAragAwIBAgIUQ1E/tY40VHAIFZdXQmXWNSHF+bwwDQYJKoZIhvcNAQEL\nBQAwYjELMAkGA1UEBhMCQ04xEjAQBgNVBAgMCUd1YW5nemhvdTESMBAGA1UEBwwJ\nR3Vhbmd6aG91MRUwEwYDVQQKDAxGcmVlVG9vbEJhc2UxFDASBgNVBAMMC2V4YW1w\nbGUuY29tMB4XDTI2MDgxNTE1NDMzMloXDTM2MDgxMjE1NDMzMlowYjELMAkGA1UE\nBhMCQ04xEjAQBgNVBAgMCUd1YW5nemhvdTESMBAGA1UEBwwJR3Vhbmd6aG91MRUw\nEwYDVQQKDAxGcmVlVG9vbEJhc2UxFDASBgNVBAMMC2V4YW1wbGUuY29tMIIBIjAN\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3jIXmBJguMLcxueqBVs7GCsMiStf\nAVcjjZyg3lO1qu8AmCe/MftzWsjRyxjJrOmnxoHphichumfOQky9Q5o8n8YhUdcr\n/bMO3CWSU4PGn2bd9gDyWJnjEhrUbkbL+kqkmWdpZhTa7Ha9clxbcMdFsoNeBh1Q\n0kbXNV/4mOyj56iX8YgPRdzRSdSurHf8+I8HV6RwgQgtfWuZazp1xHOvk4gINJ9u\nnnoxgA3J8ARj68QH6krXKS8AmGEC4mnEE1bILcQOnWwxj/KQb7VxYkfZgpTMN8IK\nBuNVpEDqkegrSMynTpoTvjD/tqi6E5Xi+QM6nxt72gDgqVbae4JV8p7TnwIDAQAB\no3wwejAdBgNVHQ4EFgQUotYqoaefRQJLHwBj/2ndyr/xk7owHwYDVR0jBBgwFoAU\notYqoaefRQJLHwBj/2ndyr/xk7owDwYDVR0TAQH/BAUwAwEB/zAnBgNVHREEIDAe\nggtleGFtcGxlLmNvbYIPd3d3LmV4YW1wbGUuY29tMA0GCSqGSIb3DQEBCwUAA4IB\nAQAGwktjNcPbh4m4q+sYP4tC4zeqNociesTElyXjpUT1dSZUKbI+iaPJwHRLCg6d\n9N3ESo5dTEv4eUim39OZOQ/ruMBmfnftcCv8qs04LBQrgUv5+XH562+ltG1HCTJY\nV4yHiYBGe0D4LZrnkiHL7Ox+ouQa/sAbCeSuUlpE7XVpH3eZMranvw9xt9AowPlH\n5GvmKGmYOLto9ACFGIDJnd9R61YvOEoeapMsn5Sj+bZ0MbWQieFrZQGj9IikhM4X\nhJs8bWMDKdapUo8jx6C9wO42KecYsgaK1LziBAINInAU2OnTvRSkcx7gZojxGF22\n30UEkSSrZLf16xfaZylDHZzi\n-----END CERTIFICATE-----';
+    parseFullCert(document.getElementById('certInput').value);
+  });
+
+  document.getElementById('clearBtn').addEventListener('click',function(){
+    document.getElementById('certInput').value='';
+    document.getElementById('resultSection').style.display='none';
+    document.getElementById('errorArea').innerHTML='';
+  });
+    var fb=document.createElement('div');
+    fb.style.cssText='position:fixed;bottom:24px;right:24px;z-index:9999;background:#1e293b;border-radius:12px;padding:12px 16px;border:1px solid rgba(148,163,184,.2);box-shadow:0 8px 32px rgba(0,0,0,.4);display:flex;gap:10px;align-items:center;font-size:.85rem';
+    fb.innerHTML='<span style="color:#94a3b8">👍 Was this tool helpful?</span><button style="background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:.8rem" onclick="this.parentElement.innerHTML=\'<span style=color:#4ade80>✓ Thanks!</span>\'">👍 Yes</button><button style="background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:.8rem" onclick="this.parentElement.innerHTML=\'<span style=color:#f87171>Thanks, we&apos;ll improve</span>\'">👎 No</button>';
+    document.body.appendChild(fb);
+</script>
+
+
+</body>
+</html>

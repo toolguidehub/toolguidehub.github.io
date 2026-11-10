@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="See how fund expense ratios and management fees compound into long-term holding costs and returns.">
+<meta name="keywords" content="expense ratio,management fee,custody fee,fund cost,investment cost,tools,online tools,free">
+<title>Expense Ratio Calculator - Long-Term Holding Cost | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/expense-ratio-calculator/">
+<meta property="og:title" content="Expense Ratio Calculator - Long-Term Holding Cost">
+<meta property="og:description" content="See how fund expense ratios and management fees compound into long-term holding costs and returns.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/expense-ratio-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/expense-ratio-calculator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Expense Ratio Calculator", "description": "Free online expense ratio calculator. Calculate management fees and long-term holding costs.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the average fund expense ratio?", "acceptedAnswer": {"@type": "Answer", "text": "Actively managed fund expense ratios typically range from 1.0% to 1.5%, while index fund/ETF expense ratios range from 0.1% to 0.5%. Annual custody fees average 0.1% to 0.25%. Even a small difference in expense ratios can add up to tens of thousands of dollars over time."}}, {"@type": "Question", "name": "How much impact does a 1% expense ratio difference make?", "acceptedAnswer": {"@type": "Answer", "text": "On a $100,000 investment over 30 years at 8% annual returns: a fund with a 1.5% expense ratio yields approximately $549,000, while a fund with 0.5% yields approximately $875,000. A 0.5% difference in expense ratio results in a $326,000 gap over 30 years! That is the power of compound interest."}}, {"@type": "Question", "name": "What is the Total Expense Ratio (TER)?", "acceptedAnswer": {"@type": "Answer", "text": "TER = management fee + custody fee + other fees (purchase fee / redemption fee amortized). It reflects the total annual cost of holding a fund. When selecting funds, look at TER rather than just the management fee, because all fees combined represent the actual holding cost."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to useExpense Ratio Calculator", "description": "useExpense Ratio Calculator detailed steps", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Expense Ratio Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter investment parameters", "text": "Enter the principal amount, annual return rate, and investment period"}, {"@type": "HowToStep", "position": 2, "name": "Set expense ratios for two funds", "text": "Enter the expense ratios for Fund A and Fund B to compare"}, {"@type": "HowToStep", "position": 3, "name": "View the difference", "text": "View the return gap caused by the expense ratio difference and the total cost"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "Expense Ratio Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/expense-ratio-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch a{color:#94a3b8;font-size:.875rem;padding:4px 12px;border:1px solid rgba(148,163,184,.1);border-radius:6px;transition:all .2s}
+.lang-switch a:hover{color:#e2e8f0;border-color:#22d3ee}
+.section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;margin-bottom:16px;color:#f1f5f9}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;font-size:.875rem;color:#94a3b8}
+.form-group input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;color:#e2e8f0;font-size:1rem;transition:border-color .2s}
+.form-group input:focus{outline:none;border-color:#22d3ee}
+.input-row{display:flex;gap:12px}
+.input-row .form-group{flex:1}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:500}
+.btn-primary{background:#22d3ee;color:#0f172a}
+.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:rgba(148,163,184,.1);color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn-group{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.result-item{background:#0f172a;border-radius:8px;padding:16px;text-align:center}
+.result-item .label{font-size:.75rem;color:#94a3b8;margin-bottom:4px}
+.result-item .value{font-size:1.25rem;font-weight:700;color:#22d3ee}
+.result-item .value.highlight{color:#f59e0b}
+.highlight-box{margin-top:16px;padding:16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;text-align:center}
+.highlight-box .big{font-size:1.5rem;font-weight:700;color:#f59e0b}
+.highlight-box .sub{font-size:.875rem;color:#94a3b8;margin-top:4px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:8px;font-size:.875rem;border:1px solid rgba(148,163,184,.1);z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.footer{margin-top:32px;text-align:center;color:#94a3b8;font-size:.75rem;padding:16px 0;border-top:1px solid rgba(148,163,184,.1)}
+@media(max-width:480px){
+  .input-row{flex-direction:column}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .header h1{font-size:1.25rem}
+}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <header class="header">
+    <h1>💰 Fund Expense Ratio Calculator</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online Expense Ratio Calculator. Calculate long-term holding costs including management fees and custody fees, compare the impact of different fund expense ratios on returns, and see the enormous cost of tiny fee differences in compound interest.</p>
+    
+  <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+
+  <div class="section">
+    <h2>Investment Parameters</h2>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Principal ($)</label>
+        <input type="number" id="principal" placeholder="e.g. 100000" min="0" step="1">
+      </div>
+      <div class="form-group">
+        <label>Annual Return (%)</label>
+        <input type="number" id="returnRate" placeholder="e.g. 8" min="0" max="30" step="0.1" value="8">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Investment Years</label>
+        <input type="number" id="years" placeholder="e.g. 20" min="1" max="50" step="1" value="20">
+      </div>
+      <div class="form-group">
+        <label>Monthly Contribution ($, optional)</label>
+        <input type="number" id="monthly" placeholder="e.g. 1000" min="0" step="1" value="0">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Fund Fee Comparison</h2>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Fund A Annual Fee (%)</label>
+        <input type="number" id="feeA" placeholder="e.g. 0.5" min="0" max="5" step="0.01" value="0.50">
+      </div>
+      <div class="form-group">
+        <label>Fund B Annual Fee (%)</label>
+        <input type="number" id="feeB" placeholder="e.g. 1.5" min="0" max="5" step="0.01" value="1.50">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="form-group">
+        <label>Purchase Fee (%, optional)</label>
+        <input type="number" id="purchaseFee" placeholder="e.g. 0.15" min="0" max="5" step="0.01" value="0">
+      </div>
+      <div class="form-group">
+        <label>Redemption Fee (%, optional)</label>
+        <input type="number" id="redeemFee" placeholder="e.g. 0.5" min="0" max="5" step="0.01" value="0">
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">📊 Calculate</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+    </div>
+  </div>
+
+  <div class="section" id="resultCard" style="display:none">
+    <h2>Fee Comparison Analysis</h2>
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="label">Value Without Fees</div>
+        <div class="value" id="noFeeValue">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Fund A Final Value</div>
+        <div class="value" id="valueA">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Fund B Final Value</div>
+        <div class="value" id="valueB">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">5-Year Difference</div>
+        <div class="value" id="diff5y">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">10-Year Difference</div>
+        <div class="value" id="diff10y">-</div>
+      </div>
+      <div class="result-item">
+        <div class="label">Annual Return Difference</div>
+        <div class="value" id="annualDiff">-</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <div class="big" id="totalDiff">-</div>
+      <div class="sub">Total return gap from fee difference</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Results</button>
+    </div>
+  </div>
+
+  
+
+  
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>The Fund Expense Ratio Calculator helps investors understand the impact of fees on long-term returns. All data stays local — nothing is uploaded. Compare two funds side by side to see how tiny fee differences compound into tens of thousands over 20-30 years. Supports lump sum and monthly DCA modes. Pure frontend, no signup.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/investment-fee-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">💸 Investment Fee Calculator</a><a href="../../en/compound-interest-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📈 Compound Interest</a><a href="../../en/investment-returns-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📊 Investment Returns</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/expense-ratio-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function calculate(){
+  const principal=parseFloat(document.getElementById('principal').value)||0;
+  const returnRate=parseFloat(document.getElementById('returnRate').value)||8;
+  const years=parseFloat(document.getElementById('years').value)||20;
+  const monthly=parseFloat(document.getElementById('monthly').value)||0;
+  const feeA=parseFloat(document.getElementById('feeA').value)||0;
+  const feeB=parseFloat(document.getElementById('feeB').value)||0;
+  const purchaseFee=parseFloat(document.getElementById('purchaseFee').value)||0;
+  const redeemFee=parseFloat(document.getElementById('redeemFee').value)||0;
+
+  if(principal<=0){showToast('Please enter a valid principal');return;}
+
+  const r=returnRate/100;
+  const fA=feeA/100;
+  const fB=feeB/100;
+
+  // Calculate net fee rate and final value
+  function finalValue(netRate, y){
+    let pv=principal*(1-purchaseFee/100);
+    for(let i=0;i<y;i++){
+      pv=pv*(1+netRate);
+      if(monthly>0){pv+=monthly*12;}
+    }
+    pv=pv*(1-redeemFee/100);
+    return pv;
+  }
+
+  const noFee=finalValue(r, years);
+  const valueA=finalValue(r-fA, years);
+  const valueB=finalValue(r-fB, years);
+
+  // Calculate5years and 10-Year Difference
+  const a5=finalValue(r-fA, Math.min(5,years));
+  const b5=finalValue(r-fB, Math.min(5,years));
+  const a10=finalValue(r-fA, Math.min(10,years));
+  const b10=finalValue(r-fB, Math.min(10,years));
+
+  document.getElementById('noFeeValue').textContent='$'+noFee.toLocaleString('en-US',{maximumFractionDigits:0});
+  document.getElementById('valueA').textContent='$'+valueA.toLocaleString('en-US',{maximumFractionDigits:0});
+  document.getElementById('valueB').textContent='$'+valueB.toLocaleString('en-US',{maximumFractionDigits:0});
+  document.getElementById('diff5y').textContent='$'+Math.abs(a5-b5).toLocaleString('en-US',{maximumFractionDigits:0});
+  document.getElementById('diff10y').textContent='$'+Math.abs(a10-b10).toLocaleString('en-US',{maximumFractionDigits:0});
+
+  const diff=valueA-valueB;
+  document.getElementById('totalDiff').textContent='$'+Math.abs(diff).toLocaleString('en-US',{maximumFractionDigits:0});
+
+  // Annualized difference
+  const annualPct=(Math.pow(valueA/valueB, 1/years)-1)*100;
+  document.getElementById('annualDiff').textContent=annualPct.toFixed(2)+'%/years';
+
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});
+}
+
+function clearAll(){
+  document.getElementById('principal').value='';
+  document.getElementById('returnRate').value='8';
+  document.getElementById('years').value='20';
+  document.getElementById('monthly').value='0';
+  document.getElementById('feeA').value='0.50';
+  document.getElementById('feeB').value='1.50';
+  document.getElementById('purchaseFee').value='0';
+  document.getElementById('redeemFee').value='0';
+  document.getElementById('resultCard').style.display='none';
+}
+
+function copyResult(){
+  const lines=[
+    '💰 Fund Fee Comparison Analysis Report',
+    'Value Without Fees: '+document.getElementById('noFeeValue').textContent,
+    'Fund A ('+document.getElementById('feeA').value+'%/year) Final Value: '+document.getElementById('valueA').textContent,
+    'Fund B ('+document.getElementById('feeB').value+'%/year) Final Value: '+document.getElementById('valueB').textContent,
+    '5-Year Difference: '+document.getElementById('diff5y').textContent,
+    '10-Year Difference: '+document.getElementById('diff10y').textContent,
+    ' Total Return Difference: '+document.getElementById('totalDiff').textContent,
+    'Annualized Difference: '+document.getElementById('annualDiff').textContent
+  ];
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('✅ Copied to clipboard'));
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function fillExample(){
+  var vals = [["principal", "100000"], ["returnRate", "8"], ["years", "20"], ["monthly", "1000"], ["feeA", "0.5"], ["feeB", "1.5"], ["purchaseFee", "0.15"], ["redeemFee", "0.5"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+</body>
+</html>

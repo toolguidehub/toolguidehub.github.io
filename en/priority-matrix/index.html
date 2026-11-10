@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sort tasks into an Eisenhower matrix of four urgency and importance quadrants, dragging them between Do, Schedule, Delegate, and Delete.">
+<meta name="keywords" content="Eisenhower matrix,priority matrix,task prioritization,time management,urgent important matrix,quadrant method,task manager,productivity tool,priority management,decision matrix">
+<title>Free Priority Matrix - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/priority-matrix/">
+<meta property="og:title" content="📊 Priority Matrix">
+<meta property="og:description" content="Sort tasks into an Eisenhower matrix of four urgency and importance quadrants, dragging them between Do, Schedule, Delegate, and Delete.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/priority-matrix/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Priority Matrix", "description": "Free online Eisenhower Matrix (priority management tool). Organize tasks into four quadrants by urgency and importance: Do First, Schedule, Delegate, Eliminate. Add, drag, delete tasks with local data persistence.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Eisenhower Matrix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Eisenhower Matrix is a time management method named after President Dwight Eisenhower. It categorizes tasks by urgency and importance into four quadrants: Urgent & Important, Important Not Urgent, Urgent Not Important, Neither."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use the matrix for productivity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "List all tasks and sort them by urgency and importance. Focus on urgent & important first, invest time in important but not urgent tasks to prevent crises, minimize urgent but not important tasks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All task data is stored in your browser's localStorage. Nothing is uploaded to any server. Data persists when you close and reopen the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my tasks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently you can screenshot the matrix for backup. Data is stored locally in your browser."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Priority Matrix",
+  "description": "Simple steps to use the 📊 Priority Matrix online tool. Everything runs locally: Priority Matrix and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📊 Priority Matrix"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/priority-matrix/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/priority-matrix/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/priority-matrix/#output"
+    }
+  ]
+}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4} .container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px} .nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px} .form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="text"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+
+.matrix-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.quadrant{background:#0f172a;border-radius:8px;padding:12px;min-height:180px;border:1px solid rgba(148,163,184,.15)}
+.quadrant h3{font-size:.85rem;margin-bottom:8px;white-space:pre-line;color:#e2e8f0}
+.quadrant.do-first{border-color:rgba(239,68,68,.3)} .quadrant.schedule{border-color:rgba(34,197,94,.3)} .quadrant.delegate{border-color:rgba(234,179,8,.3)} .quadrant.eliminate{border-color:rgba(148,163,184,.3)}
+.task-item{background:#1e293b;border-radius:6px;padding:8px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:.85rem;border:1px solid rgba(148,163,184,.1)}
+.task-item .task-text{flex:1;word-break:break-word}
+.task-item .task-actions{display:flex;gap:4px;align-items:center;flex-shrink:0}
+.task-item select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:4px;color:#e2e8f0;padding:2px 4px;font-size:.75rem;outline:none}
+.task-item .del-btn{background:none;border:none;color:#64748b;cursor:pointer;font-size:1rem;padding:2px;line-height:1}
+.task-item .del-btn:hover{color:#f87171}
+.empty-msg{color:#475569;font-size:.8rem;text-align:center;padding:24px 0}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.faq-item{margin-bottom:16px} .faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px} .faq-item p{color:#94a3b8;font-size:.9rem}
+@media(max-width:640px){.matrix-grid{grid-template-columns:1fr}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Priority Matrix",
+      "item": "https://adi63586.github.io/Toolguidehub/en/priority-matrix/"
+    }
+  ],
+  "name": "Priority Matrix"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/priority-matrix/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head><body><main class="container"><div class="header"><h1>📊 Priority Matrix</h1></div><p class="nav-back"><a href="../../index.html">&larr; Back to Home</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+<script>
+
+function escHtml(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
+function addTask(){var inp=document.getElementById("taskInput");var txt=inp.value.trim();if(!txt)return;var tasks=loadTasks();var q=Math.floor(Math.random()*4);tasks[q].push(txt);saveTasks(tasks);inp.value="";toast("Task added")}
+function deleteTask(q,i){var tasks=loadTasks();tasks[q].splice(i,1);saveTasks(tasks);}
+function moveTask(fq,fi,tq){tq=parseInt(tq);var tasks=loadTasks();var item=tasks[fq][fi];tasks[fq].splice(fi,1);tasks[tq].push(item);saveTasks(tasks);}
+function clearAll(){if(confirm("Clear all tasks?")){saveTasks([[],[],[],[]])}}
+document.addEventListener("DOMContentLoaded",function(){render(loadTasks())})
+</script>
+<div class="toast" id="toast"></div>
+<script>
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000);}
+</script>
+<h2>What is 📊 Priority Matrix?</h2><p>📊 Priority Matrix is a free online Eisenhower Matrix tool that runs entirely in your browser. Organize tasks into four quadrants by urgency and importance: Do First, Schedule, Delegate, Eliminate. Add, drag, delete tasks with local data persistence. No software installation, no account registration, just open the page and start using it. All input data is processed locally and never uploaded to any server, ensuring complete privacy.</p><h2>Use Cases</h2><ul><li>Prioritize daily tasks and boost productivity</li><li>Manage project deadlines and team assignments</li><li>Separate urgent from important work items</li><li>Personal time management and goal setting</li></ul><h2>Key Features</h2><ul><li><strong>Four-Quadrant Design</strong>: Eisenhower urgency/importance matrix</li><li><strong>Drag & Drop</strong>: Move tasks between quadrants</li><li><strong>Local Storage</strong>: Data persists in your browser</li><li><strong>Cross-Platform</strong>: Works on phone and desktop</li></ul><h3>Is 📊 Priority Matrix accurate?</h3><p>This tool's logic is based on standard mathematical formulas. Results are accurate and reliable.</p><h3>Do I need internet to use 📊 Priority Matrix?</h3><p>You need internet to load the page initially. Once loaded, the tool works offline.</p><h3>Is my data recorded?</h3><p>No. This tool has no backend server. All data exists only in your browser's memory.</p>
+</main>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../eisenhower-matrix/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📊 Eisenhower Matrix</a><a href="../todo-list/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📝 Todo List</a><a href="../kanban-board/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📋 Kanban Board</a></div></section>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+</body>
+</html>

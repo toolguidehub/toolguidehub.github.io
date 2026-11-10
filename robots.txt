@@ -1,1 +1,4 @@
-User-agent: *\nAllow: /\nSitemap: https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/sitemap.xml\n
+User-agent: *
+Allow: /
+
+Sitemap: https://adi63586.github.io/Toolguidehub/sitemap.xml

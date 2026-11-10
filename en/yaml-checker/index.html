@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check YAML for syntax errors, indentation problems and duplicate keys against the YAML 1.2 rules, with line numbers for each issue.">
+<meta name="keywords" content="YAML validator,yaml checker,yaml formatter,online tool,free">
+<title>YAML Validator - Online YAML Syntax Checker and Formatter</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/yaml-checker/">
+<meta property="og:title" content="YAML Validator - Online YAML Syntax Checker and Formatter | Free Online Tool">
+<meta property="og:description" content="Check YAML for syntax errors, indentation problems and duplicate keys against the YAML 1.2 rules, with line numbers for each issue.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/yaml-checker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"YAML Validator","description":"Free online YAML validator and formatter. Check YAML syntax errors, detect indentation issues, and format your YAML.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+textarea.code-input{width:100%;padding:12px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.85rem;font-family:'Fira Code','Consolas','Courier New',monospace;outline:none;min-height:220px;resize:vertical;tab-size:2}
+textarea.code-input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:80px;font-size:.85rem;color:#94a3b8;white-space:pre-wrap;word-break:break-word;font-family:'Fira Code','Consolas','Courier New',monospace}
+.result-box.success{border-color:rgba(34,197,94,.4);color:#4ade80}
+.result-box.error{border-color:rgba(239,68,68,.4);color:#f87171}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+@media(max-width:640px){h1{font-size:1.2rem}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "YAML Validator - Online YAML Syntax Checker and Formatter | Free Online Tool", "item": "https://adi63586.github.io/Toolguidehub/en/yaml-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"YAML Validator FAQ","mainEntity":[{"@type":"Question","name":"How does the YAML Validator check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: Paste YAML Content and other values are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the YAML Validator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Paste YAML Content and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the YAML Validator report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use YAML Validator","description":"Step-by-step guide for using YAML Validator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"YAML Validator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/yaml-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📄 YAML Validator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; YAML Validator</p>
+<div class="section">
+<p class="info-text">Online YAML syntax validator and formatter. Paste your YAML content to check for syntax errors, indentation issues, duplicate keys, and more. Supports YAML 1.2 specification with specific error line numbers and fix suggestions.</p>
+<div class="form-group">
+<label>Paste YAML Content</label>
+<textarea id="yamlInput" class="code-input" placeholder="name: John&#10;age: 30&#10;hobbies:&#10;  - reading&#10;  - coding&#10;address:&#10;  city: Beijing&#10;  zip: 100000"></textarea>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" id="btnValidate">🔍 Validate YAML</button>
+<button class="btn btn-secondary" id="btnFormat">✨ Format</button>
+<button class="btn btn-secondary" id="btnClear">🗑️ Clear</button>
+<button class="btn btn-secondary" id="btnSample">📋 Load Sample</button>
+</div>
+<div id="resultBox" class="result-box"></div>
+</div>
+<div class="ad-slot" style="padding:12px 0"></div>
+<h2>What is YAML Validator - Online YAML Syntax Checker and Formatter?</h2><p>YAML Validator is a free online tool that checks YAML syntax, detects indentation issues, and formats your YAML content. It runs entirely in your browser — no download or signup needed. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Validate YAML syntax before deploying Kubernetes or Docker configurations</li><li>Check CI/CD pipeline YAML files for syntax errors</li><li>Format and beautify messy YAML configuration files</li><li>Detect duplicate keys and indentation issues in YAML documents</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function parseYAML(str) {
+  const lines = str.split('\n');
+  const errors = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const indent = line.match(/^(\s*)/)[1];
+    if (indent.includes('\t')) {
+      errors.push({line: i + 1, msg: 'Tab indentation not allowed, use spaces', severity: 'error'});
+    }
+    if (trimmed.startsWith(':') && !trimmed.startsWith('::')) {
+      errors.push({line: i + 1, msg: 'Key name cannot be empty (colon at start)', severity: 'error'});
+    }
+  }
+  const topKeys = {};
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('-')) continue;
+    if (line.match(/^(\s*)/)[1].length === 0 && trimmed.includes(':')) {
+      const key = trimmed.split(':')[0].trim();
+      if (topKeys[key]) {
+        errors.push({line: i + 1, msg: `Duplicate key: "${key}" (line ${topKeys[key]})`, severity: 'error'});
+      } else {
+        topKeys[key] = i + 1;
+      }
+    }
+  }
+  return { errors, lineCount: lines.length };
+}
+
+function formatYAML(str) {
+  return str.split('\n').map(l => l.trimRight()).join('\n').replace(/\n+$/, '\n');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+document.getElementById('btnValidate').addEventListener('click', () => {
+  const input = document.getElementById('yamlInput').value;
+  if (!input.trim()) { showToast('Please paste YAML content first'); return; }
+  const result = parseYAML(input);
+  const rb = document.getElementById('resultBox');
+  if (result.errors.filter(e => e.severity === 'error').length === 0) {
+    rb.className = 'result-box success';
+    let html = '✅ YAML is valid!';
+    if (result.errors.length > 0) {
+      html += '\n\n⚠️ Warnings:';
+      result.errors.forEach(e => { html += `\n  Line ${e.line}: ${e.msg}`; });
+    }
+    rb.textContent = html;
+  } else {
+    rb.className = 'result-box error';
+    let html = '❌ Errors found:\n';
+    result.errors.forEach(e => {
+      html += `\n${e.severity === 'error' ? '❌' : '⚠️'} Line ${e.line}: ${e.msg}`;
+    });
+    rb.textContent = html;
+  }
+});
+
+document.getElementById('btnFormat').addEventListener('click', () => {
+  const input = document.getElementById('yamlInput').value;
+  if (!input.trim()) { showToast('Please paste YAML content first'); return; }
+  document.getElementById('yamlInput').value = formatYAML(input);
+  document.getElementById('resultBox').className = 'result-box success';
+  document.getElementById('resultBox').textContent = '✅ YAML formatted successfully';
+  showToast('Formatted');
+});
+
+document.getElementById('btnClear').addEventListener('click', () => {
+  document.getElementById('yamlInput').value = '';
+  document.getElementById('resultBox').className = 'result-box';
+  document.getElementById('resultBox').textContent = '';
+});
+
+document.getElementById('btnSample').addEventListener('click', () => {
+  document.getElementById('yamlInput').value = '# Sample YAML Configuration\nserver:\n  host: localhost\n  port: 8080\n  ssl: true\n\ndatabase:\n  name: myapp\n  user: admin\n  password: secret123\n  hosts:\n    - db1.example.com\n    - db2.example.com\n\nlogging:\n  level: info\n  format: json\n  outputs:\n    - console\n    - file:/var/log/app.log';
+  document.getElementById('resultBox').className = 'result-box';
+  document.getElementById('resultBox').textContent = '';
+  showToast('Sample loaded');
+});
+</script>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/yaml-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

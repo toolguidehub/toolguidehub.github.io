@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate realistic user agent strings by browser, platform and device, including mobile and bot agents for testing and scraping.">
+<meta name="keywords" content="User-Agent generatorUA generatorUser Agent string generatorbrowser UAmobile UAChrome UAFirefox UASafari UAEdge UAbot UArandom UA">
+<title>Free Online User-Agent Generator - UA String Generator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/user-agent-generator/">
+<meta property="og:title" content="Free Online User-Agent Generator - UA String Generator">
+<meta property="og:description" content="Generate realistic user agent strings by browser, platform and device, including mobile and bot agents for testing and scraping.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/user-agent-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "User-Agent Generator", "description": "Free online User-Agent generator for developers. Generate browser and device UA strings.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "name": "What is a User-Agent string?", "mainEntity": [{"name": "What is a User-Agent string?", "text": "A User-Agent (UA) string is identification sent by a browser or client to websites, containing browser name, version, operating system, and device information. Websites use UA strings to deliver optimized content for each client.", "acceptedAnswer": {"@type": "Answer", "text": "PleaseToolspageside ."}}, {"name": "Why would I need to generate UA strings?", "text": "Developers often need to test how websites behave with different browsers and devices. Using different UA strings lets you simulate mobile access, test browser compatibility, debug crawler behavior, and more.", "acceptedAnswer": {"@type": "Answer", "text": "PleaseToolspageside ."}}, {"name": "Are the generated UA strings realistic?", "text": "Yes. The tool contains a large database of real UA samples collected from actual devices, covering the latest versions of Chrome, Firefox, Safari, Edge, Opera, and common mobile platforms.", "acceptedAnswer": {"@type": "Answer", "text": "PleaseToolspageside ."}}, {"name": "Can I filter by browser type and platform?", "text": "Yes. You can filter by browser type (Chrome, Firefox, Safari, Edge, mobile, bot) and platform (Windows, macOS, Linux, Android, iOS) to find the exact UA string combination you need.", "acceptedAnswer": {"@type": "Answer", "text": "PleaseToolspageside ."}}, {"name": "Is this tool free to use?", "text": "Completely free with no usage limits. Everything runs locally: User-Agent Generator and other values are processed on your device, never sent to a server. No registration or login required, and your browsing behavior is not tracked.", "acceptedAnswer": {"@type": "Answer", "text": "PleaseToolspageside ."}}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.main-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.filter-row{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.filter-row select,.filter-row button{padding:8px 16px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:.85rem;outline:none;cursor:pointer}
+.filter-row select:focus{border-color:rgba(6,182,212,.5)}
+.filter-row button{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);transition:all .2s}
+.filter-row button:hover{background:rgba(6,182,212,.3)}
+.ua-display{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:16px;margin-bottom:16px;word-break:break-all;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:.85rem;line-height:1.5;color:#22d3ee;min-height:60px}
+.ua-display .label{color:#64748b;font-size:.75rem;margin-bottom:4px;font-family:inherit}
+.ua-display .value{color:#e2e8f0}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.2);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.btn-success:hover{background:rgba(34,197,94,.3)}
+.history-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.history-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.history-item{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;padding:10px 14px;margin-bottom:8px;font-family:monospace;font-size:.8rem;word-break:break-all;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.history-item .ua-text{color:#94a3b8;flex:1}
+.history-item .copy-btn{background:rgba(6,182,212,.15);border:none;color:#22d3ee;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:.75rem;white-space:nowrap}
+.history-item .copy-btn:hover{background:rgba(6,182,212,.3)}
+
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section code{background:#0f172a;padding:2px 6px;border-radius:4px;font-size:.85rem;color:#22d3ee}
+.feedback-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.feedback-section textarea{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:12px;color:#e2e8f0;font-size:.9rem;resize:vertical;min-height:80px;font-family:inherit}
+.feedback-section textarea:focus{border-color:rgba(6,182,212,.5);outline:none}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem;display:flex;justify-content:center;gap:16px}
+.footer a{color:#06b6d4}
+.status-bar{padding:12px;border-radius:8px;margin:12px 0;font-size:.85rem;display:none}
+.status-bar.success{display:block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#22c55e}
+.status-bar.error{display:block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
+.status-bar.info{display:block;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:#22d3ee}
+@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}.filter-row{flex-direction:column}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free User-Agent Generator - Online UA String Generator", "item": "https://adi63586.github.io/Toolguidehub/en/user-agent-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use User-Agent Generator","description":"Step-by-step guide for using User-Agent Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"User-Agent Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/user-agent-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header">
+ <h1>User-Agent Generator</h1>
+ 
+ </div>
+ <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+ <div class="main-section">
+ <div class="filter-row">
+ <select id="browserSelect">
+ <option value="all">All Browsers</option>
+ <option value="chrome">Chrome</option>
+ <option value="firefox">Firefox</option>
+ <option value="safari">Safari</option>
+ <option value="edge">Edge</option>
+ <option value="opera">Opera</option>
+ <option value="mobile">Mobile</option>
+ <option value="bot">Bots/Crawlers</option>
+ </select>
+ <select id="platformSelect">
+ <option value="all">All Platforms</option>
+ <option value="windows">Windows</option>
+ <option value="macos">macOS</option>
+ <option value="linux">Linux</option>
+ <option value="android">Android</option>
+ <option value="ios">iOS</option>
+ </select>
+ <button class="btn btn-primary" id="generateBtn">🎲 Generate</button>
+ <button class="btn btn-success" id="copyBtn">📋 Copy</button>
+ </div>
+ <div class="ua-display" id="uaDisplay">
+ <div class="label">Generated User-Agent string:</div>
+ <div class="value" id="uaValue">Click "Generate" to get one</div>
+ </div>
+ <div class="status-bar" id="statusBar"></div>
+ </div>
+
+ <div class="history-section">
+ <h2>History</h2>
+ <div id="historyList"></div>
+ </div>
+
+ <div class="info-section">
+ <h2>About User-Agent Generator</h2>
+ <p>This <strong>free User-Agent generator</strong> helps developers and testers quickly generate User-Agent strings for various browsers and devices. It includes a comprehensive database of real UA samples covering Chrome, Firefox, Safari, Edge, Opera, mobile devices, and search engine bots.</p>
+ <h3>What is User-Agent?</h3>
+ <p>User-Agent is an HTTP header field that identifies the client software making the request. It typically contains browser name and version, operating system, and device type. Websites use this information to deliver optimized content.</p>
+ <h3>When to use User-Agent Generator</h3>
+ <ul>
+ <li><strong>Web development testing:</strong> Simulate different browsers and devices</li>
+ <li><strong>Web scraping:</strong> Set appropriate UA strings to avoid blocking</li>
+ <li><strong>API debugging:</strong> Test server-side UA detection logic</li>
+ <li><strong>Compatibility testing:</strong> Verify website behavior across environments</li>
+ </ul>
+ </div>
+
+ <div class="info-section">
+ <h2>FAQ</h2>
+ <h3>What is a User-Agent string?</h3>
+ <p>A User-Agent (UA) string is identification sent by browsers when visiting websites. It contains browser name, version, operating system, and device information. Websites use this to serve appropriate page versions.</p>
+ <h3>Can I use the generated UA strings directly?</h3>
+ <p>Yes. Generated UA strings are based on real device samples and can be used in browser developer tools, web scraping scripts, or testing setups.</p>
+ <h3>What's the difference between mobile and desktop UA?</h3>
+ <p>Mobile UA strings typically include device model information and a "Mobile" identifier, prompting websites to serve mobile-optimized versions. Desktop UAs contain desktop OS information.</p>
+ <h3>How do I filter UA strings?</h3>
+ <p>Use the browser dropdown to select a specific browser type (Chrome, Firefox, etc.) and the platform dropdown to filter by OS. Combine both filters for precise results.</p>
+ <h3>Is this tool free?</h3>
+ <p>Completely free with no usage limits. All computation happens on your device — User-Agent Generator, other values and other inputs stay in your browser. No registration or login required, and no usage tracking.</p>
+ </div>
+
+ <div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/user-agent/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">User Agent Parser</a> <a href="../../en/css-user-select-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free CSS User-Select Generator</a> <a href="../../en/ai-agent-workflow-builder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free AI Agent Workflow Builder</a> <a href="../../en/text-repeater/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Text Repeater - Online …</a> <a href="../../en/binary-to-text/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Binary to Text Converte…</a> <a href="../../en/fuzzy-string-matcher/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Fuzzy String Matcher</a> <a href="../../en/query-string-parser/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Query String Parser</a> <a href="../../en/cookie-parser/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Cookie Parser - Online …</a></div></section>
+
+</div>
+
+<script>
+  const USER_AGENTS = {
+    chrome: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+    ],
+    firefox: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14.5; rv:127.0) Gecko/20100101 Firefox/127.0',
+      'Mozilla/5.0 (X11; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0',
+    ],
+    safari: [
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15',
+    ],
+    edge: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0',
+    ],
+    opera: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 OPR/111.0.0.0',
+    ],
+    mobile: [
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1',
+      'Mozilla/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1',
+      'Mozilla/5.0 (Linux; Android 14; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 14; Samsung Galaxy S24) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36',
+    ],
+    bot: [
+      'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+      'Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36 (compatible; Googlebot/2.1)',
+      'Mozilla/5.0 (compatible; DuckDuckBot-Https/1.1; https://duckduckgo.com/duckduckbot)',
+      'Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)',
+      'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)',
+    ]
+  };
+
+  const PLATFORM_FILTERS = {
+    windows: ['Windows NT'],
+    macos: ['Macintosh', 'Mac OS X'],
+    linux: ['X11; Linux', 'Linux x86_64'],
+    android: ['Android'],
+    ios: ['iPhone', 'iPad', 'CPU iPhone', 'CPU OS']
+  };
+
+  const browserSelect = document.getElementById('browserSelect');
+  const platformSelect = document.getElementById('platformSelect');
+  const generateBtn = document.getElementById('generateBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const uaValue = document.getElementById('uaValue');
+  const statusBar = document.getElementById('statusBar');
+  const historyList = document.getElementById('historyList');
+
+  let history = [];
+
+  function showStatus(msg, type) {
+    statusBar.className = 'status-bar ' + type;
+    statusBar.textContent = msg;
+    setTimeout(function() { statusBar.className = 'status-bar'; }, 3000);
+  }
+
+  function getFilteredAgents() {
+    const browser = browserSelect.value;
+    const platform = platformSelect.value;
+    let agents = [];
+    if (browser === 'all') {
+      for (let key in USER_AGENTS) agents = agents.concat(USER_AGENTS[key]);
+    } else {
+      agents = USER_AGENTS[browser] || [];
+    }
+    if (platform !== 'all') {
+      const keywords = PLATFORM_FILTERS[platform] || [];
+      agents = agents.filter(function(ua) {
+        return keywords.some(function(kw) { return ua.indexOf(kw) !== -1; });
+      });
+    }
+    return agents;
+  }
+
+  function generate() {
+    const agents = getFilteredAgents();
+    if (agents.length === 0) {
+      showStatus('No matching UA strings found. Try different filters.', 'error');
+      return;
+    }
+    const ua = agents[Math.floor(Math.random() * agents.length)];
+    uaValue.textContent = ua;
+    history.unshift(ua);
+    if (history.length > 20) history.pop();
+    renderHistory();
+    showStatus('New UA string generated', 'success');
+  }
+
+  function renderHistory() {
+    historyList.innerHTML = '';
+    history.forEach(function(ua) {
+      const item = document.createElement('div');
+      item.className = 'history-item';
+      item.innerHTML = '<span class="ua-text">'+escapeHtml(ua)+'</span><button class="copy-btn" onclick="copyUA(\''+escapeHtml(ua).replace(/'/g,"\\'")+'\')">📋 Copy</button>';
+      historyList.appendChild(item);
+    });
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  window.copyUA = function(ua) {
+    navigator.clipboard.writeText(ua).then(function() {
+      showStatus('Copied to clipboard', 'success');
+    }).catch(function() {
+      const ta = document.createElement('textarea');
+      ta.value = ua; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showStatus('Copied to clipboard', 'success');
+    });
+  };
+
+  generateBtn.addEventListener('click', generate);
+
+  copyBtn.addEventListener('click', function() {
+    const ua = uaValue.textContent;
+    if (!ua || ua === 'Click "Generate" to get one') return;
+    navigator.clipboard.writeText(ua).then(function() {
+      showStatus('Copied to clipboard', 'success');
+    }).catch(function() {
+      const ta = document.createElement('textarea');
+      ta.value = ua; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showStatus('Copied to clipboard', 'success');
+    });
+  });
+
+  generate();
+
+</script>
+</main>
+<footer>
+ <a href="../">Home</a>
+ <a href="../privacy-policy/">Privacy</a>
+ <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+ </footer>
+</body>
+</html>

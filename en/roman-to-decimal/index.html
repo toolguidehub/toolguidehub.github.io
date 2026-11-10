@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Turn a Roman numeral such as MCMXCIX into its decimal value, using case-insensitive subtractive notation.">
+<meta name="keywords" content="Roman to decimal, Roman numeral converter, Roman number calculator, convert Roman numerals, online tool, free">
+<title>Roman to Decimal Converter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/roman-to-decimal/">
+<meta property="og:title" content="Roman to Decimal Converter - ToolGuideHub">
+<meta property="og:description" content="Turn a Roman numeral such as MCMXCIX into its decimal value, using case-insensitive subtractive notation.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/roman-to-decimal/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roman to Decimal Converter - ToolGuideHub">
+<meta name="twitter:description" content="Free online Roman to decimal converter. Convert Roman numerals to decimal numbers instantly. Supports range 1-3999.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Roman To Decimal", "description": "Free online Roman To Decimal. Pure client-side processing, no registration required, no data upload to servers.", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Roman To Decimal",
+      "item": "https://adi63586.github.io/Toolguidehub/en/roman-to-decimal/"
+    }
+  ],
+  "name": "Roman To Decimal"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Roman To Decimal",
+  "description": "Simple steps to use Roman To Decimal. Everything runs locally: Roman Numeral and other values are processed on your device, never sent to a server.",
+  "totalTime": "PT10S",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Roman To Decimal Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.converter-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.converter-row label{color:#94a3b8;font-size:.85rem}
+.converter-row input{width:220px;text-align:center;font-size:1.1rem;font-family:Georgia,"Times New Roman",serif;letter-spacing:2px}
+.result-display{background:#0f172a;border-radius:8px;padding:24px;text-align:center;margin-bottom:12px;min-width:200px}
+.result-display .decimal-num{font-size:2.5rem;color:#22d3ee;font-weight:bold}
+.result-display .roman-echo{font-size:.85rem;color:#64748b;margin-top:8px;font-family:Georgia,"Times New Roman",serif}
+.arrow{font-size:1.5rem;color:#64748b}
+.quick-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.quick-btns button{background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.15);color:#94a3b8;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;font-family:Georgia,"Times New Roman",serif}
+.quick-btns button:hover{background:rgba(6,182,212,.12);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.error-msg{color:#f87171;font-size:.8rem;margin-top:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.converter-row{flex-direction:column;align-items:stretch}.result-display .decimal-num{font-size:1.8rem}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+
+<style>
+
+@media(max-width:640px){}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/roman-to-decimal/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Roman To Decimal FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Roman To Decimal?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Roman To Decimal free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Roman Numeral and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Roman To Decimal?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header">
+ <h1>🔢 Roman to Decimal Converter</h1>
+
+ 
+ </div>
+ <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+ 
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-12
+ </span>
+</div>
+ <div class="tool-section">
+ <h2>Roman to Decimal Converter</h2>
+ <p>Enter a Roman numeral (such as IV, MCMXCIX) to instantly convert it to a decimal number. Supports case-insensitive input.</p>
+ <div class="converter-row">
+ <label>Roman Numeral:</label>
+ <input type="text" id="romanInput" value="MCMXCIV" oninput="convert()" placeholder="Enter Roman numeral...">
+ <span class="arrow">→</span>
+ <div class="result-display" style="flex:1;min-width:200px">
+ <div class="decimal-num" id="decimalOutput">1994</div>
+ <div class="roman-echo" id="romanEcho">MCMXCIV</div>
+ </div>
+ </div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap">
+ <button class="btn btn-primary" onclick="copyDecimal()">📋 Copy Result</button>
+ </div>
+ <div class="error-msg" id="errorMsg"></div>
+ <h3 style="font-size:.85rem;color:#94a3b8;margin-top:16px;margin-bottom:8px">Quick Input:</h3>
+ <div class="quick-btns">
+ <button onclick="setRoman('I')">I = 1</button>
+ <button onclick="setRoman('IV')">IV = 4</button>
+ <button onclick="setRoman('IX')">IX = 9</button>
+ <button onclick="setRoman('XL')">XL = 40</button>
+ <button onclick="setRoman('XC')">XC = 90</button>
+ <button onclick="setRoman('CD')">CD = 400</button>
+ <button onclick="setRoman('CM')">CM = 900</button>
+ <button onclick="setRoman('MCMLXXXIX')">MCMLXXXIX = 1989</button>
+ <button onclick="setRoman('MMXXIV')">MMXXIV = 2024</button>
+ <button onclick="setRoman('MMMCMXCIX')">MMMCMXCIX = 3999</button>
+ </div>
+ </div>
+ <div class="tool-section">
+ <h2>📖 Conversion Method</h2>
+ <p><strong>Method:</strong> Read from left to right. If the current character value is less than the right character value, subtract the current value (e.g., IV=5-1=4). Otherwise, add the current value (e.g., VI=5+1=6).</p>
+ <p><strong>Example:</strong> MCMXCIV = M(1000) + CM(900) + XC(90) + IV(4) = 1994</p>
+ <p><strong>Valid characters:</strong> I(1), V(5), X(10), L(50), C(100), D(500), M(1000). Case-insensitive input supported.</p>
+ </div>
+ 
+ 
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. Roman Numerals to Decimal is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for Roman Numerals to Decimal?</h3>
+ <p>Roman Numerals to Decimal has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can I use Roman Numerals to Decimal on my phone?</h3>
+ <p>Yes. Roman Numerals to Decimal is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using Roman Numerals to Decimal?</h3>
+ <p>Absolutely. Everything runs locally: Roman Numeral and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are converted files compatible with other software?</h3>
+ <p>Yes. Converted files follow standard format specifications and are compatible with mainstream software and platforms.</p>
+ </div>
+ </div>
+
+</main>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/roman-to-decimal/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<div id="related-tools"></div>
+<script>(function(){
+
+  'use strict';
+  var s = document.getElementById('related-tools');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 Related Tools')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+
+})();</script>
+
+// === Roman Numeral to Decimal Implementation ===
+var ROMAN_MAP = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
+
+// Validate and convert Roman numeral -> decimal, returns null if invalid
+function romanToDecimal(s) {
+  if (!s) return null;
+  var str = s.trim().toUpperCase();
+  if (!str) return null;
+  var total = 0;
+  var prev = 0;
+  for (var i = 0; i < str.length; i++) {
+    var c = str.charAt(i);
+    if (!ROMAN_MAP.hasOwnProperty(c)) return null;
+    var v = ROMAN_MAP[c];
+    if (v > prev) {
+      // Subtractive combination (e.g. IV: add 1 then subtract 1*2)
+      total += v - 2 * prev;
+    } else {
+      total += v;
+    }
+    prev = v;
+  }
+  if (total < 1 || total > 3999) return null;
+  return total;
+}
+
+function convert() {
+  var input = document.getElementById('romanInput').value;
+  var errEl = document.getElementById('errorMsg');
+  var outEl = document.getElementById('decimalOutput');
+  var echoEl = document.getElementById('romanEcho');
+  if (!input.trim()) {
+    errEl.textContent = 'Please enter a Roman numeral';
+    outEl.textContent = '--';
+    echoEl.textContent = '';
+    return;
+  }
+  var n = romanToDecimal(input);
+  if (n === null) {
+    errEl.textContent = 'Invalid Roman numeral. Only I V X L C D M are supported (range 1-3999)';
+    outEl.textContent = '--';
+    echoEl.textContent = '';
+    return;
+  }
+  errEl.textContent = '';
+  outEl.textContent = String(n);
+  echoEl.textContent = input.trim().toUpperCase();
+}
+
+function copyDecimal() {
+  var outEl = document.getElementById('decimalOutput');
+  if (!outEl || outEl.textContent === '--' || outEl.textContent === '') {
+    showToast('Nothing to copy');
+    return;
+  }
+  var t = outEl.textContent;
+  navigator.clipboard.writeText(t).then(function(){showToast('Copied')})['catch'](function(){showToast('Copy failed')});
+}
+
+function setRoman(v) {
+  document.getElementById('romanInput').value = v;
+  convert();
+}
+
+// Run once on page load
+convert();
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+</script>
+
+<div id="related-tools"></div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Meta Tag Analyzer | No Signup</title>
+    <meta name="description" content="Analyze a page&#x27;s meta tags by URL or pasted HTML and get an SEO and social-sharing report on title, description and OG tags.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/meta-tag-analyzer/">
+    <meta property="og:title" content="Free Online Meta Tag Analyzer - ToolGuideHub">
+    <meta property="og:description" content="Analyze a page&#x27;s meta tags by URL or pasted HTML and get an SEO and social-sharing report on title, description and OG tags.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/meta-tag-analyzer/">
+    <meta property="og:site_name" content="ToolGuideHub">
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:2rem;color:#e2e8f0;margin-bottom:8px}
+header p{color:#94a3b8;font-size:1.05rem}
+.section{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(148,163,184,.1);padding:24px;margin-bottom:20px}
+.section h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid rgba(148,163,184,.1)}
+textarea,input[type="text"],input[type="url"],input[type="number"],select{width:100%;padding:12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:14px;font-family:'SF Mono','Fira Code','Consolas',monospace;transition:border .2s}
+textarea:focus,input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+textarea{
+      background: var(--surface);
+      color: var(--text);resize:vertical;min-height:120px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px)}
+.btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1)}
+.btn-secondary:hover{background:rgba(148,163,184,.1)}
+.btn-success{background:#10b981;color:#fff}
+.btn-success:hover{opacity:.9}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:16px;font-family:'SF Mono','Fira Code','Consolas',monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto;min-height:60px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:1.05rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:0.95rem;line-height:1.6}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.row>*{flex:1;min-width:120px}
+footer{text-align:center;padding:30px 0;color:#94a3b8;font-size:0.85rem}
+footer a{color:#22d3ee;text-decoration:none}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;margin:2px}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-green{background:#d1fae5;color:#065f46}
+.tag-yellow{background:#fef3c7;color:#92400e}
+.tag-red{background:#fee2e2;color:#991b1b}
+@media(max-width:768px){.container{padding:12px}header h1{font-size:1.5rem}}
+
+.meta-group{margin:16px 0;padding:12px;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.1)}
+.meta-group h3{font-size:1rem;margin-bottom:8px;color:#22d3ee}
+.meta-row{display:flex;padding:6px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.meta-row:last-child{border-bottom:none}
+.meta-key{font-weight:600;min-width:180px;color:#94a3b8;font-size:13px}
+.meta-val{flex:1;font-size:13px;word-break:break-all}
+.score-bar{height:8px;background:rgba(148,163,184,.1);border-radius:4px;overflow:hidden;margin:8px 0}
+.score-bar .fill{height:100%;border-radius:4px;transition:width .3s}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/meta-tag-analyzer/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*gtag_stub: analytics removed*/window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+</head>
+<body>
+<main class="container">
+<header>
+        <h1>🏷️ Meta Tag Analyzer</h1>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+        
+        <p>Analyze webpage meta tags - SEO optimization, social media tag checking</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Meta Tag Analyzer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/meta-tag-analyzer/"
+    }
+  ],
+  "name": "Meta Tag Analyzer"
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What are meta tags?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are meta tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meta tags are HTML elements in the document head that describe webpage metadata, such as character encoding, page description, keywords, viewport settings, etc. They are crucial for SEO and social media sharing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do meta tags affect SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meta tags directly affect how search engines understand and display your page: title tag determines search result title, meta description affects the snippet, viewport impacts mobile experience, robots meta controls indexing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Open Graph tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Graph (OG) tags were created by Facebook to control how webpages appear when shared on social media. They include og:title, og:description, og:image, og:type, etc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to optimize meta tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optimization tips: 1) Keep title 50-60 characters; 2) Keep description 150-160 characters; 3) Unique title and description per page; 4) Add complete OG and Twitter Card tags; 5) Set correct viewport and charset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Twitter Card and OG tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twitter Card tags specifically control sharing display on Twitter, while OG tags are a universal standard. Twitter reads twitter: tags first, falling back to OG tags. Best practice: set both for optimal display."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Meta Tag Analyzer", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter the webpage URL to analyze", "name": "Enter the webpage URL to analy"}, {"@type": "HowToStep", "position": 2, "text": "Click the 'Analyze Meta Tags' button", "name": "Click the 'Analyze Meta Tags' "}, {"@type": "HowToStep", "position": 3, "text": "View all meta tag information", "name": "View all meta tag information"}, {"@type": "HowToStep", "position": 4, "text": "Optimize meta tags based on suggestions", "name": "Optimize meta tags based on su"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Meta Tag Analyzer", "description": "Free online Meta Tag Analyzer", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/meta-tag-analyzer/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+    <div class="section">
+        <h2>🔗 Enter Webpage URL</h2>
+        <input type="url" id="urlInput" placeholder="https://example.com">
+        <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" onclick="analyzeMeta()">🔍 Analyze Meta Tags</button>
+            <button class="btn btn-secondary" onclick="analyzeHTML()">📝 Analyze HTML Code</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+    </div>
+    <div class="section" id="htmlInputCard" style="display:none">
+        <h2>📝 Paste HTML Code</h2>
+        <textarea id="htmlInput" placeholder="Paste the <head>
+ section of the webpage HTML..." style="min-height:200px"></textarea>
+        <div class="row" style="margin-top:12px">
+            <button class="btn btn-primary" onclick="analyzePastedHTML()">🔍 Analyze</button>
+        </div>
+    </div>
+    <div class="section" id="resultCard" style="display:none">
+        <h2>📊 Analysis Result</h2>
+        <div id="seoScore"></div>
+        <div id="metaResult"></div>
+    </div>
+    <div class="section">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item"><h3>What are meta tags?</h3><p>Meta tags are HTML elements in the document head that describe webpage metadata, such as character encoding, page description, keywords, viewport settings, etc. They are crucial for SEO and social media sharing.</p></div><div class="faq-item"><h3>How do meta tags affect SEO?</h3><p>Meta tags directly affect how search engines understand and display your page: title tag determines search result title, meta description affects the snippet, viewport impacts mobile experience, robots meta controls indexing.</p></div><div class="faq-item"><h3>What are Open Graph tags?</h3><p>Open Graph (OG) tags were created by Facebook to control how webpages appear when shared on social media. They include og:title, og:description, og:image, og:type, etc.</p></div><div class="faq-item"><h3>How to optimize meta tags?</h3><p>Optimization tips: 1) Keep title 50-60 characters; 2) Keep description 150-160 characters; 3) Unique title and description per page; 4) Add complete OG and Twitter Card tags; 5) Set correct viewport and charset.</p></div><div class="faq-item"><h3>What's the difference between Twitter Card and OG tags?</h3><p>Twitter Card tags specifically control sharing display on Twitter, while OG tags are a universal standard. Twitter reads twitter: tags first, falling back to OG tags. Best practice: set both for optimal display.</p></div>
+    </div>
+    <script>
+    function analyzeHTML(){document.getElementById('htmlInputCard').style.display='block'}
+    function parseMeta(html){
+        var parser=new DOMParser();var doc=parser.parseFromString(html,'text/html');
+        var result={title:'',description:'',keywords:'',viewport:'',charset:'',ogTags:{},twitterTags:{},robots:'',canonical:'',otherMeta:[]};
+        var title=doc.querySelector('title');if(title)result.title=title.textContent;
+        doc.querySelectorAll('meta').forEach(function(m){
+            var name=m.getAttribute('name')||m.getAttribute('property')||m.getAttribute('http-equiv')||'';
+            var content=m.getAttribute('content')||'';
+            var charset=m.getAttribute('charset')||'';
+            if(charset)result.charset=charset;
+            else if(name==='description')result.description=content;
+            else if(name==='keywords')result.keywords=content;
+            else if(name==='viewport')result.viewport=content;
+            else if(name==='robots')result.robots=content;
+            else if(name.startsWith('og:'))result.ogTags[name]=content;
+            else if(name.startsWith('twitter:'))result.twitterTags[name]=content;
+            else if(content)result.otherMeta.push({name:name,content:content});
+        });
+        var canonical=doc.querySelector('link[rel="canonical"]');if(canonical)result.canonical=canonical.getAttribute('href')||'';
+        return result;
+    }
+    function renderResult(r){
+        var score=0,max=10;
+        if(r.title){score++;if(r.title.length>=10&&r.title.length<=60)score++}
+        if(r.description){score++;if(r.description.length>=50&&r.description.length<=160)score++}
+        if(r.viewport)score++;if(r.charset)score++;
+        if(r.ogTags['og:title'])score++;if(r.ogTags['og:description'])score++;if(r.ogTags['og:image'])score++;
+        if(r.twitterTags['twitter:card'])score++;if(r.canonical)score++;
+        var pct=Math.round(score/max*100);var color=pct>=80?'#10b981':pct>=50?'#f59e0b':'#ef4444';
+        var html='<div style="text-align:center;padding:16px;margin-bottom:16px"><div style="font-size:2.5rem;font-weight:700;color:'+color+'">'+pct+'%</div><div style="color:#94a3b8">SEO Meta Tag Score</div><div class="score-bar"><div class="fill" style="width:'+pct+'%;background:'+color+'"></div></div></div>';
+        html+='<div class="meta-group"><h3>📄 Basic Tags</h3>';
+        html+='<div class="meta-row"><span class="meta-key">Title</span><span class="meta-val">'+(r.title||'<em style="color:#ef4444">Not set</em>')+(r.title?' ('+r.title.length+' chars)':'')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Description</span><span class="meta-val">'+(r.description||'<em style="color:#ef4444">Not set</em>')+(r.description?' ('+r.description.length+' chars)':'')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Keywords</span><span class="meta-val">'+(r.keywords||'<em style="color:#94a3b8">Not set</em>')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Viewport</span><span class="meta-val">'+(r.viewport||'<em style="color:#ef4444">Not set</em>')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Charset</span><span class="meta-val">'+(r.charset||'<em style="color:#f59e0b">Not set</em>')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Canonical</span><span class="meta-val">'+(r.canonical||'<em style="color:#94a3b8">Not set</em>')+'</span></div>';
+        html+='<div class="meta-row"><span class="meta-key">Robots</span><span class="meta-val">'+(r.robots||'<em style="color:#94a3b8">Not set (default: index,follow)</em>')+'</span></div>';
+        html+='</div>';
+        html+='<div class="meta-group"><h3>📱 Open Graph Tags</h3>';
+        var ogKeys=Object.keys(r.ogTags);
+        if(ogKeys.length){ogKeys.forEach(function(k){html+='<div class="meta-row"><span class="meta-key">'+k+'</span><span class="meta-val">'+r.ogTags[k]+'</span></div>'})}else{html+='<p style="color:#ef4444;font-size:13px">No OG tags set</p>'}
+        html+='</div>';
+        html+='<div class="meta-group"><h3>🐦 Twitter Card Tags</h3>';
+        var twKeys=Object.keys(r.twitterTags);
+        if(twKeys.length){twKeys.forEach(function(k){html+='<div class="meta-row"><span class="meta-key">'+k+'</span><span class="meta-val">'+r.twitterTags[k]+'</span></div>'})}else{html+='<p style="color:#ef4444;font-size:13px">No Twitter Card tags set</p>'}
+        html+='</div>';
+        if(r.otherMeta.length){
+            html+='<div class="meta-group"><h3>📋 Other Meta Tags</h3>';
+            r.otherMeta.forEach(function(m){html+='<div class="meta-row"><span class="meta-key">'+m.name+'</span><span class="meta-val">'+m.content+'</span></div>'});
+            html+='</div>';
+        }
+        document.getElementById('seoScore').innerHTML='';
+        document.getElementById('metaResult').innerHTML=html;
+        document.getElementById('resultCard').style.display='block';
+    }
+    async function analyzeMeta(){
+        var url=document.getElementById('urlInput').value.trim();
+        if(!url){showToast('Please enter a URL');return}
+        if(!url.startsWith('http'))url='https://'+url;
+        document.getElementById('resultCard').style.display='block';
+        document.getElementById('metaResult').innerHTML='<p style="text-align:center;color:#94a3b8">Analyzing...</p>';
+        try{
+            var resp=await fetch(url,{mode:'cors'});
+            var html=await resp.text();
+            var r=parseMeta(html);renderResult(r);
+            gtag('event','analyze_meta',{event_category:'meta_tag'});
+        }catch(e){
+            document.getElementById('metaResult').innerHTML='<p style="color:#ef4444">Analysis failed: '+e.message+'</p><p style="color:#94a3b8;font-size:0.9rem;margin-top:8px">Tip: Due to CORS restrictions, some sites may not be directly analyzable. Try the "Analyze HTML Code" mode instead.</p>';
+        }
+    }
+    function analyzePastedHTML(){
+        var html=document.getElementById('htmlInput').value.trim();
+        if(!html){showToast('Please paste HTML code');return}
+        var r=parseMeta(html);renderResult(r);
+        gtag('event','analyze_pasted',{event_category:'meta_tag'});
+    }
+    function clearAll(){document.getElementById('urlInput').value='';document.getElementById('htmlInput').value='';document.getElementById('resultCard').style.display='none';document.getElementById('htmlInputCard').style.display='none'}
+    </script>
+</main>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/meta-tag-analyzer/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

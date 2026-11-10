@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Turn code into syntax-highlighted HTML with line numbers for JavaScript, Python, HTML, CSS, Java and C++, using dark or light themes.">
+<meta name="keywords" content="syntax highlighter,code highlighter,code formatter,highlight code,syntax coloring,code to HTML,code snippet highlighter,code beautifier,source code highlighter,programming tool">
+<title>Free Syntax Highlighter - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/">
+<meta property="og:title" content="✨ Syntax Highlighter">
+<meta property="og:description" content="Turn code into syntax-highlighted HTML with line numbers for JavaScript, Python, HTML, CSS, Java and C++, using dark or light themes.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Syntax Highlighter", "description": "Free online syntax highlighter. Convert code into syntax-highlighted HTML with line numbers. Supports JavaScript, Python, HTML, CSS, Java, C++ and more. Customizable dark/light themes. One-click copy highlighted HTML. Perfect for bloggers, developers, and technical writers. Client-side only.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free to use. No registration, subscription, or payment is required. All processing happens directly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally: Language and Theme are processed on your device, never sent to a server using JavaScript. Your data never leaves your device, ensuring complete privacy and security. The tool works even when offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is fully responsive and works on all modern browsers including Chrome, Safari, Firefox, and Edge on desktop, tablet, and mobile devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an internet connection required to use this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No internet connection is required after the page loads. Since all processing happens in your browser, you can use this tool offline once the page is loaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no server-side file size limit since files are processed locally in your browser. The only limitation is your device's memory (RAM). For very large files, we recommend processing them in smaller chunks."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Syntax Highlighter",
+  "description": "Simple steps to use the ✨ Syntax Highlighter online tool. Everything runs locally: Language and Theme are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "✨ Syntax Highlighter"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select,.form-group textarea,.form-group input[type="range"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:100px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+textarea.code-input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.85rem;font-family:'Fira Code','Consolas','Courier New',monospace;outline:none;min-height:200px;resize:vertical;tab-size:2;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+textarea.code-input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:120px;font-size:.85rem;color:#94a3b8;white-space:pre-wrap;word-break:break-all;font-family:'Fira Code','Consolas','Courier New',monospace}
+.color-preview{width:48px;height:48px;border-radius:8px;border:1px solid rgba(148,163,184,.2);display:inline-block;vertical-align:middle;margin-right:8px;cursor:pointer}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Syntax Highlighter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/"
+    }
+  ],
+  "name": "Syntax Highlighter"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><h1>✨ Syntax Highlighter</h1></div>
+  <p class="nav-back"><a href="../../index.html">&larr; All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section"><p class="info-text">Free online syntax highlighter. Convert code into syntax-highlighted HTML with line numbers. Supports JavaScript, Python, HTML, CSS, Java, C++ and more. Customizable dark/light themes. One-click copy highlighted HTML. Perfect for bloggers, developers, and technical writers. Client-side only.</p>
+    <div class="tool-body">
+
+<div class="form-row">
+  <div class="form-group" style="flex:0 0 200px">
+    <label>Language</label>
+    <select id="hlLang">
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="java">Java</option>
+      <option value="cpp">C++</option>
+      <option value="csharp">C#</option>
+      <option value="go">Go</option>
+      <option value="rust">Rust</option>
+      <option value="typescript">TypeScript</option>
+      <option value="ruby">Ruby</option>
+      <option value="php">PHP</option>
+      <option value="sql">SQL</option>
+      <option value="bash">Shell/Bash</option>
+      <option value="yaml">YAML</option>
+      <option value="json">JSON</option>
+      <option value="xml">XML</option>
+      <option value="swift">Swift</option>
+      <option value="kotlin">Kotlin</option>
+    </select>
+  </div>
+  <div class="form-group" style="flex:0 0 150px">
+    <label>Theme</label>
+    <select id="hlTheme">
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <label>Input Code</label>
+  <textarea class="code-input" id="hlInput" placeholder="Paste your code here..." style="min-height:200px"></textarea>
+</div>
+<div class="btn-group">
+  <button class="btn btn-primary" onclick="highlightCode()">✨ Highlight</button>
+  <button class="btn btn-success" onclick="copyHighlighted()">📋 Copy HTML</button>
+  <button class="btn btn-secondary" onclick="clearHighlight()">🗑️ Clear</button>
+</div>
+<div class="form-group">
+  <label>Highlighted Preview</label>
+  <div class="result-box" id="hlOutput" style="min-height:150px;overflow-x:auto;white-space:pre;line-height:1.6">Click "Highlight" to see result</div>
+</div>
+
+    </div>
+  </div>
+  <div class="seo-content">
+    <h2>How to Use the Syntax Highlighter</h2>
+    <p>Using the Syntax Highlighter is straightforward:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Enter Your Values</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Input the required numbers and parameters into the calculator fields. Each field is clearly labeled — simply type your values or use the spinner controls to adjust them.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Configure Options</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Select any additional options such as computation mode, currency, time period, or precision level. The calculator updates automatically as you change values.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>View the Results</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">The calculated result is displayed instantly with clear formatting. You can Copy the result to your clipboard or adjust input values to see how different scenarios affect the outcome.</span>
+      </li>
+
+    </ol>
+  </div>
+
+  <div>
+</div>
+<div class="toast" id="toast"></div>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Syntax Highlighter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/"
+    }
+  ],
+  "name": "Syntax Highlighter"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/syntax-highlighter/">
+</head>
+<body>
+</main><footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/syntax-highlighter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

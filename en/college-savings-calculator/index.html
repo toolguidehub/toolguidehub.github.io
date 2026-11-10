@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plan college savings by estimating the monthly amount needed from your child's age, target costs and returns.">
+<title>College Savings Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/college-savings-calculator/">
+<meta property="og:title" content="College Savings Calculator - ToolGuideHub">
+<meta property="og:description" content="Plan college savings by estimating the monthly amount needed from your child's age, target costs and returns.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/college-savings-calculator/">
+<meta property="og:type" content="website">
+<meta name="robots" content="index,follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"🎓 College Savings Calculator","description":"Plan your child's college education savings. Enter current age, target college costs, expected return rate, and current savings to calculate monthly savings needed.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"College Savings Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the College Savings Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the College Savings Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: College Savings Calculator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the College Savings Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use 🎓 College Savings Calculator","description":"Step-by-step guide for using 🎓 College Savings Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"🎓 College Savings Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit;width:100%}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-output{background:#0f172a;border-radius:8px;padding:16px;color:#e2e8f0;font-size:.85rem;overflow-x:auto;max-height:400px;white-space:pre-wrap;word-break:break-all;margin-bottom:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.hero{margin-bottom:16px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:2px 8px;border-radius:4px;font-size:.8rem;margin-right:6px}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}.header h1{font-size:1.3rem}}
+.seo-content{color:#475569;font-size:.85rem;margin-top:24px}
+.seo-content h3{color:#64748b;font-size:1rem;margin-bottom:8px}
+.stat-row{display:flex;gap:24px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-value{color:#22d3ee;font-weight:700;font-size:1.2rem}
+.stat-label{color:#94a3b8;font-size:.8rem}
+.form-row{display:flex;gap:12px;margin-bottom:12px;align-items:flex-end;flex-wrap:wrap}
+.form-row label{flex:1;min-width:160px}
+.form-row label span{display:block;margin-bottom:4px;font-size:.85rem;color:#94a3b8}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/college-savings-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header class="header">
+<h1>🎓 College Savings Calculator</h1>
+
+</header>
+<div class="nav-back">← <a href="../">Back to Home</a></div>
+
+<div class="main-grid">
+<div>
+<div class="hero">
+<p>Plan ahead for your child's college education. Enter current age, target college costs, expected returns, and see how much you need to save each month.</p>
+</div>
+
+<div class="tool-section">
+<h2>Savings Parameters</h2>
+<div class="form-row">
+<label><span>Child's Current Age</span><input type="number" id="currentAge" value="5" min="0" max="16" step="1" oninput="calcCollege()"></label>
+<label><span>College Start Age</span><input type="number" id="collegeAge" value="18" min="17" max="25" step="1" oninput="calcCollege()"></label>
+</div>
+<div class="form-row">
+<label><span>Target Total Cost ($)</span><input type="number" id="targetCost" value="80000" min="1000" step="5000" oninput="calcCollege()"></label>
+<label><span>Tuition Inflation Rate (%)</span><input type="number" id="inflation" value="5" min="0" max="15" step="0.1" oninput="calcCollege()"></label>
+</div>
+<div class="form-row">
+<label><span>Current Savings ($)</span><input type="number" id="currentSavings" value="5000" min="0" step="1000" oninput="calcCollege()"></label>
+<label><span>Expected Annual Return (%)</span><input type="number" id="returnRate" value="6" min="0.1" max="20" step="0.1" oninput="calcCollege()"></label>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>Savings Plan</h2>
+<div class="result-output" id="result">Enter parameters to calculate...</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+<div class="result-actions">
+<button class="btn btn-primary" onclick="calcCollege()">📊 Calculate</button>
+<button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+<button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+</div>
+</div>
+</div>
+
+<div>
+<div class="tool-section">
+<h2>College Cost Reference</h2>
+<div style="font-size:.85rem;color:#94a3b8">
+<div style="display:flex;justify-content:space-between;padding:4px 0"><span>Public In-State (4yr)</span><span>$40K-60K</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0"><span>Public Out-of-State</span><span>$80K-120K</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0"><span>Private University</span><span>$150K-250K</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0"><span>Ivy League</span><span>$250K-350K</span></div>
+</div>
+</div>
+<div class="tool-section">
+<h2>Tips</h2>
+<div style="font-size:.85rem;color:#94a3b8">
+<p>Tuition typically grows 5-8% annually. Start early — compound interest works best over longer time horizons. Consider a 529 plan for tax advantages.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="seo-content">
+<h3>About College Savings Calculator</h3>
+<p>College costs continue to rise, making early savings planning essential. This calculator helps you estimate how much you need to save monthly to reach your target college fund, accounting for tuition inflation and investment returns. Enter your child's current age, expected college start age, target total cost, and inflation rate. The calculator adjusts future costs for inflation and accounts for the compound growth of your existing savings. 529 education savings plans and Coverdell Education Savings Accounts are popular tax-advantaged options in the US for college savings.</p>
+<h3>College Savings Calculator FAQ</h3>
+<div class="faq-item"><h3>How much does college tuition increase each year?</h3><p>US college tuition increases approximately 5-8% annually on average. Using 5% is a reasonable conservative estimate for planning purposes.</p></div>
+<div class="faq-item"><h3>What is a 529 plan?</h3><p>A 529 plan is a tax-advantaged education savings vehicle in the US. Investment gains grow tax-free, and withdrawals for qualified education expenses are also tax-free. Each state offers its own 529 plan with different investment options.</p></div>
+<div class="faq-item"><h3>When should I start saving for college?</h3><p>The earlier, the better! Thanks to compound interest, even small monthly contributions can grow significantly over 10-15 years. Starting at birth is ideal, but it's never too late to begin.</p></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="//en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="//en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer class="footer">
+<a href="../">Home</a><a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a><a href="../contact/">Contact</a>
+<p style="margin-top:8px">© 2024 ToolGuideHub. All rights reserved.</p>
+</footer>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"College Savings Calculator","item":"https://adi63586.github.io/Toolguidehub/en/college-savings-calculator/"}]}</script>
+<script>
+function calcCollege(){
+var age=parseInt(document.getElementById('currentAge').value)||0;
+var collegeAge=parseInt(document.getElementById('collegeAge').value)||18;
+var target=parseFloat(document.getElementById('targetCost').value)||0;
+var inflation=parseFloat(document.getElementById('inflation').value)/100||0;
+var current=parseFloat(document.getElementById('currentSavings').value)||0;
+var rate=parseFloat(document.getElementById('returnRate').value)/100||0;
+
+var years=collegeAge-age;
+if(years<=0){
+document.getElementById('result').textContent='College age must be greater than current age';
+return;
+}
+if(target<=0){
+document.getElementById('result').textContent='Please enter a valid target cost';
+return;
+}
+
+var futureCost=target*Math.pow(1+inflation,years);
+var futureSavings=current*Math.pow(1+rate,years);
+var gap=Math.max(0,futureCost-futureSavings);
+
+var monthlyRate=rate/12;
+var totalMonths=years*12;
+var monthly=0;
+if(monthlyRate>0){
+monthly=gap*monthlyRate/(Math.pow(1+monthlyRate,totalMonths)-1);
+}
+
+var totalDeposits=monthly*totalMonths;
+var totalCost=futureSavings+totalDeposits;
+
+var result='';
+result+='══════════════════════════\n';
+result+='   COLLEGE SAVINGS PLAN\n';
+result+='══════════════════════════\n\n';
+result+='👶 Current Age: '+age+' years\n';
+result+='🎓 College Start Age: '+collegeAge+' years\n';
+result+='📅 Years to Save: '+years+' years\n';
+result+='──────────────────────\n';
+result+='💰 Target Cost Today: $'+target.toLocaleString()+'\n';
+result+='📈 Future Cost (with inflation): $'+Math.round(futureCost).toLocaleString()+'\n';
+result+='🏦 Current Savings at Maturity: $'+Math.round(futureSavings).toLocaleString()+'\n';
+result+='📉 Funding Gap: $'+Math.round(gap).toLocaleString()+'\n';
+result+='──────────────────────\n';
+result+='💵 Monthly Savings Needed: $'+Math.round(monthly).toLocaleString()+'\n';
+result+='💳 Total Deposits: $'+Math.round(totalDeposits).toLocaleString()+'\n';
+result+='✅ Total at Maturity: $'+Math.round(totalCost).toLocaleString()+'\n\n';
+result+='══════════════════════════\n';
+result+='* Assumptions: '+((inflation*100).toFixed(1))+'% tuition inflation, '+((rate*100).toFixed(1))+'% annual return\n';
+
+document.getElementById('result').textContent=result;
+}
+
+function copyResult(){
+var t=document.getElementById('result').textContent;
+navigator.clipboard.writeText(t).then(function(){
+var toast=document.getElementById('toast');toast.textContent='Copied to clipboard';toast.classList.add('show');
+setTimeout(function(){toast.classList.remove('show')},2000);
+});
+}
+
+function resetForm(){
+document.getElementById('currentAge').value=5;
+document.getElementById('collegeAge').value=18;
+document.getElementById('targetCost').value=80000;
+document.getElementById('inflation').value=5;
+document.getElementById('currentSavings').value=5000;
+document.getElementById('returnRate').value=6;
+calcCollege();
+}
+calcCollege();
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+</script>
+
+</body>
+</html>

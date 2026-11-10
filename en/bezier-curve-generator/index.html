@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Drag control points to build a cubic-bezier easing curve and copy the CSS transition timing function.">
+<meta name="keywords" content="bezier curve generator, cubic-bezier, CSS easing, easing functions, CSS animation, bezier curve tool, animation curve, timing function">
+<meta name="robots" content="index,follow">
+<title>Free Online Bezier Curve Generator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/bezier-curve-generator/">
+<meta property="og:title" content="Free Bezier Curve Generator Online - ToolGuideHub">
+<meta property="og:description" content="Drag control points to build a cubic-bezier easing curve and copy the CSS transition timing function.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/bezier-curve-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:locale" content="en_US">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Bezier Curve Generator", "description": "Free interactive cubic-bezier curve generator for CSS animations.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-25", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is Bezier Curve Generator free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Bezier Curve Generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Bezier Curve Generator is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Bezier Curve Generator upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Bezier Curve Generator uses pure front-end technology. All processing happens in your browser — no data is uploaded to any server. The tool works even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Bezier Curve Generator on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Bezier Curve Generator is fully responsive and works on phones, tablets, and desktops. The interface automatically adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software to use Bezier Curve Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Bezier Curve Generator is an online tool — just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using Bezier Curve Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since all data is processed locally in your browser and never sent to any server, there is no risk of data leakage. Your data stays under your control at all times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for Bezier Curve Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bezier Curve Generator is a free online tool with no usage limits. Since processing is done locally, performance depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Bezier Curve Generator",
+  "description": "Simple steps to use the Bezier Curve Generator online tool. Everything runs locally: P1 and P1 are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Bezier Curve Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Select preset or drag control points",
+      "text": "Choose from preset easing functions, or drag P1/P2 control points on the canvas to shape the curve."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Adjust parameters",
+      "text": "Use sliders to fine-tune x1/y1/x2/y2 values with real-time curve preview."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Preview animation effect",
+      "text": "Watch the preview area to see the CSS animation effect for the current cubic-bezier curve."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy CSS code",
+      "text": "One-click copy the generated cubic-bezier() value and paste it into your CSS transition or animation property."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.canvas-wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.canvas-box{background:#0f172a;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1);flex-shrink:0}
+.canvas-box canvas{display:block;cursor:pointer;border-radius:8px}
+.controls{flex:1;min-width:280px}
+.param-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.param-group{background:#0f172a;border-radius:8px;padding:10px;border:1px solid rgba(148,163,184,.1)}
+.param-group label{display:block;font-size:.8rem;color:#64748b;margin-bottom:4px}
+.param-group input[type=range]{width:100%;accent-color:#06b6d4}
+.param-group .val{font-family:monospace;font-size:.9rem;color:#22d3ee}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.preset-btn{padding:4px 12px;border-radius:16px;font-size:.75rem;background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.15);color:#94a3b8;cursor:pointer;transition:all .2s}
+.preset-btn:hover{color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.code-output{background:#0f172a;border-radius:8px;padding:12px;font-family:monospace;font-size:.9rem;color:#22d3ee;border:1px solid rgba(148,163,184,.1);margin:8px 0;word-break:break-all}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.preview-box{background:#0f172a;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1);margin:12px 0;overflow:hidden}
+.preview-ball{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#22d3ee);position:relative;left:0}
+
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:700px){.canvas-wrap{flex-direction:column;align-items:center}
+.ad-slot.ad-sidebar{max-width:300px}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bezier Curve Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/bezier-curve-generator/"
+    }
+  ],
+  "name": "Bezier Curve Generator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/bezier-curve-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>📈 Bezier Curve Generator</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section">
+    <h2>Curve Editor</h2>
+    <div class="canvas-wrap">
+      <div class="canvas-box"><canvas id="bezierCanvas" width="300" height="300"></canvas></div>
+      <div class="controls">
+        <div class="param-grid">
+          <div class="param-group"><label>P1 (x1)</label><input type="range" id="p1x" min="0" max="1" step="0.01" value="0.25"><span class="val" id="p1xVal">0.25</span></div>
+          <div class="param-group"><label>P1 (y1)</label><input type="range" id="p1y" min="-1" max="1" step="0.01" value="0.1"><span class="val" id="p1yVal">0.10</span></div>
+          <div class="param-group"><label>P2 (x2)</label><input type="range" id="p2x" min="0" max="1" step="0.01" value="0.25"><span class="val" id="p2xVal">0.25</span></div>
+          <div class="param-group"><label>P2 (y2)</label><input type="range" id="p2y" min="-1" max="1" step="0.01" value="1"><span class="val" id="p2yVal">1.00</span></div>
+        </div>
+        <div class="presets">
+          <span class="preset-btn" onclick="setPreset(0.25,0.1,0.25,1)">ease</span>
+          <span class="preset-btn" onclick="setPreset(0.42,0,1,1)">ease-in</span>
+          <span class="preset-btn" onclick="setPreset(0,0,0.58,1)">ease-out</span>
+          <span class="preset-btn" onclick="setPreset(0.42,0,0.58,1)">ease-in-out</span>
+          <span class="preset-btn" onclick="setPreset(0.68,-0.55,0.27,1.55)">elastic</span>
+          <span class="preset-btn" onclick="setPreset(0.17,0.67,0.83,0.67)">bounce</span>
+          <span class="preset-btn" onclick="setPreset(0.6,-0.28,0.74,0.05)">back-in</span>
+          <span class="preset-btn" onclick="setPreset(0.25,1.5,0.75,1)">overshoot</span>
+        </div>
+        <div class="code-output" id="cssOutput">cubic-bezier(0.25, 0.10, 0.25, 1.00)</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-primary" onclick="copyCSS()">📋 Copy CSS</button>
+          <button class="btn btn-secondary" onclick="togglePreview()">▶️ Preview</button>
+        </div>
+        <div class="preview-box" id="previewBox">
+          <div style="display:flex;justify-content:space-between;font-size:.8rem;color:#64748b"><span>0%</span><span>50%</span><span>100%</span></div>
+          <div style="position:relative;height:60px;margin-top:8px;background:#1e293b;border-radius:8px;overflow:hidden">
+            <div class="preview-ball" id="previewBall"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section info-section">
+    <h2>💡 About Cubic-Bezier Curves</h2>
+    <p>Cubic-bezier is a CSS easing function defined by two control points (P1, P2) that describe how animation speed changes over time. The x-axis represents time, y-axis represents animation progress.</p>
+    <h3>Parameters</h3>
+    <p><code>cubic-bezier(x1, y1, x2, y2)</code></p>
+    <p>• x1, x2: Control point horizontal position (0~1)</p>
+    <p>• y1, y2: Control point vertical position (can exceed 0~1 for elastic effects)</p>
+  </div>
+
+  <div class="section info-section">
+
+  <div class="seo-content">
+    <h2>How to Use the Bezier Curve Generator</h2>
+    <p>Create the perfect easing curve in three simple steps:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Select a Preset or Drag the Control Points</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Choose a preset like ease-in-out, or drag the P1/P2 control points on the canvas to shape your curve. Fine-tune with the x1/y1/x2/y2 sliders for precise values.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Preview the Animation</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Click "Preview" to see how the curve behaves as a CSS animation. Values outside 0-1 create bounce, elastic, and overshoot effects.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Copy the CSS</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Click "Copy CSS" to grab the cubic-bezier() value and paste it straight into your transition or animation property.</span>
+      </li>
+
+    </ol>
+  </div>
+
+    <h2>❓ FAQ</h2>
+    <div class="faq-item">
+      <h3>Can y values exceed 1 or be negative?</h3>
+      <p>Yes! Values outside 0~1 create bounce, elastic, or overshoot effects for dynamic animations.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How to use in CSS?</h3>
+      <p>Copy the cubic-bezier() value and use it in your animation or transition: transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);</p>
+    </div>
+  </div>
+
+  <div>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+<footer>
+    <p><a href="../../">All Tools</a> | <a href="../../en/privacy-policy/">Privacy Policy</a> | <a href="../../en/terms-of-service/">Terms of Service</a></p>
+    <p style="margin-top:8px">© 2025 ToolGuideHub | No Signup, Client-Side · Zero Dependencies</p>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+const canvas = document.getElementById('bezierCanvas');
+const ctx = canvas.getContext('2d');
+let isPreviewing = false;
+
+function getParams() { return { x1: parseFloat(document.getElementById('p1x').value), y1: parseFloat(document.getElementById('p1y').value), x2: parseFloat(document.getElementById('p2x').value), y2: parseFloat(document.getElementById('p2y').value) }; }
+
+function drawCurve() {
+  const p = getParams();
+  const w = canvas.width, h = canvas.height, margin = 30, drawW = w - 2*margin, drawH = h - 2*margin;
+  ctx.clearRect(0,0,w,h);
+  ctx.strokeStyle = 'rgba(148,163,184,0.1)';
+  ctx.lineWidth = 1;
+  for(let i=0;i<=10;i++){const x=margin+drawW*i/10,y=margin+drawH*i/10;ctx.beginPath();ctx.moveTo(x,margin);ctx.lineTo(x,margin+drawH);ctx.stroke();ctx.beginPath();ctx.moveTo(margin,y);ctx.lineTo(margin+drawW,y);ctx.stroke();}
+  ctx.strokeStyle = 'rgba(148,163,184,0.3)'; ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(margin,margin);ctx.lineTo(margin,margin+drawH);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(margin,margin+drawH);ctx.lineTo(margin+drawW,margin+drawH);ctx.stroke();
+  ctx.fillStyle='#64748b';ctx.font='10px monospace';ctx.textAlign='center';
+  ctx.fillText('0',margin,margin+drawH+16);ctx.fillText('0.5',margin+drawW/2,margin+drawH+16);ctx.fillText('1',margin+drawW,margin+drawH+16);
+  ctx.textAlign='right';ctx.fillText('1',margin-8,margin+4);ctx.fillText('0',margin-8,margin+drawH+4);
+  const toX=x=>margin+x*drawW, toY=y=>margin+drawH-y*drawH;
+  ctx.setLineDash([4,4]);ctx.strokeStyle='rgba(148,163,184,0.3)';
+  ctx.beginPath();ctx.moveTo(toX(0),toY(0));ctx.lineTo(toX(p.x1),toY(p.y1));ctx.stroke();
+  ctx.beginPath();ctx.moveTo(toX(1),toY(1));ctx.lineTo(toX(p.x2),toY(p.y2));ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.strokeStyle='#22d3ee';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(toX(0),toY(0));
+  for(let t=0;t<=1;t+=0.01){const mt=1-t;ctx.lineTo(toX(mt*mt*mt*0+3*mt*mt*t*p.x1+3*mt*t*t*p.x2+t*t*t*1),toY(mt*mt*mt*0+3*mt*mt*t*p.y1+3*mt*t*t*p.y2+t*t*t*1));}
+  ctx.stroke();
+  const dp=(x,y,label)=>{ctx.beginPath();ctx.arc(toX(x),toY(y),7,0,2*Math.PI);ctx.fillStyle='#f472b6';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#f1f5f9';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.fillText(label,toX(x)+12,toY(y)+4);};
+  dp(p.x1,p.y1,'P1');dp(p.x2,p.y2,'P2');
+  ctx.beginPath();ctx.arc(toX(0),toY(0),5,0,2*Math.PI);ctx.fillStyle='#22d3ee';ctx.fill();
+  ctx.beginPath();ctx.arc(toX(1),toY(1),5,0,2*Math.PI);ctx.fillStyle='#22d3ee';ctx.fill();
+  const css=`cubic-bezier(${p.x1.toFixed(2)},${p.y1.toFixed(2)},${p.x2.toFixed(2)},${p.y2.toFixed(2)})`;
+  document.getElementById('cssOutput').textContent=css;
+  if(isPreviewing){const b=document.getElementById('previewBall');b.style.animation='none';b.offsetHeight;b.style.animation=`moveBall 1.5s ${css} infinite alternate`;}
+}
+
+function setPreset(x1,y1,x2,y2){['p1x','p1y','p2x','p2y'].forEach((id,i)=>{document.getElementById(id).value=[x1,y1,x2,y2][i];updateLabels();});drawCurve();}
+function updateLabels(){['p1x','p1y','p2x','p2y'].forEach(id=>{document.getElementById(id+'Val').textContent=parseFloat(document.getElementById(id).value).toFixed(2);});}
+function copyCSS(){navigator.clipboard.writeText(document.getElementById('cssOutput').textContent).then(()=>showToast('Copied!'));}
+function togglePreview(){isPreviewing=!isPreviewing;const b=document.getElementById('previewBall');if(isPreviewing){b.style.animation=`moveBall 1.5s ${document.getElementById('cssOutput').textContent} infinite alternate`;event.target.textContent='⏹️ Stop';}else{b.style.animation='none';event.target.textContent='▶️ Preview';}}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+canvas.addEventListener('click',function(e){
+  const rect=canvas.getBoundingClientRect(),scaleX=canvas.width/rect.width,scaleY=canvas.height/rect.height;
+  const x=(e.clientX-rect.left)*scaleX,y=(e.clientY-rect.top)*scaleY,margin=30,drawW=canvas.width-2*margin,drawH=canvas.height-2*margin;
+  const bx=(x-margin)/drawW,by=(margin+drawH-y)/drawH;if(bx<0||bx>1)return;
+  const p=getParams(),d1=Math.sqrt(Math.pow(bx-p.x1,2)+Math.pow(by-p.y1,2)),d2=Math.sqrt(Math.pow(bx-p.x2,2)+Math.pow(by-p.y2,2));
+  if(d1<d2||d2>0.2){document.getElementById('p1x').value=Math.max(0,Math.min(1,bx));document.getElementById('p1y').value=Math.max(-1,Math.min(1,by));}
+  if(d2<d1||d1>0.2){document.getElementById('p2x').value=Math.max(0,Math.min(1,bx));document.getElementById('p2y').value=Math.max(-1,Math.min(1,by));}
+  updateLabels();drawCurve();
+});
+
+['p1x','p1y','p2x','p2y'].forEach(id=>{document.getElementById(id).addEventListener('input',()=>{updateLabels();drawCurve();});});
+
+const ss=document.createElement('style');ss.textContent=`@keyframes moveBall{from{left:0;transform:scale(1)}to{left:calc(100% - 40px);transform:scale(1.2)}}`;document.head.appendChild(ss);
+window.addEventListener('DOMContentLoaded',drawCurve);
+</script>
+
+<!-- Feedback Widget -->
+</main>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+
+</body>
+</html>

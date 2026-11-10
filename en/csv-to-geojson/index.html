@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free CSV to GeoJSON Converter - ToolGuideHub</title>
+<meta name="description" content="Turn CSV rows with latitude and longitude columns into GeoJSON features for maps and GIS applications.">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/csv-to-geojson/">
+<meta property="og:title" content="Free CSV to GeoJSON Converter - ToolGuideHub">
+<meta property="og:description" content="Turn CSV rows with latitude and longitude columns into GeoJSON features for maps and GIS applications.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/csv-to-geojson/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free CSV to GeoJSON Converter - ToolGuideHub">
+<meta name="twitter:description" content="Free online CSV to GeoJSON converter. Turn CSV coordinates into GeoJSON Points instantly. Fast, secure, and no registration required.">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Csv To Geojson",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "position": 3
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 4",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "position": 4
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#convert"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Csv To Geojson"
+    }
+  ],
+  "name": "Csv To Geojson"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Csv To Geojson", "description": "Free online Csv To Geojson. Pure client-side processing, no registration required, no data upload to servers.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;margin-bottom:0;text-align:left;background:none;-webkit-text-fill-color:initial}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+h1{text-align:center;font-size:1.8rem;margin-bottom:8px;color:#f1f5f9}
+.subtitle{text-align:center;color:#94a3b8;margin-bottom:24px;font-size:.95rem}
+.card{background:#0f172a;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:30px 20px;text-align:center;cursor:pointer;transition:border-color .3s,background .3s}
+.upload-zone:hover,.upload-zone.dragover{border-color:#06b6d4;background:rgba(6,182,212,.08)}
+.btn{padding:12px 24px;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);border-radius:8px;font-size:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,182,212,.3)}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2);margin-left:10px}
+.btn-secondary:hover{box-shadow:0 4px 12px rgba(0,0,0,.3)}
+textarea{
+      background: #0f172a;
+      color: #e2e8f0;width:100%;min-height:120px;padding:12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-family:monospace;font-size:.85rem;resize:vertical}
+textarea:focus{outline:none;border-color:#06b6d4}
+select{padding:8px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem}
+select:focus{outline:none;border-color:#06b6d4}
+.col-select{display:flex;gap:16px;margin:12px 0;flex-wrap:wrap}
+.col-select label{display:flex;align-items:center;gap:6px;font-size:.9rem}
+.col-select select{min-width:120px}
+.map-preview{width:100%;height:350px;border:1px solid rgba(148,163,184,.2);border-radius:8px;margin:12px 0}
+.output-area{background: #0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;font-family:monospace;font-size:.8rem;max-height:300px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0}
+.stat{background:#0f172a;padding:8px 16px;border-radius:8px;font-size:.85rem}
+.stat strong{color:#22d3ee}
+.info-box{background:rgba(6,182,212,.08);border-left:4px solid #06b6d4;padding:12px 16px;border-radius:4px;margin:8px 0;font-size:.9rem;color:#94a3b8}
+h2{font-size:1.2rem;margin:24px 0 12px;color:#e2e8f0}
+.faq-item{margin-bottom:12px;padding:12px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)}
+.faq-q{font-weight:600;color:#f1f5f9;margin-bottom:4px}
+.faq-a{color:#94a3b8;font-size:.9rem}
+footer{text-align:center;padding:20px;color: #64748b;font-size:.8rem}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<style>
+
+@media(max-width:640px){}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/csv-to-geojson/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Csv To Geojson FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Csv To Geojson?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Csv To Geojson free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Or upload a CSV file and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Csv To Geojson?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🗺️ CSV to GeoJSON</h1></div>
+
+<div class="section">
+<div class="card">
+<h2 style="margin-top:0">📥 Input CSV Data</h2>
+<div class="form-group">
+<label>Paste CSV data (with header row):</label>
+<textarea id="csvInput" placeholder="name,latitude,longitude,description&#10;Beijing,39.9087,116.3975,Capital&#10;Shanghai,31.2397,121.4998,Port city&#10;Guangzhou,23.1066,113.3245,South" style="width:100%;min-height:150px;padding:12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-family:monospace;font-size:.85rem;resize:vertical"></textarea>
+</div>
+<div class="form-group">
+<label>Or upload a CSV file:</label>
+<input type="file" id="csvFile" accept=".csv,.txt" style="width:100%;padding:10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem">
+</div>
+<button class="btn" onclick="parseCSVColumns()">🔍 Parse Columns</button>
+<button class="btn btn-secondary" onclick="loadCSVExample()">📋 Load Example</button>
+<button class="btn btn-secondary" onclick="clearCSVInput()">🗑️ Clear</button>
+</div>
+</div>
+
+<div id="configPanel" style="display:none">
+<div class="card">
+<h2 style="margin-top:0">⚙️ Column Configuration</h2>
+<div class="info-box">The tool has auto-detected latitude/longitude columns. Adjust if needed.</div>
+<div class="col-select">
+<label>Latitude column：<select id="latCol"></select></label>
+<label>Longitude column：<select id="lngCol"></select></label>
+<label>Delimiter：<select id="delimiter"><option value="auto">Auto-detect</option><option value=",">Comma(,)</option><option value=";">Semicolon(;)</option><option value="\t">Tab</option></select></label>
+</div>
+<div class="stats" id="stats"></div>
+<button class="btn" onclick="convertToGeoJSON()">🔄 Convert to GeoJSON</button>
+</div>
+</div>
+
+<div id="resultPanel" style="display:none">
+<div class="card">
+<h2 style="margin-top:0">🗺️ Map Preview</h2>
+<div id="map" class="map-preview"></div>
+</div>
+<div class="card">
+<h2 style="margin-top:0">📋 GeoJSON Output</h2>
+<div class="output-area" id="geojsonOutput"></div>
+<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn" onclick="downloadGeoJSON()">⬇ Download GeoJSON</button>
+<button class="btn btn-secondary" onclick="copyGeoJSON()">📋 Copy</button>
+</div>
+</div>
+</div>
+
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Is ️ CSV to GeoJSON Converter free to use?</h3>
+ <p>Yes, ️ CSV to GeoJSON Converter is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can I use ️ CSV to GeoJSON Converter on my phone?</h3>
+ <p>Yes. ️ CSV to GeoJSON Converter is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. ️ CSV to GeoJSON Converter is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does ️ CSV to GeoJSON Converter upload my data to a server?</h3>
+ <p>No. ️ CSV to GeoJSON Converter uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>How large a JSON file can I process?</h3>
+ <p>Since processing is client-side, file size depends on your device memory. Files up to several MB typically process smoothly.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does it support JSONPath queries?</h3>
+ <p>Yes, standard JSONPath syntax is supported. You can use dot notation and bracket syntax to access nested fields.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are converted files compatible with other software?</h3>
+ <p>Yes. Converted files follow standard format specifications and are compatible with mainstream software and platforms.</p>
+ </div>
+ </div>
+<div class="faq-item">
+<h3>How do I use the CSV to GeoJSON converter?</h3>
+<div class="faq-a"><p>Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server.</p></div>
+</div>
+<div class="faq-item">
+<h3>Is the CSV to GeoJSON converter free to use?</h3>
+<div class="faq-a"><p>Yes, this tool is completely free with no signup required. Everything runs locally: Or upload a CSV file and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security.</p></div>
+</div>
+<div class="faq-item">
+<h3>Is there a file size limit for the CSV to GeoJSON converter?</h3>
+<div class="faq-a"><p>Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload.</p></div>
+</div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/csv-to-geojson/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+(function(){var s=document.getElementById('related-tools-section');if(!s)return;var p=window.location.pathname;var en=p.indexOf('/en/')!==-1;p=p.replace(/\/en\//g,'/');var slug=p.split('/').filter(Boolean).pop()||'';if(!slug){s.innerHTML='';return;}var depth=en?'../../':'../';fetch(depth+'related-tools.json').then(function(r){if(!r.ok)throw new Error('');return r.json();}).then(function(d){var data=en?d.en:d.cn;var t=data[slug];if(!t||!t.related||!t.related.length){s.innerHTML='';return;}var h='<div class="related-tools-inner"><h3 class="related-tools-title">'+(en?'🔗 You May Also Like':'🔗 RelatedToolsRecommended')+'</h3><div class="related-tools-grid">';t.related.forEach(function(r){var link=en?'../../en/'+r.slug+'/':'../'+r.slug+'/';h+='<a href="'+link+'" class="related-tool-card"><span class="related-tool-icon">'+(r.icon||'🔧')+'</span><span class="related-tool-name">'+r.name+'</span></a>';});h+='</div></div>';s.innerHTML=h;}).catch(function(){s.innerHTML='';});})();
+
+// === Implementation ===
+var parsedHeaders = [];
+var parsedRows = [];
+
+function detectDelimiter(text) {
+  var firstLine = text.split('\n')[0] || '';
+  var counts = { ',': 0, ';': 0, '\t': 0 };
+  for (var i = 0; i < firstLine.length; i++) {
+    if (counts.hasOwnProperty(firstLine[i])) counts[firstLine[i]]++;
+  }
+  var max = 0, delim = ',';
+  for (var d in counts) { if (counts[d] > max) { max = counts[d]; delim = d; } }
+  return delim;
+}
+
+function parseCSVLine(line, delim) {
+  var result = [];
+  var current = '';
+  var inQuotes = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (ch === '"') {
+      if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+      else { inQuotes = !inQuotes; }
+    } else if (ch === delim && !inQuotes) {
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+function parseCSV(text, delim) {
+  var lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n').filter(function(l) { return l.trim() !== ''; });
+  if (lines.length < 2) return { headers: [], rows: [] };
+  if (!delim || delim === 'auto') delim = detectDelimiter(text);
+  var headers = parseCSVLine(lines[0], delim);
+  var rows = [];
+  for (var i = 1; i < lines.length; i++) {
+    var values = parseCSVLine(lines[i], delim);
+    if (values.length === 1 && values[0] === '') continue;
+    var row = {};
+    for (var j = 0; j < headers.length; j++) {
+      row[headers[j]] = values[j] || '';
+    }
+    rows.push(row);
+  }
+  return { headers: headers, rows: rows, delim: delim };
+}
+
+function autoDetectColumn(headers, patterns) {
+  for (var i = 0; i < headers.length; i++) {
+    var h = headers[i].toLowerCase().replace(/\s+/g, '');
+    for (var j = 0; j < patterns.length; j++) {
+      if (h === patterns[j] || h.indexOf(patterns[j]) >= 0) return i;
+    }
+  }
+  return -1;
+}
+
+function parseCSVColumns() {
+  var input = document.getElementById('csvInput');
+  if (!input || !input.value.trim()) { showToast('Please enter CSV data first'); return; }
+  var text = input.value;
+  var delimSelect = document.getElementById('delimiter');
+  var delim = delimSelect ? delimSelect.value : 'auto';
+  var parsed = parseCSV(text, delim);
+  if (!parsed.headers || parsed.headers.length === 0) { showToast('Cannot parse CSV, please check format'); return; }
+  parsedHeaders = parsed.headers;
+  parsedRows = parsed.rows;
+
+  var latIdx = autoDetectColumn(parsedHeaders, ['lat', 'latitude', 'y']);
+  var lngIdx = autoDetectColumn(parsedHeaders, ['lng', 'lon', 'longitude', 'x']);
+
+  var latSel = document.getElementById('latCol');
+  var lngSel = document.getElementById('lngCol');
+  latSel.innerHTML = '';
+  lngSel.innerHTML = '';
+  for (var i = 0; i < parsedHeaders.length; i++) {
+    var opt1 = document.createElement('option');
+    opt1.value = i; opt1.textContent = parsedHeaders[i];
+    if (i === latIdx) opt1.selected = true;
+    latSel.appendChild(opt1);
+    var opt2 = document.createElement('option');
+    opt2.value = i; opt2.textContent = parsedHeaders[i];
+    if (i === lngIdx) opt2.selected = true;
+    lngSel.appendChild(opt2);
+  }
+
+  document.getElementById('configPanel').style.display = 'block';
+  var stats = document.getElementById('stats');
+  stats.innerHTML = '<div class="stat">📊 <strong>' + parsedHeaders.length + '</strong> columns</div><div class="stat">📋 <strong>' + parsedRows.length + '</strong> rows</div>';
+  showToast('Parsed: ' + parsedRows.length + ' rows');
+}
+
+function convertToGeoJSON() {
+  if (parsedRows.length === 0) { showToast('Please parse CSV data first'); return; }
+  var latIdx = parseInt(document.getElementById('latCol').value);
+  var lngIdx = parseInt(document.getElementById('lngCol').value);
+  var features = [];
+  var skipped = 0;
+
+  for (var i = 0; i < parsedRows.length; i++) {
+    var row = parsedRows[i];
+    var lat = parseFloat(row[parsedHeaders[latIdx]]);
+    var lng = parseFloat(row[parsedHeaders[lngIdx]]);
+    if (isNaN(lat) || isNaN(lng)) { skipped++; continue; }
+    var properties = {};
+    for (var key in row) {
+      if (key !== parsedHeaders[latIdx] && key !== parsedHeaders[lngIdx]) {
+        properties[key] = row[key];
+      }
+    }
+    features.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [lng, lat] },
+      properties: properties
+    });
+  }
+
+  var geojson = { type: 'FeatureCollection', features: features };
+  var geojsonStr = JSON.stringify(geojson, null, 2);
+
+  document.getElementById('resultPanel').style.display = 'block';
+  document.getElementById('geojsonOutput').textContent = geojsonStr;
+  renderMap(features);
+
+  var stats = document.getElementById('stats');
+  stats.innerHTML += '<div class="stat">✅ <strong>' + features.length + '</strong> features</div>' + (skipped > 0 ? '<div class="stat">⚠️ <strong>' + skipped + '</strong> skipped</div>' : '');
+
+  showToast('Converted: ' + features.length + ' features' + (skipped > 0 ? ', ' + skipped + ' skipped' : ''));
+}
+
+function renderMap(features) {
+  var mapEl = document.getElementById('map');
+  if (!mapEl) return;
+  if (window.__ftMap) { window.__ftMap.remove(); window.__ftMap = null; }
+  if (typeof L === 'undefined') return;
+  var map = L.map('map').setView([20, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 18
+  }).addTo(map);
+  var bounds = [];
+  features.forEach(function(f) {
+    var coords = f.geometry && f.geometry.coordinates;
+    if (!coords || coords.length < 2) return;
+    var lat = coords[1], lng = coords[0];
+    L.marker([lat, lng]).addTo(map).bindPopup(String(f.properties.name || (lat + ', ' + lng)));
+    bounds.push([lat, lng]);
+  });
+  if (bounds.length > 0) map.fitBounds(bounds, { padding: [30, 30] });
+  window.__ftMap = map;
+}
+
+function copyGeoJSON() {
+  var el = document.getElementById('geojsonOutput');
+  if (!el || !el.textContent) { showToast('Nothing to copy'); return; }
+  navigator.clipboard.writeText(el.textContent).then(function() { showToast('GeoJSON copied to clipboard'); }).catch(function() { showToast('Copy failed'); });
+}
+
+function downloadGeoJSON() {
+  var el = document.getElementById('geojsonOutput');
+  if (!el || !el.textContent) { showToast('Nothing to download'); return; }
+  var blob = new Blob([el.textContent], { type: 'application/geo+json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'output.geojson';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('GeoJSON file downloaded');
+}
+
+function loadCSVExample() {
+  var input = document.getElementById('csvInput');
+  input.value = 'name,latitude,longitude,population\nBeijing,39.9042,116.4074,21710000\nShanghai,31.2304,121.4737,24870000\nGuangzhou,23.1291,113.2644,18810000\nShenzhen,22.5431,114.0579,17560000\nChengdu,30.5728,104.0668,16330000';
+  parseCSVColumns();
+}
+
+function clearCSVInput() {
+  document.getElementById('csvInput').value = '';
+  document.getElementById('csvFile').value = '';
+  document.getElementById('configPanel').style.display = 'none';
+  document.getElementById('resultPanel').style.display = 'none';
+  parsedHeaders = [];
+  parsedRows = [];
+  showToast('Cleared');
+}
+
+document.getElementById('csvFile').addEventListener('change', function(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('csvInput').value = ev.target.result;
+    parseCSVColumns();
+  };
+  reader.readAsText(file);
+});
+</script>
+<div class="toast" id="toast"></div>
+</main>
+
+</body>
+</html>

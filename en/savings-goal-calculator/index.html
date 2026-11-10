@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Savings Goal Calculator - ToolGuideHub</title>
+    <meta name="description" content="Plan your savings goals with our free online calculator. Calculate monthly contributions needed to reach your target. Visual savings tracker.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/savings-goal-calculator/">
+    <meta property="og:title" content="Free Savings Goal Calculator - ToolGuideHub">
+    <meta property="og:description" content="Plan your savings goals with our free online calculator. Calculate monthly contributions needed to reach your target. Visual savings tracker.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/savings-goal-calculator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--accent:#06b6d4;--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row input { flex: 1; }
+        .input-row select { width: 140px; flex-shrink: 0; }
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .result-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; text-align: center; }
+        .result-item .value { font-size: 1.5rem; font-weight: 700; color: #22d3ee; }
+        .result-item .label { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+        .mode-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .mode-tab { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 14px; font-weight: 500; transition: all .2s; }
+        .mode-tab.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .mode-tab:hover:not(.active) { background: rgba(148,163,184,.1); }
+        .schedule-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+        .schedule-table th, .schedule-table td { padding: 8px 10px; border: 1px solid rgba(148,163,184,.1); text-align: right; }
+        .schedule-table th { background: #0f172a; font-weight: 600; text-align: center; }
+        .schedule-table tr:hover { background: #f1f5f9; }
+        .chart-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .chart-bar .bar { height: 24px; border-radius: 4px; transition: width .3s; }
+        .chart-bar .bar-label { font-size: 12px; min-width: 80px; text-align: right; }
+        .chart-bar .bar-value { font-size: 12px; color: #94a3b8; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .input-row { flex-direction: column; } .input-row select { width: 100%; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/savings-goal-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <h1>💰 Savings Goal Calculator</h1>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 No data upload — everything runs in your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — no registration, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant calculation — no server wait</span>
+  </div>
+</header>
+
+            <p>Online Savings Target Planner - Calculate monthly deposits, time to goal, and interest earned</p>
+        </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Savings Goal Calculator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/savings-goal-calculator/"
+    }
+  ],
+  "name": "Savings Goal Calculator"
+}</script>
+
+        <div class="section">
+            <h2>🔧 Calculation Mode</h2>
+            <div class="mode-tabs">
+                <div class="mode-tab active" onclick="setMode('monthly')">Calculate Monthly Savings</div>
+                <div class="mode-tab" onclick="setMode('time')">Calculate Time to Goal</div>
+                <div class="mode-tab" onclick="setMode('goal')">Calculate Achievable Goal</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Input Parameters</h2>
+            <div class="form-group" id="goal-group">
+                <label>Savings Goal Amount</label>
+                <div class="input-row">
+                    <input type="number" id="goal-amount" value="50000" min="0" step="any" oninput="calculate()">
+                    <select id="currency" onchange="calculate()">
+                        <option value="USD">$ USD</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="CNY">$ CNY</option>
+                        <option value="JPY">$ JPY</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" id="monthly-group">
+                <label>Monthly Deposit Amount</label>
+                <input type="number" id="monthly-amount" value="500" min="0" step="any" oninput="calculate()">
+            </div>
+            <div class="form-group" id="time-group" style="display:none">
+                <label>Time to Reach Goal</label>
+                <div class="input-row">
+                    <input type="number" id="time-years" value="5" min="0" step="1" oninput="calculate()">
+                    <select id="time-unit" onchange="calculate()">
+                        <option value="years">Years</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Annual Interest Rate (%)</label>
+                <input type="number" id="interest-rate" value="4" min="0" max="100" step="0.1" oninput="calculate()">
+            </div>
+            <div class="form-group">
+                <label>Current Savings</label>
+                <input type="number" id="initial-savings" value="0" min="0" step="any" oninput="calculate()">
+            </div>
+            <div class="form-group">
+                <label>Compounding Frequency</label>
+                <select id="compound-freq" onchange="calculate()">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="annually">Annually</option>
+                    <option value="daily">Daily</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section" id="result-card">
+            <h2>📊 Results</h2>
+            <div class="result-grid" id="result-grid"></div>
+        </div>
+
+        <div class="section" id="breakdown-card">
+            <h2>📈 Savings Breakdown</h2>
+            <div id="breakdown-chart"></div>
+        </div>
+
+        <div class="section" id="schedule-card">
+            <h2>📋 Year-by-Year Schedule</h2>
+            <div style="overflow-x:auto">
+                <table class="schedule-table" id="schedule-table">
+                    <thead>
+                        <tr><th>Year</th><th>Start Balance</th><th>Deposits</th><th>Interest</th><th>End Balance</th></tr>
+                    </thead>
+                    <tbody id="schedule-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: How does the savings goal calculator work?</h3>
+                <p>This calculator uses compound interest formulas to project savings growth. Monthly deposits are calculated using the future value of an annuity formula, while existing savings grow with compound interest. The two are combined for the total projected balance.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: What's the difference between monthly and annual compounding?</h3>
+                <p>Monthly compounding calculates and adds interest to your principal every month, while annual compounding does so once per year. More frequent compounding leads to higher returns. For example, 4% annual rate with monthly compounding yields approximately 4.07% effective annual rate.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: What interest rate should I use?</h3>
+                <p>The rate depends on your savings vehicle: savings accounts typically offer 0.5-1%, CDs 2-5%, money market funds 3-5%, bonds 3-6%, and diversified investment portfolios 6-10% historically. Choose a rate that matches your actual savings method and risk tolerance.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How does the savings goal calculator work?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the savings goal calculator work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uses compound interest formulas. Monthly deposits use future value of annuity formula, existing savings grow with compound interest. Combined for total projected balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between monthly and annual compounding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly compounding adds interest monthly, annual does so yearly. More frequent compounding yields higher returns. 4% annual rate with monthly compounding ≈ 4.07% effective annual rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What interest rate should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on savings vehicle: savings accounts 0.5-1%, CDs 2-5%, money market 3-5%, bonds 3-6%, diversified portfolios 6-10% historically."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Savings Goal Calculator", "step": [{"@type": "HowToStep", "position": 1, "text": "Select calculation mode: monthly savings / time to goal / achievable goal", "name": "Select calculation mode: month"}, {"@type": "HowToStep", "position": 2, "text": "Enter your savings goal, interest rate, current savings and other parameters", "name": "Enter your savings goal, inter"}, {"@type": "HowToStep", "position": 3, "text": "View results, savings breakdown, and year-by-year schedule", "name": "View results, savings breakdow"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Savings Goal Calculator", "description": "Free online savings goal calculator tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/savings-goal-calculator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+        
+<script>
+        var currentMode = 'monthly';
+        var currencySymbols = { USD: '$', EUR: '€', GBP: '£', CNY: '$', JPY: '$' };
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-tab').forEach(function(t) { t.classList.remove('active'); });
+            event.target.classList.add('active');
+            document.getElementById('monthly-group').style.display = (mode !== 'monthly') ? 'none' : '';
+            document.getElementById('time-group').style.display = (mode !== 'time') ? 'none' : '';
+            document.getElementById('goal-group').style.display = (mode === 'goal') ? 'none' : '';
+            calculate();
+        }
+
+        function getCompoundPeriodsPerYear() {
+            var freq = document.getElementById('compound-freq').value;
+            return { monthly: 12, quarterly: 4, annually: 1, daily: 365 }[freq] || 12;
+        }
+
+        function formatMoney(amount) {
+            var cur = document.getElementById('currency').value;
+            var sym = currencySymbols[cur] || '$';
+            if (amount >= 1000000) return sym + (amount / 1000000).toFixed(2) + 'M';
+            if (amount >= 1000) return sym + (amount / 1000).toFixed(1) + 'K';
+            return sym + amount.toFixed(2);
+        }
+
+        function calculateMonthlyPayment(goal, initial, r, t) {
+            if (r === 0) return (goal - initial) / (12 * t);
+            var n = getCompoundPeriodsPerYear();
+            var fvInitial = initial * Math.pow(1 + r / n, n * t);
+            var remaining = goal - fvInitial;
+            if (remaining <= 0) return 0;
+            var low = 0, high = goal;
+            for (var i = 0; i < 100; i++) {
+                var mid = (low + high) / 2;
+                var fv = 0;
+                var totalMonths = Math.round(12 * t);
+                for (var m = 1; m <= totalMonths; m++) {
+                    fv += mid * Math.pow(1 + r / n, (totalMonths - m) * n / 12);
+                }
+                if (fv < remaining) low = mid; else high = mid;
+            }
+            return (low + high) / 2;
+        }
+
+        function calculateTimeToGoal(goal, initial, monthly, r) {
+            if (r === 0) {
+                if (monthly <= 0) return (goal - initial) <= 0 ? 0 : Infinity;
+                return (goal - initial) / (monthly * 12);
+            }
+            var n = getCompoundPeriodsPerYear();
+            var balance = initial;
+            var months = 0;
+            while (balance < goal && months < 1200) {
+                months++;
+                balance = balance * (1 + r / n) + monthly;
+            }
+            return months / 12;
+        }
+
+        function calculateGoalFromMonthly(monthly, initial, r, t) {
+            var n = getCompoundPeriodsPerYear();
+            var fvInitial = initial * Math.pow(1 + r / n, n * t);
+            var fvAnnuity = 0;
+            var totalMonths = Math.round(12 * t);
+            for (var m = 1; m <= totalMonths; m++) {
+                fvAnnuity += monthly * Math.pow(1 + r / n, (totalMonths - m) * n / 12);
+            }
+            return fvInitial + fvAnnuity;
+        }
+
+        function buildSchedule(initial, monthly, r, years) {
+            var n = getCompoundPeriodsPerYear();
+            var balance = initial;
+            var html = '';
+            var totalDeposits = initial;
+            var totalInterest = 0;
+            for (var y = 1; y <= Math.ceil(years); y++) {
+                var yearStart = balance;
+                var yearDeposit = 0;
+                var yearInterest = 0;
+                var monthsThisYear = (y <= Math.floor(years)) ? 12 : Math.round((years - Math.floor(years)) * 12);
+                for (var m = 0; m < monthsThisYear; m++) {
+                    var interestThisMonth = balance * (r / n);
+                    yearInterest += interestThisMonth;
+                    balance = balance + interestThisMonth + monthly;
+                    yearDeposit += monthly;
+                }
+                totalDeposits += yearDeposit;
+                totalInterest += yearInterest;
+                html += '<tr><td style="text-align:center">' + y + '</td><td>' + formatMoney(yearStart) + '</td><td>' + formatMoney(yearDeposit) + '</td><td>' + formatMoney(yearInterest) + '</td><td style="font-weight:600">' + formatMoney(balance) + '</td></tr>';
+            }
+            document.getElementById('schedule-body').innerHTML = html;
+            return { totalDeposits: totalDeposits, totalInterest: totalInterest, finalBalance: balance };
+        }
+
+        function buildBreakdown(deposits, interest, initial) {
+            var total = deposits + interest + initial;
+            var dPct = (deposits / total * 100).toFixed(1);
+            var iPct = (interest / total * 100).toFixed(1);
+            var initPct = (initial / total * 100).toFixed(1);
+            document.getElementById('breakdown-chart').innerHTML =
+                '<div class="chart-bar"><span class="bar-label">Deposits</span><div class="bar" style="width:' + dPct + '%;background:#22d3ee"></div><span class="bar-value">' + formatMoney(deposits) + ' (' + dPct + '%)</span></div>' +
+                '<div class="chart-bar"><span class="bar-label">Interest</span><div class="bar" style="width:' + iPct + '%;background:#10b981"></div><span class="bar-value">' + formatMoney(interest) + ' (' + iPct + '%)</span></div>' +
+                (initial > 0 ? '<div class="chart-bar"><span class="bar-label">Initial</span><div class="bar" style="width:' + initPct + '%;background:var(--accent)"></div><span class="bar-value">' + formatMoney(initial) + ' (' + initPct + '%)</span></div>' : '');
+        }
+
+        function calculate() {
+            var goal = parseFloat(document.getElementById('goal-amount').value) || 0;
+            var monthly = parseFloat(document.getElementById('monthly-amount').value) || 0;
+            var rate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            var initial = parseFloat(document.getElementById('initial-savings').value) || 0;
+            var timeYears = parseFloat(document.getElementById('time-years').value) || 0;
+            var timeUnit = document.getElementById('time-unit').value;
+            var r = rate / 100;
+            var resultGrid = document.getElementById('result-grid');
+
+            if (timeUnit === 'months') timeYears = timeYears / 12;
+
+            if (currentMode === 'monthly') {
+                if (!goal || !timeYears) { resultGrid.innerHTML = '<p style="color:#94a3b8">Enter savings goal and time period</p>'; return; }
+                var monthlyNeeded = calculateMonthlyPayment(goal, initial, r, timeYears);
+                var stats = buildSchedule(initial, monthlyNeeded, r, timeYears);
+                resultGrid.innerHTML =
+                    '<div class="result-item"><div class="value">' + formatMoney(monthlyNeeded) + '</div><div class="label">Monthly Deposit Needed</div></div>' +
+                    '<div class="result-item"><div class="result-item"><div class="value">' + formatMoney(stats.totalDeposits) + '</div><div class="label">Total Deposits</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.totalInterest) + '</div><div class="label">Interest Earned</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.finalBalance) + '</div><div class="label">Final Balance</div></div>';
+                buildBreakdown(stats.totalDeposits - initial, stats.totalInterest, initial);
+            } else if (currentMode === 'time') {
+                if (!goal || !monthly) { resultGrid.innerHTML = '<p style="color:#94a3b8">Enter savings goal and monthly deposit</p>'; return; }
+                var years = calculateTimeToGoal(goal, initial, monthly, r);
+                if (!isFinite(years) || years > 100) { resultGrid.innerHTML = '<p style="color:#ef4444">Goal cannot be reached in a reasonable time. Increase monthly deposits.</p>'; return; }
+                var stats = buildSchedule(initial, monthly, r, years);
+                var months = Math.round(years * 12);
+                resultGrid.innerHTML =
+                    '<div class="result-item"><div class="value">' + years.toFixed(1) + ' Years</div><div class="label">Time to Goal</div></div>' +
+                    '<div class="result-item"><div class="value">' + months + ' Months</div><div class="label">Total Months</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.totalDeposits) + '</div><div class="label">Total Deposits</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.totalInterest) + '</div><div class="label">Interest Earned</div></div>';
+                buildBreakdown(stats.totalDeposits - initial, stats.totalInterest, initial);
+            } else {
+                if (!monthly || !timeYears) { resultGrid.innerHTML = '<p style="color:#94a3b8">Enter monthly deposit and time period</p>'; return; }
+                var achievable = calculateGoalFromMonthly(monthly, initial, r, timeYears);
+                var stats = buildSchedule(initial, monthly, r, timeYears);
+                resultGrid.innerHTML =
+                    '<div class="result-item"><div class="value">' + formatMoney(achievable) + '</div><div class="label">Achievable Goal</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.totalDeposits) + '</div><div class="label">Total Deposits</div></div>' +
+                    '<div class="result-item"><div class="value">' + formatMoney(stats.totalInterest) + '</div><div class="label">Interest Earned</div></div>' +
+                    '<div class="result-item"><div class="value">' + ((stats.totalInterest / (stats.totalDeposits || 1)) * 100).toFixed(1) + '%</div><div class="label">Interest Share</div></div>';
+                buildBreakdown(stats.totalDeposits - initial, stats.totalInterest, initial);
+            }
+        }
+
+        calculate();
+</script>
+          <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Savings Goal Calculator?</h3>
+      <p>Savings Goal Calculator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Savings Goal Calculator upload my data to a server?</h3>
+      <p>No. Savings Goal Calculator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Savings Goal Calculator free to use?</h3>
+      <p>Yes, Savings Goal Calculator is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Savings Goal Calculator?</h3>
+      <p>Absolutely. Everything runs locally: Savings Goal Amount and Monthly Deposit Amou are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+  </div>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/savings-goal-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+    
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+
+<style>.toast{position:fixed;bottom:20px;right:20px;background:#1e293b;color:#e2e8f0;padding:10px 20px;border-radius:12px;font-size:.85rem;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}</style>
+<div class="toast" id="toast"></div>
+</body>
+</html>

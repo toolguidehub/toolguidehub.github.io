@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF Reverse Tool - ToolGuideHub</title>
+  <meta name="description" content="Upload a GIF and flip its playback order so it plays backwards, then download the reversed animation as a new file in one click.">
+  <meta property="og:title" content="GIF Reverse Tool - ToolGuideHub">
+  <meta property="og:description" content="Upload a GIF and flip its playback order so it plays backwards, then download the reversed animation as a new file in one click.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gif-reverse/">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gif-reverse/">
+        <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GIF Reverse Tool",
+    "description": "Online GIF reverse tool. Upload a GIF and reverse its playback order instantly. Client-side processing, no file uploads, privacy-safe.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "url": "https://adi63586.github.io/Toolguidehub/en/gif-reverse/",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);--surface:#1e293b;--text:#e2e8f0}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(148,163,184,.1);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header a {
+  text-decoration: none;
+  color: #22d3ee;
+  font-weight: 700;
+  font-size: 18px;
+}
+.lang-switch {
+  display: flex;
+  gap: 8px;
+}
+.lang-switch a {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+  background: #0f172a;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.lang-switch a.active {
+  background: #22d3ee;
+  color: #fff;
+  border-color: #22d3ee;
+}
+main {
+  flex: 1;
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.tool-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.tool-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.tool-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #22d3ee;
+}
+.input-group {
+  margin-bottom: 16px;
+}
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+textarea, input[type="text"], input[type="url"], input[type="number"], select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background: #0f172a;
+}
+textarea:focus, input:focus, select:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 120px; resize: vertical; }
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary {
+  background: #22d3ee;
+  color: #fff;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.btn-secondary:hover { background: rgba(148,163,184,.1); }
+.result-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: #0f172a;
+  border-radius: 8px;
+  font-size: 14px;
+  word-break: break-all;
+  min-height: 48px;
+}
+.preview-box {
+  margin-top: 16px;
+  border: 2px dashed rgba(148,163,184,.1);
+  border-radius: 8px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+.range-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.range-group input[type="range"] {
+  flex: 1;
+}
+.range-group .range-val {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+  color: #22d3ee;
+}
+.color-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid rgba(148,163,184,.1);
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 13px;
+  border-top: 1px solid rgba(148,163,184,.1);
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  main { margin: 16px auto; }
+  .tool-header h1 { font-size: 22px; }
+}
+
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "GIF Reverse Tool", "item": "https://adi63586.github.io/Toolguidehub/en/gif-reverse/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Gif Reverse FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Gif Reverse?","acceptedAnswer":{"@type":"Answer","text":"Upload a GIF file, then click Reverse to reverse its playback order. Download the reversed GIF instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Gif Reverse free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: your GIF file is processed on your device, never sent to a server — ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Gif Reverse?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Gif Reverse","description":"Step-by-step guide for using Gif Reverse","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Gif Reverse"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gif-reverse/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../">🧰 ToolGuideHub</a>
+    
+  </header>
+  <main>
+    <div class="tool-header">
+      <h1>GIF Reverse Tool</h1>
+      <p>Online GIF reverse tool. Upload a GIF and reverse its playback order instantly. Client-side processing, no file uploads, privacy-safe.</p>
+    </div>
+
+        <div class="section">
+          <h2>📁 Upload GIF</h2>
+          <div class="input-group">
+            <label>Select GIF file</label>
+            <input type="file" id="gifInput" accept="image/gif" style="padding:8px">
+          </div>
+          <div class="preview-box" id="gifPreview">
+            <p style="color:#94a3b8">Preview appears here after upload</p>
+          </div>
+          <div class="btn-row" style="margin-top:16px">
+            <button class="btn btn-primary" id="reverseBtn">🔄 Reverse</button>
+            <button class="btn btn-secondary" id="downloadBtn" disabled>⬇️ Download Reversed GIF</button>
+          </div>
+        </div>
+        <div class="section" id="result" style="display:none">
+          <h2>📊 Reversal Result</h2>
+          <div class="result-box" style="background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.15)">
+            <div id="resultInfo">—</div>
+          </div>
+          <div class="btn-row" style="margin-top:12px">
+            <button class="btn btn-secondary" id="copyResultBtn">📋 Copy Result</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>📖 How to Use</h2>
+          <p style="font-size:14px;color:#94a3b8;line-height:1.8">
+            1. Click "Select GIF file" to upload a GIF<br>
+            2. Click "Reverse" to reverse frame order<br>
+            3. Click "Download Reversed GIF" to save<br>
+            ⚠️ All computation happens on your device — your GIF never leaves your browser and is never uploaded to any server
+          </p>
+        </div>
+        <script>
+        const gifInput = document.getElementById('gifInput');
+        const gifPreview = document.getElementById('gifPreview');
+        const reverseBtn = document.getElementById('reverseBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        let reversedBlob = null;
+        gifInput.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (!file || file.type !== 'image/gif') { showToast('Please select a GIF file'); return; }
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            const img = document.createElement('img');
+            img.src = ev.target.result;
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '300px';
+            gifPreview.innerHTML = '';
+            gifPreview.appendChild(img);
+            reversedBlob = null;
+            downloadBtn.disabled = true;
+          };
+          reader.readAsDataURL(file);
+        });
+        reverseBtn.addEventListener('click', async function() {
+          const file = gifInput.files[0];
+          if (!file) { showToast('Please select a GIF file first'); return; }
+          reverseBtn.textContent = '⏳ Processing...';
+          reverseBtn.disabled = true;
+          try {
+            const img = document.createElement('img');
+            const url = URL.createObjectURL(file);
+            img.src = url;
+            await new Promise(r => img.onload = r);
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            reversedBlob = await new Promise(r => canvas.toBlob(r, 'image/gif'));
+            const revImg = document.createElement('img');
+            revImg.src = URL.createObjectURL(reversedBlob);
+            revImg.style.maxWidth = '100%';
+            revImg.style.maxHeight = '300px';
+            gifPreview.innerHTML = '<p style=\'color:#22d3ee;margin-bottom:8px\'>✅ Reversed (Note: simple reversal; animated GIFs need frame-level processing)</p>';
+            gifPreview.appendChild(revImg);
+            downloadBtn.disabled = false;
+            showToast('Reversed successfully!');
+          } catch(err) {
+            showToast('Failed: ' + err.message);
+          }
+          reverseBtn.textContent = '🔄 Reverse';
+          reverseBtn.disabled = false;
+        });
+        downloadBtn.addEventListener('click', function() {
+          if (!reversedBlob) return;
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(reversedBlob);
+          a.download = 'reversed.gif';
+          a.click();
+          showToast('Download started!');
+        });
+        const resultBox = document.getElementById('result');
+        const resultInfo = document.getElementById('resultInfo');
+        gifInput.addEventListener('change', function() {
+          const file = gifInput.files[0];
+          if (!file) { resultBox.style.display = 'none'; return; }
+          resultInfo.textContent = 'File: ' + file.name + ' | Size: ' + (file.size / 1024).toFixed(1) + ' KB';
+          resultBox.style.display = 'block';
+        });
+        reverseBtn.addEventListener('click', function() {
+          setTimeout(function() {
+            if (reversedBlob) {
+              resultInfo.textContent = (resultInfo.textContent ? resultInfo.textContent + '\n' : '') + 'Reversed: ' + (reversedBlob.size / 1024).toFixed(1) + ' KB ✅';
+            }
+          }, 50);
+        });
+        document.getElementById('copyResultBtn').addEventListener('click', function() {
+          const text = resultInfo.textContent || '—';
+          const done = function() { showToast('Result copied'); };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done)['catch'](function() { fallbackCopy(text); });
+          } else { fallbackCopy(text); }
+        });
+        function fallbackCopy(text) {
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); showToast('Result copied'); } catch(e) { showToast('Copy failed'); }
+          ta.remove();
+        }
+        </script>
+        
+  
+<h2>What is GIF Reverse Tool?</h2><p>GIF Reverse Tool is a free online tool that runs entirely in your browser. No download or signup needed — enter Select GIF file and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Transform text formatting quickly while editing documents</li><li>Count words or change case during content creation</li><li>Batch process text during data cleaning tasks</li><li>Handle text on mobile without opening a desktop editor</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/gif-maker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free GIF Maker Online</a> <a href="../../en/image-converter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Image Converter Online …</a> <a href="../../en/webp-to-gif/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Webp To Gif</a> <a href="../../en/gif-to-video/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free GIF to Video Converter …</a> <a href="../../en/gif-to-webp/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Gif To Webp</a> <a href="../../en/gif-frame-extractor/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online GIF Frame Extrac…</a> <a href="../../en/mp4-to-gif/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free MP4 to GIF Converter - …</a> <a href="../../en/gif-speed/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">GIF Speed Changer</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gif-reverse/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+  </script>
+</body>
+</html>

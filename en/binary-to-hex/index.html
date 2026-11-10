@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<script>
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert binary to hexadecimal instantly with our free online converter. Real-time conversion, supports space-separated input. No registration required.">
+<meta name="keywords" content="binary to hex, hex to binary, binary converter, hexadecimal converter, programmer tools, number base converter, binary translation">
+<title>Free Online Binary to Hex Converter</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/binary-to-hex/">
+<meta property="og:title" content="Binary Hex Converter - Binary ↔ Hexadecimal | Programmer Tool">
+<meta property="og:description" content="Convert binary to hexadecimal instantly with our free online converter. Real-time conversion, supports space-separated input. No registration required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/binary-to-hex/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Signup Required">
+<meta name="twitter:description" content="Convert binary to hexadecimal instantly with our free online converter. Real-time conversion, supports space-separated input. No registration required.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Binary Hex Converter", "description": "Free online binary to hex converter. Convert between binary and hexadecimal. Supports space-separated input. 100% client-side.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<style>:root{--primary-hover:rgba(6,182,212,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+.container { max-width: 700px; margin: 0 auto; padding: 20px; }
+header { text-align: center; padding: 30px 0 20px; }
+header h1 { font-size: 1.8em; margin-bottom: 6px; }
+header p { color: #94a3b8; font-size: 0.95em; }
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.1);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.mode-tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  background: var(--card-bg);
+  font-size: 0.9em;
+}
+.mode-tab.active {
+  border-color: #22d3ee;
+  background: #0f172a;
+  color: #22d3ee;
+}
+.input-group { margin-bottom: 16px; }
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #94a3b8;
+  font-size: 0.9em;
+}
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+  background: var(--surface);
+  color: var(--text);
+}
+textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 120px; resize: vertical; }
+textarea:focus, input:focus { outline: none; border-color: #22d3ee; }
+.btn-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary { background: #22d3ee; color: #fff; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-outline { background: #0f172a; color: #22d3ee; border: 2px solid #22d3ee; }
+.btn-outline:hover { background: #0f172a; }
+.btn-reset { background: rgba(148,163,184,.1); color: #e2e8f0; border: 2px solid rgba(148,163,184,.2); }
+.btn-reset:hover { background: rgba(148,163,184,.2); }
+.copy-btn {
+  background: #10b981;
+  color: #fff;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-left: 8px;
+}
+.copy-btn:hover { opacity: 0.9; }
+.result-box {
+  background: #1e293b;
+  border: 1px solid rgba(16,185,129,.4);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  word-break: break-all;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.conversion-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 0.9em;
+}
+.conversion-table th, .conversion-table td {
+  padding: 8px;
+  border: 1px solid rgba(148,163,184,.1);
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+.conversion-table th { background: #0f172a; font-weight: 700; }
+.faq { margin-top: 30px; }
+.faq h2 { font-size: 1.3em; margin-bottom: 16px; }
+.faq-item { border: 1px solid rgba(148,163,184,.1); border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+.faq-q {
+  padding: 14px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-q:hover { background: rgba(148,163,184,.1); }
+.faq-q::after { content: "▸"; font-size: 0.8em; transition: transform 0.2s; }
+.faq-item.open .faq-q::after { transform: rotate(90deg); }
+.faq-a { padding: 0 16px 16px; color: #94a3b8; line-height: 1.7; display: none; }
+.faq-item.open .faq-a { display: block; }
+@media (max-width: 500px) {
+  .mode-tab { font-size: 0.8em; padding: 8px 6px; }
+}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/binary-to-hex/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <h1>🔢 Binary ↔ Hex Converter</h1>
+    
+  </div>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+
+  <p>Binary to Hexadecimal & Hex to Binary · Space-Separated Input · Programmer Tool · 100% Client-Side</p>
+</header>
+<div class="section">
+  <div class="mode-tabs">
+    <div class="mode-tab active" onclick="setMode('bin2hex')">Binary → Hex</div>
+    <div class="mode-tab" onclick="setMode('hex2bin')">Hex → Binary</div>
+  </div>
+
+  <div class="input-group" id="inputGroupBin">
+    <label>📥 Enter binary number (space-separated supported):</label>
+    <textarea id="binInput" placeholder="Enter binary, e.g.: 1010 1111 0011 1100
+Spacing every 4 bits improves readability" oninput="autoConvert()"></textarea>
+  </div>
+  <div class="input-group" id="inputGroupHex" style="display:none">
+    <label>📥 Enter hexadecimal number (space-separated supported):</label>
+    <input type="text" id="hexInput" placeholder="Enter hexadecimal, e.g.: AF3C or 1A2B3C" oninput="autoConvert()">
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="autoConvert()">🔄 Convert</button>
+    <button class="btn btn-outline" onclick="swapMode()">⇄ Swap</button>
+    <button class="btn btn-reset" onclick="clearAll()">🗑 Clear</button>
+  </div>
+
+  <div class="result-box" id="resultBox" style="display:none">
+    <div id="resultText" style="flex:1"></div>
+    <button class="copy-btn" onclick="copyResult()">📋 Copy</button>
+  </div>
+
+  <table class="conversion-table">
+    <thead>
+      <tr><th>Binary</th><th>Hex</th><th>Binary</th><th>Hex</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0000</td><td>0</td><td>1000</td><td>8</td></tr>
+      <tr><td>0001</td><td>1</td><td>1001</td><td>9</td></tr>
+      <tr><td>0010</td><td>2</td><td>1010</td><td>A</td></tr>
+      <tr><td>0011</td><td>3</td><td>1011</td><td>B</td></tr>
+      <tr><td>0100</td><td>4</td><td>1100</td><td>C</td></tr>
+      <tr><td>0101</td><td>5</td><td>1101</td><td>D</td></tr>
+      <tr><td>0110</td><td>6</td><td>1110</td><td>E</td></tr>
+      <tr><td>0111</td><td>7</td><td>1111</td><td>F</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card faq">
+  <h2>❓ Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do you convert between binary and hex?</div>
+    <div class="faq-a">Binary to hex: every 4 bits of binary maps to 1 hex digit. E.g., 1010→A, 1111→F. Hex to binary: each hex digit expands to 4 binary bits. E.g., A→1010, F→1111. The conversion table is displayed above.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this converter free to use?</div>
+    <div class="faq-a">Completely free, no signup required. All conversion happens locally in your browser — no data is ever uploaded to any server.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to space-separate my binary input?</div>
+    <div class="faq-a">No, but it's recommended. The tool accepts both spaced and unspaced input. For example, 10101111 and 1010 1111 both convert correctly. Spacing makes long binary numbers easier to read and reduces input errors.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are lowercase and uppercase hex letters supported?</div>
+    <div class="faq-a">Yes. Both A-F and a-f are accepted. The output always uses uppercase (e.g., AF3C), which is the most common format in programming contexts.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if my binary input isn't a multiple of 4 bits?</div>
+    <div class="faq-a">The tool automatically pads the binary number with leading zeros to make it a multiple of 4 bits. For example, 101 (3 bits) becomes 0101 and converts to hex 5.</div>
+  </div>
+</div>
+</main>
+
+<script>
+  var mode = 'bin2hex';
+
+  var bin2hexMap = {
+    '0000':'0','0001':'1','0010':'2','0011':'3',
+    '0100':'4','0101':'5','0110':'6','0111':'7',
+    '1000':'8','1001':'9','1010':'A','1011':'B',
+    '1100':'C','1101':'D','1110':'E','1111':'F'
+  };
+
+  var hex2binMap = {};
+  for (var k in bin2hexMap) { hex2binMap[bin2hexMap[k]] = k; }
+
+  function binToHex(bin) {
+    bin = bin.replace(/[\s,]/g, '');
+    if (!/^[01]+$/.test(bin)) return { error: 'Please enter a valid binary number (0s and 1s only)' };
+    while (bin.length % 4 !== 0) bin = '0' + bin;
+    var hex = '';
+    for (var i = 0; i < bin.length; i += 4) {
+      hex += bin2hexMap[bin.substring(i, i + 4)];
+    }
+    return { result: hex, paddedBin: bin };
+  }
+
+  function hexToBin(hex) {
+    hex = hex.replace(/[\s,]/g, '').toUpperCase();
+    if (!/^[0-9A-F]+$/.test(hex)) return { error: 'Please enter a valid hex number (0-9, A-F)' };
+    var bin = '';
+    for (var i = 0; i < hex.length; i++) {
+      bin += hex2binMap[hex[i]] + ' ';
+    }
+    return { result: bin.trim() };
+  }
+
+  window.autoConvert = function() {
+    var resultBox = document.getElementById('resultBox');
+    var resultText = document.getElementById('resultText');
+
+    if (mode === 'bin2hex') {
+      var input = document.getElementById('binInput').value.trim();
+      if (!input) { resultBox.style.display = 'none'; return; }
+      var r = binToHex(input);
+      if (r.error) {
+        resultText.innerHTML = '<span style="color:#ef4444">⚠️ ' + r.error + '</span>';
+      } else {
+        resultText.innerHTML = '<strong>Hex:</strong> ' + r.result + '<br><small style="color:#64748b">Padded binary: ' + r.paddedBin + '</small>';
+      }
+    } else {
+      var input = document.getElementById('hexInput').value.trim();
+      if (!input) { resultBox.style.display = 'none'; return; }
+      var r = hexToBin(input);
+      if (r.error) {
+        resultText.innerHTML = '<span style="color:#ef4444">⚠️ ' + r.error + '</span>';
+      } else {
+        resultText.innerHTML = '<strong>Binary:</strong> ' + r.result;
+      }
+    }
+    resultBox.style.display = 'flex';
+  };
+
+  window.setMode = function(m) {
+    mode = m;
+    document.querySelectorAll('.mode-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById('inputGroupBin').style.display = m === 'bin2hex' ? 'block' : 'none';
+    document.getElementById('inputGroupHex').style.display = m === 'hex2bin' ? 'block' : 'none';
+    document.querySelectorAll('.mode-tab')[m === 'bin2hex' ? 0 : 1].classList.add('active');
+    document.getElementById('resultBox').style.display = 'none';
+  };
+
+  window.swapMode = function() {
+    setMode(mode === 'bin2hex' ? 'hex2bin' : 'bin2hex');
+  };
+
+  window.clearAll = function() {
+    document.getElementById('binInput').value = '';
+    document.getElementById('hexInput').value = '';
+    document.getElementById('resultBox').style.display = 'none';
+  };
+
+  window.copyResult = function() {
+    var text = document.getElementById('resultText').innerText.replace(/Hex: |Binary: |Padded binary: /g, '').trim();
+    navigator.clipboard.writeText(text).then(function() {
+      var btn = document.querySelector('.copy-btn');
+      btn.textContent = '✅ Copied';
+      setTimeout(function() { btn.textContent = '📋 Copy'; }, 1500);
+    }).catch(function() {
+      showToast('Copy failed. Please copy manually.');
+    });
+  };
+
+  document.getElementById('binInput').value = '1010 1111 0011 1100';
+  autoConvert();
+</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How do I convert binary to hexadecimal?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert binary to hexadecimal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your binary number in the input field and the tool will automatically convert it to hexadecimal. You can also convert hex back to binary by switching modes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool support space-separated input?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can enter binary numbers with or without spaces. The tool handles both formats automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this binary to hex converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free to use. No registration or payment required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool works entirely in your browser. Once loaded, it functions without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert hex back to binary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, use the swap button to switch between binary-to-hex and hex-to-binary conversion modes."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Binary Hex Converter", "description": "Free online binary to hex converter. Convert between binary and hexadecimal instantly.", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter your binary or hexadecimal number in the input field", "name": "Enter your binary or hexadecim"}, {"@type": "HowToStep", "position": 2, "text": "The tool automatically converts it to the other format", "name": "The tool automatically convert"}, {"@type": "HowToStep", "position": 3, "text": "Click the copy button to copy the result to your clipboard", "name": "Click the copy button to copy "}, {"@type": "HowToStep", "position": 4, "text": "Use the swap button to reverse the conversion direction", "name": "Use the swap button to reverse"}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Binary Hex Converter",
+      "item": "https://adi63586.github.io/Toolguidehub/en/binary-to-hex/"
+    }
+  ]
+}</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<div class="toast" id="toast"></div>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

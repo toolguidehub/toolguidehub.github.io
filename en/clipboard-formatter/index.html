@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard Formatter - ToolGuideHub</title>
+  <meta name="description" content="Paste text to strip extra spaces, fix capitalisation and remove stray special characters in one click.">
+  <meta property="og:title" content="Clipboard Formatter - ToolGuideHub">
+  <meta property="og:description" content="Paste text to strip extra spaces, fix capitalisation and remove stray special characters in one click.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/clipboard-formatter/">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/clipboard-formatter/">
+        <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Clipboard Formatter",
+    "description": "Online clipboard formatter. One-click paste and auto-clean: trim spaces, format case, remove special characters. Client-side processing.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "url": "https://adi63586.github.io/Toolguidehub/en/clipboard-formatter/",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);;--surface:#1e293b;--text:#e2e8f0}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(148,163,184,.1);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header a {
+  text-decoration: none;
+  color: #22d3ee;
+  font-weight: 700;
+  font-size: 18px;
+}
+.lang-switch {
+  display: flex;
+  gap: 8px;
+}
+.lang-switch a {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+  background: #0f172a;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.lang-switch a.active {
+  background: #22d3ee;
+  color: #fff;
+  border-color: #22d3ee;
+}
+main {
+  flex: 1;
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.tool-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.tool-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.tool-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #22d3ee;
+}
+.input-group {
+  margin-bottom: 16px;
+}
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+textarea, input[type="text"], input[type="url"], input[type="number"], select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background: #0f172a;
+}
+textarea:focus, input:focus, select:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 120px; resize: vertical; }
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary {
+  background: #22d3ee;
+  color: #fff;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.btn-secondary:hover { background: rgba(148,163,184,.1); }
+.result-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: #0f172a;
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 8px;
+  font-size: 14px;
+  color: #94a3b8;
+  word-break: break-all;
+  min-height: 48px;
+}
+.preview-box {
+  margin-top: 16px;
+  border: 2px dashed rgba(148,163,184,.1);
+  border-radius: 8px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+.range-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.range-group input[type="range"] {
+  flex: 1;
+}
+.range-group .range-val {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+  color: #22d3ee;
+}
+.color-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid rgba(148,163,184,.1);
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 13px;
+  border-top: 1px solid rgba(148,163,184,.1);
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  main { margin: 16px auto; }
+  .tool-header h1 { font-size: 22px; }
+}
+
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Clipboard Formatter", "item": "https://adi63586.github.io/Toolguidehub/en/clipboard-formatter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Clipboard Formatter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Clipboard Formatter?","acceptedAnswer":{"@type":"Answer","text":"Paste your code or text into the input area, select your formatting preferences, and click Format. The tool instantly reformats your content according to the selected style. Every operation runs on your device — Collapse Spaces and Remove Empty Lines are never sent to a server."}},{"@type":"Question","name":"Is the Clipboard Formatter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Collapse Spaces and Remove Empty Lines are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Does the Clipboard Formatter change my code's functionality?","acceptedAnswer":{"@type":"Answer","text":"No, the formatter only changes the visual layout and style of your code (indentation, spacing, line breaks). The logic and functionality remain exactly the same. All formatting is done locally in your browser."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Clipboard Formatter","description":"Step-by-step guide for using Clipboard Formatter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Clipboard Formatter"},"step":[{"@type":"HowToStep","position":1,"name":"Paste content","text":"Paste the code or text you want to format"},{"@type":"HowToStep","position":2,"name":"Set style","text":"Choose formatting options (indent size, line breaks, etc.)"},{"@type":"HowToStep","position":3,"name":"Click Format","text":"Press the format button to process your input"},{"@type":"HowToStep","position":4,"name":"Copy output","text":"Review the formatted result and copy it"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/clipboard-formatter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../">🧰 ToolGuideHub</a>
+    
+  </header>
+  <main>
+    <div class="tool-header">
+      <h1>Clipboard Formatter</h1>
+      <p>Online clipboard formatter. One-click paste and auto-clean: trim spaces, format case, remove special characters. Client-side processing.</p>
+    </div>
+
+        <div class="section">
+          <h2>📋 Input Text</h2>
+          <div class="input-group">
+            <label>Paste text (or click button to read clipboard)</label>
+            <textarea id="textInput" placeholder="Paste text here..."></textarea>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="pasteBtn">📋 Read Clipboard</button>
+            <button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>⚙️ Format Options</h2>
+          <div class="input-group">
+            <label>Collapse Spaces</label>
+            <label style="display:flex;align-items:center;gap:8px;font-weight:400;text-transform:none">
+              <input type="checkbox" id="trimSpaces" checked> Merge consecutive spaces into one
+            </label>
+          </div>
+          <div class="input-group">
+            <label>Remove Empty Lines</label>
+            <label style="display:flex;align-items:center;gap:8px;font-weight:400;text-transform:none">
+              <input type="checkbox" id="removeEmptyLines" checked> Strip blank lines
+            </label>
+          </div>
+          <div class="input-group">
+            <label>Trim Line Edges</label>
+            <label style="display:flex;align-items:center;gap:8px;font-weight:400;text-transform:none">
+              <input type="checkbox" id="trimEdges" checked> Remove leading/trailing whitespace per line
+            </label>
+          </div>
+          <div class="btn-row" style="margin-top:16px">
+            <button class="btn btn-primary" id="formatBtn">✨ Format</button>
+            <button class="btn btn-secondary" id="copyBtn">📋 Copy Result</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>📊 Result</h2>
+          <textarea id="outputText" readonly style="min-height:150px;background:#0f172a"></textarea>
+          <div class="result-box" id="statsBox" style="margin-top:8px;font-size:13px">
+            Waiting to format...
+          </div>
+        </div>
+        <script>
+        const textInput = document.getElementById('textInput');
+        const outputText = document.getElementById('outputText');
+        const statsBox = document.getElementById('statsBox');
+        document.getElementById('pasteBtn').addEventListener('click', async function() {
+          try {
+            const text = await navigator.clipboard.readText();
+            textInput.value = text;
+            showToast('Clipboard content read!');
+          } catch(e) {
+            showToast('Cannot read clipboard, please paste manually');
+          }
+        });
+        document.getElementById('clearBtn').addEventListener('click', function() {
+          textInput.value = '';
+          outputText.value = '';
+          statsBox.textContent = 'Cleared';
+        });
+        document.getElementById('formatBtn').addEventListener('click', function() {
+          let text = textInput.value;
+          if (!text) { showToast('Please enter text first'); return; }
+          const origLen = text.length;
+          const origLines = text.split('\n').length;
+          if (document.getElementById('trimEdges').checked) {
+            text = text.split('\n').map(l => l.trim()).join('\n');
+          }
+          if (document.getElementById('trimSpaces').checked) {
+            text = text.replace(/[ \t]+/g, ' ');
+          }
+          if (document.getElementById('removeEmptyLines').checked) {
+            text = text.split('\n').filter(l => l.trim()).join('\n');
+          }
+          text = text.trim();
+          outputText.value = text;
+          const newLines = text.split('\n').length;
+          statsBox.textContent = 'Original: ' + origLen + ' chars/' + origLines + ' lines → Formatted: ' + text.length + ' chars/' + newLines + ' lines';
+        });
+        document.getElementById('copyBtn').addEventListener('click', function() {
+          if (!outputText.value) { showToast('No result to copy'); return; }
+          navigator.clipboard.writeText(outputText.value);
+          showToast('Result copied to clipboard!');
+        });
+        </script>
+        
+  
+<h2>What is Clipboard Formatter?</h2><p>Clipboard Formatter is a free online tool that runs entirely in your browser. No download or signup needed — enter Collapse Spaces and Remove Empty Lines to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+  </script>
+</body>
+</html>

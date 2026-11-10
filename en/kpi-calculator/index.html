@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calculate KPI completion and achievement rates against a target, with year-over-year and quarter-over-quarter comparisons.">
+<meta name="keywords" content="KPI Calculator, tools, free online tools">
+<title>Free Online KPI Calculator | Performance Metrics</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/kpi-calculator/">
+<meta property="og:title" content="Free Online KPI Calculator | Performance Metrics">
+<meta property="og:description" content="Calculate KPI completion and achievement rates against a target, with year-over-year and quarter-over-quarter comparisons.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/kpi-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "KPI Calculator", "description": "Calculate KPI completion rate, achievement rate, with YoY and QoQ analysis. Support target comparison and trend forecasting. Essential business analytics tool.Pure client-side computing, data secure.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to calculate KPI completion rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KPI Completion Rate = (Actual Value ÷ Target Value) × 100%. Example: Target sales $1M, actual $1.2M, completion rate = 120%."
+      }
+    },{
+      "@type": "Question",
+      "name": "How to calculate YoY growth rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YoY Growth Rate = (Current Value - Last Year Value) ÷ Last Year Value × 100%. This reflects growth compared to the same period last year."
+      }
+    },{
+      "@type": "Question",
+      "name": "What if KPI is below 100%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First analyze the gap causes (market, resources, unrealistic goals), then adjust strategy. Use SWOT analysis + action plan, focusing on high-leverage improvement points."
+      }
+    }
+  ]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use KPICalculator", "description": "Step-by-step guide on how to use the KPI Calculator", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "KPI Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter Data", "text": "InputTarget Valueand Actual Value，Optionally enter last year values for YoY analysis"}, {"@type": "HowToStep", "position": 2, "name": "Click Calculate", "text": "Click Calculate to getCompletion Rate、Achievement Rate、YoY Change"}, {"@type": "HowToStep", "position": 3, "name": "View Results", "text": "ViewKPICompletion Rateand detailed analysis，Supports one-click copy"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "KPI Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/kpi-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1c40f}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1c40f;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:0}.btn-row{display:flex;gap:8px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:.9rem;cursor:pointer;border:none;transition:all .2s;font-weight:500}.btn-primary{background:#06b6d4;color:#fff}.btn-primary:hover{background:#0891b2;transform:translateY(-1px)}.btn-secondary{background:rgba(148,163,184,.1);color:#e2e8f0;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.result-box{background:#0f172a;border-radius:8px;padding:20px;border:1px solid rgba(148,163,184,.15);margin-top:16px}.result-box h3{font-size:1.8rem;color:#f1c40f;margin-bottom:4px}.result-box .sub{color:#94a3b8;font-size:.85rem}.kpi-indicator{display:inline-block;padding:4px 12px;border-radius:12px;font-size:.75rem;font-weight:600}.kpi-good{background:rgba(34,197,94,.15);color:#4ade80}.kpi-warn{background:rgba(249,168,37,.15);color:#fbbf24}.kpi-bad{background:rgba(239,68,68,.15);color:#f87171}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:16px}.kpi-card{background:#0f172a;border-radius:8px;padding:16px;text-align:center;border:1px solid rgba(148,163,184,.15)}.kpi-card .kpi-value{font-size:1.6rem;font-weight:700;margin-bottom:4px}.kpi-card .kpi-label{font-size:.75rem;color:#64748b}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;border:1px solid rgba(148,163,184,.2);z-index:1000;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}.toast.success{border-color:rgba(34,197,94,.3)}footer{text-align:center;color:#64748b;font-size:.8rem;padding:32px 16px;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}footer a{color:#64748b}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/kpi-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <header class="header">
+    <h1>📊 KPI Calculator</h1>
+    
+  </header>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+  <div class="hero">
+    <span class="badge">💼 Business Tool</span>
+    <p>Calculate Key Performance Indicator (KPI) completion and achievement rates. Support YoY analysis and target comparison. Quickly assess business performance.</p>
+  </div>
+  <div class="main-grid">
+    <div>
+      <div class="section">
+        <h2>📥 Enter Data</h2>
+        <div class="form-row">
+          <div class="form-group"><label>KPI Name (optional)</label><input type="text" id="kpiName" placeholder="e.g. Monthly Sales"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Target Value</label><input type="number" id="targetValue" placeholder="e.g. 1000000" step="0.01"></div>
+          <div class="form-group"><label>Actual Value</label><input type="number" id="actualValue" placeholder="e.g. 1200000" step="0.01"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Unit</label><input type="text" id="unit" placeholder="USD/pcs/times" value=""></div>
+          <div class="form-group"><label>Last Year Value (optional, YoY)</label><input type="number" id="lastYearValue" placeholder="e.g. 900000" step="0.01"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">🔍 Calculate KPI</button>
+          <button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+          <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+        </div>
+      </div>
+      <div class="section" id="resultSection" style="display:none">
+        <h2>📊 KPI Analysis Results</h2>
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="result-box" id="detailBox" style="display:none"></div>
+      </div>
+    </div>
+    <aside>
+      <div class="section">
+        <h2>📖 KPI Formula Reference</h2>
+        <p style="font-size:.8rem;color:#94a3b8;margin-bottom:6px"><strong>Completion Rate</strong> = Actual ÷ Target × 100%</p>
+        <p style="font-size:.8rem;color:#94a3b8;margin-bottom:6px"><strong>Gap</strong> = Target - Actual</p>
+        <p style="font-size:.8rem;color:#94a3b8;margin-bottom:6px"><strong>Achievement Rate</strong> = Completion Rate (same as Completion Rate)</p>
+        <p style="font-size:.8rem;color:#94a3b8;margin-bottom:6px"><strong>YoY Growth Rate</strong> = (Current Period - Last Year Same Period) ÷ Last Year Same Period × 100%</p>
+      </div>
+      <div class="section">
+        <h2>💡 Tips</h2>
+        <p style="font-size:.8rem;color:#94a3b8">• Ideal for sales, operations, HR teams<br>• Enter last year value to see growth trends<br>• Gap shown in red/green for profit/loss</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="//en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="//en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/kpi-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function calculate(){
+  const name=document.getElementById('kpiName').value||'KPI metric';
+  const target=parseFloat(document.getElementById('targetValue').value);
+  const actual=parseFloat(document.getElementById('actualValue').value);
+  const ly=parseFloat(document.getElementById('lastYearValue').value);
+  const unit=document.getElementById('unit').value||'';
+  if(isNaN(target)||isNaN(actual)){showToast('Please fill in target and actual values');return;}
+  if(target===0){showToast('Target value cannot be 0');return;}
+  const rate=(actual/target*100);
+  const gap=target-actual;
+  const yoy=!isNaN(ly)&&ly!==0?((actual-ly)/Math.abs(ly)*100):null;
+  document.getElementById('resultSection').style.display='block';
+  let cards='';
+  const rTag=rate>=100?'kpi-good':rate>=80?'kpi-warn':'kpi-bad';
+  cards+='<div class="kpi-card"><div class="kpi-value '+rTag+'">'+rate.toFixed(1)+'%</div><div class="kpi-label">Completion Rate</div></div>';
+  const gTag=gap<=0?'kpi-good':gap<target*0.2?'kpi-warn':'kpi-bad';
+  const gapSign=gap>0?'-':'+';
+  cards+='<div class="kpi-card"><div class="kpi-value '+gTag+'">'+gapSign+Math.abs(gap).toFixed(2)+(unit?' '+unit:'')+'</div><div class="kpi-label">Gap to Target</div></div>';
+  if(yoy!==null){
+    const yTag=yoy>=0?'kpi-good':'kpi-bad';
+    cards+='<div class="kpi-card"><div class="kpi-value '+yTag+'">'+(yoy>=0?'+':'')+yoy.toFixed(1)+'%</div><div class="kpi-label">YoY Growth</div></div>';}
+  document.getElementById('kpiGrid').innerHTML=cards;
+  let detail=rate>=100?'🎉 Overachieved! 🎉':'';
+  detail+=rate>=95&&rate<100?'⚠️ Almost there, push harder! ⚠️':rate<80?'🚨 Severely behind, needs urgent attention! 🚨':'';
+  detail=detail?'<p style="font-size:.85rem;color:#e2e8f0;margin-bottom:8px">'+detail+'</p>':'';
+  const need=gap>0?'Still need '+gap.toFixed(2)+(unit?' '+unit:'')+' to reach target':'';
+  if(need)detail+='<p style="font-size:.85rem;color:#fbbf24">📌 '+need+'</p>';
+  document.getElementById('detailBox').style.display='block';
+  document.getElementById('detailBox').innerHTML=detail;
+}
+function clearAll(){['targetValue','actualValue','lastYearValue','kpiName','unit'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('resultSection').style.display='none';showToast('Cleared');}
+function copyResult(){
+  var t=document.getElementById('targetValue').value;
+  var a=document.getElementById('actualValue').value;
+  var r=parseFloat(a)/parseFloat(t)*100;
+  var g=parseFloat(t)-parseFloat(a);
+  navigator.clipboard.writeText('KPI Completion Rate: '+r.toFixed(1)+'%\nGap: '+g.toFixed(2)+'\nTarget: '+t+' → Actual: '+a).then(function(){showToast('Copied');}).catch(function(){showToast('Copy failed');});
+}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.className='toast show';clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},2000);}
+
+function fillExample(){
+  var vals = [["targetValue", "1000000"], ["actualValue", "1200000"], ["lastYearValue", "900000"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+</body>
+</html>

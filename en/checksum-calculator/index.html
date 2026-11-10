@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate MD5, SHA-1, SHA-256, SHA-512 and CRC32 checksums from text or files to verify data integrity.">
+<meta name="keywords" content="checksum calculator,MD5,SHA1,SHA256,SHA512,CRC32,hash calculator,online tool,free">
+<title>Free Checksum Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/checksum-calculator/">
+<meta property="og:title" content="Free Checksum Calculator - ToolGuideHub">
+<meta property="og:description" content="Generate MD5, SHA-1, SHA-256, SHA-512 and CRC32 checksums from text or files to verify data integrity.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/checksum-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Checksum Calculator","description":"Free online checksum calculator. Supports MD5, SHA-1, SHA-256, SHA-512, CRC32 hash algorithms.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which algorithms does the checksum calculator support?","acceptedAnswer":{"@type":"Answer","text":"It supports MD5, SHA-1, SHA-256, SHA-512, and CRC32. MD5 and SHA-1 are for quick checks, SHA-256 and SHA-512 for security, and CRC32 for file verification."}},{"@type":"Question","name":"Is the checksum calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. No registration required. All calculations are done locally in your browser — no data is uploaded."}},{"@type":"Question","name":"Can I calculate checksums for files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Drag and drop or click to upload a file. The tool automatically calculates MD5, SHA-1, SHA-256, SHA-512, and CRC32 checksums. No file size limit, but large files may take longer."}},{"@type":"Question","name":"What are checksums used for?","acceptedAnswer":{"@type":"Answer","text":"Checksums are used for: verifying file download integrity, detecting data transfer errors, password storage (SHA-256/SHA-512), digital signature verification, deduplication (identical content produces identical hashes), and software release verification."}},{"@type":"Question","name":"What is a checksum error?","acceptedAnswer":{"@type":"Answer","text":"A checksum error means the hash calculated from a file does not match the value published by the source, so the file is likely incomplete or corrupted. Re-download the file and compare the SHA-256 value again before using it."}},{"@type":"Question","name":"How do I fix a checksum error?","acceptedAnswer":{"@type":"Answer","text":"Download the file again over a stable connection, avoid resuming a partial download, then recalculate the hash. If it still mismatches, try another mirror or browser; a repeated mismatch usually means the source file itself is damaged."}}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.result-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px 12px;background:#0f172a;border-radius:6px;border:1px solid rgba(148,163,184,.1)}
+.result-row label{color:#22d3ee;font-size:.85rem;font-weight:700;min-width:80px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-row code{color:#e2e8f0;font-size:.8rem;word-break:break-all;flex:1;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-row button{background:none;border:1px solid rgba(148,163,184,.2);color:#94a3b8;padding:2px 8px;border-radius:4px;cursor:pointer;font-size:.75rem;white-space:nowrap}
+.result-row button:hover{border-color:rgba(6,182,212,.3);color:#22d3ee}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.hero{margin-bottom:16px}
+.hero p{color:#94a3b8;font-size:.95rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:2px 8px;border-radius:4px;font-size:.8rem;margin-right:6px}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}}
+.ad-slot.ad-sidebar{max-width:300px}
+.seo-content{color:#94a3b8;font-size:.85rem;margin-top:24px}
+.seo-content h3{color:#64748b;font-size:1rem;margin-bottom:8px}
+.file-drop{border:2px dashed rgba(148,163,184,.2);border-radius:8px;padding:24px;text-align:center;color:#94a3b8;cursor:pointer;transition:all .2s;margin-bottom:12px}
+.file-drop:hover,.file-drop.dragover{border-color:rgba(6,182,212,.5);color:#22d3ee}
+.file-drop .icon{font-size:2rem;margin-bottom:8px}
+.file-info{color:#94a3b8;font-size:.85rem;margin-bottom:8px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Checksum Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/checksum-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Checksum Calculator","description":"Step-by-step guide for using Checksum Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Checksum Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/checksum-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🔐 Checksum Calculator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Checksum Calculator</p>
+<div class="hero"><p>Free online checksum calculator. Supports MD5, SHA-1, SHA-256, SHA-512, CRC32 hash algorithms. Enter text or upload files. 100% client-side processing — no data uploaded, safe and reliable.</p><span class="badge">Multi-Algorithm</span><span class="badge">File Support</span><span class="badge">Real-time</span></div>
+
+<div class="main-grid">
+<div>
+<div class="tool-section">
+  <h2>📝 Input Text</h2>
+  <textarea id="inputText" placeholder="Enter text to calculate checksums..." oninput="calcFromText()" style="min-height:120px"></textarea>
+</div>
+
+<div class="tool-section">
+  <h2>📁 Or Upload File</h2>
+  <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
+    <div class="icon">📂</div>
+    <p>Click to select a file or drag and drop</p>
+    <p style="font-size:.8rem">Supports any file type</p>
+  </div>
+  <input type="file" id="fileInput" style="display:none" onchange="calcFromFile(this)">
+  <div class="file-info" id="fileInfo"></div>
+</div>
+
+<div class="tool-section">
+  <h2>📊 Checksum Results</h2>
+  <div class="result-row"><label>MD5</label><code id="md5Result">-</code><button onclick="copyHash('md5Result')">Copy</button></div>
+  <div class="result-row"><label>SHA-1</label><code id="sha1Result">-</code><button onclick="copyHash('sha1Result')">Copy</button></div>
+  <div class="result-row"><label>SHA-256</label><code id="sha256Result">-</code><button onclick="copyHash('sha256Result')">Copy</button></div>
+  <div class="result-row"><label>SHA-512</label><code id="sha512Result">-</code><button onclick="copyHash('sha512Result')">Copy</button></div>
+  <div class="result-row"><label>CRC32</label><code id="crc32Result">-</code><button onclick="copyHash('crc32Result')">Copy</button></div>
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn btn-primary" onclick="copyAllHashes()">📋 Copy All</button>
+    <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+  </div>
+</div>
+
+<div class="tool-section">
+  <h2>🔍 Verify Checksum</h2>
+  <p>Enter a known checksum to verify it matches</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <select id="verifyAlgo" style="min-width:100px">
+      <option value="md5">MD5</option>
+      <option value="sha1">SHA-1</option>
+      <option value="sha256" selected>SHA-256</option>
+      <option value="sha512">SHA-512</option>
+      <option value="crc32">CRC32</option>
+    </select>
+    <input type="text" id="verifyInput" placeholder="Paste known checksum..." style="flex:1;min-width:200px" oninput="verifyHash()">
+    <span id="verifyResult" style="font-size:.85rem"></span>
+  </div>
+</div>
+
+<div class="tool-section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item">
+    <h3>Which algorithms does the checksum calculator support?</h3>
+    <p>It supports MD5, SHA-1, SHA-256, SHA-512, and CRC32. MD5 and SHA-1 are for quick checks, SHA-256 and SHA-512 for security, and CRC32 for file verification.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is the checksum calculator free?</h3>
+    <p>Yes, completely free. No registration required. All calculations are done locally in your browser — no data is ever uploaded to any server.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I calculate checksums for files?</h3>
+    <p>Yes. Drag and drop or click to upload a file. The tool automatically calculates SHA-1, SHA-256, SHA-512, and CRC32 checksums. No file size limit, but large files may take longer.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What are checksums used for?</h3>
+    <p>Checksums are used for: verifying file download integrity, detecting data transfer errors, password storage (SHA-256/SHA-512), digital signature verification, deduplication (identical content produces identical hashes), and software release verification.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is a checksum error?</h3>
+    <p>A checksum error means the hash calculated from a file does not match the value published by the source, so the file is likely incomplete or corrupted. Re-download the file and compare the SHA-256 value again before using it.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I fix a checksum error?</h3>
+    <p>Download the file again over a stable connection, avoid resuming a partial download, then recalculate the hash. If it still mismatches, try another mirror or browser; a repeated mismatch usually means the source file itself is damaged.</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+<div class="seo-content">
+<h3>About Checksum Calculation</h3>
+<p>A checksum is a fixed-size digest computed from data using a hash algorithm, used to verify data integrity. This tool supports five mainstream algorithms: MD5 (128-bit, fast, for non-security quick checks), SHA-1 (160-bit, not recommended for security but still useful for verification), SHA-256 (256-bit, high security, widely used for digital signatures and password storage), SHA-512 (512-bit, highest security, for high-security requirements), and CRC32 (32-bit cyclic redundancy check, commonly used for file transfer and archive verification). All calculations are done entirely in your browser locally using the Web Crypto API for SHA algorithms and pure JavaScript for CRC32 — no data is uploaded, ensuring data privacy and security.</p>
+
+<h3 style="margin-top:20px">What is a checksum error?</h3>
+<p>A checksum error (also called a checksum mismatch) means the hash your computer calculates from a file does not match the hash published by the source. The file is not necessarily a virus and your disk is not necessarily failing: it simply means the copy you have is not byte-for-byte identical to the original. The usual causes are an interrupted download, a dropped packet in transit, a faulty cable or USB stick, storage corruption, or a file that was changed after it was published.</p>
+
+<h3 style="margin-top:20px">Why it happens</h3>
+<ul style="color:#94a3b8;font-size:.9rem;line-height:1.8;padding-left:20px;margin-top:8px">
+  <li><strong>Broken or partial downloads</strong>: a large ISO, game client or firmware image that lost a few bytes when the connection dropped. Resumed downloads are a common culprit.</li>
+  <li><strong>Archive errors</strong>: ZIP or RAR files that fail with "CRC failed" or "checksum error in ..." while you extract them.</li>
+  <li><strong>Installer failures</strong>: Windows reports "The file is corrupt", or a macOS disk image fails its checksum and setup aborts.</li>
+  <li><strong>Transfer and copy errors</strong>: a file uploaded to cloud storage, sent over FTP, or copied to a USB stick that afterwards refuses to open.</li>
+</ul>
+
+<h3 style="margin-top:20px">How to verify a file with this tool</h3>
+<ol style="color:#94a3b8;font-size:.9rem;line-height:1.8;padding-left:20px;margin-top:8px">
+  <li>Find the official hash on the download page or in a <code style="background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px">SHA256SUMS</code> file.</li>
+  <li>Drag the file into the "Or Upload File" box above. It is hashed locally in your browser, so nothing is uploaded anywhere.</li>
+  <li>In "Verify Checksum", pick the same algorithm the publisher used and paste their value. A green check means the file is intact; a red cross means a checksum error.</li>
+  <li>If it mismatches, download the file again from a stable connection (avoid resuming a partial download) and compare once more.</li>
+</ol>
+
+<h3 style="margin-top:20px">How to fix a checksum error</h3>
+<p>Re-download the whole file rather than resuming it, try another mirror or browser, and copy it with a different cable or USB port. If the hash still does not match after a clean download from several sources, the source file itself is probably damaged and you should contact the publisher. Remember that CRC32 only detects accidental transfer errors; use SHA-256 when you need to prove a file has not been tampered with. If the hash matches but the program still fails, the problem is elsewhere: an outdated extractor, the wrong CPU architecture, or missing permissions.</p>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1);"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/docker-compose-validator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Docker Compose Validator</a><a href="../../en/file-type-detector/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">File Type Detector</a><a href="../../en/google-index-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Google Index Checker</a></div>
+<a href="../../en/file-checksum-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">File Checksum Calculator</a></section>
+
+</main>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/checksum-calculator/">中文</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+/* ===== BLOCK 1: gtag (already in head) ===== */
+
+/* ===== BLOCK 2: toggleFeedback ===== */
+(function(){
+  if(typeof window.__feedbackInited!=='undefined')return;
+  window.__feedbackInited=true;
+  var c=document.createElement('div');
+  c.id='feedback-toggle';
+  c.innerHTML='<button id="fbToggle" style="position:fixed;bottom:20px;right:20px;z-index:998;background:#1e293b;color:#94a3b8;border:1px solid rgba(148,163,184,.2);border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:all .2s" title="Feedback">💬</button>';
+  document.body.appendChild(c);
+  document.getElementById('fbToggle').addEventListener('click',function(){
+    var t=document.getElementById('feedback-toggle');
+    t.classList.toggle('open');
+    if(t.classList.contains('open')){
+      var p=document.createElement('div');
+      p.id='feedbackPanel';
+      p.innerHTML='<div style="position:fixed;bottom:70px;right:20px;background:#1e293b;border:1px solid rgba(148,163,184,.2);border-radius:12px;padding:16px;width:280px;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:998"><textarea id="feedbackText" placeholder="Any suggestions or questions?" style="width:100%;min-height:80px;resize:vertical;margin-bottom:8px"></textarea><div style="display:flex;gap:8px;justify-content:flex-end"><button id="fbCancel" class="btn btn-secondary" style="font-size:.8rem;padding:4px 12px">Cancel</button><button id="fbSubmit" class="btn btn-primary" style="font-size:.8rem;padding:4px 12px">Send</button></div></div>';
+      t.appendChild(p);
+      document.getElementById('fbCancel').addEventListener('click',function(){document.getElementById('feedbackPanel').remove();t.classList.remove('open')});
+      document.getElementById('fbSubmit').addEventListener('click',function(){var v=document.getElementById('feedbackText').value;if(v.trim()){showToast('Thanks for your feedback!');document.getElementById('feedbackPanel').remove();t.classList.remove('open')}});
+    }else{
+      var ep=document.getElementById('feedbackPanel');if(ep)ep.remove();
+    }
+  });
+})();
+
+/* ===== BLOCK 3: Business Logic ===== */
+var crc32Table=null;
+function buildCRC32Table(){
+  if(crc32Table)return;
+  crc32Table=new Uint32Array(256);
+  for(var i=0;i<256;i++){
+    var c=i;
+    for(var j=0;j<8;j++){
+      if(c&1) c=0xEDB88320^(c>>>1);
+      else c=c>>>1;
+    }
+    crc32Table[i]=c;
+  }
+}
+
+function crc32(str){
+  buildCRC32Table();
+  var crc=0xFFFFFFFF;
+  for(var i=0;i<str.length;i++){
+    crc=crc32Table[(crc^str.charCodeAt(i))&0xFF]^(crc>>>8);
+  }
+  return((crc^0xFFFFFFFF)>>>0).toString(16).padStart(8,'0');
+}
+
+function crc32Buffer(buffer){
+  buildCRC32Table();
+  var bytes=new Uint8Array(buffer);
+  var crc=0xFFFFFFFF;
+  for(var i=0;i<bytes.length;i++){
+    crc=crc32Table[(crc^bytes[i])&0xFF]^(crc>>>8);
+  }
+  return((crc^0xFFFFFFFF)>>>0).toString(16).padStart(8,'0');
+}
+
+async function calcHashes(text){
+  var encoder=new TextEncoder();
+  var data=encoder.encode(text);
+  var md5=await crypto.subtle.digest('MD5',data).catch(function(){return null});
+  var sha1=await crypto.subtle.digest('SHA-1',data);
+  var sha256=await crypto.subtle.digest('SHA-256',data);
+  var sha512=await crypto.subtle.digest('SHA-512',data);
+  var crcVal=crc32(text);
+
+  document.getElementById('md5Result').textContent=md5?bufToHex(md5):'Browser does not support MD5';
+  document.getElementById('sha1Result').textContent=bufToHex(sha1);
+  document.getElementById('sha256Result').textContent=bufToHex(sha256);
+  document.getElementById('sha512Result').textContent=bufToHex(sha512);
+  document.getElementById('crc32Result').textContent=crcVal;
+  verifyHash();
+}
+
+async function calcHashesBuffer(buffer){
+  var sha1=await crypto.subtle.digest('SHA-1',buffer);
+  var sha256=await crypto.subtle.digest('SHA-256',buffer);
+  var sha512=await crypto.subtle.digest('SHA-512',buffer);
+  var crcVal=crc32Buffer(buffer);
+
+  document.getElementById('md5Result').textContent='File mode does not support MD5';
+  document.getElementById('sha1Result').textContent=bufToHex(sha1);
+  document.getElementById('sha256Result').textContent=bufToHex(sha256);
+  document.getElementById('sha512Result').textContent=bufToHex(sha512);
+  document.getElementById('crc32Result').textContent=crcVal;
+  verifyHash();
+}
+
+function bufToHex(buf){
+  var arr=Array.from(new Uint8Array(buf));
+  return arr.map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+}
+
+function calcFromText(){
+  var text=document.getElementById('inputText').value;
+  if(!text){
+    resetResults();
+    return;
+  }
+  calcHashes(text);
+}
+
+function calcFromFile(input){
+  var file=input.files[0];
+  if(!file)return;
+  document.getElementById('fileInfo').textContent='File: '+file.name+' ('+formatSize(file.size)+')';
+  var reader=new FileReader();
+  reader.onload=function(e){
+    calcHashesBuffer(e.target.result);
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function formatSize(bytes){
+  if(bytes<1024) return bytes+' B';
+  if(bytes<1048576) return(bytes/1024).toFixed(1)+' KB';
+  if(bytes<1073741824) return(bytes/1048576).toFixed(1)+' MB';
+  return(bytes/1073741824).toFixed(1)+' GB';
+}
+
+function verifyHash(){
+  var algo=document.getElementById('verifyAlgo').value;
+  var input=document.getElementById('verifyInput').value.trim().toLowerCase();
+  var resultEl=document.getElementById('verifyResult');
+  if(!input){resultEl.textContent='';return;}
+  var map={md5:'md5Result',sha1:'sha1Result',sha256:'sha256Result',sha512:'sha512Result',crc32:'crc32Result'};
+  var actual=document.getElementById(map[algo]).textContent.toLowerCase();
+  if(actual==='-'||actual.indexOf('not support')>=0){resultEl.textContent='';return;}
+  if(actual===input){
+    resultEl.innerHTML='<span style="color:#22c55e">✅ Match</span>';
+  }else{
+    resultEl.innerHTML='<span style="color:#ef4444">❌ No match</span>';
+  }
+}
+
+function copyHash(id){
+  var text=document.getElementById(id).textContent;
+  if(!text||text==='-'){showToast('Nothing to copy');return;}
+  navigator.clipboard.writeText(text).then(function(){showToast('Copy')}).catch(function(){showToast('CopyFailed')});
+}
+
+window.copyAllHashes = copyAllHashes; function copyAllHashes(){
+  var algos=['MD5','SHA-1','SHA-256','SHA-512','CRC32'];
+  var ids=['md5Result','sha1Result','sha256Result','sha512Result','crc32Result'];
+  var lines=[];
+  for(var i=0;i<algos.length;i++){
+    var val=document.getElementById(ids[i]).textContent;
+    if(val&&val!=='-') lines.push(algos[i]+': '+val);
+  }
+  if(lines.length===0){showToast('Nothing to copy');return;}
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){showToast('Copied checksums')}).catch(function(){showToast('CopyFailed')});
+}
+
+function resetResults(){
+  document.getElementById('md5Result').textContent='-';
+  document.getElementById('sha1Result').textContent='-';
+  document.getElementById('sha256Result').textContent='-';
+  document.getElementById('sha512Result').textContent='-';
+  document.getElementById('crc32Result').textContent='-';
+  document.getElementById('verifyResult').textContent='';
+}
+
+function clearAll(){
+  document.getElementById('inputText').value='';
+  document.getElementById('fileInput').value='';
+  document.getElementById('fileInfo').textContent='';
+  document.getElementById('verifyInput').value='';
+  resetResults();
+  showToast('Clear');
+}
+
+// Drag and drop
+(function(){
+  var drop=document.getElementById('fileDrop');
+  drop.addEventListener('dragover',function(e){e.preventDefault();drop.classList.add('dragover')});
+  drop.addEventListener('dragleave',function(){drop.classList.remove('dragover')});
+  drop.addEventListener('drop',function(e){
+    e.preventDefault();
+    drop.classList.remove('dragover');
+    var files=e.dataTransfer.files;
+    if(files.length>0){
+      document.getElementById('fileInput').files=files;
+      calcFromFile(document.getElementById('fileInput'));
+    }
+  });
+})();
+
+/* ===== BLOCK 4: showToast ===== */
+function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},3000)}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Encoder/Decoder - Online URL Encoding Tool</title>
+  <meta name="description" content="Handle special characters, query parameters and percent-encoded strings by encoding or decoding a URL inside the browser.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="URL Encoder/Decoder - Online URL Encoding Tool">
+  <meta property="og:description" content="Handle special characters, query parameters and percent-encoded strings by encoding or decoding a URL inside the browser.">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/url-encoder-decoder/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <!-- Schema.org -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"URL Encoder/Decoder","applicationCategory":"UtilityApplication","operatingSystem":"Any","url":"https://adi63586.github.io/Toolguidehub/en/url-encoder-decoder/","description":"Free online URL encoder and decoder. Encode and decode URLs with encodeURIComponent. Runs entirely in the browser."}</script>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/url-encoder-decoder/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/url-encoder-decoder/">
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-light: #22d3ee;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #1e293b;
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: rgba(148,163,184,.1);
+      --success: #22c55e;
+      --success-bg: #052e16;
+      --danger: #ef4444;
+      --danger-bg: #450a0a;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header .logo { font-weight: 700; font-size: 1.1rem; color: var(--primary); text-decoration: none; }
+    header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    header nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    header nav a:hover { color: var(--primary); }
+    .lang-switch { display: flex; gap: 4px; background: var(--surface2); border-radius: 8px; padding: 3px; }
+    .lang-switch a { padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; }
+    .lang-switch a.active { background: var(--primary); color: #fff; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 24px 16px 40px; }
+    h1 { font-size: 1.6rem; margin-bottom: 4px; }
+    .subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px; }
+
+    .mode-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 20px;
+      background: var(--surface2);
+      border-radius: var(--radius);
+      padding: 4px;
+    }
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+    }
+    .mode-tab.active { background: var(--primary); color: #fff; }
+    .mode-tab:hover:not(.active) { background: rgba(79,70,229,0.08); }
+
+    .io-section { display: flex; flex-direction: column; gap: 16px; }
+    .io-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .io-panel .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .panel-header .actions { display: flex; gap: 6px; }
+    .panel-header .actions button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .panel-header .actions button:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    textarea {
+      width: 100%;
+      height: 200px;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-family: "SF Mono", "Fira Code", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      resize: vertical;
+      background: var(--surface);
+      color: var(--text);
+    }
+    textarea::placeholder { color: #94a3b8; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-light); }
+    .btn-outline { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-sm { padding: 6px 12px; font-size: 0.8rem; font-weight: 500; }
+
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .info-bar {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-left: auto;
+    }
+    .info-bar strong { color: var(--text); }
+
+    .options-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .options-row label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    .options-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--primary); }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    .example-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .example-links button {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .example-links button:hover { border-color: var(--primary); color: var(--primary); }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">⚡ ToolGuideHub</a>
+    <nav>
+      <a href="../../">🏠 Home</a>
+      <a href="../../en/about/">📖 About</a>
+      
+    </nav>
+  </header>
+
+  <main>
+    <h1>🔗 URL Encoder / Decoder</h1>
+    <p class="subtitle">Online URL encoding and decoding tool. Handle special characters, query parameters, and percent-encoded strings. Runs entirely in your browser.</p>
+
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="encode">🔒 URL Encode</button>
+      <button class="mode-tab" data-mode="decode">🔓 URL Decode</button>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn btn-primary" id="btnProcess">⚡ Convert</button>
+      <button class="btn btn-outline" id="btnClear">🗑️ Clear</button>
+      <button class="btn btn-outline" id="btnSwap">🔄 Swap</button>
+      <div class="options-row">
+        <label title="Use encodeURI (preserve ://?#) instead of encodeURIComponent">
+          <input type="checkbox" id="optFullUri" checked> Full URI Mode
+        </label>
+      </div>
+      <div class="info-bar">
+        <span>Chars: <strong id="charCount">0</strong></span>
+      </div>
+    </div>
+
+    <div class="io-section">
+      <div class="io-panel">
+        <div class="panel-header">
+          <span class="label" id="inputLabel">📥 Input</span>
+          <div class="actions">
+            <button id="btnPaste" title="Paste from clipboard">📋 Paste</button>
+            <button id="btnSample" title="Load sample">💡 Sample</button>
+          </div>
+        </div>
+        <textarea id="inputText" placeholder="Enter text to encode or decode..." aria-label="Input text"></textarea>
+        <div class="example-links" style="padding:0 14px 10px;display:none" id="exampleBar">
+          <button data-sample="https://example.com/search?q=hello world&lang=en">URL with spaces</button>
+          <button data-sample="https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%20world">Encoded URL</button>
+          <button data-sample='{"name":"John","email":"john@test.com"}'>JSON query param</button>
+        </div>
+      </div>
+      <div class="io-panel">
+        <div class="panel-header">
+          <span class="label" id="outputLabel">📤 Result</span>
+          <div class="actions">
+            <button id="btnCopy" title="Copy result">📋 Copy</button>
+            <button id="btnDownload" title="Download result">💾 Download</button>
+          </div>
+        </div>
+        <textarea id="outputText" placeholder="Result will appear here..." readonly aria-label="Output result"></textarea>
+      </div>
+    </div>
+  
+<h2>What is URL Encoder/Decoder - Online URL Encoding Tool?</h2><p>URL Encoder/Decoder - Online URL Encoding Tool is a free online tool that runs entirely in your browser. No download or signup needed — enter Result will appear h and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+
+  <footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/url-encoder-decoder/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function() {
+      var modeTabs = document.querySelectorAll('.mode-tab');
+      var inputText = document.getElementById('inputText');
+      var outputText = document.getElementById('outputText');
+      var btnProcess = document.getElementById('btnProcess');
+      var btnClear = document.getElementById('btnClear');
+      var btnSwap = document.getElementById('btnSwap');
+      var btnPaste = document.getElementById('btnPaste');
+      var btnSample = document.getElementById('btnSample');
+      var btnCopy = document.getElementById('btnCopy');
+      var btnDownload = document.getElementById('btnDownload');
+      var optFullUri = document.getElementById('optFullUri');
+      var charCount = document.getElementById('charCount');
+      var inputLabel = document.getElementById('inputLabel');
+      var outputLabel = document.getElementById('outputLabel');
+      var exampleBar = document.getElementById('exampleBar');
+      var sampleButtons = document.querySelectorAll('[data-sample]');
+      var toast = document.getElementById('toast');
+
+      var currentMode = 'encode';
+      var toastTimer = null;
+
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2000);
+      }
+
+      function updateCharCount() {
+        charCount.textContent = inputText.value.length;
+      }
+
+      function setMode(mode) {
+        currentMode = mode;
+        modeTabs.forEach(function(t) { t.classList.toggle('active', t.dataset.mode === mode); });
+        if (mode === 'encode') {
+          inputLabel.textContent = '📥 Input (Plain Text)';
+          outputLabel.textContent = '📤 Encoded Result';
+          btnProcess.textContent = '🔒 URL Encode';
+          inputText.placeholder = 'Enter text to URL-encode...';
+          optFullUri.parentElement.style.display = '';
+        } else {
+          inputLabel.textContent = '📥 Input (Encoded Text)';
+          outputLabel.textContent = '📤 Decoded Result';
+          btnProcess.textContent = '🔓 URL Decode';
+          inputText.placeholder = 'Enter text to URL-decode...';
+          optFullUri.parentElement.style.display = 'none';
+        }
+        outputText.value = '';
+        updateCharCount();
+      }
+
+      function processText() {
+        var input = inputText.value;
+        if (!input) {
+          outputText.value = '';
+          showToast('Please enter text to convert');
+          return;
+        }
+        try {
+          var result;
+          if (currentMode === 'encode') {
+            result = optFullUri.checked ? encodeURI(input) : encodeURIComponent(input);
+          } else {
+            try {
+              result = decodeURIComponent(input);
+            } catch(e1) {
+              try {
+                result = decodeURI(input);
+              } catch(e2) {
+                throw new Error('Decode failed: input is not valid URL-encoded text');
+              }
+            }
+          }
+          outputText.value = result;
+          showToast(currentMode === 'encode' ? '✅ URL encoded successfully' : '✅ URL decoded successfully');
+        } catch(e) {
+          outputText.value = '';
+          showToast('❌ ' + e.message);
+        }
+      }
+
+      function clearAll() {
+        inputText.value = '';
+        outputText.value = '';
+        updateCharCount();
+      }
+
+      function swapTexts() {
+        var tmp = inputText.value;
+        inputText.value = outputText.value;
+        outputText.value = '';
+        updateCharCount();
+        showToast('Swapped input and output');
+      }
+
+      function copyOutput() {
+        if (!outputText.value) {
+          showToast('No result to copy');
+          return;
+        }
+        navigator.clipboard.writeText(outputText.value).then(function() {
+          showToast('✅ Result copied to clipboard');
+        }).catch(function() {
+          showToast('❌ Copy failed, please select and copy manually');
+        });
+      }
+
+      function downloadOutput() {
+        if (!outputText.value) {
+          showToast('No result to download');
+          return;
+        }
+        var blob = new Blob([outputText.value], { type: 'text/plain;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = currentMode === 'encode' ? 'url-encoded.txt' : 'url-decoded.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('💾 Result downloaded');
+      }
+
+      function pasteFromClipboard() {
+        navigator.clipboard.readText().then(function(clipText) {
+          inputText.value = clipText;
+          updateCharCount();
+          showToast('📋 Pasted from clipboard');
+        }).catch(function() {
+          showToast('❌ Cannot access clipboard, please paste manually');
+        });
+      }
+
+      function toggleExampleBar() {
+        var isVisible = exampleBar.style.display !== 'none';
+        exampleBar.style.display = isVisible ? 'none' : 'flex';
+      }
+
+      modeTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() { setMode(tab.dataset.mode); });
+      });
+
+      btnProcess.addEventListener('click', processText);
+      btnClear.addEventListener('click', clearAll);
+      btnSwap.addEventListener('click', swapTexts);
+      btnCopy.addEventListener('click', copyOutput);
+      btnDownload.addEventListener('click', downloadOutput);
+      btnPaste.addEventListener('click', pasteFromClipboard);
+      btnSample.addEventListener('click', toggleExampleBar);
+
+      sampleButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          inputText.value = btn.dataset.sample;
+          updateCharCount();
+          showToast('💡 Sample loaded');
+        });
+      });
+
+      inputText.addEventListener('input', updateCharCount);
+
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          e.preventDefault();
+          processText();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

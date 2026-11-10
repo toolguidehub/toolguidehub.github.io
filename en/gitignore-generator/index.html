@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=".gitignore generator for 50+ languages, frameworks and IDEs — tick templates, preview the rules, and download the finished file.">
+<meta name="keywords" content="gitignore generator,.gitignore file,Git ignore rules,gitignore template,gitignore creator,developer tools,online git tools,Git ignore generator">
+<title>Free .gitignore Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gitignore-generator/">
+<meta property="og:title" content="Free .gitignore Generator - ToolGuideHub">
+<meta property="og:description" content=".gitignore generator for 50+ languages, frameworks and IDEs — tick templates, preview the rules, and download the finished file.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gitignore-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": ".gitignore Generator", "description": "Free online .gitignore file generator for 50+ languages, frameworks, and IDEs. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a .gitignore file?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a .gitignore file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": ".gitignore tells Git which files or directories should not be version-tracked. It's commonly used to exclude build artifacts (node_modules, build), system files (.DS_Store), environment configs (.env), and IDE settings. Proper use of .gitignore keeps your repository clean."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I create a .gitignore file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a plain text file named .gitignore in your project root directory. Each line contains one ignore pattern. Supports wildcards (*.log), directory names (node_modules/), comments (#), and negation patterns (!important.log). Use this generator to quickly create one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can .gitignore ignore files already tracked by Git?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Files already tracked by Git are not affected by .gitignore. To stop tracking a committed file, first remove it from version control with git rm --cached \u003cfile\u003e (keeping the file locally), then add the .gitignore rule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What wildcards can I use in .gitignore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* matches any string, ** matches nested directories, ? matches a single character, [abc] matches character sets. Examples: *.log matches all log files, build/** matches everything under the build directory, node_modules/ ignores the entire directory."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the .gitignore Generator",
+  "description": "Simple steps to use the 📄 .gitignore Generator online tool. All data is processed locally on your device and never uploaded to any server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📄 .gitignore Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gitignore-generator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gitignore-generator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/gitignore-generator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1040px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:12px;position:relative}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);position:absolute;top:0;right:0}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:16px}
+@media(max-width:768px){.layout{grid-template-columns:1fr}
+.sidebar{background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1)}
+.sidebar h2{font-size:1rem;color:#f1f5f9;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sidebar h2 .count{font-size:.8rem;color:#64748b;font-weight:400}
+.sidebar-section{margin-bottom:16px}
+.sidebar-section h3{font-size:.85rem;color:#94a3b8;margin-bottom:8px;font-weight:500}
+.sidebar-section label{display:flex;align-items:center;gap:8px;padding:4px 8px;font-size:.82rem;color:#cbd5e1;cursor:pointer;border-radius:4px;transition:background .15s}
+.sidebar-section label:hover{background:rgba(148,163,184,.08)}
+.sidebar-section input[type="checkbox"]{accent-color:#06b6d4;width:14px;height:14px;flex-shrink:0}
+.main-area{display:flex;flex-direction:column;gap:12px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.toolbar .btn{padding:8px 16px;border-radius:6px;font-size:.85rem;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}
+.btn-secondary:hover{background:rgba(148,163,184,.18)}
+.btn-success{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.btn-success:hover{background:rgba(34,197,94,.3)}
+.btn-warning{background:rgba(234,179,8,.2);color:#facc15;border:1px solid rgba(234,179,8,.3)}
+.btn-warning:hover{background:rgba(234,179,8,.3)}
+.preview-area{background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1);flex-grow:1;display:flex;flex-direction:column}
+.preview-area .preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.preview-area .preview-header h2{font-size:1rem;color:#f1f5f9;display:flex;align-items:center;gap:6px}
+.preview-area .preview-header .line-count{font-size:.8rem;color:#64748b}
+pre.output{background:#0f172a;border:1px solid rgba(148,163,184,.12);border-radius:8px;padding:16px;font-family:"JetBrains Mono","Fira Code","Consolas",monospace;font-size:.85rem;line-height:1.5;color:#e2e8f0;white-space:pre;overflow:auto;max-height:500px;min-height:200px;tab-size:2;scrollbar-width:thin}
+pre.output .comment{color:#6b7280}
+pre.output .keyword{color:#22d3ee}
+pre.output .string{color:#4ade80}
+.search-box{width:100%;padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:6px;color:#e2e8f0;font-size:.82rem;outline:none;margin-bottom:10px}
+.search-box:focus{border-color:rgba(6,182,212,.4)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 20px;border-radius:8px;font-size:.85rem;border:1px solid rgba(6,182,212,.3);opacity:0;transition:opacity .3s;pointer-events:none;z-index:100}
+.toast.show{opacity:1}
+.sidebar-actions{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.sidebar-actions .btn-sm{padding:5px 10px;border-radius:4px;font-size:.75rem;cursor:pointer;border:none;transition:all .2s;background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.12)}
+.sidebar-actions .btn-sm:hover{background:rgba(148,163,184,.18)}
+@media(max-width:768px){.sidebar{max-height:400px;overflow-y:auto}
+}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#developer-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": ".gitignore Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/gitignore-generator/"
+    }
+  ],
+  "name": ".gitignore Generator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gitignore-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    
+    <div>
+    <h1>📄 .gitignore Generator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online .gitignore file generator for 50+ languages, frameworks, and IDEs. Select templates with one click and generate professional .gitignore files.</p>
+    </div>
+  </div>
+  <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="layout">
+    <div class="sidebar" id="sidebar">
+      <h2>Templates <span class="count" id="selectedCount">Selected 0</span></h2>
+      <div class="sidebar-actions">
+        <button class="btn-sm" onclick="selectAll()">Select All</button>
+        <button class="btn-sm" onclick="deselectAll()">Clear</button>
+        <button class="btn-sm" onclick="selectPopular()">Popular</button>
+      </div>
+      <input type="text" class="search-box" id="templateSearch" placeholder="Search templates..." oninput="filterTemplates()">
+      <div id="templateList"></div>
+    </div>
+    <div class="main-area">
+      <div class="toolbar">
+        <button class="btn btn-primary" onclick="generateGitignore()">🔄 Generate .gitignore</button>
+        <button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button>
+        <button class="btn btn-secondary" onclick="downloadResult()">⬇️ Download</button>
+      </div>
+      <div class="preview-area">
+        <div class="preview-header">
+          <h2>Preview <span class="line-count" id="lineCount">(0 lines)</span></h2>
+        </div>
+        <pre class="output" id="output"># Select templates from the left panel and click "Generate .gitignore"
+#
+# .gitignore tells Git which files should not be version tracked
+# Common: build artifacts, dependencies, system files, environment configs</pre>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+<h2>What is the .gitignore Generator?</h2><p>The .gitignore Generator is a free online tool that helps you create professional .gitignore files in seconds. It runs entirely in your browser — select templates for your languages, frameworks, and IDEs, and the tool combines them into a ready-to-use file. All data is processed locally and never uploaded.</p>
+<h2>Use Cases</h2><ul><li>Create a .gitignore for a new Node.js, Python, or Java project</li><li>Add ignore rules for your IDE, OS, and build tooling</li><li>Build a comprehensive ignore file from popular community templates</li><li>Generate a clean .gitignore without visiting gitignore.io</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+
+<script>
+// ============ .gitignore Templates ============
+const TEMPLATES = {
+  "node": { name: "Node.js", category: "Languages", content: `# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db` },
+  "python": { name: "Python", category: "Languages", content: `# Byte-compiled
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+virtualenv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/` },
+  "java": { name: "Java", category: "Languages", content: `# Compiled files
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Build directories
+target/
+build/
+out/
+bin/
+
+# Maven
+.mvn/
+
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db` },
+  "go": { name: "Go", category: "Languages", content: `# Binary
+*.exe
+*.test
+*.out
+
+# Build output
+/bin/
+/build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db` },
+  "rust": { name: "Rust", category: "Languages", content: `# Generated by Cargo
+target/
+**/*.rs.bk
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store` },
+  "ruby": { name: "Ruby", category: "Languages", content: `# Bundler
+.bundle/
+vendor/bundle
+vendor/ruby
+
+# Rails
+tmp/
+log/
+storage/
+public/packs
+public/assets
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "php": { name: "PHP", category: "Languages", content: `# Vendor
+/vendor/
+/composer.lock
+
+# PHPUnit
+.phpunit.result.cache
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store` },
+  "cpp": { name: "C/C++", category: "Languages", content: `# Build outputs
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.lib
+
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "csharp": { name: "C#", category: "Languages", content: `# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdb
+
+# NuGet
+*.nupkg
+**/[Pp]ackages/*
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+
+# OS
+.DS_Store` },
+  "typescript": { name: "TypeScript", category: "Languages", content: `# Build output
+dist/
+build/
+out/
+*.js.map
+*.d.ts.map
+
+# TypeScript cache
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# IDE
+.idea/
+.vscode/
+
+# Node
+node_modules/
+.env` },
+  "swift": { name: "Swift", category: "Languages", content: `# Xcode
+build/
+*.xcworkspace
+xcuserdata/
+DerivedData/
+
+# CocoaPods
+Pods/
+
+# Swift Package Manager
+.build/
+Packages/
+
+# IDE
+*.swp
+
+# OS
+.DS_Store` },
+  "kotlin": { name: "Kotlin", category: "Languages", content: `# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Build outputs
+*.class
+*.jar` },
+  "dart": { name: "Dart", category: "Languages", content: `# Dart
+.dart_tool/
+.packages
+.pub/
+build/
+
+# Flutter
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store` },
+  "react": { name: "React (CRA)", category: "Web Frameworks", content: `# Dependencies
+node_modules/
+
+# Build
+build/
+dist/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "vue": { name: "Vue.js", category: "Web Frameworks", content: `# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Local env
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "angular": { name: "Angular", category: "Web Frameworks", content: `# Dependencies
+node_modules/
+
+# Build
+dist/
+tmp/
+
+# Angular
+*.js.map
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "django": { name: "Django", category: "Web Frameworks", content: `# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+
+# IDE
+.idea/
+.vscode/` },
+  "nextjs": { name: "Next.js", category: "Web Frameworks", content: `# Next.js
+.next/
+out/
+node_modules/
+.env*
+*.tsbuildinfo
+next-env.d.ts` },
+  "nuxt": { name: "Nuxt.js", category: "Web Frameworks", content: `# Nuxt
+.nuxt/
+dist/
+node_modules/
+.env` },
+  "laravel": { name: "Laravel", category: "Web Frameworks", content: `# Laravel
+/vendor/
+node_modules/
+.env
+storage/
+*.log` },
+  "spring": { name: "Spring Boot", category: "Web Frameworks", content: `# Spring Boot
+target/
+*.jar
+*.war
+*.class
+.log
+.env` },
+  "svelte": { name: "Svelte", category: "Web Frameworks", content: `# Svelte
+node_modules/
+public/build/
+.env` },
+  "vscode": { name: "VS Code", category: "IDEs & Editors", content: `# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace` },
+  "idea": { name: "JetBrains IDEs", category: "IDEs & Editors", content: `# IntelliJ IDEA / WebStorm / PyCharm / GoLand / etc.
+.idea/
+*.iml
+*.ipr
+*.iws
+out/` },
+  "vim": { name: "Vim", category: "IDEs & Editors", content: `# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Temporary
+*~
+*.swp
+*.swo` },
+  "emacs": { name: "Emacs", category: "IDEs & Editors", content: `# Emacs
+*~
+\#*\#
+/.emacs.desktop
+*.elc
+auto-save-list
+tramp` },
+  "xcode": { name: "Xcode", category: "IDEs & Editors", content: `# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+xcuserdata
+DerivedData
+*.ipa
+*.xcuserstate` },
+  "macos": { name: "macOS", category: "Operating Systems", content: `# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/` },
+  "windows": { name: "Windows", category: "Operating Systems", content: `# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.lnk` },
+  "linux": { name: "Linux", category: "Operating Systems", content: `# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*` },
+  "docker": { name: "Docker", category: "Other", content: `# Docker
+.docker/
+docker-compose.override.yml
+*.env` },
+  "terraform": { name: "Terraform", category: "Other", content: `# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Exclude all .tfvars files
+*.tfvars
+*.tfvars.json` },
+  "flutter": { name: "Flutter", category: "Other", content: `# Flutter
+.pub/
+build/
+flutter_export_environment.sh
+.packages
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store` },
+  "unity": { name: "Unity", category: "Other", content: `# Unity
+[Tt]emp/
+[Ll]ibrary/
+[Ll]ogs/
+[Bb]uild/
+[Bb]uilds/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.userprefs` },
+  "latex": { name: "LaTeX", category: "Other", content: `# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.run.xml` },
+  "android": { name: "Android", category: "Other", content: `# Android
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+.gradle/
+local.properties
+*.iml
+build/
+*.log` },
+  "haskell": { name: "Haskell", category: "Languages", content: `# Haskell
+dist/
+dist-newstyle/
+.stack-work/
+*.o
+*.hi
+*.hie` },
+  "r": { name: "R", category: "Languages", content: `# R
+.Rhistory
+.RData
+.Rdata
+*.Rproj
+.Rproj.user
+.Renviron` },
+  "elixir": { name: "Elixir", category: "Languages", content: `# Elixir
+_build/
+deps/
+*.ez
+*.beam
+mix.lock
+erl_crash.dump` },
+  "deno": { name: "Deno", category: "Languages", content: `# Deno
+vendor/
+gen/
+lock.json` },
+  "bun": { name: "Bun", category: "Languages", content: `# Bun
+node_modules/
+bun.lockb` },
+  "maven": { name: "Maven", category: "Other", content: `# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties` },
+  "gradle": { name: "Gradle", category: "Other", content: `# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+local.properties` },
+  "vite": { name: "Vite", category: "Other", content: `# Vite
+dist/
+*.tsbuildinfo
+.cache/
+node_modules/
+.env` },
+  "webpack": { name: "Webpack", category: "Other", content: `# Webpack
+node_modules/
+dist/` },
+  "gatsby": { name: "Gatsby", category: "Web Frameworks", content: `# Gatsby
+.cache/
+public/
+node_modules/
+.env` },
+  "hugo": { name: "Hugo", category: "Web Frameworks", content: `# Hugo
+public/
+resources/_gen/` },
+  "jekyll": { name: "Jekyll", category: "Web Frameworks", content: `# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata` },
+  "rails": { name: "Ruby on Rails", category: "Web Frameworks", content: `# Rails
+tmp/
+log/
+storage/
+public/packs
+public/assets
+.env
+*.sqlite3` },
+  "express": { name: "Express.js", category: "Web Frameworks", content: `# Express
+node_modules/
+.env
+*.log
+uploads/` },
+  "fastapi": { name: "FastAPI", category: "Web Frameworks", content: `# FastAPI
+__pycache__/
+*.py[cod]
+venv/
+.env
+*.log` },
+  "jupyter": { name: "Jupyter", category: "Languages", content: `# Jupyter Notebook
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*` },
+  "kubernetes": { name: "Kubernetes", category: "Other", content: `# Kubernetes
+*.kubeconfig
+.kube/
+*.crt
+*.key
+*.pem` },
+  "redis": { name: "Redis", category: "Other", content: `# Redis
+dump.rdb
+appendonly.aof
+*.rdb` },
+  "nginx": { name: "Nginx", category: "Other", content: `# Nginx
+nginx.conf
+*.log
+sites-enabled/` },
+  "vuepress": { name: "VuePress", category: "Web Frameworks", content: `# VuePress
+node_modules/
+docs/.vuepress/dist/
+docs/.vuepress/.temp/` },
+  "gitbook": { name: "GitBook", category: "Other", content: `# GitBook
+_book/
+node_modules/` }
+};
+
+// ============ Logic ============
+const selected = new Set();
+
+function renderTemplates() {
+  const search = (document.getElementById('templateSearch').value || '').toLowerCase();
+  const categories = {};
+  for (const [key, tpl] of Object.entries(TEMPLATES)) {
+    if (search && !tpl.name.toLowerCase().includes(search) && !tpl.category.toLowerCase().includes(search)) continue;
+    if (!categories[tpl.category]) categories[tpl.category] = [];
+    categories[tpl.category].push({ key, ...tpl });
+  }
+  const el = document.getElementById('templateList');
+  el.innerHTML = '';
+  for (const [cat, items] of Object.entries(categories)) {
+    const section = document.createElement('div');
+    section.className = 'sidebar-section';
+    const h3 = document.createElement('h3');
+    h3.textContent = cat;
+    section.appendChild(h3);
+    for (const item of items) {
+      const label = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = selected.has(item.key);
+      cb.dataset.key = item.key;
+      cb.onchange = () => {
+        if (cb.checked) selected.add(item.key); else selected.delete(item.key);
+        updateCount();
+      };
+      label.appendChild(cb);
+      label.appendChild(document.createTextNode(item.name));
+      section.appendChild(label);
+    }
+    el.appendChild(section);
+  }
+}
+
+function updateCount() {
+  document.getElementById('selectedCount').textContent = `Selected ${selected.size}`;
+}
+
+function filterTemplates() {
+  renderTemplates();
+}
+
+function selectAll() {
+  for (const key of Object.keys(TEMPLATES)) selected.add(key);
+  renderTemplates();
+  updateCount();
+}
+
+function deselectAll() {
+  selected.clear();
+  renderTemplates();
+  updateCount();
+}
+
+function selectPopular() {
+  const pop = ['node','python','java','react','vscode','macos','windows','docker','vite','nextjs'];
+  deselectAll();
+  for (const p of pop) selected.add(p);
+  renderTemplates();
+  updateCount();
+}
+
+function generateGitignore() {
+  const keys = [...selected];
+  if (keys.length === 0) {
+    showToast('⚠️ Please select at least one template');
+    return;
+  }
+  const lines = [];
+  lines.push('# === .gitignore — Generated by .gitignore Generator ===');
+  lines.push(`# Generated: ${new Date().toLocaleString()}`);
+  lines.push('');
+  for (const key of keys) {
+    const tpl = TEMPLATES[key];
+    lines.push(`# ===== ${tpl.name} (${tpl.category}) =====`);
+    lines.push(tpl.content.trim());
+    lines.push('');
+  }
+  lines.push('# === End of .gitignore ===');
+  document.getElementById('output').textContent = lines.join('\n');
+  document.getElementById('lineCount').textContent = `(${lines.length} lines)`;
+  showToast('✅ .gitignore generated');
+}
+
+function copyResult() {
+  const text = document.getElementById('output').textContent;
+  if (!text || text.startsWith('# Select templates')) {
+    showToast('⚠️ Nothing to copy');
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => showToast('✅ Copied to clipboard'));
+}
+
+function downloadResult() {
+  const text = document.getElementById('output').textContent;
+  if (!text || text.startsWith('# Select templates')) {
+    showToast('⚠️ Nothing to download');
+    return;
+  }
+  const blob = new Blob([text], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '.gitignore';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('✅ .gitignore downloaded');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+renderTemplates();
+updateCount();
+</script>
+
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+<script src="../../related-tools.js"></script>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

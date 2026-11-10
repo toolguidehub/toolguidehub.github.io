@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Build a Caddyfile visually for reverse proxy, static sites and automatic HTTPS certificates.">
+<meta name="keywords" content="Caddyfile generatorCaddy configreverse proxyHTTPSauto certificateCaddy server">
+<title>Free Caddyfile Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/caddyfile-generator/">
+<meta property="og:title" content="Free Caddyfile Generator - ToolGuideHub">
+<meta property="og:description" content="Build a Caddyfile visually for reverse proxy, static sites and automatic HTTPS certificates.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/caddyfile-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Caddyfile Generator", "description": "Free online Caddyfile generator. Visually configure reverse proxy, static sites, HTTPS. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-14", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a Caddyfile?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Caddyfile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Caddyfile is the Caddy web server configuration file using concise declarative syntax to define site behavior like reverse proxy, static file serving, and HTTPS certificate management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Caddy auto-HTTPS work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Caddyfile Generator - Caddy Visual Config·Reverse Proxy·HTTPS | Free Online processes everything locally in your browser. No data is sent to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the generated Caddyfile directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The generated Caddyfile follows Caddy syntax conventions. Save and run caddy run to start. Test in staging first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely safe. All configuration is generated locally in your browser. No data is uploaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Caddy and Nginx?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Caddy has auto-HTTPS and simpler config; Nginx has higher performance and a more mature ecosystem. Caddy suits small/medium projects; Nginx excels at high concurrency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to configure multiple sites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Define multiple site blocks in Caddyfile, each starting with a domain name."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Caddyfile Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/caddyfile-generator/"
+    }
+  ],
+  "name": "Caddyfile Generator"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace;resize:vertical;min-height:160px}textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}textarea::placeholder{color:#475569}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(16,185,129,.2);color:#34d399;border:1px solid rgba(16,185,129,.3)}.btn-success:hover{background:rgba(16,185,129,.3)}.btn-danger{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}.btn-danger:hover{background:rgba(239,68,68,.3)}.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.ad-slot.ad-sidebar{max-width:300px}.ad-sidebar-wrap{display:flex;flex-direction:column;gap:0}.seo-content{margin-top:24px;color:#94a3b8;font-size:.9rem;line-height:1.8}.seo-content h2{color:#f1f5f9;font-size:1.2rem;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(148,163,184,.1)}.seo-content h3{color:#e2e8f0;font-size:1rem;margin:16px 0 8px}.seo-content ul{padding-left:20px;margin:8px 0}.seo-content li{margin:4px 0}.faq-item{background:#1e293b;border-radius:8px;padding:16px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;text-align:center;margin-top:40px}.footer a{color:#94a3b8;margin:0 8px;font-size:.85rem}.footer a:hover{color:#22d3ee}.footer p{color:#64748b;font-size:.85rem}.config-group{margin-bottom:16px}.config-group h3{color:#e2e8f0;font-size:.95rem;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(148,163,184,.1)}.config-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}.config-row label{color:#94a3b8;font-size:.85rem;min-width:100px}.config-row input[type="text"],.config-row input[type="number"],.config-row select{padding:6px 10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:.85rem;flex:1;min-width:120px}.config-row input:focus,.config-row select:focus{outline:none;border-color:rgba(6,182,212,.5)}.toggle{position:relative;width:40px;height:22px;cursor:pointer;display:inline-block}.toggle input{opacity:0;width:0;height:0}.toggle .slider{position:absolute;top:0;left:0;right:0;bottom:0;background:#334155;border-radius:22px;transition:.3s}.toggle .slider:before{content:"";position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#94a3b8;border-radius:50%;transition:.3s}.toggle input:checked+.slider{background:rgba(6,182,212,.3)}.toggle input:checked+.slider:before{transform:translateX(18px);background:#22d3ee}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/caddyfile-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Caddyfile Generator","description":"Step-by-step guide for using Caddyfile Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Caddyfile Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header"><h1>🟢 Caddyfile Generator</h1></div>
+ <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › Caddyfile Generator</p>
+ <p class="hero-sub">Visual Caddy server config builder: reverse proxy, static sites, auto HTTPS, redirects</p>
+ <span class="badge">Zero Dependencies · Works Offline</span>
+ <div class="main-grid">
+ <div>
+ <div class="input-section">
+ <h2>📋 Site Configuration</h2>
+ <div class="config-group"><h3>Basic Settings</h3>
+ <div class="config-row"><label>Domain</label><input type="text" id="domain" placeholder="example.com"></div>
+ <div class="config-row"><label>Site Type</label><select id="siteType"><option value="proxy">Reverse Proxy</option><option value="static">Static Site</option><option value="redirect">Redirect</option></select></div>
+ <div class="config-row" id="proxyRow"><label>Backend Address</label><input type="text" id="proxyTarget" placeholder="http://localhost:3000"></div>
+ <div class="config-row" id="staticRow" style="display:none"><label>Site Root</label><input type="text" id="rootPath" placeholder="/var/www/html"></div>
+ <div class="config-row" id="redirectRow" style="display:none"><label>Target URL</label><input type="text" id="redirectTarget" placeholder="https://new.example.com"></div>
+ </div>
+ <div class="config-group"><h3>HTTPS & Security</h3>
+ <div class="config-row"><label>Auto HTTPS</label><label class="toggle"><input type="checkbox" id="autoHttps" checked><span class="slider"></span></label></div>
+ <div class="config-row"><label>HTTP→HTTPS</label><label class="toggle"><input type="checkbox" id="httpRedirect" checked><span class="slider"></span></label></div>
+ <div class="config-row"><label>Compression</label><label class="toggle"><input type="checkbox" id="compress" checked><span class="slider"></span></label></div>
+ </div>
+ <div class="config-group"><h3>Logs & Caching</h3>
+ <div class="config-row"><label>Access Log</label><label class="toggle"><input type="checkbox" id="accessLog" checked><span class="slider"></span></label></div>
+ <div class="config-row"><label>Log Path</label><input type="text" id="logPath" value="/var/log/caddy/access.log"></div>
+ </div>
+ <div class="btn-row">
+ <div class="config-row"><label>Custom Directives</label><textarea id="customDirectives" placeholder="Extra Caddy directives, one per line" style="min-height:60px;flex:1"></textarea></div>
+ </div>
+ <div class="btn-row">
+ <button class="btn btn-primary" onclick="generate()">⚙️ Generate Caddyfile</button>
+ <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+ <button class="btn btn-danger" onclick="clearAll()">✖ Clear</button>
+ </div>
+ </div>
+ <div class="result-section" id="resultSection" style="display:none">
+ <h2>📄 Generated Caddyfile</h2>
+ <textarea id="output" readonly style="min-height:250px;background:#0d1117"></textarea>
+ <div class="btn-row" style="margin-top:8px">
+ <button class="btn btn-success" onclick="copyResult()">📋 Copy</button>
+ <button class="btn btn-primary" onclick="downloadResult()">💾 Download Caddyfile</button>
+ </div>
+ </div>
+ </div>
+ <div class="ad-sidebar-wrap">
+ </div>
+ </div>
+  <div class="seo-content">
+  <h2>What is a Caddyfile Generator?</h2>
+  <p>The Caddyfile Generator is a free online tool for the Caddy web server. It lets you visually build a Caddyfile configuration for reverse proxies, static sites, auto-HTTPS certificates, HTTP redirects, compression, and logging. With Caddy's built-in Auto HTTPS, this local tool makes your server configuration simple and safe. Everything runs entirely in your browser.</p>
+  <h2>Core Features</h2>
+  <ul>
+  <li><strong>Reverse Proxy</strong>: configure the key reverse_proxy directive with a backend address and header settings.</li>
+  <li><strong>Static Site</strong>: configure the site root and file_server to deploy static sites quickly.</li>
+  <li><strong>Auto HTTPS</strong>: Caddy automatically obtains Let's Encrypt certificates, so no manual certificate configuration is needed.</li>
+  <li><strong>HTTP Redirect</strong>: automatically redirect all HTTP requests to HTTPS.</li>
+  <li><strong>Compression and Logging</strong>: enable gzip encoding and access log configuration.</li>
+  </ul>
+  <h2>How to Use</h2>
+  <p>1. Enter a domain and select the site type (Reverse Proxy, Static Site, or Redirect).</p>
+  <p>2. Set the backend address or site root and other parameters.</p>
+  <p>3. Configure HTTPS, compression, logging, and other options.</p>
+  <p>4. Click "Generate Caddyfile", then copy or download the configuration file.</p>
+  <p>5. Place the Caddyfile in your Caddy config directory and run <code>caddy run</code> to start.</p>
+  <h2>Use Cases</h2>
+  <h3>Scenario 1: Deploy a reverse proxy quickly</h3>
+  <p>If you need to route a domain to a local service (such as a Node.js or Python app), use this tool to generate the reverse proxy configuration.</p>
+  <h3>Scenario 2: Host a static site</h3>
+  <p>For frontend static sites, configure Caddy to serve files with Auto HTTPS, which is simpler than an Nginx setup.</p>
+  <h3>Scenario 3: Migrate a domain</h3>
+  <p>When you move a domain, generate a redirect config to send traffic from the old domain to the new one, preserving SEO equity.</p>
+  <h2>Technical Background</h2>
+  <p>Caddy is a web server written in Go. Its main advantage is Auto HTTPS, which provisions certificates automatically via the ACME protocol and Let's Encrypt. The Caddyfile is concise: each site block starts with a domain, followed by directives such as reverse_proxy (reverse proxy), root (site root), file_server (file serving), encode (compression), redir (redirect), and log (logging). Caddy v2 also supports JSON configuration and an API, making it well suited to containerized deployments. Compared to Nginx, Caddy has simpler configuration but slightly lower performance, ideal for small and medium projects and development environments.</p>
+  </div>
+ <h2>❓ FAQ</h2>
+ <div class="faq-item"><h3>What is a Caddyfile?</h3><p>A Caddyfile is the Caddy web server configuration file using concise declarative syntax to define site behavior like reverse proxy, static file serving, and HTTPS certificate management.</p></div>
+ <div class="faq-item"><h3>How does Caddy auto-HTTPS work?</h3><p>Caddy automatically obtains and renews TLS certificates via Let's Encrypt. Just use a domain name in Caddyfile and Caddy handles certificate provisioning and renewal.</p></div>
+ <div class="faq-item"><h3>Can I use the generated Caddyfile directly?</h3><p>Yes. The generated Caddyfile follows Caddy syntax conventions. Save and run caddy run to start. Test in staging first.</p></div>
+ <div class="faq-item"><h3>Is my data safe?</h3><p>Absolutely safe. All configuration is generated locally in your browser. No data is uploaded.</p></div>
+ <div class="faq-item"><h3>What's the difference between Caddy and Nginx?</h3><p>Caddy has auto-HTTPS and simpler config; Nginx has higher performance and a more mature ecosystem. Caddy suits small/medium projects; Nginx excels at high concurrency.</p></div>
+ <div class="faq-item"><h3>How to configure multiple sites?</h3><p>Define multiple site blocks in Caddyfile, each starting with a domain name.</p></div>
+ <div class="faq-item"><h3>Does Caddy support WebSocket?</h3><p>Yes. The reverse_proxy directive automatically handles WebSocket connection upgrades without extra configuration.</p></div>
+  </main>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+<footer class="footer container">
+ <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">AllTools</a><a href="../contact/">Contact</a>
+ <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="./" class="active">EN</a>
+</div>
+
+
+</footer>
+ 
+<script>
+document.getElementById('siteType').addEventListener('change',function(){var v=this.value;document.getElementById('proxyRow').style.display=v==='proxy'?'flex':'none';document.getElementById('staticRow').style.display=v==='static'?'flex':'none';document.getElementById('redirectRow').style.display=v==='redirect'?'flex':'none';});
+window.generate=function(){var domain=document.getElementById('domain').value||'localhost';var type=document.getElementById('siteType').value;var lines=[];
+if(!document.getElementById('autoHttps').checked){lines.push('{');lines.push('  auto_https off');lines.push('}');lines.push('');}
+lines.push(domain+' {');
+if(type==='proxy'){var target=document.getElementById('proxyTarget').value||'http://localhost:3000';lines.push('  reverse_proxy '+target);}
+else if(type==='static'){var root=document.getElementById('rootPath').value||'/var/www/html';lines.push('  root * '+root);lines.push('  file_server');}
+else if(type==='redirect'){var redir=document.getElementById('redirectTarget').value||'https://new.example.com';lines.push('  redir '+redir+'{uri} permanent');}
+if(document.getElementById('compress').checked){lines.push('  encode gzip');}
+if(document.getElementById('accessLog').checked){var lp=document.getElementById('logPath').value||'/var/log/caddy/access.log';lines.push('  log {');lines.push('    output file '+lp);lines.push('  }');}
+var custom=document.getElementById('customDirectives').value.trim();if(custom){custom.split('\n').forEach(function(l){if(l.trim())lines.push('  '+l.trim());});}
+lines.push('}');
+if(document.getElementById('httpRedirect').checked&&document.getElementById('autoHttps').checked){lines.push('');lines.push('http://'+domain+' {');lines.push('  redir https://{host}{uri} permanent');lines.push('}');}
+document.getElementById('output').value=lines.join('\n');document.getElementById('resultSection').style.display='block';};
+window.loadExample=function(){document.getElementById('domain').value='app.example.com';document.getElementById('siteType').value='proxy';document.getElementById('proxyTarget').value='http://localhost:8080';document.getElementById('autoHttps').checked=true;document.getElementById('httpRedirect').checked=true;document.getElementById('compress').checked=true;document.getElementById('accessLog').checked=true;generate();};
+window.clearAll=function(){document.getElementById('domain').value='';document.getElementById('resultSection').style.display='none';};
+window.copyResult=function(){var t=document.getElementById('output').value;if(navigator.clipboard)navigator.clipboard.writeText(t).then(showMsg);};
+window.downloadResult=function(){var t=document.getElementById('output').value;var b=new Blob([t],{type:'text/plain'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Caddyfile';a.click();};
+function showMsg(){var m=document.createElement('div');m.textContent='✓ Copied!';m.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(m);setTimeout(function(){m.remove();},2000);}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){generate();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyResult();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='X'){clearAll();e.preventDefault();}});
+if(!localStorage.getItem('caddy_gen_done')){loadExample();localStorage.setItem('caddy_gen_done','1');}
+
+</script>
+
+</body>
+</html>

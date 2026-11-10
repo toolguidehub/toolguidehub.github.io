@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online Base32 encode/decode tool supporting RFC 4648 standard. Convert text to Base32 or decode Base32 back to text instantly.">
+<meta name="keywords" content="Base32 encode,Base32 decode,Base32 converter,base32 online,encoding tool,RFC 4648">
+<title>Base32 Encode/Decode Tool - RFC 4648 | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/base32-encode-decode/">
+<meta property="og:title" content="Base32 Encode/Decode Tool - RFC 4648 | ToolGuideHub">
+<meta property="og:description" content="Free online Base32 encode/decode tool supporting RFC 4648 standard. Convert text to Base32 or decode Base32 back to text instantly.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/base32-encode-decode/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Base32 Encode/Decode Tool - No Signup">
+<meta name="twitter:description" content="Free online Base32 encode/decode tool. RFC 4648 standard. Pure frontend, no data upload.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Base32 Encode/Decode","description":"Free online Base32 encode/decode tool supporting RFC 4648 standard. Pure frontend, no data upload.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolGuideHub"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#online-tools"},{"@type":"ListItem","position":3,"name":"Base32 Encode/Decode","item":"https://adi63586.github.io/Toolguidehub/en/base32-encode-decode/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/base32-encode-decode/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+textarea{
+      background: #0f172a;
+      color: var(--text);width:100%;resize:vertical}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.mode-select{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.mode-select label{padding:8px 16px;border-radius:6px;border:1px solid rgba(148,163,184,.2);cursor:pointer;font-size:.85rem;color:#94a3b8;transition:all .2s}
+.mode-select input[type=radio]{display:none}
+.mode-select input[type=radio]:checked+label{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;font-size:.85rem;margin-top:12px;min-height:60px;word-break:break-all}
+.result-box .placeholder{color:#64748b}
+.btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Base32?", "acceptedAnswer": {"@type": "Answer", "text": "Base32 is an encoding scheme that converts binary data into 32 printable characters (A-Z and 2-7). It is easier for humans to read and type manually than Base64, because it excludes easily confused characters (like 0, O, 1, I, L). It is widely used for secret sharing, OTP two-factor authentication, and DNS security."}}, {"@type": "Question", "name": "What's the difference between Base32 and Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Base32 uses 32 characters (A-Z and 2-7), while Base64 uses 64 characters (A-Z, a-z, 0-9, +, /). Base32 encoded output is about 20% larger than Base64, but the character set is case-insensitive and avoids ambiguous characters, making it better for human reading and verbal communication. Base32 is commonly used for OTP secrets and Tor onion domains, while Base64 is used for email attachments and Data URLs."}}, {"@type": "Question", "name": "Is this tool secure?", "acceptedAnswer": {"@type": "Answer", "text": "Completely secure. All encoding and decoding operations are performed locally in your browser using JavaScript. Your data is never uploaded to any server. You can even use this tool offline."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Base32 Encode / Decode</h1>
+    
+  </div>
+  <p class="nav-back"><a href="../index.html">← All Tools</a></p>
+
+  <div class="tool-section">
+    <h2>Base32 Encode / Decode</h2>
+    <p>Supports RFC 4648 standard Base32 encoding (A-Z, 2-7) with UTF-8 text. Everything runs locally: Encode and Decode are processed on your device, never sent to a server — no data is uploaded.</p>
+    <div class="mode-select">
+      <input type="radio" name="mode" id="mode-encode" value="encode" checked><label for="mode-encode">🔒 Encode (Text → Base32)</label>
+      <input type="radio" name="mode" id="mode-decode" value="decode"><label for="mode-decode">🔓 Decode (Base32 → Text)</label>
+    </div>
+    <textarea id="input" rows="6" placeholder="Enter text to encode..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="convert()">⚡ Convert</button>
+      <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+    </div>
+    <div class="result-box" id="result"><span class="placeholder">Result will appear here...</span></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+  </div>
+
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Enter content:</strong> Type the text you want to encode or the Base32 string you want to decode.</p>
+    <p><strong>2. Select mode:</strong> Choose "Encode" to convert text to Base32, or "Decode" to restore Base32 to original text.</p>
+    <p><strong>3. Copy result:</strong> Click "Copy Result" to copy the converted content to your clipboard.</p>
+  </div>
+
+  <div class="tool-section">
+    <h2>❓ FAQ</h2>
+    <div class="faq-item">
+      <h3>What is Base32?</h3>
+      <p>Base32 is an encoding scheme that converts binary data into 32 printable characters (A-Z and 2-7). It is easier for humans to read and type manually than Base64, because it excludes easily confused characters (like 0, O, 1, I, L). It is widely used for secret sharing, OTP two-factor authentication, and DNS security.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What's the difference between Base32 and Base64?</h3>
+      <p>Base32 uses 32 characters (A-Z and 2-7), while Base64 uses 64 characters (A-Z, a-z, 0-9, +, /). Base32 encoded output is about 20% larger than Base64, but the character set is case-insensitive and avoids ambiguous characters, making it better for human reading and verbal communication. Base32 is commonly used for OTP secrets and Tor onion domains, while Base64 is used for email attachments and Data URLs.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is this tool secure?</h3>
+      <p>Completely secure. All encoding and decoding operations are performed locally in your browser using JavaScript. Your data is never uploaded to any server. You can even use this tool offline.</p>
+    </div>
+  </div>
+</main>
+
+<div class="ad-slot" style="margin:16px auto"></div>
+
+<div id="related-tools-section" class="tool-section" style="display:none"></div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/base32-encode-decode/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s"></div>
+
+<script>
+function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");t.style.opacity="1";setTimeout(function(){t.style.opacity="0"},3000)}
+var BASE32_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+function base32Encode(input){
+  var bytes=new TextEncoder().encode(input);
+  var bits="",result="";
+  for(var i=0;i<bytes.length;i++)bits+=bytes[i].toString(2).padStart(8,"0");
+  for(var i=0;i<bits.length;i+=5){
+    var chunk=bits.substring(i,i+5);
+    if(chunk.length<5)chunk=chunk.padEnd(5,"0");
+    result+=BASE32_ALPHABET[parseInt(chunk,2)];
+  }
+  var padding=8-(result.length%8);
+  if(padding>0&&padding<8)result+="=".repeat(padding);
+  return result;
+}
+function base32Decode(input){
+  input=input.toUpperCase().replace(/[^A-Z2-7=]/g,"").replace(/=+$/,"");
+  var bits="";
+  for(var i=0;i<input.length;i++){
+    var idx=BASE32_ALPHABET.indexOf(input[i]);
+    if(idx===-1)continue;
+    bits+=idx.toString(2).padStart(5,"0");
+  }
+  var bytes=[];
+  for(var i=0;i+8<=bits.length;i+=8)bytes.push(parseInt(bits.substring(i,i+8),2));
+  return new TextDecoder().decode(new Uint8Array(bytes));
+}
+function convert(){
+  var input=document.getElementById("input").value;
+  if(!input){showToast("Please enter content");return}
+  var mode=document.querySelector("input[name=mode]:checked").value;
+  var result;
+  try{
+    if(mode==="encode")result=base32Encode(input);
+    else{
+      result=base32Decode(input);
+      if(!result)result="⚠️ No valid Base32 characters found (use A-Z and 2-7).";
+    }
+    document.getElementById("result").textContent=result;
+  }catch(e){
+    document.getElementById("result").textContent="❌ Error: "+e.message;
+  }
+}
+function copyResult(){
+  var t=document.getElementById("result").textContent;
+  if(!t||t.indexOf("Result will")>=0){showToast("No result to copy");return}
+  navigator.clipboard.writeText(t).then(function(){showToast("Copied to clipboard")}).catch(function(){showToast("Copy failed")});
+}
+function clearAll(){document.getElementById("input").value="";document.getElementById("result").innerHTML='<span class="placeholder">Result will appear here...</span>'}
+</script>
+
+<script>
+(function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    s.style.display='block';
+    var h = '<h2>🔗 You May Also Like</h2><div style="display:flex;flex-wrap:wrap;gap:8px">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" style="display:inline-block;padding:8px 16px;background:#0f172a;border-radius:8px;color:#22d3ee;font-size:14px;text-decoration:none">' + (r.icon || '🔧') + ' ' + r.name + '</a>';
+    });
+    h += '</div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+</script>
+</body>
+</html>

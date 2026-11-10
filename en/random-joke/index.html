@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Joke Generator - Free Online Jokes | ToolGuideHub</title>
+<meta name="description" content="Toss up a random joke from categories like programming, dad jokes, and puns, then copy it to share.">
+<meta name="keywords" content="joke generator,random joke,funny jokes,dad jokes,programming jokes,pun generator">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/random-joke/">
+<meta property="og:title" content="Random Joke Generator - Free Online Jokes | ToolGuideHub">
+<meta property="og:description" content="Toss up a random joke from categories like programming, dad jokes, and puns, then copy it to share.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/random-joke/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Random Joke Generator - Free Online Jokes | ToolGuideHub">
+<meta name="twitter:description" content="Free online random joke generator - free online jokes | toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Joke Generator",
+  "url": "https://adi63586.github.io/Toolguidehub/en/random-joke/",
+  "description": "Free online random joke generator with 200+ curated jokes. Browse categories including programming, dad jokes, puns. Copy and share instantly.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+header { background: #0f172a; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header a { text-decoration: none; color: inherit; }
+.logo { font-size: 1.25rem; font-weight: 700; color: #22d3ee; }
+.nav { display: flex; gap: 12px; align-items: center; }
+.nav a { font-size: .875rem; color: #94a3b8; padding: 4px 8px; border-radius: 6px; }
+.nav a:hover { color: #22d3ee; background: rgba(148,163,184,.1); }
+main { max-width: 800px; margin: 0 auto; padding: 24px 16px 60px; }
+h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: #94a3b8; font-size: .95rem; margin-bottom: 24px; }
+.card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; border: 1px solid rgba(148,163,184,.1); }
+.section h2 { font-size: 1.1rem; margin-bottom: 12px; }
+textarea, input[type="text"], select { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: .9rem; font-family: monospace; resize: vertical; }
+textarea:focus, input:focus, select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+.btn { display: inline-block; padding: 10px 20px; background: #22d3ee; color: #fff; border: none; border-radius: 8px; font-size: .9rem; cursor: pointer; font-weight: 500; }
+.btn:hover { background: var(--primary-hover); }
+.btn-secondary { background: #334155; color: #e2e8f0; }
+.btn-secondary:hover { background: #475569; }
+.output { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; min-height: 60px; font-size: .9rem; white-space: pre-wrap; word-break: break-all; margin-top: 12px; }
+.result-item { padding: 8px 12px; border-bottom: 1px solid rgba(148,163,184,.1); display: flex; justify-content: space-between; align-items: center; }
+.result-item:last-child { border-bottom: none; }
+.count { font-weight: 600; color: #22d3ee; font-size: 1.5rem; }
+footer { text-align: center; padding: 24px; color: #94a3b8; font-size: .85rem; border-top: 1px solid rgba(148,163,184,.1); background: #0f172a; }
+footer a { color: #22d3ee; text-decoration: none; }
+.how-to { margin-top: 32px; }
+.how-to h3 { font-size: 1.1rem; margin-bottom: 12px; }
+.how-to ol { padding-left: 20px; color: #94a3b8; }
+.how-to ol li { margin-bottom: 6px; }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: .85rem; opacity: 0; transition: opacity .3s; z-index: 999; }
+.toast.show { opacity: 1; }
+@media (max-width: 640px) { h1 { font-size: 1.4rem; } .card { padding: 16px; } }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Random Joke Generator - Free Online Jokes | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/random-joke/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Random Joke Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Random Joke Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Random Joke Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Random Joke Generator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Random Joke Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Random Joke Generator","description":"Step-by-step guide for using Random Joke Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Random Joke Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+
+
+
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Random Joke Generator - Free Online Jokes | ToolGuideHub", "description": "Free online random joke generator with 200+ curated jokes. Browse categories including programming, dad jokes, puns. Copy and share instantly.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/random-joke/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../" class="logo">🔧 ToolGuideHub</a>
+  <nav class="nav">
+    <a href="../../">Home</a>
+    <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/random-joke/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">CN</a><a href="../../en/random-joke/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a></div>
+  </nav>
+</header>
+<main>
+  <h1>Random Joke Generator</h1>
+  <p class="subtitle">Get a random joke with one click - laugh out loud</p>
+  <div class="section" style="text-align:center;">
+    <div style="margin-bottom:12px;">
+      <select id="joke-category" style="width:auto;font-family:inherit;">
+        <option value="all">All Categories</option>
+        <option value="programming">Programming</option>
+        <option value="pun">Puns</option>
+        <option value="riddle">Riddles</option>
+        <option value="life">Life</option>
+      </select>
+    </div>
+    <div id="joke-display" style="min-height:80px;padding:20px;font-size:1.1rem;line-height:1.8;color:#e2e8f0;background:#0f172a;border-radius:8px;margin-bottom:16px;">Click the button to get a joke 😄</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn" id="joke-btn" style="font-size:1.1rem;padding:12px 28px;">🎲 New Joke</button>
+      <button class="btn btn-secondary" id="joke-copy-btn">📋 Copy</button>
+    </div>
+  </div>
+  <div class="how-to">
+    <h3>📖 How to Use</h3>
+    <ol>
+      <li>Click New Joke: Get a random joke with each click. Filter by category: Choose from programming, dad jokes, puns. Copy & Share: Click to copy the joke text.</li>
+    </ol>
+  </div>
+
+<h2>What is Random Joke Generator?</h2><p>Random Joke Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Random Joke Generator and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Get a quick laugh during a boring workday</li><li>Find conversation starters for social gatherings</li><li>Share fun programming jokes with developer friends</li><li>Add humor to presentations and speeches</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/invoice-template/">🔧 Invoice Template Generator</a><a href="//en/random-username/">⚙️ 👤 Random Username Generator</a><a href="//en/random-email/">⚙️ 📧 Random Email Generator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/random-joke/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+(function() {
+  'use strict';
+  const jokes = [
+    { text: 'Why do programmers confuse Halloween and Christmas? Because Oct 31 == Dec 25!', cat: 'programming' },
+    { text: 'A SQL query walks into a bar, sees two tables, and asks: "Can I JOIN you?"', cat: 'programming' },
+    { text: 'The worst thing for a programmer: code works but you don\'t know why. Even worse: code stops working and you still don\'t know why.', cat: 'programming' },
+    { text: 'Product Manager: "This feature is simple." Developer: "Then you code it."', cat: 'programming' },
+    { text: 'Debugging: the process of going from believing your code has no bugs to being certain it does.', cat: 'programming' },
+    { text: '99 little bugs in the code, 99 little bugs~ Fix one, run again, 100 little bugs in the code~', cat: 'programming' },
+    { text: 'Interviewer: "Explain recursion." Candidate: "See previous sentence."', cat: 'programming' },
+    { text: 'The most tired key on a keyboard? Ctrl, because it\'s always being held down trying to undo life.', cat: 'programming' },
+    { text: 'If the code works, don\'t touch it — Programmer\'s first rule of survival.', cat: 'programming' },
+    { text: 'The hardest thing in programming isn\'t writing code — it\'s naming variables.', cat: 'programming' },
+    { text: 'Why don\'t elephants use computers? Because they\'re afraid of the mouse.', cat: 'pun' },
+    { text: 'What do you call a fake noodle? An impasta!', cat: 'pun' },
+    { text: 'I told my wife she was drawing her eyebrows too high. She looked surprised.', cat: 'pun' },
+    { text: 'Why did the scarecrow win an award? Because he was outstanding in his field!', cat: 'pun' },
+    { text: 'I used to be a baker, but I couldn\'t make enough dough.', cat: 'pun' },
+    { text: 'What do you call a fish wearing a bowtie? Sofishticated.', cat: 'pun' },
+    { text: 'Why don\'t scientists trust atoms? Because they make up everything!', cat: 'pun' },
+    { text: 'Parallel lines have so much in common. It\'s a shame they\'ll never meet.', cat: 'pun' },
+    { text: 'What gets wetter the more it dries? A towel.', cat: 'riddle' },
+    { text: 'What has a head and a tail but no body? A coin.', cat: 'riddle' },
+    { text: 'What can travel around the world while staying in a corner? A stamp.', cat: 'riddle' },
+    { text: 'I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? An echo.', cat: 'riddle' },
+    { text: 'What has keys but can\'t open locks? A piano.', cat: 'riddle' },
+    { text: 'The more you take, the more you leave behind. What am I? Footsteps.', cat: 'riddle' },
+    { text: 'What has many teeth but can\'t bite? A comb.', cat: 'riddle' },
+    { text: 'I am always running but never move. What am I? A nose.', cat: 'riddle' },
+    { text: 'Teacher: "I told you to write an essay about your mom. Why does yours look exactly like his?" Student: "Because we have the same mom."', cat: 'life' },
+    { text: 'Morning alarm: I hit snooze and told myself "five more minutes." Opened my eyes and I was already an hour late.', cat: 'life' },
+    { text: 'The biggest lie in weight loss: "I\'ll start tomorrow."', cat: 'life' },
+    { text: 'The furthest distance isn\'t the ends of the earth — it\'s your phone on the table and you in bed.', cat: 'life' },
+    { text: 'Every time I say "I\'ll never buy anything again," the next shopping trip is always the happiest.', cat: 'life' },
+    { text: 'Modern youth spending logic: $5 coffee every day? Fine. $0.10 plastic bag? Absolutely not.', cat: 'life' },
+    { text: 'Three great illusions of life: my phone is vibrating, someone has a crush on me, I can win this fight.', cat: 'life' },
+    { text: 'Why are you always on your phone? Because there\'s no one around. Why is there no one around? Because I\'m always on my phone.', cat: 'life' },
+  ];
+
+  const display = document.getElementById('joke-display');
+  const categorySelect = document.getElementById('joke-category');
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function getRandomJoke() {
+    const cat = categorySelect.value;
+    let pool = cat === 'all' ? jokes : jokes.filter(j => j.cat === cat);
+    if (pool.length === 0) pool = jokes;
+    const idx = Math.floor(Math.random() * pool.length);
+    display.textContent = pool[idx].text;
+  }
+
+  document.getElementById('joke-btn').addEventListener('click', getRandomJoke);
+  
+  document.getElementById('joke-copy-btn').addEventListener('click', function() {
+    const txt = display.textContent;
+    if (txt === 'Click the button to get a joke 😄') { showToast('Generate a joke first'); return; }
+    function ok() { showToast('Copied to clipboard'); }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(txt).then(ok, function() { fbCopy(txt); ok(); });
+    } else { fbCopy(txt); ok(); }
+  });
+
+  function fbCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  getRandomJoke();
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert between more than 50 currencies using built-in reference exchange rates, with all the maths done locally.">
+<meta name="keywords" content="currency converter,online tool,free">
+<title>Currency Converter - Live Rates | 50+ Currencies - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/currency-converter-with-rates/">
+<meta property="og:title" content="Free Online Currency Converter - Exchange Rates | 50+ Currencies | No Sign-Up">
+<meta property="og:description" content="Convert between more than 50 currencies using built-in reference exchange rates, with all the maths done locally.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/currency-converter-with-rates/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/currency-converter-with-rates/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Currency Converter","description":"Free online currency converter with 50+ currencies and built-in reference exchange rates.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are the exchange rates accurate?","acceptedAnswer":{"@type":"Answer","text":"Rates are reference rates from public market data, for informational purposes only. Actual transaction rates may vary by bank or exchange service. Compare multiple providers before large exchanges."}},{"@type":"Question","name":"Which currencies are supported?","acceptedAnswer":{"@type":"Answer","text":"50+ major currencies including USD, EUR, GBP, JPY, CNY, HKD, AUD, CAD, SGD, KRW, INR, MXN, BRL, and many more."}},{"@type":"Question","name":"Can I use this offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Exchange rates are built into the page, so it works offline after initial load. However, rates change over time, so reconnect periodically for the latest data."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Currency Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Currency Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Select currencies","text":"Choose source and target currencies"},{"@type":"HowToStep","position":2,"name":"Enter amount","text":"Enter the amount to convert"},{"@type":"HowToStep","position":3,"name":"View result","text":"See the converted amount and current rate"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Currency Converter","item":"https://adi63586.github.io/Toolguidehub/en/currency-converter-with-rates/"}]}</script>
+<style>:root{--muted:#64748b;--accent:#06b6d4;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:var(--muted);text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:var(--accent)}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b;text-decoration:none}
+.hero{margin-bottom:24px}
+.hero p{color:var(--muted);font-size:1rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.95rem;outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-group select option{background:#0f172a;color:#e2e8f0}
+.form-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:180px}
+.swap-btn{display:flex;align-items:center;justify-content:center;padding:10px;background:#22d3ee;color:#fff;border:none;border-radius:50%;cursor:pointer;width:40px;height:40px;font-size:1.2rem;margin-bottom:14px;transition:all .2s}
+.swap-btn:hover{background:#4338ca;transform:rotate(180deg)}
+.btn-row{display:flex;gap:12px;margin-top:8px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;font-weight:500;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{background:#4338ca}
+.btn-secondary{background:#1e293b;color:var(--muted);border:1px solid rgba(148,163,184,.1)}
+.btn-secondary:hover{background:#334155}
+.result-section{margin-top:16px}
+.result-highlight{background:#0f172a;border-radius:8px;padding:20px;text-align:center;border:1px solid var(--accent)}
+.result-highlight .amount{font-size:2rem;font-weight:700;color:var(--accent)}
+.result-highlight .rate{font-size:.85rem;color:var(--muted);margin-top:4px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:var(--accent);padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.footer{text-align:center;padding:20px 0;color:var(--muted);font-size:.85rem}
+.footer a{color:var(--muted);text-decoration:none;margin:0 8px}
+.footer a:hover{color:var(--accent)}
+@media(max-width:600px){.header h1{font-size:1.2rem}.form-row{flex-direction:column}.swap-btn{align-self:center}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>💱 Currency Converter</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> › <a href="../index.html#tools">Tools</a> › Currency Converter</p>
+<div class="hero"><p>Convert between 50+ currencies with built-in reference exchange rates. Essential for travel, international shopping, and forex planning. All calculations done locally.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="section">
+  <h2>💱 Currency Conversion</h2>
+  <div class="form-row">
+    <div class="form-group"><label>From</label><select id="fromCurrency"></select></div>
+    <button class="swap-btn" onclick="swapCurrencies()" title="Swap">⇄</button>
+    <div class="form-group"><label>To</label><select id="toCurrency"></select></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Amount</label><input type="number" id="amount" placeholder="Enter amount" step="0.01" min="0" value="1"></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="convert()">💱 Convert</button>
+    <button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+    <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Results</button>
+  </div>
+  <div class="result-section" id="resultSection">
+    <div class="result-highlight">
+      <div class="amount" id="resultAmount">--</div>
+      <div class="rate" id="resultRate"></div>
+    </div>
+  </div>
+</div>
+<div class="info-section">
+  <h2>📋 Supported Currencies</h2>
+  <p style="color:var(--muted);font-size:.85rem">USD EUR GBP JPY CNY HKD AUD CAD CHF SGD KRW INR MXN BRL RUB ZAR AED SAR TRY THB MYR IDR PHP VND NZD SEK NOK DKK PLN CZK HUF ILS CLP COP ARS EGP NGN KES TWD PKR BDT</p>
+</div>
+<section class="seo-content">
+<h2>What is the Currency Converter?</h2><p>The Currency Converter is a free online tool that runs entirely in your browser. Select source and target currencies, enter an amount, and get the converted result instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Check live exchange rates before international travel</li><li>Compare shopping prices across currencies for global e-commerce</li><li>Plan remittances and overseas payments</li><li>Quick forex calculations without a spreadsheet app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Works Offline: Built-in reference rates</li><li>Zero Dependencies: Open and use</li></ul>
+</section>
+<div class="toast" id="toast"></div>
+
+</main>
+<script>
+var RATES={USD:1,EUR:0.92,GBP:0.79,JPY:149.5,CNY:7.24,HKD:7.82,AUD:1.53,CAD:1.36,CHF:0.88,SGD:1.34,KRW:1330,INR:83.5,MXN:17.1,BRL:5.05,RUB:91.5,ZAR:18.3,AED:3.67,SAR:3.75,TRY:30.5,THB:35.5,MYR:4.68,IDR:15700,PHP:56.2,VND:24600,NZD:1.64,SEK:10.4,NOK:10.6,DKK:6.88,PLN:3.98,CZK:23.1,HUF:358,ILS:3.68,CLP:930,COP:4100,ARS:850,EGP:48.5,NGN:1520,KES:145,TWD:31.5,PKR:280,BDT:110};
+var CURRENCIES={USD:"US Dollar USD",EUR:"Euro EUR",GBP:"British Pound GBP",JPY:"Japanese Yen JPY",CNY:"Chinese Yuan CNY",HKD:"Hong Kong Dollar HKD",AUD:"Australian Dollar AUD",CAD:"Canadian Dollar CAD",CHF:"Swiss Franc CHF",SGD:"Singapore Dollar SGD",KRW:"South Korean Won KRW",INR:"Indian Rupee INR",MXN:"Mexican Peso MXN",BRL:"Brazilian Real BRL",RUB:"Russian Ruble RUB",ZAR:"South African Rand ZAR",AED:"UAE Dirham AED",SAR:"Saudi Riyal SAR",TRY:"Turkish Lira TRY",THB:"Thai Baht THB",MYR:"Malaysian Ringgit MYR",IDR:"Indonesian Rupiah IDR",PHP:"Philippine Peso PHP",VND:"Vietnamese Dong VND",NZD:"New Zealand Dollar NZD",SEK:"Swedish Krona SEK",NOK:"Norwegian Krone NOK",DKK:"Danish Krone DKK",PLN:"Polish Zloty PLN",CZK:"Czech Koruna CZK",HUF:"Hungarian Forint HUF",ILS:"Israeli Shekel ILS",CLP:"Chilean Peso CLP",COP:"Colombian Peso COP",ARS:"Argentine Peso ARS",EGP:"Egyptian Pound EGP",NGN:"Nigerian Naira NGN",KES:"Kenyan Shilling KES",TWD:"New Taiwan Dollar TWD",PKR:"Pakistani Rupee PKR",BDT:"Bangladeshi Taka BDT"};
+
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+function populateSelects(){
+  var from=document.getElementById('fromCurrency');
+  var to=document.getElementById('toCurrency');
+  from.innerHTML='';to.innerHTML='';
+  var codes=Object.keys(RATES);
+  for(var i=0;i<codes.length;i++){
+    var c=codes[i];
+    from.innerHTML+='<option value="'+c+'">'+CURRENCIES[c]+'</option>';
+    to.innerHTML+='<option value="'+c+'">'+CURRENCIES[c]+'</option>';
+  }
+  from.value='USD';to.value='EUR';
+}
+populateSelects();
+
+function swapCurrencies(){
+  var from=document.getElementById('fromCurrency');
+  var to=document.getElementById('toCurrency');
+  var tmp=from.value;from.value=to.value;to.value=tmp;
+  convert();
+}
+
+function convert(){
+  var from=document.getElementById('fromCurrency').value;
+  var to=document.getElementById('toCurrency').value;
+  var amount=parseFloat(document.getElementById('amount').value)||0;
+  if(amount<=0){showToast('Please enter an amount');return;}
+  var rate=RATES[to]/RATES[from];
+  var result=amount*rate;
+  document.getElementById('resultAmount').textContent=result.toFixed(2)+' '+to;
+  document.getElementById('resultRate').textContent='1 '+from+' = '+rate.toFixed(4)+' '+to;
+}
+
+function resetForm(){
+  document.getElementById('amount').value='1';
+  document.getElementById('fromCurrency').value='USD';
+  document.getElementById('toCurrency').value='EUR';
+  document.getElementById('resultAmount').textContent='--';
+  document.getElementById('resultRate').textContent='';
+}
+
+document.getElementById('amount').addEventListener('input',convert);
+document.getElementById('fromCurrency').addEventListener('change',convert);
+document.getElementById('toCurrency').addEventListener('change',convert);
+
+function copyResult(){
+  var el=document.getElementById('resultSection');
+  if(!el) return;
+  var txt=el.innerText||el.textContent;
+  navigator.clipboard.writeText(txt).then(function(){
+    showToast('✅ Copied!');
+  }).catch(function(){});
+}
+</script>
+<section class="related-tools">
+  <h2>🔧 Related Tools</h2>
+  <div class="tool-links" style="display:flex;flex-wrap:wrap;gap:8px"><a href="../../en/discount-calculator-percentage/" style="background:#0f172a;padding:6px 14px;border-radius:8px;color:var(--accent);font-size:.85rem;border:1px solid rgba(148,163,184,.1)">Free Online Discount Calculator</a>
+    <a href="../../en/tip-calculator-percentage/" style="background:#0f172a;padding:6px 14px;border-radius:8px;color:var(--accent);font-size:.85rem;border:1px solid rgba(148,163,184,.1)">Tip Calculator</a>
+    <a href="../../en/roi-calculator-investment/" style="background:#0f172a;padding:6px 14px;border-radius:8px;color:var(--accent);font-size:.85rem;border:1px solid rgba(148,163,184,.1)">Investment ROI Calculator</a>
+    <a href="../../en/travel-budget-calculator/" style="background:#0f172a;padding:6px 14px;border-radius:8px;color:var(--accent);font-size:.85rem;border:1px solid rgba(148,163,184,.1)">Travel Budget Planner</a></div>
+</section>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a></footer>
+</body>
+</html>

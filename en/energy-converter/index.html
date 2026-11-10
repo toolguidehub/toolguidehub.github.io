@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Converter - ToolGuideHub</title>
+  <meta name="description" content="Free energy unit converter: J, kJ, cal, kcal, Wh, kWh, eV, BTU. Convert physics, nutrition, electricity values instantly. 100% client-side, no registration.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/energy-converter/">
+  <meta property="og:title" content="Energy Converter - ToolGuideHub">
+  <meta property="og:description" content="Free energy unit converter: J, kJ, cal, kcal, Wh, kWh, eV, BTU. Convert physics, nutrition, electricity values instantly. 100% client-side, no registration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/energy-converter/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Energy Converter",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "description": "Free energy unit converter: J, kJ, cal, kcal, Wh, kWh, eV, BTU. Convert physics, nutrition, electricity values instantly. 100% client-side, no registration.",
+  "url": "https://adi63586.github.io/Toolguidehub/en/energy-converter/",
+  "offers": {"@type": "Offer", "price": "0"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How many calories in 1 Joule?","acceptedAnswer":{"@type":"Answer","text":"1 Joule (J) ≈ 0.239 calories (cal). One calorie is defined as the energy needed to raise 1 gram of water by 1°C, equal to 4.184 Joules."}},
+    {"@type":"Question","name":"How many Joules in 1 kWh?","acceptedAnswer":{"@type":"Answer","text":"1 kWh = 3,600,000 Joules (3.6 MJ). Kilowatt-hour is the common unit for electricity billing — the energy used by a 1 kW appliance running for 1 hour."}},
+    {"@type":"Question","name":"What's the difference between calories and kilocalories?","acceptedAnswer":{"@type":"Answer","text":"1 kilocalorie (kcal) = 1,000 calories (cal). Food labels typically show kilocalories, often labeled as 'Calories' with a capital C. One apple contains about 50-100 kcal."}}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+    {"@type": "ListItem", "position": 2, "name": "Energy Converter", "item": "https://adi63586.github.io/Toolguidehub/en/energy-converter/"}
+  ]
+}
+  </script>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--primary:#22d3ee;--primary-dark:#06b6d4;--border:rgba(148,163,184,.1);--danger:#ef4444;--success:#10b981}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--card-bg);border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100}
+header .container{display:flex;justify-content:space-between;align-items:center}
+header a{color:var(--text);text-decoration:none;font-weight:700;font-size:18px}
+header .lang-switch{color:var(--primary);font-size:14px}
+.container{max-width:960px;margin:0 auto;padding:0 16px;width:100%}
+main{flex:1;padding:32px 0}
+h1{font-size:24px;margin-bottom:8px;color:var(--text)}
+.hero{text-align:center;margin-bottom:24px}
+.hero p{color:var(--text-secondary);font-size:14px}
+.badge{display:inline-block;background:rgba(34,211,238,.1);color:var(--primary);padding:4px 12px;border-radius:20px;font-size:12px;margin-bottom:8px}
+.card{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);padding:24px;margin-bottom:20px}
+.card h2{font-size:16px;margin-bottom:12px;color:var(--primary)}
+.input-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.input-row input{flex:1;min-width:120px;background:#0f172a;color:#e2e8f0;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:16px;outline:none;transition:border-color .2s}
+.input-row input:focus{border-color:var(--primary)}
+.input-row select{background:#0f172a;color:#e2e8f0;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;cursor:pointer;min-width:120px}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.result-item{background:rgba(15,23,42,.5);border-radius:8px;padding:16px;border:1px solid var(--border);text-align:center;transition:border-color .2s}
+.result-item:hover{border-color:var(--primary)}
+.result-item .label{font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+.result-item .value{font-size:18px;font-weight:700;color:var(--text);word-break:break-all}
+.result-item.highlight .value{color:var(--primary)}
+.ref-table{margin-top:24px}
+.ref-table table{width:100%;border-collapse:collapse;font-size:13px}
+.ref-table th{text-align:left;padding:8px 12px;background:rgba(15,23,42,.5);color:var(--primary);font-weight:600;border-bottom:1px solid var(--border)}
+.ref-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+.tip-box{background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.15);border-radius:8px;padding:14px 18px;margin-top:16px;font-size:13px;color:var(--text-secondary);line-height:1.6}
+.faq{margin-top:32px}
+.faq details{border-bottom:1px solid var(--border);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--text);font-size:15px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"❓ ";}
+.faq details p{color:var(--text-secondary);font-size:14px;line-height:1.7;padding:8px 0 0 20px}
+footer{background:var(--card-bg);border-top:1px solid var(--border);padding:24px 0;text-align:center;margin-top:auto}
+footer a{color:var(--text-secondary);text-decoration:none;margin:0 10px;font-size:13px}
+footer a:hover{color:var(--primary)}
+@media(max-width:600px){
+  h1{font-size:20px}
+  .input-row{flex-direction:column}
+  .input-row input,.input-row select{width:100%}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
+}
+  </style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="container">
+  <a href="../../">🧰 ToolGuideHub</a>
+  <a href="../../en/energy-converter/" class="lang-switch">中文</a>
+</div></header>
+<main class="container">
+  <div class="hero">
+    <span class="badge">🔢 Unit Converter</span>
+    <h1>Energy Converter</h1>
+    <p>Free online energy unit converter.</p>
+  </div>
+  <div class="card">
+    <div class="input-row">
+      <input type="number" id="inputVal" value="1" oninput="convert()" placeholder="Enter value">
+      <select id="fromUnit" onchange="convert()">
+                <option value="J">J — Joule</option>
+        <option value="kJ">kJ — Kilojoule</option>
+        <option value="cal">cal — Calorie</option>
+        <option value="kcal">kcal — Kilocalorie</option>
+        <option value="Wh">Wh — Watt-hour</option>
+        <option value="kWh">kWh — Kilowatt-hour</option>
+        <option value="eV">eV — Electronvolt</option>
+        <option value="BTU">BTU — BTU</option>
+      </select>
+    </div>
+    <div class="result-grid" id="resultGrid"></div>
+  </div>
+  <div class="tip-box">💡 <b>Tip:</b> Energy is one of the most fundamental quantities in physics. 1 Joule is roughly the energy needed to lift an apple by 1 meter. 1 kWh = 3.6 million Joules — the standard unit for electricity billing.</div>
+  <div class="ref-table">
+    <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px">📋 Unit Reference Table</h2>
+    <table>
+      <thead><tr><th>Unit</th><th>Conversion to J</th><th>Description</th></tr></thead>
+      <tbody>
+                <tr><td>J (Joule)</td><td>1 J = 1 J</td><td>SI base energy unit</td></tr>
+        <tr><td>kJ (Kilojoule)</td><td>1 kJ = 1000 J</td><td>Kilojoule, food energy label</td></tr>
+        <tr><td>cal (Calorie)</td><td>1 cal = 4.184 J</td><td>Calorie, legacy thermal unit</td></tr>
+        <tr><td>kcal (Kilocalorie)</td><td>1 kcal = 4184 J</td><td>Kilocalorie, food 'Calories'</td></tr>
+        <tr><td>Wh (Watt-hour)</td><td>1 Wh = 3600 J</td><td>Watt-hour, small battery capacity</td></tr>
+        <tr><td>kWh (Kilowatt-hour)</td><td>1 kWh = 3600000 J</td><td>Kilowatt-hour, electricity billing</td></tr>
+        <tr><td>eV (Electronvolt)</td><td>1 eV = 1.602176634e-19 J</td><td>Electronvolt, particle physics</td></tr>
+        <tr><td>BTU (BTU)</td><td>1 BTU = 1055.05585 J</td><td>British Thermal Unit, HVAC</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="faq">
+    <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px">❓ FAQ</h2>
+      <details><summary>How many calories in 1 Joule?</summary><p>1 Joule (J) ≈ 0.239 calories (cal). One calorie is defined as the energy needed to raise 1 gram of water by 1°C, equal to 4.184 Joules.</p></details>
+  <details><summary>How many Joules in 1 kWh?</summary><p>1 kWh = 3,600,000 Joules (3.6 MJ). Kilowatt-hour is the common unit for electricity billing — the energy used by a 1 kW appliance running for 1 hour.</p></details>
+  <details><summary>What's the difference between calories and kilocalories?</summary><p>1 kilocalorie (kcal) = 1,000 calories (cal). Food labels typically show kilocalories, often labeled as 'Calories' with a capital C. One apple contains about 50-100 kcal.</p></details>
+  </div>
+</main>
+<footer>
+  <a href="../../">Home</a>
+  <a href="../../en/contact/">Contact</a>
+  <a href="../../en/privacy/">Privacy Policy</a>
+  <a href="../../en/terms/">Terms of Service</a>
+  <a href="../../en/about/">About</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank">GitHub</a>
+  <br>© 2026 ToolGuideHub — All calculations run locally in your browser. No data is sent to any server.
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+// Unit definitions
+var toBase = {"J": 1, "kJ": 1000, "cal": 4.184, "kcal": 4184, "Wh": 3600, "kWh": 3600000, "eV": 1.602176634e-19, "BTU": 1055.05585};
+
+var highlightUnits = ["J", "kJ", "kcal", "kWh"];
+
+function formatNumber(n) {
+  if (n === 0) return '0';
+  var abs = Math.abs(n);
+  if (abs < 1e-6 || abs >= 1e15) return n.toExponential(6);
+  if (abs < 0.001) return n.toExponential(6);
+  if (abs < 1) return n.toFixed(8).replace(/\.?0+$/, '');
+  if (abs < 100) return n.toFixed(6).replace(/\.?0+$/, '');
+  if (abs < 10000) return n.toFixed(3).replace(/\.?0+$/, '');
+  return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+}
+
+function convert() {
+  var val = parseFloat(document.getElementById('inputVal').value);
+  var from = document.getElementById('fromUnit').value;
+  var grid = document.getElementById('resultGrid');
+  if (isNaN(val)) { grid.innerHTML = '<p style="color:var(--danger);grid-column:1/-1">Please enter a valid number</p>'; return; }
+  var base = val * toBase[from];
+  var html = '';
+  for (var u in toBase) {
+    if (u === from) continue;
+    var result = base / toBase[u];
+    var cls = highlightUnits.indexOf(u) >= 0 ? 'result-item highlight' : 'result-item';
+    html += '<div class="'+cls+'"><div class="label">'+u+'</div><div class="value">'+formatNumber(result)+'</div></div>';
+  }
+  grid.innerHTML = html;
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+
+convert();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

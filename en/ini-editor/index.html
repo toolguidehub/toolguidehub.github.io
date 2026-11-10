@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>INI File Editor - Edit INI Config Online</title>
+ <meta name="description" content="Edit, validate, and format INI configuration files with sections, key-value pairs, comments, and syntax highlighting, then download the result.">
+ <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ini-editor/">
+ <meta property="og:title" content="INI File Editor - Edit INI Config Online">
+ <meta property="og:description" content="Edit, validate, and format INI configuration files with sections, key-value pairs, comments, and syntax highlighting, then download the result.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ini-editor/">
+ <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; resize: vertical; min-height: 300px; background: #1e293b; color: #e2e8f0; line-height: 1.5; }
+        textarea:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .section-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .section-tag { padding: 4px 12px; border-radius: 6px; background: #22d3ee; color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; }
+        .section-tag:hover { background: var(--primary-hover); }
+        .error-list { max-height: 200px; overflow-y: auto; margin-top: 12px; }
+        .error-item { padding: 6px 10px; border-radius: 6px; margin-bottom: 4px; font-size: 13px; }
+        .error-item.error { background: rgba(239,68,68,.15); color: #fca5a5; border: 1px solid rgba(239,68,68,.3); }
+        .error-item.warning { background: rgba(245,158,11,.15); color: #fcd34d; border: 1px solid rgba(245,158,11,.3); }
+        .error-item.ok { background: rgba(16,185,129,.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,.3); }
+        .add-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; align-items: end; }
+        .add-form input { padding: 8px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 6px; font-size: 13px; font-family: monospace; }
+        .add-form input:focus { outline: none; border-color: #22d3ee; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+ <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ini-editor/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <main class="container">
+<header>
+ <div class="lang-switch" style="display:flex;justify-content:center;gap:6px;background:#1e293b;border-radius:8px;padding:6px;border:1px solid rgba(148,163,184,.1);margin-bottom:16px;max-width:180px;margin-left:auto;margin-right:auto;">
+ <a href="../../en/ini-editor/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;">中文</a>
+ <a href="index.html" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2);">EN</a>
+ </div>
+ <h1>INI File Editor</h1>
+ <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+ <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+ <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+ <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+ </div>
+
+ <p>Free online INI configuration file editor and validator - Format/section management/export</p>
+ </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "INI File Editor",
+      "item": "https://adi63586.github.io/Toolguidehub/en/ini-editor/"
+    }
+  ],
+  "name": "INI File Editor"
+}</script>
+
+  <div class="section">
+  <h2>📝 Edit INI File</h2>
+ <div class="row">
+ <button class="btn btn-primary" onclick="validate()">✅ Validate</button>
+ <button class="btn btn-secondary" onclick="format()">📐 Format</button>
+ <button class="btn btn-secondary" onclick="sortSections()">🔤 Sort Sections</button>
+ <button class="btn btn-secondary" onclick="addSection()">➕ Add Section</button>
+ <button class="btn btn-success" onclick="download()">📥 Download</button>
+ <button class="btn btn-secondary" onclick="loadSample()">📋 Example</button>
+ <input type="file" id="file-input" accept=".ini,.cfg,.conf" style="font-size:13px">
+ </div>
+ <textarea id="ini-editor" spellcheck="false">; Applyconfigfile
+[database]
+host=localhost
+port=3306
+name=myapp_db
+username=admin
+password=secret123
+
+[server]
+host=0.0.0.0
+port=8080
+debug=true
+secret_key=your-secret-key-here
+
+[logging]
+level=info
+file=app.log
+max_size=10MB
+backup_count=5
+
+[cache]
+enabled=true
+type=redis
+ttl=3600</textarea>
+ </div>
+
+ <div class="section" id="sections-card" style="display:none">
+  <h2>📂 Section List</h2>
+ <div class="section-list" id="section-list"></div>
+ </div>
+
+ <div class="section" id="add-card">
+  <h2>➕ Add Key-Value Pair</h2>
+ <div class="add-form">
+ <div><label style="font-size:12px;font-weight:600">Section Name</label><input type="text" id="add-section" placeholder="section" style="width:120px"></div>
+ <div><label style="font-size:12px;font-weight:600">Key</label><input type="text" id="add-key" placeholder="key" style="width:120px"></div>
+ <div><label style="font-size:12px;font-weight:600">Value</label><input type="text" id="add-value" placeholder="value" style="width:150px"></div>
+ <button class="btn btn-primary" onclick="addKeyValue()" style="padding:8px 16px">Add</button>
+ </div>
+ </div>
+
+  <div class="section" id="validation-card" style="display:none">
+  <h2>🔍 Validation Result</h2>
+  <div class="error-list" id="error-list"></div>
+  </div>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"INI File Editor FAQ","mainEntity":[{"@type":"Question","name":"How does INI File Editor work?","acceptedAnswer":{"@type":"Answer","text":"INI File Editor processes everything locally in your browser. No data is sent to any server."}},{"@type":"Question","name":"Is my data safe with INI File Editor?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything runs locally: Section Name and Key are processed on your device, never sent to a server. Your data is never uploaded to any server."}}]}</script>
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use INI File Editor", "step": [{"@type": "HowToStep", "position": 1, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 2, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 3, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}]}</script>
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "INI File Editor", "description": "Free online INI configuration file editor and validator - Format/section management/export, pure client-side.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/ini-editor/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+  <script>
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(ev) { document.getElementById('ini-editor').value = ev.target.result; parseSections(); };
+            reader.readAsText(file);
+        });
+
+        function parseINI(text) {
+            var lines = text.split('\n');
+            var sections = [];
+            var currentSection = null;
+            var errors = [];
+            var warnings = [];
+            var keySet = {};
+
+            lines.forEach(function(line, i) {
+                var lineNum = i + 1;
+                var trimmed = line.trim();
+
+                if (trimmed === '' || trimmed[0] === ';' || trimmed[0] === '#') return;
+
+                if (trimmed[0] === '[') {
+                    if (trimmed[trimmed.length - 1] !== ']') {
+                        errors.push({ line: lineNum, msg: 'Invalid section header: ' + trimmed });
+                        return;
+                    }
+                    var sectionName = trimmed.slice(1, -1).trim();
+                    if (!sectionName) {
+                        errors.push({ line: lineNum, msg: 'Empty section name' });
+                        return;
+                    }
+                    if (keySet[sectionName.toLowerCase()]) {
+                        warnings.push({ line: lineNum, msg: 'Duplicate section name: [' + sectionName + ']' });
+                    }
+                    currentSection = sectionName;
+                    keySet[sectionName.toLowerCase()] = {};
+                    sections.push({ name: sectionName, line: lineNum, keys: [] });
+                } else {
+                    var sepIdx = trimmed.indexOf('=');
+                    if (sepIdx === -1) sepIdx = trimmed.indexOf(':');
+                    if (sepIdx === -1) {
+                        warnings.push({ line: lineNum, msg: 'Invalid key-value line: ' + trimmed });
+                        return;
+                    }
+                    var key = trimmed.slice(0, sepIdx).trim();
+                    var value = trimmed.slice(sepIdx + 1).trim();
+                    if (!currentSection) {
+                        warnings.push({ line: lineNum, msg: 'Key-value pair outside any section: ' + key });
+                    }
+                    if (currentSection && keySet[currentSection.toLowerCase()] && keySet[currentSection.toLowerCase()][key.toLowerCase()]) {
+                        warnings.push({ line: lineNum, msg: 'Duplicate key "' + key + '" in section [' + currentSection + ']' });
+                    }
+                    if (currentSection && keySet[currentSection.toLowerCase()]) {
+                        keySet[currentSection.toLowerCase()][key.toLowerCase()] = true;
+                    }
+                    if (sections.length > 0) {
+                        sections[sections.length - 1].keys.push({ key: key, value: value, line: lineNum });
+                    }
+                }
+            });
+
+            return { sections: sections, errors: errors, warnings: warnings };
+        }
+
+        function parseSections() {
+            var text = document.getElementById('ini-editor').value;
+            var result = parseINI(text);
+            var list = document.getElementById('section-list');
+            if (result.sections.length > 0) {
+                list.innerHTML = result.sections.map(function(s) {
+                    return '<div class="section-tag" title="' + s.keys.length + ' keys">' + s.name + ' (' + s.keys.length + ')</div>';
+                }).join('');
+                document.getElementById('sections-card').style.display = '';
+            } else {
+                document.getElementById('sections-card').style.display = 'none';
+            }
+            return result;
+        }
+
+        function validate() {
+            var result = parseSections();
+            var list = document.getElementById('error-list');
+            var html = '';
+
+            if (result.errors.length === 0 && result.warnings.length === 0) {
+                html = '✅ No issues found. ' + result.sections.length + ' section(s) parsed.';
+            } else {
+                result.errors.forEach(function(e) {
+                    html += '<div class="error-item error">❌ Line ' + e.line + ': ' + e.msg + '</div>';
+                });
+                result.warnings.forEach(function(w) {
+                    html += '<div class="error-item warning">⚠️ Line ' + w.line + ': ' + w.msg + '</div>';
+                });
+                if (result.errors.length === 0) {
+                    html += '<div class="error-item ok">⚠️ ' + result.warnings.length + ' warning(s) found, no errors.</div>';
+                }
+            }
+
+            list.innerHTML = html;
+            document.getElementById('validation-card').style.display = '';
+        }
+
+        function format() {
+            var text = document.getElementById('ini-editor').value;
+            var result = parseINI(text);
+            var output = '';
+            var first = true;
+
+            result.sections.forEach(function(section) {
+                if (!first) output += '\n';
+                first = false;
+                output += '[' + section.name + ']\n';
+                section.keys.forEach(function(kv) {
+                    output += kv.key + ' = ' + kv.value + '\n';
+                });
+            });
+
+            // Preserve comments and blank lines
+            var lines = text.split('\n');
+            var commentLines = [];
+            var currentSection = null;
+            lines.forEach(function(line) {
+                var trimmed = line.trim();
+                if (trimmed === '' || trimmed[0] === ';' || trimmed[0] === '#') {
+                    commentLines.push(line);
+                }
+            });
+
+            // Simple format: just normalize spacing around =
+            var formatted = text.replace(/\s*=\s*/g, ' = ');
+            document.getElementById('ini-editor').value = formatted;
+            parseSections();
+        }
+
+        function sortSections() {
+            var text = document.getElementById('ini-editor').value;
+            var result = parseINI(text);
+            var comments = [];
+
+            // Extract comments
+            var lines = text.split('\n');
+            var commentMap = {};
+            var lastSection = '__global__';
+            lines.forEach(function(line, i) {
+                var trimmed = line.trim();
+                if (trimmed[0] === '[') {
+                    lastSection = trimmed.slice(1, -1).trim();
+                } else if (trimmed === '' || trimmed[0] === ';' || trimmed[0] === '#') {
+                    if (!commentMap[lastSection]) commentMap[lastSection] = [];
+                    commentMap[lastSection].push(line);
+                }
+            });
+
+            result.sections.sort(function(a, b) { return a.name.localeCompare(b.name); });
+
+            var output = '';
+            var first = true;
+            result.sections.some(function(s) { return commentMap['__global__'] && commentMap['__global__'].length; });
+            if (commentMap['__global__']) {
+                output += commentMap['__global__'].join('\n') + '\n';
+            }
+
+            result.sections.forEach(function(section) {
+                output += '\n[' + section.name + ']\n';
+                if (commentMap[section.name]) {
+                    output += commentMap[section.name].join('\n') + '\n';
+                }
+                section.keys.forEach(function(kv) {
+                    output += kv.key + ' = ' + kv.value + '\n';
+                });
+            });
+
+            document.getElementById('ini-editor').value = output.trim();
+            parseSections();
+        }
+
+        function addSection() {
+            var name = prompt('Enter section name:');
+            if (!name) return;
+            var editor = document.getElementById('ini-editor');
+            editor.value += '\n\n[' + name.trim() + ']\n';
+            parseSections();
+        }
+
+        function addKeyValue() {
+            var section = document.getElementById('add-section').value.trim();
+            var key = document.getElementById('add-key').value.trim();
+            var value = document.getElementById('add-value').value.trim();
+            if (!section || !key) { showToast('Section name and key are required'); return; }
+
+            var text = document.getElementById('ini-editor').value;
+            var lines = text.split('\n');
+            var sectionFound = false;
+            var insertIdx = -1;
+
+            for (var i = 0; i < lines.length; i++) {
+                if (lines[i].trim() === '[' + section + ']') {
+                    sectionFound = true;
+                    insertIdx = i + 1;
+                    // Find end of section
+                    for (var j = i + 1; j < lines.length; j++) {
+                        if (lines[j].trim()[0] === '[') { insertIdx = j; break; }
+                        insertIdx = j + 1;
+                    }
+                    break;
+                }
+            }
+
+            if (!sectionFound) {
+                text += '\n\n[' + section + ']\n' + key + ' = ' + value;
+            } else {
+                lines.splice(insertIdx, 0, key + ' = ' + value);
+                text = lines.join('\n');
+            }
+
+            document.getElementById('ini-editor').value = text;
+            document.getElementById('add-section').value = '';
+            document.getElementById('add-key').value = '';
+            document.getElementById('add-value').value = '';
+            parseSections();
+        }
+
+        function download() {
+            var text = document.getElementById('ini-editor').value;
+            var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'config.ini';
+            a.click();
+        }
+
+        function loadSample() {
+            document.getElementById('ini-editor').value = '; PHP Configuration\n[PHP]\nengine = On\nshort_open_tag = Off\nprecision = 14\noutput_buffering = 4096\n\n; Date/Time\ndate.timezone = Asia/Shanghai\n\n[mail function]\nSMTP = localhost\nsmtp_port = 25\nmail.add_x_header = On\n\n[Session]\nsession.save_handler = files\nsession.save_path = "/tmp"\nsession.use_strict_mode = 1\nsession.cookie_httponly = 1\nsession.cookie_secure = 1\n\n[Upload]\nfile_uploads = On\nupload_max_filesize = 50M\nmax_file_uploads = 20\npost_max_size = 50M';
+            parseSections();
+        }
+
+        parseSections();
+        </script>
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Can I use INI File Editor on my phone?</h3>
+ <p>Yes. INI File Editor is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for INI File Editor?</h3>
+ <p>INI File Editor has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does INI File Editor upload my data to a server?</h3>
+ <p>No. INI File Editor uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. INI File Editor is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is INI File Editor free to use?</h3>
+ <p>Yes, INI File Editor is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ </div>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+ <script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) { return; }
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 Related Tools Recommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/ini-editor/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+ </main>
+<div class="toast" id="toast"></div>
+</body>
+</html>

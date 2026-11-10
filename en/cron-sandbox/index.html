@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Paste a cron expression to see its next run times and a plain-English description, with support for 5-field and 6-field schedules.">
+<meta name="keywords" content="Cron,expression,cron job,test,sandbox,crontab,schedule">
+<title>Cron Expression Sandbox - Test Cron Schedule Online</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/cron-sandbox/">
+<meta property="og:title" content="Cron Expression Sandbox - Test Cron Schedule Online">
+<meta property="og:description" content="Paste a cron expression to see its next run times and a plain-English description, with support for 5-field and 6-field schedules.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/cron-sandbox/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/cron-sandbox/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cron Expression Sandbox","description":"Free online Cron expression sandbox. Enter a Cron expression to see next N execution times and human-readable description. Supports 5-field and 6-field format (with seconds). Real-time syntax validation with error highlighting.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the Cron expression format?","acceptedAnswer":{"@type":"Answer","text":"Standard Cron has 5 fields: minute hour day month weekday. Some systems support 6 fields (with seconds)."}},{"@type":"Question","name":"What does * mean?","acceptedAnswer":{"@type":"Answer","text":"Asterisk * matches all values for that field. * * * * * means every minute."}},{"@type":"Question","name":"How to specify weekdays?","acceptedAnswer":{"@type":"Answer","text":"Use 1-5 in the weekday field for Monday-Friday. Both 0 and 7 represent Sunday."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Cron Expression Sandbox","description":"Enter a Cron expression, parse it, and view human-readable descriptions with next execution times.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Cron Expression Sandbox"},"step":[{"@type":"HowToStep","position":1,"name":"Enter Data","text":"Type or paste a Cron expression into the input field"},{"@type":"HowToStep","position":2,"name":"Click Parse","text":"Click the parse button to process the expression"},{"@type":"HowToStep","position":3,"name":"View Result","text":"View the human-readable description and next execution times"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Cron Expression Sandbox","item":"https://adi63586.github.io/Toolguidehub/en/cron-sandbox/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],input[type=number],input[type=url],select,textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px;font-family:monospace}
+input:focus,select:focus,textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:24px;text-align:center;border:1px solid rgba(148,163,184,.08)}
+.result-detail{color:#64748b;font-size:.85rem;text-align:center;margin-top:8px}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.status-ok{color:#22c55e}
+.status-err{color:#ef4444}
+.preview-box{min-height:60px;display:flex;align-items:center;justify-content:center;border-radius:12px;margin-bottom:12px;transition:all .2s}
+code,pre{background:#0f172a;border-radius:6px;padding:12px;font-family:"SF Mono",Monaco,Menlo,monospace;font-size:.85rem;color:#e2e8f0;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+.badge{display:inline-block;background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 8px;border-radius:4px;font-size:.75rem;margin-right:4px}
+@media(max-width:600px){.row{flex-direction:column}}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.header{flex-direction:column;gap:8px}}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>⏰ Cron Expression Sandbox</h1>
+<div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/cron-generator/" style="color:#22d3ee;text-decoration:underline">cron generator</a>. Please use the new version.</div></div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html#tools">Tools</a>&rsaquo; Cron</p>
+<div class="hero"><p>Free online Cron expression sandbox. Enter a Cron expression to see next N execution times and human-readable description. Supports 5-field and 6-field format.</p><span class="badge">Zero Deps · Works Offline</span></div>
+
+<div class="input-section">
+<h2>⏰ Cron Expression</h2>
+<label>Cron Expression</label>
+<div class="row">
+<div class="field" style="flex:3"><input type="text" id="cronInput" placeholder="e.g. 0 9 * * 1-5" value="0 9 * * 1-5" style="font-size:1.2rem;letter-spacing:1px"></div>
+<div class="field" style="flex:1"><select id="cronFormat"><option value="5">5-field</option><option value="6">6-field (sec)</option></select></div>
+</div>
+<div class="btn-row"><button class="btn btn-primary" onclick="parseCron()">Parse Expression</button><button class="btn btn-secondary" onclick="quickCron('* * * * *')">Every min</button><button class="btn btn-secondary" onclick="quickCron('0 * * * *')">Hourly</button><button class="btn btn-secondary" onclick="quickCron('0 0 * * *')">Daily</button></div>
+</div>
+<div class="result-section" id="cronResult" style="display:none">
+<h2>📖 Human-Readable</h2>
+<div class="result-box"><div style="font-size:1.1rem" id="cronDescription">--</div></div>
+<h2>📅 Next Executions</h2>
+<div style="background:#0f172a;border-radius:8px;padding:12px;border:1px solid rgba(148,163,184,.08)" id="nextExecutions"></div>
+<div id="cronError" style="color:#ef4444;margin-top:8px;display:none"></div>
+</div>
+<div class="info-section">
+<h2>📖 Cron Format</h2>
+<pre>* * * * *
+│ │ │ │ │
+│ │ │ │ └─ Day of week (0-7, 0=Sun)
+│ │ │ └─── Month (1-12)
+│ │ └───── Day of month (1-31)
+│ └─────── Hour (0-23)
+└───────── Minute (0-59)</pre>
+</div>
+</main>
+<div class="toast" id="toast">Copied to clipboard</div>
+<script>
+function showToast(msg){
+var t=document.getElementById('toast');
+t.textContent=msg||'Copied to clipboard';
+t.classList.add('show');
+setTimeout(function(){t.classList.remove('show');},2000);
+}
+function copyText(text){
+if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){showToast('Copied to clipboard');},function(){showToast('Copy failed, please copy manually');});}
+else{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('Copied to clipboard');}catch(e){showToast('Copy failed, please copy manually');}document.body.removeChild(ta);}
+}
+window.parseCron = parseCron; function parseCron(){
+var expr=document.getElementById('cronInput').value.trim();
+if(!expr){showToast('Please enter a Cron expression');return;}
+var format=document.getElementById('cronFormat').value;
+var fields=expr.split(/\s+/);
+var expected=parseInt(format);
+if(fields.length!==expected){document.getElementById('cronError').style.display='block';document.getElementById('cronError').textContent='❌ Expected '+expected+' fields (got '+fields.length+')';return;}
+document.getElementById('cronError').style.display='none';
+document.getElementById('cronResult').style.display='block';
+// Human-readable description
+var unit=['minute','hour','day','month','weekday'];
+var desc=fields.map(function(f,i){
+var n=unit[i]||'';
+if(f==='*')return 'every '+n;
+if(f.includes(','))return f.replace(/,/g,' and ')+' '+n;
+if(f.includes('-')){var p=f.split('-');return n+' from '+p[0]+' to '+p[1];}
+if(f.includes('/')){var p2=f.split('/');return 'every '+p2[1]+' '+n+'s';}
+return n+' '+f;
+}).join(', ');
+document.getElementById('cronDescription').textContent=desc;
+// Next execution times (simplified)
+var now=new Date();
+var times=[];
+var count=0;
+var testDate=new Date(now);
+testDate.setSeconds(0,0);
+var mins=testDate.getMinutes();
+testDate.setMinutes(mins+1-(mins%1));
+while(count<5&&count<100){
+var dateStr=testDate.toLocaleString();
+times.push('<div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,.1)">'+dateStr+'</div>');
+testDate.setMinutes(testDate.getMinutes()+(fields[0]==='*'?1:parseInt(fields[0])||60));
+count++;
+}
+times.push('<div style="padding:4px 0;color:#64748b;font-size:.8rem">(simplified simulation; actual execution depends on full Cron rules)</div>');
+document.getElementById('nextExecutions').innerHTML=times.join('');
+}
+function quickCron(expr){document.getElementById('cronInput').value=expr;parseCron();}
+parseCron();
+</script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/cron-sandbox/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Free CSS Scroll-Driven Animation Generator - ToolGuideHub</title>
+ <meta name="description" content="Generate scroll() or view() driven animation code with a visual editor and copy the result for your page.">
+ <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-scroll-driven-animation-generator/">
+ <meta property="og:title" content="Free CSS Scroll-Driven Animation Generator - ToolGuideHub">
+ <meta property="og:description" content="Generate scroll() or view() driven animation code with a visual editor and copy the result for your page.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-scroll-driven-animation-generator/">
+ <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"], input[type="range"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        input[type="range"] { padding: 4px 0; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .type-btns { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .type-btn { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 14px; transition: all .2s; }
+        .type-btn.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .preview-container { height: 300px; overflow-y: auto; border: 2px solid rgba(148,163,184,.1); border-radius: 12px; position: relative; background: #1e293b; }
+        .preview-content { padding: 20px; }
+        .preview-spacer { height: 600px; }
+        .animated-box { width: 80px; height: 80px; background: #22d3ee; border-radius: 12px; margin: 20px auto; }
+        .code-output { background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.5; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+        .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+        .prop-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; align-items: center; }
+        .prop-row label { font-size: 13px; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .prop-row { grid-template-columns: 1fr; } }
+    
+
+</style>
+ <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<style>
+
+@media (max-width: 640px) {   }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+        .seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+        .seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+        .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 20px;border-radius:8px;font-size:.85rem;border:1px solid rgba(6,182,212,.3);opacity:0;transition:opacity .3s;pointer-events:none;z-index:100}
+        .toast.show{opacity:1}
+        </style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-scroll-driven-animation-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"CSS Scroll-Driven Animation Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the CSS Scroll-Driven Animation Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the CSS Scroll-Driven Animation Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Animation Property and Start Value are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the CSS Scroll-Driven Animation Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <main class="container">
+<div class="lang-switch" style="display:flex;justify-content:flex-end;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);width:max-content;margin:0 0 12px auto">
+<a href="../../en/css-scroll-driven-animation-generator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a>
+<a href="./" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;text-decoration:none;background:rgba(6,182,212,.2)">EN</a>
+</div>
+<header>
+ <h1>🎬 CSS Scroll-Driven Animation Generator</h1>
+ <p>Free online CSS scroll-driven animation generator - Visually create scroll()/view() driven animations</p>
+ </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/css-scroll-driven-animation-generator/"
+    }
+  ],
+  "name": "Tools"
+}</script>
+
+ <div class="section">
+ <h2>⚙️ Animation Configuration</h2>
+ <div class="type-btns">
+ <div class="type-btn active" onclick="setTimeline('scroll')" data-tl="scroll">scroll() Timeline</div>
+ <div class="type-btn" onclick="setTimeline('view')" data-tl="view">view() Timeline</div>
+ </div>
+ <div class="form-group">
+ <label>Animation Property</label>
+ <select id="animProp" onchange="generateCode()">
+ <option value="transform: translateX">Move X (translateX)</option>
+ <option value="transform: translateY">Move Y (translateY)</option>
+ <option value="transform: scale">Scale</option>
+ <option value="transform: rotate">Rotate</option>
+ <option value="opacity">Opacity</option>
+ <option value="background-color">Background Color</option>
+ </select>
+ </div>
+ <div class="prop-row">
+ <div><label>Start Value</label><input type="text" id="startVal" value="0px" oninput="generateCode()"></div>
+ <div><label>End Value</label><input type="text" id="endVal" value="300px" oninput="generateCode()"></div>
+ <div><label>Duration</label><input type="text" id="duration" value="1s" oninput="generateCode()"></div>
+ </div>
+ <div class="form-group" id="scrollAxisGroup">
+ <label>Scroll Axis</label>
+ <select id="scrollAxis" onchange="generateCode()">
+ <option value="block">Block (vertical)</option>
+ <option value="inline">Inline (horizontal)</option>
+ <option value="y">Y (vertical)</option>
+ <option value="x">X (horizontal)</option>
+ </select>
+ </div>
+ <div class="form-group" id="viewInsetGroup" style="display:none">
+ <label>viewPadding (inset)</label>
+ <input type="text" id="viewInset" value="0px" placeholder="such as: 0px or 20% 50%" oninput="generateCode()">
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>👁️ Live Preview (Scroll to see the effect)</h2>
+ <div class="preview-container" id="previewContainer">
+ <div class="preview-content">
+ <p style="color:#94a3b8;text-align:center;padding:20px 0">⬇️ Scroll down to see the animation effect ⬇️</p>
+ <div class="preview-spacer"></div>
+ <div class="animated-box" id="animatedBox"></div>
+ <div class="preview-spacer"></div>
+ <p style="color:#94a3b8;text-align:center;padding:20px 0">⬆️ Keep scrolling ⬆️</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📦 Generated CSS Code</h2>
+ <div class="code-output" id="codeOutput"></div>
+ <div class="btn-row">
+ <button class="btn btn-primary" onclick="copyCode()">📋 Copy Code</button>
+ </div>
+ </div>
+
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Can I use CSS Scroll-Driven Animation Generator on my phone?</h3>
+ <p>Yes. CSS Scroll-Driven Animation Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is CSS Scroll-Driven Animation Generator free to use?</h3>
+ <p>Yes, CSS Scroll-Driven Animation Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using CSS Scroll-Driven Animation Generator?</h3>
+ <p>Absolutely. Everything runs locally: Animation Property and Start Value are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for CSS Scroll-Driven Animation Generator?</h3>
+ <p>CSS Scroll-Driven Animation Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. CSS Scroll-Driven Animation Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does CSS Scroll-Driven Animation Generator upload my data to a server?</h3>
+ <p>No. CSS Scroll-Driven Animation Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can the generated CSS code be used directly in projects?</h3>
+ <p>Yes. The generated CSS code is compatible with all modern browsers. Some properties may need browser prefixes for older versions.</p>
+ </div>
+ </div>
+
+ 
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use CSS Scroll-Driven Animation Generator - Free Online Scroll-Driven Animation Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 2, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 3, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}]}</script>
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Scroll-Driven Animation Generator - Free Online Scroll-Driven Animation Tool", "description": "Free online CSS scroll-driven animation generator. Visually create scroll() and view() driven animations with live preview. Pure client-side processing.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/css-scroll-driven-animation-generator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+ <script>
+        var currentTimeline = 'scroll';
+
+        function setTimeline(tl) {
+            currentTimeline = tl;
+            document.querySelectorAll('.type-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.tl === tl); });
+            document.getElementById('scrollAxisGroup').style.display = tl === 'scroll' ? '' : 'none';
+            document.getElementById('viewInsetGroup').style.display = tl === 'view' ? '' : 'none';
+            generateCode();
+        }
+
+        function generateCode() {
+            var prop = document.getElementById('animProp').value;
+            var startVal = document.getElementById('startVal').value;
+            var endVal = document.getElementById('endVal').value;
+            var duration = document.getElementById('duration').value;
+            var axis = document.getElementById('scrollAxis').value;
+            var inset = document.getElementById('viewInset').value;
+
+            var propName = prop.replace('transform: ', '').replace('transform:', '').trim();
+            var animName = 'scroll-anim';
+            var keyframeFrom = '', keyframeTo = '';
+
+            if (propName === 'opacity') {
+                keyframeFrom = 'opacity: ' + startVal + ';';
+                keyframeTo = 'opacity: ' + endVal + ';';
+            } else if (propName === 'background-color') {
+                keyframeFrom = 'background-color: ' + startVal + ';';
+                keyframeTo = 'background-color: ' + endVal + ';';
+            } else {
+                keyframeFrom = 'transform: ' + propName + '(' + startVal + ');';
+                keyframeTo = 'transform: ' + propName + '(' + endVal + ');';
+            }
+
+            var timelineValue = '';
+            if (currentTimeline === 'scroll') {
+                timelineValue = 'scroll(' + axis + ')';
+            } else {
+                timelineValue = inset && inset !== '0px' ? 'view(' + inset + ')' : 'view()';
+            }
+
+            var code = '@keyframes ' + animName + ' {\n' +
+                '  from {\n    ' + keyframeFrom + '\n  }\n' +
+                '  to {\n    ' + keyframeTo + '\n  }\n}\n\n' +
+                '.animated-element {\n' +
+                '  animation: ' + animName + ' ' + duration + ' linear;\n' +
+                '  animation-timeline: ' + timelineValue + ';\n';
+
+            if (currentTimeline === 'scroll') {
+                code += '  /* scrollcontainerneedSettings overflow: auto/scroll */\n';
+            } else {
+                code += '';
+            }
+            code += '}';
+
+            document.getElementById('codeOutput').textContent = code;
+
+            // Update preview
+            var box = document.getElementById('animatedBox');
+            box.style.animation = 'none';
+            box.style.animationName = animName;
+            box.style.animationDuration = duration;
+            box.style.animationTimingFunction = 'linear';
+            box.style.animationFillMode = 'both';
+            box.style.animationTimeline = timelineValue;
+
+            // Dynamic keyframes
+            var style = document.getElementById('dynamic-style');
+            if (!style) { style = document.createElement('style'); style.id = 'dynamic-style'; document.head.appendChild(style); }
+            style.textContent = '@keyframes ' + animName + ' { from { ' + keyframeFrom + ' } to { ' + keyframeTo + ' } }';
+
+            // Apply animation timeline to preview container
+            var container = document.getElementById('previewContainer');
+            if (currentTimeline === 'scroll') {
+                container.style.overflowY = 'auto';
+            }
+        }
+
+        function copyCode() {
+            navigator.clipboard.writeText(document.getElementById('codeOutput').textContent).then(function() { showToast('✅ Code copied to clipboard'); }).catch(function() { showToast('Copy failed'); });
+        }
+
+        function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
+
+        generateCode();
+        </script>
+
+ </main>
+
+<div class="toast" id="toast"></div>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/css-scroll-driven-animation-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

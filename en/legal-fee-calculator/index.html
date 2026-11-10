@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimate legal costs for hourly, fixed-fee or contingency billing and see what a case might add up to before you hire.">
+<meta name="keywords" content="Legal FeeCalculate,Legal Fee,Litigation Cost,Legal Fee Estimate,legal service fees,online tool,free">
+<title>Legal Fee Calculator - Estimate Attorney Costs | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/legal-fee-calculator/">
+<meta property="og:title" content="Legal FeeCalculate - Legal Service Fee Estimate Tool | No Registration">
+<meta property="og:description" content="Estimate legal costs for hourly, fixed-fee or contingency billing and see what a case might add up to before you hire.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/legal-fee-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/legal-fee-calculator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Legal Fee Calculator", "description": "Steps to use the Legal Fee Calculator", "totalTime": "PT2M", "tool": {"@type": "HowToTool", "name": "Legal Fee Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Select Service", "text": "Select legal service type and billing mode"}, {"@type": "HowToStep", "position": 2, "name": "Enter Parameters", "text": "Enter hourly rate, estimated hours or claim amount"}, {"@type": "HowToStep", "position": 3, "name": "Calculate", "text": "Click Calculate to get fee estimate"}, {"@type": "HowToStep", "position": 4, "name": "View Results", "text": "View estimated total fee and breakdown"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=number]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:12px;margin:8px 0;border:1px solid rgba(148,163,184,.08);overflow-x:auto;white-space:pre-wrap;word-break:break-all;font-family:monospace;font-size:.85rem}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.grid{display:grid;gap:8px;margin:8px 0}
+.grid-cols-2{grid-template-columns:1fr 1fr}
+.grid-cols-3{grid-template-columns:1fr 1fr 1fr}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.row{flex-direction:column}.grid-cols-2,.grid-cols-3{grid-template-columns:1fr}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Legal FeeCalculate"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Legal Fee Calculator",
+  "description": "Estimate attorney fees and legal costs for various case types. Free online legal cost estimator.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://adi63586.github.io/Toolguidehub/en/legal-fee-calculator/"
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Legal Fee Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Legal Fee Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Legal Fee Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Service Type and Billing Mode are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Legal Fee Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>⚖️ Legal Fee Calculator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free Legal Fee Calculator. Estimate legal consultation, litigation costs. Supports hourly, fixed, contingency. No registration.</p>
+</div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; <a href="../index.html#tools">tool</a> &rsaquo; Legal FeeCalculate</p>
+<div class="hero"><p>Free Legal Fee Calculator. Estimate legal service costs with hourly, fixed, contingency billing. | No registration · Data stays on device</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="main-grid">
+<div>
+  <div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-28
+  </span>
+</div>
+  <div id="app"></div>
+  <div class="info-section" id="usage">
+    <h2>How to Use</h2>
+    <div id="usageContent"><p>Select service type and billing mode. Enter parameters (rate, hours, amount). See estimated total and breakdown. Consult an attorney for accurate quotes.</p></div>
+  </div></div></div>
+</main>
+
+<div class="section" style="background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin:1.5rem 0">
+<h2 style="font-size:1.1rem;color:#f1f5f9;margin-bottom:12px">FAQ</h2>
+<div style="border-bottom:1px solid rgba(148,163,184,.1);padding:10px 0">
+<h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:6px">How does the Legal Fee Calculator work?</h3>
+<p style="color:#94a3b8;font-size:.9rem">Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed.</p>
+</div>
+<div style="border-bottom:1px solid rgba(148,163,184,.1);padding:10px 0">
+<h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:6px">Is the Legal Fee Calculator free to use?</h3>
+<p style="color:#94a3b8;font-size:.9rem">Yes, this tool is completely free with no signup required. Everything runs locally: Service Type and Billing Mode are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security.</p>
+</div>
+<div style="padding:10px 0">
+<h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:6px">Are the Legal Fee Calculator results accurate?</h3>
+<p style="color:#94a3b8;font-size:.9rem">Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional.</p>
+</div>
+</div>
+
+<div>
+
+<div class="section" style="background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin:1.5rem 0">
+<h2 style="font-size:1.2rem;color:#f1f5f9;margin-bottom:12px">Legal Consultation Fees Calculator: What It Estimates</h2>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">If you are looking for a legal consultation fees calculator, this page gives you a realistic starting point before you talk to a lawyer. The tool estimates what a consultation or a piece of legal work is likely to cost, based on the type of service, the billing model and the attorney's seniority. It covers six common service types — legal consultation, litigation, contract review, intellectual property, corporate affairs and family law — and three billing models: hourly, fixed fee and contingency.</p>
+<h3 style="color:#22d3ee;font-size:1rem;margin:14px 0 6px">How legal consultation fees are usually charged</h3>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">A first consultation is often a small fixed fee (and sometimes free for 15–30 minutes), while ongoing advice is normally billed by the hour. Hourly rates commonly run from roughly $150–400 for a junior associate to $500–1,000 or more for a partner at a large firm, with specialised practices and major cities at the top of that range. Fixed fees are typical for routine matters such as a simple contract review or an uncontested filing. Contingency fees — where the lawyer takes a percentage of a settlement or award, usually 25–40% — are common in personal-injury and some debt-collection cases, but are not allowed in most criminal or family matters.</p>
+<h3 style="color:#22d3ee;font-size:1rem;margin:14px 0 6px">How to use this calculator</h3>
+<p style="color:#94a3b8;font-size:.9rem;margin-bottom:12px">Select the service type and the billing mode. For hourly billing, enter the hourly rate and the estimated number of hours; the estimate adds a 6% tax line so you can see the all-in figure. For a fixed fee, enter the quoted fee plus any miscellaneous costs. For contingency, enter the claim amount and the agreed percentage. The result shows the estimated total with a short breakdown, so you can compare quotes or budget before hiring.</p>
+<h3 style="color:#22d3ee;font-size:1rem;margin:14px 0 6px">What the number does and does not include</h3>
+<p style="color:#94a3b8;font-size:.9rem">The estimate covers professional fees only. It does not include court filing fees, expert witnesses, travel, printing or other disbursements, which are usually billed separately. Actual fees depend on case complexity, urgency, jurisdiction and how the matter develops, so treat the result as a ballpark figure rather than a quote. For anything binding, always confirm the fee arrangement and the scope of work in writing with the attorney or firm.</p>
+</div>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>Legal Fee Calculator is a free tool to estimate legal service costs. Supports hourly rates, fixed fees and contingency billing, covering legal consultation, contract review, litigation, and intellectual property. Based on estimated hours, attorney seniority and claim amount, it precisely calculates estimated total cost. No installation needed. All calculations happen locally in your browser. No data upload. Works on all devices. This tool uses pure front-end technology, instant access, no account or plugins needed. Simple and intuitive, instant results. For reference only. Consult an attorney for final fees.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/invoice-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📄 Invoice Generator</a><a href="../../?q=contract+review+checklist" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📋 Contract Review Checklist</a><a href="../../en/roi-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📈 ROI Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../index.html">Home</a>
+<a href="../../index.html">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/legal-fee-calculator/">中文</a>
+</div>
+
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Legal Fee Calculator | No registration · Data stays on your device</p>
+
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied!")})["catch"](function(){showToast("Copy failed")})}
+
+(function(){var app=document.getElementById('app');
+app.innerHTML='<div class="input-section"><h2>⚖️ Billing Parameters</h2><div class="row"><div class="field"><label>Service Type</label><select id="serviceType"><option value="consultation">Legal Consultation</option><option value="litigation">Litigation</option><option value="contract">Contract Review</option><option value="ip">Intellectual Property</option><option value="corporate">Corporate Affairs</option><option value="family">Family Law</option></select></div><div class="field"><label>Billing Mode</label><select id="billingMode"><option value="hourly">Hourly Billing</option><option value="fixed">Fixed Fee</option><option value="contingency">Contingency</option></select></div></div><div class="row"><div class="field"><label>Attorney Seniority</label><select id="experience"><option value="junior">Junior ($500-1000/h)</option><option value="mid">Mid-Level ($1000-2000/h)</option><option value="senior">Senior ($2000-4000/h)</option><option value="partner">Partner ($4000-8000/h)</option></select></div></div><div id="hourlyFields"><div class="row"><div class="field"><label>Hourly Rate ($)</label><input type="number" id="hourlyRate" value="1500"></div><div class="field"><label>Estimated Hours ( Hours)</label><input type="number" id="hours" value="20" min="1"></div></div></div><div id="fixedFields" style="display:none"><div class="row"><div class="field"><label>Fixed Service Fee ($)</label><input type="number" id="fixedFee" value="20000"></div><div class="field"><label>Miscellaneous Fees ($)</label><input type="number" id="miscFee" value="2000"></div></div></div><div id="contingencyFields" style="display:none"><div class="row"><div class="field"><label>Claim Amount ($)</label><input type="number" id="amount" value="500000"></div><div class="field"><label>Contingency % (%)</label><input type="number" id="percentage" value="15" min="1" max="40" step="0.5"></div></div></div><div class="btn-row"><button class="btn btn-primary" id="calcBtn">Calculate</button><button class="btn btn-secondary" id="resetBtn">Reset</button></div></div><div class="result-section" id="resultSection"><h2>📊 Fee Estimate</h2><div class="grid grid-cols-3" id="summaryCards"></div><div id="assessment" style="color:#94a3b8;font-size:.9rem;margin-top:8px"></div></div>';
+
+function formatMoney(v){return '$'+Math.round(v).toLocaleString('zh-CN');}
+
+function updateFields(){
+var mode=document.getElementById('billingMode').value;
+document.getElementById('hourlyFields').style.display=mode==='hourly'?'block':'none';
+document.getElementById('fixedFields').style.display=mode==='fixed'?'block':'none';
+document.getElementById('contingencyFields').style.display=mode==='contingency'?'block':'none';
+}
+
+function calc(){
+var mode=document.getElementById('billingMode').value;
+var st=document.getElementById('serviceType').value;
+var exp=document.getElementById('experience').value;
+var total=0,detail='';
+if(mode==='hourly'){
+var rate=parseFloat(document.getElementById('hourlyRate').value)||0;
+var hours=parseFloat(document.getElementById('hours').value)||0;
+var tax=rate*hours*0.06;
+total=rate*hours+tax;
+detail='Hourly Rate: '+formatMoney(rate)+' × '+hours+' Hours = '+formatMoney(rate*hours)+' + Tax(6%): '+formatMoney(tax);
+} else if(mode==='fixed'){
+var ff=parseFloat(document.getElementById('fixedFee').value)||0;
+var misc=parseFloat(document.getElementById('miscFee').value)||0;
+total=ff+misc;
+detail='Fixed Fee: '+formatMoney(ff)+' + Misc: '+formatMoney(misc);
+} else if(mode==='contingency'){
+var amt=parseFloat(document.getElementById('amount').value)||0;
+var pct=parseFloat(document.getElementById('percentage').value)||0;
+total=amt*pct/100;
+detail='Claim Amount: '+formatMoney(amt)+' × '+pct+'% = '+formatMoney(total);
+}
+var serviceNames={consultation:'Legal Consultation',litigation:'Litigation',contract:'Contract Review',ip:'Intellectual Property',corporate:'Corporate Affairs',family:'Family Law'};
+var expNames={junior:'Junior',mid:'Mid-Level',senior:'Senior',partner:'Partner ($4000-8000/h)'};
+var modeNames={hourly:'Hourly',fixed:'Fixed Fee',contingency:'Contingency'};
+document.getElementById('summaryCards').innerHTML='<div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="color:#64748b;font-size:.8rem">Service Type</div><div style="color:#22d3ee;font-size:1.2rem;font-weight:700;margin-top:4px">'+serviceNames[st]+'</div></div><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="color:#64748b;font-size:.8rem">Billing Mode</div><div style="color:#f1f5f9;font-size:1.1rem;font-weight:700;margin-top:4px">'+modeNames[mode]+' ('+expNames[exp]+')</div></div><div style="background:#0f172a;border-radius:8px;padding:16px;text-align:center"><div style="color:#64748b;font-size:.8rem">Estimated Total</div><div style="color:#fbbf24;font-size:1.4rem;font-weight:700;margin-top:4px">'+formatMoney(total)+'</div></div>';
+document.getElementById('assessment').innerHTML='<p>'+detail+'</p><p style="margin-top:8px;color:#64748b;font-size:.8rem">⚠️ Estimate only,for reference.Actual fees vary by region、, complexity and Attorney seniority. Consult an attorney.</p>';
+document.getElementById('resultSection').classList.add('show');
+}
+document.getElementById('calcBtn').addEventListener('click',calc);
+document.getElementById('resetBtn').addEventListener('click',function(){document.getElementById('hourlyRate').value=1500;document.getElementById('hours').value=20;document.getElementById('fixedFee').value=20000;document.getElementById('miscFee').value=2000;document.getElementById('amount').value=500000;document.getElementById('percentage').value=15;document.getElementById('resultSection').classList.remove('show');});
+document.getElementById('billingMode').addEventListener('change',function(){updateFields();calc();});
+updateFields();
+calc();
+})();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

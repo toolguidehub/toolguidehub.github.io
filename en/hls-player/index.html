@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Play m3u8 HLS streams, live or on demand, in your browser with hls.js while watching buffer, bitrate, codec, and dropped-frame stats in real time.">
+<title>Free Online HLS Player - Play m3u8 Video Streams | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/hls-player/">
+<meta property="og:title" content="HLS Player - Play m3u8 Video Streams Online Free">
+<meta property="og:description" content="Play m3u8 HLS streams, live or on demand, in your browser with hls.js while watching buffer, bitrate, codec, and dropped-frame stats in real time.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/hls-player/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HLS Player", "description": "Free online HLS stream player. Play m3u8 streams in browser with live stats.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "browserRequirements": "Modern browser with MSE support", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What types of HLS streams are supported?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of HLS streams are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All standard HLS (HTTP Live Streaming) m3u8 playlists: live streams, VOD, multi-bitrate adaptive streams, and AES-128 encrypted streams. Requires a browser with Media Source Extensions (MSE). Powered by hls.js v1.5+ engine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use the HLS player?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your m3u8 stream URL into the input box and click 'Load & Play'. The player shows real-time buffering stats, resolution, bitrate info. Full video controls: play/pause, volume, and fullscreen. Sample streams are available for quick testing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't some m3u8 streams play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common reasons: 1) CORS headers not set on the server; 2) Incompatible encryption (SAMPLE-AES, FairPlay); 3) Stream expired or server unavailable; 4) Browser doesn't support MSE (use latest Chrome/Firefox/Edge); 5) The stream is DASH format instead of HLS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool log my stream URL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This is a purely client-side application — all stream data is processed and played in your browser. The tool does not record, store, or forward your stream URL or content. All data exists only in the browser's memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between HLS and DASH?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HLS (HTTP Live Streaming) was developed by Apple, uses m3u8 playlists with TS segments. DASH (Dynamic Adaptive Streaming over HTTP) is an international standard using MPD manifests with MP4 segments. This tool only supports HLS/m3u8. For DASH streams, use a DASH-compatible player."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:30px 0 20px}
+.header h1{font-size:1.8rem;color:#f1f5f9;margin-bottom:8px}
+.header p{color:#94a3b8;font-size:1rem}
+.lang-switch{display:inline-flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-bottom:12px}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.tool-card{background:#1e293b;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:24px;margin-bottom:20px}
+.url-input-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.url-input-row input{flex:1;min-width:250px;padding:10px 14px;background:#0f172a;color:#e2e8f0;border:2px solid rgba(148,163,184,.2);border-radius:8px;font-size:0.95rem;transition:border-color .2s}
+.url-input-row input:focus{border-color:rgba(6,182,212,.5);outline:none}
+.url-input-row input::placeholder{color:#64748b}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed}
+.btn-success{background:#34d399;color:#fff}
+.btn-success:hover{background:#2ec48d}
+.btn-secondary{background:#0f172a;color:#e2e8f0}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.video-wrapper{background:#000;border-radius:8px;overflow:hidden;position:relative}
+.video-wrapper video{width:100%;display:block;max-height:480px}
+.status-bar{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;padding:10px 14px;background:#1e293b;border-radius:8px;font-size:0.85rem;color:#94a3b8}
+.status-item{display:flex;align-items:center;gap:4px}
+.status-value{font-weight:600;color:#e2e8f0}
+.status-badge{padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600}
+.badge-live{background:rgba(239,68,68,.15);color:#f87171}
+.badge-vod{background:rgba(59,130,246,.15);color:#60a5fa}
+.badge-loading{background:rgba(245,158,11,.15);color:#fbbf24}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:12px}
+.info-item{padding:8px 12px;background:#1e293b;border-radius:6px;display:flex;flex-direction:column;gap:2px}
+.info-label{font-size:0.75rem;color:#94a3b8}
+.info-value{font-size:0.9rem;color:#e2e8f0;font-weight:500}
+.stream-samples{margin-top:16px}
+.sample-title{font-size:0.9rem;color:#94a3b8;margin-bottom:8px}
+.sample-list{display:flex;gap:8px;flex-wrap:wrap}
+.sample-btn{padding:6px 12px;border:1px solid rgba(148,163,184,.2);border-radius:6px;background:#0f172a;cursor:pointer;font-size:0.85rem;transition:all .2s}
+.sample-btn:hover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.15);color:#22d3ee}
+.faq-section{margin-top:20px}
+.faq-item{border:1px solid rgba(148,163,184,.2);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:14px 16px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;background:#0f172a}
+.faq-q:hover{background:rgba(148,163,184,.08)}
+.faq-arrow{transition:transform .2s}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.faq-item.open .faq-a{max-height:500px;padding:14px 16px}
+.footer{text-align:center;padding:30px 0;color:#94a3b8;font-size:0.9rem}
+.footer a{color:#06b6d4;text-decoration:none}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:0.9rem;border:1px solid rgba(6,182,212,.3);opacity:0;transition:opacity .3s;z-index:1000}
+.toast.show{opacity:1}
+@media(max-width:768px){.header h1{font-size:1.4rem}}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free HLS Player - Play m3u8 Video Streams Online", "item": "https://adi63586.github.io/Toolguidehub/en/hls-player/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use HLS Player","description":"Step-by-step guide for using HLS Player","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"HLS Player"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Type or paste your content into the editor"},{"@type":"HowToStep","position":2,"name":"Edit and modify","text":"Use the toolbar or controls to make changes"},{"@type":"HowToStep","position":3,"name":"Preview live","text":"See real-time preview of your changes"},{"@type":"HowToStep","position":4,"name":"Export result","text":"Copy or download the edited content"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/hls-player/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header"><div class="nav-back"><a href="../../">← Back to Home</a></div>
+    
+    <h1>Free HLS Player - Play m3u8 Video Streams Online</h1>
+    <p>Play m3u8 video streams · Live & VOD · Real-time buffering stats · No upload</p>
+    <div style="margin-top:4px;font-size:0.85rem;color:#94a3b8">Updated: 2026-07-11</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="url-input-row">
+      <input type="text" id="streamUrl" placeholder="Paste m3u8 URL, e.g. https://example.com/stream.m3u8" value="">
+      <button class="btn btn-primary" id="loadBtn" onclick="loadStream()">📡 Load & Play</button>
+      <button class="btn btn-secondary" onclick="stopStream()">⏹️ Stop</button>
+    </div>
+
+    <div class="video-wrapper">
+      <video id="videoPlayer" controls playsinline></video>
+    </div>
+
+    <div id="statusBar" class="status-bar" style="display:none">
+      <span class="status-item">📡 Status: <span class="status-value" id="streamStatus">Not loaded</span></span>
+      <span class="status-item">🎬 Type: <span id="streamType" class="status-badge badge-vod">VOD</span></span>
+      <span class="status-item">📐 Resolution: <span class="status-value" id="streamResolution">-</span></span>
+      <span class="status-item">⏱️ Buffer: <span class="status-value" id="bufferLength">0s</span></span>
+      <span class="status-item">📦 Bitrate: <span class="status-value" id="bitrateInfo">-</span></span>
+    </div>
+
+    <div id="infoGrid" class="info-grid" style="display:none">
+      <div class="info-item"><span class="info-label">⏱️ Current Time</span><span class="info-value" id="currentTime">00:00</span></div>
+      <div class="info-item"><span class="info-label">📏 Duration</span><span class="info-value" id="totalDuration">∞ (Live)</span></div>
+      <div class="info-item"><span class="info-label">📊 Codec</span><span class="info-value" id="codecInfo">-</span></div>
+      <div class="info-item"><span class="info-label">🔄 Level</span><span class="info-value" id="levelInfo">-</span></div>
+      <div class="info-item"><span class="info-label">📈 Dropped Frames</span><span class="info-value" id="droppedFrames">0</span></div>
+      <div class="info-item"><span class="info-label">🧩 Fragments</span><span class="info-value" id="fragLoaded">0</span></div>
+    </div>
+
+    <div class="stream-samples">
+      <div class="sample-title">📋 Test streams (click to load):</div>
+      <div class="sample-list">
+        <button class="sample-btn" onclick="loadSample('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">🌐 Grand Canyon (4K)</button>
+        <button class="sample-btn" onclick="loadSample('https://test-streams.mux.dev/test_001/stream.m3u8')">🎯 Mux Test</button>
+        <button class="sample-btn" onclick="loadSample('https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8')">🎬 Sintel Trailer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="font-size:1.2rem;margin-bottom:16px">❓ FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What types of HLS streams are supported?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">All standard HLS m3u8 playlists: live streams, VOD, multi-bitrate adaptive streams, and AES-128 encrypted. Requires MSE support in browser (Chrome/Firefox/Edge recommended). Powered by hls.js. Does not support DASH or other streaming formats.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I use this player?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Paste an m3u8 URL and click 'Load & Play'. Real-time stats show buffering, resolution, and bitrate info. Full playback controls included. Click sample streams below for quick testing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why can't some streams play?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Common issues: 1) Missing CORS headers on the server; 2) Incompatible encryption (SAMPLE-AES, FairPlay); 3) Expired or unavailable stream; 4) Browser lacks MSE (use latest Chrome/Firefox/Edge); 5) Stream is DASH, not HLS.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does this tool log my stream URL?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">No. Processing happens entirely in your browser. The tool does not record, store, or forward your stream URL or content. All data stays in browser memory and is cleared on page close.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What's the difference between HLS and DASH?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">HLS (Apple, 2009) uses m3u8 + TS segments. DASH (MPEG-DASH, 2011) uses MPD + MP4 segments. HLS is more widely supported on Apple devices. This tool supports HLS/m3u8 only.</div>
+    </div>
+  </div>
+
+  <div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+let hls = null;
+let statsInterval = null;
+
+function loadStream() {
+  const url = document.getElementById('streamUrl').value.trim();
+  if (!url) { showToast('Please enter an m3u8 stream URL'); return; }
+  if (!url.endsWith('.m3u8') && !url.includes('m3u8')) { showToast('Please enter a valid m3u8 playlist URL'); return; }
+  startPlayback(url);
+}
+
+function loadSample(url) {
+  document.getElementById('streamUrl').value = url;
+  startPlayback(url);
+}
+
+function startPlayback(url) {
+  stopStream();
+  
+  const video = document.getElementById('videoPlayer');
+  document.getElementById('loadBtn').disabled = true;
+  document.getElementById('loadBtn').textContent = '⏳ Loading...';
+  
+  document.getElementById('statusBar').style.display = 'flex';
+  document.getElementById('infoGrid').style.display = 'grid';
+  document.getElementById('streamStatus').textContent = 'Connecting...';
+  
+  hls = new Hls({
+    enableWorker: true,
+    lowLatencyMode: true,
+    backbufferLength: 30
+  });
+  
+  hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+});
+  
+  hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
+    document.getElementById('loadBtn').disabled = false;
+    document.getElementById('loadBtn').textContent = '📡 Load & Play';
+    
+    const isLive = hls.live;
+    document.getElementById('streamType').className = isLive ? 'status-badge badge-live' : 'status-badge badge-vod';
+    document.getElementById('streamType').textContent = isLive ? '🔴 LIVE' : '🎬 VOD';
+    document.getElementById('streamStatus').textContent = 'Playing';
+    
+    const levels = hls.levels;
+    if (levels && levels.length > 0) {
+      const level = levels[hls.currentLevel >= 0 ? hls.currentLevel : 0];
+      document.getElementById('streamResolution').textContent = level.width + '×' + level.height + (levels.length > 1 ? ' (' + levels.length + ' levels)' : '');
+      document.getElementById('levelInfo').textContent = '1/' + levels.length;
+    }
+    
+    video.play().catch(() => {});
+    startStatsUpdate();
+  });
+  
+  hls.on(Hls.Events.LEVEL_SWITCHED, (event, data) => {
+    const level = hls.levels[data.level];
+    if (level) {
+      document.getElementById('streamResolution').textContent = level.width + '×' + level.height + ' @' + Math.round(level.bitrate/1000) + 'kbps';
+    }
+  });
+  
+  hls.on(Hls.Events.ERROR, (event, data) => {
+    if (data.fatal) {
+      document.getElementById('streamStatus').textContent = '❌ Error: ' + data.type;
+      document.getElementById('loadBtn').disabled = false;
+      document.getElementById('loadBtn').textContent = '📡 Retry';
+      stopStream();
+      showToast('❌ Stream load failed: ' + (data.response ? data.response.code : 'unknown error'));
+    }
+  });
+  
+  hls.loadSource(url);
+  hls.attachMedia(video);
+}
+
+function stopStream() {
+  if (statsInterval) {
+    clearInterval(statsInterval);
+    statsInterval = null;
+  }
+  if (hls) {
+    try { hls.destroy(); } catch(e) {}
+    hls = null;
+  }
+  const video = document.getElementById('videoPlayer');
+  video.pause();
+  video.src = '';
+  video.load();
+  
+  document.getElementById('loadBtn').disabled = false;
+  document.getElementById('loadBtn').textContent = '📡 Load & Play';
+  document.getElementById('streamStatus').textContent = 'Stopped';
+  document.getElementById('streamResolution').textContent = '-';
+  document.getElementById('bufferLength').textContent = '0s';
+  document.getElementById('bitrateInfo').textContent = '-';
+}
+
+function startStatsUpdate() {
+  if (statsInterval) clearInterval(statsInterval);
+  statsInterval = setInterval(() => {
+    if (!hls || !hls.media) return;
+    const video = hls.media;
+    if (!video) return;
+    
+    const ct = video.currentTime;
+    const ctMins = Math.floor(ct / 60);
+    const ctSecs = Math.floor(ct % 60);
+    document.getElementById('currentTime').textContent = String(ctMins).padStart(2,'0') + ':' + String(ctSecs).padStart(2,'0');
+    
+    if (!isNaN(video.duration) && video.duration !== Infinity) {
+      const dMins = Math.floor(video.duration / 60);
+      const dSecs = Math.floor(video.duration % 60);
+      document.getElementById('totalDuration').textContent = String(dMins).padStart(2,'0') + ':' + String(dSecs).padStart(2,'0');
+    } else {
+      document.getElementById('totalDuration').textContent = '∞ (Live)';
+    }
+    
+    let buffered = 0;
+    if (video.buffered.length > 0) {
+      buffered = video.buffered.end(video.buffered.length - 1) - video.currentTime;
+    }
+    document.getElementById('bufferLength').textContent = Math.max(0, Math.round(buffered)) + 's';
+    
+    if (hls.bandwidthEstimate) {
+      document.getElementById('bitrateInfo').textContent = Math.round(hls.bandwidthEstimate / 1000) + ' kbps';
+    }
+    
+    if (hls.stats) {
+      document.getElementById('fragLoaded').textContent = (hls.stats.loaded || 0) + ' frags';
+    }
+    
+    const dropped = video.webkitDroppedFrameCount || 0;
+    document.getElementById('droppedFrames').textContent = dropped;
+    
+    if (hls.levels && hls.levels.length > 0) {
+      const level = hls.levels[hls.currentLevel >= 0 ? hls.currentLevel : 0];
+      if (level) {
+        document.getElementById('codecInfo').textContent = (level.videoCodec || '-') + ' / ' + (level.audioCodec || '-');
+      }
+    }
+  }, 1000);
+}
+
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+function showToast(msg) {
+  const t = document.getElementById('toast') || (() => { const d = document.createElement('div'); d.id = 'toast'; d.className = 'toast'; document.body.appendChild(d); return d; })();
+  t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+<!-- Feedback -->
+<div id="feedback-container" style="max-width:800px;margin:0 auto;padding:0 16px 24px">
+<div style="background:#1e293b;border-radius:12px;padding:16px;border:1px solid rgba(148,163,184,.1)">
+<div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleFeedback()"><span style="color:#94a3b8;font-size:.85rem">💬 Feedback</span><span style="color:#64748b;font-size:.75rem" id="feedback-toggle">Expand</span></div>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';document.getElementById('feedback-toggle').textContent=p.style.display==='block'?'Collapse':'Expand';}
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);const body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+</script>
+<link rel="stylesheet" href="../../related-tools.css"><div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div><script src="../../related-tools.js"></script>
+
+</div>
+</div>
+
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/hls-player/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

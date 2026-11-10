@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Finder - ToolGuideHub</title>
+  <meta name="description" content="Search Unicode symbols and emoji by name, or paste one to find it, browsing arrows, shapes, math, currency, and faces by category.">
+  <meta name="keywords" content="icon finder,emoji search,unicode symbols,special characters,emoji copy,online icon tool">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/icon-finder/">
+      <meta property="og:title" content="Icon Finder - ToolGuideHub">
+  <meta property="og:description" content="Search Unicode symbols and emoji by name, or paste one to find it, browsing arrows, shapes, math, currency, and faces by category.">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/icon-finder/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Icon Finder",
+    "description": "Free online emoji and Unicode symbol search tool. Find and copy icons, emojis and special characters. Browse by category.",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Any",
+    "url": "https://adi63586.github.io/Toolguidehub/en/icon-finder/",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>:root{--card-bg:#1e293b;--surface:#1e293b;--text:#e2e8f0}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid rgba(148,163,184,.1);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #22d3ee;
+      text-decoration: none;
+    }
+    header nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+    }
+    header nav a:hover { color: #22d3ee; }
+    .lang-switch{display:flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a{padding:4px 10px;border-radius:6px;font-size:.85rem;color:#94a3b8}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+      color: #e2e8f0;
+    }
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .input-group {
+      margin-bottom: 16px;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid rgba(148,163,184,.1);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: var(--card-bg);
+      color: #e2e8f0;
+      transition: border-color 0.2s;
+    }
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: #22d3ee;
+    }
+    .input-group textarea {
+      background: var(--surface);
+      color: var(--text); resize: vertical; min-height: 80px; }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .btn-primary {
+      background: #22d3ee;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #0891b2; }
+    .btn-secondary {
+      background: var(--card-bg);
+      color: #e2e8f0;
+      border: 2px solid rgba(148,163,184,.1);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #22d3ee; }
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .result-box {
+      background: var(--card-bg);
+      border: 1px solid rgba(148,163,184,.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 8px;
+    }
+    .result-header {
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(148,163,184,.1);
+      color: #22d3ee;
+    }
+    .verify-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .verify-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(148,163,184,.1);
+    }
+    .verify-table td:first-child {
+      font-weight: 600;
+      color: #94a3b8;
+      width: 40%;
+    }
+    .verify-table .pass { color: #10b981; font-weight: 600; }
+    .verify-table .fail { color: #ef4444; font-weight: 600; }
+    .verify-table .warn { color: #f59e0b; font-weight: 600; }
+    .verify-table th {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 2px solid rgba(148,163,184,.1);
+      color: #94a3b8;
+    }
+    .tab-nav { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 2px solid rgba(148,163,184,.1); }
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: #22d3ee;
+      border-bottom-color: #22d3ee;
+      font-weight: 600;
+    }
+    .preset-btn {
+      background: var(--card-bg);
+      color: #e2e8f0;
+      border: 2px solid rgba(148,163,184,.1);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-btn:hover { border-color: #22d3ee; color: #22d3ee; }
+    .viewport-display {
+      text-align: center;
+      padding: 24px;
+      background: linear-gradient(135deg, #06b6d4, #0891b2);
+      color: white;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .vp-size { font-size: 2rem; font-weight: 700; font-family: monospace; }
+    .vp-label { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+    .breakpoint-info {
+      padding: 12px;
+      background: var(--card-bg);
+      border: 1px solid rgba(148,163,184,.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .dns-record {
+      padding: 8px 12px;
+      background: #1e293b;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .icon-item {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      border: 1px solid rgba(148,163,184,.1);
+      border-radius: 8px;
+      background: var(--card-bg);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .icon-item:hover { border-color: #22d3ee; transform: scale(1.1); background: rgba(34,211,238,.1); }
+    .cat-btn {
+      background: var(--card-bg);
+      border: 2px solid rgba(148,163,184,.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cat-btn.active {
+      background: #22d3ee;
+      color: white;
+      border-color: #22d3ee;
+    }
+    .del-cookie-btn, .del-ls-btn, .del-ss-btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .unit { color: #94a3b8; font-size: 0.9rem; }
+    .input-group input[type="number"] { width: 120px; display: inline-block; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(148,163,184,.1);
+      margin-top: 40px;
+    }
+    footer a { color: #22d3ee; text-decoration: none; }
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    #toast.show { opacity: 1; }
+    @media (max-width: 600px) {
+      main { padding: 20px 16px; }
+      h1 { font-size: 1.4rem; }
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary, .btn-danger { width: 100%; text-align: center; }
+      .vp-size { font-size: 1.5rem; }
+    }
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Icon Finder", "item": "https://adi63586.github.io/Toolguidehub/en/icon-finder/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Icon Finder FAQ","mainEntity":[{"@type":"Question","name":"How do I search for icons?","acceptedAnswer":{"@type":"Answer","text":"Type a keyword (e.g. arrow, heart, star) into the search box or click a category button. Matching emoji and Unicode symbols appear instantly. Click any icon to copy it to your clipboard."}},{"@type":"Question","name":"Is the Icon Finder free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: icon searches and category browsing are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"How do I copy an icon?","acceptedAnswer":{"@type":"Answer","text":"Simply click the icon you want. It is copied to your clipboard instantly and a confirmation toast appears. You can then paste it anywhere: documents, emails, social media, or code."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Icon Finder","description":"Step-by-step guide for using Icon Finder","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Icon Finder"},"step":[{"@type":"HowToStep","position":1,"name":"Search or pick a category","text":"Type a keyword into the search box or click a category button"},{"@type":"HowToStep","position":2,"name":"Find your icon","text":"Browse the matching emoji and Unicode symbols that appear"},{"@type":"HowToStep","position":3,"name":"Click to copy","text":"Click any icon to copy it to your clipboard instantly"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/icon-finder/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">ToolGuideHub</a>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../../#tools">All Tools</a>
+    </nav>
+    
+  </header>
+  <main>
+    <h1>Icon Finder</h1>
+    <p class="subtitle">Free online emoji and Unicode symbol search tool. Find and copy icons, emojis and special characters. Browse by category.</p>
+    <div class="input-group">
+    <label for="icon-search">Search Icons</label>
+    <input type="text" id="icon-search" placeholder="e.g. arrow, currency, faces, or paste a symbol like ★">
+</div>
+<div class="btn-row">
+    <button class="cat-btn active" data-cat="all">All</button>
+    <button class="cat-btn" data-cat="arrows">Arrows</button>
+    <button class="cat-btn" data-cat="shapes">Shapes</button>
+    <button class="cat-btn" data-cat="math">Math</button>
+    <button class="cat-btn" data-cat="currency">Currency</button>
+    <button class="cat-btn" data-cat="faces">Faces</button>
+    <button class="cat-btn" data-cat="misc">Misc</button>
+</div>
+<div id="icon-grid" class="icon-grid"></div>
+  </main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Icon Finder is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Icon Finder to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Icon Finder provides accurate results instantly. Everything runs locally: icon searches and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/grid-paper-generator/">📐 Online Grid Paper Generator</a><a href="../../en/color-psychology/">🎨 Color Psychology</a><a href="../../en/compare-images/">🖼️ 🖼️ Image Compare Tool</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/icon-finder/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div id="toast"></div>
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timeout);
+      t._timeout = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+    const ICONS = {
+    arrows: ['←','→','↑','↓','↔','↕','↖','↗','↘','↙','↩','↪','↶','↷','➔','➜','➝','➞','▲','▼','◄','►','△','▽','◁','▷','⬆','⬇','⬅','➡'],
+    shapes: ['●','○','■','□','◆','◇','▲','△','▼','▽','★','☆','♥','♡','♦','♢','♣','♤','♠','♧','✚','✖','✓','✗','☐','☑','⚫','⚪','⬛','⬜'],
+    math: ['∞','±','×','÷','≠','≈','≤','≥','∑','∏','√','∝','∫','∂','∇','∈','∉','⊂','⊃','∪','∩','∧','∨','¬','∀','∃','∄','∴','∵'],
+    currency: ['$','€','£','$','₩','₹','₽','₿','¢','₪','₫','₱','₲','₴','₵','₸','₺','₼','₾','﷼'],
+    faces: ['😀','😃','😄','😁','😆','😅','🤣','😂','🙂','😊','😇','😍','🤩','😘','😗','😚','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐','😑'],
+    misc: ['©','®','™','°','‰','µ','¶','§','†','‡','•','…','‽','⁂','※','‿','⁀','⁄','⁒','★']
+};
+let currentCat = 'all';
+function renderIcons(filter = '') {
+    const grid = document.getElementById('icon-grid');
+    let icons = [];
+    if (currentCat === 'all') {
+        for (const cat in ICONS) icons = icons.concat(ICONS[cat].map(i => ({icon:i, cat})));
+    } else {
+        icons = (ICONS[currentCat] || []).map(i => ({icon:i, cat:currentCat}));
+    }
+    if (filter) {
+        const f = filter.toLowerCase();
+        icons = icons.filter(i => i.icon.toLowerCase().includes(f) || i.cat.toLowerCase().includes(f));
+    }
+    grid.innerHTML = icons.map((i, idx) => `<button class="icon-item" data-icon="${i.icon}" title="Click to copy">${i.icon}</button>`).join('');
+    grid.querySelectorAll('.icon-item').forEach(b => {
+        b.addEventListener('click', () => {
+            navigator.clipboard.writeText(b.dataset.icon).then(() => showToast('Copied: ' + b.dataset.icon));
+        });
+    });
+}
+document.getElementById('icon-search').addEventListener('input', function() {
+    renderIcons(this.value);
+});
+document.querySelectorAll('.cat-btn').forEach(b => {
+    b.addEventListener('click', () => {
+        document.querySelectorAll('.cat-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        currentCat = b.dataset.cat;
+        renderIcons(document.getElementById('icon-search').value);
+    });
+});
+renderIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online canvas drawing tool. Draw with pen and eraser, customize color and brush size, undo and redo, and export artwork as a PNG image. No signup required.">
+<meta name="keywords" content="online drawing tool, canvas painter, draw online, PNG export, free drawing">
+<title>Canvas Painter - Free Online Drawing Tool | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/canvas-painter/">
+<meta property="og:title" content="Canvas Painter - Free Online Drawing Tool | ToolGuideHub">
+<meta property="og:description" content="Free online canvas drawing tool. Draw with pen and eraser, customize color and brush size, undo and redo, and export artwork as a PNG image. No signup required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/canvas-painter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name": "Canvas Painter","description": "Free online canvas drawing tool. Supports pen and eraser, color selection, brush size adjustment, undo and redo, and PNG image export.","applicationCategory":"MultimediaApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name": "How to Use Canvas Painter","tool":{"@type":"HowToTool","name": "Canvas Painter"},"step":[{"@type":"HowToStep","position":1,"name":"Select a tool","text":"Choose the pen or eraser and pick a color and brush size."},{"@type":"HowToStep","position":2,"name":"Start drawing","text":"Draw on the canvas with your mouse or touch."},{"@type":"HowToStep","position":3,"name":"Export your work","text":"Click the Download button to save your drawing as a PNG image."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name": "Canvas Painter","item":"https://adi63586.github.io/Toolguidehub/en/canvas-painter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Canvas Painter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Canvas Painter?","acceptedAnswer":{"@type":"Answer","text":"Choose a pen or eraser, adjust the color and brush size, then draw directly on the canvas. Use undo or redo to fix mistakes, and download your work as a PNG image when you are done. Everything runs locally in your browser."}},{"@type":"Question","name":"Is the Canvas Painter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: color and brush size values are processed on your device, never sent to a server, ensuring complete privacy and security."}},{"@type":"Question","name":"Does the Canvas Painter save my data?","acceptedAnswer":{"@type":"Answer","text":"No, the tool does not save or send your data anywhere. All drawing happens locally in your browser. When you close the page, your work is gone. Download your artwork before leaving."}}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:8px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(139,92,246,.1));border-radius:12px;padding:16px 20px;margin-bottom:20px;border:1px solid rgba(6,182,212,.15)}
+.hero p{color:#cbd5e1;font-size:.95rem}
+.badge{display:inline-block;background:rgba(6,182,212,.2);color:#22d3ee;font-size:.75rem;padding:2px 10px;border-radius:10px;margin-top:8px}
+.toolbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;background:#1e293b;border-radius:12px;padding:12px 16px;margin-bottom:12px;border:1px solid rgba(148,163,184,.1)}
+.tool-btn{padding:8px 12px;border-radius:6px;font-size:.85rem;cursor:pointer;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.05);color:#94a3b8;transition:.2s;white-space:nowrap}
+.tool-btn:hover{color:#e2e8f0;border-color:rgba(148,163,184,.3)}
+.tool-btn.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.tool-btn.danger{color:#f87171}
+.tool-btn.danger:hover{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.3)}
+.tool-btn.danger.active{background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4)}
+.toolbar input[type="color"]{width:36px;height:36px;border:none;border-radius:6px;cursor:pointer;background:transparent;padding:0}
+.toolbar input[type="range"]{width:80px;accent-color:#06b6d4}
+.toolbar .sep{width:1px;height:24px;background:rgba(148,163,184,.15);margin:0 4px}
+.toolbar label{color:#94a3b8;font-size:.8rem}
+.canvas-wrap{background:#0f172a;border-radius:12px;overflow:hidden;border:2px solid rgba(148,163,184,.2);cursor:crosshair;touch-action:none;line-height:0;max-width:100%}
+.canvas-wrap canvas{display:block;width:100%;height:auto}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;margin-top:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.toolbar{gap:4px;padding:8px}h1{font-size:1.2rem;word-break:break-word}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/canvas-painter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🎨 Canvas Painter</h1></div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Canvas Painter</p>
+<div class="hero"><p>Free online canvas drawing tool. Supports pen and eraser, adjustable color and brush size, undo/redo, and PNG image export. Built with pure frontend Canvas, no download required.</p><span class="badge">Zero dependency · Works offline</span></div>
+
+<div class="toolbar">
+<button class="tool-btn active" data-tool="pen" id="penBtn">✏️ Pen</button>
+<button class="tool-btn danger" data-tool="eraser" id="eraserBtn">🧹 Eraser</button>
+<span class="sep"></span>
+<input type="color" id="colorPicker" value="#000000" title="Draw Color">
+<span class="sep"></span>
+<label>Brush Size</label>
+<input type="range" id="sizeSlider" min="1" max="50" value="4">
+<span id="sizeLabel" style="color:#22d3ee;font-size:.8rem;min-width:24px">4px</span>
+<span class="sep"></span>
+<button class="tool-btn" id="undoBtn">↩ Undo</button>
+<button class="tool-btn" id="redoBtn">↪ Redo</button>
+<button class="tool-btn" id="clearBtn">🗑 Clear</button>
+<button class="tool-btn" id="downloadBtn">📥 Download PNG</button>
+</div>
+
+<div class="canvas-wrap"><canvas id="drawCanvas" width="900" height="500"></canvas></div>
+
+<div class="info-section">
+<h2>How to Use</h2>
+<p><strong>Draw Mode:</strong> Select the Pen tool and draw with the left mouse button or your finger. Supports touch input for mobile devices.</p>
+<p><strong>Eraser Mode:</strong> Select the Eraser tool to remove parts you don't want. The brush size can be adjusted as well.</p>
+<p><strong>Color Selection:</strong> Click the color picker to choose any color, and tune the overall brush size (1-50px).</p>
+<p><strong>Undo/Redo:</strong> Supports multiple undo (Ctrl+Z) and redo (Ctrl+Y) operations.</p>
+<p><strong>Export:</strong> Click "Download PNG" to save your work as a PNG image with a transparent background.</p>
+</div>
+<div class="info-section">
+<h2>Use Cases</h2>
+<p><strong>Sketching & Diagram:</strong> Quickly draw workflow diagrams, flowcharts, and simple diagrams.</p>
+<p><strong>Online Presentation:</strong> Draw and present your ideas live through screen sharing or online classes.</p>
+<p><strong>Creative Drafting:</strong> Make quick doodles, design drafts, and visual notes.</p>
+<p><strong>Annotation:</strong> Mark up screenshots with shapes, arrows, and highlights.</p>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../png-to-svg-converter/">🖼️ PNG to SVG Converter</a><a href="../venn-diagram-maker/">🟣 Venn Diagram Maker</a><a href="../org-chart-maker/">🏢 Org Chart Maker</a></div></section>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../index.html">Home</a><a href="../../index.html">All Tools</a><a href="../contact/">Contact</a><a href="../../en/privacy/">Privacy Policy</a><a href="../../en/terms/">Terms of Service</a><a href="../../en/about/">About Us</a><a href="index.html" class="active">EN</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Canvas Painter | No Signup Required · Data Never Uploaded</p>
+
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var canvas=document.getElementById("drawCanvas"),ctx=canvas.getContext("2d");
+var drawing=false,tool="pen",penColor="#000000",penSize=4;
+var undoStack=[],redoStack=[];
+var lastX=0,lastY=0;
+
+ctx.fillStyle="#ffffff";ctx.fillRect(0,0,canvas.width,canvas.height);
+saveState();
+
+function saveState(){undoStack.push(canvas.toDataURL());if(undoStack.length>50)undoStack.shift();redoStack=[]}
+
+function restoreState(dataURL){
+var img=new Image();img.onload=function(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0);ctx.fillStyle="#ffffff"};
+img.src=dataURL
+}
+
+function undo(){if(undoStack.length>1){redoStack.push(undoStack.pop());restoreState(undoStack[undoStack.length-1])}}
+function redo(){if(redoStack.length){var d=redoStack.pop();undoStack.push(d);restoreState(d)}}
+
+function getPos(e){
+var rect=canvas.getBoundingClientRect();var scaleX=canvas.width/rect.width,scaleY=canvas.height/rect.height;
+var x,y;
+if(e.touches){x=e.touches[0].clientX;y=e.touches[0].clientY}else{x=e.clientX;y=e.clientY}
+return{x:(x-rect.left)*scaleX,y:(y-rect.top)*scaleY}
+}
+
+function startDraw(e){e.preventDefault();drawing=true;var pos=getPos(e);lastX=pos.x;lastY=pos.y;
+ctx.beginPath();ctx.moveTo(lastX,lastY);
+if(tool==="pen"){ctx.strokeStyle=penColor;ctx.lineWidth=penSize;ctx.lineCap="round";ctx.lineJoin="round"}
+else{ctx.strokeStyle="#ffffff";ctx.lineWidth=penSize*3;ctx.lineCap="round";ctx.lineJoin="round"}
+}
+
+function draw(e){
+if(!drawing)return;e.preventDefault();var pos=getPos(e);
+ctx.lineTo(pos.x,pos.y);ctx.stroke();
+lastX=pos.x;lastY=pos.y
+}
+
+function endDraw(){if(drawing){drawing=false;ctx.closePath();saveState()}}
+
+canvas.addEventListener("mousedown",startDraw);canvas.addEventListener("mousemove",draw);
+canvas.addEventListener("mouseup",endDraw);canvas.addEventListener("mouseleave",endDraw);
+canvas.addEventListener("touchstart",startDraw,{passive:false});canvas.addEventListener("touchmove",draw,{passive:false});
+canvas.addEventListener("touchend",endDraw);
+
+document.getElementById("penBtn").addEventListener("click",function(){tool="pen";
+document.getElementById("penBtn").classList.add("active");document.getElementById("eraserBtn").classList.remove("active");
+canvas.style.cursor="crosshair"});
+document.getElementById("eraserBtn").addEventListener("click",function(){tool="eraser";
+document.getElementById("eraserBtn").classList.add("active");document.getElementById("penBtn").classList.remove("active");
+canvas.style.cursor="cell"});
+document.getElementById("colorPicker").addEventListener("input",function(){penColor=this.value;tool="pen";
+document.getElementById("penBtn").classList.add("active");document.getElementById("eraserBtn").classList.remove("active")});
+document.getElementById("sizeSlider").addEventListener("input",function(){penSize=parseInt(this.value);document.getElementById("sizeLabel").textContent=penSize+"px"});
+
+document.getElementById("undoBtn").addEventListener("click",undo);
+document.getElementById("redoBtn").addEventListener("click",redo);
+document.getElementById("clearBtn").addEventListener("click",function(){ctx.fillStyle="#ffffff";ctx.fillRect(0,0,canvas.width,canvas.height);saveState();showToast("Canvas cleared")});
+document.getElementById("downloadBtn").addEventListener("click",function(){var link=document.createElement("a");link.download="drawing.png";link.href=canvas.toDataURL("image/png");link.click();showToast("PNG image downloaded")});
+
+document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.key==="z"){e.preventDefault();undo()}if(e.ctrlKey&&e.key==="y"){e.preventDefault();redo()}});
+</script>
+</body>
+</html>

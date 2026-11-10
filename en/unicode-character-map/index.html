@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Browse and search Unicode characters by block, inspect their UTF-8, UTF-16 and HTML encodings, and copy them with one click.">
+<meta name="keywords" content="Unicode character map,Unicode viewer,Unicode search,UTF-8 encoding,HTML entity,character encoding,character map">
+<title>Free Unicode Character Map - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/unicode-character-map/">
+<meta property="og:title" content="Free Unicode Character Map - ToolGuideHub">
+<meta property="og:description" content="Browse and search Unicode characters by block, inspect their UTF-8, UTF-16 and HTML encodings, and copy them with one click.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/unicode-character-map/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unicode Character Map">
+<meta name="twitter:description" content="Free online unicode character map - toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unicode Character Map", "description": "Free online Unicode character map. Browse and search all Unicode characters by block, view encodings, one-click copy. Pure frontend.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is a Unicode character map?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Unicode character map?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unicode character map is a visual tool for browsing and searching Unicode characters. Unicode is the international character encoding standard containing over 140,000 characters covering all writing systems worldwide. This tool lets you browse by block, search by name, view various encoding formats, and copy characters with one click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many characters are in Unicode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unicode 15.1 contains 149,813 characters covering 161 writing systems. Code point range is U+0000 to U+10FFFF, with 1,114,112 total code point positions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between UTF-8 and UTF-16?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UTF-8 uses 1-4 bytes (ASCII 1 byte, Chinese 3 bytes, emoji 4 bytes). UTF-16 uses 2 or 4 bytes (BMP 2 bytes, supplementary 4 bytes). UTF-8 is the most common web encoding; UTF-16 is JavaScript's internal encoding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to input special Unicode characters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiple ways: 1) One-click copy from this tool; 2) Windows Alt+numpad; 3) macOS Ctrl+Cmd+Space; 4) HTML &#x + hex code point; 5) CSS \\ + hex; 6) JavaScript \\u + hex."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Unicode blocks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unicode groups characters by function and writing system into blocks. Examples: Basic Latin (U+0000), CJK Unified Ideographs (U+4E00), Emoticons (U+1F600). Each block contains related characters for easy browsing."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}.container{max-width:960px;margin:0 auto;padding:20px}.header{text-align:center;padding:30px 0 20px}.header h1{font-size:1.6em;color:#f1f5f9;margin-bottom:8px}.header p{color:#94a3b8;font-size:.95em}
+.panel{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}.panel h2{font-size:1.1em;color:#f1f5f9;margin-bottom:16px}.search-row{display:flex;gap:8px;margin-bottom:16px}.search-row input{flex:1;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.9em}.search-row input:focus{outline:none;border-color:#06b6d4}.search-row select{padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.85em}.char-grid{display:grid;grid-template-columns:repeat(16,1fr);gap:2px;margin-bottom:16px}.char-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.1em;cursor:pointer;border-radius:4px;transition:.15s;background:#0f172a;border:1px solid rgba(148,163,184,.05)}.char-cell:hover{background:rgba(6,182,212,.15);border-color:#06b6d4;transform:scale(1.1)}.char-cell.selected{background:rgba(6,182,212,.2);border-color:#06b6d4;box-shadow:0 0 8px rgba(6,182,212,.3)}.char-detail{background:#0f172a;border-radius:8px;padding:16px;margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.85em}.char-detail .big-char{font-size:4em;grid-row:span 5;display:flex;align-items:center;justify-content:center;color:#22d3ee}.char-detail .label{color:#64748b}.char-detail .value{color:#e2e8f0;font-family:monospace;cursor:pointer}.char-detail .value:hover{color:#22d3ee}.pagination{display:flex;justify-content:center;gap:8px;margin-top:12px}.pagination button{padding:6px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:6px;color:#94a3b8;cursor:pointer;font-size:.8em}.pagination button:hover{border-color:#06b6d4;color:#06b6d4}.pagination button.active{background:#06b6d4;color:#0f172a;border-color:#06b6d4}.btn{padding:8px 16px;border:none;border-radius:8px;cursor:pointer;font-size:.85em;font-weight:600;transition:.2s}.btn-primary{background:#06b6d4;color:#0f172a}.btn-primary:hover{background:#22d3ee}.btn-outline{background:transparent;border:1px solid rgba(148,163,184,.2);color:#94a3b8}.btn-outline:hover{border-color:#06b6d4;color:#06b6d4}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.seo-content{margin-top:30px;background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2em;color:#f1f5f9;margin-bottom:12px}.seo-content h3{font-size:1em;color:#e2e8f0;margin:16px 0 8px}.seo-content p{color:#94a3b8;font-size:.9em;margin-bottom:10px}.seo-content ul{color:#94a3b8;font-size:.9em;padding-left:20px;margin-bottom:10px}.faq-section{margin-top:30px}.faq-section h2{font-size:1.3em;margin-bottom:16px;color:#f1f5f9}.faq-item{background:#1e293b;border-radius:10px;padding:16px 20px;margin-bottom:10px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:1em;margin-bottom:6px;color:#e2e8f0}.faq-item p{font-size:.9em;color:#94a3b8}.footer{margin-top:40px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center}.footer a{color:#06b6d4;text-decoration:none;margin:0 8px;font-size:.85em}.footer a:hover{color:#22d3ee}.footer p{color:#64748b;font-size:.8em;margin-top:8px}.lang-switch{position:absolute;top:20px;right:20px}.lang-switch a{color:#06b6d4;font-size:.85em;text-decoration:none}.copied-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#0f172a;padding:8px 20px;border-radius:8px;font-size:.85em;font-weight:600;opacity:0;transition:.3s;z-index:999}.copied-toast.show{opacity:1}@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Unicode Character Map", "item": "https://adi63586.github.io/Toolguidehub/en/unicode-character-map/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Unicode Character Map","description":"Step-by-step guide for using Unicode Character Map","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Unicode Character Map"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/unicode-character-map/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header" style="position:relative">
+<a href="../../en/unicode-character-map/" class="lang-switch">中文</a>
+<h1>🗺️ Unicode Character Map
+
+
+</h1>
+<p>Browse & search all Unicode characters · UTF-8/UTF-16/HTML encoding · One-click copy</p>
+</div>
+
+<div class="panel">
+<h2>Character Browser</h2>
+<div class="search-row">
+<input type="text" id="searchInput" placeholder="Search by name, codepoint (U+0041), or character...">
+<select id="blockSelect" onchange="loadBlock()">
+<option value="0-127">Basic Latin (U+0000)</option>
+<option value="128-255">Latin-1 Supplement (U+0080)</option>
+<option value="256-383">Latin Extended-A (U+0100)</option>
+<option value="880-1023">Greek and Coptic (U+0370)</option>
+<option value="1024-1279">Cyrillic (U+0400)</option>
+<option value="8192-8303">General Punctuation (U+2000)</option>
+<option value="8448-8527">Letterlike Symbols (U+2100)</option>
+<option value="8592-8703">Arrows (U+2190)</option>
+<option value="9728-9983">Misc Symbols (U+2600)</option>
+<option value="9984-10175">Dingbats (U+2700)</option>
+<option value="12288-12351">CJK Symbols (U+3000)</option>
+<option value="12352-12447">Hiragana (U+3040)</option>
+<option value="12448-12543">Katakana (U+30A0)</option>
+<option value="19968-40959">CJK Unified Ideographs (U+4E00)</option>
+<option value="128512-128591">Emoticons (U+1F600)</option>
+<option value="128640-128767">Transport and Map (U+1F680)</option>
+</select>
+</div>
+<div class="char-grid" id="charGrid"></div>
+<div class="pagination" id="pagination"></div>
+<div class="char-detail" id="charDetail" style="display:none">
+<div class="big-char" id="detailChar">A</div>
+<div><span class="label">Character</span></div><div><span class="value" id="detailCharSmall" onclick="copyVal(this)">A</span></div>
+<div><span class="label">Codepoint</span></div><div><span class="value" id="detailCodepoint" onclick="copyVal(this)">U+0041</span></div>
+<div><span class="label">Decimal</span></div><div><span class="value" id="detailDecimal" onclick="copyVal(this)">65</span></div>
+<div><span class="label">UTF-8</span></div><div><span class="value" id="detailUTF8" onclick="copyVal(this)">0x41</span></div>
+<div><span class="label">UTF-16</span></div><div><span class="value" id="detailUTF16" onclick="copyVal(this)">0x0041</span></div>
+<div><span class="label">HTML Entity</span></div><div><span class="value" id="detailHTML" onclick="copyVal(this)">&amp;#65;</span></div>
+<div><span class="label">CSS</span></div><div><span class="value" id="detailCSS" onclick="copyVal(this)">\\41</span></div>
+<div><span class="label">JavaScript</span></div><div><span class="value" id="detailJS" onclick="copyVal(this)">\\u0041</span></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="copySelectedChar()">📋 Copy Character</button>
+<button class="btn btn-outline" onclick="loadExample()">💡 Example</button>
+</div>
+</div>
+
+<div class="seo-content">
+<h2>What Can the Unicode Character Map Do?</h2>
+<p>The Unicode Character Map is a visual tool for browsing and searching Unicode characters. It supports browsing by block, searching by name, viewing multiple encoding formats (UTF-8/UTF-16/HTML entity/CSS/JS), and one-click copy to clipboard.</p>
+<h3>Why choose ️ Unicode Character Map</h3>
+<ul>
+<li><strong>Browse by Block</strong>: 17 common Unicode blocks including Latin, Greek, CJK, Emoji, and more</li>
+<li><strong>Name Search</strong>: Quick find by character name keywords</li>
+<li><strong>Multiple Encodings</strong>: Simultaneously display codepoint, decimal, UTF-8, UTF-16, HTML entity, CSS, and JS encodings</li>
+<li><strong>One-click Copy</strong>: Click any encoding value or character to copy</li>
+<li><strong>Paginated Browsing</strong>: 256 characters per page with quick navigation</li>
+</ul>
+<h3>When to use ️ Unicode Character Map</h3>
+<p><strong>Frontend Development</strong>: Find HTML entities, CSS escapes, and JS escapes for special characters.</p>
+<p><strong>Design & Typography</strong>: Browse decorative symbols, arrows, math symbols, and other special characters.</p>
+<p><strong>Internationalization</strong>: View character ranges and encodings for different writing systems.</p>
+<h3>Technical Background</h3>
+<p>Unicode is maintained by the Unicode Consortium. Version 15.1 contains 149,813 characters. Code points range from U+0000 to U+10FFFF, divided into 17 planes. The BMP (Basic Multilingual Plane, U+0000-FFFF) contains the most commonly used characters. UTF-8 is the most widely used web encoding, ASCII-compatible, with variable length 1-4 bytes.</p>
+</div>
+
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><h3>What is a Unicode character map?</h3><p>A visual tool for browsing and searching Unicode characters. Unicode contains 140,000+ characters covering all writing systems. Browse by block, search, view encodings, one-click copy.</p></div>
+<div class="faq-item"><h3>How many characters in Unicode?</h3><p>Unicode 15.1 contains 149,813 characters covering 161 writing systems. Code point range U+0000 to U+10FFFF.</p></div>
+<div class="faq-item"><h3>UTF-8 vs UTF-16?</h3><p>UTF-8: 1-4 bytes (ASCII 1, Chinese 3, emoji 4). UTF-16: 2 or 4 bytes. UTF-8 is most common for web; UTF-16 is JS internal encoding.</p></div>
+<div class="faq-item"><h3>How to input special characters?</h3><p>One-click copy from this tool; Windows Alt+numpad; macOS Ctrl+Cmd+Space; HTML &#x + hex; CSS \\ + hex; JS \\u + hex.</p></div>
+<div class="faq-item"><h3>What are Unicode blocks?</h3><p>Unicode groups characters by function into blocks: Basic Latin (U+0000), CJK (U+4E00), Emoticons (U+1F600), etc.</p></div>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/sql-formatter/">🗄️ SQL Formatter & Beautifier</a><a href="//en/unicode-decode/">🔤 Unicode Decoder</a><a href="//en/kubernetes-yaml-validator/">⚙️ K8s YAML Validator</a></div><a href="../../en/unicode-escape/">Unicode Escape Tool</a><a href="../../en/unicode-finder/">Unicode Character Finder</a></section>
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../../en/unicode-character-map/">中文</a>
+</div>
+
+
+</footer>
+
+<div class="copied-toast" id="toast">Copied!</div>
+
+<script>
+let currentStart=0;let currentEnd=127;let currentPage=0;let selectedCode=65;const PAGE_SIZE=256;
+function loadBlock(){const val=document.getElementById('blockSelect').value;const[start,end]=val.split('-').map(Number);currentStart=start;currentEnd=end;currentPage=0;renderGrid();}
+function renderGrid(){
+  const grid=document.getElementById('charGrid');const start=currentStart+currentPage*PAGE_SIZE;const end=Math.min(start+PAGE_SIZE,currentEnd+1);
+  let html='';for(let cp=start;cp<end;cp++){const ch=String.fromCodePoint(cp);const isControl=cp<32||(cp>=127&&cp<160);const sel=cp===selectedCode?'selected':'';
+  html+=`<div class="char-cell ${sel}" onclick="selectChar(${cp})" title="U+${cp.toString(16).toUpperCase().padStart(4,'0')} ${isControl?'[Control]':ch}">${isControl?'·':ch}</div>`;}
+  grid.innerHTML=html;renderPagination();
+}
+function renderPagination(){const totalPages=Math.ceil((currentEnd-currentStart+1)/PAGE_SIZE);const pag=document.getElementById('pagination');if(totalPages<=1){pag.innerHTML='';return;}
+let html='';for(let i=0;i<Math.min(totalPages,10);i++){html+=`<button class="${i===currentPage?'active':''}" onclick="goPage(${i})">${i+1}</button>`;}
+if(totalPages>10)html+='<button disabled>...</button>';pag.innerHTML=html;}
+function goPage(p){currentPage=p;renderGrid();}
+function selectChar(cp){
+  selectedCode=cp;const ch=String.fromCodePoint(cp);const hex=cp.toString(16).toUpperCase().padStart(4,'0');
+  document.getElementById('detailChar').textContent=cp<32||cp>=127&&cp<160?'[Control]':ch;
+  document.getElementById('detailCharSmall').textContent=ch;
+  document.getElementById('detailCodepoint').textContent='U+'+hex;
+  document.getElementById('detailDecimal').textContent=cp;
+  document.getElementById('detailHTML').textContent='&#'+cp+';';
+  document.getElementById('detailCSS').textContent='\\'+hex;
+  document.getElementById('detailJS').textContent=cp>0xFFFF?'\\u{'+hex+'}':'\\u'+hex;
+  const utf8=encodeURIComponent(ch).replace(/%/g,'0x').replace(/0x/g,' 0x').trim();
+  document.getElementById('detailUTF8').textContent=utf8||'0x'+cp.toString(16);
+  if(cp>0xFFFF){const hi=0xD800+((cp-0x10000)>>10);const lo=0xDC00+((cp-0x10000)&0x3FF);document.getElementById('detailUTF16').textContent='0x'+hi.toString(16).toUpperCase()+' 0x'+lo.toString(16).toUpperCase();}
+  else{document.getElementById('detailUTF16').textContent='0x'+hex;}
+  document.getElementById('charDetail').style.display='grid';renderGrid();
+}
+function copyVal(el){navigator.clipboard.writeText(el.textContent).then(()=>showToast('Copied: '+el.textContent));}
+function copySelectedChar(){const ch=String.fromCodePoint(selectedCode);navigator.clipboard.writeText(ch).then(()=>showToast('Copied: '+ch));}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500);}
+document.getElementById('searchInput').addEventListener('input',e=>{
+  const q=e.target.value.trim().toLowerCase();if(!q){loadBlock();return;}
+  if(q.startsWith('u+')){const cp=parseInt(q.slice(2),16);if(!isNaN(cp)){currentStart=Math.max(0,cp-64);currentEnd=currentStart+127;currentPage=0;renderGrid();selectChar(cp);}return;}
+  if(q.startsWith('0x')){const cp=parseInt(q,16);if(!isNaN(cp)){currentStart=Math.max(0,cp-64);currentEnd=currentStart+127;currentPage=0;renderGrid();selectChar(cp);}return;}
+  if(!isNaN(q)&&q.length>0){const cp=parseInt(q);if(cp>=0&&cp<=0x10FFFF){currentStart=Math.max(0,cp-64);currentEnd=currentStart+127;currentPage=0;renderGrid();selectChar(cp);}return;}
+  if(q.length===1){const cp=q.codePointAt(0);currentStart=Math.max(0,cp-64);currentEnd=currentStart+127;currentPage=0;renderGrid();selectChar(cp);}
+});
+function loadExample(){document.getElementById('blockSelect').value='128512-128591';loadBlock();selectChar(128522);}
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter'){copySelectedChar();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copySelectedChar();e.preventDefault();}});
+loadBlock();selectChar(65);
+</script>
+
+</body>
+</html>

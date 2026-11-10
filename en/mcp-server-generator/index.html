@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate Model Context Protocol server code in TypeScript or Python, with tool definitions and config for Claude Desktop.">
+<meta name="keywords" content="MCP server generatorModel Context ProtocolMCP code generatorClaude Desktoptool serveronline toolfree">
+<title>Free MCP Server Code Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/mcp-server-generator/">
+<meta property="og:title" content="Free MCP Server Code Generator - ToolGuideHub">
+<meta property="og:description" content="Generate Model Context Protocol server code in TypeScript or Python, with tool definitions and config for Claude Desktop.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/mcp-server-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MCP Server Code Generator", "description": "Free OnlineMCPservercodeGeneratetool，keyGenerateModel Context Protocolservercode.supportsTypeScript/Python，autodynamicGenerateToolsset、config、server，compatibleClaude Desktop..", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is MCP?", "acceptedAnswer": {"@type": "Answer", "text": "MCP (Model Context Protocol) is an open standard by Anthropic for connecting AI models to external tools and data sources."}}, {"@type": "Question", "name": "Can the generated code run directly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The generated code includes the complete server setup with tool registration and transport configuration. Install dependencies and run."}}, {"@type": "Question", "name": "Which programming languages are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Currently supports TypeScript (using @modelcontextprotocol/sdk) and Python (using the mcp package)."}}, {"@type": "Question", "name": "How to add custom tools?", "acceptedAnswer": {"@type": "Answer", "text": "Use the tool editor to add new tools with name, description, and parameter schema. The generator will include them in the server code."}}, {"@type": "Question", "name": "Is my data uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. All code generation happens locally in your browser. No data is sent to any server."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use MCP Server Code Generator - Generate MCP Server Code Online",
+  "description": "Step-by-step guide for using MCP Server Code Generator - Generate MCP Server Code Online",
+  "totalTime": "PT3M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "MCP Server Code Generator - Generate MCP Server Code Online"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Set parameters",
+      "text": "Configure generation parameters (quantity, format, range, etc.)"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Click generate",
+      "text": "Click the generate button to create content"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Preview result",
+      "text": "View the generated result"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy or download",
+      "text": "Copy the result with one click or download as a file"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "MCP Server Code Generator", "item": "https://adi63586.github.io/Toolguidehub/en/mcp-server-generator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px;border:1px solid rgba(6,182,212,.2)}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.ad-slot.ad-sidebar{max-width:300px}.seo-content{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem}.seo-content ol,.seo-content ul{padding-left:20px;margin-top:8px}.seo-content li{margin-bottom:8px}.seo-content strong{color:#e2e8f0}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/mcp-server-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Free MCP Server Code Generator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../../#developer-tools">Developer Tools</a> &rsaquo; MCP Server Code Generator</p>
+<div class="hero"><p>Free Online MCP Server Code Generator. Key Generate Model Context Protocol server code. Supports TypeScript/Python, auto-dynamic generate tool sets, config, and server, compatible with Claude Desktop.</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="main-grid">
+<div>
+<div class="section"><h2>⚙️ serverconfig</h2><div class="form-group"><label>servername</label><input type="text" id="server-name" value="my-mcp-server"></div><div class="form-group"><label>serverdescription</label><input type="text" id="server-desc" value="My MCP Server"></div><div class="form-group"><label> </label><select id="transport"><option value="stdio">stdio</option><option value="sse">SSE</option></select></div><div class="form-group"><label>encode language</label><select id="language"><option value="typescript">TypeScript</option><option value="python">Python</option></select></div></div>
+<div class="section"><h2>🔧 Toolsset </h2><div id="tools-list"></div><div class="btn-group" style="margin:8px 0"><button class="btn btn-secondary" onclick="addTool()">➕ AddTools</button></div><div class="form-group"><label>GenerateResult</label><textarea id="output" rows="16" readonly style="font-family:monospace;font-size:.8rem;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#22d3ee;resize:vertical"></textarea></div><div class="btn-group"><button class="btn btn-primary" onclick="generate()">⚡ Generatecode</button><button class="btn btn-success" onclick="copyOut()">📋 Copy</button><button class="btn btn-secondary" onclick="dlOut()">⬇️ Download</button></div><script>var tools=[{name:"get_weather",desc:"Get weather for a city",params:'{\n  "type":"object",\n  "properties":{\n    "city":{"type":"string","description":"City name"}\n  },\n  "required":["city"]\n}'}];function addTool(){tools.push({name:"new_tool",desc:"Tool description",params:'{\n  "type":"object",\n  "properties":{},\n  "required":[]\n}'});renderTools()}function removeTool(i){tools.splice(i,1);renderTools()}function renderTools(){var h="";for(var i=0;i<tools.length;i++){h+='<div style="background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;margin-bottom:8px">';h+='<div style="display:flex;justify-content:space-between;margin-bottom:8px"><strong style="color:#f1f5f9">Tools #'+(i+1)+'</strong><button class="btn btn-danger" style="padding:4px 10px;font-size:.75rem" onclick="removeTool('+i+')">Delete</button></div>';h+='<div class="form-group"><label>name</label><input type="text" value="'+tools[i].name+'" onchange="tools['+i+'].name=this.value" style="font-size:.85rem"></div>';h+='<div class="form-group"><label>description</label><input type="text" value="'+tools[i].desc+'" onchange="tools['+i+'].desc=this.value" style="font-size:.85rem"></div>';h+='<div class="form-group"><label>ParametersSchema</label><textarea rows="4" onchange="tools['+i+'].params=this.value" style="font-family:monospace;font-size:.75rem">'+tools[i].params+'</textarea></div></div>'}document.getElementById("tools-list").innerHTML=h}renderTools();function generate(){var n=document.getElementById("server-name").value||"my-mcp-server";var d=document.getElementById("server-desc").value;var t=document.getElementById("transport").value;var l=document.getElementById("language").value;var c="";if(l==="typescript"){c="import { McpServer } from \"@modelcontextprotocol/sdk/server/mcp.js\";\nimport { StdioServerTransport } from \"@modelcontextprotocol/sdk/server/stdio.js\";\n\nconst server = new McpServer({\n  name: \""+n+"\",\n  version: \"1.0.0\"\n});\n\n";for(var i=0;i<tools.length;i++){c+="server.tool(\""+tools[i].name+"\", \""+tools[i].desc+"\",\n  "+tools[i].params+",\n  async (args) => {\n    // TODO: implement\n    return { content: [{ type: \"text\", text: \"Result\" }] };\n  }\n);\n\n"}c+="async function main() {\n  const transport = new StdioServerTransport();\n  await server.connect(transport);\n}\n\nmain().catch(console.error);"}else{c="from mcp.server import Server\nfrom mcp.server.stdio import stdio_server\n\nserver = Server(\""+n+"\")\n\n";for(var i=0;i<tools.length;i++){c+="@server.tool()\nasync def "+tools[i].name.replace(/-/g,"_")+"(args: dict) -> str:\n    \"\"\""+tools[i].desc+"\"\"\"\n    # TODO: implement\n    return \"Result\"\n\n"}c+="async def main():\n    async with stdio_server() as (rs, ws):\n        await server.run(rs, ws)\n\nif __name__ == \"__main__\":\n    import asyncio\n    asyncio.run(main())"}document.getElementById("output").value=c}function copyOut(){var o=document.getElementById("output");if(o.value)navigator.clipboard.writeText(o.value).then(function(){toast("AlreadyCopy")})}function dlOut(){var o=document.getElementById("output");if(!o.value)return;var l=document.getElementById("language").value;var ext=l==="typescript"?"ts":"py";var b=new Blob([o.value],{type:"text/plain"});var u=URL.createObjectURL(b);var a=document.createElement("a");a.href=u;a.download="server."+ext;a.click();URL.revokeObjectURL(u);toast("Downloadsuccess")}</script></div>
+</div>
+</div>
+<div class="seo-content">
+<h2>MCP Server Code Generator - What Can It Do?</h2><p>Free Online MCP Server Code Generator. Generate Model Context Protocol server code instantly. Supports TypeScript/Python, auto-generate tool definitions, transport config, and server skeleton. Compatible with Claude Desktop. Pure frontend.</p>
+<h2>Key Features</h2><ul><li><strong>MCP Standard Compatible</strong>: Generate combined Model Context Protocol specification server code</li>
+<li><strong>Multi-language Support</strong>: Supports TypeScript and Python</li>
+<li><strong>Tool Set Generate</strong>: Auto dynamic generate tool registration and Parameter Schema</li>
+<li><strong>Transport Config</strong>: Supports stdio and SSE two transport types</li>
+<li><strong>Claude Desktop Compatible</strong>: Generate config that can be directly used in Claude Desktop</li>
+<li><strong>Quick Export</strong>: Generate complete item files, download and use</li></ul>
+<h2>How to Use</h2><ol><li><strong>Configure Parameters</strong>: Based on your needs, set tool parameters</li><li><strong>Generate Result</strong>: Click the generate button to get results</li><li><strong>Copy or Use</strong>: Copy the result to use in your project</li></ol>
+<h2>Use Cases</h2><ul><li><strong>AI Tool Development</strong>: Create custom tool servers for Claude and other AI models</li>
+<li><strong>Data Interface</strong>: Package internal APIs as MCP tools for AI to use</li>
+<li><strong>File Operations</strong>: Create file read, write, and search MCP tools</li>
+<li><strong>Database Query</strong>: Wrap database operations as MCP tools</li></ul>
+<h2>Learn More</h2><p>MCP (Model Context Protocol) is an open standard released by Anthropic in 2024 for connecting AI models with external tools. MCP servers provide Tools, Resources, and Prompts through standardized interfaces. Claude Desktop already supports MCP with many available MCP servers.</p>
+</div>
+<div class="section"><h2>FAQ</h2><div class="faq-item"><h3>What is MCP Server Code Generator?</h3><p>Free online MCP Server Code Generator. Generate Model Context Protocol server code instantly. Supports TypeScript/Python, auto-generate tool definitions, transport config, and server skeleton. Compatible with Claude Desktop. Pure frontend. Try now!</p></div>
+<div class="faq-item"><h3>How to Use MCP Server Code Generator?</h3><p>Configure server name, description, transport type, and language. Add tools with name, description, and parameter schemas. Click Generate to get the complete server code.</p></div>
+<div class="faq-item"><h3>Is my data uploaded to a server?</h3><p>No. All code generation happens locally in your browser. No data is sent to any server.</p></div></div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/server-status/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🖥️ Server Status Checker</a> <a href="../../en/http-mock-server/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free HTTP Mock Server Genera…</a> <a href="../../en/server-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Server Status Checker</a> <a href="../../en/regex-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Regex Code Generator</a> <a href="../../en/discount-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Discount Code Generator</a> <a href="../../en/css-beautify/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS Code Beautifier</a> <a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/otp-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free TOTP Code Generator Onl…</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../../">Home</a> <a href="../../">All Tools</a> <a href="../contact/">Contact</a> <a href="../privacy/">Privacy</a> <a href="../terms/">Terms</a> <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}</script>
+
+</body>
+</html>

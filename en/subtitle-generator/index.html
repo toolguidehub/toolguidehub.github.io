@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online subtitle generator with no signup. Create, edit and export SRT and WebVTT files. Batch import, time offset, real-time preview. All in your browser.">
+<meta name="keywords" content="subtitle generator,SRT generator,WebVTT generator,subtitle editor,SRT to VTT,online subtitle maker,subtitle creator">
+<meta name="robots" content="index, follow">
+<title>Free Online Subtitle Generator | SRT &amp; VTT | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/subtitle-generator/">
+<meta property="og:title" content="Free Online Subtitle Generator - ToolGuideHub">
+<meta property="og:description" content="Free online subtitle generator with no signup. Create, edit and export SRT and WebVTT files. Batch import, time offset, real-time preview. All in your browser.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/subtitle-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Subtitle Generator - No Signup">
+<meta name="twitter:description" content="Free online subtitle generator. Create, edit and export SRT and WebVTT subtitle files. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/subtitle-generator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Subtitle Generator", "description": "Free online subtitle generator supporting SRT and WebVTT subtitle file creation. Visual timeline editing, batch text import, time offset, real-time preview and one-click export. Client-side only.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Free Online Subtitle Generator", "item": "https://adi63586.github.io/Toolguidehub/en/subtitle-generator/"}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Subtitle Generator FAQ",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is the Subtitle Generator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it is completely free with no signup required. All features are available immediately."}},
+    {"@type": "Question", "name": "What subtitle formats are supported?", "acceptedAnswer": {"@type": "Answer", "text": "SRT and WebVTT (VTT). You can export either format and also import existing SRT or VTT files for editing."}},
+    {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All processing happens locally in your browser. Your subtitles never leave your device."}}
+  ]
+}</script>
+<style>
+:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:880px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.breadcrumb{color:#64748b;font-size:.85rem;margin-bottom:16px}.breadcrumb a{color:#64748b}.breadcrumb a:hover{color:#94a3b8}
+.hero{text-align:center;margin-bottom:20px}
+.hero .subtitle{color:#94a3b8;font-size:.95rem}
+.badge{display:inline-flex;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);color:#64748b;font-size:0.8rem;margin-top:8px}
+.main-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.panel{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+.panel h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.btn{padding:9px 18px;border:none;border-radius:8px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3);box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{background:rgba(6,182,212,.3);transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.subtitle-list .sub-item{display:flex;gap:12px;align-items:flex-start;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:12px;margin-bottom:8px}
+.sub-item .idx{font-weight:700;color:#22d3ee;min-width:24px}
+.sub-item .content{flex:1;display:flex;flex-direction:column;gap:6px}
+.sub-item .time-row{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#94a3b8}
+.sub-item .time-row input{width:92px;background:#1e293b;border:1px solid rgba(148,163,184,.3);border-radius:6px;color:#e2e8f0;padding:4px 6px;font-family:monospace}
+.sub-item .sub-text{width:100%;background:#1e293b;border:1px solid rgba(148,163,184,.3);border-radius:6px;color:#e2e8f0;padding:8px;font-size:.85rem;resize:vertical}
+.sub-item .actions{display:flex;flex-direction:column;gap:4px}
+.sub-item .actions button{background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.2);color:#94a3b8;border-radius:6px;width:28px;height:28px;cursor:pointer;transition:all .2s}
+.sub-item .actions button:hover{background:rgba(6,182,212,.2);color:#22d3ee}
+.batch-import textarea{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.3);border-radius:8px;color:#e2e8f0;padding:12px;font-size:.88rem;min-height:100px;resize:vertical;margin-bottom:10px}
+.import-opts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.import-opts label{font-size:.85rem;color:#94a3b8}
+.import-opts input{width:80px;background:#0f172a;border:1px solid rgba(148,163,184,.3);border-radius:6px;color:#e2e8f0;padding:6px}
+.offset-control{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.offset-control label{font-size:.85rem;color:#94a3b8}
+.offset-control input{width:90px;background:#0f172a;border:1px solid rgba(148,163,184,.3);border-radius:6px;color:#e2e8f0;padding:6px}
+.preview-box{background:#0f172a;border:2px dashed rgba(148,163,184,.3);border-radius:8px;min-height:90px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center}
+.preview-box .sub-text{color:#e2e8f0;font-size:1.1rem}
+.export-opts{display:flex;gap:10px;flex-wrap:wrap}
+.seo-content{margin:24px 0}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem;margin-bottom:12px}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+.seo-content ul{margin:10px 0 0 20px}
+.seo-content li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px;text-align:center;color:#64748b;font-size:.85rem}
+footer a{color:#94a3b8;margin:0 10px;text-decoration:none;font-size:14px}
+footer a:hover{color:#22d3ee}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    
+    <h1>Free Online Subtitle Generator</h1>
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+  <div class="breadcrumb"><a href="../../">Home</a> › <a href="../../#media">Media Tools</a> › Subtitle Generator</div>
+  <div class="hero">
+    <span class="subtitle">Visually edit SRT/VTT subtitles, import text, and export in one click</span><br>
+    <span class="badge">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Zero dependencies · Works offline
+    </span>
+  </div>
+  <div class="main-grid">
+    <div class="panel">
+      <h2>📝 Subtitle Edit</h2>
+      <div class="toolbar">
+        <button class="btn btn-primary" id="addBtn">+ Add Subtitle</button>
+        <button class="btn btn-secondary" id="importFileBtn">Import SRT/VTT</button>
+        <input type="file" id="fileInput" accept=".srt,.vtt" style="display:none">
+        <button class="btn btn-danger" id="clearAllBtn">Clear All</button>
+      </div>
+      <div class="subtitle-list" id="subtitleList"></div>
+    </div>
+    <div class="panel">
+      <h2>📥 Batch Import</h2>
+      <div class="batch-import">
+        <textarea id="batchText" placeholder="One subtitle text per line, times are assigned automatically&#10;Example:&#10;Welcome to my channel&#10;Today we are building a tool&#10;First, open the subtitle generator"></textarea>
+        <div class="import-opts">
+          <label>Duration per item (sec):</label>
+          <input type="number" id="batchDuration" value="3" min="1" max="30">
+          <label>Start time (sec):</label>
+          <input type="number" id="batchStart" value="0" min="0">
+          <button class="btn btn-primary" id="batchImportBtn">Import</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>⏱️ Time Offset</h2>
+      <div class="offset-control">
+        <label>Offset (seconds, negative to move earlier):</label>
+        <input type="number" id="offsetVal" value="0" step="0.5">
+        <button class="btn btn-secondary" id="applyOffsetBtn">Apply Offset</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>👁️ Preview</h2>
+      <div class="preview-box" id="previewBox">
+        <span class="sub-text" id="previewText">Select a subtitle item to preview</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>💾 Export</h2>
+      <div class="export-opts">
+        <button class="btn btn-primary" id="exportSrtBtn">Export SRT</button>
+        <button class="btn btn-primary" id="exportVttBtn">Export WebVTT</button>
+      </div>
+    </div>
+  </div>
+  <div class="seo-content">
+    <h2>Online Subtitle Generator — Free SRT/VTT Editing Tool</h2>
+    <p>Subtitle Generator is a free online subtitle tool that supports both SRT and WebVTT formats. It provides visual time editing, batch text import, time offset tuning and other features — ideal for fast subtitle creation and editing alongside your video work.</p>
+    <h3>Key Features</h3>
+    <ul>
+      <li>Dual format support: export to SRT and WebVTT</li>
+      <li>Batch import: paste text to auto-generate subtitle items</li>
+      <li>Time editing: tune every subtitle to millisecond precision</li>
+      <li>Time offset: adjust all subtitle times at once</li>
+      <li>File import: open and edit existing SRT/VTT files</li>
+      <li>Real-time preview: see the subtitle effect as you edit</li>
+    </ul>
+    <h3>Use Cases</h3>
+    <ul>
+      <li>Video subtitles: create subtitles for YouTube and other platforms</li>
+      <li>Captioning: quick online caption work</li>
+      <li>Transcription: convert transcripts into subtitle files</li>
+      <li>Subtitle translation: edit then translate subtitle content</li>
+    </ul>
+  </div>
+  <div class="faq-item"><h3>About Free Online Subtitle Generator</h3><p>Free online subtitle generator, supports SRT/VTT subtitle file creation, pure client-side local processing. Visual timeline editing, batch text import, real-time preview, one-click export to SRT/WebVTT format. Try now!</p></div>
+  <div class="faq-item"><h3>How to Use Free Online Subtitle Generator?</h3><p>Enter your content in the input area, click the action button, and view the result. All computation happens on your device — your subtitles stay in your browser.</p></div>
+  <div class="ad-slot">
+    </div>
+</main>
+<footer>
+  <a href="../../">Home</a>
+  <a href="../../#tools">All Tools</a>
+  <a href="../../en/about/">About Us</a>
+  <a href="../../en/privacy-policy/">Privacy Policy</a>
+  <a href="../../en/terms-of-service/">Terms of Service</a>
+  <a href="../../en/subtitle-generator/">中文</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+  <p style="margin-top:12px">© 2026 ToolGuideHub · Free Online Tools</p>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  'use strict';
+  var toastTimer = null;
+  function showToast(m){
+    var t = document.getElementById('toast');
+    t.textContent = m;
+    t.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3000);
+  }
+  window.showToast = showToast;
+})();
+
+var subs = [];
+
+function formatTime(seconds){
+  var h = Math.floor(seconds / 3600);
+  var m = Math.floor((seconds % 3600) / 60);
+  var s = Math.floor(seconds % 60);
+  var ms = Math.round((seconds % 1) * 1000);
+  function pad(n, w){ var r = String(n); while (r.length < w) r = '0' + r; return r; }
+  return pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ',' + pad(ms, 3);
+}
+
+function formatTimeVtt(seconds){ return formatTime(seconds).replace(',', '.'); }
+
+function parseTime(str){
+  str = str.trim().replace('.', ',');
+  var parts = str.split(':');
+  if (parts.length === 3){
+    var h = parseInt(parts[0], 10), m = parseInt(parts[1], 10);
+    var sm = parts[2].split(',');
+    return h * 3600 + m * 60 + parseInt(sm[0], 10) + (parseInt(sm[1] || 0, 10) / 1000);
+  }
+  return 0;
+}
+
+function addSub(start, end, text){
+  subs.push({ start: start, end: end, text: text || '' });
+  renderList();
+}
+
+function renderList(){
+  var list = document.getElementById('subtitleList');
+  list.innerHTML = '';
+  subs.forEach(function(sub, i){
+    var div = document.createElement('div');
+    div.className = 'sub-item';
+    div.innerHTML =
+      '<span class="idx">' + (i + 1) + '</span>' +
+      '<div class="content">' +
+        '<div class="time-row">' +
+          '<input type="text" class="start-time" value="' + formatTime(sub.start) + '" data-i="' + i + '">' +
+          '<span>→</span>' +
+          '<input type="text" class="end-time" value="' + formatTime(sub.end) + '" data-i="' + i + '">' +
+        '</div>' +
+        '<textarea class="sub-text" data-i="' + i + '">' + (sub.text || '') + '</textarea>' +
+      '</div>' +
+      '<div class="actions">' +
+        '<button class="up-btn" data-i="' + i + '" title="Move up">↑</button>' +
+        '<button class="down-btn" data-i="' + i + '" title="Move down">↓</button>' +
+        '<button class="del-btn" data-i="' + i + '" title="Delete">✕</button>' +
+      '</div>';
+    list.appendChild(div);
+  });
+  list.querySelectorAll('.start-time').forEach(function(input){
+    input.addEventListener('change', function(e){
+      subs[parseInt(e.target.dataset.i, 10)].start = parseTime(e.target.value);
+    });
+  });
+  list.querySelectorAll('.end-time').forEach(function(input){
+    input.addEventListener('change', function(e){
+      subs[parseInt(e.target.dataset.i, 10)].end = parseTime(e.target.value);
+    });
+  });
+  list.querySelectorAll('.sub-text').forEach(function(ta){
+    ta.addEventListener('input', function(e){
+      subs[parseInt(ta.dataset.i, 10)].text = ta.value;
+    });
+    ta.addEventListener('focus', function(){
+      document.getElementById('previewText').textContent = ta.value || '(Empty)';
+    });
+  });
+  list.querySelectorAll('.up-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var i = parseInt(btn.dataset.i, 10);
+      if (i > 0){ var t = subs[i-1]; subs[i-1] = subs[i]; subs[i] = t; renderList(); }
+    });
+  });
+  list.querySelectorAll('.down-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var i = parseInt(btn.dataset.i, 10);
+      if (i < subs.length - 1){ var t = subs[i+1]; subs[i+1] = subs[i]; subs[i] = t; renderList(); }
+    });
+  });
+  list.querySelectorAll('.del-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      subs.splice(parseInt(btn.dataset.i, 10), 1);
+      renderList();
+    });
+  });
+}
+
+document.getElementById('addBtn').addEventListener('click', function(){
+  var lastEnd = subs.length > 0 ? subs[subs.length - 1].end : 0;
+  addSub(lastEnd, lastEnd + 3);
+});
+
+document.getElementById('clearAllBtn').addEventListener('click', function(){ subs = []; renderList(); });
+
+document.getElementById('batchImportBtn').addEventListener('click', function(){
+  var text = document.getElementById('batchText').value.trim();
+  if (!text){ showToast('Please enter some text first'); return; }
+  var dur = parseFloat(document.getElementById('batchDuration').value) || 3;
+  var start = parseFloat(document.getElementById('batchStart').value) || 0;
+  var lines = text.split('\n').filter(function(l){ return l.trim(); });
+  var t = start;
+  lines.forEach(function(line){
+    subs.push({ start: t, end: t + dur, text: line.trim() });
+    t += dur;
+  });
+  document.getElementById('batchText').value = '';
+  renderList();
+  showToast('Imported ' + lines.length + ' subtitle(s)');
+});
+
+var fileInput = document.getElementById('fileInput');
+document.getElementById('importFileBtn').addEventListener('click', function(){ fileInput.click(); });
+fileInput.addEventListener('change', function(e){
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    var content = ev.target.result;
+    if (file.name.toLowerCase().indexOf('.vtt') !== -1) parseVtt(content);
+    else parseSrt(content);
+    renderList();
+    showToast('Imported ' + file.name);
+  };
+  reader.readAsText(file);
+});
+
+function parseSrt(content){
+  var blocks = content.trim().split(/\n\s*\n/);
+  blocks.forEach(function(block){
+    var lines = block.trim().split('\n');
+    if (lines.length < 3) return;
+    var match = lines[1].match(/(\d{2}:\d{2}:\d{2}[,\.]\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}[,\.]\d{3})/);
+    if (!match) return;
+    subs.push({ start: parseTime(match[1]), end: parseTime(match[2]), text: lines.slice(2).join('\n') });
+  });
+}
+
+function parseVtt(content){
+  var text = content.replace(/^WEBVTT.*\n/, '').trim();
+  parseSrt(text);
+}
+
+document.getElementById('applyOffsetBtn').addEventListener('click', function(){
+  var offset = parseFloat(document.getElementById('offsetVal').value) || 0;
+  subs.forEach(function(sub){
+    sub.start = Math.max(0, sub.start + offset);
+    sub.end = Math.max(0, sub.end + offset);
+  });
+  renderList();
+  showToast('Offset applied');
+});
+
+document.getElementById('exportSrtBtn').addEventListener('click', function(){
+  if (!subs.length){ showToast('No subtitles yet'); return; }
+  var srt = '';
+  subs.forEach(function(sub, i){
+    srt += (i + 1) + '\n' + formatTime(sub.start) + ' --> ' + formatTime(sub.end) + '\n' + sub.text + '\n\n';
+  });
+  download(srt.trim(), 'subtitles.srt', 'text/plain');
+});
+
+document.getElementById('exportVttBtn').addEventListener('click', function(){
+  if (!subs.length){ showToast('No subtitles yet'); return; }
+  var vtt = 'WEBVTT\n\n';
+  subs.forEach(function(sub, i){
+    vtt += (i + 1) + '\n' + formatTimeVtt(sub.start) + ' --> ' + formatTimeVtt(sub.end) + '\n' + sub.text + '\n\n';
+  });
+  download(vtt.trim(), 'subtitles.vtt', 'text/vtt');
+});
+
+function download(content, filename, type){
+  var blob = new Blob([content], { type: type });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+addSub(0, 3, 'Welcome to the Subtitle Generator');
+addSub(3, 6, 'Add, edit, or import your subtitles');
+addSub(6, 9, 'Then export to SRT or WebVTT');
+</script>
+</body>
+</html>

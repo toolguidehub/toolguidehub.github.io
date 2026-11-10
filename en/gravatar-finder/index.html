@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Look up the Gravatar linked to an email address, preview it at sizes from 40 to 512 px, and download the avatar or copy its URL.">
+<meta name="keywords" content="Gravatar, avatar finder, email avatar, gravatar lookup, online tool, free">
+<title>Free Gravatar Finder - Online Tool|No Signup, Client-Side</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gravatar-finder/">
+<meta property="og:title" content="👤 Gravatar Finder">
+<meta property="og:description" content="Look up the Gravatar linked to an email address, preview it at sizes from 40 to 512 px, and download the avatar or copy its URL.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/gravatar-finder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Gravatar Finder", "description": "Free online Gravatar finder. Look up globally recognized avatars by email address. View avatar image, download HD avatar, check rating and size.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Gravatar Finder", "description": "Steps to use the Gravatar finder tool", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Gravatar Finder"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter email", "text": "Enter the email address to look up"}, {"@type": "HowToStep", "position": 2, "name": "Find avatar", "text": "Click the find button to search for Gravatar"}, {"@type": "HowToStep", "position": 3, "name": "View result", "text": "View avatar image, rating and size info, download the avatar"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Gravatar Finder", "item": "https://adi63586.github.io/Toolguidehub/en/gravatar-finder/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Gravatar Finder FAQ","mainEntity":[{"@type":"Question","name":"What is Gravatar?","acceptedAnswer":{"@type":"Answer","text":"Gravatar (Globally Recognized Avatar) is a free service operated by Automattic. Register your email and upload an avatar once, and it automatically follows you across thousands of Gravatar-supported websites."}},{"@type":"Question","name":"How do I set up Gravatar?","acceptedAnswer":{"@type":"Answer","text":"Visit gravatar.com, sign up with your email, and upload an avatar. Once set up, this tool will find your avatar instantly."}},{"@type":"Question","name":"Why was no avatar found?","acceptedAnswer":{"@type":"Answer","text":"Possible reasons: the email hasn't registered with Gravatar, the email address was entered incorrectly, or the avatar's rating is set to private."}},{"@type":"Question","name":"Is my privacy protected?","acceptedAnswer":{"@type":"Answer","text":"All queries go directly to Gravatar's official API. Your email is MD5-hashed before transmission — the plain email is never sent. No query records are stored."}}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+.badge{display:inline-block;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);color:#22d3ee;font-size:.8rem;margin-bottom:16px}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}
+.search-row{display:flex;gap:10px;flex-wrap:wrap}
+.search-row input{flex:1;padding:10px 14px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;outline:none;min-width:200px}
+.search-row input:focus{border-color:rgba(6,182,212,.5)}
+.search-row .btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.avatar-result{text-align:center}
+.avatar-wrap{width:200px;height:200px;margin:12px auto;border-radius:50%;overflow:hidden;border:3px solid rgba(6,182,212,.2)}
+.avatar-wrap img{width:100%;height:100%;object-fit:cover}
+.avatar-placeholder{width:200px;height:200px;margin:12px auto;border-radius:50%;background:rgba(148,163,184,.08);border:2px dashed rgba(148,163,184,.15);display:flex;align-items:center;justify-content:center;font-size:3rem;color:#475569}
+.rating{display:inline-block;padding:2px 10px;border-radius:4px;font-size:.75rem;margin:4px}
+.rating-g{background:rgba(34,197,94,.15);color:#4ade80}
+.rating-pg{background:rgba(234,179,8,.15);color:#facc15}
+.rating-r{background:rgba(239,68,68,.15);color:#f87171}
+.rating-x{background:rgba(239,68,68,.25);color:#ef4444}
+.size-options{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+.size-options button{padding:4px 10px;border-radius:4px;background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.15);color:#94a3b8;cursor:pointer;font-size:.8rem;transition:all .15s}
+.size-options button.active,.size-options button:hover{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.action-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.action-row .btn{padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-download{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.btn-download:hover{background:rgba(34,197,94,.3)}
+.btn-copy{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-copy:hover{background:rgba(6,182,212,.3)}
+.result-placeholder{text-align:center;color:#475569;padding:60px 0;font-size:.9rem}
+.result-placeholder .big-icon{font-size:3rem;display:block;margin-bottom:16px}
+.email-hash{font-size:.75rem;color:#475569;word-break:break-all;margin-top:8px;padding:8px;background:#0f172a;border-radius:6px;border:1px solid rgba(148,163,184,.05)}
+.spinner{display:none;width:32px;height:32px;border:3px solid rgba(148,163,184,.1);border-top:3px solid #22d3ee;border-radius:50%;animation:spin .8s linear infinite;margin:12px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status-msg{text-align:center;padding:12px;border-radius:8px;font-size:.9rem;margin:12px 0}
+.status-success{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#4ade80}
+.status-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#f87171}
+.status-info{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:#22d3ee}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.info-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:48px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#06b6d4}
+.footer a:hover{color:#38bdf8}
+.footer .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:16px;line-height:1.7}
+@media(max-width:860px){.main-grid{grid-template-columns:1fr}}@media(max-width:640px){.header{flex-direction:column;align-items:flex-start}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gravatar-finder/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>👤 Gravatar Finder</h1></div>
+<p class="nav-back"><a href="../">Home</a> &rsaquo; <a href="../#tools">Tools</a> &rsaquo; Gravatar Finder</p>
+<div class="hero"><p>Free online Gravatar finder. Look up globally recognized avatars by email address. View avatar preview, rating, size info, and download HD avatars with one click. Pure frontend, no data uploaded to server.</p><span class="badge">Zero dependency·Offline ready</span></div>
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-23
+  </span>
+</div>
+<div class="input-section">
+  <h2>🔍 Find Gravatar</h2>
+  <div class="search-row">
+    <input type="email" id="emailInput" placeholder="Enter email address, e.g. user@example.com" autocomplete="off">
+    <button class="btn btn-primary" id="lookupBtn">🔍 Find</button>
+    <button class="btn btn-secondary" id="clearBtn">🗑️ Clear</button>
+  </div>
+  <div class="spinner" id="spinner"></div>
+  <div id="statusArea"></div>
+</div>
+<div class="main-grid">
+<div>
+  <div id="resultArea">
+    <div class="result-placeholder" id="placeholder">
+      <span class="big-icon">👤</span>
+      <p>Enter an email and click Find</p>
+    </div>
+    <div id="avatarResult" style="display:none">
+      <div class="input-section avatar-result">
+        <h2>🖼️ Avatar Preview</h2>
+        <div class="avatar-wrap" id="avatarWrap">
+          <img id="avatarImg" src="" alt="Gravatar avatar">
+        </div>
+        <div style="margin:8px 0">
+          <span class="rating" id="ratingBadge">G</span>
+        </div>
+        <div style="font-size:.85rem;color:#94a3b8;margin-bottom:8px">
+          <span id="avatarSize">80</span>×<span id="avatarSize2">80</span> px
+        </div>
+        <div class="size-options">
+          <button data-size="40">40</button>
+          <button data-size="80" class="active">80</button>
+          <button data-size="120">120</button>
+          <button data-size="200">200</button>
+          <button data-size="300">300</button>
+          <button data-size="512">512</button>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-download" id="downloadBtn">⬇️ Download</button>
+          <button class="btn btn-copy" id="copyUrlBtn">📋 Copy URL</button>
+          <button class="btn btn-copy" id="openGravatarBtn">🌐 Open Gravatar</button>
+        </div>
+        <div class="email-hash" id="hashDisplay"></div>
+      </div>
+    </div>
+  </div>
+  <div class="info-section">
+    <h2>📖 How to Use</h2>
+    <h3>Step 1: Enter Email</h3>
+    <p>Type the email address you want to look up in the search box.</p>
+    <h3>Step 2: Find Avatar</h3>
+    <p>Click the "Find" button to query Gravatar for the associated avatar.</p>
+    <h3>Step 3: View & Download</h3>
+    <p>View the avatar preview, rating, and size. Switch between sizes, download or copy the image URL.</p>
+  </div>
+  <div class="info-section">
+    <h2>🎯 Use Cases</h2>
+    <ul>
+      <li><strong>Web Development:</strong> Integrate Gravatar avatars into your website or app.</li>
+      <li><strong>Community Management:</strong> Verify user avatars from Gravatar.</li>
+      <li><strong>Profile Check:</strong> Confirm your own Gravatar is displaying correctly.</li>
+      <li><strong>Avatar Design:</strong> Preview how avatars look at different sizes.</li>
+      <li><strong>Account Verification:</strong> Check if an email has a Gravatar registered.</li>
+    </ul>
+  </div>
+  <div class="info-section">
+    <h2>💡 About Gravatar</h2>
+    <p>Gravatar (Globally Recognized Avatar) is a free service operated by Automattic (the company behind WordPress). When you register an email and upload an avatar, it automatically appears on any Gravatar-supported website where you comment or post.</p>
+    <p>Gravatar avatars are identified by the MD5 hash of your email address. The system is widely supported by major platforms including WordPress, GitHub, Stack Overflow, and many more.</p>
+    <p>Gravatar supports four content ratings: G (General), PG (Parental Guidance), R (Restricted), and X (Adult), ensuring appropriate content display across different contexts.</p>
+  </div>
+  <div class="info-section">
+    <h2>❓ FAQ</h2>
+    <h3>What is Gravatar?</h3>
+    <p>Gravatar is a globally recognized avatar service. Register once, and your avatar follows you across thousands of websites automatically.</p>
+    <h3>How do I set up Gravatar?</h3>
+    <p>Visit gravatar.com, sign up with your email, and upload an avatar. Once set up, this tool will find your avatar instantly.</p>
+    <h3>Why was no avatar found?</h3>
+    <p>Possible reasons: the email hasn't registered with Gravatar, the email address was entered incorrectly, or the avatar's rating is set to private.</p>
+    <h3>Is my privacy protected?</h3>
+    <p>All queries go directly to Gravatar's official API. Your email is MD5-hashed before transmission — the plain email is never sent. No query records are stored.</p>
+  </div>
+</div>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/invoice-template/">🔧 Invoice Template Generator</a><a href="../../en/random-username/">⚙️ 👤 Random Username Generator</a><a href="../../en/random-email/">⚙️ 📧 Random Email Generator</a></div></section>
+<footer class="footer container">
+<div class="footer-links">
+<a href="../">Home</a>
+<a href="../#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy</a>
+<a href="../terms/">Terms</a>
+<a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/gravatar-finder/">中文</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var currentEmail="",currentHash="",currentSize=80;
+
+function md5(str){
+  function AddUnsigned(lX,lY){
+    var lX4,lY4,lX8,lY8,lResult;
+    lX8=(lX&0x80000000);lY8=(lY&0x80000000);
+    lX4=(lX&0x40000000);lY4=(lY&0x40000000);
+    lResult=(lX&0x3FFFFFFF)+(lY&0x3FFFFFFF);
+    if(lX4&lY4)return(lResult^0x80000000^lX8^lY8);
+    if(lX4|lY4){
+      if(lResult&0x40000000)return(lResult^0xC0000000^lX8^lY8);
+      else return(lResult^0x40000000^lX8^lY8);
+    }else return(lResult^lX8^lY8);
+  }
+  function F(x,y,z){return(x&y)|((~x)&z)}
+  function G(x,y,z){return(x&z)|(y&(~z))}
+  function H(x,y,z){return(x^y^z)}
+  function I(x,y,z){return(y^(x|(~z)))}
+  function RotateLeft(lValue,iShiftBits){return(lValue<<iShiftBits)|(lValue>>>(32-iShiftBits))}
+  function FF(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(F(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}
+  function GG(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(G(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}
+  function HH(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(H(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}
+  function II(a,b,c,d,x,s,ac){a=AddUnsigned(a,AddUnsigned(AddUnsigned(I(b,c,d),x),ac));return AddUnsigned(RotateLeft(a,s),b)}
+  function ConvertToWordArray(str){
+    var lWordCount;
+    var lMessageLength=str.length;
+    var lNumberOfWords_temp1=lMessageLength+8;
+    var lNumberOfWords_temp2=(lNumberOfWords_temp1-(lNumberOfWords_temp1%64))/64;
+    var lNumberOfWords=(lNumberOfWords_temp2+1)*16;
+    var lWordArray=Array(lNumberOfWords-1);
+    var lBytePosition=0;
+    var lByteCount=0;
+    while(lByteCount<lMessageLength){
+      lWordCount=(lByteCount-(lByteCount%4))/4;
+      lBytePosition=(lByteCount%4)*8;
+      lWordArray[lWordCount]=(lWordArray[lWordCount]|(str.charCodeAt(lByteCount)<<lBytePosition));
+      lByteCount++;
+    }
+    lWordCount=(lByteCount-(lByteCount%4))/4;
+    lBytePosition=(lByteCount%4)*8;
+    lWordArray[lWordCount]=lWordArray[lWordCount]|(0x80<<lBytePosition);
+    lWordArray[lNumberOfWords-2]=lMessageLength<<3;
+    lWordArray[lNumberOfWords-1]=lMessageLength>>>29;
+    return lWordArray;
+  }
+  function WordToHex(lValue){
+    var WordToHexValue="",WordToHexValue_temp="",lByte,lCount;
+    for(lCount=0;lCount<=3;lCount++){
+      lByte=(lValue>>>(lCount*8))&255;
+      WordToHexValue_temp="0"+lByte.toString(16);
+      WordToHexValue=WordToHexValue+WordToHexValue_temp.substr(WordToHexValue_temp.length-2,2);
+    }
+    return WordToHexValue;
+  }
+  var x=Array();
+  var k,AA,BB,CC,DD,a,b,c,d;
+  var S11=7,S12=12,S13=17,S14=22;
+  var S21=5,S22=9,S23=14,S24=20;
+  var S31=4,S32=11,S33=16,S34=23;
+  var S41=6,S42=10,S43=15,S44=21;
+  str=utf8Encode(str);
+  x=ConvertToWordArray(str);
+  a=0x67452301;b=0xEFCDAB89;c=0x98BADCFE;d=0x10325476;
+  for(k=0;k<x.length;k+=16){
+    AA=a;BB=b;CC=c;DD=d;
+    a=FF(a,b,c,d,x[k+0],S11,0xD76AA478);d=FF(d,a,b,c,x[k+1],S12,0xE8C7B756);c=FF(c,d,a,b,x[k+2],S13,0x242070DB);b=FF(b,c,d,a,x[k+3],S14,0xC1BDCEEE);
+    a=FF(a,b,c,d,x[k+4],S11,0xF57C0FAF);d=FF(d,a,b,c,x[k+5],S12,0x4787C62A);c=FF(c,d,a,b,x[k+6],S13,0xA8304613);b=FF(b,c,d,a,x[k+7],S14,0xFD469501);
+    a=FF(a,b,c,d,x[k+8],S11,0x698098D8);d=FF(d,a,b,c,x[k+9],S12,0x8B44F7AF);c=FF(c,d,a,b,x[k+10],S13,0xFFFF5BB1);b=FF(b,c,d,a,x[k+11],S14,0x895CD7BE);
+    a=FF(a,b,c,d,x[k+12],S11,0x6B901122);d=FF(d,a,b,c,x[k+13],S12,0xFD987193);c=FF(c,d,a,b,x[k+14],S13,0xA679438E);b=FF(b,c,d,a,x[k+15],S14,0x49B40821);
+    a=GG(a,b,c,d,x[k+1],S21,0xF61E2562);d=GG(d,a,b,c,x[k+6],S22,0xC040B340);c=GG(c,d,a,b,x[k+11],S23,0x265E5A51);b=GG(b,c,d,a,x[k+0],S24,0xE9B6C7AA);
+    a=GG(a,b,c,d,x[k+5],S21,0xD62F105D);d=GG(d,a,b,c,x[k+10],S22,0x2441453);c=GG(c,d,a,b,x[k+15],S23,0xD8A1E681);b=GG(b,c,d,a,x[k+4],S24,0xE7D3FBC8);
+    a=GG(a,b,c,d,x[k+9],S21,0x21E1CDE6);d=GG(d,a,b,c,x[k+14],S22,0xC33707D6);c=GG(c,d,a,b,x[k+3],S23,0xF4D50D87);b=GG(b,c,d,a,x[k+8],S24,0x455A14ED);
+    a=GG(a,b,c,d,x[k+13],S21,0xA9E3E905);d=GG(d,a,b,c,x[k+2],S22,0xFCEFA3F8);c=GG(c,d,a,b,x[k+7],S23,0x676F02D9);b=GG(b,c,d,a,x[k+12],S24,0x8D2A4C8A);
+    a=HH(a,b,c,d,x[k+5],S31,0xFFFA3942);d=HH(d,a,b,c,x[k+8],S32,0x8771F681);c=HH(c,d,a,b,x[k+11],S33,0x6D9D6122);b=HH(b,c,d,a,x[k+14],S34,0xFDE5380C);
+    a=HH(a,b,c,d,x[k+1],S31,0xA4BEEA44);d=HH(d,a,b,c,x[k+4],S32,0x4BDECFA9);c=HH(c,d,a,b,x[k+7],S33,0xF6BB4B60);b=HH(b,c,d,a,x[k+10],S34,0xBEBFBC70);
+    a=HH(a,b,c,d,x[k+13],S31,0x289B7EC6);d=HH(d,a,b,c,x[k+0],S32,0xEAA127FA);c=HH(c,d,a,b,x[k+3],S33,0xD4EF3085);b=HH(b,c,d,a,x[k+6],S34,0x4881D05);
+    a=HH(a,b,c,d,x[k+9],S31,0xD9D4D039);d=HH(d,a,b,c,x[k+12],S32,0xE6DB99E5);c=HH(c,d,a,b,x[k+15],S33,0x1FA27CF8);b=HH(b,c,d,a,x[k+2],S34,0xC4AC5665);
+    a=II(a,b,c,d,x[k+0],S41,0xF4292244);d=II(d,a,b,c,x[k+7],S42,0x432AFF97);c=II(c,d,a,b,x[k+14],S43,0xAB9423A7);b=II(b,c,d,a,x[k+5],S44,0xFC93A039);
+    a=II(a,b,c,d,x[k+12],S41,0x655B59C3);d=II(d,a,b,c,x[k+3],S42,0x8F0CCC92);c=II(c,d,a,b,x[k+10],S43,0xFFEFF47D);b=II(b,c,d,a,x[k+1],S44,0x85845DD1);
+    a=II(a,b,c,d,x[k+8],S41,0x6FA87E4F);d=II(d,a,b,c,x[k+15],S42,0xFE2CE6E0);c=II(c,d,a,b,x[k+6],S43,0xA3014314);b=II(b,c,d,a,x[k+13],S44,0x4E0811A1);
+    a=II(a,b,c,d,x[k+4],S41,0xF7537E82);d=II(d,a,b,c,x[k+11],S42,0xBD3AF235);c=II(c,d,a,b,x[k+2],S43,0x2AD7D2BB);b=II(b,c,d,a,x[k+9],S44,0xEB86D391);
+    a=AddUnsigned(a,AA);b=AddUnsigned(b,BB);c=AddUnsigned(c,CC);d=AddUnsigned(d,DD);
+  }
+  return WordToHex(a)+WordToHex(b)+WordToHex(c)+WordToHex(d);
+}
+function utf8Encode(str){str=str.replace(/\r\n/g,"\n");var utftext="";for(var n=0;n<str.length;n++){var c=str.charCodeAt(n);if(c<128)utftext+=String.fromCharCode(c);else if(c>127&&c<2048){utftext+=String.fromCharCode(c>>6|192);utftext+=String.fromCharCode(c&63|128)}else{utftext+=String.fromCharCode(c>>12|224);utftext+=String.fromCharCode(c>>6&63|128);utftext+=String.fromCharCode(c&63|128)}}return utftext}
+
+function lookupGravatar(){
+  var email=document.getElementById("emailInput").value.trim();
+  if(!email){showToast("Please enter an email");return}
+  if(email.indexOf("@")===-1){showToast("Please enter a valid email");return}
+  
+  currentEmail=email;
+  var hash=md5(email.toLowerCase());
+  currentHash=hash;
+  
+  document.getElementById("spinner").style.display="block";
+  document.getElementById("placeholder").style.display="none";
+  document.getElementById("avatarResult").style.display="none";
+  document.getElementById("statusArea").innerHTML="";
+  
+  var imgUrl="https://www.gravatar.com/avatar/"+hash+"?s="+currentSize+"&d=404&r=g";
+  var img=new Image();
+  img.onload=function(){
+    document.getElementById("spinner").style.display="none";
+    showAvatar(imgUrl,hash,email);
+  };
+  img.onerror=function(){
+    document.getElementById("spinner").style.display="none";
+    document.getElementById("statusArea").innerHTML='<div class="status-error">No Gravatar found for this email. The email may not be registered with Gravatar.</div>';
+    document.getElementById("avatarResult").style.display="none";
+    document.getElementById("placeholder").style.display="block";
+  };
+  img.src=imgUrl;
+}
+
+function showAvatar(url,hash,email){
+  document.getElementById("avatarResult").style.display="block";
+  document.getElementById("avatarImg").src=url;
+  document.getElementById("avatarSize").textContent=currentSize;
+  document.getElementById("avatarSize2").textContent=currentSize;
+  document.getElementById("hashDisplay").textContent="MD5: "+hash+" | Email: "+email;
+  document.getElementById("statusArea").innerHTML='<div class="status-success">✅ Gravatar found!</div>';
+}
+
+function setSize(size){
+  currentSize=size;
+  document.querySelectorAll(".size-options button").forEach(function(b){
+    b.classList.toggle("active",parseInt(b.dataset.size)===size);
+  });
+  if(currentHash){
+    var url="https://www.gravatar.com/avatar/"+currentHash+"?s="+size+"&d=404&r=g";
+    document.getElementById("avatarImg").src=url;
+    document.getElementById("avatarSize").textContent=size;
+    document.getElementById("avatarSize2").textContent=size;
+  }
+}
+
+document.getElementById("lookupBtn").addEventListener("click",lookupGravatar);
+document.getElementById("emailInput").addEventListener("keydown",function(e){
+  if(e.key==="Enter")lookupGravatar();
+});
+
+document.getElementById("clearBtn").addEventListener("click",function(){
+  document.getElementById("emailInput").value="";
+  document.getElementById("avatarResult").style.display="none";
+  document.getElementById("placeholder").style.display="block";
+  document.getElementById("statusArea").innerHTML="";
+  currentEmail="";currentHash="";
+});
+
+document.querySelectorAll(".size-options button").forEach(function(btn){
+  btn.addEventListener("click",function(){setSize(parseInt(this.dataset.size))});
+});
+
+document.getElementById("downloadBtn").addEventListener("click",function(){
+  if(!currentHash){showToast("Find an avatar first");return}
+  var url="https://www.gravatar.com/avatar/"+currentHash+"?s="+currentSize+"&d=404&r=g";
+  var a=document.createElement("a");
+  a.href=url;
+  a.download="gravatar_"+currentEmail.replace(/[^a-zA-Z0-9]/g,"_")+"_"+currentSize+".jpg";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showToast("Downloading avatar");
+});
+
+document.getElementById("copyUrlBtn").addEventListener("click",function(){
+  if(!currentHash){showToast("Find an avatar first");return}
+  var url="https://www.gravatar.com/avatar/"+currentHash+"?s="+currentSize+"&d=404&r=g";
+  navigator.clipboard.writeText(url).then(function(){showToast("URL copied!")})["catch"](function(){showToast("Copy failed")});
+});
+
+document.getElementById("openGravatarBtn").addEventListener("click",function(){
+  if(!currentHash){showToast("Find an avatar first");return}
+  window.open("https://www.gravatar.com/"+currentHash,"_blank");
+});
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

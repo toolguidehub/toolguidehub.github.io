@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bond Price Calculator - ToolGuideHub</title>
+  <meta name="description" content="Work out a bond's market price from face value, coupon rate, yield to maturity and maturity date.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/bond-price-calculator/">
+      <meta property="og:title" content="Bond Price Calculator - Free Online Bond Valuation Tool">
+  <meta property="og:description" content="Work out a bond's market price from face value, coupon rate, yield to maturity and maturity date.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/bond-price-calculator/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bond Price Calculator">
+  <meta name="twitter:description" content="Free online bond price calculator tool. Fast, secure, and no registration required. Works entirely in your browser.">
+  <link rel="icon" href="../../favicon.svg" type="image/x-icon">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Bond Price Calculator",
+    "description": "Free bond price calculator computing market price from face value, coupon rate, YTM and maturity.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/" },
+      { "@type": "ListItem", "position": 2, "name": "Bond Price Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/bond-price-calculator/" }
+    ]
+  }
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Bond Price Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Bond Price Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Bond Price Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Face Value and Coupon Rate are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Bond Price Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Bond Price Calculator","description":"Step-by-step guide for using Bond Price Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Bond Price Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--surface:#1e293b;--primary-light:rgba(6,182,212,.15);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid rgba(148,163,184,.1);padding:1rem 0}
+    header .container{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto;padding:0 1rem}
+    header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+    header nav a{color:#94a3b8;text-decoration:none;margin-left:1.5rem;font-size:.875rem;transition:color .2s}
+    header nav a:hover{color:#22d3ee}
+    header nav a.lang-switch{border:1px solid rgba(148,163,184,.15);padding:.35rem .8rem;border-radius:999px;margin-left:1rem}
+    main{max-width:960px;margin:0 auto;padding:2rem 1rem 4rem}
+    h1{font-size:2rem;font-weight:800;margin-bottom:.5rem}
+    .subtitle{color:#94a3b8;margin-bottom:2rem}
+    .section{background:var(--surface);border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+    .section h2{font-size:1.25rem;margin-bottom:1rem}
+    .form-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1rem}
+    .form-group{flex:1;min-width:180px}
+    .form-group label{display:block;font-size:.8125rem;font-weight:600;color:#94a3b8;margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.025em}
+    .form-group input,.form-group select{width:100%;padding:.625rem .75rem;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.9375rem;transition:border-color .2s;background:var(--surface)}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(79,70,229,.15)}
+    .btn{display:inline-flex;align-items:center;gap:.375rem;padding:.625rem 1.25rem;border:none;border-radius:8px;font-size:.9375rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .btn-primary{background:#22d3ee;color:#fff}
+    .btn-primary:hover{background:var(--primary-light)}
+    .btn-secondary{background:rgba(148,163,184,.1);color:#e2e8f0}
+    .btn-secondary:hover{background:#d1d5db}
+    .btn-sm{padding:.375rem .75rem;font-size:.8125rem}
+    .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem}
+    .result-item{background:#0a0f1e;border-radius:8px;padding:1rem;text-align:center}
+    .result-item .label{font-size:.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.025em;margin-bottom:.25rem}
+    .result-item .value{font-size:1.5rem;font-weight:700;color:#22d3ee}
+    .highlight-box{background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid #22d3ee;border-radius:12px;padding:1.25rem;text-align:center;margin-bottom:1rem}
+    .highlight-box .big-number{font-size:2.5rem;font-weight:800;color:#22d3ee}
+    .highlight-box .big-label{font-size:.875rem;color:#94a3b8}
+    .info-badge{display:inline-block;padding:.25rem .75rem;border-radius:999px;font-size:.8125rem;font-weight:600}
+    .badge-discount{background:rgba(16,185,129,.15);color:#34d399}
+    .badge-premium{background:rgba(239,68,68,.15);color:#f87171}
+    .badge-par{background:rgba(99,102,241,.15);color:#a5b4fc}
+    .faq-item{margin-bottom:1.25rem}
+    .faq-item h3{font-size:1rem;font-weight:600;margin-bottom:.375rem}
+    .faq-item p{color:#94a3b8;font-size:.9375rem}
+    footer{background:var(--surface);border-top:1px solid rgba(148,163,184,.1);padding:1.5rem 0;text-align:center;font-size:.8125rem;color:#94a3b8}
+    footer a{color:#22d3ee;text-decoration:none}
+    .breadcrumb{font-size:.8125rem;color:#94a3b8;margin-bottom:1.5rem}
+    .breadcrumb a{color:#94a3b8;text-decoration:none}
+    .breadcrumb a:hover{color:#22d3ee}
+    .copied-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:.625rem 1.25rem;border-radius:8px;font-size:.875rem;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+    .copied-toast.show{opacity:1}
+    @media(max-width:600px){
+      .form-row{flex-direction:column;gap:.75rem}
+      .form-group{min-width:auto}
+      .result-grid{grid-template-columns:1fr 1fr}
+      h1{font-size:1.5rem}
+    }
+  
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;opacity:0;transition:all .3s ease;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+    <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/bond-price-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../../" class="logo">ToolGuideHub</a>
+      <nav>
+        <a href="../../">Home</a>
+        <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+        <a href="../../en/bond-price-calculator/" class="lang-switch">中文</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="breadcrumb"><a href="../../">Home</a> / <span>Bond Price Calculator</span></div>
+    <h1>💰 Bond Price Calculator</h1>
+    <p class="subtitle">Compute the current market price of a bond from face value, coupon rate, YTM and time to maturity.</p>
+
+    <div class="section">
+      <h2>⚙️ Bond Parameters</h2>
+      <div class="form-row">
+        <div class="form-group"><label>Face Value ($)</label><input type="number" id="faceValue" value="1000" min="1" step="1"></div>
+        <div class="form-group"><label>Coupon Rate (%/yr)</label><input type="number" id="couponRate" value="5" min="0" max="50" step="0.1"></div>
+        <div class="form-group"><label>Payment Frequency</label><select id="frequency"><option value="1">Annual</option><option value="2" selected>Semi-Annual</option><option value="4">Quarterly</option><option value="12">Monthly</option></select></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>YTM (%/yr)</label><input type="number" id="ytm" value="6" min="0.01" max="50" step="0.01"></div>
+        <div class="form-group"><label>Years to Maturity</label><input type="number" id="yearsToMaturity" value="5" min="0.01" max="50" step="0.5"></div>
+      </div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <button class="btn btn-primary" id="calculateBtn">📊 Calculate Price</button>
+        <button class="btn btn-secondary" id="clearBtn">🔄 Reset</button>
+      </div>
+    </div>
+
+    <div class="section" id="result-card" style="display:none">
+      <h2>📋 Results</h2>
+      <div class="highlight-box">
+        <div class="big-label" id="bondType"></div>
+        <div class="big-number" id="priceDisplay">-</div>
+        <div style="font-size:.875rem;color:#94a3b8;margin-top:.5rem">(Per $100 face value: <span id="per100Display"></span>)</div>
+      </div>
+      <div class="result-grid" id="resultGrid"></div>
+      <div style="display:flex;gap:.75rem;margin-top:1rem"><button class="btn btn-secondary btn-sm" id="exportBtn">📋 Copy Result</button></div>
+    </div>
+
+    <div class="section">
+      <h2>💡 Bond Pricing Basics</h2>
+      <p style="color:#94a3b8;margin-bottom:1rem">A bond's price is the present value of all future cash flows (coupons + principal) discounted at the YTM. When YTM > coupon rate, the bond trades at a discount. When YTM < coupon rate, at a premium. When equal, at par.</p>
+    </div>
+
+    <div class="section">
+      <h2>❓ FAQ</h2>
+      <div class="faq-item"><h3>What's the relationship between bond prices and interest rates?</h3><p>Bond prices and market interest rates move inversely. When rates rise, existing bond prices fall, and vice versa.</p></div>
+      <div class="faq-item"><h3>Why do discount bonds have YTM > coupon?</h3><p>Because in addition to coupon income, you buy below face value and get repaid at par at maturity—the price gain boosts your total return.</p></div>
+    </div>
+  </main>
+
+  
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="//en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="//en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/bond-price-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+  <div class="copied-toast" id="copiedToast">✅ Copied to clipboard</div>
+
+  <script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+  (function(){
+    const $=s=>document.querySelector(s);
+    const faceValueEl=$('#faceValue'),couponRateEl=$('#couponRate'),frequencyEl=$('#frequency');
+    const ytmEl=$('#ytm'),yearsEl=$('#yearsToMaturity');
+    const resultCard=$('#result-card'),resultGrid=$('#resultGrid'),priceDisplay=$('#priceDisplay'),bondType=$('#bondType'),per100Display=$('#per100Display');
+
+    function formatCurrency(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+    function calculatePrice(fv,cr,freq,ytmR,yrs){
+      const p=Math.round(yrs*freq),c=(fv*cr/100)/freq,r=ytmR/100/freq;
+      let pv=0;for(let t=1;t<=p;t++){const cf=(t===p)?c+fv:c;pv+=cf/Math.pow(1+r,t);}return pv;
+    }
+
+    function calculate(){
+      const fv=parseFloat(faceValueEl.value)||1000,cr=parseFloat(couponRateEl.value)||5,freq=parseInt(frequencyEl.value)||2;
+      const ytmR=parseFloat(ytmEl.value)||6,yrs=parseFloat(yearsEl.value)||5;
+      if(fv<=0||yrs<=0||ytmR<=0){showToast('Please fill all fields');return;}
+      const price=calculatePrice(fv,cr,freq,ytmR,yrs);
+      const p100=price/fv*100,cy=(fv*cr/100)/price*100,tc=(fv*cr/100)*yrs,dp=(price-fv)/fv*100;
+
+      resultCard.style.display='block';priceDisplay.textContent=formatCurrency(price);per100Display.textContent=p100.toFixed(2);
+      let tt='',tc2='';if(Math.abs(price-fv)<0.5){tt='Par Bond 🎯';tc2='badge-par';}else if(price<fv){tt='Discount Bond 💰';tc2='badge-discount';}else{tt='Premium Bond 📊';tc2='badge-premium';}
+      bondType.innerHTML=`<span class="info-badge ${tc2}">${tt}</span>`;
+      resultGrid.innerHTML=`
+        <div class="result-item"><div class="label">Bond Price</div><div class="value">${formatCurrency(price)}</div></div>
+        <div class="result-item"><div class="label">Current Yield</div><div class="value">${cy.toFixed(4)}%</div></div>
+        <div class="result-item"><div class="label">Total Coupons</div><div class="value">${formatCurrency(tc)}</div></div>
+        <div class="result-item"><div class="label">Semi-Annual Cp</div><div class="value">${formatCurrency((fv*cr/100)/2)}</div></div>
+        <div class="result-item"><div class="label">Premium/Discount</div><div class="value">${dp>=0?'+':''}${dp.toFixed(2)}%</div></div>
+        <div class="result-item"><div class="label">Total Periods</div><div class="value">${Math.round(yrs*freq)}</div></div>`;
+      window._lastResult={price,p100,cy,tc,fv,cr,ytmR,yrs,tt};resultCard.scrollIntoView({behavior:'smooth'});
+    }
+
+    function clearAll(){faceValueEl.value=1000;couponRateEl.value=5;frequencyEl.value='2';ytmEl.value=6;yearsEl.value=5;resultCard.style.display='none';window._lastResult=null;window.scrollTo({top:0,behavior:'smooth'});}
+
+    function copyResult(){
+      if(!window._lastResult)return;const r=window._lastResult;
+      const text=`💰 Bond Price Calculation\n━━━━━━━━━━━━━━━━\nFace Value: ${formatCurrency(r.fv)}\nCoupon: ${r.cr}%\nYTM: ${r.ytmR}%\nPrice: ${formatCurrency(r.price)}\nPer $100: $${r.p100.toFixed(2)}\nCurrent Yield: ${r.cy.toFixed(4)}%\nType: ${r.tt}\n━━━━━━━━━━━━━━━━\nGenerated by ToolGuideHub`;
+      navigator.clipboard.writeText(text).then(()=>{const toast=$('#copiedToast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2000);});
+    }
+
+    $('#calculateBtn').addEventListener('click',calculate);$('#clearBtn').addEventListener('click',clearAll);$('#exportBtn')?.addEventListener('click',copyResult);
+  })();
+  </script>
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

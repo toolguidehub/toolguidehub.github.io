@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>function showToast(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#f1f5f9;padding:10px 20px;border-radius:8px;z-index:9999;opacity:0;transition:opacity .3s";document.body.appendChild(t);}t.textContent=m;t.style.opacity="1";setTimeout(function(){t.style.opacity="0"},2500);}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calculate basal energy expenditure with the Harris-Benedict equation for clinical nutrition and tube-feeding plans.">
+<meta name="keywords" content="BEE calculator, basal energy expenditure, Harris-Benedict, clinical nutrition, tube feeding, nutrition assessment, energy needs">
+<title>BEE Energy Calculator - Harris-Benedict | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/basal-energy-expenditure/">
+<meta property="og:title" content="BEE Energy Calculator - Harris-Benedict | ToolGuideHub">
+<meta property="og:description" content="Calculate basal energy expenditure with the Harris-Benedict equation for clinical nutrition and tube-feeding plans.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/basal-energy-expenditure/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BEE Basal Energy Expenditure Calculator","applicationCategory":"HealthApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"Online Tools"},"author":{"@type":"Organization","name":"Online Tools"},"dateModified":"2026-07-27","description":"Free online BEE calculator using Harris-Benedict formula.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"BEE Calculator","item":"https://adi63586.github.io/Toolguidehub/en/basal-energy-expenditure/"}]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"BEE Basal Energy Expenditure Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the BEE Basal Energy Expenditure Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the BEE Basal Energy Expenditure Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Age and Height are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the BEE Basal Energy Expenditure Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use BEE Basal Energy Expenditure Calculator","description":"Step-by-step guide for using BEE Basal Energy Expenditure Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"BEE Basal Energy Expenditure Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.input-group{flex:1;min-width:140px}
+.input-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.input-group input,.input-group select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.gender-row{display:flex;gap:12px;margin-bottom:12px}
+.gender-option{flex:1;padding:12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;text-align:center;cursor:pointer;transition:all .2s}
+.gender-option.selected{border-color:#06b6d4;background:rgba(6,182,212,.1)}
+.gender-option:hover{border-color:rgba(6,182,212,.3)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:10px 20px;border-radius:8px;font-size:.9rem;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}
+.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.result-card{background:#0f172a;border-radius:10px;padding:16px;text-align:center;border:1px solid rgba(148,163,184,.1)}
+.result-card .label{font-size:.8rem;color:#94a3b8;margin-bottom:4px}
+.result-card .value{font-size:1.4rem;font-weight:700;color:#22d3ee}
+.result-card .sub{font-size:.8rem;color:#64748b}
+.factor-table{width:100%;border-collapse:collapse;margin-top:8px}
+.factor-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.1);font-size:.85rem}
+.factor-table td:last-child{text-align:right;color:#22d3ee;font-weight:600}
+.info-box{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem;color:#94a3b8}
+@media(max-width:375px){.input-group{min-width:100%}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/basal-energy-expenditure/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="ad-slot"></div>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+  <div class="header">
+    <h1>🏥 BEE Calculator</h1>
+    
+  </div>
+
+  <div class="section">
+    <h2>📊 Input Parameters</h2>
+    <div class="gender-row">
+      <div class="gender-option selected" id="gender-male" onclick="setGender('male')">👨 Male</div>
+      <div class="gender-option" id="gender-female" onclick="setGender('female')">👩 Female</div>
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label>Age (years)</label>
+        <input type="number" id="age" value="40" min="10" max="120" step="1">
+      </div>
+      <div class="input-group">
+        <label>Height (cm)</label>
+        <input type="number" id="height" value="170" min="100" max="250" step="0.1">
+      </div>
+      <div class="input-group">
+        <label>Weight (kg)</label>
+        <input type="number" id="weight" value="70" min="30" max="300" step="0.1">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calculate()">🔍 Calculate</button>
+      <button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+      <button class="btn btn-secondary" id="copyBtn" onclick="copyResult()">📋 Copy Results</button>
+    </div>
+  </div>
+
+  <div class="section" id="results" style="display:none">
+    <h2>📈 Results</h2>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="label">BEE (Basal Energy Expenditure)</div>
+        <div class="value" id="bee-value">0</div>
+        <div class="sub">kcal/day</div>
+      </div>
+      <div class="result-card">
+        <div class="label">Total Energy Expenditure (TEE)</div>
+        <div class="value" id="tee-value">0</div>
+        <div class="sub">kcal/day (with stress factor)</div>
+      </div>
+    </div>
+    <h2 style="margin-top:16px;font-size:1rem;color:#f1f5f9">📋 Stress Factor Adjusted Energy</h2>
+    <table class="factor-table">
+      <tr><td>🛌 Bed Rest (×1.1)</td><td id="tee-bed">0</td></tr>
+      <tr><td>🤒 Mild Stress/Post-op (×1.2)</td><td id="tee-mild">0</td></tr>
+      <tr><td>🏥 Moderate Stress/Infection (×1.4)</td><td id="tee-moderate">0</td></tr>
+      <tr><td>🔥 Severe Trauma/Burns (×1.6)</td><td id="tee-severe">0</td></tr>
+      <tr><td>💪 Critical/Multi-organ Failure (×2.0)</td><td id="tee-critical">0</td></tr>
+    </table>
+    <div class="info-box" id="advice"></div>
+  </div>
+
+<h2>What is BEE Energy Calculator - Harris-Benedict?</h2><p>BEE Energy Calculator - Harris-Benedict is a free online tool that runs entirely in your browser. No download or signup needed — enter Age and Height to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+<script>
+var gender="male";
+function setGender(g){
+  gender=g;
+  document.getElementById("gender-male").className=g==="male"?"gender-option selected":"gender-option";
+  document.getElementById("gender-female").className=g==="female"?"gender-option selected":"gender-option";
+}
+function calculate(){
+  var age=parseFloat(document.getElementById("age").value)||40;
+  var h=parseFloat(document.getElementById("height").value)||170;
+  var w=parseFloat(document.getElementById("weight").value)||70;
+  var bee;
+  if(gender==="male")bee=66.5+13.75*w+5.003*h-6.775*age;
+  else bee=655.1+9.563*w+1.85*h-4.676*age;
+  bee=Math.round(bee);
+  document.getElementById("bee-value").textContent=bee.toLocaleString();
+  document.getElementById("tee-value").textContent=Math.round(bee*1.4).toLocaleString();
+  document.getElementById("tee-bed").textContent=Math.round(bee*1.1).toLocaleString()+" kcal";
+  document.getElementById("tee-mild").textContent=Math.round(bee*1.2).toLocaleString()+" kcal";
+  document.getElementById("tee-moderate").textContent=Math.round(bee*1.4).toLocaleString()+" kcal";
+  document.getElementById("tee-severe").textContent=Math.round(bee*1.6).toLocaleString()+" kcal";
+  document.getElementById("tee-critical").textContent=Math.round(bee*2.0).toLocaleString()+" kcal";
+  document.getElementById("advice").textContent="💡 BEE represents energy expenditure at basal state. Clinical nutrition applies stress factors, typically ×1.2-1.4. Severe burns may reach ×2.0. This tool is for reference only — follow medical guidance.";
+  document.getElementById("results").style.display="block";
+}
+function clearAll(){
+  document.getElementById("age").value=40;
+  document.getElementById("height").value=170;
+  document.getElementById("weight").value=70;
+  setGender("male");
+  document.getElementById("results").style.display="none";
+}
+
+function copyResult(){
+  let text = '';
+  const cards = document.querySelectorAll('.result-card');
+  cards.forEach(c => {
+    const label = c.querySelector('.label');
+    const value = c.querySelector('.value');
+    if (label && value && value.textContent !== '-' && value.textContent !== '') {
+      text += label.textContent.trim() + ': ' + value.textContent.trim() + '\n';
+    }
+  });
+  if (!text) {
+    const vals = document.querySelectorAll('.result-card .value');
+    const lbls = document.querySelectorAll('.result-card .label');
+    for (let i = 0; i < vals.length; i++) {
+      if (vals[i].textContent !== '-' && vals[i].textContent !== '') {
+        text += (lbls[i]?.textContent?.trim() || '') + ': ' + vals[i].textContent.trim() + '\n';
+      }
+    }
+  }
+  if (!text) { text = 'No results to copy'; }
+  navigator.clipboard.writeText(text.trim()).then(() => {
+    showToast?.('Copied to clipboard') || showToast?.('Copied to clipboard');
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text.trim();
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast?.('Copied to clipboard') || showToast?.('Copied to clipboard');
+  });
+}
+
+</script>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/one-rep-max/">💪 One Rep Max Calculator</a><a href="../../en/a1c-calculator/">🩸 HbA1c Calculator</a><a href="../../en/calorie-deficit-calculator/">🔥 Calorie Deficit Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/basal-energy-expenditure/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

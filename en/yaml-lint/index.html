@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online YAML Lint | No Signup</title>
+    <meta name="description" content="Lint YAML for syntax mistakes and indentation slips in real time, then beautify the corrected document with one click.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/yaml-lint/">
+    <meta property="og:title" content="Free YAML Lint - ToolGuideHub">
+    <meta property="og:description" content="Lint YAML for syntax mistakes and indentation slips in real time, then beautify the corrected document with one click.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/yaml-lint/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; min-height: 250px; resize: vertical; }
+        textarea:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .status-bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-weight: 600; }
+        .status-bar.valid { background: rgba(34,197,94,.1); color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+        .status-bar.invalid { background: rgba(239,68,68,.1); color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+        .status-bar .icon { font-size: 1.2rem; }
+        .error-item { padding: 8px 12px; background: rgba(239,68,68,.08); border-left: 3px solid #ef4444; border-radius: 0 8px 8px 0; margin-bottom: 8px; font-size: 13px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; color: #e2e8f0; }
+        .output-area { background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.5; white-space: pre-wrap; max-height: 300px; overflow-y: auto; margin-top: 12px; }
+        .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<style>
+
+@media (max-width: 640px) {   }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/yaml-lint/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <h1>🔍 YAML Lint
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</h1>
+
+            <p>Free online YAML validator & formatter - Real-time syntax checking, auto-beautification, pure client-side</p>
+        </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "YAML Lint",
+      "item": "https://adi63586.github.io/Toolguidehub/en/yaml-lint/"
+    }
+  ],
+  "name": "YAML Lint"
+}</script>
+
+        <div class="section">
+            <h2>📝 Enter YAML</h2>
+            <textarea id="yamlInput" placeholder="Enter YAML content here...&#10;&#10;Example:&#10;name: WebTools&#10;version: 1.0&#10;features:&#10;  - yaml-validation&#10;  - auto-format&#10;config:&#10;  debug: false&#10;  port: 8080" oninput="validateYAML()"></textarea>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="validateYAML()">✅ Validate</button>
+                <button class="btn btn-secondary" onclick="formatYAML()">🎨 Format</button>
+                <button class="btn btn-secondary" onclick="convertToJSON()">🔄 To JSON</button>
+                <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+                <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <div id="statusCard" style="display:none">
+            <div class="status-bar" id="statusBar"><span class="icon" id="statusIcon"></span><span id="statusText"></span></div>
+            <div id="errorList"></div>
+        </div>
+
+        <div class="section" id="outputCard" style="display:none">
+            <h2>📤 Output</h2>
+            <div class="output-area" id="outputArea"></div>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="copyOutput()">📋 Copy</button>
+                <button class="btn btn-secondary" onclick="downloadOutput()">💾 Download</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item"><h3>Q1: What is the difference between YAML and JSON?</h3><p>YAML (YAML Ain't Markup Language) is more human-readable than JSON, supports comments, multi-line strings, anchors and aliases. JSON is a stricter data format with simpler syntax but lower readability. YAML is a superset of JSON.</p></div>
+            <div class="faq-item"><h3>Q2: What are common YAML syntax errors?</h3><p>Common errors include: inconsistent indentation (YAML requires consistent indentation at the same level), missing space after colon, unescaped special characters, mixing tabs and spaces (YAML doesn't allow tabs), and multi-line string format errors.</p></div>
+            <div class="faq-item"><h3>Q3: Is this tool secure?</h3><p>Completely secure. All YAML parsing and validation happens locally in your browser. Your data is never uploaded to any server. Your configuration content always stays local.</p></div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is the difference between YAML and JSON?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between YAML and JSON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YAML is more human-readable, supports comments, multi-line strings, anchors. JSON is stricter with simpler syntax. YAML is a superset of JSON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are common YAML syntax errors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inconsistent indentation, missing space after colon, unescaped special characters, mixing tabs and spaces, multi-line string format errors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Completely secure. Everything runs locally: en/yaml-lint/index.html and other values are processed on your device, never sent to a server. No data is uploaded to any server."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use YAML Lint", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter or paste YAML content", "name": "Enter or paste YAML content"}, {"@type": "HowToStep", "position": 2, "text": "Click Validate to check syntax", "name": "Click Validate to check syntax"}, {"@type": "HowToStep", "position": 3, "text": "Use Format or To JSON features", "name": "Use Format or To JSON features"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "YAML Lint", "description": "Free online YAML validator and formatter", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/yaml-lint/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+        </script>
+        <script>
+        var lastOutput = '';
+        function parseYamlSimple(text) {
+            var lines = text.split('\n');
+            var root = {};
+            var stack = [{obj: root, indent: -1}];
+            var lastKey = null;
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                var trimmed = line.trim();
+                if (!trimmed || trimmed.startsWith('#') || trimmed === '---' || trimmed === '...') continue;
+                var indent = line.search(/\S/);
+                if (indent < 0) indent = 0;
+                while (stack.length > 1 && stack[stack.length - 1].indent >= indent) stack.pop();
+                var parent = stack[stack.length - 1].obj;
+                if (trimmed.startsWith('- ')) {
+                    var val = trimmed.substring(2).trim();
+                    if (!Array.isArray(parent)) {
+                        var k = lastKey;
+                        if (k && parent[k] !== undefined && !Array.isArray(parent[k])) parent[k] = [parent[k]];
+                        else if (k) parent[k] = parent[k] || [];
+                        else parent = [];
+                    }
+                    if (val.includes(':')) {
+                        var item = {};
+                        var ci = val.indexOf(':');
+                        var ik = val.substring(0, ci).trim();
+                        var iv = val.substring(ci + 1).trim();
+                        item[ik] = parseVal(iv);
+                        parent.push(item);
+                        stack.push({obj: item, indent: indent});
+                    } else {
+                        parent.push(parseVal(val));
+                    }
+                    lastKey = null;
+                    continue;
+                }
+                var ci = trimmed.indexOf(':');
+                if (ci === -1) continue;
+                var key = trimmed.substring(0, ci).trim();
+                var valStr = trimmed.substring(ci + 1).trim();
+                if (valStr) {
+                    parent[key] = parseVal(valStr);
+                } else {
+                    var newObj = {};
+                    parent[key] = newObj;
+                    stack.push({obj: newObj, indent: indent});
+                }
+                lastKey = key;
+            }
+            return root;
+        }
+        function parseVal(v) {
+            v = v.trim();
+            if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) return v.slice(1, -1);
+            if (v === 'true' || v === 'True') return true;
+            if (v === 'false' || v === 'False') return false;
+            if (v === 'null' || v === '~' || v === '') return null;
+            if (/^-?\d+$/.test(v)) return parseInt(v, 10);
+            if (/^-?\d+\.\d+$/.test(v)) return parseFloat(v);
+            return v;
+        }
+        function validateYAML() {
+            var input = document.getElementById('yamlInput').value.trim();
+            if (!input) { document.getElementById('statusCard').style.display = 'none'; return; }
+            try {
+                var result = parseYamlSimple(input);
+                document.getElementById('statusCard').style.display = '';
+                document.getElementById('statusBar').className = 'status-bar valid';
+                document.getElementById('statusIcon').textContent = '✅';
+                document.getElementById('statusText').textContent = 'Valid YAML - Parsed successfully (' + getTypeInfo(result) + ')';
+                document.getElementById('errorList').innerHTML = '';
+            } catch(e) {
+                document.getElementById('statusCard').style.display = '';
+                document.getElementById('statusBar').className = 'status-bar invalid';
+                document.getElementById('statusIcon').textContent = '❌';
+                document.getElementById('statusText').textContent = 'Invalid YAML';
+                var errorMsg = e.message || String(e);
+                var html = '<div class="error-item"><strong>Error:</strong> ' + escapeHtml(errorMsg) + '</div>';
+                var lineMatch = errorMsg.match(/line (\d+)/);
+                if (lineMatch) { var line = parseInt(lineMatch[1]); var lines = input.split('\n'); if (lines[line-1]) html += '<div class="error-item"><strong>Line ' + line + ':</strong> ' + escapeHtml(lines[line-1]) + '</div>'; }
+                document.getElementById('errorList').innerHTML = html;
+            }
+        }
+        function getTypeInfo(obj) { if (obj === null) return 'null'; if (Array.isArray(obj)) return 'array, ' + obj.length + ' items'; if (typeof obj === 'object') return 'object, ' + Object.keys(obj).length + ' keys'; return typeof obj; }
+        function dumpYaml(obj, indent) {
+            indent = indent || 0;
+            var sp = ' '.repeat(indent);
+            var out = '';
+            if (obj === null || obj === undefined) { out += sp + 'null\n'; }
+            else if (typeof obj === 'string') { out += sp + obj + '\n'; }
+            else if (typeof obj === 'number' || typeof obj === 'boolean') { out += sp + String(obj) + '\n'; }
+            else if (Array.isArray(obj)) {
+                for (var i = 0; i < obj.length; i++) {
+                    if (typeof obj[i] === 'object' && obj[i] !== null && !Array.isArray(obj[i])) {
+                        out += sp + '-\n' + dumpYaml(obj[i], indent + 2);
+                    } else {
+                        out += sp + '- ' + String(obj[i]) + '\n';
+                    }
+                }
+            } else if (typeof obj === 'object') {
+                var keys = Object.keys(obj);
+                for (var k = 0; k < keys.length; k++) {
+                    var val = obj[keys[k]];
+                    if (typeof val === 'object' && val !== null) {
+                        out += sp + keys[k] + ':\n' + dumpYaml(val, indent + 2);
+                    } else {
+                        out += sp + keys[k] + ': ' + String(val) + '\n';
+                    }
+                }
+            }
+            return out;
+        }
+        function formatYAML() { var input = document.getElementById('yamlInput').value.trim(); if (!input) return; try { var obj = parseYamlSimple(input); document.getElementById('yamlInput').value = dumpYaml(obj).replace(/^\n+/, '').replace(/\n+$/, ''); validateYAML(); } catch(e) { showToast('Cannot format: ' + e.message); } }
+        function convertToJSON() { var input = document.getElementById('yamlInput').value.trim(); if (!input) return; try { var obj = parseYamlSimple(input); lastOutput = JSON.stringify(obj, null, 2); document.getElementById('outputCard').style.display = ''; document.getElementById('outputArea').textContent = lastOutput; } catch(e) { showToast('YAML parse failed: ' + e.message); } }
+        function loadExample() { document.getElementById('yamlInput').value = '# Application Config\nname: WebTools\nversion: 2.0.0\ndescription: Free online tool suite\n\n# Server config\nserver:\n  host: 0.0.0.0\n  port: 8080\n  debug: false\n\n# Database config\ndatabase:\n  driver: postgresql\n  host: localhost\n  port: 5432\n  name: webtools_db\n  pool:\n    min: 5\n    max: 20\n\n# Features\nfeatures:\n  - yaml-validation\n  - auto-format\n  - json-conversion\n  - syntax-highlighting\n\n# Environment\nenv:\n  NODE_ENV: production\n  LOG_LEVEL: info'; validateYAML(); }
+        function clearAll() { document.getElementById('yamlInput').value = ''; document.getElementById('statusCard').style.display = 'none'; document.getElementById('outputCard').style.display = 'none'; }
+        function copyOutput() { navigator.clipboard.writeText(document.getElementById('outputArea').textContent).then(function() { showToast('Copied to clipboard'); }); }
+        function downloadOutput() { var blob = new Blob([document.getElementById('outputArea').textContent], { type: 'application/json' }); var url = URL.createObjectURL(blob); var a = document.createElement('a'); a.href = url; a.download = 'output.json'; a.click(); URL.revokeObjectURL(url); }
+        function escapeHtml(str) { return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        </script>
+          <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Does YAML Lint upload my data to a server?</h3>
+      <p>No. YAML Lint uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is YAML Lint free to use?</h3>
+      <p>Yes, YAML Lint is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for YAML Lint?</h3>
+      <p>YAML Lint has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use YAML Lint on my phone?</h3>
+      <p>Yes. YAML Lint is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. YAML Lint is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+  </div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/yaml-lint/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+    </main>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hypotenuse Calculator - Pythagorean Theorem Tool | ToolGuideHub</title>
+  <meta name="description" content="Find the hypotenuse of a right triangle from two leg lengths using c² = a² + b², and check it against common Pythagorean triples.">
+  <meta property="og:title" content="Hypotenuse Calculator - Free Online Pythagorean Theorem Tool">
+  <meta property="og:description" content="Find the hypotenuse of a right triangle from two leg lengths using c² = a² + b², and check it against common Pythagorean triples.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hypotenuse Calculator","applicationCategory":"EducationalApplication","operatingSystem":"Any","description":"Free online hypotenuse calculator using Pythagorean theorem. Enter two legs to calculate the hypotenuse with steps.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--primary-hover:rgba(6,182,212,.3);--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--shadow:0 1px 3px rgba(0,0,0,.3);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header a{color:#22d3ee;text-decoration:none;font-weight:600;font-size:18px}
+    header nav a{margin-left:16px;font-size:14px;color:#94a3b8}
+    main{max-width:720px;margin:0 auto;padding:32px 16px}
+    h1{font-size:28px;margin-bottom:8px;color:#e2e8f0}
+    .subtitle{color:#94a3b8;margin-bottom:24px}
+    .section{background:#1e293b;border-radius:12px;padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}
+    label{display:block;font-weight:500;margin-bottom:6px;font-size:14px}
+    input[type="number"]{width:100%;padding:12px;background:#0f172a;color:#e2e8f0;border:2px solid rgba(148,163,184,.2);border-radius:8px;font-size:16px;transition:border-color .2s;outline:none}
+    input[type="number"]::placeholder{color:#475569}
+    input[type="number"]:focus{border-color:#22d3ee}
+    button{background:#22d3ee;color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;transition:background .2s;width:100%;margin-top:12px}
+    button:hover{background:var(--primary-hover)}
+    .result{margin-top:16px;padding:16px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:8px;font-size:18px;font-weight:600;text-align:center;color:#4ade80}
+    .steps{margin-top:12px;padding:12px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:14px;color:#94a3b8;line-height:1.8;white-space:pre-line}
+    .input-group{margin-bottom:16px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    footer{text-align:center;padding:24px;color:#94a3b8;font-size:13px;border-top:1px solid rgba(148,163,184,.1);margin-top:40px}
+    @media(max-width:500px){.row{grid-template-columns:1fr}}
+    header nav{display:flex;align-items:center;gap:8px}
+    .lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a{display:inline-block;padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;font-weight:400;text-decoration:none}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+    .toast.show{opacity:1}
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/hypotenuse-calculator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Hypotenuse Calculator - Pythagorean Theorem Tool | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/hypotenuse-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Hypotenuse Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Hypotenuse Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Hypotenuse Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Leg a and Leg b are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Hypotenuse Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Hypotenuse Calculator","description":"Step-by-step guide for using Hypotenuse Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Hypotenuse Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/hypotenuse-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../">🧰 ToolGuideHub</a>
+  <div style="display:flex;align-items:center;gap:12px">
+    <nav><a href="../../">Home</a></nav>
+    
+  </div>
+</header>
+<main>
+  <h1>📐 Hypotenuse Calculator</h1>
+  <p class="subtitle">Free online Pythagorean theorem calculator. Enter two legs of a right triangle to calculate the hypotenuse.</p>
+  <div class="section">
+    <div class="row">
+      <div class="input-group">
+        <label for="legA">Leg a</label>
+        <input type="number" id="legA" placeholder="e.g. 3" step="any" min="0.0001">
+      </div>
+      <div class="input-group">
+        <label for="legB">Leg b</label>
+        <input type="number" id="legB" placeholder="e.g. 4" step="any" min="0.0001">
+      </div>
+    </div>
+    <button id="calcBtn">Calculate</button>
+    <div id="result" class="result" style="display:none"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+    <div id="steps" class="steps" style="display:none"></div>
+  </div>
+  <div class="section">
+    <h2 style="font-size:18px;margin-bottom:8px">📖 What is Pythagorean Theorem?</h2>
+    <p style="font-size:14px;color:#94a3b8">In a right triangle, the square of the hypotenuse equals the sum of squares of the two legs: <strong>c² = a² + b²</strong>, where c is the hypotenuse, a and b are the legs.</p>
+    <p style="font-size:14px;color:#94a3b8;margin-top:8px">Common Pythagorean triples: (3, 4, 5), (5, 12, 13), (8, 15, 17).</p>
+  </div>
+
+<h2>What is Hypotenuse Calculator - Pythagorean Theorem ToolGuideHub?</h2><p>Hypotenuse Calculator - Pythagorean Theorem ToolGuideHub is a free online tool that runs entirely in your browser. No download or signup needed — enter Leg a and Leg b to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/hypotenuse-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  const legA = document.getElementById('legA');
+  const legB = document.getElementById('legB');
+  const result = document.getElementById('result');
+  const steps = document.getElementById('steps');
+  const btn = document.getElementById('calcBtn');
+
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
+
+  btn.addEventListener('click', function(){
+    const a = parseFloat(legA.value);
+    const b = parseFloat(legB.value);
+    if(isNaN(a)||isNaN(b)||a<=0||b<=0){showToast('Please enter valid positive numbers');return;}
+    const c = Math.sqrt(a*a + b*b);
+    result.style.display='block';
+    result.textContent='Hypotenuse c = ' + c.toFixed(6);
+    steps.style.display='block';
+    steps.textContent='Steps:\n'+
+      'c² = a² + b²\n'+
+      'c² = '+a.toFixed(2)+'² + '+b.toFixed(2)+'²\n'+
+      'c² = '+(a*a).toFixed(4)+' + '+(b*b).toFixed(4)+'\n'+
+      'c² = '+(a*a+b*b).toFixed(4)+'\n'+
+      'c = √'+(a*a+b*b).toFixed(4)+'\n'+
+      'c ≈ '+c.toFixed(6);
+  });
+
+  legA.addEventListener('keydown',function(e){if(e.key==='Enter')btn.click()});
+  legB.addEventListener('keydown',function(e){if(e.key==='Enter')btn.click()});
+})();
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

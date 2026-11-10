@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Preview how your title, URL, and meta description appear in Google results on desktop and mobile before you publish.">
+<meta name="keywords" content="serp preview search result preview google snippet preview title preview meta description preview seo preview search result simulator serp checker">
+<title>Free SERP Preview Tool - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/serp-preview/">
+<meta property="og:title" content="Free SERP Preview Tool - ToolGuideHub">
+<meta property="og:description" content="Preview how your title, URL, and meta description appear in Google results on desktop and mobile before you publish.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/serp-preview/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SERP Preview Tool", "description": "Free SERP Preview Tool. Preview how your page title, URL, and meta description appear in Google search results. Switch between desktop and mobile views.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is SERP Preview Tool free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is SERP Preview Tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely free to use. No registration or login required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing happens in your browser locally. Your data never leaves your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my title getting truncated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google search result titles are typically limited to 50-60 characters (about 600px width). Longer titles get truncated with an ellipsis. This tool simulates that behavior to help you optimize title length."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the ideal meta description length?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google meta descriptions are typically recommended at 150-160 characters. Too short may not fully convey your content, while too long gets truncated. This tool shows real-time character count and truncation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support mobile preview?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can toggle between desktop and mobile views. Mobile search result titles and descriptions have different width limits, and this tool automatically adapts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the preview identical to actual Google results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool simulates Google's current search result display rules including title and description truncation, URL formatting, etc. However, Google's algorithm adjusts dynamically, so actual results may vary based on search intent and location."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use SERP Preview Tool",
+  "description": "Simple steps to use the 🔍 SERP Preview Tool. Everything runs locally: Page Title and Display URL are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🔍 SERP Preview Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter Title",
+      "text": "Enter your page title tag in the title input field.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/serp-preview/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter URL and Description",
+      "text": "Enter your page URL and meta description to see a live preview of Google search results.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/serp-preview/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Switch Views",
+      "text": "Click desktop/mobile buttons to toggle preview mode and optimize for different devices.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/serp-preview/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+input, textarea, select{font-family:inherit}
+.field{margin-bottom:12px}
+.field label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+.field input,.field textarea{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:.9rem;outline:none;transition:border-color .2s}
+.field input:focus,.field textarea:focus{border-color:rgba(6,182,212,.5)}
+.field textarea{resize:vertical;min-height:80px;font-family:inherit}
+.char-count{text-align:right;color:#64748b;font-size:.75rem;margin-top:2px}
+.btn-row{display:flex;gap:8px;margin-bottom:16px}
+.btn{padding:8px 16px;border-radius:6px;border:none;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.4)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-active{background:rgba(6,182,212,.3);color:#22d3ee;border:1px solid rgba(6,182,212,.4)}
+.serp-preview-wrap{background:#0f172a;border-radius:8px;padding:20px;margin-bottom:16px}
+.serp-preview-wrap.mobile{max-width:380px;margin:0 auto 16px auto}
+.serp-result{font-family:arial,sans-serif;text-align:left}
+.serp-url{color:#202124;font-size:14px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding-top:1px;margin-bottom:2px}
+.serp-url span{color:#5f6368}
+.serp-title{color:#1a0dab;font-size:20px;line-height:1.3;font-weight:400;cursor:pointer;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.serp-title:hover{text-decoration:underline}
+.serp-desc{color:#4d5156;font-size:14px;line-height:1.58;word-wrap:break-word;margin-top:2px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.serp-preview-wrap.mobile .serp-title{font-size:16px}
+.serp-preview-wrap.mobile .serp-desc{font-size:14px}
+.serp-preview-wrap.mobile .serp-url{font-size:12px}
+.result-section{display:none}
+.result-section.show{display:block}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "SEO Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#seo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SERP Preview Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/serp-preview/"
+    }
+  ],
+  "name": "SERP Preview Tool"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/serp-preview/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🔍 SERP Preview Tool</h1>
+
+</div>
+<p class="nav-back"><a href="../../en/index.html">← All Tools</a></p>
+<div class="ad-slot">wide bitpre- （toppartial）</div>
+<div id="app"></div>
+<div class="ad-slot">wide bitpre- （bottompartial）</div>
+<div class="content-section">
+<h2>📖 How to Use</h2>
+<p>Enter your page title, URL, and meta description to see a live preview of how your page appears in Google search results. Switch between desktop and mobile views to optimize for both devices.</p>
+</div>
+<div class="content-section">
+<h2>⚡ How It Works</h2>
+<p>This tool simulates Google's search result rendering rules, calculating truncation effects based on title, URL, and description length. Everything runs locally: Page Title and Display URL are processed on your device, never sent to a server with no server requests.</p>
+</div>
+<div class="content-section">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><div class="q">❓ Is SERP Preview Tool free?</div><div class="a">Yes, it is completely free to use. No registration or login required.</div></div><div class="faq-item"><div class="q">❓ Does it upload my data to a server?</div><div class="a">No. All processing happens in your browser locally. Your data never leaves your device.</div></div><div class="faq-item"><div class="q">❓ Why is my title getting truncated?</div><div class="a">Google search result titles are typically limited to 50-60 characters (about 600px width). Longer titles get truncated with an ellipsis. This tool simulates that behavior to help you optimize title length.</div></div><div class="faq-item"><div class="q">❓ What is the ideal meta description length?</div><div class="a">Google meta descriptions are typically recommended at 150-160 characters. Too short may not fully convey your content, while too long gets truncated. This tool shows real-time character count and truncation.</div></div><div class="faq-item"><div class="q">❓ Does it support mobile preview?</div><div class="a">Yes. You can toggle between desktop and mobile views. Mobile search result titles and descriptions have different width limits, and this tool automatically adapts.</div></div><div class="faq-item"><div class="q">❓ Is the preview identical to actual Google results?</div><div class="a">This tool simulates Google's current search result display rules including title and description truncation, URL formatting, etc. However, Google's algorithm adjusts dynamically, so actual results may vary based on search intent and location.</div></div>
+</div>
+</main>
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/business-card-generator/">💳 Business Card Generator</a><a href="//en/startup-name-generator/">🚀 Startup Name Generator</a><a href="//en/business-card-maker/">💼 Business Card Maker</a></div></section>
+<footer>
+<p><a href="../../en/index.html">Home</a> · <a href="../../en/privacy/">Privacy</a> · <a href="../../en/terms/">Terms</a></p>
+<p style="margin-top:8px">© 2026 WebTools | No Signup, Client-Side · Privacy First</p>
+<p style="margin-top:4px;font-size:.75rem;color:#475569">Contact: <a href="../contact/">Contact</a></p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<!-- Feedback -->
+</div>
+<script>
+function toggleFeedback(){var p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+var tmap={'feedback':'💡 Feature Request','bug':'🐛 Bug Report','other':'💬 Other'};
+var typeLabel=tmap[type];
+var title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+var body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+</script>
+<script>
+var app=document.getElementById('app');
+app.innerHTML='<div class="tool-section"><h2>✏️ Enter Search Snippet</h2><div class="field"><label>📌 Page Title (Title Tag)</label><input type="text" id="titleInput" placeholder="e.g. Free Online Tools - Privacy-First Toolkit" maxlength="120" value=""><div class="char-count"><span id="titleCount">0</span> characters</div></div><div class="field"><label>🔗 Display URL</label><input type="text" id="urlInput" placeholder="e.g. adi63586.github.io/Toolguidehub/" value="adi63586.github.io/Toolguidehub/"><div class="char-count"><span id="urlCount">0</span> characters</div></div><div class="field"><label>📝 Meta Description</label><textarea id="descInput" placeholder="e.g. Free online developer tools collection, all tools run purely frontend..." maxlength="320"></textarea><div class="char-count"><span id="descCount">0</span> characters</div></div></div><div class="btn-row"><button class="btn btn-primary btn-active" id="viewDesktop" onclick="switchView(\'desktop\')">🖥️ Desktop</button><button class="btn btn-secondary" id="viewMobile" onclick="switchView(\'mobile\')">📱 Mobile</button></div><div class="result-section show"><div id="previewContainer" class="serp-preview-wrap"><div class="serp-result"><div class="serp-url"><span>https://</span><span id="urlText">adi63586.github.io/Toolguidehub/</span></div><div class="serp-title" id="previewTitle">Free Online Tools - Privacy-First Toolkit</div><div class="serp-desc" id="previewDesc">Free online developer tools collection, all tools run purely frontend with no server uploads, protecting your privacy.</div></div></div></div>';
+var titleInput=document.getElementById('titleInput');
+var urlInput=document.getElementById('urlInput');
+var descInput=document.getElementById('descInput');
+var previewTitle=document.getElementById('previewTitle');
+var urlText=document.getElementById('urlText');
+var previewDesc=document.getElementById('previewDesc');
+var titleCount=document.getElementById('titleCount');
+var urlCount=document.getElementById('urlCount');
+var descCount=document.getElementById('descCount');
+function updatePreview(){
+var t=titleInput.value||'Free Online Tools - Privacy-First Toolkit';
+var u=urlInput.value||'adi63586.github.io/Toolguidehub/';
+var d=descInput.value||'Free online developer tools collection, all tools run purely frontend with no server uploads, protecting your privacy.';
+previewTitle.textContent=t;
+urlText.textContent=u;
+previewDesc.textContent=d;
+titleCount.textContent=t.length;
+urlCount.textContent=u.length;
+descCount.textContent=d.length;
+}
+titleInput.addEventListener('input',updatePreview);
+urlInput.addEventListener('input',updatePreview);
+descInput.addEventListener('input',updatePreview);
+updatePreview();
+window.switchView=function(view){
+var isMobile=view==='mobile';
+var c=document.getElementById('previewContainer');
+if(isMobile){c.classList.add('mobile');}else{c.classList.remove('mobile');}
+document.getElementById('viewDesktop').className=isMobile?'btn btn-secondary':'btn btn-primary btn-active';
+document.getElementById('viewMobile').className=isMobile?'btn btn-primary btn-active':'btn btn-secondary';
+};
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

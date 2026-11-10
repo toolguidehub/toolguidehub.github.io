@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<script>
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Count down to a date you choose, showing the remaining days, hours, minutes and seconds in real time.">
+<meta name="keywords" content="countdown, countdown timer, online countdown, event countdown, exam countdown, holiday countdown, remaining time">
+<title>Free Online Countdown Timer</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/countdown/">
+<meta property="og:title" content="Online Countdown Timer - Events | Exams | Holidays | Real-time Display">
+<meta property="og:description" content="Count down to a date you choose, showing the remaining days, hours, minutes and seconds in real time.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/countdown/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Countdown Timer - ToolGuideHub">
+<meta name="twitter:description" content="Free online countdown timer tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online Countdown Timer", "description": "Free online countdown timer. Set custom date and time, real-time remaining days/hours/min/sec. 100% client-side.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<style>:root{--primary-hover:rgba(6,182,212,.3);--card-bg:#1e293b;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+.container { max-width: 700px; margin: 0 auto; padding: 20px; }
+header { text-align: center; padding: 30px 0 20px; }
+header h1 { font-size: 1.8em; margin-bottom: 6px; }
+header p { color: #94a3b8; font-size: 0.95em; }
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.1);
+  padding: 30px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.datetime-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.datetime-inputs input {
+  padding: 10px 14px;
+  font-size: 1em;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  font-family: inherit;
+  background: #0f172a;
+  color: #e2e8f0;
+  color-scheme: dark;
+}
+.datetime-inputs input:focus { outline: none; border-color: #22d3ee; }
+.title-input {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px 14px;
+  font-size: 1em;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+.title-input:focus { outline: none; border-color: #22d3ee; }
+.countdown-display {
+  text-align: center;
+  margin: 24px 0;
+}
+.countdown-title { font-size: 1.3em; margin-bottom: 16px; color: #22d3ee; font-weight: 700; }
+.countdown-blocks {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.countdown-block {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px 16px;
+  min-width: 80px;
+  text-align: center;
+}
+.countdown-block span:first-child {
+  font-size: 2.5em;
+  font-weight: 700;
+  display: block;
+  font-family: "Courier New", monospace;
+}
+.countdown-block .label { font-size: 0.8em; opacity: 0.85; margin-top: 4px; }
+.event-done {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-align: center;
+  padding: 40px 0;
+}
+.quick-events {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.quick-event {
+  padding: 8px 16px;
+  border: 1px solid rgba(148,163,184,.1);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85em;
+  background: var(--card-bg);
+  transition: all 0.2s;
+}
+.quick-event:hover { border-color: #22d3ee; color: #22d3ee; background: rgba(6,182,212,.15); }
+.btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary { background: #22d3ee; color: #fff; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-reset { background: #334155; color: #e2e8f0; }
+.btn-reset:hover { background: #475569; }
+.btn-group { display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+.faq { margin-top: 30px; }
+.faq h2 { font-size: 1.3em; margin-bottom: 16px; }
+.faq-item { border: 1px solid rgba(148,163,184,.1); border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+.faq-q {
+  padding: 14px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-q:hover { background: rgba(148,163,184,.15); }
+.faq-q::after { content: "▸"; font-size: 0.8em; transition: transform 0.2s; }
+.faq-item.open .faq-q::after { transform: rotate(90deg); }
+.faq-a { padding: 0 16px 16px; color: #94a3b8; line-height: 1.7; display: none; }
+.faq-item.open .faq-a { display: block; }
+@media (max-width: 500px) {
+  .countdown-block { min-width: 65px; padding: 14px 10px; }
+  .countdown-block span:first-child { font-size: 1.8em; }
+}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+
+<style>
+
+@media(max-width:640px){}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+.related-tools-inner{margin:2rem 0}
+.related-tools-title{font-size:1.1rem;color:#e2e8f0;margin-bottom:.75rem}
+.related-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.related-tool-card{display:flex;align-items:center;gap:8px;padding:12px 14px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:10px;text-decoration:none;color:#e2e8f0;font-size:.9rem;transition:all .2s}
+.related-tool-card:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.related-tool-icon{font-size:1.1rem}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/countdown/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*tgh_toast*/window.showToast=function(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";document.body.appendChild(t)}t.textContent=m;t.classList.add("show");clearTimeout(window.__tt);window.__tt=setTimeout(function(){t.classList.remove("show")},2000)};</script>
+</head>
+<body>
+<main class="container">
+<div style="text-align:right;padding:0 0 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+  <a href="../../" style="color:#64748b;font-size:.85rem;text-decoration:none">← Back to Home</a>
+  <div class="lang-switch" style="display:inline-flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+    <a href="../../en/countdown/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a>
+    <a href="../../en/countdown/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2);font-weight:600;text-decoration:none">EN</a>
+  </div>
+</div>
+<header>
+  <h1>⏳ Online Countdown Timer</h1>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+
+  <p>Set a target date · Real-time days/hours/min/sec · Free & client-side</p>
+</header>
+<div class="section">
+  <div class="quick-events">
+    <button class="quick-event" onclick="quickSet('2026-12-25T00:00', '🎄 Christmas')">🎄 Christmas</button>
+    <button class="quick-event" onclick="quickSet('2027-01-01T00:00', '🎉 New Year')">🎉 New Year</button>
+    <button class="quick-event" onclick="quickSet('2027-02-14T00:00', '💝 Valentine\'s Day')">💝 Valentine's</button>
+    <button class="quick-event" onclick="quickSet('2026-10-31T00:00', '🎃 Halloween')">🎃 Halloween</button>
+    <button class="quick-event" onclick="quickSet('2026-11-27T00:00', '🦃 Thanksgiving')">🦃 Thanksgiving</button>
+    <button class="quick-event" onclick="quickSet('2026-12-31T23:59', '🥂 New Year\'s Eve')">🥂 NYE</button>
+  </div>
+
+  <div style="text-align:center">
+    <input type="text" class="title-input" id="eventTitle" placeholder="Enter event name (optional)" maxlength="50">
+  </div>
+  <div class="datetime-inputs">
+    <input type="date" id="targetDate">
+    <input type="time" id="targetTime" value="00:00">
+    <button class="btn btn-primary" onclick="startCountdown()">🕐 Start Countdown</button>
+  </div>
+
+  <div class="countdown-display" id="countdownDisplay">
+    <div class="countdown-title" id="displayTitle">Pick a date to start countdown</div>
+    <div class="countdown-blocks" id="displayBlocks" style="display:none">
+      <div class="countdown-block"><span id="days">0</span><div class="label">Days</div></div>
+      <div class="countdown-block"><span id="hours">0</span><div class="label">Hours</div></div>
+      <div class="countdown-block"><span id="minutes">0</span><div class="label">Min</div></div>
+      <div class="countdown-block"><span id="seconds">0</span><div class="label">Sec</div></div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-reset" onclick="resetAll()">↺ Reset</button>
+  </div>
+</div>
+
+<div class="card faq">
+  <h2>❓ Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is the countdown timer free? Do I need to sign up?</div>
+    <div class="faq-a">Completely free, no signup required. All calculations run locally in your browser — no data is ever uploaded to any server.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the maximum countdown duration?</div>
+    <div class="faq-a">Theoretically unlimited. JavaScript's Date object can handle any date up to the year 275760, so countdowns of decades or even centuries will display correctly.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I set multiple countdowns at once?</div>
+    <div class="faq-a">The current version focuses on a single target date. You can open multiple browser tabs, each with its own countdown. Multi-countdown management is planned for a future update.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will the countdown continue if I close the page?</div>
+    <div class="faq-a">The countdown calculates remaining time based on the target date, not by ticking down from a start time. So even if you close the page or restart your computer, reopening will show the accurate remaining time — it's always computed relative to your target date.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does it notify me when the countdown ends?</div>
+    <div class="faq-a">When the countdown reaches zero, the page displays "🎉 Time's up!". For advance reminders, we recommend using your system's calendar or alarm alongside this tool.</div>
+  </div>
+</div>
+</main>
+
+
+
+
+<script>
+(function(){
+  var targetMs = null;
+  var timerId = null;
+  var title = '';
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function updateDisplay() {
+    if (!targetMs) return;
+    var now = Date.now();
+    var diff = targetMs - now;
+
+    var elTitle = document.getElementById('displayTitle');
+    var elBlocks = document.getElementById('displayBlocks');
+
+    if (diff <= 0) {
+      if (elTitle) elTitle.innerHTML = '🎉 ' + (title || "Time's up!");
+      if (elBlocks) elBlocks.style.display = 'none';
+      stopCountdown();
+      return;
+    }
+
+    if (elBlocks) elBlocks.style.display = 'flex';
+    if (elTitle) elTitle.textContent = title || 'Counting down to your target time...';
+
+    var d = Math.floor(diff / (1000 * 3600 * 24));
+    var h = Math.floor((diff % (1000 * 3600 * 24)) / (1000 * 3600));
+    var m = Math.floor((diff % (1000 * 3600)) / (1000 * 60));
+    var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    var elDays = document.getElementById('days');
+    var elHours = document.getElementById('hours');
+    var elMinutes = document.getElementById('minutes');
+    var elSeconds = document.getElementById('seconds');
+    if (elDays) elDays.textContent = d;
+    if (elHours) elHours.textContent = pad(h);
+    if (elMinutes) elMinutes.textContent = pad(m);
+    if (elSeconds) elSeconds.textContent = pad(s);
+  }
+
+  function startCountdown() {
+    var elTargetDate = document.getElementById('targetDate');
+    if (!elTargetDate) { showToast('Date input is unavailable'); return; }
+    var dateVal = elTargetDate.value;
+    var elTargetTime = document.getElementById('targetTime');
+    var timeVal = (elTargetTime && elTargetTime.value) || '00:00';
+    var elEventTitle = document.getElementById('eventTitle');
+    title = elEventTitle ? elEventTitle.value.trim() : '';
+
+    if (!dateVal) {
+      showToast('Please select a target date');
+      return;
+    }
+
+    var dtStr = dateVal + 'T' + timeVal + ':00';
+    targetMs = new Date(dtStr).getTime();
+
+    if (isNaN(targetMs)) {
+      showToast('Invalid date format');
+      return;
+    }
+
+    stopCountdown();
+    updateDisplay();
+    timerId = setInterval(updateDisplay, 200);
+  }
+
+  function stopCountdown() {
+    if (timerId) { clearInterval(timerId); timerId = null; }
+  }
+
+  function resetAll() {
+    stopCountdown();
+    targetMs = null;
+    title = '';
+    var elTargetDate = document.getElementById('targetDate');
+    if (elTargetDate) elTargetDate.value = '';
+    var elTargetTime = document.getElementById('targetTime');
+    if (elTargetTime) elTargetTime.value = '00:00';
+    var elEventTitle = document.getElementById('eventTitle');
+    if (elEventTitle) elEventTitle.value = '';
+    var elDisplayTitle = document.getElementById('displayTitle');
+    if (elDisplayTitle) elDisplayTitle.textContent = 'Pick a date to start countdown';
+    var elDisplayBlocks = document.getElementById('displayBlocks');
+    if (elDisplayBlocks) elDisplayBlocks.style.display = 'none';
+  }
+
+  window.quickSet = function(dateStr, eventName) {
+    var elTargetDate = document.getElementById('targetDate');
+    if (elTargetDate) elTargetDate.value = dateStr.split('T')[0];
+    var elTargetTime = document.getElementById('targetTime');
+    if (elTargetTime) elTargetTime.value = dateStr.split('T')[1] || '00:00';
+    var elEventTitle = document.getElementById('eventTitle');
+    if (elEventTitle) elEventTitle.value = eventName;
+    title = eventName;
+    var dtStr = dateStr + ':00';
+    targetMs = new Date(dtStr).getTime();
+    stopCountdown();
+    updateDisplay();
+    timerId = setInterval(updateDisplay, 200);
+
+    var elCountdownDisplay = document.getElementById('countdownDisplay');
+    if (elCountdownDisplay) elCountdownDisplay.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  window.startCountdown = startCountdown;
+  window.resetAll = resetAll;
+
+  // Set the default date to tomorrow at midnight (local time)
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var y = tomorrow.getFullYear(), m = ('0' + (tomorrow.getMonth() + 1)).slice(-2), dd = ('0' + tomorrow.getDate()).slice(-2);
+  var elTargetDate = document.getElementById('targetDate');
+  if (elTargetDate) elTargetDate.value = y + '-' + m + '-' + dd;
+})();
+</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How do I create a countdown?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create a countdown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select a target date and time, then click Start Countdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I countdown to any date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can set a countdown to any future date and time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the countdown update automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the countdown updates in real-time every second."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this countdown tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free. No registration required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share my countdown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can share the URL with the date parameter, or take a screenshot of the countdown display."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Online Countdown", "description": "Free online countdown tool. Create countdowns to specific dates and events.", "step": [{"@type": "HowToStep", "position": 1, "text": "Select a target date and time for your event", "name": "Select a target date and time "}, {"@type": "HowToStep", "position": 2, "text": "Click Start Countdown to begin", "name": "Click Start Countdown to begin"}, {"@type": "HowToStep", "position": 3, "text": "Watch the real-time countdown display", "name": "Watch the real-time countdown "}, {"@type": "HowToStep", "position": 4, "text": "Reset to create a new countdown", "name": "Reset to create a new countdow"}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Online Countdown",
+      "item": "https://adi63586.github.io/Toolguidehub/en/countdown/"
+    }
+  ],
+  "name": "Online Countdown"
+}</script>
+<script>(function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<div class="toast" id="toast"></div>
+<div id="related-tools-section" style="max-width:700px;margin:0 auto;padding:0 20px"></div>
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a> <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> <a href="../../en/countdown/" style="color:#64748b;margin:0 8px">中文</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Symbol Picker - ToolGuideHub</title>
+ <meta name="description" content="Pick from hundreds of Unicode special characters and click to copy, with a recently used row that keeps your favourite symbols handy.">
+ <meta property="og:title" content="Symbol Picker - ToolGuideHub">
+ <meta property="og:description" content="Pick from hundreds of Unicode special characters and click to copy, with a recently used row that keeps your favourite symbols handy.">
+ <meta property="og:type" content="website">
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Symbol Picker",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "description": "Free online Unicode symbol picker. Click to copy special characters instantly."
+  }
+  </script>
+ <style>:root{--primary-light:rgba(6,182,212,.15);}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+    header nav{display:flex;gap:16px}
+    header nav a{color:#94a3b8;text-decoration:none;font-size:.9rem;transition:color .2s}
+    header nav a:hover{color:#22d3ee}
+    main{flex:1;max-width:800px;margin:0 auto;padding:32px 20px;width:100%}
+    h1{font-size:1.75rem;margin-bottom:8px;color:#e2e8f0}
+    .subtitle{color:#94a3b8;margin-bottom:28px;font-size:.95rem}
+    .section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:24px;margin-bottom:20px}
+    .section h2{font-size:1.1rem;margin-bottom:16px;color:#e2e8f0}
+    .category-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .cat-tab{padding:6px 14px;border:1px solid rgba(148,163,184,.1);border-radius:20px;background:#1e293b;cursor:pointer;font-size:.85rem;transition:all .2s}
+    .cat-tab.active{background:#22d3ee;color:#fff;border-color:#22d3ee}
+    .symbol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:6px}
+    .sym{display:flex;align-items:center;justify-content:center;padding:10px 4px;border:1px solid rgba(148,163,184,.1);border-radius:6px;cursor:pointer;font-size:1.3rem;transition:all .15s;background:#1e293b;min-height:48px}
+    .sym:hover{background:var(--primary-light);border-color:#22d3ee;transform:scale(1.1)}
+    .sym.copied{background:#10b981;color:#fff;border-color:#10b981}
+    .recent-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;min-height:48px;align-items:center}
+    .recent-row .sym{font-size:1rem;min-height:36px;padding:6px 8px}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 24px;border-radius:20px;font-size:.9rem;z-index:1000;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+    footer{background:#1e293b;border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.85rem;color:#94a3b8}
+    footer a{color:#22d3ee;text-decoration:none}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:1.4rem}.symbol-grid{grid-template-columns:repeat(6,1fr)}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Symbol Picker", "item": "https://adi63586.github.io/Toolguidehub/en/symbol-picker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Symbol Picker FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Symbol Picker?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Symbol Picker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Symbol Picker and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Symbol Picker?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Symbol Picker","description":"Step-by-step guide for using Symbol Picker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Symbol Picker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/symbol-picker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/symbol-picker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ <nav>
+ <a href="../../">Home</a>
+ <div style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)">
+   <a href="../../en/symbol-picker/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2)">EN</a>
+   <a href="../../en/symbol-picker/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">CN</a>
+ </div>
+ </nav>
+</header>
+<main>
+ <h1>🎯 Symbol Picker</h1>
+ <p class="subtitle">Browse hundreds of Unicode special characters. Click any symbol to copy it instantly.</p>
+  <div class="section">
+  <div class="category-tabs" id="cat-tabs"></div>
+  <div style="margin-bottom:12px"><input type="text" id="symSearch" placeholder="🔍 Search symbols (e.g. arrow, heart, euro)..." style="width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none"></div>
+  <div class="symbol-grid" id="symbol-grid"></div>
+ <h3 style="font-size:.95rem;margin-top:20px">🕐 Recently Used</h3>
+ <div class="recent-row" id="recent-row"><span style="color:#94a3b8;font-size:.85rem">Click symbols above to start</span></div>
+ </div>
+ <div class="toast" id="toast"></div>
+</div>
+
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>Symbol Picker is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Symbol Picker to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Symbol Picker provides accurate results instantly. Everything runs locally: Symbol Picker and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/symbol-picker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  
+</footer>
+<script>
+(function(){
+  var symbols={
+    'Arrows':['←','↑','→','↓','↔','↕','↖','↗','↘','↙','↩','↪','↶','↷','⇄','⇅','⇆','⇇','⇈','⇉','⇊','⇐','⇑','⇒','⇓','⇔','⇕','⇦','⇧','⇨','⇩','➔','➘','➙','➚','➛','➜','➝','➞','➟','➠','➡','➢','➣','➤','➥','➦','➧','➨','➩','➪','➫','➬','➭','➮','➯','➱','➲','➳','➵','➶','➷','➸','➹','➺','➻','➼','➽','➾','⤴','⤵'],
+    'Math':['+','−','×','÷','±','∓','=','≠','≈','≡','≤','≥','≪','≫','∑','∏','∫','∬','∭','∮','∇','∂','∆','√','∛','∞','∧','∨','∩','∪','∈','∉','⊂','⊃','⊆','⊇','⊕','⊗','⊥','∠','∡','∢','∴','∵','∶','∷','≔','≕','∝'],
+    'Currency':['$','¢','£','$','€','₠','₡','₢','₣','₤','₥','₦','₧','₨','₩','₪','₫','₭','₮','₯','₰','₱','₲','₳','₴','₵','₹','₺','₻','₼','₽','₾','₿'],
+    'Stars':['★','☆','✪','✫','✬','✭','✮','✯','✰','✡','✦','✧','⋆','⁂','⁑','✶','✷','✸','✹','✵','✴','✳','✲','✱','⭑','⭒','🌟','⭐','🌠'],
+    'Check & Cross':['✓','✔','✗','✘','☐','☑','☒','✅','❌','⭕','❎','☓','☒','⍻','⦿','⊗','⊕'],
+    'Hearts':['♥','❤','❥','❣','♡','💙','💚','💛','💜','💝','💞','💟','💖','💗','💘','💕','💓','❦','❧','🖤'],
+    'Punctuation':['\u00AB','\u00BB','\u2039','\u203A','\u201E','\u201A','\u201C','\u201D','\u2018','\u2019','\u300C','\u300D','\u300E','\u300F','\u3010','\u3011','\u3016','\u3017','\u300A','\u300B','\u3014','\u3015','\u3018','\u3019','\u301A','\u301B'],
+    'Music':['♪','♫','♬','♩','♭','♮','♯','𝄞','𝄢','𝄡','🎵','🎶','🎼','🎤','🎧'],
+    'Weather':['☀','☁','☂','☃','☄','★','☆','☇','☈','☉','☊','☋','☌','☍','🌡','🌤','🌥','🌦','🌧','🌨','🌩','🌪','🌫','🌬'],
+    'Tech':['⌘','⌥','⇧','⌃','⎋','⏎','⌫','⌦','⇪','↩','↪','⇥','⇤','␣','⌂','⌛','⏳','⌚','⎈','⍟','⌨','🖱','🖥','💻']
+  };
+
+  var cats=Object.keys(symbols);
+  var activeCat=cats[0];
+  var recents=[];
+  var symQuery='';
+
+  function renderCats(){
+    var html='';
+    cats.forEach(function(c){html+='<div class="cat-tab'+(c===activeCat?' active':'')+'" data-cat="'+c+'">'+c+'</div>';});
+    document.getElementById('cat-tabs').innerHTML=html;
+    document.querySelectorAll('.cat-tab').forEach(function(t){
+      t.addEventListener('click',function(){
+        document.querySelectorAll('.cat-tab').forEach(function(x){x.classList.remove('active')});
+        this.classList.add('active');
+        activeCat=this.dataset.cat;
+        renderSymbols();
+      });
+    });
+  }
+
+  function renderSymbols(){
+    var html='';
+    var list=symbols[activeCat];
+    if(symQuery){
+      var q=symQuery.toLowerCase();
+      list=list.filter(function(s){return s.toLowerCase().indexOf(q)!==-1 || s.codePointAt(0)===q.charCodeAt(0);});
+    }
+    if(!list.length){document.getElementById('symbol-grid').innerHTML='<div style="color:#94a3b8;text-align:center;padding:16px">No symbols match "'+symQuery+'"</div>';return;}
+    list.forEach(function(s){
+      html+='<div class="sym" data-sym="'+s+'">'+s+'</div>';
+    });
+    document.getElementById('symbol-grid').innerHTML=html;
+    document.querySelectorAll('#symbol-grid .sym').forEach(function(el){
+      el.addEventListener('click',function(){
+        var s=this.dataset.sym;
+        navigator.clipboard.writeText(s).then(function(){
+          toast('Copied: '+s);
+          addRecent(s);
+        }).catch(function(){});
+      });
+    });
+  }
+
+  var searchEl=document.getElementById('symSearch');
+  searchEl.addEventListener('input',function(){
+    symQuery=this.value.trim();
+    renderSymbols();
+  });
+
+  function addRecent(s){
+    recents=recents.filter(function(x){return x!==s});
+    recents.unshift(s);
+    if(recents.length>20)recents.pop();
+    renderRecents();
+  }
+
+  function renderRecents(){
+    var row=document.getElementById('recent-row');
+    if(recents.length===0){row.innerHTML='<span style="color:#94a3b8;font-size:.85rem">Click symbols above to start</span>';return}
+    var html='';
+    recents.forEach(function(s){
+      html+='<div class="sym" data-sym="'+s+'">'+s+'</div>';
+    });
+    row.innerHTML=html;
+    row.querySelectorAll('.sym').forEach(function(el){
+      el.addEventListener('click',function(){
+        var s=this.dataset.sym;
+        navigator.clipboard.writeText(s).then(function(){toast('Copied: '+s)}).catch(function(){});
+      });
+    });
+  }
+
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')},2000);
+  }
+
+  renderCats();
+  renderSymbols();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create CSS text-stroke outlines with controls for border colour, thickness, blur and shadow offset.">
+<meta name="keywords" content="online border text generator,tool,online tool,free">
+<title>CSS Text Stroke Generator - Border Text Effect | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/border-text-generator/">
+<meta property="og:title" content="CSS Text Stroke Generator - Border Text Effect | ToolGuideHub">
+<meta property="og:description" content="Create CSS text-stroke outlines with controls for border colour, thickness, blur and shadow offset.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/border-text-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/border-text-generator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSS Border Text Generator", "description": "Free online CSS border text generator. Visually create text stroke effects with customizable border color, thickness, blur, and shadow offset. Real-time preview and one-click CSS code copy. No registration required.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is CSS border text effect?", "acceptedAnswer": {"@type": "Answer", "text": "CSS border text (also known as text stroke) is a technique that uses the CSS text-shadow property to create an outline effect around text. By combining multiple directional shadows, it creates a border-like visual effect around the text. This method is highly compatible, works without SVG or Canvas, and is supported by all major browsers."}}, {"@type": "Question", "name": "What's the difference between text-shadow border and -webkit-text-stroke?", "acceptedAnswer": {"@type": "Answer", "text": "The text-shadow approach generates multi-directional shadows to simulate a border, offering broad compatibility (IE10+, all modern browsers) with fine control over thickness and blur. In contrast, -webkit-text-stroke is a WebKit-only property and is not supported in Firefox. This tool uses the text-shadow method for maximum cross-browser compatibility."}}, {"@type": "Question", "name": "How do I adjust the border thickness?", "acceptedAnswer": {"@type": "Answer", "text": "Adjust the thickness slider (1-20px) to control the border width. Under the hood, the tool generates shadows in 8 directions to create an even stroke effect. You can also enable double-layer borders for an even thicker appearance."}}, {"@type": "Question", "name": "Where can I use border text effects?", "acceptedAnswer": {"@type": "Answer", "text": "CSS border text effects are widely used for: 1) Website hero titles and banners; 2) Text overlays on social media images; 3) Poster and promotional designs; 4) Game UI text effects; 5) Video thumbnail titles. Using CSS keeps the text selectable and SEO-friendly."}}, {"@type": "Question", "name": "Can I use the generated CSS code directly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This tool generates standard CSS text-shadow property code. Simply copy and paste it into your stylesheet. The code includes all necessary browser compatibility. For animated effects, you can combine text-shadow with CSS transitions."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use the CSS Border Text Generator", "description": "Free online CSS border text generator. Visually create text stroke effects with customizable border color, thickness, blur, and shadow offset. Real-time preview and one-click CSS code copy. No registration required.", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "CSS Border Text Generator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Enter your text", "text": "Type the text you want to add a border effect to in the input field"}, {"@type": "HowToStep", "position": 2, "name": "Adjust border settings", "text": "Use the sliders to customize border color, thickness, blur, and offset"}, {"@type": "HowToStep", "position": 3, "name": "Choose text style", "text": "Set the text color, font size, and background color to preview the effect"}, {"@type": "HowToStep", "position": 4, "name": "Copy the CSS code", "text": "Preview the effect in real-time and copy the generated CSS code with one click"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "CSS Border Text Generator", "item": "https://adi63586.github.io/Toolguidehub/en/border-text-generator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+textarea, input, select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus, input:focus, select:focus{border-color:rgba(6,182,212,.5)}
+textarea{
+      background: var(--surface);
+      color: var(--text);width:100%;min-height:80px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.85rem}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.option-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.option-row label{color:#94a3b8;font-size:.85rem;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.option-row input[type=range]{width:120px;accent-color:#06b6d4}
+.option-row input[type=color]{width:36px;height:32px;border:none;border-radius:4px;cursor:pointer;padding:0;background:transparent}
+.option-row input[type=text]{flex:1;min-width:180px}
+.preview-area{background:#1a1a2e;border-radius:10px;padding:40px 20px;margin:16px 0;text-align:center;min-height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px dashed rgba(148,163,184,.15);transition:background-color .3s}
+.preview-text{font-weight:900;line-height:1.3;word-break:break-word;transition:all .15s;max-width:100%}
+.code-output{background:#0f172a;border-radius:8px;padding:16px;color:#e2e8f0;font-size:.85rem;overflow-x:auto;max-height:200px;white-space:pre-wrap;word-break:break-all;margin-bottom:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.preset-chip{padding:5px 12px;border-radius:20px;font-size:.8rem;cursor:pointer;border:1px solid rgba(148,163,184,.25);background:transparent;color:#94a3b8;transition:all .2s}
+.preset-chip:hover{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.4);color:#22d3ee}
+.slider-val{display:inline-block;width:32px;text-align:center;color:#22d3ee;font-size:.8rem}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.grid-2{grid-template-columns:1fr}.option-row{flex-direction:column;align-items:flex-start}.option-row input[type=range]{width:100%}.preview-area{padding:24px 12px}}
+.ad-slot.ad-sidebar{max-width:300px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Free CSS Border Text Generator - Text Stroke Effect</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; CSS Border Text Generator</p>
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-08-02
+  </span>
+</div>
+
+<div class="tool-section">
+  <h2>🎨 CSS Border Text Generator</h2>
+  <p>Free online CSS border text generator. Visually create text stroke effects with customizable border color, thickness, blur, and shadow offset. Real-time preview and one-click CSS text-shadow code copy. Perfect for web titles, poster text, and social media graphics. No registration required.</p>
+
+  <div class="preset-row">
+    <span style="color:#94a3b8;font-size:.85rem;margin-right:4px">Presets:</span>
+    <button class="preset-chip" data-preset="neon">Neon</button>
+    <button class="preset-chip" data-preset="retro">Retro</button>
+    <button class="preset-chip" data-preset="shadow">Shadow</button>
+    <button class="preset-chip" data-preset="double">Double Border</button>
+    <button class="preset-chip" data-preset="glow">Glow</button>
+    <button class="preset-chip" data-preset="outline">Clear Outline</button>
+  </div>
+
+  <div class="option-row">
+    <label>Text: <input type="text" id="textInput" value="Hello World" maxlength="60" style="width:200px"></label>
+    <label>Font Size: <input type="range" id="fontSize" min="20" max="120" value="60"><span class="slider-val" id="fontSizeVal">60</span>px</label>
+  </div>
+  <div class="option-row">
+    <label>Text Color: <input type="color" id="textColor" value="#ffffff"></label>
+    <label>Background: <input type="color" id="bgColor" value="#1a1a2e"></label>
+    <label>Border Color: <input type="color" id="borderColor" value="#06b6d4"></label>
+  </div>
+  <div class="option-row">
+    <label>Thickness: <input type="range" id="thickness" min="1" max="20" value="4"><span class="slider-val" id="thicknessVal">4</span>px</label>
+    <label>Blur: <input type="range" id="blur" min="0" max="15" value="0"><span class="slider-val" id="blurVal">0</span>px</label>
+    <label>Offset X: <input type="range" id="offsetX" min="-10" max="10" value="0"><span class="slider-val" id="offsetXVal">0</span>px</label>
+    <label>Offset Y: <input type="range" id="offsetY" min="-10" max="10" value="0"><span class="slider-val" id="offsetYVal">0</span>px</label>
+  </div>
+  <div class="option-row">
+    <label style="gap:4px"><input type="checkbox" id="doubleLayer"> Double Layer</label>
+    <label style="gap:4px"><input type="checkbox" id="fillOnly"> Outline Only (Transparent Fill)</label>
+  </div>
+
+  <div class="preview-area" id="previewArea">
+    <div class="preview-text" id="previewText">Hello World</div>
+  </div>
+
+  <div style="margin-top:12px">
+    <label style="color:#94a3b8;font-size:.85rem">Generated CSS:</label>
+    <div class="code-output" id="codeOutput">text-shadow: ...</div>
+  </div>
+  <div class="result-actions">
+    <button class="btn btn-primary" id="copyCssBtn">📋 Copy CSS</button>
+    <button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+    <button class="btn btn-success" id="downloadPngBtn">📥 Download PNG</button>
+  </div>
+</div>
+
+<div class="tool-section">
+  <h2>📖 How to Use</h2>
+  <p><strong>Enter text:</strong> Type the text you want to add a border effect to. Supports English, Chinese, and emoji.</p>
+  <p><strong>Adjust settings:</strong> Use the color pickers and sliders to customize border color, thickness, blur, and more. The preview updates in real-time.</p>
+  <p><strong>Choose presets:</strong> Click preset buttons (Neon, Retro, Shadow, etc.) to quickly apply different styles.</p>
+  <p><strong>Copy code:</strong> Once satisfied, click "Copy CSS" and paste the generated text-shadow code into your stylesheet.</p>
+  <p><strong>Download PNG:</strong> Click "Download PNG" to save the preview as an image for social media or design mockups.</p>
+</div>
+
+<div class="tool-section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item">
+    <h3>What is CSS border text effect?</h3>
+    <p>CSS border text (also known as text stroke) is a technique that uses the CSS text-shadow property to create an outline effect around text. By combining multiple directional shadows, it creates a border-like visual effect around the text. This method is highly compatible, works without SVG or Canvas, and is supported by all major browsers.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What's the difference between text-shadow border and -webkit-text-stroke?</h3>
+    <p>The text-shadow approach generates multi-directional shadows to simulate a border, offering broad compatibility (IE10+, all modern browsers) with fine control over thickness and blur. In contrast, -webkit-text-stroke is a WebKit-only property and is not supported in Firefox. This tool uses the text-shadow method for maximum cross-browser compatibility.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I adjust the border thickness?</h3>
+    <p>Adjust the thickness slider (1-20px) to control the border width. Under the hood, the tool generates shadows in 8 directions to create an even stroke effect. You can also enable double-layer borders for an even thicker appearance.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Where can I use border text effects?</h3>
+    <p>CSS border text effects are widely used for: 1) Website hero titles and banners; 2) Text overlays on social media images; 3) Poster and promotional designs; 4) Game UI text effects; 5) Video thumbnail titles. Using CSS keeps the text selectable and SEO-friendly.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I use the generated CSS code directly?</h3>
+    <p>Yes. This tool generates standard CSS text-shadow property code. Simply copy and paste it into your stylesheet. The code includes all necessary browser compatibility. For animated effects, you can combine text-shadow with CSS transitions.</p>
+  </div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/gradient-css-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS Gradient Generator</a><a href="../../en/neumorphic-css/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Neumorphic CSS Generator</a><a href="../../en/css-toast-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS Toast Generator</a></div><a href="../../en/gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Animated Gradient Border Generator</a><a href="../../en/border-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS Border Generator</a></section>
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../index.html">Home</a>
+<a href="../index.html">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../about/">About Us</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../border-text-generator/">中文</a>
+</div>
+<p>CSS Border Text Generator | No registration · Data never leaves your device</p>
+
+</footer>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+function generateTextShadow(){
+  var thick=parseInt(document.getElementById("thickness").value);
+  var blur=parseInt(document.getElementById("blur").value);
+  var ox=parseInt(document.getElementById("offsetX").value);
+  var oy=parseInt(document.getElementById("offsetY").value);
+  var borderColor=document.getElementById("borderColor").value;
+  var double=document.getElementById("doubleLayer").checked;
+
+  var dirs=[[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+  var shadows=[];
+  for(var i=0;i<dirs.length;i++){
+    var dx=dirs[i][0]*thick+ox;
+    var dy=dirs[i][1]*thick+oy;
+    shadows.push(dx+"px "+dy+"px "+blur+"px "+borderColor);
+  }
+  if(double){
+    var thick2=thick*2;
+    for(var i=0;i<dirs.length;i++){
+      var dx2=dirs[i][0]*thick2+ox;
+      var dy2=dirs[i][1]*thick2+oy;
+      shadows.push(dx2+"px "+dy2+"px "+blur+"px "+borderColor);
+    }
+  }
+
+  return shadows.join(", ");
+}
+
+function updatePreview(){
+  var text=document.getElementById("textInput").value||"Hello World";
+  var fs=document.getElementById("fontSize").value;
+  var textColor=document.getElementById("textColor").value;
+  var bgColor=document.getElementById("bgColor").value;
+  var fillOnly=document.getElementById("fillOnly").checked;
+
+  var ts=generateTextShadow();
+  var preview=document.getElementById("previewText");
+  var area=document.getElementById("previewArea");
+
+  preview.textContent=text;
+  preview.style.fontSize=fs+"px";
+  preview.style.textShadow=ts;
+  preview.style.color=fillOnly?"transparent":textColor;
+  area.style.backgroundColor=bgColor;
+
+  var codeLines=[];
+  codeLines.push("font-size: "+fs+"px;");
+  codeLines.push("color: "+(fillOnly?"transparent":textColor)+";");
+  codeLines.push("text-shadow: "+ts+";");
+  document.getElementById("codeOutput").textContent=codeLines.join("\n");
+
+  document.getElementById("fontSizeVal").textContent=fs;
+  document.getElementById("thicknessVal").textContent=document.getElementById("thickness").value;
+  document.getElementById("blurVal").textContent=document.getElementById("blur").value;
+  document.getElementById("offsetXVal").textContent=document.getElementById("offsetX").value;
+  document.getElementById("offsetYVal").textContent=document.getElementById("offsetY").value;
+}
+
+var presets={
+  neon:{borderColor:"#ff00ff",thickness:6,blur:4,textColor:"#ffffff",bgColor:"#0a0a0a",double:false,fillOnly:false,offsetX:0,offsetY:0,fontSize:72},
+  retro:{borderColor:"#000000",thickness:3,blur:0,textColor:"#ff6b35",bgColor:"#fdf6e3",double:false,fillOnly:false,offsetX:2,offsetY:2,fontSize:60},
+  shadow:{borderColor:"#000000",thickness:0,blur:8,textColor:"#ffffff",bgColor:"#3b82f6",double:false,fillOnly:false,offsetX:3,offsetY:3,fontSize:56},
+  "double":{borderColor:"#ef4444",thickness:3,blur:0,textColor:"#ffffff",bgColor:"#1e1b4b",double:true,fillOnly:false,offsetX:0,offsetY:0,fontSize:64},
+  glow:{borderColor:"#22d3ee",thickness:1,blur:10,textColor:"#ffffff",bgColor:"#0f172a",double:false,fillOnly:false,offsetX:0,offsetY:0,fontSize:68},
+  outline:{borderColor:"#000000",thickness:5,blur:0,textColor:"#ffffff",bgColor:"#f0f0f0",double:false,fillOnly:false,offsetX:0,offsetY:0,fontSize:60}
+};
+
+function applyPreset(name){
+  var p=presets[name];
+  if(!p)return;
+  document.getElementById("borderColor").value=p.borderColor;
+  document.getElementById("thickness").value=p.thickness;
+  document.getElementById("blur").value=p.blur;
+  document.getElementById("textColor").value=p.textColor;
+  document.getElementById("bgColor").value=p.bgColor;
+  document.getElementById("doubleLayer").checked=p.double;
+  document.getElementById("fillOnly").checked=p.fillOnly;
+  document.getElementById("offsetX").value=p.offsetX;
+  document.getElementById("offsetY").value=p.offsetY;
+  document.getElementById("fontSize").value=p.fontSize;
+  updatePreview();
+}
+
+var inputs=["textInput","fontSize","textColor","bgColor","borderColor","thickness","blur","offsetX","offsetY","doubleLayer","fillOnly"];
+for(var i=0;i<inputs.length;i++){
+  var el=document.getElementById(inputs[i]);
+  if(el.type==="checkbox"){el.addEventListener("change",updatePreview)}
+  else if(el.type==="range"){el.addEventListener("input",updatePreview)}
+  else if(el.type==="color"){el.addEventListener("input",updatePreview)}
+  else{el.addEventListener("input",updatePreview)}
+}
+
+var chips=document.querySelectorAll(".preset-chip");
+for(var i=0;i<chips.length;i++){
+  chips[i].addEventListener("click",function(){
+    applyPreset(this.dataset.preset);
+  });
+}
+
+document.getElementById("copyCssBtn").addEventListener("click",function(){
+  var code=document.getElementById("codeOutput").textContent;
+  navigator.clipboard.writeText(code).then(function(){showToast("CSS code copied to clipboard!")})["catch"](function(){showToast("Copy failed, please select manually")});
+});
+
+document.getElementById("resetBtn").addEventListener("click",function(){
+  applyPreset("outline");
+  document.getElementById("textInput").value="Hello World";
+  updatePreview();
+  showToast("Reset complete");
+});
+
+document.getElementById("downloadPngBtn").addEventListener("click",function(){
+  try{
+    var preview=document.getElementById("previewText");
+    var area=document.getElementById("previewArea");
+    var canvas=document.createElement("canvas");
+    var rect=area.getBoundingClientRect();
+    var scale=2;
+    canvas.width=rect.width*scale;
+    canvas.height=rect.height*scale;
+    var ctx=canvas.getContext("2d");
+    ctx.scale(scale,scale);
+
+    ctx.fillStyle=document.getElementById("bgColor").value;
+    ctx.fillRect(0,0,rect.width,rect.height);
+
+    var fs=parseInt(document.getElementById("fontSize").value);
+    var textColor=document.getElementById("fillOnly").checked?"transparent":document.getElementById("textColor").value;
+    ctx.font="900 "+fs+"px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+
+    var thick=parseInt(document.getElementById("thickness").value);
+    var blur=parseInt(document.getElementById("blur").value);
+    var ox=parseInt(document.getElementById("offsetX").value);
+    var oy=parseInt(document.getElementById("offsetY").value);
+    var borderColor=document.getElementById("borderColor").value;
+    var double=document.getElementById("doubleLayer").checked;
+    var dirs=[[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+
+    ctx.shadowColor=borderColor;
+    ctx.shadowBlur=blur;
+    var cx=rect.width/2;
+    var cy=rect.height/2;
+
+    for(var i=0;i<dirs.length;i++){
+      ctx.shadowOffsetX=dirs[i][0]*thick+ox;
+      ctx.shadowOffsetY=dirs[i][1]*thick+oy;
+      if(textColor!=="transparent"){
+        ctx.fillStyle=textColor;
+        ctx.fillText(preview.textContent,cx,cy);
+      }
+      ctx.fillStyle=borderColor;
+      ctx.fillText(preview.textContent,cx,cy);
+    }
+    if(double){
+      var thick2=thick*2;
+      for(var i=0;i<dirs.length;i++){
+        ctx.shadowOffsetX=dirs[i][0]*thick2+ox;
+        ctx.shadowOffsetY=dirs[i][1]*thick2+oy;
+        ctx.fillStyle=borderColor;
+        ctx.fillText(preview.textContent,cx,cy);
+      }
+    }
+    ctx.shadowOffsetX=0;
+    ctx.shadowOffsetY=0;
+    ctx.shadowBlur=0;
+    if(textColor!=="transparent"){
+      ctx.fillStyle=textColor;
+      ctx.fillText(preview.textContent,cx,cy);
+    }
+
+    var link=document.createElement("a");
+    link.download="border-text.png";
+    link.href=canvas.toDataURL("image/png");
+    link.click();
+    showToast("PNG downloaded!");
+  }catch(e){
+    showToast("Download failed: "+e.message);
+  }
+});
+
+updatePreview();
+</script>
+</body>
+</html>

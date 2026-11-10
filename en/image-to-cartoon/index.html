@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Give a photo a cartoon look using color quantization and edge detection; tune cartoon intensity and color levels, preview live, and save a PNG.">
+<meta name="keywords" content="image to cartoon,cartoon effect,cartoon filter,photo cartoonizer,cartoonify,image processing,cartoon style,online cartoon tool,photo filter">
+<title>Free Image to Cartoon - Online Cartoon Effect Generator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/">
+<meta property="og:title" content="Image to Cartoon - Free Online Cartoon Effect Generator">
+<meta property="og:description" content="Give a photo a cartoon look using color quantization and edge detection; tune cartoon intensity and color levels, preview live, and save a PNG.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Image to Cartoon", "description": "Free online image to cartoon effect tool. Upload images and apply cartoon filters with adjustable intensity. Pure frontend Canvas processing.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How does the cartoon effect work?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the cartoon effect work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool uses the Canvas API to process images locally in your browser. It combines color quantization (reducing the number of colors) with edge detection algorithms to create the smooth color blocks and outline effects typical of cartoon images. No server upload is needed — all processing happens on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What image formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common image formats are supported including JPG/JPEG, PNG, WebP, BMP, and GIF. Maximum file size is 20MB. For best results, upload clear photos with good contrast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I adjust the cartoon effect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool provides a cartoon intensity slider and a color levels slider. Higher intensity produces more simplified colors and stronger edges. Lower intensity stays closer to the original image. The color levels control how much color simplification is applied."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I save the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click the 'Download' button to save the cartoon effect image to your local device as a PNG file. You can also right-click the result image and select 'Save image as'. All computation happens on your device — Cartoon Intensity, Color Levels and other inputs stay in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my image uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser using the Canvas API. Both your original image and the cartoon result never leave your device. Your privacy is fully protected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What type of images work best for cartoon effects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Portrait photos work best, especially facial close-ups. Pet photos, food photos, and landscape photos also work well. Avoid low-resolution or overexposed images. Complex textures like hair or grass may not cartoonize as effectively."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Image to Cartoon Tool",
+  "description": "Three steps to convert an image to cartoon style. All computation happens on your device — Cartoon Intensity, Color Levels and other inputs stay in your browser.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Image to Cartoon"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload an image",
+      "text": "Click to select or drag and drop an image onto the upload area. Supports JPG, PNG, WebP formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/#upload"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Adjust cartoon effect",
+      "text": "Use the intensity slider and color levels slider to adjust the cartoon effect. Preview changes in real-time.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/#adjust"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Download result",
+      "text": "Click 'Download' to save your cartoon-style image as a PNG file.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/#download"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:48px 20px;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:12px}
+.upload-zone:hover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.05)}
+.upload-zone.has-image{padding:16px;border-style:solid;border-color:rgba(34,197,94,.3)}
+.upload-zone p{color:#64748b;font-size:.9rem;margin-bottom:4px}
+.upload-zone .icon{font-size:2.5rem;margin-bottom:8px}
+.upload-zone input[type=file]{display:none}
+.preview-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.preview-box{flex:1;min-width:250px;background:#0f172a;border-radius:8px;padding:12px;border:1px solid rgba(148,163,184,.08)}
+.preview-box h3{color:#94a3b8;font-size:.8rem;margin-bottom:8px;text-align:center}
+.preview-box img{max-width:100%;max-height:400px;display:block;margin:0 auto;border-radius:4px}
+.controls{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.controls .ctrl{flex:1;min-width:150px}
+.controls label{display:block;color:#94a3b8;font-size:.8rem;margin-bottom:4px}
+.controls input[type=range]{width:100%;accent-color:#22d3ee}
+.controls .val{color:#22d3ee;font-size:.8rem;text-align:right}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p,.info-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{padding-left:20px}
+.info-section ul li{margin-bottom:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+@media(max-width:600px){.preview-row{flex-direction:column}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image to Cartoon",
+      "item": "https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/"
+    }
+  ],
+  "name": "Image to Cartoon"
+}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-to-cartoon/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🎨 Image to Cartoon</h1>
+
+    
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="info-section" id="usage">
+    <h2>How to Use</h2>
+    <div id="usageContent">
+      <p>Turn ordinary photos into cartoon-style art with one click. Uses Canvas API for real-time processing in your browser.</p>
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>🎨 Color quantization + edge detection cartoon algorithm</li>
+        <li>🎚️ Adjustable cartoon intensity</li>
+        <li>🎯 Adjustable color levels</li>
+        <li>⚡ Real-time preview</li>
+        <li>📥 Download as PNG</li>
+        <li>🔒 100% local processing, no server upload</li>
+      </ul>
+    </div>
+  </div>
+
+<h2>What is Free Image to Cartoon - Online Cartoon Effect Generator?</h2><p>Free Image to Cartoon - Online Cartoon Effect Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Cartoon Intensity and Color Levels to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Resize or convert images quickly before uploading</li><li>Compress photos for social media or email attachments</li><li>Generate QR codes for sharing links or contact info</li><li>Process images on mobile without downloading a dedicated app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+<div class="seo-content"><h2>📁 Upload Image</h2><div class="upload-zone" id="uploadZone"><div class="icon">🖼️</div><p>Click or drag an image here</p><p style="font-size:.8rem;color:#475569">Supports JPG / PNG / WebP, max 20MB</p><input type="file" id="fileInput" accept="image/*"></div><div class="controls" id="controlsArea" style="display:none"><div class="ctrl"><label>Cartoon Intensity</label><input type="range" id="strength" min="1" max="10" value="5" step="1"><span class="val" id="strengthVal">5</span></div><div class="ctrl"><label>Color Levels</label><input type="range" id="levels" min="4" max="32" value="16" step="2"><span class="val" id="levelsVal">16</span></div></div><div class="btn-row" id="actionRow" style="display:none"><button class="btn btn-primary" id="processBtn">✨ Apply Cartoon Effect</button><button class="btn btn-success" id="downloadBtn">📥 Download</button></div></div><div class="preview-row" id="previewRow" style="display:none"><div class="preview-box"><h3>🖼️ Original</h3><img id="originalPreview"></div><div class="preview-box"><h3>🎨 Cartoon Effect</h3><img id="resultPreview"></div></div>
+
+<script>
+var uploadZone=document.getElementById('uploadZone');
+var fileInput=document.getElementById('fileInput');
+var originalPreview=document.getElementById('originalPreview');
+var resultPreview=document.getElementById('resultPreview');
+var processBtn=document.getElementById('processBtn');
+var downloadBtn=document.getElementById('downloadBtn');
+var controlsArea=document.getElementById('controlsArea');
+var actionRow=document.getElementById('actionRow');
+var previewRow=document.getElementById('previewRow');
+var strength=document.getElementById('strength');
+var strengthVal=document.getElementById('strengthVal');
+var levels=document.getElementById('levels');
+var levelsVal=document.getElementById('levelsVal');
+var sourceImage=null;
+
+strength.addEventListener('input',function(){strengthVal.textContent=this.value;});
+levels.addEventListener('input',function(){levelsVal.textContent=this.value;});
+
+uploadZone.addEventListener('click',function(){fileInput.click();});
+uploadZone.addEventListener('dragover',function(e){e.preventDefault();this.style.borderColor='rgba(6,182,212,.5)';});
+uploadZone.addEventListener('dragleave',function(){this.style.borderColor='rgba(148,163,184,.3)';});
+uploadZone.addEventListener('drop',function(e){
+  e.preventDefault();
+  this.style.borderColor='rgba(148,163,184,.3)';
+  if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener('change',function(){
+  if(this.files.length)handleFile(this.files[0]);
+});
+
+function handleFile(file){
+  if(!file.type.startsWith('image/')){showToast('Please upload an image file');return;}
+  if(file.size>20*1024*1024){showToast('Image exceeds 20MB limit');return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      sourceImage=img;
+      originalPreview.src=e.target.result;
+      resultPreview.src='';
+      controlsArea.style.display='flex';
+      actionRow.style.display='flex';
+      previewRow.style.display='flex';
+      uploadZone.classList.add('has-image');
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function applyCartoon(){
+  if(!sourceImage){showToast('Please upload an image first');return;}
+  var s=parseInt(strength.value);
+  var lvl=parseInt(levels.value);
+  processBtn.disabled=true;
+  processBtn.textContent='⏳ Processing...';
+  setTimeout(function(){
+    try{
+      var canvas=document.createElement('canvas');
+      var maxW=1200,maxH=1200;
+      var w=sourceImage.width,h=sourceImage.height;
+      if(w>maxW||h>maxH){
+        var ratio=Math.min(maxW/w,maxH/h);
+        w=Math.round(w*ratio);h=Math.round(h*ratio);
+      }
+      canvas.width=w;canvas.height=h;
+      var ctx=canvas.getContext('2d');
+      ctx.drawImage(sourceImage,0,0,w,h);
+      var imageData=ctx.getImageData(0,0,w,h);
+      var data=imageData.data;
+
+      // Color quantization
+      var step=Math.max(1,Math.round((32-lvl)/32*255));
+      step=Math.max(4,Math.min(64,step));
+      for(var i=0;i<data.length;i+=4){
+        data[i]=Math.round(data[i]/step)*step;
+        data[i+1]=Math.round(data[i+1]/step)*step;
+        data[i+2]=Math.round(data[i+2]/step)*step;
+      }
+
+      // Edge detection (Sobel-like)
+      if(s>2){
+        var edgeIntensity=(s-3)/7;
+        var greyData=new Uint8Array(w*h);
+        for(var i=0;i<data.length;i+=4){
+          greyData[i/4]=Math.round(0.299*data[i]+0.587*data[i+1]+0.114*data[i+2]);
+        }
+        var edgeCanvas=document.createElement('canvas');
+        edgeCanvas.width=w;edgeCanvas.height=h;
+        var ectx=edgeCanvas.getContext('2d');
+        var edgeImg=ectx.createImageData(w,h);
+        var eData=edgeImg.data;
+        for(var y=1;y<h-1;y++){
+          for(var x=1;x<w-1;x++){
+            var idx=y*w+x;
+            var gx=-greyData[idx-w-1]-2*greyData[idx-1]-greyData[idx+w-1]
+                 +greyData[idx-w+1]+2*greyData[idx+1]+greyData[idx+w+1];
+            var gy=-greyData[idx-w-1]-2*greyData[idx-w]-greyData[idx-w+1]
+                 +greyData[idx+w-1]+2*greyData[idx+w]+greyData[idx+w+1];
+            var mag=Math.min(255,Math.sqrt(gx*gx+gy*gy));
+            var threshold=Math.round(80*(1-edgeIntensity)+30);
+            var val=mag>threshold?0:255;
+            var idx4=idx*4;
+            eData[idx4]=eData[idx4+1]=eData[idx4+2]=val;
+            eData[idx4+3]=255;
+          }
+        }
+        ectx.putImageData(edgeImg,0,0);
+
+        // Blend edge detection with quantized image
+        var edgeData=eData;
+        for(var i=0;i<data.length/4;i++){
+          var idx4=i*4;
+          var edgeVal=edgeData[idx4];
+          if(edgeVal<128){
+            data[idx4]=Math.round(data[idx4]*0.7);
+            data[idx4+1]=Math.round(data[idx4+1]*0.7);
+            data[idx4+2]=Math.round(data[idx4+2]*0.7);
+          }
+        }
+      }
+
+      ctx.putImageData(imageData,0,0);
+      resultPreview.src=canvas.toDataURL('image/png');
+    }catch(e){showToast('Processing error: '+e.message);}
+    processBtn.disabled=false;
+    processBtn.textContent='✨ Apply Cartoon Effect';
+  },100);
+}
+
+processBtn.addEventListener('click',applyCartoon);
+
+downloadBtn.addEventListener('click',function(){
+  if(!resultPreview.src||!resultPreview.src.startsWith('data:')){showToast('Please generate the cartoon effect first');return;}
+  var a=document.createElement('a');
+  a.href=resultPreview.src;
+  a.download='cartoon_'+Date.now()+'.png';
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);
+});
+
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/image-to-cartoon/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+</body>
+</html>

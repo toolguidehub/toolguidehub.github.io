@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online JSON Patch Tool | No Signup</title>
+    <meta name="description" content="Build and apply RFC 6902 JSON Patch operations — add, remove, replace, move, copy and test — with live validation.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/json-patch/">
+    <meta property="og:title" content="Free JSON Patch Tool - ToolGuideHub">
+    <meta property="og:description" content="Build and apply RFC 6902 JSON Patch operations — add, remove, replace, move, copy and test — with live validation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/json-patch/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--accent:#06b6d4;--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); resize: vertical; min-height: 160px; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-success:hover { opacity: .9; }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .btn-danger:hover { opacity: .9; }
+        .btn-accent { background: var(--accent); color: #fff; }
+        .btn-accent:hover { opacity: .9; }
+        .result-box { background:#0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; white-space: pre-wrap; word-break: break-all; max-height: 400px; overflow-y: auto; min-height: 60px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .row > * { flex: 1; min-width: 120px; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .patch-op { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        .patch-op .op-header { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+        .patch-op select, .patch-op input { padding: 8px 10px; font-size: 13px; border-radius: 6px; }
+        .patch-op select { width: 130px; }
+        .patch-op input { flex: 1; }
+        .patch-op textarea { min-height: 60px; font-size: 13px; }
+        .op-list { max-height: 500px; overflow-y: auto; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .grid2 { grid-template-columns: 1fr; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/json-patch/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:8px">
+            <h1>🔧 JSON Patch Tool</h1>
+            
+            </div>
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+
+            <p>Free online RFC 6902 JSON Patch editor - add / remove / replace / move / copy / test operations</p>
+        <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JSON Patch Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/json-patch/"
+    }
+  ],
+  "name": "JSON Patch Tool"
+}</script>
+
+        <div class="grid2">
+            <div class="section">
+                <h2>📄 Source JSON Document</h2>
+                <textarea id="source-json" placeholder='Enter source JSON, e.g.:&#10;{&#10;  "name": "John",&#10;  "age": 25,&#10;  "skills": ["JavaScript", "Python"]&#10;}'>{
+  "name": "John",
+  "age": 25,
+  "skills": ["JavaScript", "Python"]
+}</textarea>
+                <div style="margin-top:8px;display:flex;gap:8px">
+                    <button class="btn btn-secondary" onclick="formatSource()">🎨 Format</button>
+                    <button class="btn btn-secondary" onclick="loadSample()">📋 Load Sample</button>
+                </div>
+            </div>
+            <div class="section">
+                <h2>✅ Patched Result</h2>
+                <div class="result-box" id="result-json" style="min-height:160px">Waiting to apply patch...</div>
+                <div style="margin-top:8px;display:flex;gap:8px">
+                    <button class="btn btn-success" onclick="copyResult()">📋 Copy Result</button>
+                    <button class="btn btn-secondary" onclick="downloadResult()">💾 Download</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Patch Operations</h2>
+            <div class="row">
+                <select id="new-op" style="width:140px;flex:none">
+                    <option value="add">add</option>
+                    <option value="remove">remove</option>
+                    <option value="replace">replace</option>
+                    <option value="move">move</option>
+                    <option value="copy">copy</option>
+                    <option value="test">test</option>
+                </select>
+                <button class="btn btn-accent" onclick="addOperation()">➕ Add Operation</button>
+                <button class="btn btn-primary" onclick="applyPatch()">▶️ Apply Patch</button>
+                <button class="btn btn-danger" onclick="clearOps()">🗑️ Clear All</button>
+            </div>
+            <div class="op-list" id="op-list">
+                <div style="color:#94a3b8;text-align:center;padding:20px">Click "Add Operation" to create patch operations</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 JSON Patch Text (RFC 6902)</h2>
+            <textarea id="patch-json" placeholder='Or paste a JSON Patch array directly, e.g.:&#10;[&#10;  { "op": "replace", "path": "/age", "value": 26 },&#10;  { "op": "add", "path": "/city", "value": "New York" }&#10;]'></textarea>
+            <div style="margin-top:8px;display:flex;gap:8px">
+                <button class="btn btn-primary" onclick="applyPatchFromText()">▶️ Apply from Text</button>
+                <button class="btn btn-secondary" onclick="syncOpsToText()">🔄 Sync Ops to Text</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: What is JSON Patch?</h3>
+                <p>JSON Patch is a standard format defined in RFC 6902 for describing changes to JSON documents. It uses atomic operations (add, remove, replace, move, copy, test) to precisely describe modifications, commonly used for partial updates in REST APIs (PATCH requests) instead of sending the full document.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: How do I write JSON Pointer paths?</h3>
+                <p>JSON Patch uses RFC 6901 JSON Pointer for element location. Paths start with /: root object is "", /name points to the name property, /skills/0 points to the first array element, /a/b points to nested properties. Special characters: ~ is escaped as ~0, / is escaped as ~1.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: What is the test operation for?</h3>
+                <p>The test operation verifies that a value at the specified path equals the given value. If values don't match, the entire patch fails and rolls back. This is useful for conditional updates — ensuring values match expectations before modifying, preventing concurrent modification issues.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is JSON Patch?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is JSON Patch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON Patch is RFC 6902 standard format for describing JSON document modifications using add/remove/replace/move/copy/test atomic operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I write JSON Pointer paths?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paths start with /, /name for properties, /skills/0 for array elements, /a/b for nested. ~ escaped as ~0, / escaped as ~1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the test operation for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Test verifies values match before patching; if mismatch, entire patch fails and rolls back, useful for conditional updates and concurrency control."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use JSON Patch Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter or paste the source JSON document on the left", "name": "Enter or paste the source JSON"}, {"@type": "HowToStep", "position": 2, "text": "Add patch operations: select operation type, fill in path and value", "name": "Add patch operations: select o"}, {"@type": "HowToStep", "position": 3, "text": "Click 'Apply Patch' to see the modified JSON result", "name": "Click 'Apply Patch' to see the"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JSON Patch Tool", "description": "Free online JSON Patch tool supporting RFC 6902 standard", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/json-patch/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+        var operations = [];
+        var opCounter = 0;
+
+        function addOperation() {
+            var opType = document.getElementById('new-op').value;
+            opCounter++;
+            var op = { id: opCounter, op: opType, path: '' };
+            if (opType !== 'remove') op.value = '';
+            if (opType === 'move' || opType === 'copy') op.from = '';
+            operations.push(op);
+            renderOps();
+        }
+
+        function removeOperation(id) {
+            operations = operations.filter(function(o) { return o.id !== id; });
+            renderOps();
+        }
+
+        function renderOps() {
+            var list = document.getElementById('op-list');
+            if (operations.length === 0) {
+                list.innerHTML = '<div style="color:#94a3b8;text-align:center;padding:20px">Click "Add Operation" to create patch operations</div>';
+                return;
+            }
+            var html = '';
+            operations.forEach(function(op, idx) {
+                html += '<div class="patch-op">';
+                html += '<div class="op-header">';
+                html += '<strong>#' + (idx + 1) + '</strong> ';
+                html += '<span style="color:var(--accent);font-weight:600">' + op.op.toUpperCase() + '</span>';
+                html += '<button class="btn btn-danger" style="padding:4px 10px;font-size:12px;margin-left:auto" onclick="removeOperation(' + op.id + ')">✕</button>';
+                html += '</div>';
+                html += '<div style="display:flex;gap:8px;margin-bottom:6px">';
+                html += '<label style="min-width:50px;font-size:13px;padding-top:6px">Path:</label>';
+                html += '<input type="text" value="' + escHtml(op.path) + '" onchange="updateOp(' + op.id + ',\'path\',this.value)" placeholder="/name or /skills/0" style="flex:1">';
+                html += '</div>';
+                if (op.op === 'move' || op.op === 'copy') {
+                    html += '<div style="display:flex;gap:8px;margin-bottom:6px">';
+                    html += '<label style="min-width:50px;font-size:13px;padding-top:6px">From:</label>';
+                    html += '<input type="text" value="' + escHtml(op.from || '') + '" onchange="updateOp(' + op.id + ',\'from\',this.value)" placeholder="/source/path" style="flex:1">';
+                    html += '</div>';
+                }
+                if (op.op !== 'remove') {
+                    html += '<div style="display:flex;gap:8px">';
+                    html += '<label style="min-width:50px;font-size:13px;padding-top:6px">Value:</label>';
+                    html += '<input type="text" value="' + escHtml(op.value || '') + '" onchange="updateOp(' + op.id + ',\'value\',this.value)" placeholder="String or JSON value" style="flex:1">';
+                    html += '</div>';
+                }
+                html += '</div>';
+            });
+            list.innerHTML = html;
+        }
+
+        function updateOp(id, field, value) {
+            operations.forEach(function(op) {
+                if (op.id === id) op[field] = value;
+            });
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function parseJsonSafe(str) {
+            try { return JSON.parse(str); }
+            catch(e) { return null; }
+        }
+
+        function parseValue(str) {
+            if (str === '' || str === undefined) return null;
+            var parsed = parseJsonSafe(str);
+            if (parsed !== null) return parsed;
+            return str;
+        }
+
+        function getValueByPointer(obj, pointer) {
+            if (pointer === '') return obj;
+            var tokens = pointer.split('/').slice(1).map(function(t) {
+                return t.replace(/~1/g, '/').replace(/~0/g, '~');
+            });
+            var current = obj;
+            for (var i = 0; i < tokens.length; i++) {
+                if (current === null || current === undefined) return undefined;
+                current = current[tokens[i]];
+            }
+            return current;
+        }
+
+        function setValueByPointer(obj, pointer, value) {
+            if (pointer === '') return value;
+            var tokens = pointer.split('/').slice(1).map(function(t) {
+                return t.replace(/~1/g, '/').replace(/~0/g, '~');
+            });
+            var current = obj;
+            for (var i = 0; i < tokens.length - 1; i++) {
+                if (current === null || current === undefined) return obj;
+                current = current[tokens[i]];
+            }
+            if (current === null || current === undefined) return obj;
+            var lastToken = tokens[tokens.length - 1];
+            if (Array.isArray(current) && lastToken === '-') {
+                current.push(value);
+            } else {
+                current[lastToken] = value;
+            }
+            return obj;
+        }
+
+        function removeValueByPointer(obj, pointer) {
+            if (pointer === '') return undefined;
+            var tokens = pointer.split('/').slice(1).map(function(t) {
+                return t.replace(/~1/g, '/').replace(/~0/g, '~');
+            });
+            var current = obj;
+            for (var i = 0; i < tokens.length - 1; i++) {
+                if (current === null || current === undefined) return obj;
+                current = current[tokens[i]];
+            }
+            var lastToken = tokens[tokens.length - 1];
+            if (Array.isArray(current)) {
+                current.splice(parseInt(lastToken), 1);
+            } else {
+                delete current[lastToken];
+            }
+            return obj;
+        }
+
+        function deepClone(obj) {
+            return JSON.parse(JSON.stringify(obj));
+        }
+
+        function buildPatchOps() {
+            return operations.map(function(op) {
+                var patch = { op: op.op, path: op.path };
+                if (op.op === 'move' || op.op === 'copy') {
+                    patch.from = op.from;
+                }
+                if (op.op !== 'remove') {
+                    patch.value = parseValue(op.value);
+                }
+                return patch;
+            });
+        }
+
+        function applyPatchOps(doc, patches) {
+            doc = deepClone(doc);
+            for (var i = 0; i < patches.length; i++) {
+                var p = patches[i];
+                try {
+                    switch (p.op) {
+                        case 'add':
+                            doc = setValueByPointer(doc, p.path, p.value);
+                            break;
+                        case 'remove':
+                            doc = removeValueByPointer(doc, p.path);
+                            break;
+                        case 'replace':
+                            var existing = getValueByPointer(doc, p.path);
+                            if (existing === undefined) throw new Error('Path ' + p.path + ' does not exist for replace');
+                            doc = setValueByPointer(doc, p.path, p.value);
+                            break;
+                        case 'move':
+                            var val = getValueByPointer(doc, p.from);
+                            if (val === undefined) throw new Error('Source path ' + p.from + ' does not exist for move');
+                            doc = removeValueByPointer(doc, p.from);
+                            doc = setValueByPointer(doc, p.path, val);
+                            break;
+                        case 'copy':
+                            var srcVal = getValueByPointer(doc, p.from);
+                            if (srcVal === undefined) throw new Error('Source path ' + p.from + ' does not exist for copy');
+                            doc = setValueByPointer(doc, p.path, deepClone(srcVal));
+                            break;
+                        case 'test':
+                            var testVal = getValueByPointer(doc, p.path);
+                            if (JSON.stringify(testVal) !== JSON.stringify(p.value)) {
+                                throw new Error('Test failed at path ' + p.path + ': expected ' + JSON.stringify(p.value) + ' but got ' + JSON.stringify(testVal));
+                            }
+                            break;
+                        default:
+                            throw new Error('Unknown operation: ' + p.op);
+                    }
+                } catch (e) {
+                    throw new Error('Operation #' + (i + 1) + ' (' + p.op + ') failed: ' + e.message);
+                }
+            }
+            return doc;
+        }
+
+        function applyPatch() {
+            var sourceEl = document.getElementById('source-json');
+            var resultEl = document.getElementById('result-json');
+            var source = parseJsonSafe(sourceEl.value);
+            if (source === null) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ Invalid source JSON format</span>';
+                return;
+            }
+            if (operations.length === 0) {
+                resultEl.innerHTML = '<span style="color:#f59e0b">⚠️ Please add patch operations first</span>';
+                return;
+            }
+            try {
+                var patches = buildPatchOps();
+                var result = applyPatchOps(source, patches);
+                resultEl.textContent = JSON.stringify(result, null, 2);
+                gtag('event', 'apply_patch', { event_category: 'json-patch', event_label: operations.length + '_ops' });
+            } catch (e) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ ' + escHtml(e.message) + '</span>';
+            }
+        }
+
+        function applyPatchFromText() {
+            var sourceEl = document.getElementById('source-json');
+            var patchEl = document.getElementById('patch-json');
+            var resultEl = document.getElementById('result-json');
+            var source = parseJsonSafe(sourceEl.value);
+            if (source === null) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ Invalid source JSON format</span>';
+                return;
+            }
+            var patches = parseJsonSafe(patchEl.value);
+            if (patches === null || !Array.isArray(patches)) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ Invalid patch JSON format (must be an array)</span>';
+                return;
+            }
+            try {
+                var result = applyPatchOps(source, patches);
+                resultEl.textContent = JSON.stringify(result, null, 2);
+                gtag('event', 'apply_patch_text', { event_category: 'json-patch' });
+            } catch (e) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ ' + escHtml(e.message) + '</span>';
+            }
+        }
+
+        function syncOpsToText() {
+            if (operations.length === 0) {
+                document.getElementById('patch-json').value = '';
+                return;
+            }
+            var patches = buildPatchOps();
+            document.getElementById('patch-json').value = JSON.stringify(patches, null, 2);
+        }
+
+        function formatSource() {
+            var el = document.getElementById('source-json');
+            var parsed = parseJsonSafe(el.value);
+            if (parsed !== null) {
+                el.value = JSON.stringify(parsed, null, 2);
+            }
+        }
+
+        function loadSample() {
+            document.getElementById('source-json').value = JSON.stringify({
+                name: "John",
+                age: 25,
+                city: "New York",
+                skills: ["JavaScript", "Python", "Go"],
+                address: { street: "5th Ave", zip: "10001" }
+            }, null, 2);
+            operations = [
+                { id: ++opCounter, op: 'replace', path: '/age', value: '26' },
+                { id: ++opCounter, op: 'add', path: '/email', value: '"john@example.com"' },
+                { id: ++opCounter, op: 'remove', path: '/city' }
+            ];
+            renderOps();
+        }
+
+        function clearOps() {
+            operations = [];
+            opCounter = 0;
+            renderOps();
+        }
+
+        function copyResult() {
+            var text = document.getElementById('result-json').textContent;
+            if (!text || text === 'Waiting to apply patch...') return;
+            navigator.clipboard.writeText(text).then(function() {
+                gtag('event', 'copy_result', { event_category: 'json-patch' });
+                ;
+            });
+        }
+
+        function downloadResult() {
+            var text = document.getElementById('result-json').textContent;
+            if (!text || text === 'Waiting to apply patch...') return;
+            var blob = new Blob([text], { type: 'application/json' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'patched-result.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+        </script>
+    </main>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+
+<footer>
+        <p>&copy; 2026 WebTools - Free Online Tools | <a href="../../en/privacy/">Privacy Policy</a> | <a href="../../en/terms/">Terms of Service</a> | <a href="../contact/">Contact</a> | <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+</body>
+</html>

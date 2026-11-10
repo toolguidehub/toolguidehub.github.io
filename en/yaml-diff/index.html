@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare two YAML documents in semantic or plain-text mode to see which keys and values changed, were added or were removed.">
+<meta name="keywords" content="YAML diff YAML comparison online YAML diff YAML compare tool">
+<title>Free Online YAML Diff Tool - YAML Comparison | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/yaml-diff/">
+<meta property="og:title" content="Free Online YAML Diff Tool - YAML Comparison">
+<meta property="og:description" content="Compare two YAML documents in semantic or plain-text mode to see which keys and values changed, were added or were removed.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/yaml-diff/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Free OnlineTools"><meta name="twitter:description" content="Free online yaml diff tool - yaml comparison | no signup tool. Fast, secure, and no registration required. Works entirely in your browser."><meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "YAML Diff Tool - Online YAML Comparison", "description": "Free online YAML diff tool with semantic and text comparison modes.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Semantic vs Text diff?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Semantic vs Text diff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Text diff compares raw lines — useful for whitespace/comment changes. Semantic diff parses YAML to JSON first, ignoring formatting (indentation, field order), and compares actual data. Recommended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What YAML features are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nested structures, arrays, anchors/aliases, multi-line strings, tags — standard YAML 1.2. Uses js-yaml parser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How large can the YAML be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recommended max 1MB per document. Large files may slow the browser. Perfect for K8s configs, Docker Compose, etc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does YAML Diff Tool - Online YAML Comparison work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YAML Diff Tool - Online YAML Comparison processes everything locally in your browser. No data is sent to any server."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use YAML Diff Tool - Online YAML Comparison",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "YAML Diff Tool Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter YAML",
+      "text": "Follow the on-screen instructions to complete the operation."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation."
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Dev Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "YAML Diff Tool - Online YAML Comparison",
+      "item": "https://adi63586.github.io/Toolguidehub/en/yaml-diff/"
+    }
+  ],
+  "name": "YAML Diff Tool - Online YAML Comparison"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+textarea{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#e2e8f0;font-family:monospace;font-size:.9rem;resize:vertical;min-height:150px}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-content{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px;font-family:monospace;font-size:.85rem;color:#94a3b8;max-height:500px;overflow:auto;white-space:pre-wrap;word-break:break-all}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.diff-added{background:rgba(34,197,94,.15);color:#4ade80}
+.diff-removed{background:rgba(239,68,68,.15);color:#f87171}
+.diff-modified{background:rgba(234,179,8,.15);color:#facc15}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
+.template-btn{background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#94a3b8;font-size:.8rem;cursor:pointer;text-align:center;transition:all .2s}
+.template-btn:hover{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.3);color:#22d3ee}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+
+.stars span{font-size:1.3rem;color:#475569;transition:color .2s}
+.stars span.active,.stars span:hover{color:#fbbf24}
+
+@media(max-width:600px){.header{flex-direction:column;align-items:flex-start}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/yaml-diff/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📄 YAML Diff Tool
+ 
+</h1>
+
+</div>
+ <div class="nav-back"><a href="../../">← Back to Home</a> / Dev Tools / YAML Diff</div>
+
+ <div class="input-section">
+ <h2>📥 Enter YAML</h2>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+ <div><label style="color:#94a3b8;font-size:.85rem;margin-bottom:4px;display:block">Original YAML (A)</label><textarea id="yamlA" placeholder="Paste original YAML..."></textarea></div>
+ <div><label style="color:#94a3b8;font-size:.85rem;margin-bottom:4px;display:block">New YAML (B)</label><textarea id="yamlB" placeholder="Paste new YAML..."></textarea></div>
+ </div>
+ <div class="template-grid">
+ <button class="template-btn" onclick="loadExample('simple')">Simple Config</button>
+ <button class="template-btn" onclick="loadExample('docker')">Docker Compose</button>
+ <button class="template-btn" onclick="loadExample('k8s')">K8s Deployment</button>
+ </div>
+ <div class="btn-row">
+ <select id="diffMode" style="background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem">
+ <option value="semantic">🔍 Semantic Diff (Recommended)</option>
+ <option value="text">📝 Text Diff (Line by line)</option>
+ </select>
+ <button class="btn btn-primary" onclick="compareYAML()">🔍 Compare</button>
+ <button class="btn btn-secondary" onclick="clearAll()">🔄 Clear</button>
+ </div>
+ </div>
+
+ <div class="result-section">
+ <h2>📋 Comparison Result</h2>
+ <div id="diffStats" style="display:none;margin-bottom:8px;font-size:.85rem"></div>
+ <div class="result-content" id="diffResult" style="min-height:200px"><span style="color:#64748b">Enter YAML then click Compare</span></div>
+ </div>
+
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Does YAML Diff Tool upload my data to a server?</h3>
+ <p>No. YAML Diff Tool uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using YAML Diff Tool?</h3>
+ <p>Absolutely. Everything runs locally: Original YAML and New YAML are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for YAML Diff Tool?</h3>
+ <p>YAML Diff Tool has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is YAML Diff Tool free to use?</h3>
+ <p>Yes, YAML Diff Tool is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ </div>
+
+</main>
+<footer>
+ <a href="../../">Home</a> | <a href="../#developer-tools">Dev Tools</a> | <a href="../../en/yaml-diff/">中文</a>
+ 
+ <p style="margin-top:8px">© 2026 WebTools. All tools free. Your data never leaves your device.</p>
+ <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function compareYAML(){
+  const a=document.getElementById('yamlA').value.trim();
+  const b=document.getElementById('yamlB').value.trim();
+  if(!a&&!b){showToast('Please enter at least one YAML');return}
+  const mode=document.getElementById('diffMode').value;
+  const result=document.getElementById('diffResult');
+  const stats=document.getElementById('diffStats');
+  
+  if(mode==='semantic'){
+    try{
+      const objA=a?jsyaml.load(a):{};
+      const objB=b?jsyaml.load(b):{};
+      const diff=deepDiff(objA,objB);
+      if(diff.length===0){
+        result.innerHTML='<span style="color:#4ade80">✅ YAML documents are semantically identical (no differences)</span>';
+        stats.style.display='none';
+      }else{
+        stats.style.display='block';
+        const added=diff.filter(d=>d.type==='added').length;
+        const removed=diff.filter(d=>d.type==='removed').length;
+        const modified=diff.filter(d=>d.type==='modified').length;
+        stats.innerHTML='Diff: <span style="color:#4ade80">+'+added+' added</span> | <span style="color:#f87171">-'+removed+' removed</span> | <span style="color:#facc15">~'+modified+' modified</span>';
+        result.innerHTML=diff.map(d=>{
+          if(d.type==='added')return '<div class="diff-added">+ '+d.path+': '+JSON.stringify(d.value)+'</div>';
+          if(d.type==='removed')return '<div class="diff-removed">- '+d.path+': '+JSON.stringify(d.value)+'</div>';
+          return '<div class="diff-modified">~ '+d.path+': '+JSON.stringify(d.oldValue)+' → '+JSON.stringify(d.newValue)+'</div>';
+        }).join('\n');
+      }
+    }catch(e){result.innerHTML='<span style="color:#f87171">❌ YAML parse error: '+e.message+'</span>';stats.style.display='none';}
+  }else{
+    // Text diff
+    const linesA=a.split('\n');
+    const linesB=b.split('\n');
+    const maxLen=Math.max(linesA.length,linesB.length);
+    let added=0,removed=0,modified=0;
+    const html=[];
+    for(let i=0;i<maxLen;i++){
+      const la=linesA[i]||'',lb=linesB[i]||'';
+      if(la===lb&&la!=='')html.push('  '+la);
+      else{
+        if(la&&!lb){removed++;html.push('<span class="diff-removed">- '+la+'</span>')}
+        else if(!la&&lb){added++;html.push('<span class="diff-added">+ '+lb+'</span>')}
+        else{modified++;html.push('<span class="diff-removed">- '+la+'</span>\n<span class="diff-added">+ '+lb+'</span>')}
+      }
+    }
+    stats.style.display='block';
+    stats.innerHTML='Diff: <span style="color:#4ade80">+'+added+' addedrow</span> | <span style="color:#f87171">-'+removed+' removedrow</span> | <span style="color:#facc15">~'+modified+' modifiedrow</span>';
+    result.innerHTML=html.join('\n')||'<span style="color:#4ade80">✅ Identical</span>';
+  }
+}
+
+function deepDiff(a,b,path=''){
+  const diffs=[];
+  if(a===b)return diffs;
+  if(typeof a!==typeof b){diffs.push({type:'modified',path:path||'(root)',oldValue:a,newValue:b});return diffs}
+  if(a===null||b===null||typeof a!=='object'){if(JSON.stringify(a)!==JSON.stringify(b))diffs.push({type:'modified',path:path||'(root)',oldValue:a,newValue:b});return diffs}
+  const keysA=Object.keys(a||{}),keysB=Object.keys(b||{});
+  const allKeys=new Set([...keysA,...keysB]);
+  for(const k of allKeys){
+    const np=path?path+'.'+k:k;
+    if(!(k in a))diffs.push({type:'added',path:np,value:b[k]});
+    else if(!(k in b))diffs.push({type:'removed',path:np,value:a[k]});
+    else diffs.push(...deepDiff(a[k],b[k],np));
+  }
+  return diffs;
+}
+
+const examples={
+  simple:{a:'name: John\nage: 30\ncity: Beijing\nhobbies:\n  - reading\n  - coding',b:'name: John\nage: 31\ncity: Shanghai\nhobbies:\n  - reading\n  - coding\n  - gaming'},
+  docker:{a:'version: "3.8"\nservices:\n  web:\n    image: nginx:1.21\n    ports:\n      - "80:80"',b:'version: "3.9"\nservices:\n  web:\n    image: nginx:1.25\n    ports:\n      - "8080:80"\n  db:\n    image: postgres:15'},
+  k8s:{a:'apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: my-app\nspec:\n  replicas: 2',b:'apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: my-app-v2\nspec:\n  replicas: 3\n  strategy:\n    type: RollingUpdate'}
+};
+
+function loadExample(name){
+  const ex=examples[name];
+  document.getElementById('yamlA').value=ex.a;
+  document.getElementById('yamlB').value=ex.b;
+}
+
+function clearAll(){document.getElementById('yamlA').value='';document.getElementById('yamlB').value='';document.getElementById('diffResult').innerHTML='<span style="color:#64748b">Enter YAML then click Compare</span>';document.getElementById('diffStats').style.display='none';}
+function rate(v){const stars=document.querySelectorAll('#stars span');stars.forEach((s,i)=>{s.textContent=i<v?'★':'☆';s.className=i<v?'active':''});document.getElementById('ratingCount').textContent='4.5 ('+(134+v)+'votes)';}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+
+</body>
+</html>

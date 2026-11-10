@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Divide group bills equally, by ratio or by custom amounts for dining, travel and shared living.">
+<meta name="keywords" content="💰 Expense Splitter,OnlineTools,FreeTools">
+<title>💰 Expense Splitter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/expense-splitter/">
+<meta property="og:title" content="💰 Expense Splitter - ToolGuideHub">
+<meta property="og:description" content="Divide group bills equally, by ratio or by custom amounts for dining, travel and shared living.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/expense-splitter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"💰 Expense Splitter","description":"Fairly split bills for group dining and travel. Supports equal split, ratio-based, and custom amount modes.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px}
+.content-section{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.content-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.content-section h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}
+.content-section p{color:#94a3b8;font-size:.9rem;margin-bottom:10px;text-align:justify}
+.content-section ul{padding-left:20px;color:#94a3b8;font-size:.9rem}
+.content-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item .q{font-weight:500;color:#e2e8f0;margin-bottom:6px;font-size:.9rem}
+.faq-item .a{color:#94a3b8;font-size:.85rem;padding-left:12px;border-left:2px solid rgba(6,182,212,.3)}
+.footer{margin-top:32px;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 24px;background:#1e293b;color:#e2e8f0;border-radius:8px;font-size:.85rem;z-index:1000;opacity:0;transition:opacity .3s;border:1px solid rgba(148,163,184,.2);pointer-events:none}
+.toast.show{opacity:1}
+label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+input,select,textarea{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.9rem;outline:none;width:100%}
+input:focus,select:focus,textarea:focus{border-color:rgba(6,182,212,.5)}
+button{padding:8px 16px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-box{padding:16px;background:#0f172a;border:1px solid rgba(6,182,212,.3);border-radius:8px;margin-top:16px}
+.result-box .label{font-size:.75rem;color:#64748b}
+.result-box .value{font-size:1.2rem;font-family:monospace;color:#22d3ee;font-weight:600;margin-top:4px;word-break:break-all}
+@media(max-width:600px){.header h1{font-size:1.2rem}}
+.hero{margin-bottom:16px;padding:12px 16px;background:rgba(148,163,184,.06);border-radius:8px;border:1px solid rgba(148,163,184,.1);font-size:.85rem;color:#94a3b8;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.hero .badge{font-size:.75rem;padding:2px 10px;border-radius:12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);white-space:nowrap}
+.input-group{margin-bottom:12px}
+.input-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.input-row .input-group{flex:1;min-width:120px;margin-bottom:0}
+.output-area{min-height:60px;padding:12px;background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;color:#e2e8f0;font-size:.9rem;margin-top:8px;white-space:pre-wrap;word-break:break-all}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "💰 Expense Splitter", "item": "https://adi63586.github.io/Toolguidehub/en/expense-splitter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Expense Splitter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Expense Splitter?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Expense Splitter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Total Amount and Number of People are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Expense Splitter?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use 💰 Expense Splitter","description":"Step-by-step guide for using 💰 Expense Splitter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"💰 Expense Splitter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/expense-splitter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>💰 Expense Splitter</h1></div>
+<p class="nav-back"><a href="../../index.html">Home</a> &rsaquo; 💰 Expense Splitter</p>
+<div class="hero"><p>Fairly split bills for group dining and travel. Supports equal split, ratio-based, and custom amount modes. | No registration · Data never leaves your browser</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="tool-section">
+<h2>💰 Expense Splitter</h2>
+<div class="input-group">
+<label>Total Amount</label>
+<input type="number" id="totalAmount" placeholder="Enter total amount" value="500" step="0.01" min="0">
+</div>
+<div class="input-group">
+<label>Number of People</label>
+<input type="number" id="peopleCount" placeholder="Number of people" value="4" min="1" max="100">
+</div>
+<div class="input-group">
+<label>Split Method</label>
+<select id="splitMode">
+<option value="equal">Equal Split</option>
+<option value="ratio">By Ratio (comma-separated, e.g. 1,2,1,1)</option>
+<option value="custom">Custom Amounts (comma-separated, e.g. 120,150,130,100)</option>
+</select>
+</div>
+<div class="input-group" id="ratioGroup" style="display:none">
+<label>Ratios (comma-separated)</label>
+<input type="text" id="ratioInput" placeholder="e.g. 1,2,1,1">
+</div>
+<div class="input-group" id="customGroup" style="display:none">
+<label>Custom Amounts (comma-separated)</label>
+<input type="text" id="customInput" placeholder="e.g. 120,150,130,100">
+</div>
+<button class="btn-primary" id="calcBtn" style="width:100%">Calculate</button>
+<div class="result-box" id="resultBox" style="display:none">
+<div class="label">Split Results</div>
+<div id="splitResults" style="margin-top:8px"></div>
+<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(148,163,184,.1);font-size:.85rem;color:#94a3b8">
+<span id="totalCheck"></span>
+</div>
+</div>
+<div id="errorBox" style="display:none;margin-top:12px;padding:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;color:#ef4444;font-size:.85rem"></div>
+</div><div class="content-section">
+<h2>💼 Use Cases</h2>
+<p>Perfect for: splitting restaurant bills, travel expenses, shared rent, group activities. Supports equal split, ratio-based split, and custom amount split.</p>
+</div>
+<script>
+var isEn = document.documentElement.lang === 'en';
+
+document.getElementById('splitMode').addEventListener('change', function(){
+  var mode = this.value;
+  document.getElementById('ratioGroup').style.display = mode === 'ratio' ? 'block' : 'none';
+  document.getElementById('customGroup').style.display = mode === 'custom' ? 'block' : 'none';
+});
+
+function showError(msg){
+  document.getElementById('resultBox').style.display = 'none';
+  document.getElementById('errorBox').style.display = 'block';
+  document.getElementById('errorBox').textContent = msg;
+}
+
+document.getElementById('calcBtn').addEventListener('click', function(){
+  document.getElementById('errorBox').style.display = 'none';
+  var total = parseFloat(document.getElementById('totalAmount').value);
+  var count = parseInt(document.getElementById('peopleCount').value);
+  var mode = document.getElementById('splitMode').value;
+  
+  if(isNaN(total) || total <= 0){
+    showError(isEn ? 'Please enter a valid total amount' : 'Please enter a valid total amount');
+    return;
+  }
+  if(isNaN(count) || count < 1){
+    showError(isEn ? 'Please enter a valid number of people' : 'pleaseInputValid number of people');
+    return;
+  }
+  
+  var amounts = [];
+  
+  if(mode === 'equal'){
+    var perPerson = Math.round(total / count * 100) / 100;
+    var sum = 0;
+    for(var i=0;i<count-1;i++){
+      amounts.push(perPerson);
+      sum += perPerson;
+    }
+    amounts.push(Math.round((total - sum) * 100) / 100);
+  } else if(mode === 'ratio'){
+    var ratioStr = document.getElementById('ratioInput').value.trim();
+    if(!ratioStr){
+      showError(isEn ? 'Please enter ratios' : 'pleaseInputRatio');
+      return;
+    }
+    var ratios = ratioStr.split(',').map(Number);
+    if(ratios.length !== count){
+      showError(isEn ? 'Number of ratios must match number of people' : 'RatioQtymust equal number of people');
+      return;
+    }
+    var ratioSum = ratios.reduce(function(a,b){return a+b;},0);
+    var distributed = 0;
+    for(var i=0;i<count-1;i++){
+      var amt = Math.round(total * ratios[i] / ratioSum * 100) / 100;
+      amounts.push(amt);
+      distributed += amt;
+    }
+    amounts.push(Math.round((total - distributed) * 100) / 100);
+  } else {
+    var customStr = document.getElementById('customInput').value.trim();
+    if(!customStr){
+      showError(isEn ? 'Please enter custom amounts' : 'pleaseInputCustomAmount');
+      return;
+    }
+    amounts = customStr.split(',').map(Number);
+    if(amounts.length !== count){
+      showError(isEn ? 'Number of amounts must match number of people' : 'AmountQtymust equal number of people');
+      return;
+    }
+    var customSum = amounts.reduce(function(a,b){return a+b;},0);
+    if(Math.abs(customSum - total) >0.02){ showError(isEn ? 'Custom amounts sum (' + customSum + ') does not match total (' + total + ')' : 'CustomAmountand(' + customSum + ')Amount(' + total + ')'); return; } } document.getElementById('resultBox').style.display = 'block'; var html = ''; var sumCheck = 0; for(var i=0;i<amounts.length;i++){
+    html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.05)"><span>' + (isEn ? 'Person ' : '#') + (i+1) + (isEn ? '' : '') + '</span><span style="font-family:monospace;color:#22d3ee">$' + amounts[i].toFixed(2) + '</span></div>'; sumCheck += amounts[i]; } document.getElementById('splitResults').innerHTML = html; document.getElementById('totalCheck').textContent = (isEn ? 'Total: $' : ': $') + sumCheck.toFixed(2); });</script>
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-25
+  </span>
+</div>
+<div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/bitcoin-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">₿ Bitcoin Calculator</a><a href="../../en/biweekly-payment-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔄 Biweekly Payment Calculator</a><a href="../../en/extra-payment-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">💸 Extra Payment Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../index.html">Home</a>
+<a href="../../index.html#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy Policy</a>
+<a href="../../en/terms/">Terms of Service</a>
+<a href="../../en/about/">About Us</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){{var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){{t.classList.remove("show")}},3000)}}
+</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+
+</main>
+</body>
+</html>

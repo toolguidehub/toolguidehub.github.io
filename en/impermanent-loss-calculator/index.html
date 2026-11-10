@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="See how much impermanent loss a liquidity pool position could take from price divergence; enter your investment and token price moves or use a preset.">
+<meta name="keywords" content="impermanent loss,IL calculator,LP analysis,AMM pool,Uniswap,DeFi risk,liquidity provider">
+<title>Impermanent Loss Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/impermanent-loss-calculator/">
+<meta property="og:title" content="Impermanent Loss Calculator - ToolGuideHub">
+<meta property="og:description" content="See how much impermanent loss a liquidity pool position could take from price divergence; enter your investment and token price moves or use a preset.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/impermanent-loss-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/impermanent-loss-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Impermanent Loss Calculator","description":"Free online impermanent loss calculator. Calculate IL for AMM liquidity pools based on price change percentage. Supports Uniswap V2/V3 style dual-token LP analysis.","applicationCategory":"FinanceApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Finance Calculators","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Impermanent Loss Calculator","item":"https://adi63586.github.io/Toolguidehub/en/impermanent-loss-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Impermanent Loss Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Impermanent Loss Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Impermanent Loss Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Initial Investment and Token A Price Change are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Impermanent Loss Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Impermanent Loss Calculator","description":"Step-by-step guide for using Impermanent Loss Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Impermanent Loss Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:6px;font-size:.85rem;transition:all .2s}
+.lang-switch a.active{background:#EF4444;color:#fff}
+.lang-switch a:not(.active){color:#94a3b8}
+.tool-icon{font-size:3rem;margin-bottom:8px;text-align:center}
+.calc-card{background:#1e293b;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.calc-card h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;font-size:1rem;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#EF4444}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;background:#EF4444;color:#fff;border:none;border-radius:10px;font-size:.95rem;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.9}
+.btn-secondary{background:#334155}
+.result-card{background:linear-gradient(135deg,#EF444420,#EF444408);border:1px solid #EF444440;border-radius:16px;padding:20px;margin-top:16px}
+.result-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.result-item:last-child{border-bottom:none}
+.result-label{color:#94a3b8;font-size:.9rem}
+.result-value{font-size:1.3rem;font-weight:700;color:#EF4444}
+.result-value.small{font-size:1rem}
+.chart-container{background:#1e293b;border-radius:16px;padding:20px;margin-top:16px;border:1px solid rgba(148,163,184,.1)}
+.chart-container h3{font-size:1rem;color:#94a3b8;margin-bottom:12px}
+canvas{width:100%;max-height:250px}
+.footer{text-align:center;padding:24px 0;color:#475569;font-size:.85rem;border-top:1px solid rgba(148,163,184,.1);margin-top:32px}
+.footer a{color:#94a3b8}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:24px;font-size:.9rem;z-index:9999;opacity:0;transition:opacity .3s;box-shadow:0 8px 32px rgba(0,0,0,.3);border:1px solid rgba(148,163,184,.2)}
+.toast.show{opacity:1}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.input-row{grid-template-columns:1fr}.header h1{font-size:1.3rem}}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<h1>⚠️ Impermanent Loss Calculator</h1>
+  <div style="margin:16px 0;color:#475569;line-height:1.6;font-size:.95rem;max-width:700px">
+    <p>Welcome to the Impermanent Loss Calculator tool. This tool is completely free — no registration or download required. Use it directly in your browser.</p>
+    <p>Whether you're a professional or casual user, our tool is designed to be intuitive and efficient, helping you get results quickly.</p>
+    <p>All data is processed locally in your browser and never uploaded to any server, ensuring your privacy is protected.</p>
+  </div>
+
+
+<div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<main>
+<div class="calc-card">
+<h2>📊 Parameters</h2>
+<div id="input-area"></div>
+<div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+<button class="btn" onclick="calculate()">🔢 Calculate</button>
+<button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+<button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button>
+</div>
+</div>
+<div class="result-card" id="result-card" style="display:none"></div>
+<div class="chart-container" id="chart-container" style="display:none">
+<h3>📈 Yield Growth</h3>
+<canvas id="yieldChart"></canvas>
+</div>
+
+  <!-- Related Tools -->
+  
+<h2>What is Impermanent Loss Calculator?</h2><p>Impermanent Loss Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Initial Investment and Token A Price Change to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+<section class="related-tools" style="margin-top:40px;padding:24px;background:#0f172a;border-radius:12px;border:1px solid rgba(148,163,184,.1)">
+    <h3 style="margin:0 0 16px;font-size:1.1rem;color:#94a3b8">🔧 More Free Tools</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <a href="../../en/unit-converter/" class="related-link">Unit Converter</a>
+<a href="../../en/bmi-calculator/" class="related-link">BMI Calculator</a>
+<a href="../../en/age-calculator/" class="related-link">Age Calculator</a>
+<a href="../../en/password-generator/" class="related-link">Password Generator</a>
+    </div>
+  </section>
+  <style>
+    .related-link{display:inline-block;padding:8px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;color:#22d3ee;text-decoration:none;font-size:.9rem;transition:all .2s}
+    .related-link:hover{background:rgba(6,182,212,.2);color:#fff;border-color:rgba(6,182,212,.4)}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+</main>
+  <footer class="footer">
+<p>© 2026 ToolGuideHub · Client-side only, no data uploaded · <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> · <a href="../../en/terms/">Terms</a> · <a href="../../en/privacy/">Privacy</a></p>
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>let chart=null;const COLORS=['#EF4444','#06B6D4','#F59E0B','#10B981','#EF4444','#8B5CF6','#EC4899'];</script>
+<script>// ToolGuideHub - Calculator Common Utilities v1.0
+// Shared by all calculator tools
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function copyResult() {
+    const card = document.getElementById('result-card');
+    if (!card || card.style.display === 'none') { showToast('Please calculate first'); return; }
+    const items = card.querySelectorAll('.result-item');
+    let text = '';
+    items.forEach(item => {
+        const label = item.querySelector('.result-label')?.textContent?.trim() || '';
+        const value = item.querySelector('.result-value')?.textContent?.trim() || '';
+        if (label && value) text += label + ': ' + value + '\n';
+    });
+    if (text) {
+        navigator.clipboard.writeText(text.trim()).then(() => showToast('Copied to clipboard')).catch(() => showToast('CopyFailed'));
+    }
+}
+
+function resetForm() {
+    document.querySelectorAll('#input-area input').forEach(el => {
+        if (el.type === 'number' || el.type === 'text') {
+            el.value = el.dataset.default || '';
+        }
+    });
+    document.getElementById('result-card').style.display = 'none';
+    document.getElementById('chart-container').style.display = 'none';
+    if (window.chart) { window.chart.destroy(); window.chart = null; }
+}
+
+function formatNum(n, decimals) {
+    if (decimals === undefined) decimals = 2;
+    if (typeof n !== 'number' || isNaN(n)) return '0.00';
+    return n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+}
+
+function formatUSD(n) {
+    if (typeof n !== 'number' || isNaN(n)) return '$0.00';
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function drawBarChart(canvasId, labels, datasets, title) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    if (window.chart) window.chart.destroy();
+    
+    const ctx = canvas.getContext('2d');
+    const w = canvas.parentElement.clientWidth - 40;
+    const h = 220;
+    canvas.width = w * 2;
+    canvas.height = h * 2;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.scale(2, 2);
+    
+    const padding = { top: 30, right: 20, bottom: 50, left: 70 };
+    const chartW = w - padding.left - padding.right;
+    const chartH = h - padding.top - padding.bottom;
+    
+    // Find max value
+    let maxVal = 0;
+    datasets.forEach(ds => ds.data.forEach(v => { if (v > maxVal) maxVal = v; }));
+    maxVal = Math.ceil(maxVal * 1.15);
+    
+    // Draw grid
+    ctx.strokeStyle = 'rgba(148,163,184,0.15)';
+    ctx.lineWidth = 0.5;
+    const gridLines = 5;
+    for (let i = 0; i <= gridLines; i++) {
+        const y = padding.top + (chartH / gridLines) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(w - padding.right, y);
+        ctx.stroke();
+        
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText('$' + formatNum(maxVal * (1 - i / gridLines), 0), padding.left - 8, y + 4);
+    }
+    
+    // Draw bars
+    const barWidth = chartW / labels.length / (datasets.length + 1);
+    const barGap = barWidth * 0.3;
+    
+    datasets.forEach((ds, di) => {
+        ds.data.forEach((val, i) => {
+            const barH = (val / maxVal) * chartH;
+            const x = padding.left + (chartW / labels.length) * i + barWidth * di + barWidth * 0.5;
+            const y = padding.top + chartH - barH;
+            
+            ctx.fillStyle = ds.color || COLORS[di % COLORS.length];
+            ctx.fillRect(x - barWidth / 2 + barGap / 2, y, barWidth - barGap, barH);
+            
+            // Value on top
+            ctx.fillStyle = '#e2e8f0';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('$' + formatNum(val, 0), x, y - 4);
+        });
+    });
+    
+    // X-axis labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    labels.forEach((label, i) => {
+        const x = padding.left + (chartW / labels.length) * i + chartW / labels.length / 2;
+        ctx.fillText(label, x, h - padding.bottom + 20);
+    });
+    
+    // Legend
+    if (datasets.length > 1) {
+        let lx = padding.left;
+        datasets.forEach((ds, i) => {
+            ctx.fillStyle = ds.color || COLORS[i % COLORS.length];
+            ctx.fillRect(lx, 8, 12, 12);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '11px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(ds.label, lx + 16, 18);
+            lx += ctx.measureText(ds.label).width + 40;
+        });
+    }
+}
+
+function drawLineChart(canvasId, labels, datasets) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    if (window.chart) window.chart.destroy();
+    
+    const ctx = canvas.getContext('2d');
+    const w = canvas.parentElement.clientWidth - 40;
+    const h = 250;
+    canvas.width = w * 2;
+    canvas.height = h * 2;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.scale(2, 2);
+    
+    const padding = { top: 30, right: 20, bottom: 50, left: 70 };
+    const chartW = w - padding.left - padding.right;
+    const chartH = h - padding.top - padding.bottom;
+    
+    let maxVal = 0;
+    datasets.forEach(ds => ds.data.forEach(v => { if (v > maxVal) maxVal = v; }));
+    maxVal = Math.ceil(maxVal * 1.15);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(148,163,184,0.15)';
+    ctx.lineWidth = 0.5;
+    const gridLines = 5;
+    for (let i = 0; i <= gridLines; i++) {
+        const y = padding.top + (chartH / gridLines) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(w - padding.right, y);
+        ctx.stroke();
+        
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'right';
+        const val = maxVal * (1 - i / gridLines);
+        ctx.fillText(val >= 1000 ? '$' + formatNum(val, 0) : '$' + formatNum(val, 2), padding.left - 8, y + 4);
+    }
+    
+    // Lines
+    datasets.forEach((ds, di) => {
+        ctx.strokeStyle = ds.color || COLORS[di % COLORS.length];
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ds.data.forEach((val, i) => {
+            const x = padding.left + (chartW / (ds.data.length - 1)) * i;
+            const y = padding.top + chartH - (val / maxVal) * chartH;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        
+        // Dots
+        ds.data.forEach((val, i) => {
+            const x = padding.left + (chartW / (ds.data.length - 1)) * i;
+            const y = padding.top + chartH - (val / maxVal) * chartH;
+            ctx.fillStyle = ds.color || COLORS[di % COLORS.length];
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    });
+    
+    // X-axis
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    const step = Math.max(1, Math.floor(labels.length / 12));
+    labels.forEach((label, i) => {
+        if (i % step === 0 || i === labels.length - 1) {
+            const x = padding.left + (chartW / (labels.length - 1)) * i;
+            ctx.fillText(label, x, h - padding.bottom + 20);
+        }
+    });
+    
+    // Legend
+    let lx = padding.left;
+    datasets.forEach((ds, i) => {
+        ctx.fillStyle = ds.color || COLORS[i % COLORS.length];
+        ctx.fillRect(lx, 8, 12, 12);
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(ds.label, lx + 16, 18);
+        lx += ctx.measureText(ds.label).width + 40;
+});
+}</script>
+<script>// Impermanent Loss Calculator
+(function(){
+    var area = document.getElementById('input-area');
+    area.innerHTML = '<div class="form-group"><label>Initial Investment ($)</label><input type="number" id="initial-invest" placeholder="e.g. 10000" value="10000" min="0" step="any" data-default="10000"></div><div class="input-row"><div class="form-group"><label>Token A Price Change (%)</label><input type="number" id="change-a" placeholder="e.g. 50" value="0" step="any" data-default="0"></div><div class="form-group"><label>Token B Price Change (%)</label><input type="number" id="change-b" placeholder="e.g. 0" value="0" step="any" data-default="0"></div></div><div class="form-group"><label>Quick Preset</label><select id="preset"><option value="">Custom</option><option value="2x">Price Doubles (+100%)</option><option value="3x">Price Triples (+200%)</option><option value="5x">Price 5x (+400%)</option><option value="half">Price Halves (-50%)</option><option value="quarter">Price to 1/4 (-75%)</option></select></div>';
+    document.getElementById('preset').addEventListener('change', applyPreset);
+})();
+
+function applyPreset(){
+    var p = document.getElementById('preset').value;
+    var m = {a:0,b:0};
+    if(p==='2x'){m={a:100,b:0};}
+    else if(p==='3x'){m={a:200,b:0};}
+    else if(p==='5x'){m={a:400,b:0};}
+    else if(p==='half'){m={a:-50,b:0};}
+    else if(p==='quarter'){m={a:-75,b:0};}
+    if(p!==''){document.getElementById('change-a').value=m.a;document.getElementById('change-b').value=m.b;calculate();}
+}
+
+function calculate(){
+    var inv=parseFloat(document.getElementById('initial-invest').value)||0,ca=parseFloat(document.getElementById('change-a').value)||0,cb=parseFloat(document.getElementById('change-b').value)||0;
+    if(inv<=0){showToast('Please enter investment amount');return;}
+    var pa=1+ca/100,pb=1+cb/100;
+    var hv=inv*0.5*(pa+pb);
+    var pv=inv*Math.sqrt(pa*pb);
+    var il=pv-hv;
+    var ilPct=il/hv*100;
+    document.getElementById('result-card').style.display='block';
+    document.getElementById('result-card').innerHTML='<div class="result-item"><span class="result-label">Token A Change</span><span class="result-value small" style="color:'+(ca>=0?'#10B981':'#EF4444')+'">'+(ca>=0?'+':'')+formatNum(ca,1)+'%</span></div><div class="result-item"><span class="result-label">Token B Change</span><span class="result-value small" style="color:'+(cb>=0?'#10B981':'#EF4444')+'">'+(cb>=0?'+':'')+formatNum(cb,1)+'%</span></div><div class="result-item"><span class="result-label">HODL Value</span><span class="result-value small">'+formatUSD(hv)+'</span></div><div class="result-item"><span class="result-label">LP Pool Value</span><span class="result-value small">'+formatUSD(pv)+'</span></div><div class="result-item"><span class="result-label">Impermanent Loss</span><span class="result-value" style="color:#EF4444">'+formatUSD(il)+' ('+formatNum(ilPct,2)+'%)</span></div><div class="result-item"><span class="result-label">Net Loss %</span><span class="result-value" style="color:#EF4444">'+formatNum(Math.abs(ilPct),2)+'%</span></div>';
+    if(ilPct<-20){showToast('IL exceeds 20%! Be cautious providing liquidity');}
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName==='INPUT')calculate();});
+</script>
+<script>calculate();</script>
+</body>
+</html>

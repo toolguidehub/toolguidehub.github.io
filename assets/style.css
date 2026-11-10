@@ -1,0 +1,8 @@
+/* Fallback base stylesheet for a few tool pages whose original shared stylesheet was not in the source ZIP */
+:root{color-scheme:dark}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:16px;line-height:1.5}
+main,.container{max-width:900px;margin:0 auto}
+a{color:#22d3ee}
+input,select,textarea{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:9px 10px;max-width:100%;font:inherit}
+button,.btn{background:#0891b2;color:#fff;border:0;border-radius:8px;padding:9px 14px;cursor:pointer;font:inherit}
+canvas,img,video{max-width:100%}

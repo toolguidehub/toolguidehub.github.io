@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPI Calculator - Calculate PPI & Pixel Density</title>
+    <meta name="description" content="Find the pixel density (PPI) of any screen from its size and resolution, or solve for resolution and size. Includes common device presets.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/dpi-calculator/">
+    <meta property="og:title" content="DPI Calculator - Calculate PPI & Pixel Density">
+    <meta property="og:description" content="Find the pixel density (PPI) of any screen from its size and resolution, or solve for resolution and size. Includes common device presets.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/dpi-calculator/">
+    <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--bg:#0f172a;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        .lang-switch{display:inline-flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-bottom:10px}
+        .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+        .lang-switch a:hover{color:#22d3ee}
+        .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.2); border-radius: 8px; font-size: 14px; background: #0f172a; color: #e2e8f0; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        select { cursor: pointer; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row input { flex: 1; }
+        .input-row select { width: 140px; flex-shrink: 0; }
+        .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+        .result-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; text-align: center; }
+        .result-item .value { font-size: 1.5rem; font-weight: 700; color: #22d3ee; }
+        .result-item .label { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+        .preset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
+        .preset-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; text-align: center; transition: all .2s; }
+        .preset-btn:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+        .comparison-table th, .comparison-table td { padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); text-align: left; white-space: nowrap; }
+        .comparison-table th { background: #0f172a; font-weight: 600; }
+        .comparison-table tr:hover { background: rgba(148,163,184,.1); }
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .mode-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .mode-tab { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 14px; font-weight: 500; transition: all .2s; }
+        .mode-tab.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .mode-tab:hover:not(.active) { background: rgba(148,163,184,.1); }
+        .dpi-indicator { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .dpi-low { background: rgba(252,211,77,.15); color: #fbbf24; }
+        .dpi-medium { background: rgba(96,165,250,.15); color: #60a5fa; }
+        .dpi-high { background: rgba(52,211,153,.15); color: #34d399; }
+        .dpi-ultra { background: rgba(167,139,250,.15); color: #a78bfa; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .input-row { flex-direction: column; } .input-row select { width: 100%; } }
+    
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is DPI and PPI?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is DPI and PPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DPI (Dots Per Inch) refers to dots per inch, typically used in printing; PPI (Pixels Per Inch) refers to pixels per inch, used for digital displays. In screen display, the two are often used interchangeably, both indicating pixel density."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to calculate DPI/PPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PPI = √(horizontal pixels² + vertical pixels²) ÷ screen diagonal size (inches). For example, a 5.5-inch screen at 1920×1080, PPI = √(1920² + 1080²) ÷ 5.5 ≈ 401 PPI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do different DPI values mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Below 100 PPI: low density, pixels clearly visible; 100-200 PPI: medium density, common for standard monitors; 200-300 PPI: high density, common for phones; 300+ PPI: ultra-high density, Retina level, pixels indistinguishable to human eye."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use DPI Calculator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter Resolution",
+      "text": "Enter the horizontal and vertical pixels, or select a device preset"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enter Screen Size",
+      "text": "Enter the screen diagonal size in inches"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Calculate",
+      "text": "Click calculate to get DPI/PPI value and related information"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculators",
+      "item": "https://adi63586.github.io/Toolguidehub/category/calc/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "DPI Calculator"
+    }
+  ],
+  "name": "DPI Calculator"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "DPI Calculator", "description": "Free online DPI/PPI calculator. Calculate pixel density from screen resolution and size, support for monitors, phones, tablets. Pure frontend, no server needed.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/dpi-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+    <header>
+        
+        <h1>DPI Calculator</h1>
+
+        <p>Calculate screen DPI/PPI pixel density online, with device presets</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<div class="section">
+        <h2>📐 Calculate DPI/PPI</h2>
+        <div class="mode-tabs">
+            <div class="mode-tab active" onclick="setMode('ppi')">Calculate PPI</div>
+            <div class="mode-tab" onclick="setMode('resolution')">Find Resolution</div>
+            <div class="mode-tab" onclick="setMode('size')">Find Screen Size</div>
+        </div>
+
+        <div id="ppi-mode">
+            <div class="form-group">
+                <label>Horizontal Resolution (pixels)</label>
+                <input type="number" id="width-px" value="1920" min="1" placeholder="e.g. 1920">
+            </div>
+            <div class="form-group">
+                <label>Vertical Resolution (pixels)</label>
+                <input type="number" id="height-px" value="1080" min="1" placeholder="e.g. 1080">
+            </div>
+            <div class="form-group">
+                <label>Screen Diagonal Size (inches)</label>
+                <input type="number" id="diagonal" value="5.5" min="0.1" step="0.1" placeholder="e.g. 5.5">
+            </div>
+        </div>
+
+        <div id="resolution-mode" style="display:none">
+            <div class="form-group">
+                <label>Target PPI</label>
+                <input type="number" id="target-ppi" value="326" min="1" placeholder="e.g. 326">
+            </div>
+            <div class="form-group">
+                <label>Screen Diagonal Size (inches)</label>
+                <input type="number" id="diag-for-res" value="5.5" min="0.1" step="0.1" placeholder="e.g. 5.5">
+            </div>
+            <div class="form-group">
+                <label>Aspect Ratio</label>
+                <select id="aspect-ratio">
+                    <option value="16:9">16:9</option>
+                    <option value="16:10">16:10</option>
+                    <option value="18:9">18:9</option>
+                    <option value="19.5:9">19.5:9</option>
+                    <option value="4:3">4:3</option>
+                    <option value="3:2">3:2</option>
+                    <option value="1:1">1:1</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="size-mode" style="display:none">
+            <div class="form-group">
+                <label>Horizontal Resolution (pixels)</label>
+                <input type="number" id="w-for-size" value="1920" min="1" placeholder="e.g. 1920">
+            </div>
+            <div class="form-group">
+                <label>Vertical Resolution (pixels)</label>
+                <input type="number" id="h-for-size" value="1080" min="1" placeholder="e.g. 1080">
+            </div>
+            <div class="form-group">
+                <label>Target PPI</label>
+                <input type="number" id="ppi-for-size" value="326" min="1" placeholder="e.g. 326">
+            </div>
+        </div>
+
+        <div style="margin-top:16px">
+            <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">📊 Calculate</button>
+            <button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+        </div>
+
+        <div id="result" style="display:none;margin-top:20px">
+            <div class="result-grid" id="result-grid"></div>
+        </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+    </div>
+
+    <div class="section">
+        <h2>📱 Common Device Presets</h2>
+        <div class="preset-grid">
+            <button class="preset-btn" onclick="applyPreset(1920,1080,24)">24" FHD</button>
+            <button class="preset-btn" onclick="applyPreset(2560,1440,27)">27" QHD</button>
+            <button class="preset-btn" onclick="applyPreset(3840,2160,27)">27" 4K</button>
+            <button class="preset-btn" onclick="applyPreset(3840,2160,32)">32" 4K</button>
+            <button class="preset-btn" onclick="applyPreset(2560,1600,13)">13" MacBook</button>
+            <button class="preset-btn" onclick="applyPreset(3024,1964,14)">14" MacBook Pro</button>
+            <button class="preset-btn" onclick="applyPreset(1170,2532,6.1)">iPhone 14 Pro</button>
+            <button class="preset-btn" onclick="applyPreset(2556,1179,6.7)">iPhone 15 Pro Max</button>
+            <button class="preset-btn" onclick="applyPreset(2360,1640,11)">iPad Pro 11"</button>
+            <button class="preset-btn" onclick="applyPreset(2732,2048,12.9)">iPad Pro 12.9"</button>
+            <button class="preset-btn" onclick="applyPreset(1080,2400,6.4)">Android FHD+</button>
+            <button class="preset-btn" onclick="applyPreset(1440,3200,6.7)">Android QHD+</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📋 DPI Level Reference</h2>
+        <div class="table-scroll">
+        <table class="comparison-table">
+            <thead>
+                <tr><th>DPI Range</th><th>Level</th><th>Typical Devices</th><th>Experience</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>&lt;100</td><td><span class="dpi-indicator dpi-low">Low</span></td><td>Large monitors, projectors</td><td>Pixels clearly visible</td></tr>
+                <tr><td>100-150</td><td><span class="dpi-indicator dpi-low">Medium-Low</span></td><td>Standard laptops, desktop monitors</td><td>Acceptable at normal distance</td></tr>
+                <tr><td>150-200</td><td><span class="dpi-indicator dpi-medium">Medium</span></td><td>High-end laptops</td><td>Sharp text</td></tr>
+                <tr><td>200-300</td><td><span class="dpi-indicator dpi-high">High</span></td><td>Phones, tablets</td><td>Rich detail</td></tr>
+                <tr><td>300-400</td><td><span class="dpi-indicator dpi-high">Ultra High</span></td><td>Flagship phones</td><td>Retina level</td></tr>
+                <tr><td>400+</td><td><span class="dpi-indicator dpi-ultra">Extreme</span></td><td>VR headsets</td><td>Pixels indistinguishable</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    
+
+    <div class="section">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item">
+            <h3>What is DPI and PPI?</h3>
+            <p>DPI (Dots Per Inch) refers to dots per inch, typically used in printing; PPI (Pixels Per Inch) refers to pixels per inch, used for digital displays. In screen contexts, they are often used interchangeably to indicate pixel density. Higher values mean sharper displays.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How to calculate DPI/PPI?</h3>
+            <p>PPI = √(horizontal pixels² + vertical pixels²) ÷ screen diagonal size (inches). For example, a 5.5-inch screen at 1920×1080, PPI = √(1920² + 1080²) ÷ 5.5 ≈ 401 PPI.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the maximum PPI the human eye can see?</h3>
+            <p>It depends on viewing distance. At 25cm, the human eye limit is about 720 PPI; at 30cm (normal phone distance) about 600 PPI; at 50cm (desktop distance) about 350 PPI. Apple's "Retina" standard is 326 PPI at 25cm.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How many DPI do I need for printing?</h3>
+            <p>Standard document printing: 150-200 DPI; photo printing: 300+ DPI; high-quality art printing: 600-1200 DPI. Print DPI and screen PPI are different concepts.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is this calculator safe?</h3>
+            <p>Completely safe! All calculations are done locally in your browser. No data is sent to any server, and no personal information is collected.</p>
+        </div>
+    </div>
+    </main>
+
+<section class="related-tools" data-consolidation="1" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">&rarr; Same job, main tool</h2><p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0;">Prefer the full version? Use our <a href="../ppi-calculator/" style="color:#22d3ee;text-decoration:none;font-weight:600;">PPI Calculator</a> &ndash; our main PPI tool for screen pixel density and sharpness comparisons.</p></section>
+<footer>
+    <div class="footer" style="display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:8px;">
+        <a href="../index.html">Home</a>
+        <a href="../contact/">Contact</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../about/">About</a>
+        <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+        <a href="../../en/dpi-calculator/">中文</a>
+    </div>
+    <div>© 2026 ToolGuideHub — All calculations run locally in your browser, data never leaves your device</div>
+</footer>
+
+
+
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied")})["catch"](function(){showToast("Copy failed")})}
+
+var currentMode = 'ppi';
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('ppi-mode').style.display = mode==='ppi' ? '' : 'none';
+  document.getElementById('resolution-mode').style.display = mode==='resolution' ? '' : 'none';
+  document.getElementById('size-mode').style.display = mode==='size' ? '' : 'none';
+  document.querySelectorAll('.mode-tab')[mode==='ppi'?0:mode==='resolution'?1:2].classList.add('active');
+}
+
+function calculate() {
+  var resultDiv = document.getElementById('result');
+  var grid = document.getElementById('result-grid');
+  if (currentMode === 'ppi') {
+    var w = parseFloat(document.getElementById('width-px').value) || 0;
+    var h = parseFloat(document.getElementById('height-px').value) || 0;
+    var diag = parseFloat(document.getElementById('diagonal').value) || 0;
+    if (w <= 0 || h <= 0 || diag <= 0) { showToast('Please fill in all parameters'); return; }
+    var ppi = Math.round(Math.sqrt(w*w + h*h) / diag);
+    var dpiLevel = ppi < 100 ? 'Low' : ppi < 200 ? 'Medium-Low' : ppi < 300 ? 'High' : ppi < 400 ? 'Ultra High' : 'Extreme';
+    var aspectW = Math.round(w / gcd(w,h));
+    var aspectH = Math.round(h / gcd(w,h));
+    grid.innerHTML =
+      '<div class="result-item"><div class="value">'+ppi+'</div><div class="label">PPI</div></div>'+
+      '<div class="result-item"><div class="value">'+dpiLevel+'</div><div class="label">Level</div></div>'+
+      '<div class="result-item"><div class="value">'+aspectW+':'+aspectH+'</div><div class="label">Aspect Ratio</div></div>'+
+      '<div class="result-item"><div class="value">'+w+'×'+h+'</div><div class="label">Resolution</div></div>';
+  } else if (currentMode === 'resolution') {
+    var targetPpi = parseFloat(document.getElementById('target-ppi').value) || 0;
+    var diag2 = parseFloat(document.getElementById('diag-for-res').value) || 0;
+    var ratioStr = document.getElementById('aspect-ratio').value;
+    if (targetPpi <= 0 || diag2 <= 0) { showToast('Please fill in all parameters'); return; }
+    var parts = ratioStr.split(':');
+    var rw = parseFloat(parts[0]), rh = parseFloat(parts[1]);
+    var diagonalPx = targetPpi * diag2;
+    var ratioFactor = Math.sqrt(rw*rw + rh*rh);
+    var w2 = Math.round(diagonalPx * rw / ratioFactor);
+    var h2 = Math.round(diagonalPx * rh / ratioFactor);
+    grid.innerHTML =
+      '<div class="result-item"><div class="value">'+w2+'×'+h2+'</div><div class="label">Recommended Resolution</div></div>'+
+      '<div class="result-item"><div class="value">'+targetPpi+'</div><div class="label">Target PPI</div></div>';
+  } else {
+    var w3 = parseFloat(document.getElementById('w-for-size').value) || 0;
+    var h3 = parseFloat(document.getElementById('h-for-size').value) || 0;
+    var ppi3 = parseFloat(document.getElementById('ppi-for-size').value) || 0;
+    if (w3 <= 0 || h3 <= 0 || ppi3 <= 0) { showToast('Please fill in all parameters'); return; }
+    var diag3 = Math.round(Math.sqrt(w3*w3 + h3*h3) / ppi3 * 10) / 10;
+    grid.innerHTML =
+      '<div class="result-item"><div class="value">'+diag3+'"</div><div class="label">Screen Size</div></div>'+
+      '<div class="result-item"><div class="value">'+ppi3+'</div><div class="label">PPI</div></div>';
+  }
+  resultDiv.style.display = '';
+}
+
+function gcd(a,b){return b===0?a:gcd(b,a%b);}
+
+function applyPreset(w,h,diag){
+  document.getElementById('width-px').value = w;
+  document.getElementById('height-px').value = h;
+  document.getElementById('diagonal').value = diag;
+  setMode('ppi');
+  calculate();
+}
+
+function resetForm(){
+  document.getElementById('width-px').value = '1920';
+  document.getElementById('height-px').value = '1080';
+  document.getElementById('diagonal').value = '5.5';
+  document.getElementById('result').style.display = 'none';
+}
+function fillExample(){
+  var vals = [["diagonal", "5.5"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+</script>
+
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+</body>
+</html>

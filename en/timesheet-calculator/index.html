@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fill in daily start, end and lunch times to get weekly hours, overtime and per-day totals for freelancers and remote teams.">
+<meta name="keywords" content="timesheet calculator,work hours calculator,overtime calculator,time tracking,tool,online tool,free">
+<title>Timesheet Calculator - Work Hours & Overtime | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/timesheet-calculator/">
+<meta property="og:title" content="Timesheet Calculator - Work Hours & Overtime | ToolGuideHub">
+<meta property="og:description" content="Fill in daily start, end and lunch times to get weekly hours, overtime and per-day totals for freelancers and remote teams.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/timesheet-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Timesheet Calculator", "description": "Free online timesheet calculator. Automatically calculate daily/weekly working hours with lunch break deduction, overtime calculation, and multi-day summary.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the timesheet calculator work?", "acceptedAnswer": {"@type": "Answer", "text": "Total hours = End time - Start time - Lunch break. For example, 9:00 AM start, 6:00 PM end, 12:00-1:00 lunch = 9 hours - 1 hour = 8 hours. Overtime = actual hours - standard hours."}}, {"@type": "Question", "name": "How is overtime calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Overtime = Actual hours - Standard hours. If actual hours exceed the standard (default 8 hours/day), the excess is counted as overtime. Use this with the Hourly Rate Calculator to calculate overtime pay."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Timesheet Calculator", "totalTime": "PT1M", "tool": {"@type": "HowToTool", "name": "Timesheet Calculator"}, "step": [{"@type": "HowToStep", "position": 1, "name": "Set Parameters", "text": "Set standard hours and lunch break time"}, {"@type": "HowToStep", "position": 2, "name": "Enter Times", "text": "Fill in start and end times for each day"}, {"@type": "HowToStep", "position": 3, "name": "Add More Days", "text": "Click Add Day for additional workdays"}, {"@type": "HowToStep", "position": 4, "name": "View Summary", "text": "See total hours, overtime, and working days"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Timesheet Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/timesheet-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4} .container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px} .nav-back a{color:#64748b}
+.hero{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.hero p{color:#94a3b8;font-size:.9rem} .hero .badge{display:inline-block;margin-top:8px;padding:4px 12px;background:rgba(34,197,94,.1);color:#4ade80;border-radius:20px;font-size:.75rem}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px} .form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="time"],.form-group input[type="number"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s;color-scheme:dark}
+.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap} .form-row .form-group{flex:1;min-width:120px}
+.day-row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap;padding:12px;background:#0f172a;border-radius:8px;margin-bottom:8px;border:1px solid rgba(148,163,184,.08)}
+.day-row .day-label{color:#f1f5f9;font-size:.9rem;font-weight:600;min-width:48px;padding-bottom:12px}
+.day-row .form-group{margin-bottom:0;flex:1;min-width:100px}
+.day-row input[type="time"]{padding:8px 10px;font-size:.85rem}
+.day-result{color:#22d3ee;font-size:.85rem;font-weight:bold;min-width:80px;text-align:center;padding-bottom:12px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;text-align:center}
+.result-card .label{color:#94a3b8;font-size:.8rem;margin-bottom:4px}
+.result-card .value{font-size:1.2rem;font-weight:bold}
+.result-card .value.total{color:#22d3ee} .result-card .value.overtime{color:#fbbf24}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.faq-item{margin-bottom:16px} .faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px} .faq-item p{color:#94a3b8;font-size:.9rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px;text-decoration:none} .footer a:hover{color:#94a3b8}
+.seo-content h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:8px}
+.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.section{padding:16px}.day-row{flex-direction:column;align-items:stretch}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/timesheet-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📋 Timesheet Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Timesheet Calculator</p>
+<div class="hero"><p>Free online timesheet calculator. Automatically calculate daily/weekly working hours with lunch break deduction, overtime calculation, and multi-day summary. Perfect for freelancers, remote workers, and project managers. | No sign-up · Data never leaves your browser</p><span class="badge">Zero dependencies · Works offline</span></div>
+
+<div class="section">
+  <h2>⏰ Daily Hours</h2>
+  <div class="form-row" style="margin-bottom:12px">
+    <div class="form-group"><label>Standard Hours/Day</label><input type="number" id="standardHours" value="8" min="1" max="24" onchange="calcAll()"></div>
+    <div class="form-group"><label>Lunch Start</label><input type="time" id="lunchStart" value="12:00" onchange="calcAll()"></div>
+    <div class="form-group"><label>Lunch End</label><input type="time" id="lunchEnd" value="13:00" onchange="calcAll()"></div>
+  </div>
+
+  <div id="daysContainer"></div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <button class="btn btn-primary" onclick="addDay()">+ Add Day</button>
+    <button class="btn btn-secondary" onclick="resetToWeek()">🔄 Reset to Week</button>
+    <button class="btn btn-secondary" onclick="copyResults()">📋 Copy Summary</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📊 Weekly Summary</h2>
+  <div class="result-grid">
+    <div class="result-card"><div class="label">Total Hours</div><div class="value total" id="totalHours">0h</div></div>
+    <div class="result-card"><div class="label">Overtime</div><div class="value overtime" id="totalOvertime">0h</div></div>
+    <div class="result-card"><div class="label">Standard Total</div><div class="value" id="totalStandard">0h</div></div>
+    <div class="result-card"><div class="label">Working Days</div><div class="value" id="workingDays" style="color:#94a3b8">0</div></div>
+  </div>
+</div>
+
+<div class="section seo-content">
+  <h2>How to Use Timesheet Calculator</h2>
+  <ol style="padding-left:20px;margin-top:12px">
+    <li style="margin-bottom:16px"><strong>Set Parameters</strong><br><span style="color:#94a3b8;font-size:.9rem">Set standard hours per day and lunch break. Lunch break is automatically deducted from total time.</span></li>
+    <li style="margin-bottom:16px"><strong>Enter Times</strong><br><span style="color:#94a3b8;font-size:.9rem">Fill in start and end times for each day. Daily hours and overtime are calculated automatically.</span></li>
+    <li style="margin-bottom:16px"><strong>Add More Days</strong><br><span style="color:#94a3b8;font-size:.9rem">Click Add Day for more workdays, or Reset to Week for a standard 5-day week.</span></li>
+    <li style="margin-bottom:16px"><strong>View Summary</strong><br><span style="color:#94a3b8;font-size:.9rem">See total hours, overtime, standard total, and working days at a glance.</span></li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>❓ FAQ</h2>
+  <div class="faq-item"><h3>How does the timesheet calculator work?</h3><p>Total hours = End time - Start time - Lunch break. For example, 9:00 AM to 6:00 PM with 12:00-1:00 lunch = 9h - 1h = 8h. Overtime = actual hours - standard hours.</p></div>
+  <div class="faq-item"><h3>How is overtime calculated?</h3><p>Overtime = Actual hours - Standard hours. If actual hours exceed the standard (default 8 hours/day), the excess is overtime. Use with the Hourly Rate Calculator to compute overtime pay.</p></div>
+</div>
+
+<div style="text-align:center">
+
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div><a href="../../en/workdays-calculator/">Workdays Calculator</a><a href="../../en/time-card-calculator/">⏱ Time Card Calculator</a></section>
+
+</main>
+
+<footer class="footer">
+  <div style="margin-bottom:12px">
+    <a href="../index.html">Home</a> | <a href="../index.html#tools">All Tools</a> | <a href="../contact/">Contact</a> | <a href="../privacy/">Privacy</a> | <a href="../terms/">Terms</a> | <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> | <a href="../../en/timesheet-calculator/">ZH</a>
+  </div>
+  <p>Timesheet Calculator | No sign-up · Data never leaves your browser</p>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+var dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+var dayCount=5;
+
+function timeToMin(t){if(!t) return 0;var p=t.split(':');return parseInt(p[0])*60+parseInt(p[1]);}
+function minToH(m){var h=Math.floor(m/60);var min=m%60;if(min===0) return h+'h';return h+'h'+min+'m';}
+function minToDecimal(m){return (m/60).toFixed(2);}
+
+function calcDay(i){
+  var start=document.getElementById('start_'+i).value;
+  var end=document.getElementById('end_'+i).value;
+  if(!start||!end) return 0;
+  var startMin=timeToMin(start);
+  var endMin=timeToMin(end);
+  if(endMin<=startMin) endMin+=24*60;
+  var lunchStart=timeToMin(document.getElementById('lunchStart').value);
+  var lunchEnd=timeToMin(document.getElementById('lunchEnd').value);
+  var lunchMin=(lunchEnd>lunchStart)?lunchEnd-lunchStart:0;
+  var totalMin=endMin-startMin-lunchMin;
+  if(totalMin<0) totalMin=0;
+  var el=document.getElementById('result_'+i);
+  if(el) el.textContent=minToH(totalMin);
+  return totalMin;
+}
+
+function calcAll(){
+  var total=0;
+  for(var i=0;i<dayCount;i++) total+=calcDay(i);
+  var std=parseFloat(document.getElementById('standardHours').value)||8;
+  var stdMin=std*60*dayCount;
+  var overtime=Math.max(0,total-stdMin);
+  document.getElementById('totalHours').textContent=minToH(total)+' ('+minToDecimal(total)+'h)';
+  document.getElementById('totalOvertime').textContent=minToH(overtime);
+  document.getElementById('totalStandard').textContent=minToH(stdMin);
+  document.getElementById('workingDays').textContent=dayCount;
+}
+
+function renderDays(){
+  var html='';
+  for(var i=0;i<dayCount;i++){
+    html+='<div class="day-row">'+
+      '<span class="day-label">'+dayNames[i]+'</span>'+
+      '<div class="form-group"><label style="font-size:.75rem">Start</label><input type="time" id="start_'+i+'" value="09:00" onchange="calcAll()"></div>'+
+      '<div class="form-group"><label style="font-size:.75rem">End</label><input type="time" id="end_'+i+'" value="18:00" onchange="calcAll()"></div>'+
+      '<span class="day-result" id="result_'+i+'">8h</span>'+
+      (dayCount>1?'<button class="btn btn-secondary" style="padding:4px 8px;font-size:.7rem;margin-bottom:12px" onclick="removeDay('+i+')">✕</button>':'')+
+    '</div>';
+  }
+  document.getElementById('daysContainer').innerHTML=html;
+  calcAll();
+}
+
+function addDay(){if(dayCount<7) dayCount++;renderDays();}
+function removeDay(i){if(dayCount<=1) return;dayCount--;renderDays();}
+function resetToWeek(){dayCount=5;renderDays();}
+function copyResults(){
+  var total=document.getElementById('totalHours').textContent;
+  var ot=document.getElementById('totalOvertime').textContent;
+  navigator.clipboard.writeText('Total: '+total+'\nOvertime: '+ot).then(function(){showToast('Copied!')})["catch"](function(){showToast('Copy failed')});
+}
+
+renderDays();
+</script>
+</body>
+</html>

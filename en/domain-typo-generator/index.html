@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate common typosquatting variants of a domain to spot lookalike sites that phishing campaigns use.">
+<meta name="keywords" content="domain typo generator, typosquatting, domain misspelling, domain security, typo domain">
+<title>Domain Typo Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/domain-typo-generator/">
+<meta property="og:title" content="Domain Typo Generator - ToolGuideHub">
+<meta property="og:description" content="Generate common typosquatting variants of a domain to spot lookalike sites that phishing campaigns use.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/domain-typo-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Domain Typo Generator","description":"Free online domain typo generator. Simulates common typing errors (omissions, insertions, transpositions, substitutions) for domain security checks and typosquatting analysis.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.input-group{margin-bottom:16px}
+.input-group label{display:block;font-size:.9rem;color:#94a3b8;margin-bottom:6px}
+.input-group input,.input-group select,.input-group textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace}
+.input-group input:focus,.input-group select:focus,.input-group textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.input-group textarea{min-height:150px;resize:vertical}
+.row{display:flex;gap:12px;align-items:end}
+.row .input-group{flex:1}
+.result{background:#1e293b;border-radius:12px;padding:20px;border:1px solid rgba(148,163,184,.1);margin-top:16px;display:none}
+.result h3{font-size:1rem;color:#f1f5f9;margin-bottom:12px}
+.result-content{font-family:monospace;font-size:.85rem;color:#e2e8f0;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-top:24px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.header{flex-direction:column;gap:8px}.row{flex-direction:column}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Domain Typo Generator", "item": "https://adi63586.github.io/Toolguidehub/en/domain-typo-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Domain Typo Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Domain Typo Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Domain Typo Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Error Types and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Domain Typo Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Domain Typo Generator","description":"Step-by-step guide for using Domain Typo Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Domain Typo Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/domain-typo-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <nav class="nav-back"><a href="../../">← Back to Home</a></nav>
+  <div class="header">
+    <h1>Domain Typo Generator</h1>
+    
+  </div>
+
+  <div class="input-group">
+    <label for="toolInput">Enter Domain (no protocol, e.g. example.com)</label>
+    <input type="text" id="toolInput" placeholder="example.com">
+  </div>
+
+  <div class="input-group">
+    <label>Error Types</label>
+    <div class="btn-row" style="margin-top:4px" id="errorTypes">
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkOmit" checked> Omission</label>
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkInsert" checked> Insertion</label>
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkSwap" checked> Transposition</label>
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkReplace" checked> Replacement</label>
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkDot" checked> Missing/Extra Dot</label>
+      <label style="color:#94a3b8;font-size:.85rem"><input type="checkbox" id="chkTld" checked> TLD Variants</label>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" id="btnProcess">Generate Typos</button>
+    <button class="btn btn-secondary" id="btnClear">Clear</button>
+    <button class="btn btn-secondary" id="btnCopy">Copy Results</button>
+  </div>
+
+  <div class="result" id="resultPanel">
+    <h3>Result</h3>
+    <div class="result-content" id="resultContent"></div>
+  </div>
+
+  <div class="info-section">
+    <h2>About This Tool</h2>
+    <p>Free online domain typo generator. Simulates common typing errors (omissions, insertions, transpositions, substitutions) for domain security checks and typosquatting analysis.</p>
+    <p>All computation happens on your device — Error Types, other values and other inputs stay in your browser. No data is uploaded to any server.</p>
+  </div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/domain-name-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Domain Name Generator</a> <a href="../../en/whois-domain-lookup-free/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free whois-domain-lookup-- M…</a> <a href="../../en/whois-domain-lookup/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🔍 Whois Domain Lookup</a> <a href="../../en/punycode-converter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online Punycode Encoder…</a> <a href="../../en/domain-age-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Domain Age Checker</a> <a href="../../en/domain-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Domain Availability Checker</a> <a href="../../en/domain-authority-checker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🏆 Domain Authority Checker</a> <a href="../../en/domain-availability/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🌐 Domain Availability Checker</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/domain-typo-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="toast" class="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const toast=msg=>{const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)};
+
+const NEARBY={'a':'qwsz','b':'vghn','c':'xdfv','d':'serfcx','e':'wsdr','f':'drtgc','g':'tgfhvb','h':'yugjbn','i':'uojk','j':'hknmui','k':'jm,loij','l':'k;.,opk','m':'njkl','n':'bhjm','o':'iklp','p':'0ol-;','q':'12wa','r':'45tfde','s':'awedxza','t':'56ygrf','u':'78yhji','v':'cfgb','w':'23qase','x':'zsdc','y':'67tghu','z':'asx','0':'9op-','1':'2qw','2':'13wqe','3':'24ewr','4':'35rte','5':'46tyr','6':'57yut','7':'68uig','8':'79ioh','9':'80opj'};
+const TLD_VARIANTS=['.com','.net','.org','.co','.io','.dev','.app','.ai','.biz','.info','.xyz','.cn','.us','.eu','.uk'];
+
+function getTLD(domain){
+  const parts=domain.split('.');
+  if(parts.length<2)return {name:domain,tld:''};
+  return {name:parts.slice(0,-1).join('.'),tld:'.'+parts[parts.length-1]};
+}
+
+$('btnProcess').addEventListener('click',()=>{
+  const input=$('toolInput').value.trim().toLowerCase();
+  if(!input){toast('Please enter a domain');return;}
+  const {name,tld}=getTLD(input);
+  if(!tld){toast('Please enter a full domain with TLD');return;}
+  if(name.length<2){toast('Domain too short to generate typos');return;}
+  const result=new Set();
+
+  if($('chkOmit').checked){
+    for(let i=0;i<name.length;i++)result.add(name.slice(0,i)+name.slice(i+1)+tld);
+  }
+  if($('chkInsert').checked){
+    for(let i=0;i<=name.length;i++){
+      for(const c of 'abcdefghijklmnopqrstuvwxyz'){
+        result.add(name.slice(0,i)+c+name.slice(i)+tld);
+      }
+    }
+  }
+  if($('chkSwap').checked){
+    for(let i=0;i<name.length-1;i++){
+      const arr=name.split('');
+      [arr[i],arr[i+1]]=[arr[i+1],arr[i]];
+      result.add(arr.join('')+tld);
+    }
+  }
+  if($('chkReplace').checked){
+    for(let i=0;i<name.length;i++){
+      const nearby=NEARBY[name[i]]||'';
+      for(const c of nearby){
+        result.add(name.slice(0,i)+c+name.slice(i+1)+tld);
+      }
+    }
+  }
+  if($('chkDot').checked){
+    const parts=name.split('.');
+    if(parts.length===1){
+      for(let i=1;i<name.length;i++)result.add(name.slice(0,i)+'.'+name.slice(i)+tld);
+    }
+    result.add(name.replace(/\./g,'')+tld);
+  }
+  if($('chkTld').checked){
+    for(const vtld of TLD_VARIANTS){
+      if(vtld!==tld)result.add(name+vtld);
+    }
+  }
+  result.delete(input);
+  const arr=[...result].sort();
+  if(arr.length===0){toast('No typos generated');return;}
+  $('resultContent').textContent=arr.join('\n');
+  $('resultPanel').style.display='block';
+});
+$('btnClear').addEventListener('click',()=>{$('toolInput').value='';$('resultPanel').style.display='none';});
+$('btnCopy').addEventListener('click',()=>{const r=$('resultContent').textContent;if(!r)return;navigator.clipboard.writeText(r).then(()=>toast('Copied!')).catch(()=>toast('Copy failed'));});
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

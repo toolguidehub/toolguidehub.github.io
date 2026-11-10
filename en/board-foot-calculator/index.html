@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message==="")e.preventDefault();});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online board foot calculator. Calculate lumber volume in BF. Batch input, weight by species, waste factor, and cost estimation. No signup required.">
+<meta name="keywords" content="board foot calculator, board feet calculator, lumber calculator, BF calculator, wood volume calculator, woodworking calculator, lumber cost estimator, board footage, online tool, free">
+<title>Board Foot Calculator - Lumber Volume &amp; Cost Estimator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/board-foot-calculator/">
+<meta property="og:title" content="Board Foot Calculator - Lumber Volume &amp; Cost Estimator">
+<meta property="og:description" content="Free online board foot calculator. Calculate lumber volume in BF. Batch input, weight by species, waste factor, and cost estimation. No signup required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/board-foot-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/board-foot-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Board Foot Calculator","description":"Free online board foot calculator. Calculate lumber volume in board feet (BF) instantly. Batch input multiple boards, quick-select standard sizes, estimate weight by wood species, apply waste factor, switch imperial/metric, and estimate total cost with tax. Essential for woodworking and construction.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a board foot?","acceptedAnswer":{"@type":"Answer","text":"A board foot (BF) is a standard unit of lumber volume in North America, equal to 12 inches × 12 inches × 1 inch (144 cubic inches). The formula is: Board Feet = (Thickness[in] × Width[in] × Length[ft]) / 12."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Board Foot Calculator","item":"https://adi63586.github.io/Toolguidehub/en/board-foot-calculator/"}]}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--primary:#06b6d4;--primary-hover:#0891b2;--border:rgba(148,163,184,.15);--muted:#94a3b8;--accent:#f59e0b;--success:#10b981;--danger:#ef4444}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9;font-weight:700}
+.lang-switch{font-size:.85rem;color:var(--muted)}
+.lang-switch a{color:var(--primary)}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
+.card h2{font-size:1.2rem;color:#f1f5f9;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:120px}
+input[type="number"],select{width:100%;padding:10px 12px;background:#0f172a;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.95rem;transition:border-color .2s}
+input[type="number"]:focus,select:focus{outline:none;border-color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--primary);color:#0f172a}
+.btn-primary:hover{background:var(--primary-hover)}
+.btn-secondary{background:rgba(148,163,184,.15);color:var(--text)}
+.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:var(--danger);border:1px solid rgba(239,68,68,.3)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-sm{padding:6px 14px;font-size:.85rem}
+.unit-toggle{display:inline-flex;background:#0f172a;border:1px solid var(--border);border-radius:8px;padding:3px;gap:2px}
+.unit-toggle button{padding:6px 16px;border:none;background:transparent;color:var(--muted);border-radius:6px;cursor:pointer;font-size:.85rem;transition:all .2s}
+.unit-toggle button.active{background:var(--primary);color:#0f172a;font-weight:600}
+.quick-sizes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.quick-size{padding:6px 14px;background:#0f172a;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:.85rem;cursor:pointer;transition:all .2s}
+.quick-size:hover{border-color:var(--primary);color:var(--primary)}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:8px}
+.result-box{background:#0f172a;border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.result-box .label{font-size:.8rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.result-box .value{font-size:1.5rem;font-weight:700;color:var(--primary)}
+.result-box .unit{font-size:.85rem;color:var(--muted);margin-top:2px}
+.result-box.highlight .value{color:var(--accent)}
+.result-box.cost .value{color:var(--success)}
+.board-list{margin-top:12px}
+.board-item{background:#0f172a;border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.board-item .board-info{font-size:.85rem;color:var(--muted)}
+.board-item .board-info strong{color:var(--text)}
+.board-item .board-bf{font-size:1.1rem;font-weight:700;color:var(--primary)}
+.summary{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(245,158,11,.05));border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:24px;margin-top:16px}
+.summary h3{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.summary-item{text-align:center}
+.summary-item .label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.summary-item .value{font-size:1.3rem;font-weight:700;color:var(--primary)}
+.info-section{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
+.info-section h2{font-size:1.15rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:1rem;color:var(--primary);margin:16px 0 8px}
+.info-section p{color:var(--muted);font-size:.92rem;margin-bottom:10px}
+.info-section ul{padding-left:20px;color:var(--muted);font-size:.92rem}
+.info-section li{margin-bottom:4px}
+.info-section table{width:100%;border-collapse:collapse;margin:12px 0}
+.info-section th,.info-section td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--muted)}
+.info-section th{color:var(--text);font-weight:600}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--card-bg);border:1px solid var(--primary);color:var(--text);padding:12px 24px;border-radius:8px;font-size:.9rem;z-index:9999;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.footer{text-align:center;padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:20px}
+.footer a{color:var(--primary)}
+@media(max-width:375px){
+  .container{padding:16px 10px}
+  .card{padding:16px}
+  .header h1{font-size:1.3rem}
+  .form-row .form-group{min-width:100px}
+  .quick-sizes{gap:6px}
+  .quick-size{padding:5px 10px;font-size:.8rem}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main>
+<div class="container">
+  <div class="header">
+    <h1>🪵 Board Foot Calculator</h1>
+    
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+      <h2 style="margin:0">Input Dimensions</h2>
+      <div class="unit-toggle" id="unitToggle">
+        <button class="active" onclick="setUnit('imperial')">Imperial (in/ft)</button>
+        <button onclick="setUnit('metric')">Metric (mm/m)</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Thickness <span id="thkUnit">(inches)</span></label>
+        <input type="number" id="thickness" value="1.5" step="0.25" min="0.1">
+      </div>
+      <div class="form-group">
+        <label>Width <span id="wdtUnit">(inches)</span></label>
+        <input type="number" id="width" value="3.5" step="0.25" min="0.1">
+      </div>
+      <div class="form-group">
+        <label>Length <span id="lenUnit">(feet)</span></label>
+        <input type="number" id="length" value="8" step="0.5" min="0.1">
+      </div>
+      <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" id="quantity" value="1" step="1" min="1">
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px">
+      <label style="font-size:.9rem;color:var(--muted);display:block;margin-bottom:6px">Quick Select Standard Sizes</label>
+      <div class="quick-sizes" id="quickSizes">
+        <span class="quick-size" onclick="setQuickSize(1.5,3.5)">2×4</span>
+        <span class="quick-size" onclick="setQuickSize(1.5,5.5)">2×6</span>
+        <span class="quick-size" onclick="setQuickSize(1.5,7.25)">2×8</span>
+        <span class="quick-size" onclick="setQuickSize(1.5,9.25)">2×10</span>
+        <span class="quick-size" onclick="setQuickSize(1.5,11.25)">2×12</span>
+        <span class="quick-size" onclick="setQuickSize(3.5,3.5)">4×4</span>
+        <span class="quick-size" onclick="setQuickSize(5.5,5.5)">6×6</span>
+        <span class="quick-size" onclick="setQuickSize(0.75,3.5)">1×4</span>
+        <span class="quick-size" onclick="setQuickSize(0.75,5.5)">1×6</span>
+        <span class="quick-size" onclick="setQuickSize(0.75,7.25)">1×8</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Wood Species (for weight estimate)</label>
+        <select id="woodType" onchange="calculate()">
+          <option value="0">— No weight estimate —</option>
+          <option value="22">Pine</option>
+          <option value="25">Spruce</option>
+          <option value="23">Cedar</option>
+          <option value="29">Poplar</option>
+          <option value="28">Redwood</option>
+          <option value="34">Mahogany</option>
+          <option value="35">Cherry</option>
+          <option value="38">Walnut</option>
+          <option value="40">Birch</option>
+          <option value="41">Ash</option>
+          <option value="41">Teak</option>
+          <option value="44">Red Oak</option>
+          <option value="47">White Oak</option>
+          <option value="44">Maple</option>
+          <option value="51">Hickory</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Waste Factor (%)</label>
+        <select id="wasteRate" onchange="calculate()">
+          <option value="0">0%</option>
+          <option value="10" selected>10%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Price per Board Foot ($)</label>
+        <input type="number" id="pricePerBF" value="0" step="0.5" min="0" oninput="calculate()">
+      </div>
+      <div class="form-group">
+        <label>Tax Rate (%)</label>
+        <input type="number" id="taxRate" value="0" step="0.5" min="0" oninput="calculate()">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="addBoard()">➕ Add to List</button>
+    <button class="btn btn-secondary" onclick="calculate()">Calculate Current</button>
+  </div>
+
+  <div class="card" id="resultCard">
+    <h2>Current Result</h2>
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="card" id="listCard" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="margin:0">Lumber List</h2>
+      <button class="btn btn-danger btn-sm" onclick="clearBoards()">Clear All</button>
+    </div>
+    <div class="board-list" id="boardList"></div>
+    <div class="summary" id="summaryBox" style="display:none">
+      <h3>📊 Summary</h3>
+      <div class="summary-grid" id="summaryGrid"></div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>About Board Feet</h2>
+    <p>A board foot (BF) is the standard unit of lumber volume used in North America. One board foot equals 12 inches × 12 inches × 1 inch, or 144 cubic inches of wood. It's the go-to measurement for buying and selling hardwood lumber.</p>
+
+    <h3>Calculation Formula</h3>
+    <ul>
+      <li><strong>Imperial</strong>: Board Feet = (Thickness[in] × Width[in] × Length[ft]) / 12 × Quantity</li>
+      <li><strong>Alternative</strong>: Board Feet = (Thickness[in] × Width[in] × Length[in]) / 144 × Quantity</li>
+      <li><strong>Metric conversion</strong>: 1 BF = 0.002359737 m³ = 2,359.74 cm³</li>
+    </ul>
+
+    <h3>Wood Density Reference</h3>
+    <table>
+      <tr><th>Species</th><th>Density (lb/ft³)</th><th>Type</th></tr>
+      <tr><td>Pine</td><td>22–35</td><td>Softwood</td></tr>
+      <tr><td>Cedar</td><td>23</td><td>Softwood</td></tr>
+      <tr><td>Poplar</td><td>29</td><td>Hardwood</td></tr>
+      <tr><td>Cherry</td><td>35</td><td>Hardwood</td></tr>
+      <tr><td>Walnut</td><td>38</td><td>Hardwood</td></tr>
+      <tr><td>Red Oak</td><td>44</td><td>Hardwood</td></tr>
+      <tr><td>White Oak</td><td>47</td><td>Hardwood</td></tr>
+      <tr><td>Hickory</td><td>51</td><td>Hardwood</td></tr>
+    </table>
+
+    <h3>Tips</h3>
+    <ul>
+      <li>Lumber sizes are nominal — actual dimensions are smaller. A 2×4 measures 1.5" × 3.5". This calculator uses actual dimensions.</li>
+      <li>Recommended waste factor: 10% for standard cuts, 15–20% for complex projects.</li>
+      <li>Weight estimates are based on average density and may vary ±15% depending on moisture content.</li>
+      <li>Cost includes waste compensation: Total = Price/BF × Total BF × (1 + Waste%) × (1 + Tax%).</li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <p>ToolGuideHub · <a href="../../">Home</a> · <a href="../../en/board-foot-calculator/">Board Foot Calculator</a> · Runs entirely in your browser — no data uploaded</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var currentUnit = 'imperial';
+var boards = [];
+
+var unitLabels = {
+  imperial: { thk: '(inches)', wdt: '(inches)', len: '(feet)' },
+  metric: { thk: '(mm)', wdt: '(mm)', len: '(m)' }
+};
+
+var defaultValues = {
+  imperial: { thickness: 1.5, width: 3.5, length: 8 },
+  metric: { thickness: 38, width: 89, length: 2.4 }
+};
+
+function setUnit(u) {
+  currentUnit = u;
+  var btns = document.querySelectorAll('#unitToggle button');
+  btns[0].classList.toggle('active', u === 'imperial');
+  btns[1].classList.toggle('active', u === 'metric');
+
+  document.getElementById('thkUnit').textContent = unitLabels[u].thk;
+  document.getElementById('wdtUnit').textContent = unitLabels[u].wdt;
+  document.getElementById('lenUnit').textContent = unitLabels[u].len;
+
+  var dv = defaultValues[u];
+  document.getElementById('thickness').value = dv.thickness;
+  document.getElementById('width').value = dv.width;
+  document.getElementById('length').value = dv.length;
+
+  calculate();
+}
+
+function setQuickSize(t, w) {
+  if (currentUnit === 'metric') {
+    document.getElementById('thickness').value = Math.round(t * 25.4);
+    document.getElementById('width').value = Math.round(w * 25.4);
+  } else {
+    document.getElementById('thickness').value = t;
+    document.getElementById('width').value = w;
+  }
+  calculate();
+}
+
+function getInputs() {
+  var thk = parseFloat(document.getElementById('thickness').value) || 0;
+  var wdt = parseFloat(document.getElementById('width').value) || 0;
+  var len = parseFloat(document.getElementById('length').value) || 0;
+  var qty = parseInt(document.getElementById('quantity').value) || 1;
+
+  var thkIn, wdtIn, lenFt;
+
+  if (currentUnit === 'imperial') {
+    thkIn = thk;
+    wdtIn = wdt;
+    lenFt = len;
+  } else {
+    thkIn = thk / 25.4;
+    wdtIn = wdt / 25.4;
+    lenFt = len / 0.3048;
+  }
+
+  return { thkIn: thkIn, wdtIn: wdtIn, lenFt: lenFt, qty: qty };
+}
+
+function calculateBF(thkIn, wdtIn, lenFt, qty) {
+  return (thkIn * wdtIn * lenFt / 12) * qty;
+}
+
+function calculate() {
+  var inp = getInputs();
+  if (inp.thkIn <= 0 || inp.wdtIn <= 0 || inp.lenFt <= 0) {
+    document.getElementById('results').innerHTML = '<p style="color:var(--muted);text-align:center;padding:20px">Please enter valid dimensions</p>';
+    return;
+  }
+
+  var bf = calculateBF(inp.thkIn, inp.wdtIn, inp.lenFt, inp.qty);
+  var wasteRate = parseInt(document.getElementById('wasteRate').value) || 0;
+  var bfWithWaste = bf * (1 + wasteRate / 100);
+  var cubicFt = bf / 12;
+  var cubicM = bf * 0.002359737;
+
+  var woodDensity = parseFloat(document.getElementById('woodType').value) || 0;
+  var weightLb = woodDensity > 0 ? cubicFt * woodDensity : 0;
+  var weightKg = weightLb * 0.453592;
+
+  var pricePerBF = parseFloat(document.getElementById('pricePerBF').value) || 0;
+  var taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  var totalCost = pricePerBF * bfWithWaste * (1 + taxRate / 100);
+
+  var html = '';
+  html += '<div class="result-box highlight"><div class="label">Board Feet</div><div class="value">' + bf.toFixed(2) + '</div><div class="unit">BF</div></div>';
+  html += '<div class="result-box"><div class="label">With Waste</div><div class="value">' + bfWithWaste.toFixed(2) + '</div><div class="unit">BF (+' + wasteRate + '%)</div></div>';
+  html += '<div class="result-box"><div class="label">Cubic Feet</div><div class="value">' + cubicFt.toFixed(3) + '</div><div class="unit">ft³</div></div>';
+  html += '<div class="result-box"><div class="label">Cubic Meters</div><div class="value">' + cubicM.toFixed(5) + '</div><div class="unit">m³</div></div>';
+
+  if (woodDensity > 0) {
+    html += '<div class="result-box"><div class="label">Est. Weight</div><div class="value">' + weightLb.toFixed(1) + '</div><div class="unit">' + weightKg.toFixed(1) + ' kg</div></div>';
+  }
+
+  if (pricePerBF > 0) {
+    html += '<div class="result-box cost"><div class="label">Total Cost</div><div class="value">$' + totalCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</div><div class="unit">incl. tax +' + wasteRate + '% waste</div></div>';
+  }
+
+  document.getElementById('results').innerHTML = html;
+}
+
+function addBoard() {
+  var inp = getInputs();
+  if (inp.thkIn <= 0 || inp.wdtIn <= 0 || inp.lenFt <= 0) {
+    showToast('Please enter valid dimensions');
+    return;
+  }
+
+  var bf = calculateBF(inp.thkIn, inp.wdtIn, inp.lenFt, inp.qty);
+  var wasteRate = parseInt(document.getElementById('wasteRate').value) || 0;
+  var bfWithWaste = bf * (1 + wasteRate / 100);
+  var woodDensity = parseFloat(document.getElementById('woodType').value) || 0;
+  var cubicFt = bf / 12;
+  var weightLb = woodDensity > 0 ? cubicFt * woodDensity : 0;
+  var pricePerBF = parseFloat(document.getElementById('pricePerBF').value) || 0;
+  var taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  var cost = pricePerBF * bfWithWaste * (1 + taxRate / 100);
+
+  var thkDisp, wdtDisp, lenDisp;
+  if (currentUnit === 'imperial') {
+    thkDisp = inp.thkIn.toFixed(2) + '"';
+    wdtDisp = inp.wdtIn.toFixed(2) + '"';
+    lenDisp = inp.lenFt.toFixed(1) + 'ft';
+  } else {
+    thkDisp = (inp.thkIn * 25.4).toFixed(0) + 'mm';
+    wdtDisp = (inp.wdtIn * 25.4).toFixed(0) + 'mm';
+    lenDisp = (inp.lenFt * 0.3048).toFixed(2) + 'm';
+  }
+
+  var woodSelect = document.getElementById('woodType');
+  var woodName = woodSelect.options[woodSelect.selectedIndex].text;
+
+  boards.push({
+    desc: thkDisp + ' × ' + wdtDisp + ' × ' + lenDisp + ' × ' + inp.qty + ' pcs',
+    bf: bf,
+    bfWithWaste: bfWithWaste,
+    weightLb: weightLb,
+    cost: cost
+  });
+
+  renderBoards();
+  showToast('Added to list (' + boards.length + ' items)');
+}
+
+function renderBoards() {
+  var list = document.getElementById('boardList');
+  var listCard = document.getElementById('listCard');
+
+  if (boards.length === 0) {
+    listCard.style.display = 'none';
+    return;
+  }
+
+  listCard.style.display = '';
+
+  var html = '';
+  var totalBF = 0, totalBFWaste = 0, totalWeight = 0, totalCost = 0;
+
+  for (var i = 0; i < boards.length; i++) {
+    var b = boards[i];
+    totalBF += b.bf;
+    totalBFWaste += b.bfWithWaste;
+    totalWeight += b.weightLb;
+    totalCost += b.cost;
+
+    html += '<div class="board-item">';
+    html += '<div class="board-info"><strong>#' + (i + 1) + '</strong> ' + b.desc + '</div>';
+    html += '<div class="board-bf">' + b.bf.toFixed(2) + ' BF';
+    if (b.cost > 0) html += ' · $' + b.cost.toFixed(2);
+    html += '</div>';
+    html += '<button class="btn btn-danger btn-sm" onclick="removeBoard(' + i + ')">Remove</button>';
+    html += '</div>';
+  }
+
+  list.innerHTML = html;
+
+  var summaryBox = document.getElementById('summaryBox');
+  var summaryGrid = document.getElementById('summaryGrid');
+  summaryBox.style.display = '';
+
+  var s = '';
+  s += '<div class="summary-item"><div class="label">Total BF</div><div class="value">' + totalBF.toFixed(2) + '</div></div>';
+  s += '<div class="summary-item"><div class="label">With Waste</div><div class="value">' + totalBFWaste.toFixed(2) + ' BF</div></div>';
+  if (totalWeight > 0) {
+    s += '<div class="summary-item"><div class="label">Total Weight</div><div class="value">' + totalWeight.toFixed(1) + ' lb</div></div>';
+  }
+  if (totalCost > 0) {
+    s += '<div class="summary-item"><div class="label">Total Cost</div><div class="value">$' + totalCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</div></div>';
+  }
+  summaryGrid.innerHTML = s;
+}
+
+function removeBoard(i) {
+  boards.splice(i, 1);
+  renderBoards();
+  showToast('Removed');
+}
+
+function clearBoards() {
+  boards = [];
+  renderBoards();
+  showToast('List cleared');
+}
+
+function showToast(msg) {
+  var toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(function() { toast.classList.remove('show'); }, 2000);
+}
+
+calculate();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</main>
+</body>
+</html>

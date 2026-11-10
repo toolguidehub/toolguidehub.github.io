@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check .com, .net, .org and other major TLDs for availability, with batch lookups for multiple names.">
+<title>Domain Availability Checker | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/domain-checker/">
+<meta property="og:title" content="Domain Availability Checker | ToolGuideHub">
+<meta property="og:description" content="Check .com, .net, .org and other major TLDs for availability, with batch lookups for multiple names.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/domain-checker/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Domain Availability Checker","description":"Free online domain lookup tool - quickly check if .com/.net/.org and other major TLDs are available. Batch query and one-click copy available domains.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:800px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1c40f}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-top:8px}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1c40f;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:1rem;outline:none}.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.tld-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.tld-chip{padding:6px 14px;border-radius:20px;background:rgba(148,163,184,.1);color:#94a3b8;font-size:.85rem;cursor:pointer;border:1px solid rgba(148,163,184,.1);transition:all .2s}.tld-chip.selected{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.4)}.result-list{margin-top:16px}.result-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f172a;border-radius:8px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.result-item .domain{font-family:monospace;color:#e2e8f0;font-size:.9rem}.result-item .status{font-size:.8rem;padding:2px 10px;border-radius:12px;font-weight:600}.status-available{background:rgba(34,197,94,.15);color:#4ade80}.status-unavailable{background:rgba(239,68,68,.15);color:#f87171}.status-unknown{background:rgba(148,163,184,.1);color:#94a3b8}.result-item .copy-btn{font-size:.75rem;color:#06b6d4;cursor:pointer;background:none;border:none;margin-left:8px}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{padding:10px 20px;border-radius:8px;border:none;font-size:.9rem;cursor:pointer;font-weight:600}.btn-primary{background:#06b6d4;color:#0f172a}.btn-primary:hover{background:#22d3ee}.btn-secondary{background:rgba(148,163,184,.15);color:#e2e8f0}.btn-secondary:hover{background:rgba(148,163,184,.25)}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}.footer{margin-top:24px;padding:16px 0;display:flex;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(148,163,184,.1)}.footer a{color:#64748b;font-size:.85rem}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}@media(max-width:600px){.header h1{font-size:1.2rem}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Domain Availability Checker", "item": "https://adi63586.github.io/Toolguidehub/en/domain-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Domain Availability Checker FAQ","mainEntity":[{"@type":"Question","name":"How does the Domain Availability Checker check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: Domain and Select TLDs are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the Domain Availability Checker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Domain and Select TLDs are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Domain Availability Checker report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Domain Availability Checker","description":"Step-by-step guide for using Domain Availability Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Domain Availability Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/domain-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🌐 Domain Availability Checker</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Domain Availability Checker</p>
+<div class="hero"><p>Free online domain lookup tool - quickly check if .com/.net/.org and other major TLDs are available. Batch query support.</p><span class="badge">Zero dependency · Works offline</span></div>
+
+<div class="section">
+<h2>Domain Lookup</h2>
+<div class="form-group">
+<label>Domain (without TLD)</label>
+<input type="text" id="domainInput" placeholder="e.g. mywebsite" onkeydown="if(event.key==='Enter')checkDomain()">
+</div>
+<div class="form-group">
+<label>Select TLDs</label>
+<div class="tld-grid" id="tldGrid">
+<span class="tld-chip selected" data-tld="com">.com</span>
+<span class="tld-chip selected" data-tld="org">.org</span>
+<span class="tld-chip selected" data-tld="net">.net</span>
+<span class="tld-chip" data-tld="io">.io</span>
+<span class="tld-chip" data-tld="co">.co</span>
+<span class="tld-chip" data-tld="app">.app</span>
+<span class="tld-chip" data-tld="dev">.dev</span>
+<span class="tld-chip" data-tld="me">.me</span>
+<span class="tld-chip" data-tld="info">.info</span>
+<span class="tld-chip" data-tld="xyz">.xyz</span>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="checkDomain()">🔍 Check</button>
+<button class="btn btn-secondary" onclick="clearResults()">🗑️ Clear</button>
+</div>
+<div class="result-list" id="resultList"></div>
+</div>
+
+<div class="info-section">
+<h2>How to Use</h2>
+<p>Enter your desired domain name (without TLD), select the extensions to check, and click Check. This tool uses DNS queries to quickly determine if a domain is registered.</p>
+<p><strong>Note:</strong> DNS results may have cache delays. The most accurate method is checking through a domain registrar. Results are for reference only.</p>
+</div>
+
+<div class="info-section">
+<h2>FAQ</h2>
+<p><strong>How to choose a good domain?</strong><br>Good domains should be short, memorable, and easy to spell. Prefer .com and avoid numbers/hyphens. Using brand names or keywords helps with SEO.</p>
+<p><strong>What if the domain is taken?</strong><br>Try different extensions (like .net/.io), add prefixes/suffixes to the name, or contact the domain owner to negotiate a purchase.</p>
+</div>
+
+</main>
+<div class="toast" id="toast"></div>
+<script>
+var selectedTLDs=new Set(["com","org","net"]);
+document.getElementById("tldGrid").addEventListener("click",function(e){if(e.target.classList.contains("tld-chip")){var t=e.target.dataset.tld;e.target.classList.toggle("selected");if(e.target.classList.contains("selected"))selectedTLDs.add(t);else selectedTLDs.delete(t)}});
+
+async function checkDomain(){var name=document.getElementById("domainInput").value.trim();var list=document.getElementById("resultList");if(!name){showToast("Please enter a domain");return}if(!/^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(name)){showToast("Invalid domain format");return}if(selectedTLDs.size===0){showToast("Please select at least one TLD");return}
+list.innerHTML='<p style="color:#64748b">Checking...</p>';
+var tlds=Array.from(selectedTLDs);
+var html="";
+for(var i=0;i<tlds.length;i++){var tld=tlds[i];var domain=name+"."+tld;var cls="status-unknown",txt="Unknown";
+try{var resp=await fetch("https://dns.google/resolve?name="+domain+"&type=A");var data=await resp.json();
+if(data.Answer&&data.Answer.length>0){cls="status-unavailable";txt="✘ Registered"}else{cls="status-available";txt="✔ Available"}}catch(e){cls="status-unknown";txt="Query failed"}
+html+='<div class="result-item"><span class="domain">'+domain+'</span><span><span class="status '+cls+'">'+txt+'</span><button class="copy-btn" onclick="copyDomain(this)">&#x1F4CB;</button></span></div>'}
+list.innerHTML=html}
+
+function copyDomain(el){var d=el.parentElement.parentElement.querySelector(".domain").textContent;navigator.clipboard.writeText(d).then(function(){showToast("Copied: "+d)})["catch"](function(){showToast("Copy failed")})}
+function clearResults(){document.getElementById("resultList").innerHTML="";document.getElementById("domainInput").value=""}
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* example button */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#94a3b8;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/domain-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

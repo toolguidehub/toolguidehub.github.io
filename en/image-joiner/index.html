@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Merge up to 20 JPEG, PNG, WebP, or GIF images horizontally, vertically, or in a grid with adjustable spacing.">
+<meta name="keywords" content="image joiner,merge images,combine photos,horizontal join,vertical join,image grid,photo merger,online image joiner,image combiner">
+<title>Free Online Image Joiner - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-joiner/">
+<meta property="og:title" content="Free Online Image Joiner - ToolGuideHub">
+<meta property="og:description" content="Merge up to 20 JPEG, PNG, WebP, or GIF images horizontally, vertically, or in a grid with adjustable spacing.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-joiner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online Image Joiner", "description": "Free online image joiner tool that merges multiple images horizontally, vertically, or in a grid. Adjustable spacing, background color, and alignment. Pure client-side processing, no server upload.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-20", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Image Joiner FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many images can I join at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can join up to 20 images at once. The exact limit depends on your device performance and image size. We recommend keeping each image under 10MB for the best experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my images uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All processing happens locally in your browser using the Canvas API. Your images never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which image formats are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supported input formats include JPEG, PNG, WebP, and GIF. Output can be saved as PNG, JPEG, or WebP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between horizontal and vertical joining?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Horizontal joining places images side by side in a row, while vertical joining stacks them in a column. A grid layout arranges them in rows and columns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I adjust spacing and alignment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Spacing slider to set the gap between images, and the Alignment selector to choose center, top/left, or bottom/right alignment."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Online Image Joiner",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload images",
+      "text": "Upload the images you want to join. You can add up to 20 images."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Choose join settings",
+      "text": "Select the join direction (horizontal, vertical, or grid), spacing, background color, and alignment."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Join and download",
+      "text": "Click the Join Images button to preview the result, then download it as PNG, JPEG, or WebP."
+    }
+  ],
+  "description": "Step-by-step guide for using the Online Image Joiner",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online Image Joiner"
+  }
+}
+</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+header h1{font-size:1.8rem;color:#06b6d4}
+.lang-switch a{color:#94a3b8;text-decoration:none;font-size:.9rem;padding:4px 12px;border:1px solid rgba(148,163,184,.2);border-radius:4px}
+.lang-switch a:hover{color:#06b6d4;border-color:#06b6d4}
+.breadcrumb{font-size:.85rem;color:#64748b;margin-bottom:15px}
+.breadcrumb a{color:#94a3b8;text-decoration:none}
+.breadcrumb a:hover{color:#06b6d4}
+.hero{margin-bottom:25px}
+.hero .subtitle{color:#94a3b8;font-size:1rem}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#06b6d4;padding:3px 10px;border-radius:12px;font-size:.8rem;margin-left:8px}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.panel{background:#1e293b;border-radius:8px;padding:20px;border:1px solid rgba(148,163,184,.1)}
+.panel h2{font-size:1.1rem;color:#06b6d4;margin-bottom:15px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:8px;padding:40px;text-align:center;cursor:pointer;transition:all .3s}
+.upload-zone:hover,.upload-zone.dragover{border-color:#06b6d4;background:rgba(6,182,212,.05)}
+.upload-zone p{color:#94a3b8}
+.upload-zone .icon{font-size:2.5rem;margin-bottom:10px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}
+.control-group{display:flex;flex-direction:column;gap:4px}
+.control-group label{font-size:.85rem;color:#94a3b8}
+.control-group select,.control-group input[type="number"],.control-group input[type="color"]{background:#0f172a;border:1px solid rgba(148,163,184,.2);color:#e2e8f0;padding:8px;border-radius:4px;font-size:.9rem}
+.control-group input[type="range"]{accent-color:#06b6d4}
+.btn{padding:10px 20px;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee}
+.btn-secondary{background:rgba(148,163,184,.15);color:#e2e8f0}
+.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-danger{background:rgba(239,68,68,.2);color:#ef4444}
+.btn-danger:hover{background:rgba(239,68,68,.3)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.preview-area{margin:15px 0;text-align:center;min-height:100px;background:#0f172a;border-radius:8px;padding:15px;overflow:auto}
+.preview-area canvas{max-width:100%;height:auto;border-radius:4px}
+.image-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.image-item{position:relative;width:80px;height:80px;border-radius:4px;overflow:hidden;border:2px solid rgba(148,163,184,.2)}
+.image-item img{width:100%;height:100%;object-fit:cover}
+.image-item .remove{position:absolute;top:2px;right:2px;background:rgba(239,68,68,.8);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.image-item .order{position:absolute;bottom:2px;left:2px;background:rgba(0,0,0,.7);color:#fff;font-size:.7rem;padding:1px 5px;border-radius:3px}
+.ad-sidebar
+.seo-content{margin-top:30px;padding:20px;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)}
+.seo-content h2{color:#06b6d4;font-size:1.3rem;margin:20px 0 10px}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin:15px 0 8px}
+.seo-content p{color:#94a3b8;margin-bottom:10px}
+.seo-content ul{color:#94a3b8;margin:10px 0 10px 20px}
+.faq-item{margin:10px 0;padding:12px;background:#0f172a;border-radius:6px}
+.faq-item h3{color:#06b6d4;font-size:.95rem;margin-bottom:5px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+footer{margin-top:30px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1);text-align:center;color:#64748b;font-size:.85rem}
+footer a{color:#94a3b8;text-decoration:none;margin:0 8px}
+footer a:hover{color:#06b6d4}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online Image Joiner", "item": "https://adi63586.github.io/Toolguidehub/en/image-joiner/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-joiner/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+<h1>Free Online Image Joiner</h1>
+
+</header>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../">All Tools</a> › Image Joiner</div>
+<div class="hero">
+<span class="subtitle">Merge multiple images into one — horizontally, vertically, or in a grid.</span>
+<span class="badge">Zero dependencies · Works offline</span>
+</div>
+<div class="main-grid">
+<div class="panel">
+<h2>Upload Images</h2>
+<div class="upload-zone" id="uploadZone">
+<div class="icon">📁</div>
+<p>Click or drag images here</p>
+<p style="font-size:.8rem;color:#64748b">Supports JPEG / PNG / WebP / GIF · Up to 20 images</p>
+</div>
+<input type="file" id="fileInput" multiple accept="image/*" style="display:none">
+<div class="image-list" id="imageList"></div>
+<div class="controls">
+<div class="control-group">
+<label>Join Direction</label>
+<select id="direction">
+<option value="horizontal">Join horizontally</option>
+<option value="vertical">Join vertically</option>
+<option value="grid">Grid layout</option>
+</select>
+</div>
+<div class="control-group">
+<label>Output Format</label>
+<select id="format">
+<option value="image/png">PNG</option>
+<option value="image/jpeg">JPEG</option>
+<option value="image/webp">WebP</option>
+</select>
+</div>
+<div class="control-group">
+<label>Spacing (px): <span id="gapVal">0</span></label>
+<input type="range" id="gap" min="0" max="50" value="0">
+</div>
+<div class="control-group">
+<label>Background Color</label>
+<input type="color" id="bgColor" value="#0f172a">
+</div>
+<div class="control-group">
+<label>Alignment</label>
+<select id="align">
+<option value="center">Center alignment</option>
+<option value="start">Top/left alignment</option>
+<option value="end">Bottom/right alignment</option>
+</select>
+</div>
+<div class="control-group">
+<label>Grid Columns</label>
+<input type="number" id="gridCols" min="2" max="5" value="3" style="display:none">
+</div>
+<div class="control-group">
+<label>JPEG Quality: <span id="qualityVal">90</span>%</label>
+<input type="range" id="quality" min="10" max="100" value="90">
+</div>
+</div>
+<div style="display:flex;gap:10px;margin:10px 0">
+<button class="btn btn-primary" id="joinBtn" disabled>Join Images</button>
+<button class="btn btn-secondary" id="clearBtn">Clear</button>
+<button class="btn btn-secondary" id="downloadBtn" disabled>Download Result</button>
+</div>
+<div class="preview-area" id="previewArea">
+<p style="color:#64748b;padding:30px">Upload images, then click "Join Images" to preview the result</p>
+</div>
+</div>
+<div class="ad-sidebar">
+</div>
+</div>
+<div class="seo-content">
+<h2>Online Image Joiner - Free Multi-Image Merge</h2>
+<p>The Image Joiner is a free online tool that merges multiple images into one complete image. It supports horizontal, vertical, and grid layout modes, making it ideal for panorama stitching, long image joining, and photo collage scenarios.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Multiple join directions: horizontal, vertical, and grid layouts</li>
+<li>Adjustable parameters: spacing, background color, and alignment</li>
+<li>Batch processing: join up to 20 images at once</li>
+<li>Multiple output formats: PNG, JPEG, and WebP</li>
+<li>Privacy safe: pure frontend processing, images are never uploaded</li>
+</ul>
+<h3>Use Cases</h3>
+<ul>
+<li>Panorama stitching: join wide shots and before/after comparison images</li>
+<li>Product showcase: display multiple angles of a product in one image</li>
+<li>Documentation: combine multiple screenshots into one</li>
+<li>Tutorial guides: merge step-by-step screenshots</li>
+<li>Social sharing: create row-based photo collages</li>
+</ul>
+<h3>How to Use</h3>
+<p>When joining horizontally, we recommend selecting images with similar heights for the best effect. When joining vertically, select images with similar widths. If image sizes differ, the tool automatically aligns them based on your alignment setting without adding unnecessary padding.</p>
+</div>
+<div class="faq-item"><h3>About Free Online Image Joiner</h3><p>Free online image joiner tool, support horizontal and vertical joining of multiple images, pure client-side local processing without uploading to server. Adjustable spacing, background color, alignment, one-click download. Try now!</p></div>
+<div class="faq-item"><h3>How to Use Free Online Image Joiner?</h3><p>Upload your images, choose the join direction and settings, then click "Join Images" to preview the result. All computation happens on your device — your images never leave your browser.</p></div>
+</main>
+
+<footer>
+<a href="../../">Home</a>
+<a href="../../">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy Policy</a>
+<a href="../../en/terms/">Terms of Service</a>
+<a href="../../en/image-joiner/">中文</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>
+const uploadZone=document.getElementById('uploadZone');
+const fileInput=document.getElementById('fileInput');
+const imageList=document.getElementById('imageList');
+const direction=document.getElementById('direction');
+const format=document.getElementById('format');
+const gap=document.getElementById('gap');
+const gapVal=document.getElementById('gapVal');
+const bgColor=document.getElementById('bgColor');
+const align=document.getElementById('align');
+const gridCols=document.getElementById('gridCols');
+const quality=document.getElementById('quality');
+const qualityVal=document.getElementById('qualityVal');
+const joinBtn=document.getElementById('joinBtn');
+const clearBtn=document.getElementById('clearBtn');
+const downloadBtn=document.getElementById('downloadBtn');
+const previewArea=document.getElementById('previewArea');
+let images=[];
+let resultCanvas=null;
+
+uploadZone.addEventListener('click',()=>fileInput.click());
+uploadZone.addEventListener('dragover',e=>{e.preventDefault();uploadZone.classList.add('dragover')});
+uploadZone.addEventListener('dragleave',()=>uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop',e=>{e.preventDefault();uploadZone.classList.remove('dragover');handleFiles(e.dataTransfer.files)});
+fileInput.addEventListener('change',e=>handleFiles(e.target.files));
+
+function handleFiles(files){
+  for(let f of files){
+    if(!f.type.startsWith('image/'))continue;
+    if(images.length>=20)break;
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      const img=new Image();
+      img.onload=()=>{
+        images.push({img,name:f.name,w:img.width,h:img.height});
+        renderList();
+        joinBtn.disabled=images.length<2;
+      };
+      img.src=ev.target.result;
+    };
+    reader.readAsDataURL(f);
+  }
+}
+
+function renderList(){
+  imageList.innerHTML='';
+  images.forEach((item,i)=>{
+    const div=document.createElement('div');
+    div.className='image-item';
+    div.draggable=true;
+    div.innerHTML=`<img src="${item.img.src}" alt="${item.name}"><button class="remove" data-i="${i}">✕</button><span class="order">${i+1}</span>`;
+    div.querySelector('.remove').addEventListener('click',e=>{e.stopPropagation();images.splice(i,1);renderList();joinBtn.disabled=images.length<2;downloadBtn.disabled=true});
+    div.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',i)});
+    div.addEventListener('dragover',e=>e.preventDefault());
+    div.addEventListener('drop',e=>{e.preventDefault();const from=parseInt(e.dataTransfer.getData('text/plain'));const to=i;const t=images[from];images.splice(from,1);images.splice(to,0,t);renderList()});
+    imageList.appendChild(div);
+  });
+}
+
+gap.addEventListener('input',()=>{gapVal.textContent=gap.value});
+quality.addEventListener('input',()=>{qualityVal.textContent=quality.value});
+direction.addEventListener('change',()=>{gridCols.style.display=direction.value==='grid'?'block':'none'});
+
+joinBtn.addEventListener('click',()=>{
+  if(images.length<2)return;
+  const g=parseInt(gap.value);
+  const bg=bgColor.value;
+  const al=align.value;
+  const dir=direction.value;
+  let canvas,ctx;
+
+  if(dir==='horizontal'){
+    const maxH=Math.max(...images.map(i=>i.h));
+    const totalW=images.reduce((s,i)=>s+i.w,0)+g*(images.length-1);
+    canvas=document.createElement('canvas');canvas.width=totalW;canvas.height=maxH;
+    ctx=canvas.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,totalW,maxH);
+    let x=0;
+    images.forEach(item=>{
+      let y=0;
+      if(al==='center')y=(maxH-item.h)/2;
+      else if(al==='end')y=maxH-item.h;
+      ctx.drawImage(item.img,x,y);x+=item.w+g;
+    });
+  }else if(dir==='vertical'){
+    const maxW=Math.max(...images.map(i=>i.w));
+    const totalH=images.reduce((s,i)=>s+i.h,0)+g*(images.length-1);
+    canvas=document.createElement('canvas');canvas.width=maxW;canvas.height=totalH;
+    ctx=canvas.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,maxW,totalH);
+    let y=0;
+    images.forEach(item=>{
+      let x=0;
+      if(al==='center')x=(maxW-item.w)/2;
+      else if(al==='end')x=maxW-item.w;
+      ctx.drawImage(item.img,x,y);y+=item.h+g;
+    });
+  }else{
+    const cols=parseInt(gridCols.value);
+    const rows=Math.ceil(images.length/cols);
+    const colWidths=[];const rowHeights=[];
+    for(let c=0;c<cols;c++){
+      let mw=0;for(let r=0;r<rows;r++){const idx=r*cols+c;if(idx<images.length)mw=Math.max(mw,images[idx].w);}colWidths.push(mw);
+    }
+    for(let r=0;r<rows;r++){
+      let mh=0;for(let c=0;c<cols;c++){const idx=r*cols+c;if(idx<images.length)mh=Math.max(mh,images[idx].h);}rowHeights.push(mh);
+    }
+    const totalW=colWidths.reduce((s,w)=>s+w,0)+g*(cols-1);
+    const totalH=rowHeights.reduce((s,h)=>s+h,0)+g*(rows-1);
+    canvas=document.createElement('canvas');canvas.width=totalW;canvas.height=totalH;
+    ctx=canvas.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,totalW,totalH);
+    let y=0;
+    for(let r=0;r<rows;r++){
+      let x=0;
+      for(let c=0;c<cols;c++){
+        const idx=r*cols+c;
+        if(idx<images.length){
+          const item=images[idx];
+          let ix=x,iy=y;
+          if(al==='center'){ix=x+(colWidths[c]-item.w)/2;iy=y+(rowHeights[r]-item.h)/2;}
+          else if(al==='end'){ix=x+colWidths[c]-item.w;iy=y+rowHeights[r]-item.h;}
+          ctx.drawImage(item.img,ix,iy);
+        }
+        x+=colWidths[c]+g;
+      }
+      y+=rowHeights[r]+g;
+    }
+  }
+
+  resultCanvas=canvas;
+  previewArea.innerHTML='';
+  previewArea.appendChild(canvas);
+  downloadBtn.disabled=false;
+});
+
+clearBtn.addEventListener('click',()=>{images=[];renderList();joinBtn.disabled=true;downloadBtn.disabled=true;previewArea.innerHTML='';resultCanvas=null});
+
+downloadBtn.addEventListener('click',()=>{
+  if(!resultCanvas)return;
+  const fmt=format.value;
+  const q=fmt==='image/jpeg'?parseInt(quality.value)/100:undefined;
+  const link=document.createElement('a');
+  link.download='joined-image.'+(fmt==='image/png'?'png':fmt==='image/jpeg'?'jpg':'webp');
+  link.href=resultCanvas.toDataURL(fmt,q);
+  link.click();
+});</script>
+
+<link rel="prerender" href="../../?q=image+splitter">
+<div id="related-tools" data-category="image"></div>
+<script src="../../related-tools.js"></script>
+</body>
+</html>

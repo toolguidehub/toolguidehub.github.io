@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Planner - Create Effective Study Schedules | ToolGuideHub</title>
+  <meta name="description" content="Turn your subjects, exam dates and available hours into an auto-generated daily study schedule you can export or print for exam revision.">
+  <meta property="og:title" content="Study Planner - ToolGuideHub">
+  <meta property="og:description" content="Turn your subjects, exam dates and available hours into an auto-generated daily study schedule you can export or print for exam revision.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Study Planner","description":"Free online study planner — auto-generate daily study schedules. Export and print your plan.","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://adi63586.github.io/Toolguidehub/en/study-planner/"}</script>
+  <style>:root{--text-light:#94a3b8;--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+    header .logo { font-size: 22px; font-weight: 700; color: #22d3ee; text-decoration: none; }
+    header nav a { color: var(--text-light); text-decoration: none; margin-left: 20px; font-size: 14px; }
+    main { flex: 1; max-width: 800px; margin: 0 auto; padding: 30px 20px; width: 100%; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 15px; }
+    .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-light); margin-bottom: 4px; }
+    .form-group input, .form-group textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 15px; font-family: inherit; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .btn { padding: 12px 28px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all .2s; }
+    .btn-primary { background: #22d3ee; color: #fff; }
+    .btn-primary:hover { background: #0891b2; }
+    .btn-secondary { background: rgba(148,163,184,.1); color: #e2e8f0; }
+    .plan-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .plan-table th { background: #22d3ee; color: #fff; padding: 10px; font-size: 13px; text-align: left; }
+    .plan-table td { padding: 10px; border-bottom: 1px solid rgba(148,163,184,.1); font-size: 14px; }
+    .plan-table tr:nth-child(even) { background: #f1f5f9; }
+    .empty-state { text-align: center; padding: 40px; color: var(--text-light); }
+    footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+    .toast { position: fixed; top: 20px; right: 20px; background: #22c55e; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 1000; opacity: 0; transform: translateY(-10px); transition: all .3s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/study-planner/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Study Planner - Create Effective Study Schedules | ToolGuideHub", "item": "https://adi63586.github.io/Toolguidehub/en/study-planner/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Study Planner FAQ","mainEntity":[{"@type":"Question","name":"How does the Study Planner work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Study Planner free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Plan Name and Total Days are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Study Planner?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Study Planner","description":"Step-by-step guide for using Study Planner","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Study Planner"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/study-planner/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../" class="logo">ToolGuideHub</a>
+    <nav><a href="../../">Home</a><a href="../../">CN</a></nav>
+  </header>
+  <main>
+    <h1>📋 Study Planner</h1>
+    <p class="subtitle">Enter your subjects, available time, and goals — auto-generate a daily study schedule</p>
+
+    <div class="section">
+      <div class="form-row">
+        <div class="form-group"><label>Plan Name</label><input type="text" id="planName" placeholder="e.g., Final Exam Prep"></div>
+        <div class="form-group"><label>Total Days</label><input type="number" id="totalDays" value="7" min="1" max="90"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Daily Study Hours</label><input type="number" id="dailyHours" value="3" min="1" max="12" step="0.5"></div>
+        <div class="form-group"><label>Start Date</label><input type="date" id="startDate"></div>
+      </div>
+      <div class="form-group"><label>Subjects (one per line, format: Subject:Priority 1-5)</label>
+        <textarea id="subjects" rows="4" placeholder="Math:5&#10;English:4&#10;Physics:3&#10;Chemistry:3&#10;History:2"></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="generatePlan()">Generate Plan</button>
+      <button class="btn btn-secondary" style="margin-left:8px" onclick="exportPlan()">📄 Export / Print</button>
+    </div>
+
+    <div class="section" id="planOutput">
+      <h3 style="margin-bottom:16px">📅 Your Study Schedule</h3>
+      <div id="planContent" class="empty-state">Fill in the form and click "Generate Plan"</div>
+    </div>
+  
+<h2>What is Study Planner - Create Effective Study SchedulesBase?</h2><p>Study Planner - Create Effective Study SchedulesBase is a free online tool that runs entirely in your browser. No download or signup needed — enter Plan Name and Total Days to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/study-planner/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+
+  <script>
+    document.getElementById('startDate').value = new Date().toISOString().split('T')[0];
+    let currentPlan = null;
+
+    function generatePlan() {
+      const name = document.getElementById('planName').value || 'Study Plan';
+      const days = parseInt(document.getElementById('totalDays').value) || 7;
+      const dailyH = parseFloat(document.getElementById('dailyHours').value) || 3;
+      const startDate = document.getElementById('startDate').value || new Date().toISOString().split('T')[0];
+      const subjectsRaw = document.getElementById('subjects').value.trim();
+      if (!subjectsRaw) { showToast('Please enter subjects'); return; }
+      const subjects = subjectsRaw.split('\n').filter(s => s.trim()).map(s => {
+        const parts = s.split(':'); return { name: parts[0].trim(), weight: parseInt(parts[1]) || 3 };
+      });
+      const totalWeight = subjects.reduce((sum, s) => sum + s.weight, 0);
+      const dailyMinutes = dailyH * 60;
+      let plan = [];
+      const start = new Date(startDate);
+      for (let d = 0; d < days; d++) {
+        const date = new Date(start); date.setDate(date.getDate() + d);
+        const dayStr = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', weekday: 'short' });
+        let sessions = [], remaining = dailyMinutes;
+        for (let i = 0; i < subjects.length; i++) {
+          const s = subjects[i];
+          let mins = Math.round((s.weight / totalWeight) * dailyMinutes);
+          if (i === subjects.length - 1) mins = remaining;
+          if (mins < 10) mins = 10;
+          remaining -= mins;
+          sessions.push({ subject: s.name, minutes: mins });
+        }
+        plan.push({ date: dayStr, sessions, isoDate: date.toISOString().split('T')[0] });
+      }
+      currentPlan = { name, plan };
+      let html = '<table class="plan-table"><tr><th>Date</th><th>Subject</th><th>Duration</th></tr>';
+      plan.forEach(day => {
+        const first = day.sessions[0];
+        html += '<tr><td rowspan="' + day.sessions.length + '"><strong>' + day.date + '</strong></td>';
+        html += '<td>' + first.subject + '</td><td>' + first.minutes + ' min</td></tr>';
+        for (let i = 1; i < day.sessions.length; i++) {
+          html += '<tr><td>' + day.sessions[i].subject + '</td><td>' + day.sessions[i].minutes + ' min</td></tr>';
+        }
+      });
+      html += '</table>';
+      document.getElementById('planContent').innerHTML = html;
+      document.getElementById('planContent').classList.remove('empty-state');
+      showToast('Study plan generated!');
+    }
+
+    function exportPlan() {
+      if (!currentPlan) { showToast('Please generate a plan first'); return; }
+      let text = currentPlan.name + '\n' + '='.repeat(40) + '\n\n';
+      currentPlan.plan.forEach(day => {
+        text += day.date + '\n';
+        day.sessions.forEach(s => { text += '  ' + s.subject + ': ' + s.minutes + ' min\n'; });
+        text += '\n';
+      });
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = currentPlan.name + '.txt';
+      a.click(); URL.revokeObjectURL(url);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Converter - Snake, Camel, Pascal, Kebab | Free</title>
+  <meta name="description" content="Convert identifiers between snake_case, camelCase, PascalCase, kebab-case, and SCREAMING_SNAKE_CASE in one click.">
+  <meta property="og:title" content="Case Converter - Snake, Camel, Pascal, Kebab Online">
+  <meta property="og:description" content="Convert identifiers between snake_case, camelCase, PascalCase, kebab-case, and SCREAMING_SNAKE_CASE in one click.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Case Converter","applicationCategory":"DeveloperApplication","description":"Free online case converter for developers.","operatingSystem":"Web"}</script>
+  <style>:root{--text-light:#94a3b8;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+    header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; text-align: center; }
+    header a { color: #22d3ee; text-decoration: none; font-weight: 600; font-size: 18px; }
+    main { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-light); margin-bottom: 24px; }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    textarea { width: 100%; padding: 14px; border: 2px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; font-family: 'Fira Code', 'Consolas', monospace; resize: vertical; min-height: 80px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .btn { padding: 8px 18px; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+    .btn-style { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+    .btn-style:hover, .btn-style.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+    .btn-action { background: #22d3ee; color: #fff; padding: 10px 24px; font-size: 14px; }
+    .btn-action:hover { background: #0891b2; }
+    .btn-outline { background: transparent; border: 1px solid rgba(148,163,184,.1); color: #e2e8f0; }
+    .output-row { display: flex; gap: 12px; align-items: start; }
+    .output-row textarea { flex: 1; background: #0f172a; color: #e2e8f0; }
+    .example { font-size: 12px; color: var(--text-light); margin-top: 8px; }
+    .example code { background: rgba(6,182,212,.15); color: #22d3ee; padding: 2px 6px; border-radius: 4px; }
+    footer { text-align: center; padding: 24px; color: var(--text-light); font-size: 13px; }
+    footer a { color: #22d3ee; text-decoration: none; }
+    #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; transition: opacity 0.3s; z-index: 999; pointer-events: none; }
+    #toast.show { opacity: 1; }
+  @media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/snake-case-converter/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Case Converter - Snake, Camel, Pascal, Kebab Online", "item": "https://adi63586.github.io/Toolguidehub/en/snake-case-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Case Converter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Case Converter?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Case Converter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Converted result... and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Case Converter?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Case Converter","description":"Step-by-step guide for using Case Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Case Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/snake-case-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header><a href="../../">ToolGuideHub</a></header>
+  <main>
+    <h1>🔤 Case Converter</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online case converter for developers. Convert between snake_case, camelCase, PascalCase, kebab-case, SCREAMING_SNAKE, dot.notation and more with one click.</p>
+    <p class="subtitle">Convert between naming conventions: snake_case, camelCase, PascalCase, kebab-case, SCREAMING_SNAKE_CASE and more.</p>
+    <div class="section">
+      <textarea id="input" placeholder="Enter a variable name, e.g. my_variable_name or myVariableName">my_variable_name</textarea>
+      <div class="btn-row" id="styleButtons">
+        <button class="btn btn-style active" data-style="snake">snake_case</button>
+        <button class="btn btn-style" data-style="camel">camelCase</button>
+        <button class="btn btn-style" data-style="pascal">PascalCase</button>
+        <button class="btn btn-style" data-style="kebab">kebab-case</button>
+        <button class="btn btn-style" data-style="screaming">SCREAMING_SNAKE</button>
+        <button class="btn btn-style" data-style="dot">dot.notation</button>
+        <button class="btn btn-style" data-style="train">Train-Case</button>
+      </div>
+      <div class="output-row">
+        <textarea id="output" readonly placeholder="Converted result..."></textarea>
+        <button class="btn btn-outline" id="copyBtn" style="white-space:nowrap">📋 Copy</button>
+      </div>
+      <div class="example">
+        Examples: <code>hello_world</code> ↔ <code>helloWorld</code> ↔ <code>HelloWorld</code> ↔ <code>hello-world</code>
+      </div>
+    </div>
+  
+<h2>What is Case Converter - Snake, Camel, Pascal, Kebab Online | Fre...?</h2><p>Case Converter - Snake, Camel, Pascal, Kebab Online | Fre... is a free online tool that runs entirely in your browser. No download or signup needed — enter Converted result... and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Convert variable names between naming conventions in code</li><li>Standardize file naming for web projects</li><li>Generate consistent identifier formats for databases</li><li>Quickly switch between snake_case, camelCase, and kebab-case</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/base32-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base32 Encode Decode</a><a href="../../en/base45-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base45 Encoder</a><a href="../../en/base64-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base64 Encode Decode</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/snake-case-converter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div id="toast"></div>
+  <script>
+    function splitWords(input) {
+      const s = input.trim();
+      if (!s) return [];
+      if (/\s/.test(s)) return s.split(/\s+/).filter(Boolean);
+      if (/-/.test(s)) return s.split('-').filter(Boolean);
+      if (/\./.test(s)) return s.split('.').filter(Boolean);
+      if (/_/.test(s)) return s.split('_').filter(Boolean);
+      return s.replace(/([A-Z])/g, ' $1').trim().split(/\s+/).filter(Boolean);
+    }
+
+    function convert(words, style) {
+      words = words.map(w => w.toLowerCase());
+      switch(style) {
+        case 'snake': return words.join('_');
+        case 'camel': return words.map((w,i) => i===0 ? w : w[0].toUpperCase()+w.slice(1)).join('');
+        case 'pascal': return words.map(w => w[0].toUpperCase()+w.slice(1)).join('');
+        case 'kebab': return words.join('-');
+        case 'screaming': return words.join('_').toUpperCase();
+        case 'dot': return words.join('.');
+        case 'train': return words.map(w => w[0].toUpperCase()+w.slice(1)).join('-');
+        default: return words.join('_');
+      }
+    }
+
+    let currentStyle = 'snake';
+
+    function update() {
+      const input = document.getElementById('input').value;
+      const words = splitWords(input);
+      if (words.length === 0) { document.getElementById('output').value = ''; return; }
+      document.getElementById('output').value = convert(words, currentStyle);
+    }
+
+    document.getElementById('input').addEventListener('input', update);
+    
+    document.getElementById('styleButtons').addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn-style')) {
+        document.querySelectorAll('.btn-style').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentStyle = e.target.dataset.style;
+        update();
+      }
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const text = document.getElementById('output').value;
+      if (!text) { showToast('Nothing to copy'); return; }
+      try { await navigator.clipboard.writeText(text); showToast('Copied!'); }
+      catch { showToast('Copy failed'); }
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+    update();
+  </script>
+</body>
+</html>

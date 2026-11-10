@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free API key generator: create secure random keys, tokens, passwords. Customize length & character sets. Instant generation, no signup, browser-based.">
+<meta name="keywords" content="API key generator,secure key generator,random token generator,API key creator,secret key generator,access token generator,sk- key,free online tool">
+<title>API Key Generator - Secure Random Keys - Token Generator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/api-key-generator/">
+<meta property="og:title" content="API Key Generator - Secure Random Keys - Token Generator">
+<meta property="og:description" content="Free API key generator: create secure random keys, tokens, passwords. Customize length & character sets. Instant generation, no signup, browser-based.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/api-key-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/api-key-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"API Key Generator","description":"Free online API key generator using crypto.getRandomValues for truly random secure keys. Custom prefixes, multiple charsets, batch export. 100% client-side.","applicationCategory":"DeveloperApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"author":{"@type":"Organization","name":"ToolGuideHub"},"dateModified":"2026-08-02","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an API key and what is it used for?","acceptedAnswer":{"@type":"Answer","text":"An API key is a unique identifier used to authenticate and authorize applications or users calling API interfaces. It acts as a digital key controlling access to API resources. Common uses include OpenAI API (ChatGPT), Stripe payments, Google Maps, AWS cloud services, and Twilio messaging."}},{"@type":"Question","name":"Are the generated API keys secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool uses the browser's built-in crypto.getRandomValues() CSPRNG for true randomness, not Math.random(). All generation happens locally in your browser — keys never travel over the network or get uploaded to any server."}},{"@type":"Question","name":"Which character set should I choose?","acceptedAnswer":{"@type":"Answer","text":"Alphanumeric (default) works for most APIs like OpenAI's sk- format. Hexadecimal is best for UUID-style compatibility. Letters-only is easiest to read. Full charset (with special chars) offers maximum security but some APIs may not support special characters."}},{"@type":"Question","name":"What key length is recommended?","acceptedAnswer":{"@type":"Answer","text":"32+ characters is recommended. OpenAI uses sk- prefix + 48 chars, Stripe uses sk_live_ + 24 chars, GitHub uses ghp_ + 40 chars. For high-security scenarios (payment gateways), 64-128 chars is advised."}},{"@type":"Question","name":"What is the prefix for?","acceptedAnswer":{"@type":"Answer","text":"Prefixes help identify key types at a glance: sk- for Secret Keys (never share), pk- for Public Keys, sk_live_ for production keys. Prefixes don't affect security but improve key management."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the API Key Generator","description":"Generate secure random API keys and tokens. Customize prefix, charset, and batch export.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"API Key Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Configure","text":"Set key length, prefix, and character set"},{"@type":"HowToStep","position":2,"name":"Generate","text":"Click Generate to create keys"},{"@type":"HowToStep","position":3,"name":"Copy or Export","text":"Copy individual keys or batch export all"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"API Key Generator","item":"https://adi63586.github.io/Toolguidehub/en/api-key-generator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.hero p{color:#94a3b8;font-size:.9rem;margin-bottom:16px;line-height:1.7}
+.badge{display:inline-block;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);color:#22d3ee;font-size:.8rem;margin-bottom:16px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:180px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.15);color:#e2e8f0}
+.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-success{background:linear-gradient(135deg,#10b981,#059669);color:#fff}
+.btn-success:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(16,185,129,.3)}
+.btn-sm{padding:6px 12px;font-size:.8rem;min-height:36px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.key-list{margin-top:12px}
+.key-item{background:#0a0f1e;border-radius:10px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.key-item:hover{border-color:rgba(6,182,212,.2)}
+.key-item .key-text{font-family:'Fira Code','Cascadia Code','JetBrains Mono','Menlo',monospace;font-size:.85rem;color:#fbbf24;word-break:break-all;flex:1;min-width:0}
+.key-item .key-text.hex{color:#22d3ee}
+.key-item .key-text.alpha{color:#a78bfa}
+.key-item .key-text.full{color:#f472b6}
+.key-item .key-actions{display:flex;gap:6px;flex-shrink:0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px}
+.stat-card{background:#0a0f1e;border-radius:10px;padding:14px;text-align:center}
+.stat-card .stat-label{color:#64748b;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+.stat-card .stat-value{font-size:1.3rem;font-weight:700;color:#22d3ee;margin-top:4px}
+.strength-bar{height:6px;border-radius:3px;margin-top:4px;background:rgba(148,163,184,.1);overflow:hidden}
+.strength-bar .fill{height:100%;border-radius:3px;transition:width .3s,background .3s}
+.strength-weak .fill{background:#ef4444;width:25%}
+.strength-medium .fill{background:#f59e0b;width:50%}
+.strength-strong .fill{background:#10b981;width:80%}
+.strength-very-strong .fill{background:#22d3ee;width:100%}
+.faq-item{padding:14px 0;border-bottom:1px solid rgba(148,163,184,.1)}
+.faq-item:last-child{border:none}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.5}
+.seo-content{padding:20px;color:#94a3b8;font-size:.85rem}
+.seo-content h2{color:#f1f5f9;font-size:1.1rem;margin-bottom:12px}
+.seo-content li{margin-bottom:16px}
+.seo-content strong{color:#e2e8f0}
+.related-tools{margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px}
+.related-tools h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:.5rem}
+.related-tools a{display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;color:#22d3ee;font-size:14px}
+.footer-links{text-align:center;padding:20px 0;color:#64748b;font-size:.75rem}
+.footer-links a{color:#64748b;margin:0 8px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:9999}
+.toast.show{opacity:1}
+@media(max-width:640px){.form-row .form-group{min-width:100%}.key-item{flex-direction:column;align-items:flex-start}.key-item .key-actions{align-self:flex-end}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+  <h1>🔑 API Key Generator</h1>
+  
+</div>
+<p class="nav-back"><a href="../index.html">Home</a> › <a href="../index.html#tools">Tools</a> › API Key Generator</p>
+<div class="hero">
+  <p>Free online API key generator using <strong>crypto.getRandomValues</strong> CSPRNG for truly random, cryptographically secure API keys and access tokens. Customize prefix (e.g. sk-, pk_), key length 8-128 characters, character sets (hex/alpha/alphanumeric/full), batch generate 1-50 keys. One-click copy and TXT export. <strong>100% client-side</strong> — keys never leave your browser.</p>
+  <span class="badge">CSPRNG · Zero Dependencies · Works Offline</span>
+</div>
+
+<div style="text-align:center;font-size:.8rem;color:#64748b;margin-bottom:16px">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-08-02
+  </span>
+</div>
+
+<div class="section">
+  <h2>⚙️ Key Configuration</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Key Length</label>
+      <input type="number" id="keyLen" min="8" max="128" value="48">
+    </div>
+    <div class="form-group">
+      <label>Number of Keys</label>
+      <input type="number" id="keyCount" min="1" max="50" value="5">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Prefix (optional, e.g. sk-, pk_live_)</label>
+      <input type="text" id="keyPrefix" placeholder="sk-" maxlength="20">
+    </div>
+    <div class="form-group">
+      <label>Character Set</label>
+      <select id="keyCharset">
+        <option value="hex">Hexadecimal (0-9, A-F) — UUID style</option>
+        <option value="alpha">Letters only (A-Z, a-z) — readable</option>
+        <option value="alphanum" selected>Alphanumeric — recommended</option>
+        <option value="full">Full charset (with !@#$%^&*) — max security</option>
+      </select>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="generateKeys()">🎲 Generate Keys</button>
+    <button class="btn btn-secondary" onclick="copyAllKeys()">📋 Copy All</button>
+    <button class="btn btn-success" onclick="downloadKeys()">💾 Download TXT</button>
+  </div>
+
+  <div id="statsArea" style="display:none">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Keys</div>
+        <div class="stat-value" id="statCount">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Length</div>
+        <div class="stat-value" id="statLen">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Charset Size</div>
+        <div class="stat-value" id="statCharsetSize">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Entropy</div>
+        <div class="stat-value" id="statEntropy">-</div>
+      </div>
+    </div>
+    <div id="strengthBar" class="strength-bar"><div class="fill"></div></div>
+    <div style="text-align:center;color:#94a3b8;font-size:.8rem;margin-top:4px" id="strengthLabel"></div>
+  </div>
+
+  <div class="key-list" id="keyList"></div>
+</div>
+
+<div class="section">
+  <h2>📋 FAQ</h2>
+  <div class="faq-item">
+    <h3>What is an API key and what is it used for?</h3>
+    <p>An API key is a unique identifier used to authenticate and authorize applications calling API interfaces. It acts as a digital key controlling access to API resources. Common uses include OpenAI API (ChatGPT), Stripe payments, Google Maps, AWS cloud services, and Twilio messaging.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Are the generated API keys secure?</h3>
+    <p>Absolutely. This tool uses the browser's built-in <strong>crypto.getRandomValues()</strong> CSPRNG for true cryptographic randomness — not Math.random(). All generation happens locally in your browser. Keys <strong>never travel over the network</strong> or get uploaded to any server. You can disconnect from the internet and it still works.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Which character set should I choose?</h3>
+    <p><strong>Alphanumeric</strong> (default) works for most APIs like OpenAI's sk- format. <strong>Hexadecimal</strong> is best for UUID-style compatibility or legacy systems. <strong>Letters-only</strong> is easiest to read and type manually. <strong>Full charset</strong> (with special characters) offers maximum security but some APIs may not support special characters. When in doubt, use the default alphanumeric.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What key length is recommended?</h3>
+    <p><strong>32+ characters</strong> is recommended. OpenAI uses sk- prefix + 48 chars, Stripe uses sk_live_ + 24 chars, GitHub uses ghp_ + 40 chars. For high-security scenarios (payment gateways), 64-128 chars is advised. Longer keys are more secure, but ensure your target API accepts the length.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the prefix for?</h3>
+    <p>Prefixes help identify key types at a glance: <strong>sk-</strong> for Secret Keys (never share publicly), <strong>pk-</strong> for Public Keys, <strong>sk_live_</strong> for production environment keys. Prefixes don't affect security but significantly improve key management and rotation workflows.</p>
+  </div>
+</div>
+
+<div class="seo-content">
+  <h2>How to Use the API Key Generator</h2>
+  <ol style="padding-left:20px;margin-top:12px">
+    <li><strong>Configure Parameters</strong><br><span style="color:#94a3b8">Set key length (8-128), number of keys (1-50), optional prefix (e.g. sk-), and character set. All parameters take effect instantly.</span></li>
+    <li><strong>Click Generate</strong><br><span style="color:#94a3b8">Click "Generate Keys" — the tool uses crypto.getRandomValues CSPRNG to create keys locally in your browser. No server round-trip needed.</span></li>
+    <li><strong>Copy or Export</strong><br><span style="color:#94a3b8">Click the copy button next to any key, use "Copy All" for batch copying, or "Download TXT" to save all keys as a text file. Unlimited generations with no restrictions.</span></li>
+  </ol>
+</div>
+
+<div class="related-tools">
+  <h2>🔗 Related Tools</h2>
+  <a href="../../en/password-generator/">🔐 Password Generator</a>
+  <a href="../../en/uuid-generator/">🆔 UUID Generator</a>
+  <a href="../../en/random-string-generator/">🎲 Random String Generator</a>
+  <a href="../../en/hash-generator/">#️⃣ Hash Generator</a>
+  <a href="../../en/base64-encode/">📝 Base64 Encoder</a>
+  <a href="../../en/jwt-generator/">🎫 JWT Generator</a>
+</div>
+</main>
+<footer class="footer-links">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#tools">All Tools</a>
+  <a href="../contact/">Contact</a>
+  <a href="../privacy/">Privacy</a>
+  <a href="../terms/">Terms</a>
+  <a href="../about/">About</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+  <p style="margin-top:12px">API Key Generator | No Signup · Keys Never Leave Your Browser</p>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+let currentKeys = [];
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+
+function getCharset(type) {
+  switch(type) {
+    case 'hex': return '0123456789ABCDEF';
+    case 'alpha': return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    case 'alphanum': return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    case 'full': return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+    default: return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  }
+}
+
+function generateSecureRandom(length, charset) {
+  const chars = getCharset(charset);
+  const arr = new Uint32Array(length);
+  crypto.getRandomValues(arr);
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += chars[arr[i] % chars.length];
+  }
+  return result;
+}
+
+function calculateEntropy(len, charsetSize) {
+  return Math.round(len * Math.log2(charsetSize));
+}
+
+function getStrengthLevel(entropy) {
+  if (entropy >= 256) return 'very-strong';
+  if (entropy >= 128) return 'strong';
+  if (entropy >= 64) return 'medium';
+  return 'weak';
+}
+
+function getStrengthLabel(entropy) {
+  if (entropy >= 256) return '🔒 Very Strong — Quantum-resistant';
+  if (entropy >= 128) return '🔒 Strong — Billions of years to brute-force';
+  if (entropy >= 64) return '⚠️ Medium — Centuries with modern hardware';
+  return '⚠️ Weak — Consider increasing length or charset';
+}
+
+function generateKeys() {
+  const len = Math.max(8, Math.min(128, parseInt(document.getElementById('keyLen').value) || 48));
+  const count = Math.max(1, Math.min(50, parseInt(document.getElementById('keyCount').value) || 5));
+  const prefix = document.getElementById('keyPrefix').value.trim();
+  const charset = document.getElementById('keyCharset').value;
+  
+  document.getElementById('keyLen').value = len;
+  document.getElementById('keyCount').value = count;
+  
+  currentKeys = [];
+  for (let i = 0; i < count; i++) {
+    currentKeys.push(prefix + generateSecureRandom(len, charset));
+  }
+  
+  renderKeys(currentKeys, charset);
+  updateStats(len, count, charset);
+  
+  const charsetType = document.getElementById('keyCharset').options[document.getElementById('keyCharset').selectedIndex].text.split(' —')[0];
+  showToast('✅ Generated ' + count + ' ' + charsetType + ' keys (' + len + ' chars)');
+}
+
+function renderKeys(keys, charset) {
+  const list = document.getElementById('keyList');
+  const cssClass = charset === 'hex' ? 'hex' : charset === 'alpha' ? 'alpha' : charset === 'full' ? 'full' : '';
+  
+  let html = '';
+  keys.forEach(function(key, i) {
+    html += '<div class="key-item">' +
+      '<span class="key-text' + (cssClass ? ' ' + cssClass : '') + '" id="key-' + i + '">' + escapeHtml(key) + '</span>' +
+      '<div class="key-actions">' +
+        '<button class="btn btn-primary btn-sm" onclick="copyKey(' + i + ')">📋 Copy</button>' +
+      '</div>' +
+    '</div>';
+  });
+  list.innerHTML = html;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function updateStats(len, count, charset) {
+  const area = document.getElementById('statsArea');
+  area.style.display = 'block';
+  
+  document.getElementById('statCount').textContent = count;
+  document.getElementById('statLen').textContent = len + ' chars';
+  
+  const charsetSize = getCharset(charset).length;
+  document.getElementById('statCharsetSize').textContent = charsetSize + ' chars';
+  
+  const entropy = calculateEntropy(len, charsetSize);
+  document.getElementById('statEntropy').textContent = entropy + ' bits';
+  
+  const bar = document.getElementById('strengthBar');
+  const level = getStrengthLevel(entropy);
+  bar.className = 'strength-bar strength-' + level;
+  
+  document.getElementById('strengthLabel').textContent = getStrengthLabel(entropy);
+}
+
+function copyKey(index) {
+  const key = currentKeys[index];
+  if (!key) return;
+  navigator.clipboard.writeText(key).then(function() {
+    showToast('📋 Copied key #' + (index + 1));
+  }).catch(function() {
+    showToast('❌ Copy failed — select and copy manually');
+  });
+}
+
+function copyAllKeys() {
+  if (currentKeys.length === 0) {
+    showToast('⚠️ Generate keys first');
+    return;
+  }
+  const text = currentKeys.join('\n');
+  navigator.clipboard.writeText(text).then(function() {
+    showToast('📋 Copied ' + currentKeys.length + ' keys');
+  }).catch(function() {
+    showToast('❌ Copy failed');
+  });
+}
+
+function downloadKeys() {
+  if (currentKeys.length === 0) {
+    showToast('⚠️ Generate keys first');
+    return;
+  }
+  const text = currentKeys.join('\n');
+  const blob = new Blob([text], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'api-keys-' + new Date().toISOString().slice(0,10) + '.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('💾 Downloaded ' + currentKeys.length + ' keys');
+}
+
+// Auto-generate on load
+generateKeys();
+</script>
+</body>
+</html>

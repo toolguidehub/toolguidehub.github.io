@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motto Generator - Inspirational Quotes Online</title>
+<meta name="description" content="Generate random inspirational quotes and life mottos to use as a personal tagline or a bit of daily motivation.">
+<meta property="og:title" content="Motto Generator - Inspirational Quotes Online">
+<meta property="og:description" content="Generate random inspirational quotes and life mottos to use as a personal tagline or a bit of daily motivation.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/motto-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/motto-generator/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/motto-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Motto Generator","url":"https://adi63586.github.io/Toolguidehub/en/motto-generator/","description":"Free online motto generator - randomly generate inspirational quotes and life mottos","applicationCategory":"LifestyleApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Motto Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Motto Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Motto Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Motto Generator and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Motto Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Motto Generator","description":"Step-by-step guide for using Motto Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Motto Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>
+:root{--primary:#4F46E5;--primary-light:#6366f1;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+header{text-align:center;margin-bottom:32px}
+header h1{font-size:1.8rem;color:#e2e8f0;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+header .subtitle{color:var(--text-secondary);font-size:.95rem}
+.main-card{background:var(--card-bg);border-radius:var(--radius);padding:32px 24px;box-shadow:var(--shadow-lg);text-align:center;margin-bottom:24px;border:1px solid var(--border)}
+.motto-display{min-height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative}
+.motto-text{font-size:1.5rem;line-height:1.8;color:#e2e8f0;font-weight:500;transition:all .3s;padding:0 16px}
+.motto-text.en{font-style:italic;font-size:1.35rem}
+.motto-author{color:var(--text-secondary);font-size:.9rem;margin-top:8px;font-style:italic}
+.motto-category{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.75rem;background:rgba(79,70,229,.1);color:var(--primary);margin-bottom:12px}
+.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:10px 24px;border-radius:var(--radius-sm);font-size:.95rem;cursor:pointer;border:none;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-light);transform:translateY(-1px);box-shadow:0 4px 12px rgba(79,70,229,.3)}
+.btn-outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary)}
+.btn-outline:hover{background:rgba(79,70,229,.05)}
+.btn-sm{padding:6px 14px;font-size:.82rem}
+.category-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.cat-chip{padding:6px 16px;border-radius:20px;font-size:.82rem;cursor:pointer;background:var(--bg);color:var(--text-secondary);border:1px solid var(--border);transition:all .2s;white-space:nowrap}
+.cat-chip:hover{background:rgba(79,70,229,.08);color:var(--primary);border-color:rgba(79,70,229,.2)}
+.cat-chip.active{background:rgba(79,70,229,.12);color:var(--primary);border-color:rgba(79,70,229,.3);font-weight:500}
+.history-section{margin-top:24px}
+.history-title{font-size:.9rem;color:var(--text-secondary);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.history-list{display:flex;flex-direction:column;gap:8px}
+.history-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg);border-radius:var(--radius-sm);font-size:.88rem}
+.history-item .text{flex:1;margin-right:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.history-item .copy-btn{padding:4px 10px;font-size:.75rem;cursor:pointer;background:rgba(79,70,229,.08);color:var(--primary);border:1px solid rgba(79,70,229,.15);border-radius:4px;transition:all .2s}
+.history-item .copy-btn:hover{background:rgba(79,70,229,.15)}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 20px;border-radius:8px;font-size:.88rem;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.success{background:#059669}
+footer{text-align:center;padding:24px;color:var(--text-secondary);font-size:.85rem}
+footer a{color:var(--primary);text-decoration:none}
+@media(max-width:640px){
+  header h1{font-size:1.4rem}
+  .motto-text{font-size:1.2rem}
+  .motto-text.en{font-size:1.1rem}
+  .main-card{padding:24px 16px}
+  .controls{gap:8px}
+  .btn{padding:8px 16px;font-size:.88rem}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <header>
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+    <h1>💎 Motto Generator</h1>
+    
+    </div>
+    <p class="subtitle">Randomly generate inspirational quotes & life mottos</p>
+  </header>
+
+  <div class="main-card">
+    <div class="category-tabs" id="catTabs">
+      <span class="cat-chip active" data-cat="all">All</span>
+      <span class="cat-chip" data-cat="inspiration">Inspiration</span>
+      <span class="cat-chip" data-cat="life">Life</span>
+      <span class="cat-chip" data-cat="success">Success</span>
+      <span class="cat-chip" data-cat="wisdom">Wisdom</span>
+      <span class="cat-chip" data-cat="english">English</span>
+    </div>
+    <div class="motto-display">
+      <div>
+        <span class="motto-category" id="mottoCat">Inspiration</span>
+        <div class="motto-text en" id="mottoText">The only way to do great work is to love what you do.</div>
+        <div class="motto-author" id="mottoAuthor">— Steve Jobs</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn btn-primary" id="btnGenerate">🎲 Generate</button>
+      <button class="btn btn-outline" id="btnCopy">📋 Copy</button>
+      <button class="btn btn-outline btn-sm" id="btnShare">🔗 Share</button>
+    </div>
+  </div>
+
+  <div class="history-section" id="historySection" style="display:none">
+    <div class="history-title">📜 History <span style="font-weight:400;font-size:.8rem">(last 10)</span></div>
+    <div class="history-list" id="historyList"></div>
+  </div>
+<h2>What is 💎 Motto Generator?</h2><p>💎 Motto Generator is a free online tool that runs entirely in your browser. No software installation, no account registration, just open the page and start using it. All input data is processed locally and never uploaded to any server, ensuring complete privacy. Whether you're a student, writer, or looking for daily inspiration, you can get started in seconds.</p><h2>Use Cases</h2><ul><li>Find daily inspiration for personal motivation and goal setting</li><li>Generate quotes for presentations, speeches, or social media posts</li><li>Discover wisdom from famous thinkers across different categories</li><li>Share motivational content with friends and colleagues</li></ul><h2>Key Features</h2><ul><li><strong>Multiple Categories</strong>: Inspiration, Life, Success, Wisdom, and Chinese proverbs</li><li><strong>History Tracking</strong>: Keeps your last 10 generated mottos</li><li><strong>One-Click Copy</strong>: Copy any motto to clipboard instantly</li><li><strong>Share Support</strong>: Share mottos via native share or clipboard</li></ul><h3>Is 💎 Motto Generator accurate?</h3><p>Yes, all quotes are sourced from well-known authors and verified for accuracy.</p><h3>Do I need internet to use 💎 Motto Generator?</h3><p>You need internet to load the page initially. Once loaded, the tool works offline.</p><h3>Is my data recorded?</h3><p>No. This tool has no backend server. All data exists only in your browser's memory.</p>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/motto-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var mottoes = {
+  inspiration: [
+    {zh:"The only way to do great work is to love what you do.",author:"Steve Jobs"},
+    {zh:"Stay hungry, stay foolish.",author:"Steve Jobs"},
+    {zh:"In the middle of difficulty lies opportunity.",author:"Albert Einstein"},
+    {zh:"Imagination is more important than knowledge.",author:"Albert Einstein"},
+    {zh:"Be the change that you wish to see in the world.",author:"Mahatma Gandhi"},
+    {zh:"The best way to predict the future is to create it.",author:"Peter Drucker"},
+    {zh:"It does not matter how slowly you go as long as you do not stop.",author:"Confucius"},
+    {zh:"Believe you can and you're halfway there.",author:"Theodore Roosevelt"},
+    {zh:"The only impossible journey is the one you never begin.",author:"Tony Robbins"},
+    {zh:"What lies behind us and what lies before us are tiny matters compared to what lies within us.",author:"Ralph Waldo Emerson"},
+    {zh:"Success is not final, failure is not fatal: it is the courage to continue that counts.",author:"Winston Churchill"},
+    {zh:"Don't watch the clock; do what it does. Keep going.",author:"Sam Levenson"},
+    {zh:"Act as if what you do makes a difference. It does.",author:"William James"},
+    {zh:"Everything you've ever wanted is on the other side of fear.",author:"George Addair"},
+    {zh:"The future belongs to those who believe in the beauty of their dreams.",author:"Eleanor Roosevelt"},
+  ],
+  life: [
+    {zh:"Life is what happens when you're busy making other plans.",author:"John Lennon"},
+    {zh:"The purpose of our lives is to be happy.",author:"Dalai Lama"},
+    {zh:"Get busy living or get busy dying.",author:"Stephen King"},
+    {zh:"You only live once, but if you do it right, once is enough.",author:"Mae West"},
+    {zh:"Life is either a daring adventure or nothing at all.",author:"Helen Keller"},
+    {zh:"In the end, it's not the years in your life that count. It's the life in your years.",author:"Abraham Lincoln"},
+    {zh:"The biggest adventure you can take is to live the life of your dreams.",author:"Oprah Winfrey"},
+    {zh:"Life is really simple, but we insist on making it complicated.",author:"Confucius"},
+    {zh:"The unexamined life is not worth living.",author:"Socrates"},
+    {zh:"Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",author:"Buddha"},
+    {zh:"Happiness is not something ready made. It comes from your own actions.",author:"Dalai Lama"},
+    {zh:"The good life is one inspired by love and guided by knowledge.",author:"Bertrand Russell"},
+    {zh:"To live is the rarest thing in the world. Most people exist, that is all.",author:"Oscar Wilde"},
+    {zh:"Life shrinks or expands in proportion to one's courage.",author:"Anaïs Nin"},
+    {zh:"We do not remember days, we remember moments.",author:"Cesare Pavese"},
+  ],
+  success: [
+    {zh:"Success is not final, failure is not fatal: it is the courage to continue that counts.",author:"Winston Churchill"},
+    {zh:"The secret of success is to do the common thing uncommonly well.",author:"John D. Rockefeller"},
+    {zh:"Success usually comes to those who are too busy to be looking for it.",author:"Henry David Thoreau"},
+    {zh:"Don't be afraid to give up the good to go for the great.",author:"John D. Rockefeller"},
+    {zh:"I find that the harder I work, the more luck I seem to have.",author:"Thomas Jefferson"},
+    {zh:"Success is walking from failure to failure with no loss of enthusiasm.",author:"Winston Churchill"},
+    {zh:"The way to get started is to quit talking and begin doing.",author:"Walt Disney"},
+    {zh:"If you really look closely, most overnight successes took a long time.",author:"Steve Jobs"},
+    {zh:"The only place where success comes before work is in the dictionary.",author:"Vidal Sassoon"},
+    {zh:"There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",author:"Colin Powell"},
+    {zh:"Success is not how high you have climbed, but how you make a positive difference to the world.",author:"Roy T. Bennett"},
+    {zh:"Try not to become a man of success. Rather become a man of value.",author:"Albert Einstein"},
+    {zh:"Action is the foundational key to all success.",author:"Pablo Picasso"},
+    {zh:"The difference between who you are and who you want to be is what you do.",author:"Unknown"},
+    {zh:"Opportunities don't happen. You create them.",author:"Chris Grosser"},
+  ],
+  wisdom: [
+    {zh:"The only true wisdom is in knowing you know nothing.",author:"Socrates"},
+    {zh:"Knowing yourself is the beginning of all wisdom.",author:"Aristotle"},
+    {zh:"The fool doth think he is wise, but the wise man knows himself to be a fool.",author:"William Shakespeare"},
+    {zh:"It is not that I'm so smart. But I stay with the questions much longer.",author:"Albert Einstein"},
+    {zh:"The journey of a thousand miles begins with one step.",author:"Lao Tzu"},
+    {zh:"By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest.",author:"Confucius"},
+    {zh:"Turn your wounds into wisdom.",author:"Oprah Winfrey"},
+    {zh:"Knowledge speaks, but wisdom listens.",author:"Jimi Hendrix"},
+    {zh:"The only way to make sense out of change is to plunge into it, move with it, and join the dance.",author:"Alan Watts"},
+    {zh:"Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.",author:"Rumi"},
+    {zh:"Wisdom is not a product of schooling but of the lifelong attempt to acquire it.",author:"Albert Einstein"},
+    {zh:"The art of being wise is the art of knowing what to overlook.",author:"William James"},
+    {zh:"It is better to remain silent at the risk of being thought a fool, than to talk and remove all doubt of it.",author:"Maurice Switzer"},
+    {zh:"Honesty is the first chapter in the book of wisdom.",author:"Thomas Jefferson"},
+    {zh:"We are made wise not by the recollection of our past, but by the responsibility for our future.",author:"George Bernard Shaw"},
+  ],
+  english: [
+    {zh:"Hard work pays off，Great virtue carries all things",author:"Chinese Proverb"},
+    {zh:"Heaven moves with vigor，A gentleman strives continuously",author:"I Ching"},
+    {zh:"A journey of a thousand miles begins with a single step",author:"Lao Tzu"},
+    {zh:"Know yourself and your opponent，Know yourself, know your enemy",author:"Sun Tzu"},
+    {zh:"Learning without thinking is useless; thinking without learning is dangerous",author:"Confucius"},
+    {zh:"Among any three people, there must be a teacher for me",author:"Confucius"},
+    {zh:"Do not impose on others what you would not wish for yourself",author:"Confucius"},
+    {zh:"The sea admits a hundred rivers; greatness comes from tolerance",author:"Chinese Proverb"},
+    {zh:"A sharp sword comes from grinding，Plum blossoms bloom in bitter cold",author:"Chinese Proverb"},
+    {zh:"Nothing is difficult if you dare to climb",author:"Mao Zedong"},
+    {zh:"Beyond the mountains, a new path appears，A new village appears beyond the willows",author:"Lu You"},
+    {zh:"The clear stream flows because of its living source",author:"Zhu Xi"},
+    {zh:"Every talent has its use",author:"Li Bai"},
+    {zh:"Neither rejoice in material gains nor grieve over personal setbacks",author:"Fan Zhongyan"},
+    {zh:"Unity of knowledge and action",author:"Wang Yangming"},
+  ]
+};
+
+var currentCategory = 'all';
+var history = [];
+var MAX_HISTORY = 10;
+
+function getRandomMotto(cat){
+  if(cat === 'all'){
+    var all = [];
+    Object.keys(mottoes).forEach(function(k){all = all.concat(mottoes[k])});
+    return all[Math.floor(Math.random()*all.length)];
+  }
+  var list = mottoes[cat];
+  return list[Math.floor(Math.random()*list.length)];
+}
+
+function getCategoryName(cat){
+  var map = {all:'All',inspiration:'Inspiration',life:'Life',success:'Success',wisdom:'Wisdom',english:'Chinese Wisdom'};
+  return map[cat] || cat;
+}
+
+function displayMotto(motto, cat){
+  document.getElementById('mottoText').textContent = motto.zh;
+  document.getElementById('mottoText').className = 'motto-text en';
+  document.getElementById('mottoAuthor').textContent = '— ' + (motto.author || 'Unknown');
+  document.getElementById('mottoCat').textContent = getCategoryName(cat);
+}
+
+function addHistory(motto, cat){
+  var entry = {text:motto.zh, author:motto.author, cat:cat, time:new Date().toLocaleTimeString()};
+  history.unshift(entry);
+  if(history.length > MAX_HISTORY) history.pop();
+  renderHistory();
+}
+
+function renderHistory(){
+  var section = document.getElementById('historySection');
+  var list = document.getElementById('historyList');
+  if(history.length === 0){
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  var html = '';
+  history.forEach(function(h,i){
+    html += '<div class="history-item">';
+    html += '<span class="text">'+h.text+'</span>';
+    html += '<button class="copy-btn" onclick="copyHistory('+i+')">Copy</button>';
+    html += '</div>';
+  });
+  list.innerHTML = html;
+}
+
+function generateMotto(){
+  var motto = getRandomMotto(currentCategory);
+  displayMotto(motto, currentCategory);
+  addHistory(motto, currentCategory);
+  var el = document.getElementById('mottoText');
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(10px)';
+  setTimeout(function(){
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+  },50);
+}
+
+function showToast(msg, type){
+  var toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast show' + (type ? ' '+type : '');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(function(){toast.className='toast'},2000);
+}
+
+function copyHistory(i){
+  var entry = history[i];
+  var text = entry.text + (entry.author ? ' — '+entry.author : '');
+  copyToClipboard(text);
+}
+
+function copyToClipboard(text){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(function(){showToast('Copied!','success')});
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('Copied!','success');
+  }
+}
+
+document.getElementById('btnGenerate').addEventListener('click', generateMotto);
+document.getElementById('btnCopy').addEventListener('click', function(){
+  var text = document.getElementById('mottoText').textContent;
+  var author = document.getElementById('mottoAuthor').textContent.replace('— ','');
+  copyToClipboard(text + (author ? ' — '+author : ''));
+});
+document.getElementById('btnShare').addEventListener('click', function(){
+  var text = document.getElementById('mottoText').textContent;
+  var author = document.getElementById('mottoAuthor').textContent.replace('— ','');
+  var shareText = '💎 '+text + (author ? ' — '+author : '') + '\n\n— via ToolGuideHub Motto Generator';
+  if(navigator.share){
+    navigator.share({title:'Motto',text:shareText}).catch(function(){});
+  } else {
+    copyToClipboard(shareText);
+    showToast('Share text copied!','success');
+  }
+});
+document.getElementById('catTabs').addEventListener('click', function(e){
+  if(e.target.classList.contains('cat-chip')){
+    var chips = document.querySelectorAll('.cat-chip');
+    chips.forEach(function(c){c.classList.remove('active')});
+    e.target.classList.add('active');
+    currentCategory = e.target.dataset.cat;
+    generateMotto();
+  }
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === ' ' && e.target === document.body){
+    e.preventDefault();
+    generateMotto();
+  }
+});
+
+generateMotto();
+</script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convert between litres, millilitres, gallons, fluid ounces, cups, pints, barrels and cubic units, with a quick reference table.">
+<title>Free Volume Converter - Online Volume Unit Conversion Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/volume-converter/">
+<meta property="og:title" content="Volume Converter - Free Online Volume Unit Conversion Tool">
+<meta property="og:description" content="Convert between litres, millilitres, gallons, fluid ounces, cups, pints, barrels and cubic units, with a quick reference table.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/volume-converter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Volume Converter", "description": "Free online volume unit converter supporting liters, milliliters, gallons, fluid ounces, cups, pints, quarts, barrels, cubic meters and more. Pure frontend conversion, no data uploaded.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How many liters in a gallon?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many liters in a gallon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 US gallon equals 3.78541 liters, and 1 UK (imperial) gallon equals 4.54609 liters. This tool supports both US and UK gallons — make sure to select the correct type. US gallons are used in the United States, while UK gallons are used in the UK and parts of Canada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many milliliters in a fluid ounce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 US fluid ounce (fl oz) equals 29.5735 milliliters (ml). 1 UK fluid ounce equals 28.4131 milliliters. Note that ounces can be both a weight and volume unit — this tool uses fluid ounces (fl oz) specifically for liquid volume measurement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many liters in a cubic meter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 cubic meter (m³) equals 1000 liters (L). The full conversion: 1 m³ = 1000 cubic decimeters = 1,000,000 cubic centimeters = 1000 liters. Cubic meters are the standard SI unit for volume used in construction, engineering, and water management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many liters in a barrel of oil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 standard oil barrel (bbl) equals 158.987 liters (42 US gallons). This is the standard unit for international crude oil trading. In everyday terms, 1 barrel ≈ 159 liters. Note that oil barrels differ from regular liquid barrels in capacity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to convert cups to milliliters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 US cup equals 236.588 milliliters (ml). The UK cup equals 284.131 milliliters. In cooking and baking, 1 cup is often rounded to 240 ml. Other common conversions: 1 cup = 8 fluid ounces, 1/2 cup = 4 oz, 1/4 cup = 2 oz. This tool provides exact conversions."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+select,input[type=number]{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.9rem;outline:none;font-family:inherit}
+select:focus,input:focus{border-color:rgba(6,182,212,.5)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;font-size:.95rem;min-height:60px;margin-top:12px;word-break:break-all}
+.result-box .result-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(148,163,184,.05)}
+.result-box .result-item:last-child{border-bottom:none}
+.result-box .result-label{color:#64748b;font-size:.85rem}
+.result-box .result-value{color:#22d3ee;font-family:monospace;font-size:.9rem;text-align:right}
+.convert-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:8px;align-items:center;margin-bottom:12px}
+.convert-grid .swap-btn{text-align:center;cursor:pointer;color:#22d3ee;font-size:1.5rem;transition:transform .2s}
+.convert-grid .swap-btn:hover{transform:rotate(180deg)}
+.conversion-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.85rem}
+.conversion-table th{text-align:left;padding:8px 6px;color:#64748b;border-bottom:1px solid rgba(148,163,184,.1);font-weight:400}
+.conversion-table td{padding:6px;color:#94a3b8;border-bottom:1px solid rgba(148,163,184,.05)}
+.conversion-table td:last-child{color:#22d3ee;font-family:monospace;text-align:right}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{color:#94a3b8;font-size:.9rem;margin:8px 0 8px 20px}
+.info-section li{margin-bottom:4px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:600px){.convert-grid{grid-template-columns:1fr 30px 1fr}.header{flex-direction:column;gap:12px}.header h1{font-size:1.3rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Volume Converter - Online Volume Unit Conversion Tool", "item": "https://adi63586.github.io/Toolguidehub/en/volume-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Volume Converter","description":"Step-by-step guide for using Volume Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Volume Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/volume-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>Volume Converter</h1>
+
+</div>
+<div class="nav-back"><a href="../index.html">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+<div class="tool-section">
+<h2>🧊 Volume/Capacity Unit Converter</h2>
+<div class="convert-grid">
+<select id="from-unit" onchange="convert()">
+<option value="liter">Liter (L)</option>
+<option value="milliliter">Milliliter (mL)</option>
+<option value="cubic-meter">Cubic Meter (m³)</option>
+<option value="cubic-cm">Cubic Centimeter (cm³)</option>
+<option value="cubic-mm">Cubic Millimeter (mm³)</option>
+<option value="cubic-foot">Cubic Foot (ft³)</option>
+<option value="cubic-inch">Cubic Inch (in³)</option>
+<option value="cubic-yard">Cubic Yard (yd³)</option>
+<option value="gallon-us">US Gallon (gal)</option>
+<option value="gallon-uk">UK Gallon (imp gal)</option>
+<option value="quart-us">US Quart (qt)</option>
+<option value="pint-us">US Pint (pt)</option>
+<option value="cup-us">US Cup (cup)</option>
+<option value="fl-oz-us">US Fluid Ounce (fl oz)</option>
+<option value="fl-oz-uk">UK Fluid Ounce (imp fl oz)</option>
+<option value="barrel">Oil Barrel (bbl)</option>
+<option value="tablespoon">Tablespoon (tbsp)</option>
+<option value="teaspoon">Teaspoon (tsp)</option>
+</select>
+<div class="swap-btn" onclick="swapUnits()">⇄</div>
+<select id="to-unit" onchange="convert()">
+<option value="liter" selected>Liter (L)</option>
+<option value="milliliter">Milliliter (mL)</option>
+<option value="cubic-meter">Cubic Meter (m³)</option>
+<option value="cubic-cm">Cubic Centimeter (cm³)</option>
+<option value="cubic-mm">Cubic Millimeter (mm³)</option>
+<option value="cubic-foot">Cubic Foot (ft³)</option>
+<option value="cubic-inch">Cubic Inch (in³)</option>
+<option value="cubic-yard">Cubic Yard (yd³)</option>
+<option value="gallon-us">US Gallon (gal)</option>
+<option value="gallon-uk">UK Gallon (imp gal)</option>
+<option value="quart-us">US Quart (qt)</option>
+<option value="pint-us">US Pint (pt)</option>
+<option value="cup-us">US Cup (cup)</option>
+<option value="fl-oz-us">US Fluid Ounce (fl oz)</option>
+<option value="fl-oz-uk">UK Fluid Ounce (imp fl oz)</option>
+<option value="barrel">Oil Barrel (bbl)</option>
+<option value="tablespoon">Tablespoon (tbsp)</option>
+<option value="teaspoon">Teaspoon (tsp)</option>
+</select>
+</div>
+<input type="number" id="input-value" value="1" step="any" oninput="convert()" placeholder="Enter value">
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="document.getElementById('input-value').value=1;convert()">Reset</button>
+<button class="btn btn-success" onclick="copyResult()">📋 Copy Result</button>
+</div>
+<div class="result-box" id="result-display">
+<div class="result-item"><span class="result-label">Input:</span><span class="result-value" id="from-display">1 Liter</span></div>
+<div class="result-item"><span class="result-label">Result:</span><span class="result-value" id="to-display">1 Liter</span></div>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📊 Common Volume Unit Conversion Table</h2>
+<table class="conversion-table" id="conversion-table">
+<thead><tr><th>Unit</th><th>Equals (liters)</th></tr></thead>
+<tbody id="conversion-tbody"></tbody>
+</table>
+</div>
+
+<script>
+const UNITS = {
+  'milliliter': {name:'mL', toL: v=>v/1000, fromL: v=>v*1000},
+  'liter': {name:'L', toL: v=>v, fromL: v=>v},
+  'cubic-meter': {name:'m³', toL: v=>v*1000, fromL: v=>v/1000},
+  'cubic-cm': {name:'cm³', toL: v=>v/1000, fromL: v=>v*1000},
+  'cubic-mm': {name:'mm³', toL: v=>v/1e6, fromL: v=>v*1e6},
+  'cubic-foot': {name:'ft³', toL: v=>v*28.316846592, fromL: v=>v/28.316846592},
+  'cubic-inch': {name:'in³', toL: v=>v*0.016387064, fromL: v=>v/0.016387064},
+  'cubic-yard': {name:'yd³', toL: v=>v*764.554857984, fromL: v=>v/764.554857984},
+  'gallon-us': {name:'US gal', toL: v=>v*3.785411784, fromL: v=>v/3.785411784},
+  'gallon-uk': {name:'UK gal', toL: v=>v*4.54609, fromL: v=>v/4.54609},
+  'quart-us': {name:'US qt', toL: v=>v*0.946352946, fromL: v=>v/0.946352946},
+  'pint-us': {name:'US pt', toL: v=>v*0.473176473, fromL: v=>v/0.473176473},
+  'cup-us': {name:'US cup', toL: v=>v*0.2365882365, fromL: v=>v/0.2365882365},
+  'fl-oz-us': {name:'US fl oz', toL: v=>v*0.0295735295625, fromL: v=>v/0.0295735295625},
+  'fl-oz-uk': {name:'UK fl oz', toL: v=>v*0.0284130625, fromL: v=>v/0.0284130625},
+  'barrel': {name:'bbl', toL: v=>v*158.987294928, fromL: v=>v/158.987294928},
+  'tablespoon': {name:'tbsp', toL: v=>v*0.01478676484375, fromL: v=>v/0.01478676484375},
+  'teaspoon': {name:'tsp', toL: v=>v*0.00492892159375, fromL: v=>v/0.00492892159375}
+};
+function formatNum(n){if(Math.abs(n)>1e9)return n.toExponential(6);if(Math.abs(n)<1e-6&&n!==0)return n.toExponential(6);return Number(n.toFixed(10)).toString();}
+function convert(){
+  const from=document.getElementById('from-unit').value;
+  const to=document.getElementById('to-unit').value;
+  const val=parseFloat(document.getElementById('input-value').value)||0;
+  const liters=UNITS[from].toL(val);
+  const result=UNITS[to].fromL(liters);
+  document.getElementById('from-display').textContent=formatNum(val)+' '+UNITS[from].name;
+  document.getElementById('to-display').textContent=formatNum(result)+' '+UNITS[to].name;
+}
+function swapUnits(){
+  const from=document.getElementById('from-unit');
+  const to=document.getElementById('to-unit');
+  const tmp=from.value;from.value=to.value;to.value=tmp;
+  convert();
+}
+function copyResult(){
+  const txt=document.getElementById('to-display').textContent;
+  navigator.clipboard.writeText(txt).then(()=>showToast('Copied: '+txt)).catch(()=>showToast('Copy failed'));
+}
+  const tbody=document.getElementById('conversion-tbody');
+  const ordered=['milliliter','liter','cubic-cm','cubic-meter','gallon-us','gallon-uk','quart-us','pint-us','cup-us','fl-oz-us','fl-oz-uk','barrel','cubic-foot','cubic-inch','cubic-yard','tablespoon','teaspoon'];
+  ordered.forEach(k=>{
+    const u=UNITS[k];const v=u.toL(1);
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+u.name+'</td><td>'+(k==='liter'?'1':formatNum(v))+'</td>';
+    tbody.appendChild(tr);
+  });</script>
+
+<!-- FAQ Section -->
+<div class="info-section">
+<h2>📖 Frequently Asked Questions</h2>
+<div class="faq-item"><h3>How many liters in a gallon?</h3><p>1 US gallon equals 3.78541 liters, and 1 UK (imperial) gallon equals 4.54609 liters. This tool supports both US and UK gallons — make sure to select the correct type. US gallons are used in the United States, while UK gallons are used in the UK and parts of Canada.</p></div>
+<div class="faq-item"><h3>How many milliliters in a fluid ounce?</h3><p>1 US fluid ounce (fl oz) equals 29.5735 milliliters (ml). 1 UK fluid ounce equals 28.4131 milliliters. Note that ounces can be both a weight and volume unit — this tool uses fluid ounces (fl oz) specifically for liquid volume measurement.</p></div>
+<div class="faq-item"><h3>How many liters in a cubic meter?</h3><p>1 cubic meter (m³) equals 1000 liters (L). The full conversion: 1 m³ = 1000 cubic decimeters = 1,000,000 cubic centimeters = 1000 liters. Cubic meters are the standard SI unit for volume used in construction, engineering, and water management.</p></div>
+<div class="faq-item"><h3>How many liters in a barrel of oil?</h3><p>1 standard oil barrel (bbl) equals 158.987 liters (42 US gallons). This is the standard unit for international crude oil trading. In everyday terms, 1 barrel ≈ 159 liters. Note that oil barrels differ from regular liquid barrels in capacity.</p></div>
+<div class="faq-item"><h3>How to convert cups to milliliters?</h3><p>1 US cup equals 236.588 milliliters (ml). The UK cup equals 284.131 milliliters. In cooking and baking, 1 cup is often rounded to 240 ml. Other common conversions: 1 cup = 8 fluid ounces, 1/2 cup = 4 oz, 1/4 cup = 2 oz. This tool provides exact conversions.</p></div>
+</div>
+
+<!-- Feedback Widget -->
+</main>
+
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/volume-converter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\\n**Type**: '+typeLabel+'\\n\\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+function showToast(msg){const t=document.getElementById('toast')||(()=>{const d=document.createElement('div');d.id='toast';d.className='toast';document.body.appendChild(d);return d;})();t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+</script>
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* 示例按钮 */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

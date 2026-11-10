@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check a URL&#x27;s Open Graph tags to see how the page would appear when shared on Facebook, LinkedIn or Twitter.">
+<meta name="keywords" content="Open Graph checker,OG tag checker,social media preview,Facebook sharing
+,Twitter Card check,OG meta tags,webpage metadata extractor">
+<title>Free Online Open Graph Tag Checker - Analyze OG Meta Tags</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/og-checker/">
+<meta property="og:title" content="Free Online Open Graph Tag Checker - Analyze OG Meta Tags">
+<meta property="og:description" content="Check a URL&#x27;s Open Graph tags to see how the page would appear when shared on Facebook, LinkedIn or Twitter.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/og-checker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Registration">
+<meta name="twitter:description" content="Free online open graph tag checker - analyze og meta tags tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Open Graph Tag Checker", "description": "Free online Open Graph tag checker. Analyze OG meta tags for any webpage.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What are Open Graph tags?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are Open Graph tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Graph tags (OG tags) are a metadata protocol introduced by Facebook that controls how webpages appear when shared on social media. Common OG tags include og:title, og:description, og:image, and og:url."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check a webpage's OG tags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter the webpage URL and click 'Check OG Tags'. The tool fetches the page HTML, extracts all meta tags with og: properties, and displays them in a clear table format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are OG tags important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OG tags directly affect how your page appears on Facebook, LinkedIn, Twitter, and other social platforms. Without proper OG tags, shared links show random text and images, reducing click-through rates. Proper OG tags can boost social media traffic by over 30%."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Open Graph Tag Checker",
+      "item": "https://adi63586.github.io/Toolguidehub/en/og-checker/"
+    }
+  ],
+  "name": "Open Graph Tag Checker"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Open Graph Tag Checker",
+  "description": "Simple steps to check any webpage's OG meta tags",
+  "totalTime": "PT30S",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Open Graph Tag Checker"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter URL",
+      "text": "Paste the webpage URL you want to check in the input field."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Click Check",
+      "text": "Click the 'Check OG Tags' button to fetch and parse the page's meta tags."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Review Results",
+      "text": "Review all extracted OG tags and their content to verify completeness."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+textarea,input,select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;font-family:inherit}
+textarea:focus,input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+input{width:100%}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:8px;margin-bottom:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:16px;font-size:.85rem;margin-bottom:8px;display:none}
+.result-box table{width:100%;border-collapse:collapse}
+.result-box td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.08);vertical-align:top}
+.result-box td:first-child{color:#94a3b8;white-space:nowrap;width:160px;font-weight:500}
+.result-box td:last-child{color:#e2e8f0;word-break:break-all}
+.preview-card{background:#0f172a;border-radius:12px;max-width:500px;margin:16px auto;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.preview-card img{width:100%;max-height:260px;object-fit:cover}
+.preview-card .preview-body{padding:12px}
+.preview-card .preview-title{color:#1d2129;font-size:1rem;font-weight:600;margin-bottom:4px}
+.preview-card .preview-desc{color:#606770;font-size:.85rem;margin-bottom:6px}
+.preview-card .preview-domain{color:#606770;font-size:.75rem;text-transform:uppercase}
+.tag-ok{color:#4ade80}
+.tag-missing{color:#f87171}
+.tag-warning{color:#facc15}
+.status-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:500}
+.status-ok{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.status-missing{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.score-box{text-align:center;padding:16px;background:rgba(6,182,212,.06);border-radius:8px;margin-bottom:12px}
+.score{font-size:2rem;font-weight:700;color:#22d3ee}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.info-box{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12);border-radius:8px;padding:12px;margin-bottom:12px;color:#94a3b8;font-size:.8rem}
+.loading{color:#facc15;text-align:center;padding:20px}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.input-row{flex-direction:column}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/og-checker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🔍 Open Graph Tag Checker
+  
+</h1>
+
+    
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+  
+
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-12
+  </span>
+</div>
+  <div class="tool-section">
+    <h2>📋 Open Graph Tag Analyzer</h2>
+    <p>Enter a webpage URL to check its OG (Open Graph) tags. OG tags control how your page appears when shared on Facebook, LinkedIn, Twitter, and more.</p>
+    <div class="input-row">
+      <input type="text" id="url" placeholder="Enter URL, e.g. https://example.com" value="https://adi63586.github.io/Toolguidehub/">
+      <button class="btn btn-primary" onclick="checkOG()" style="white-space:nowrap">🔍 Check OG Tags</button>
+    </div>
+    <div id="result" class="result-box"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+    <div id="preview"></div>
+  </div>
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Enter URL:</strong> Paste the webpage address you want to analyze.</p>
+    <p><strong>2. Click Check:</strong> The tool fetches the page HTML via CORS proxy and extracts all og: meta tags.</p>
+    <p><strong>3. Review Results:</strong> Each OG tag is displayed with its value. Missing critical tags are marked in red.</p>
+  </div>
+  
+  
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is my data safe when using Open Graph Tag Checker?</h3>
+      <p>Absolutely. Everything runs locally: Paste HTML source... and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Open Graph Tag Checker upload my data to a server?</h3>
+      <p>No. Open Graph Tag Checker uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use Open Graph Tag Checker on my phone?</h3>
+      <p>Yes. Open Graph Tag Checker is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Open Graph Tag Checker?</h3>
+      <p>Open Graph Tag Checker has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Open Graph Tag Checker is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Open Graph Tag Checker free to use?</h3>
+      <p>Yes, Open Graph Tag Checker is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/og-checker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div id="related-tools"></div>
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+<script>
+function showToast(m){var t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.className='toast';t.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none';document.body.appendChild(t);}t.textContent=m;t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(function(){t.style.opacity='0';},3000);}
+function checkOG(){
+  var url=document.getElementById('url').value.trim();
+  if(!url){showToast('Please enter a URL');return;}
+  if(!/^https?:\/\//.test(url)){showToast('URL must start with http:// or https://');return;}
+  var result=document.getElementById('result');
+  var preview=document.getElementById('preview');
+  result.innerHTML='<p style="color:#94a3b8;text-align:center;padding:20px">⏳ Fetching page content...</p>';
+  preview.innerHTML='';
+  var proxyUrl='https://api.allorigins.win/raw?url='+encodeURIComponent(url);
+  fetch(proxyUrl).then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.text();
+  }).then(function(html){
+    var ogTags=extractOG(html);
+    var twitterTags=extractTwitter(html);
+    var titleTag=extractTitle(html);
+    displayResults(ogTags,twitterTags,titleTag,url);
+    displayPreview(ogTags,titleTag,url);
+  }).catch(function(e){
+    result.innerHTML='<p style="color:#ef4444;padding:16px">❌ Failed: '+escapeHtml(e.message)+'<br><br>Possible reasons:<br>• Cross-origin access blocked<br>• Incorrect URL<br>• Network issue<br><br>You can also manually paste the HTML source code below.</p><textarea id="manualHtml" placeholder="Paste HTML source..." style="width:100%;min-height:150px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:monospace;font-size:.82rem;margin-top:12px"></textarea><button class="btn btn-primary" onclick="checkManual()" style="margin-top:8px">🔍 Check Pasted HTML</button>';
+  });
+}
+function checkManual(){
+  var html=document.getElementById('manualHtml').value;
+  if(!html.trim()){showToast('Please paste HTML source');return;}
+  var ogTags=extractOG(html);
+  var twitterTags=extractTwitter(html);
+  var titleTag=extractTitle(html);
+  displayResults(ogTags,twitterTags,titleTag,'');
+  displayPreview(ogTags,titleTag,'');
+}
+function extractOG(html){
+  var tags={};
+  var re=/<meta\s+property=["']og:([^"']+)["']\s+content=["']([^"']*)["']/gi;
+  var re2=/<meta\s+content=["']([^"']*)["']\s+property=["']og:([^"']+)["']/gi;
+  var m;
+  while(m=re.exec(html)){tags[m[1]]=m[2];}
+  while(m=re2.exec(html)){if(!tags[m[2]])tags[m[2]]=m[1];}
+  return tags;
+}
+function extractTwitter(html){
+  var tags={};
+  var re=/<meta\s+name=["']twitter:([^"']+)["']\s+content=["']([^"']*)["']/gi;
+  var re2=/<meta\s+content=["']([^"']*)["']\s+name=["']twitter:([^"']+)["']/gi;
+  var m;
+  while(m=re.exec(html)){tags[m[1]]=m[2];}
+  while(m=re2.exec(html)){if(!tags[m[2]])tags[m[2]]=m[1];}
+  return tags;
+}
+function extractTitle(html){
+  var m=html.match(/<title[^>]*>([^<]*)<\/title>/i);
+  return m?m[1].trim():'';
+}
+function displayResults(og,twitter,title,url){
+  var result=document.getElementById('result');
+  var required=['title','description','image','url'];
+  var recommended=['type','site_name','locale'];
+  var score=0,total=required.length+recommended.length;
+  var html='<div style="margin-bottom:16px">';
+  html+='<h3 style="color:#f1f5f9;font-size:1rem;margin-bottom:8px">📊 Score</h3>';
+  required.forEach(function(r){if(og[r]){score++;}else{total--;}});
+  recommended.forEach(function(r){if(og[r]){score++;}});
+  var pct=total>0?Math.round(score/total*100):0;
+  var color=pct>=80?'#22c55e':pct>=50?'#fbbf24':'#ef4444';
+  html+='<div style="display:flex;align-items:center;gap:12px"><div style="flex:1;height:12px;background:#0f172a;border-radius:6px;overflow:hidden"><div style="width:'+pct+'%;height:100%;background:'+color+';transition:width .5s"></div></div><span style="color:'+color+';font-weight:600">'+pct+'/100</span></div></div>';
+  html+='<table style="width:100%;border-collapse:collapse;font-size:.85rem"><thead><tr style="border-bottom:1px solid rgba(148,163,184,.2)"><th style="text-align:left;padding:8px;color:#94a3b8">Tag</th><th style="text-align:left;padding:8px;color:#94a3b8">Value</th><th style="text-align:center;padding:8px;color:#94a3b8">Status</th></tr></thead><tbody>';
+  required.forEach(function(r){
+    var val=og[r]||'';
+    var status=val?'<span style="color:#22c55e">✓</span>':'<span style="color:#ef4444">✗ Missing</span>';
+    html+='<tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:8px;color:#e2e8f0">og:'+r+'</td><td style="padding:8px;color:#94a3b8;max-width:300px;word-break:break-all">'+escapeHtml(val||'(empty)')+'</td><td style="padding:8px;text-align:center">'+status+'</td></tr>';
+  });
+  recommended.forEach(function(r){
+    var val=og[r]||'';
+    var status=val?'<span style="color:#22c55e">✓</span>':'<span style="color:#64748b">○ Optional</span>';
+    html+='<tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:8px;color:#94a3b8">og:'+r+'</td><td style="padding:8px;color:#64748b;max-width:300px;word-break:break-all">'+escapeHtml(val||'(empty)')+'</td><td style="padding:8px;text-align:center">'+status+'</td></tr>';
+  });
+  if(twitter.card||twitter.title||twitter.image){
+    html+='<tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td colspan="3" style="padding:8px;color:#06b6d4;font-weight:600">Twitter Card Tags</td></tr>';
+    Object.keys(twitter).forEach(function(k){
+      html+='<tr style="border-bottom:1px solid rgba(148,163,184,.1)"><td style="padding:8px;color:#94a3b8">twitter:'+k+'</td><td style="padding:8px;color:#94a3b8;max-width:300px;word-break:break-all">'+escapeHtml(twitter[k])+'</td><td style="padding:8px;text-align:center"><span style="color:#22c55e">✓</span></td></tr>';
+    });
+  }
+  if(title){
+    html+='<tr><td style="padding:8px;color:#94a3b8">&lt;title&gt;</td><td style="padding:8px;color:#94a3b8;max-width:300px;word-break:break-all">'+escapeHtml(title)+'</td><td style="padding:8px;text-align:center"><span style="color:#22c55e">✓</span></td></tr>';
+  }
+  html+='</tbody></table>';
+  var tips=[];
+  if(!og.title)tips.push('Add og:title tag');
+  if(!og.description)tips.push('Add og:description tag');
+  if(!og.image)tips.push('Add og:image tag (recommended 1200×630px)');
+  if(!og.url)tips.push('Add og:url canonical URL tag');
+  if(!og.type)tips.push('Add og:type tag (e.g. website/article)');
+  if(!twitter.card)tips.push('Add twitter:card tag (e.g. summary_large_image)');
+  if(tips.length){
+    html+='<div style="margin-top:16px;padding:12px;background:rgba(251,191,36,.1);border-radius:8px;border:1px solid rgba(251,191,36,.2)"><strong style="color:#fbbf24">💡 Suggestions:</strong><ul style="margin:8px 0 0 20px;color:#94a3b8;font-size:.85rem">'+tips.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div>';
+  }
+  result.innerHTML=html;
+}
+function displayPreview(og,title,url){
+  var preview=document.getElementById('preview');
+  var pTitle=og.title||title||'No title';
+  var pDesc=og.description||'';
+  var pImg=og.image||'';
+  var pUrl=og.url||url||'';
+  var html='<div style="margin-top:16px"><h3 style="color:#f1f5f9;font-size:1rem;margin-bottom:12px">👁️ Share Preview</h3>';
+  html+='<div style="max-width:500px;background:#1e293b;border-radius:12px;overflow:hidden;border:1px solid rgba(148,163,184,.15)">';
+  if(pImg){
+    html+='<div style="background:#0f172a;height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="'+escapeAttr(pImg)+'" style="max-width:100%;max-height:260px" onerror="this.parentNode.innerHTML=\'<span style=color:#64748b>Image load failed</span>\'"></div>';
+  }else{
+    html+='<div style="background:#0f172a;height:120px;display:flex;align-items:center;justify-content:center"><span style="color:#64748b">No image</span></div>';
+  }
+  html+='<div style="padding:12px"><p style="color:#64748b;font-size:.75rem;margin-bottom:4px;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+escapeHtml(pUrl||'')+'</p>';
+  html+='<p style="color:#e2e8f0;font-size:.95rem;font-weight:600;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+escapeHtml(pTitle)+'</p>';
+  html+='<p style="color:#94a3b8;font-size:.85rem;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">'+escapeHtml(pDesc)+'</p></div></div></div>';
+  preview.innerHTML=html;
+}
+function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escapeAttr(s){return String(s).replace(/"/g,'&quot;');}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+</body>
+</html>

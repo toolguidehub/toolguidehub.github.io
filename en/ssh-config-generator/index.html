@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build an SSH config file with multiple hosts, jump hosts, key authentication, and local or remote port forwarding.">
+<meta name="keywords" content="SSH config generator,SSH config,SSH jump host,SSH proxy,SSH port forwarding,SSH key">
+<title>Free SSH Config Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ssh-config-generator/">
+<meta property="og:title" content="Free SSH Config Generator - ToolGuideHub">
+<meta property="og:description" content="Build an SSH config file with multiple hosts, jump hosts, key authentication, and local or remote port forwarding.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ssh-config-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SSH Config Generator", "description": "Free online SSH config generator. Visually create SSH config files with multi-host, jump host, proxy, key auth, port forwarding support. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "SSH Config Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is the SSH config file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SSH config file is typically at ~/.ssh/config (Linux/macOS) or C:\\Users\\Username\\.ssh\\config (Windows). Create it manually if it doesn't exist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is SSH ProxyJump?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A jump host (bastion) is an intermediate server used when you can't directly access the target. SSH connects to the jump host first, then to the target server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of SSH port forwarding exist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three types: Local forwarding (LocalForward, maps remote port to local), Remote forwarding (RemoteForward, maps local port to remote), Dynamic forwarding (DynamicForward, SOCKS proxy)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to use SSH key authentication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Specify IdentityFile path in config pointing to your private key (e.g., ~/.ssh/id_rsa). Add the public key to the remote server's ~/.ssh/authorized_keys file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded to any server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. All config generation is done client-side with no data uploaded to any server."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SSH Config Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/ssh-config-generator/"
+    }
+  ],
+  "name": "SSH Config Generator"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use SSH Config Generator",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Add host",
+      "text": "Click add host and fill in alias, address, port, username and other basic info."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure advanced options",
+      "text": "Set up key auth, jump host, proxy, port forwarding as needed."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Generate and copy",
+      "text": "Click generate to preview the SSH config, then copy to ~/.ssh/config."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ssh-config-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🔐 SSH Config Generator</h1></div>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../categories.html">Developer Tools</a> › SSH Config Generator</div>
+<div class="hero"><p class="subtitle">Visually create SSH config files with multi-host, jump host, proxy, key auth, and port forwarding support.</p><span class="badge">Zero Dependencies · Works Offline</span></div>
+<div class="main-grid">
+<div>
+<div class="panel">
+<h2>🖥️ Host Configuration</h2>
+<div id="hosts-area"></div>
+<div class="btn-group">
+<button class="btn btn-primary btn-sm" onclick="addHost()">➕ Add Host</button>
+<button class="btn btn-secondary btn-sm" onclick="addPreset('bastion')">🏰 Bastion Template</button>
+<button class="btn btn-secondary btn-sm" onclick="addPreset('github')">🐙 GitHub Template</button>
+<button class="btn btn-secondary btn-sm" onclick="loadExample()">💡 Load Example</button>
+</div>
+</div>
+<div class="panel">
+<h2>📄 Generated Config</h2>
+<div class="config-output" id="config-output"><button class="copy-btn" onclick="copyConfig()">📋 Copy</button><span id="config-text"></span></div>
+<div class="btn-group">
+<button class="btn btn-primary btn-sm" onclick="copyConfig()">📋 Copy Config</button>
+<button class="btn btn-secondary btn-sm" onclick="downloadConfig()">📥 Download File</button>
+</div>
+</div>
+</div>
+<div>
+<div class="sidebar-panel">
+<h3>📋 Config Reference</h3>
+<div style="font-size:.8rem;color:#94a3b8;line-height:1.8">
+<p><strong>Host</strong>: Alias for ssh command</p>
+<p><strong>HostName</strong>: Actual address</p>
+<p><strong>User</strong>: Login username</p>
+<p><strong>Port</strong>: SSH port, default 22</p>
+<p><strong>IdentityFile</strong>: Private key path</p>
+<p><strong>ProxyJump</strong>: Jump host alias</p>
+<p><strong>LocalForward</strong>: Local port forward</p>
+<p><strong>RemoteForward</strong>: Remote port forward</p>
+<p><strong>ServerAliveInterval</strong>: Keepalive interval</p>
+</div>
+</div>
+</div>
+</div>
+<div class="seo-content">
+<h2>What Can the SSH Config Generator Do?</h2>
+<p>The SSH Config Generator is a free online tool that helps developers and sysadmins visually create SSH config files. Instead of manually editing config files, use the form interface to add hosts, configure key authentication, set up jump hosts, define port forwarding rules, and the tool automatically generates a standard SSH config file. It supports multi-host management, ProxyJump chains, SOCKS proxy, local/remote port forwarding, and other advanced features.</p>
+<h2>Core Features</h2>
+<ul><li><strong>Multi-host Management</strong>: Configure multiple SSH hosts at once</li><li><strong>Jump Host Support</strong>: Configure ProxyJump for multi-level bastion connections</li><li><strong>Key Authentication</strong>: Specify IdentityFile paths, support multiple keys</li><li><strong>Port Forwarding</strong>: Configure local, remote, and dynamic forwarding</li><li><strong>Preset Templates</strong>: Built-in GitHub, bastion, and other common templates</li><li><strong>One-click Export</strong>: Copy or download the generated config file</li></ul>
+<h2>How to Use</h2>
+<p>1. Click "Add Host" to create a new SSH host configuration</p><p>2. Fill in host alias, address, port, username, and other basic info</p><p>3. Expand advanced options for key, jump host, port forwarding settings</p><p>4. Add more hosts or use preset templates</p><p>5. Click "Copy Config" or "Download File" to get the SSH config</p>
+<h2>Use Cases</h2>
+<h3>Case 1: Multi-server Management</h3><p>Sysadmins managing dozens of servers use SSH config aliases to connect with simple commands like ssh prod-web1, without memorizing IPs and ports.</p>
+<h3>Case 2: Bastion Host Access</h3><p>Access internal servers through a bastion host. With ProxyJump configured, SSH automatically builds the jump chain — one command to reach the target.</p>
+<h3>Case 3: Port Forwarding</h3><p>Developers use SSH local port forwarding to access remote databases and internal services without additional VPN tools.</p>
+<h2>Extended Knowledge</h2>
+<p>The SSH config file is the OpenSSH client configuration file, located at ~/.ssh/config. It allows users to define aliases and parameters for different SSH connections, avoiding lengthy command-line arguments. Common options include Host (alias), HostName (address), User (username), Port, IdentityFile (key path), ProxyJump (jump host). SSH supports three types of port forwarding: local (-L) maps remote ports to local, remote (-R) maps local ports to remote, and dynamic (-D) creates a SOCKS proxy. ServerAliveInterval prevents SSH connections from timing out due to inactivity.</p>
+</div>
+<div class="faq-section"><h2>FAQ</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Where is the SSH config file?</span><span class="arrow">▼</span></div><div class="faq-a">The SSH config file is typically at ~/.ssh/config (Linux/macOS) or C:\Users\Username\.ssh\config (Windows). Create it manually if it doesn't exist.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What is SSH ProxyJump?</span><span class="arrow">▼</span></div><div class="faq-a">A jump host (bastion) is an intermediate server used when you can't directly access the target. SSH connects to the jump host first, then to the target server.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What types of SSH port forwarding exist?</span><span class="arrow">▼</span></div><div class="faq-a">Three types: Local forwarding (LocalForward, maps remote port to local), Remote forwarding (RemoteForward, maps local port to remote), Dynamic forwarding (DynamicForward, SOCKS proxy).</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How to use SSH key authentication?</span><span class="arrow">▼</span></div><div class="faq-a">Specify IdentityFile path in config pointing to your private key (e.g., ~/.ssh/id_rsa). Add the public key to the remote server's ~/.ssh/authorized_keys file.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Is my data uploaded to any server?</span><span class="arrow">▼</span></div><div class="faq-a">No. This tool runs entirely in your browser. All config generation is done client-side with no data uploaded to any server.</div></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/ssh-key-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online SSH Key Generator</a> <a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/prettier-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Prettier Config Generator</a> <a href="../../en/vite-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Vite Config Generator</a> <a href="../../en/jest-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Jest Config Generator</a> <a href="../../en/webpack-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Webpack Config Generator</a> <a href="../../en/nginx-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Nginx Config Generator …</a> <a href="../../en/postcss-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free PostCSS Config Generator</a></div></section>
+
+</main>
+<footer class="footer container"><div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/ssh-config-generator/">中文</a>
+</div>
+
+
+</footer>
+<script>
+var hosts=[];var hostId=0;
+function addHost(p){
+  var h=p||{alias:'',hostname:'',user:'',port:'22',identityFile:'',proxyJump:'',localForward:'',remoteForward:'',dynamicForward:'',serverAliveInterval:'',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false};
+  h.id=hostId++;hosts.push(h);
+  var area=document.getElementById('hosts-area');
+  var div=document.createElement('div');
+  div.className='section';
+  div.id='host-'+h.id;
+  div.innerHTML='<div class="host-grid"><div class="form-group"><label>Alias (Host)</label><input value="'+h.alias+'" placeholder="my-server" oninput="updateHost('+h.id+',\'alias\',this.value)"></div><div class="form-group"><label>Address (HostName)</label><input value="'+h.hostname+'" placeholder="192.168.1.100" oninput="updateHost('+h.id+',\'hostname\',this.value)"></div><div class="form-group"><label>Username</label><input value="'+h.user+'" placeholder="root" oninput="updateHost('+h.id+',\'user\',this.value)"></div><div class="form-group"><label>Port</label><input value="'+h.port+'" placeholder="22" oninput="updateHost('+h.id+',\'port\',this.value)"></div></div><span class="advanced-toggle" onclick="this.nextElementSibling.classList.toggle(\'show\');this.textContent=this.nextElementSibling.classList.contains(\'show\')?\'▼ Hide Advanced\':\'▶ Show Advanced\'">▶ Show Advanced</span><div class="advanced-section"><div class="host-grid"><div class="form-group"><label>Identity File</label><input value="'+h.identityFile+'" placeholder="~/.ssh/id_rsa" oninput="updateHost('+h.id+',\'identityFile\',this.value)"></div><div class="form-group"><label>ProxyJump</label><input value="'+h.proxyJump+'" placeholder="bastion-host" oninput="updateHost('+h.id+',\'proxyJump\',this.value)"></div><div class="form-group"><label>Local Forward</label><input value="'+h.localForward+'" placeholder="8080 localhost:80" oninput="updateHost('+h.id+',\'localForward\',this.value)"></div><div class="form-group"><label>Remote Forward</label><input value="'+h.remoteForward+'" placeholder="9090 localhost:9090" oninput="updateHost('+h.id+',\'remoteForward\',this.value)"></div><div class="form-group"><label>Dynamic Forward (SOCKS)</label><input value="'+h.dynamicForward+'" placeholder="1080" oninput="updateHost('+h.id+',\'dynamicForward\',this.value)"></div><div class="form-group"><label>Keepalive (sec)</label><input value="'+h.serverAliveInterval+'" placeholder="60" oninput="updateHost('+h.id+',\'serverAliveInterval\',this.value)"></div><div class="form-group"><label>Host Key Check</label><select onchange="updateHost('+h.id+',\'strictHostKeyChecking\',this.value)"><option value="yes"'+(h.strictHostKeyChecking==='yes'?' selected':'')+'>yes</option><option value="accept-new"'+(h.strictHostKeyChecking==='accept-new'?' selected':'')+'>accept-new</option><option value="no"'+(h.strictHostKeyChecking==='no'?' selected':'')+'>no</option></select></div><div class="form-group" style="display:flex;align-items:end;gap:12px;padding-bottom:8px"><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox"'+(h.compression?' checked':'')+' onchange="updateHost('+h.id+',\'compression\',this.checked)"> Compression</label><label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox"'+(h.forwardAgent?' checked':'')+' onchange="updateHost('+h.id+',\'forwardAgent\',this.checked)"> Agent Fwd</label></div></div></div>';
+  area.appendChild(div);
+  generateConfig();
+}
+function updateHost(id,key,val){var h=hosts.find(function(x){return x.id===id});if(h){h[key]=val;generateConfig();}}
+function generateConfig(){if(hosts.length===0){document.getElementById('config-text').textContent='# Click "Add Host" to start configuring';return;}const lines=[];hosts.forEach(h=>{if(!h.alias)return;lines.push(`Host ${h.alias}`);if(h.hostname)lines.push(`    HostName ${h.hostname}`);if(h.user)lines.push(`    User ${h.user}`);if(h.port&&h.port!=='22')lines.push(`    Port ${h.port}`);if(h.identityFile)lines.push(`    IdentityFile ${h.identityFile}`);if(h.proxyJump)lines.push(`    ProxyJump ${h.proxyJump}`);if(h.localForward)lines.push(`    LocalForward ${h.localForward}`);if(h.remoteForward)lines.push(`    RemoteForward ${h.remoteForward}`);if(h.dynamicForward)lines.push(`    DynamicForward ${h.dynamicForward}`);if(h.serverAliveInterval)lines.push(`    ServerAliveInterval ${h.serverAliveInterval}`);if(h.compression)lines.push(`    Compression yes`);if(h.forwardAgent)lines.push(`    ForwardAgent yes`);if(h.strictHostKeyChecking&&h.strictHostKeyChecking!=='yes')lines.push(`    StrictHostKeyChecking ${h.strictHostKeyChecking}`);lines.push('');});document.getElementById('config-text').textContent=lines.join('\n');}
+function addPreset(type){if(type==='bastion'){addHost({alias:'bastion',hostname:'bastion.example.com',user:'deploy',port:'22',identityFile:'~/.ssh/bastion_key',proxyJump:'',localForward:'',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});addHost({alias:'prod-server',hostname:'10.0.1.100',user:'admin',port:'22',identityFile:'~/.ssh/prod_key',proxyJump:'bastion',localForward:'3306 localhost:3306',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});}else if(type==='github'){addHost({alias:'github',hostname:'github.com',user:'git',port:'22',identityFile:'~/.ssh/id_ed25519',proxyJump:'',localForward:'',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});}}
+function loadExample(){hosts=[];hostId=0;addHost({alias:'bastion',hostname:'bastion.example.com',user:'deploy',port:'22',identityFile:'~/.ssh/bastion_key',proxyJump:'',localForward:'',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});addHost({alias:'web-prod',hostname:'10.0.1.50',user:'admin',port:'22',identityFile:'~/.ssh/prod_key',proxyJump:'bastion',localForward:'8080 localhost:80',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});addHost({alias:'db-prod',hostname:'10.0.1.60',user:'dba',port:'22',identityFile:'~/.ssh/prod_key',proxyJump:'bastion',localForward:'3306 localhost:3306',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});addHost({alias:'github',hostname:'github.com',user:'git',port:'22',identityFile:'~/.ssh/id_ed25519',proxyJump:'',localForward:'',remoteForward:'',dynamicForward:'',serverAliveInterval:'60',compression:false,strictHostKeyChecking:'accept-new',forwardAgent:false});}
+function copyConfig(){const text=document.getElementById('config-text').textContent;navigator.clipboard.writeText(text).then(()=>{const t=document.getElementById('copy-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);});}
+function downloadConfig(){const text=document.getElementById('config-text').textContent;const blob=new Blob([text],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='config';a.click();}
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){copyConfig();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyConfig();e.preventDefault();}});
+addHost();
+</script>
+
+</body>
+</html>

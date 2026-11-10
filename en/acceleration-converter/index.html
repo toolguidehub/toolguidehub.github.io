@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceleration Converter - ToolGuideHub</title>
+  <meta name="description" content="Free acceleration converter: m/s², Gal, g-force, ft/s², in/s², km/h·s. Convert physics, automotive, aerospace values instantly. 100% client-side, no sign-up.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/acceleration-converter/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/acceleration-converter/">
+  <meta property="og:title" content="Acceleration Converter - ToolGuideHub">
+  <meta property="og:description" content="Free acceleration converter: m/s², Gal, g-force, ft/s², in/s², km/h·s. Convert physics, automotive, aerospace values instantly. 100% client-side, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/acceleration-converter/">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Acceleration Converter",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "description": "Free acceleration converter: m/s², Gal, g-force, ft/s², in/s², km/h·s. Convert physics, automotive, aerospace values instantly. 100% client-side, no sign-up.",
+  "url": "https://adi63586.github.io/Toolguidehub/en/acceleration-converter/",
+  "offers": {"@type": "Offer", "price": "0"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How many m/s² in 1g?","acceptedAnswer":{"@type":"Answer","text":"1 standard gravity (g) = 9.80665 m/s². This is the average gravitational acceleration at Earth's surface, used in aerospace and physics calculations."}},
+    {"@type":"Question","name":"What is a Gal unit?","acceptedAnswer":{"@type":"Answer","text":"Gal (Galileo) is an acceleration unit used in gravimetry. 1 Gal = 1 cm/s² = 0.01 m/s². Commonly used in geophysics and gravity surveys."}},
+    {"@type":"Question","name":"How to convert km/h·s to m/s²?","acceptedAnswer":{"@type":"Answer","text":"1 km/h·s = 1/3.6 ≈ 0.2778 m/s². It means the speed increases by 1 km/h per second, commonly used in car acceleration specs."}}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+    {"@type": "ListItem", "position": 2, "name": "Acceleration Converter", "item": "https://adi63586.github.io/Toolguidehub/en/acceleration-converter/"}
+  ]
+}
+  </script>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--primary:#22d3ee;--primary-dark:#06b6d4;--border:rgba(148,163,184,.1);--danger:#ef4444;--success:#10b981}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--card-bg);border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100}
+header .container{display:flex;justify-content:space-between;align-items:center}
+header a{color:var(--text);text-decoration:none;font-weight:700;font-size:18px}
+header .lang-switch{color:var(--primary);font-size:14px}
+.container{max-width:960px;margin:0 auto;padding:0 16px;width:100%}
+main{flex:1;padding:32px 0}
+h1{font-size:24px;margin-bottom:8px;color:var(--text)}
+.hero{text-align:center;margin-bottom:24px}
+.hero p{color:var(--text-secondary);font-size:14px}
+.badge{display:inline-block;background:rgba(34,211,238,.1);color:var(--primary);padding:4px 12px;border-radius:20px;font-size:12px;margin-bottom:8px}
+.card{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);padding:24px;margin-bottom:20px}
+.card h2{font-size:16px;margin-bottom:12px;color:var(--primary)}
+.input-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.input-row input{flex:1;min-width:120px;background:#0f172a;color:#e2e8f0;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:16px;outline:none;transition:border-color .2s}
+.input-row input:focus{border-color:var(--primary)}
+.input-row select{background:#0f172a;color:#e2e8f0;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;cursor:pointer;min-width:120px}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.result-item{background:rgba(15,23,42,.5);border-radius:8px;padding:16px;border:1px solid var(--border);text-align:center;transition:border-color .2s}
+.result-item:hover{border-color:var(--primary)}
+.result-item .label{font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+.result-item .value{font-size:18px;font-weight:700;color:var(--text);word-break:break-all}
+.result-item.highlight .value{color:var(--primary)}
+.ref-table{margin-top:24px}
+.ref-table table{width:100%;border-collapse:collapse;font-size:13px}
+.ref-table th{text-align:left;padding:8px 12px;background:rgba(15,23,42,.5);color:var(--primary);font-weight:600;border-bottom:1px solid var(--border)}
+.ref-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+.tip-box{background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.15);border-radius:8px;padding:14px 18px;margin-top:16px;font-size:13px;color:var(--text-secondary);line-height:1.6}
+.faq{margin-top:32px}
+.faq details{border-bottom:1px solid var(--border);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:600;color:var(--text);font-size:15px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"❓ ";}
+.faq details p{color:var(--text-secondary);font-size:14px;line-height:1.7;padding:8px 0 0 20px}
+footer{background:var(--card-bg);border-top:1px solid var(--border);padding:24px 0;text-align:center;margin-top:auto}
+footer a{color:var(--text-secondary);text-decoration:none;margin:0 10px;font-size:13px}
+footer a:hover{color:var(--primary)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(34,211,238,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:600px){
+  h1{font-size:20px}
+  .input-row{flex-direction:column}
+  .input-row input,.input-row select{width:100%}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
+}
+  </style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="container">
+  <a href="../../">🧰 ToolGuideHub</a>
+  <a href="../../en/acceleration-converter/" class="lang-switch">中文</a>
+</div></header>
+<main class="container">
+  <div class="hero">
+    <span class="badge">🔢 Unit Converter</span>
+    <h1>Acceleration Converter</h1>
+    <p>Free online acceleration unit converter.</p>
+  </div>
+  <div class="card">
+    <div class="input-row">
+      <input type="number" id="inputVal" value="1" oninput="convert()" placeholder="Enter value">
+      <select id="fromUnit" onchange="convert()">
+                <option value="m/s²">m/s² — m/s²</option>
+        <option value="cm/s²">cm/s² — cm/s²</option>
+        <option value="Gal">Gal — Gal</option>
+        <option value="g">g — g-force</option>
+        <option value="ft/s²">ft/s² — ft/s²</option>
+        <option value="in/s²">in/s² — in/s²</option>
+        <option value="km/h·s">km/h·s — km/h·s</option>
+      </select>
+    </div>
+    <div class="result-grid" id="resultGrid"></div>
+  </div>
+  <div class="tip-box">💡 <b>Tip:</b> Acceleration is the rate of change of velocity over time. 1 g = 9.80665 m/s² — Earth's standard surface gravity. Fighter pilots can experience up to 9g during maneuvers.</div>
+  <div class="ref-table">
+    <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px">📋 Unit Reference Table</h2>
+    <table>
+      <thead><tr><th>Unit</th><th>Conversion to m/s²</th><th>Description</th></tr></thead>
+      <tbody>
+                <tr><td>m/s² (m/s²)</td><td>1 m/s² = 1 m/s²</td><td>SI base acceleration unit</td></tr>
+        <tr><td>cm/s² (cm/s²)</td><td>1 cm/s² = 0.01 m/s²</td><td>Centimeters per second squared</td></tr>
+        <tr><td>Gal (Gal)</td><td>1 Gal = 0.01 m/s²</td><td>Galileo, gravimetry standard</td></tr>
+        <tr><td>g (g-force)</td><td>1 g = 9.80665 m/s²</td><td>Standard gravity ≈9.8m/s²</td></tr>
+        <tr><td>ft/s² (ft/s²)</td><td>1 ft/s² = 0.3048 m/s²</td><td>Feet per second squared</td></tr>
+        <tr><td>in/s² (in/s²)</td><td>1 in/s² = 0.0254 m/s²</td><td>Inches per second squared</td></tr>
+        <tr><td>km/h·s (km/h·s)</td><td>1 km/h·s = 0.2777777777777778 m/s²</td><td>km/h per second, car acceleration</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="faq">
+    <h2 style="font-size:16px;color:var(--primary);margin-bottom:12px">❓ FAQ</h2>
+      <details><summary>How many m/s² in 1g?</summary><p>1 standard gravity (g) = 9.80665 m/s². This is the average gravitational acceleration at Earth's surface, used in aerospace and physics calculations.</p></details>
+  <details><summary>What is a Gal unit?</summary><p>Gal (Galileo) is an acceleration unit used in gravimetry. 1 Gal = 1 cm/s² = 0.01 m/s². Commonly used in geophysics and gravity surveys.</p></details>
+  <details><summary>How to convert km/h·s to m/s²?</summary><p>1 km/h·s = 1/3.6 ≈ 0.2778 m/s². It means the speed increases by 1 km/h per second, commonly used in car acceleration specs.</p></details>
+  </div>
+</main>
+<footer>
+  <a href="../../">Home</a>
+  <a href="../../en/contact/">Contact</a>
+  <a href="../../en/privacy/">Privacy Policy</a>
+  <a href="../../en/terms/">Terms of Service</a>
+  <a href="../../en/about/">About</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank">GitHub</a>
+  <br>© 2026 ToolGuideHub — All calculations run locally in your browser. No data is sent to any server.
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+// Unit definitions
+var toBase = {"m/s²": 1, "cm/s²": 0.01, "Gal": 0.01, "g": 9.80665, "ft/s²": 0.3048, "in/s²": 0.0254, "km/h·s": 0.2777777777777778};
+
+var highlightUnits = ["m/s²", "g", "ft/s²", "Gal"];
+
+function formatNumber(n) {
+  if (n === 0) return '0';
+  var abs = Math.abs(n);
+  if (abs < 1e-6 || abs >= 1e15) return n.toExponential(6);
+  if (abs < 0.001) return n.toExponential(6);
+  if (abs < 1) return n.toFixed(8).replace(/\.?0+$/, '');
+  if (abs < 100) return n.toFixed(6).replace(/\.?0+$/, '');
+  if (abs < 10000) return n.toFixed(3).replace(/\.?0+$/, '');
+  return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+}
+
+function convert() {
+  var val = parseFloat(document.getElementById('inputVal').value);
+  var from = document.getElementById('fromUnit').value;
+  var grid = document.getElementById('resultGrid');
+  if (isNaN(val)) { grid.innerHTML = '<p style="color:var(--danger);grid-column:1/-1">Please enter a valid number</p>'; return; }
+  var base = val * toBase[from];
+  var html = '';
+  for (var u in toBase) {
+    if (u === from) continue;
+    var result = base / toBase[u];
+    var cls = highlightUnits.indexOf(u) >= 0 ? 'result-item highlight' : 'result-item';
+    html += '<div class="'+cls+'"><div class="label">'+u+'</div><div class="value">'+formatNumber(result)+'</div></div>';
+  }
+  grid.innerHTML = html;
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+
+convert();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+
+/* Thin-tool enhancement v1 (fillExample + ftChart + ftEnsureCopy) */
+(function(){
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var isZh=!langEN;
+  function toast(msg){var t=document.getElementById('toast')||document.getElementById('copy-toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+  function fallbackCopy(text){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(isZh?'Copy':'Copied');}catch(e){toast(isZh?'CopyFailed':'Copy failed');}document.body.removeChild(ta);}
+  window.ftEnsureCopy=function(){
+    var res=document.getElementById('result')||document.getElementById('output')||document.getElementById('result-text');
+    if(!res||res.offsetParent===null)return;
+    if(res.querySelector('.ft-copy-btn'))return;
+    var btn=document.createElement('button');
+    btn.className='btn btn-secondary ft-copy-btn';
+    btn.textContent=isZh?'📋 Copy Result':'📋 Copy Result';
+    btn.style.cssText='margin-top:10px;width:100%';
+    btn.onclick=function(){
+      var txt=(res.innerText||res.textContent||'').trim();
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){toast(isZh?'Copy':'Copied');})['catch'](function(){fallbackCopy(txt);});
+      }else{fallbackCopy(txt);}
+    };
+    res.appendChild(btn);
+  };
+  function pushNum(t,arr){var m=t.match(/[\d][\d,]*(?:\.[\d]+)?/g);if(!m)return;m.forEach(function(x){var n=parseFloat(x.replace(/,/g,''));if(!isNaN(n)&&n>0)arr.push(n);});}
+  window.ftDrawChart=function(){
+    var existing=document.getElementById('ftChart');
+    if(existing&&existing.parentNode){existing.parentNode.removeChild(existing);}
+    var res=document.getElementById('result')||document.getElementById('output');
+    if(!res||res.offsetParent===null)return;
+    var nums=[];pushNum(res.textContent,nums);
+    if(nums.length<2)return;
+    var wrap=res.parentNode;
+    if(!wrap)return;
+    var cv=document.createElement('canvas');
+    cv.id='ftChart';cv.style.cssText='width:100%;max-width:480px;margin-top:14px;background:#1e293b;border-radius:10px';
+    wrap.appendChild(cv);
+    var ctx=cv.getContext('2d');
+    var W=cv.width=480,H=cv.height=200;
+    ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+    var max=Math.max.apply(null,nums);
+    var barW=Math.max(14,W/nums.length-10);
+    var colors=['#06b6d4','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+    nums.slice(0,12).forEach(function(n,i){
+      var bh=Math.max(4,(n/max)*(H-40));
+      ctx.fillStyle=colors[i%colors.length];
+      ctx.fillRect(i*(barW+10)+10,H-30-bh,barW,bh);
+      ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';
+      var label=n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e4).toFixed(1)+'w':n.toFixed(n%1===0?0:1);
+      ctx.fillText(label,i*(barW+10)+10,H-18);
+    });
+    ctx.strokeStyle='rgba(148,163,184,.2)';ctx.beginPath();ctx.moveTo(10,H-30);ctx.lineTo(W-10,H-30);ctx.stroke();
+  };
+  window.ftFillExample=function(){
+    var pairs=[];
+    var phs=document.querySelectorAll('input[placeholder]');
+    phs.forEach(function(inp){
+      var m=(inp.getAttribute('placeholder')||'').match(/([\d]+(?:\.\d+)?)/);
+      if(m&&m[1]){pairs.push([inp.id||inp.name,m[1]]);}
+    });
+    if(!pairs.length)return;
+    pairs.forEach(function(pair){
+      var el=document.getElementById(pair[0]);
+      if(el){el.value=pair[1];el.dispatchEvent(new Event('input',{bubbles:true}));}
+    });
+    toast(isZh?'Try Example':'Example filled');
+    var btn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(btn){try{if(btn.onclick)btn.onclick();}catch(e){}}
+  };
+  document.addEventListener('click',function(e){
+    if(e.target&&e.target.closest&&e.target.closest('button')){
+      setTimeout(function(){ftEnsureCopy();ftDrawChart();},280);
+    }
+  });
+  /* 示例按钮 */
+  var phs2=document.querySelectorAll('input[placeholder]');
+  var hasNumPh=Array.prototype.some.call(phs2,function(i){return /[\d]/.test(i.getAttribute('placeholder')||'');});
+  if(hasNumPh&&!document.getElementById('ftFillBtn')){
+    var calcBtn=document.querySelector('button[onclick]')||document.querySelector('.btn-primary');
+    if(calcBtn){
+      var fb=document.createElement('button');
+      fb.id='ftFillBtn';
+      fb.className='btn btn-secondary';
+      fb.textContent=isZh?'🎲 Try Example':'🎲 Try example';
+      fb.style.cssText='margin-left:8px';
+      fb.onclick=function(){ftFillExample();};
+      calcBtn.parentNode.insertBefore(fb,calcBtn.nextSibling);
+    }
+  }
+})();
+</script>
+</body>
+</html>

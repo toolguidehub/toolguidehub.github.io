@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online log viewer and analyzer. Paste or upload log files, filter by level, search keywords. All processing runs locally in your browser.">
+<meta name="keywords" content="logViewerlog viewerlogAnalyzelog analyzerlogSearcherrorlogOnlinelogTools">
+<title>Free Log Viewer - Online Tool | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/log-viewer/">
+<meta property="og:title" content="Free Log Viewer - Online Tool | No Signup">
+<meta property="og:description" content="Free online log viewer and analyzer. Paste or upload log files, filter by level, search keywords. All processing runs locally in your browser.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/log-viewer/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Log Viewer - Online Tool">
+<meta name="twitter:description" content="Free online log view - online tool | no signup tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Log Viewer", "description": "Free online Log Viewer. Pure client-side processing, no registration required, no data upload to servers.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-13", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Log Viewer FAQ","mainEntity":[{"@type":"Question","name":"How to use Log Viewer?","acceptedAnswer":{"@type":"Answer","text":"Simply open the tool, input your data, and get instant results. All processing happens in your browser."}},{"@type":"Question","name":"Is Log Viewer free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, Log Viewer is completely free. No registration or login required. Everything runs locally in your browser."}}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Log Viewer",
+  "description": "Simple steps to use Log Viewer. Everything runs locally: log files and other values are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Log Viewer Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/log-viewer/#upload"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/log-viewer/#filter"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/log-viewer/#view"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Log Viewer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/log-viewer/"
+    }
+  ],
+  "name": "Log Viewer"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.container{max-width:1200px;margin:0 auto;padding:20px;flex:1}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:2em;color:#f1f5f9;margin-bottom:8px}
+header p{color:#94a3b8;font-size:1.05em;max-width:700px;margin:0 auto}
+.tool-card{background:#0f172a;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:30px;margin-bottom:30px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:30px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#1e293b}
+.upload-zone:hover,.upload-zone.dragover{border-color:#06b6d4;background:#1a2744}
+.upload-zone .icon{font-size:40px;margin-bottom:8px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0;padding:12px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:10px}
+.controls input[type="text"]{flex:1;min-width:200px;padding:8px 12px;border:1px solid #d0d0d0;border-radius:6px;font-size:14px}
+.controls input[type="text"]:focus{outline:none;border-color:#06b6d4}
+.btn{padding:8px 16px;border:none;border-radius:6px;font-size:13px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn-active{background:#06b6d4;color:#0f172a}
+.level-btn{padding:6px 14px;border:1px solid #d0d0d0;border-radius:6px;font-size:12px;cursor:pointer;background:#0f172a;transition:all .2s;font-weight:600}
+.level-btn.active{color:#fff;border-color:transparent}
+.level-btn[data-level="error"].active{background:#ef4444}
+.level-btn[data-level="warn"].active{background:#f59e0b}
+.level-btn[data-level="info"].active{background:#3b82f6}
+.level-btn[data-level="debug"].active{background:#8b5cf6}
+.level-btn[data-level="trace"].active{background:#6b7280}
+.stats-bar{display:flex;gap:16px;flex-wrap:wrap;padding:12px 16px;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:12px;font-size:13px}
+.stats-bar .stat{display:flex;align-items:center;gap:4px}
+.stats-bar .stat-count{font-weight:700}
+.log-container{background:#1e1e2e;border-radius:10px;padding:0;max-height:500px;overflow-y:auto;font-family:"SF Mono","Consolas","Monaco",monospace;font-size:13px;line-height:1.6}
+.log-line{padding:2px 12px;border-bottom:1px solid rgba(255,255,255,.03);white-space:pre-wrap;word-break:break-all}
+.log-line:hover{background:rgba(255,255,255,.05)}
+.log-line .line-num{color:#94a3b8;display:inline-block;width:50px;text-align:right;margin-right:12px;user-select:none;font-size:11px}
+.log-line.level-error{background:rgba(239,68,68,.1);border-left:3px solid #ef4444}
+.log-line.level-warn{background:rgba(245,158,11,.08);border-left:3px solid #f59e0b}
+.log-line.level-info{border-left:3px solid #3b82f6}
+.log-line.level-debug{color:#a5b4fc;border-left:3px solid #8b5cf6}
+.log-line.level-trace{color:#9ca3af;border-left:3px solid #6b7280}
+.log-line .hl-error{color:#f87171;font-weight:700}
+.log-line .hl-warn{color:#fbbf24;font-weight:600}
+.log-line .hl-info{color:#60a5fa}
+.log-line .hl-debug{color:#a5b4fc}
+.log-line .hl-trace{color:#9ca3af}
+.log-line .hl-timestamp{color:#34d399}
+.log-line .hl-search{background:rgba(250,204,21,.3);border-radius:2px;padding:0 2px}
+.faq-section{background:#0f172a;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:30px;margin-bottom:30px}
+.faq-section h2{font-size:1.5em;color:#f1f5f9;margin-bottom:20px;text-align:center}
+.faq-item{border-bottom:1px solid #eee;padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:#f1f5f9;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:"+";font-size:20px;color:#06b6d4;transition:transform .2s}
+.faq-q.active::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:#555;padding-top:0}
+.faq-a.show{max-height:500px;padding-top:12px}
+.feedback-section h2{font-size:1.3em;color:#f1f5f9;margin-bottom:10px}
+footer{text-align:center;padding:20px;color:#999;font-size:13px;border-top:1px solid #eee;margin-top:auto}
+footer a{color:#06b6d4;text-decoration:none}
+.copy-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .3s;z-index:9999;pointer-events:none}
+.copy-toast.show{opacity:1}
+
+@media(max-width:768px){.tool-card,.faq-section,header h1{font-size:1.5em}.controls{flex-direction:column;align-items:stretch}.stats-bar{flex-direction:column;gap:8px}}
+@media(max-width:640px){}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/log-viewer/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<header>
+<h1>Free Log Viewer</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:1rem;max-width:700px;margin:0 auto">Free online log viewer and analyzer. Paste or upload log files, filter by level, search keywords, and view highlighted results. All processing runs locally in your browser.</p>
+</header>
+
+<div class="tool-card">
+<div class="upload-zone" id="uploadZone">
+  <div class="icon">📄</div>
+  <p><strong>Drag & drop a log file here</strong> or click to select</p>
+  <input type="file" id="fileInput" accept=".log,.txt,.csv" style="display:none" onchange="handleFile(this.files[0])">
+</div>
+<p style="text-align:center;color:#64748b;font-size:13px;margin:8px 0">— or paste log content below —</p>
+<textarea id="logInput" placeholder="Paste your log content here..." style="width:100%;min-height:150px;padding:12px;background:#1e293b;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-family:monospace;font-size:13px;resize:vertical"></textarea>
+<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+  <button class="btn btn-primary" onclick="parseLog()">Parse Logs</button>
+  <button class="btn btn-secondary" onclick="loadExample()">Load Example</button>
+  <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+</div>
+
+<div class="stats-bar" id="statsBar" style="display:none">
+  <div class="stat">Total: <span class="stat-count" id="totalLines">0</span></div>
+  <div class="stat" style="color:#ef4444">ERROR: <span class="stat-count" id="errorCount">0</span></div>
+  <div class="stat" style="color:#f59e0b">WARN: <span class="stat-count" id="warnCount">0</span></div>
+  <div class="stat" style="color:#3b82f6">INFO: <span class="stat-count" id="infoCount">0</span></div>
+  <div class="stat" style="color:#8b5cf6">DEBUG: <span class="stat-count" id="debugCount">0</span></div>
+  <div class="stat" style="color:#6b7280">TRACE: <span class="stat-count" id="traceCount">0</span></div>
+</div>
+
+ <div class="controls" id="filterBar" style="display:none">
+ <button class="level-btn active" data-level="all" onclick="toggleLevel(this)">All</button>
+ <button class="level-btn" data-level="error" onclick="toggleLevel(this)">ERROR</button>
+ <button class="level-btn" data-level="warn" onclick="toggleLevel(this)">WARN</button>
+ <button class="level-btn" data-level="info" onclick="toggleLevel(this)">INFO</button>
+ <button class="level-btn" data-level="debug" onclick="toggleLevel(this)">DEBUG</button>
+ <button class="level-btn" data-level="trace" onclick="toggleLevel(this)">TRACE</button>
+ <input type="text" id="searchInput" placeholder="Search keywords (supports regex)..." oninput="filterLogs()">
+ <label style="font-size:13px;display:flex;align-items:center;gap:4px"><input type="checkbox" id="regexMode" onchange="filterLogs()"> Regex</label>
+ </div>
+
+ <div class="log-container" id="logContainer" style="display:none"></div>
+</div>
+</main>
+
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. Log Viewer is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for Log Viewer?</h3>
+ <p>Log Viewer has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can I use Log Viewer on my phone?</h3>
+ <p>Yes. Log Viewer is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Does Log Viewer upload my data to a server?</h3>
+ <p>No. Log Viewer uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using Log Viewer?</h3>
+ <p>Absolutely. Everything runs locally: log files and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is Log Viewer free to use?</h3>
+ <p>Yes, Log Viewer is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ </div>
+
+<div id="copyToast" class="copy-toast">AlreadyCopy！</div>
+
+<script>
+function toggleFaq(el){el.classList.toggle("active");el.nextElementSibling.classList.toggle("show")}
+function showToast(msg){var t=document.getElementById("copyToast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+var logLines = [];
+var activeLevels = new Set(['all']);
+var searchTerm = '';
+
+var zone = document.getElementById("uploadZone");
+zone.addEventListener("dragover",function(e){e.preventDefault();zone.classList.add("dragover")});
+zone.addEventListener("dragleave",function(){zone.classList.remove("dragover")});
+zone.addEventListener("drop",function(e){e.preventDefault();zone.classList.remove("dragover");handleFile(e.dataTransfer.files[0])});
+zone.addEventListener("click",function(){document.getElementById("fileInput").click()});
+
+function handleFile(file) {
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById("logInput").value = e.target.result;
+    parseLog();
+  };
+  reader.readAsText(file);
+}
+
+function detectLevel(line) {
+  var upper = line.toUpperCase();
+  if (/\b(ERROR|FATAL|CRITICAL|SEVERE|EXCEPTION)\b/.test(upper)) return 'error';
+  if (/\b(WARN|WARNING)\b/.test(upper)) return 'warn';
+  if (/\b(INFO)\b/.test(upper)) return 'info';
+  if (/\b(DEBUG)\b/.test(upper)) return 'debug';
+  if (/\b(TRACE)\b/.test(upper)) return 'trace';
+  return 'info';
+}
+
+function highlightLine(line, level) {
+  var html = line;
+  // Highlight timestamps
+  html = html.replace(/(\d{4}[-\/]\d{2}[-\/]\d{2}[\sT]\d{2}:\d{2}:\d{2}[.,]?\d*)/g, '<span class="hl-timestamp">$1</span>');
+  // Highlight level keywords
+  var levelReplacements = {
+    'error': [[/\b(ERROR|FATAL|CRITICAL|SEVERE|EXCEPTION)\b/gi, 'hl-error']],
+    'warn': [[/\b(WARN|WARNING)\b/gi, 'hl-warn']],
+    'info': [[/\b(INFO)\b/gi, 'hl-info']],
+    'debug': [[/\b(DEBUG)\b/gi, 'hl-debug']],
+    'trace': [[/\b(TRACE)\b/gi, 'hl-trace']]
+  };
+  if (levelReplacements[level]) {
+    levelReplacements[level].forEach(function(pair) {
+      html = html.replace(pair[0], '<span class="' + pair[1] + '">$1</span>');
+    });
+  }
+  // Highlight search term
+  if (searchTerm) {
+    try {
+      var isRegex = document.getElementById("regexMode").checked;
+      var re = isRegex ? new RegExp('(' + searchTerm + ')', 'gi') : new RegExp('(' + searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      html = html.replace(re, '<span class="hl-search">$1</span>');
+    } catch(e) {}
+  }
+  return html;
+}
+
+function parseLog() {
+  var text = document.getElementById("logInput").value;
+  if (!text.trim()) { showToast(''); return; }
+
+  var lines = text.split(/\r?\n/).filter(function(l){return l.trim()});
+  logLines = [];
+  var counts = {error:0, warn:0, info:0, debug:0, trace:0};
+
+  for (var i = 0; i < lines.length; i++) {
+    var level = detectLevel(lines[i]);
+    counts[level]++;
+    logLines.push({ num: i+1, text: lines[i], level: level });
+  }
+
+  document.getElementById("totalLines").textContent = lines.length;
+  document.getElementById("errorCount").textContent = counts.error;
+  document.getElementById("warnCount").textContent = counts.warn;
+  document.getElementById("infoCount").textContent = counts.info;
+  document.getElementById("debugCount").textContent = counts.debug;
+  document.getElementById("traceCount").textContent = counts.trace;
+  document.getElementById("statsBar").style.display = 'flex';
+  document.getElementById("filterBar").style.display = 'flex';
+  document.getElementById("logContainer").style.display = 'block';
+
+  filterLogs();
+}
+
+function toggleLevel(btn) {
+  var level = btn.dataset.level;
+  if (level === 'all') {
+    activeLevels = new Set(['all']);
+    document.querySelectorAll('.level-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+  } else {
+    document.querySelector('.level-btn[data-level="all"]').classList.remove('active');
+    activeLevels.delete('all');
+    if (activeLevels.has(level)) {
+      activeLevels.delete(level);
+      btn.classList.remove('active');
+    } else {
+      activeLevels.add(level);
+      btn.classList.add('active');
+    }
+    if (activeLevels.size === 0) {
+      activeLevels.add('all');
+      document.querySelector('.level-btn[data-level="all"]').classList.add('active');
+    }
+  }
+  filterLogs();
+}
+
+function filterLogs() {
+  searchTerm = document.getElementById("searchInput").value;
+  var showAll = activeLevels.has('all');
+  var container = document.getElementById("logContainer");
+  var html = '';
+  var shown = 0;
+  var maxShow = 5000;
+
+  for (var i = 0; i < logLines.length && shown < maxShow; i++) {
+    var line = logLines[i];
+    if (!showAll && !activeLevels.has(line.level)) continue;
+    if (searchTerm) {
+      try {
+        var isRegex = document.getElementById("regexMode").checked;
+        var re = isRegex ? new RegExp(searchTerm, 'i') : new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+        if (!re.test(line.text)) continue;
+      } catch(e) { continue; }
+    }
+    html += '<div class="log-line level-' + line.level + '"><span class="line-num">' + line.num + '</span>' + highlightLine(escapeHtml(line.text), line.level) + '</div>';
+    shown++;
+  }
+
+  if (shown >= maxShow) {
+    html += '' + maxShow + ' rowmatchesResult...</div>';
+  }
+  container.innerHTML = html;
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function loadExample() {
+  document.getElementById("logInput").value = '2026-07-13 08:00:01.234 INFO  [main] Application starting up...\n2026-07-13 08:00:01.567 INFO  [main] Loading configuration from /etc/app/config.yml\n2026-07-13 08:00:02.123 DEBUG [db] Connection pool initialized: max=10, min=2\n2026-07-13 08:00:02.456 INFO  [main] Server started on port 8080\n2026-07-13 08:00:05.789 WARN  [auth] Failed login attempt from 192.168.1.100\n2026-07-13 08:00:10.012 INFO  [api] GET /api/users - 200 OK (45ms)\n2026-07-13 08:00:15.345 ERROR [db] Connection timeout after 30000ms\n2026-07-13 08:00:15.346 ERROR [db] java.sql.SQLException: Connection refused\n    at com.mysql.jdbc.Connection.createNewConnection(Connection.java:1420)\n    at com.mysql.jdbc.Connection.<init>(Connection.java:492)\n2026-07-13 08:00:16.789 WARN  [cache] Cache miss for key: user_profile_1234\n2026-07-13 08:00:20.123 INFO  [api] POST /api/orders - 201 Created (120ms)\n2026-07-13 08:00:25.456 DEBUG [scheduler] Running cleanup task...\n2026-07-13 08:00:30.789 TRACE [http] Request headers: {Content-Type=application/json, Authorization=Bearer ***}\n2026-07-13 08:00:35.012 ERROR [payment] Payment processing failed: Invalid card number\n2026-07-13 08:00:40.345 INFO  [api] GET /api/products - 200 OK (23ms)\n2026-07-13 08:00:45.678 WARN  [rate-limit] Rate limit approaching for IP 10.0.0.5 (95/100)\n2026-07-13 08:00:50.901 FATAL [system] Out of memory: Java heap space\n2026-07-13 08:00:51.234 INFO  [main] Attempting graceful shutdown...';
+  parseLog();
+}
+
+function clearAll() {
+  document.getElementById("logInput").value = '';
+  document.getElementById("logContainer").innerHTML = '';
+  document.getElementById("logContainer").style.display = 'none';
+  document.getElementById("statsBar").style.display = 'none';
+  document.getElementById("filterBar").style.display = 'none';
+  document.getElementById("searchInput").value = '';
+  document.getElementById("fileInput").value = '';
+  logLines = [];
+  searchTerm = '';
+}</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/log-viewer/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

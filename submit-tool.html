@@ -1,1 +1,53 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Suggest a Tool | ToolGuideHub</title><meta name="description" content="Suggest a Tool for ToolGuideHub."><link rel="icon" href="../assets/favicon.svg"><style>*{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#171923;font:16px/1.7 system-ui,sans-serif}header,footer{background:white;border-bottom:1px solid #e1e4eb;padding:17px 0}.wrap{width:min(850px,calc(100% - 30px));margin:auto}a{color:#6630cf;text-decoration:none}.brand{font-weight:800;font-size:20px;color:#171923}main{background:white;margin:38px auto;padding:clamp(22px,5vw,42px);border:1px solid #e1e4eb;border-radius:16px}h1{font-size:clamp(28px,5vw,38px);line-height:1.2;margin:0 0 16px}p{color:#50596a}.back{display:inline-block;margin-top:18px;font-weight:700}</style></head><body><header><div class="wrap"><a class="brand" href="../">✦ ToolGuideHub</a></div></header><main class="wrap"><h1>Suggest a Tool</h1><p>Have an idea for a useful online tool? Send a suggestion through the project repository issue tracker. Include the tool name, what it does, its official URL if applicable, and why it would be useful. Suggestions are reviewed manually and are not guaranteed to be published.</p><a class="back" href="../">← Back to ToolGuideHub</a></main><footer><div class="wrap">© <span id="year"></span> ToolGuideHub · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div></footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit a Tool – ToolGuideHub</title>
+<meta name="description" content="Suggest a free online tool for the ToolGuideHub directory.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/submit-tool.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#6d28d9">
+<meta property="og:title" content="Submit a Tool – ToolGuideHub">
+<meta property="og:description" content="Suggest a free online tool for the ToolGuideHub directory.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/submit-tool.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/tgh.css">
+
+</head>
+<body id="tgh-static">
+<a class="sr" href="#main">Skip to content</a>
+<header class="hd"><div class="wrap">
+<a class="logo" href="" aria-label="ToolGuideHub home"><img src="logo.svg" alt="" width="32" height="32">ToolGuideHub</a>
+<button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+<nav class="nav" id="nav" aria-label="Main"><a href="#directory">Directory</a><a href="categories.html">Categories</a><a href="en/about/">About</a><a href="pricing.html">Pricing</a><a class="btn" href="submit-tool.html">Submit Tool</a></nav>
+</div></header>
+<main id="main"><div class="wrap"><div class="page"><h1>Submit a tool</h1>
+<p>Know a useful free online tool that belongs in the directory? Send it to us. Submissions are reviewed by hand before anything is listed.</p>
+<div class="note">This form opens a pre-filled <b>GitHub issue</b> in the ToolGuideHub repository, so no personal data is stored on this website. You need a free GitHub account to send it.</div>
+<form class="f" id="subf">
+<label>Tool name<input name="n" required maxlength="80" placeholder="e.g. Image Compressor"></label>
+<label>Tool website address<input name="u" type="url" required placeholder="https://example.com/tool"></label>
+<label>Category<select name="c"><option>Developer</option><option>Utilities</option><option>Finance</option><option>Calculators</option><option>Image</option><option>Writing</option><option>Converters</option><option>Health &amp; Fitness</option><option>Games &amp; Fun</option><option>Color &amp; Design</option><option>Productivity</option><option>Home &amp; DIY</option><option>Security</option><option>PDF</option><option>Audio</option><option>SEO</option><option>Education</option><option>AI Tools</option><option>Travel &amp; Sports</option><option>Science &amp; Engineering</option><option>Business</option><option>Video</option><option>Marketing</option><option>Social Media</option><option>Other</option></select></label>
+<label>Is it free to use?<select name="f"><option>Yes, fully free</option><option>Free with limits</option><option>Paid</option></select></label>
+<label>Short description<textarea name="d" rows="4" required maxlength="500" placeholder="What does it do and who is it for?"></textarea></label>
+<button class="btn" type="submit">Continue to GitHub</button></form>
+<p style="margin-top:14px" class="upd">Submitting does not guarantee listing. Listings can never be bought.</p></div></div></main>
+<footer class="ft"><div class="wrap"><div class="cols">
+<div><a class="logo" href=""><img src="logo.svg" alt="" width="32" height="32">ToolGuideHub</a><p>A directory of free online tools, calculators, converters and utilities. Everything runs in your browser.</p></div>
+<div><h4>Explore</h4><a href="#directory">Directory</a><a href="categories.html">Categories</a><a href="submit-tool.html">Submit a tool</a><a href="pricing.html">Pricing</a></div>
+<div><h4>Company</h4><a href="en/about/">About</a><a href="en/contact/">Contact</a><a href="en/privacy/">Privacy Policy</a><a href="en/terms/">Terms and Conditions</a><a href="en/disclaimer/">Disclaimer</a></div>
+</div><div class="cp">© 2026 ToolGuideHub. Tool results are for general information only. See the <a href="en/disclaimer/" style="display:inline;text-decoration:underline">Disclaimer</a>.</div></div></footer>
+<script src="js/config.js"></script>
+<script src="js/tgh-site.js"></script>
+<script>
+document.getElementById('subf').addEventListener('submit',function(e){e.preventDefault();var f=e.target,v=function(n){return f.elements[n].value.trim()};
+var body='**Tool name:** '+v('n')+'\n**URL:** '+v('u')+'\n**Category:** '+v('c')+'\n**Pricing:** '+v('f')+'\n\n**Description:**\n'+v('d');
+location.href='https://github.com/adi63586/Toolguidehub/issues/new?title='+encodeURIComponent('Tool submission: '+v('n'))+'&body='+encodeURIComponent(body);});
+</script>
+</body>
+</html>

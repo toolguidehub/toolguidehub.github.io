@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online PostCSS Config Generator | No Signup</title>
+    <meta name="description" content="Build a postcss.config.js file by selecting plugins like Autoprefixer, cssnano, and Tailwind CSS, with a live config preview.">
+    <meta name="keywords" content="PostCSS config generator, postcss.config.js, Autoprefixer, CSSNano, Tailwind CSS, PostCSS plugins, CSS configuration">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/postcss-config-generator/">
+                <meta property="og:title" content="Free PostCSS Config Generator - ToolGuideHub">
+    <meta property="og:description" content="Build a postcss.config.js file by selecting plugins like Autoprefixer, cssnano, and Tailwind CSS, with a live config preview.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/postcss-config-generator/">
+    <meta property="og:site_name" content="ToolGuideHub">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); 
+</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is PostCSS?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is PostCSS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PostCSS is a tool for transforming CSS with JavaScript plugins. It doesn't do anything by itself, but its plugin ecosystem enables features like auto-adding vendor prefixes, minifying CSS, and using future CSS syntax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between PostCSS and Sass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sass is a CSS preprocessor providing variables, nesting, and mixins as syntax extensions. PostCSS is a post-processor that transforms standard CSS through plugins. PostCSS is more modular — you pick only the plugins you need. They can be used together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most popular PostCSS plugins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most popular PostCSS plugins include: autoprefixer (auto vendor prefixes), cssnano (CSS minification), postcss-preset-env (future CSS syntax), tailwindcss (utility-first CSS framework), and postcss-import (process @import rules)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Autoprefixer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Autoprefixer is the most popular PostCSS plugin. It automatically adds vendor prefixes to CSS properties based on Can I Use data. You write standard CSS and Autoprefixer handles browser compatibility automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this generator safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely safe! All configuration generation happens locally in your browser. No data is sent to any server, and no personal information is collected."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Developer Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/category/dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PostCSS Config Generator"
+    }
+  ],
+  "name": "PostCSS Config Generator"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PostCSS Config Generator", "description": "Free online PostCSS config generator. Visually configure PostCSS plugins including Autoprefixer, Tailwind, CSSNano. Generate postcss.config.js instantly. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--accent:#06b6d4;--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; background: #0f172a; color: #e2e8f0; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(221,58,10,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-success:hover { background: #059669; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .form-row { display: flex; gap: 12px; }
+        .form-row .form-group { flex: 1; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+        .checkbox-group label { display: flex; align-items: center; gap: 6px; font-size: 0.95rem; cursor: pointer; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: #22d3ee; }
+        .code-output { position: relative; }
+        .code-output pre { background: #0c1222; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.5; color: #e2e8f0; max-height: 600px; overflow-y: auto; }
+        .plugin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px; }
+        .plugin-card { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 12px; transition: all .2s; }
+        .plugin-card:hover { border-color: #22d3ee; }
+        .plugin-card.enabled { border-color: #22d3ee; background: rgba(221,58,10,.05); }
+        .plugin-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .plugin-card-header label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+        .plugin-card-header input { width: 18px; height: 18px; accent-color: #22d3ee; }
+        .plugin-card .desc { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
+        .plugin-card .config { display: none; }
+        .plugin-card.enabled .config { display: block; }
+        .plugin-card .config textarea {
+      background: var(--surface);
+      color: var(--text); font-size: 12px; padding: 8px; min-height: 60px; }
+.ad-slot.ad-sidebar{max-width:300px}
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .seo-content { background: var(--card-bg); border-radius: 12px; border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .seo-content h2 { font-size: 1.25rem; margin-bottom: 12px; color: #e2e8f0; }
+        .seo-content h3 { font-size: 1.1rem; margin: 16px 0 8px; color: var(--accent); }
+        .seo-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 12px; }
+        .seo-content ul { color: #94a3b8; padding-left: 20px; margin-bottom: 12px; }
+        .seo-content li { margin-bottom: 6px; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .form-row { flex-direction: column; } .plugin-grid { grid-template-columns: 1fr; } }
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/postcss-config-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use PostCSS Config Generator","description":"Step-by-step guide for using PostCSS Config Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"PostCSS Config Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+        <div style="color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b">← Home</a></div>
+        <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/postcss-config-generator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="../../en/postcss-config-generator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2);text-decoration:none">EN</a></div>
+    </div>
+    <header>
+        <h1>🎨 PostCSS Config Generator</h1>
+        <p>Visually configure PostCSS plugins including Autoprefixer, Tailwind, CSSNano — generate postcss.config in one click</p>
+    </header>
+
+    <div class="section">
+        <h2>⚙️ Basic Configuration</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Output Format</label>
+                <select id="outputFormat">
+                    <option value="js">JavaScript (postcss.config.js)</option>
+                    <option value="cjs">CommonJS (postcss.config.cjs)</option>
+                    <option value="mjs">ESM (postcss.config.mjs)</option>
+                    <option value="json">JSON (.postcssrc.json)</option>
+                    <option value="package">package.json (postcss field)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Syntax Parser</label>
+                <select id="syntaxParser">
+                    <option value="">Default (Auto-detect)</option>
+                    <option value="sugarss">sugarss (Indented Syntax)</option>
+                    <option value="postcss-scss">postcss-scss (SCSS)</option>
+                    <option value="postcss-less">postcss-less (Less)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔌 Select Plugins</h2>
+        <div class="plugin-grid">
+            <div class="plugin-card enabled" id="pc-autoprefixer">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" checked onchange="togglePlugin(this)"> autoprefixer</label>
+                </div>
+                <div class="desc">Auto-add vendor prefixes based on Can I Use data</div>
+                <div class="config">
+                    <textarea id="cfg-autoprefixer" placeholder="JSON config (optional)">{
+  "overrideBrowserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "grid": true
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-preset-env">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-preset-env</label>
+                </div>
+                <div class="desc">Use future CSS syntax, auto-downgrade for older browsers</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-preset-env" placeholder="JSON config (optional)">{
+  "stage": 3,
+  "features": {
+    "nesting-rules": true
+  }
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-cssnano">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> cssnano</label>
+                </div>
+                <div class="desc">CSS minification and optimization</div>
+                <div class="config">
+                    <textarea id="cfg-cssnano" placeholder="JSON config (optional)">{
+  "preset": "default"
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-tailwindcss">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> tailwindcss</label>
+                </div>
+                <div class="desc">Tailwind CSS utility-first framework</div>
+                <div class="config">
+                    <textarea id="cfg-tailwindcss" placeholder="JSON config (optional)">{}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-import">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-import</label>
+                </div>
+                <div class="desc">Transform @import rules to inline content</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-import" placeholder="JSON config (optional)">{}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-nested">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-nested</label>
+                </div>
+                <div class="desc">CSS nesting rules support, similar to Sass nesting</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-nested" placeholder="JSON config (optional)">{}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-simple-vars">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-simple-vars</label>
+                </div>
+                <div class="desc">CSS variable support, like Sass $variables</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-simple-vars" placeholder="JSON config (optional)">{
+  "variables": {
+    "color-primary": "#3b82f6"
+  }
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-mixins">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-mixins</label>
+                </div>
+                <div class="desc">CSS mixin support, like Sass @mixin</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-mixins" placeholder="JSON config (optional)">{
+  "mixins": {}
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-url">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-url</label>
+                </div>
+                <div class="desc">Process URLs in CSS — inline, copy, or rewrite</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-url" placeholder="JSON config (optional)">{
+  "url": "inline"
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-custom-media">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-custom-media</label>
+                </div>
+                <div class="desc">Custom media queries with aliases</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-custom-media" placeholder="JSON config (optional)">{}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-pxtorem">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-pxtorem</label>
+                </div>
+                <div class="desc">Convert px to rem for mobile adaptation</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-pxtorem" placeholder="JSON config (optional)">{
+  "rootValue": 16,
+  "propList": ["*", "!border*"],
+  "minPixelValue": 2
+}</textarea>
+                </div>
+            </div>
+
+            <div class="plugin-card" id="pc-postcss-sort-media-queries">
+                <div class="plugin-card-header">
+                    <label><input type="checkbox" onchange="togglePlugin(this)"> postcss-sort-media-queries</label>
+                </div>
+                <div class="desc">Sort media queries, merge same breakpoints to reduce duplication</div>
+                <div class="config">
+                    <textarea id="cfg-postcss-sort-media-queries" placeholder="JSON config (optional)">{
+  "sort": "mobile-first"
+}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>➕ Custom Plugins</h2>
+        <div class="form-group">
+            <label>Custom plugins (one per line: package-name=JSON config, config optional)</label>
+            <textarea id="customPlugins" rows="3" placeholder="postcss-custom-prop=({})&#10;postcss-focus-visible" style="resize:vertical"></textarea>
+        </div>
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+        <button class="btn btn-primary" onclick="generate()">🎨 Generate Config</button>
+        <button class="btn btn-success" onclick="copyCode()">📋 Copy Code</button>
+        <button class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+    </div>
+
+    <div class="section" id="outputCard" style="display:none">
+        <h2>📦 Generated Result</h2>
+        <div class="code-output">
+            <pre id="codeOutput"></pre>
+        </div>
+    </div>
+
+    <div class="section" id="installCard" style="display:none">
+        <h2>📥 Install Command</h2>
+        <div class="code-output">
+            <pre id="installOutput"></pre>
+        </div>
+    </div>
+
+    <div class="seo-content">
+        <h2>What Can the PostCSS Config Generator Do?</h2>
+        <p>The PostCSS Config Generator is a free online tool that helps developers quickly create PostCSS configuration files. Instead of manually writing complex postcss.config.js files, you can visually select and configure plugins, then generate production-ready configuration code instantly. Everything runs locally: Output Format and Syntax Parser are processed on your device, never sent to a server — no data is uploaded to any server.</p>
+
+        <h2>Core Features</h2>
+        <ul>
+            <li><strong>Plugin Selection:</strong> Choose from 12 popular PostCSS plugins including Autoprefixer, CSSNano, Tailwind CSS, and more</li>
+            <li><strong>Multiple Output Formats:</strong> Generate JS, CommonJS, ESM, JSON, or package.json configurations</li>
+            <li><strong>Custom Plugin Config:</strong> Each plugin has its own JSON configuration textarea for fine-tuning</li>
+            <li><strong>Syntax Parser Support:</strong> Choose between default, sugarss, SCSS, or Less syntax parsers</li>
+            <li><strong>Install Command:</strong> Auto-generates the npm install command for all selected plugins</li>
+        </ul>
+
+        <h2>How to Use</h2>
+        <p>1. Select your output format (JavaScript, CommonJS, ESM, JSON, or package.json).</p>
+        <p>2. Choose a syntax parser if needed (default works for most cases).</p>
+        <p>3. Enable the PostCSS plugins you need and configure their options.</p>
+        <p>4. Add any custom plugins not listed in the built-in selection.</p>
+        <p>5. Click "Generate Config" to create your PostCSS configuration, then copy the code and install command.</p>
+
+        <h2>Use Cases</h2>
+        <h3>Frontend Developers</h3>
+        <p>Quickly set up PostCSS for new projects without manually researching plugin configurations. Save time on boilerplate setup.</p>
+        <h3>CSS Engineers</h3>
+        <p>Configure PostCSS for cross-browser compatibility with Autoprefixer, optimize CSS with CSSNano, and enable modern CSS features with postcss-preset-env.</p>
+        <h3>Mobile Developers</h3>
+        <p>Use postcss-pxtorem for responsive mobile layouts, converting pixel values to rem units automatically.</p>
+
+        <h2>Extended Knowledge</h2>
+        <p>PostCSS was created by Andrey Sitnik in 2013 as a CSS post-processor. Unlike preprocessors like Sass or Less, PostCSS works on standard CSS and transforms it through plugins. This modular approach means you only include the transformations you need, keeping your build lean. The PostCSS ecosystem has over 400 plugins, making it one of the most extensible CSS tools available. It's used by major frameworks like Tailwind CSS and is the default CSS processing tool in Create React App and Next.js.</p>
+    </div>
+
+    <div class="section">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item">
+            <h3>What is PostCSS?</h3>
+            <p>PostCSS is a tool for transforming CSS with JavaScript plugins. It doesn't do anything by itself, but its plugin ecosystem enables features like auto-adding vendor prefixes, minifying CSS, and using future CSS syntax.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the difference between PostCSS and Sass?</h3>
+            <p>Sass is a CSS preprocessor providing variables, nesting, and mixins as syntax extensions. PostCSS is a post-processor that transforms standard CSS through plugins. PostCSS is more modular — you pick only the plugins you need. They can be used together.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What are the most popular PostCSS plugins?</h3>
+            <p>The most popular PostCSS plugins include: autoprefixer (auto vendor prefixes), cssnano (CSS minification), postcss-preset-env (future CSS syntax), tailwindcss (utility-first CSS framework), and postcss-import (process @import rules).</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is Autoprefixer?</h3>
+            <p>Autoprefixer is the most popular PostCSS plugin. It automatically adds vendor prefixes to CSS properties based on Can I Use data. You write standard CSS and Autoprefixer handles browser compatibility automatically.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is this generator safe to use?</h3>
+            <p>Absolutely safe! All configuration generation happens locally in your browser. No data is sent to any server, and no personal information is collected.</p>
+        </div>
+    </div>
+
+    
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/prettier-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Prettier Config Generator</a> <a href="../../en/ssh-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free SSH Config Generator</a> <a href="../../en/vite-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Vite Config Generator</a> <a href="../../en/jest-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Jest Config Generator</a> <a href="../../en/webpack-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Webpack Config Generator</a> <a href="../../en/nginx-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Nginx Config Generator …</a> <a href="../../en/apache-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Apache Config Generator</a></div></section>
+<footer class="footer container">
+      <div style="margin-bottom:12px">
+        <a href="../../">Home</a>
+        <a href="../../">All Tools</a>
+        <a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../about/">About</a>
+        <a href="../../en/postcss-config-generator/">中文</a>
+</div>
+
+
+</footer>
+      
+</main>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+function togglePlugin(cb) {
+    const card = cb.closest('.plugin-card');
+    card.classList.toggle('enabled', cb.checked);
+}
+
+const plugins = [
+    'autoprefixer', 'postcss-preset-env', 'cssnano', 'tailwindcss',
+    'postcss-import', 'postcss-nested', 'postcss-simple-vars',
+    'postcss-mixins', 'postcss-url', 'postcss-custom-media',
+    'postcss-pxtorem', 'postcss-sort-media-queries'
+];
+
+function getEnabledPlugins() {
+    const enabled = [];
+    plugins.forEach(name => {
+        const card = document.getElementById('pc-' + name);
+        if (!card) return;
+        const cb = card.querySelector('input[type="checkbox"]');
+        if (cb && cb.checked) {
+            const cfgEl = document.getElementById('cfg-' + name);
+            let cfg = null;
+            if (cfgEl && cfgEl.value.trim()) {
+                try { cfg = JSON.parse(cfgEl.value); } catch(e) { cfg = null; }
+            }
+            enabled.push({ name, config: cfg });
+        }
+    });
+    const custom = document.getElementById('customPlugins').value.trim();
+    if (custom) {
+        custom.split('\n').filter(l => l.trim()).forEach(line => {
+            const [name, cfgStr] = line.split('=').map(s => s.trim());
+            if (name) {
+                let cfg = null;
+                if (cfgStr) {
+                    try { cfg = JSON.parse(cfgStr); } catch(e) { cfg = null; }
+                }
+                enabled.push({ name, config: cfg });
+            }
+        });
+    }
+    return enabled;
+}
+
+function generate() {
+    const format = document.getElementById('outputFormat').value;
+    const syntax = document.getElementById('syntaxParser').value;
+    const enabled = getEnabledPlugins();
+
+    if (enabled.length === 0) {
+        showToast('Please select at least one plugin');
+        return;
+    }
+
+    let code = '';
+    let installPkgs = ['postcss', ...enabled.map(p => p.name)];
+
+    if (format === 'json') {
+        const obj = {};
+        if (syntax) obj.syntax = syntax;
+        obj.plugins = enabled.map(p => {
+            const entry = {};
+            entry[p.name] = p.config || {};
+            return entry;
+        });
+        code = JSON.stringify(obj, null, 2);
+    } else if (format === 'package') {
+        const obj = {};
+        if (syntax) obj.syntax = syntax;
+        obj.plugins = enabled.map(p => {
+            const entry = {};
+            entry[p.name] = p.config || {};
+            return entry;
+        });
+        code = '// Add to package.json:\n"postcss": ' + JSON.stringify(obj, null, 4);
+    } else {
+        const isESM = format === 'mjs';
+        const isCJS = format === 'cjs';
+
+        const imports = enabled.map(p => {
+            if (isCJS) return `const ${p.name.replace(/-/g, '_')} = require('${p.name}');`;
+            return `import ${p.name.replace(/-/g, '_')} from '${p.name}';`;
+        });
+
+        const pluginList = enabled.map(p => {
+            const varName = p.name.replace(/-/g, '_');
+            if (p.config && Object.keys(p.config).length > 0) {
+                return `${varName}(${JSON.stringify(p.config)})`;
+            }
+            return `${varName}()`;
+        });
+
+        if (isCJS) {
+            code = imports.join('\n') + '\n\n';
+            code += 'module.exports = {\n';
+            if (syntax) code += `  syntax: '${syntax}',\n`;
+            code += '  plugins: [\n    ' + pluginList.join(',\n    ') + '\n  ]\n};\n';
+        } else {
+            code = imports.join('\n') + '\n\n';
+            code += 'export default {\n';
+            if (syntax) code += `  syntax: '${syntax}',\n`;
+            code += '  plugins: [\n    ' + pluginList.join(',\n    ') + '\n  ]\n};\n';
+        }
+    }
+
+    document.getElementById('codeOutput').textContent = code;
+    document.getElementById('outputCard').style.display = 'block';
+
+    const installCmd = 'npm install -D ' + [...new Set(installPkgs)].join(' ');
+    document.getElementById('installOutput').textContent = installCmd;
+    document.getElementById('installCard').style.display = 'block';
+
+    window._lastCode = code;
+    window._lastInstall = installCmd;
+}
+
+function copyCode() {
+    const text = window._lastCode || document.getElementById('codeOutput').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copied';
+        setTimeout(() => btn.textContent = orig, 1500);
+    });
+}
+
+function resetForm() {
+    document.getElementById('outputFormat').value = 'js';
+    document.getElementById('syntaxParser').value = '';
+    document.getElementById('customPlugins').value = '';
+    plugins.forEach((name, i) => {
+        const card = document.getElementById('pc-' + name);
+        if (!card) return;
+        const cb = card.querySelector('input[type="checkbox"]');
+        cb.checked = (name === 'autoprefixer');
+        card.classList.toggle('enabled', name === 'autoprefixer');
+    });
+    document.getElementById('outputCard').style.display = 'none';
+    document.getElementById('installCard').style.display = 'none';
+}
+
+generate();
+</script>
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

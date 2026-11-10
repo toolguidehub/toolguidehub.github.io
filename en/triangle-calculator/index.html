@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangle Calculator - ToolGuideHub</title>
+  <meta name="description" content="Free online triangle calculator — compute area (base×height or Heron&apos;s formula) and perimeter. Supports cm/m/inch/foot units. Client-side only.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Triangle Calculator - ToolGuideHub">
+  <meta property="og:description" content="Free online triangle calculator — compute area (base×height or Heron&apos;s formula) and perimeter. Supports cm/m/inch/foot units. Client-side only.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Triangle Calculator","applicationCategory":"DesignApplication","operatingSystem":"Web","description":"Free online triangle calculator — compute area and perimeter with unit support."}</script>
+  <style>:root{--sub:#94a3b8}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+    header a{color:#06b6d4;text-decoration:none;font-weight:600;font-size:18px}
+    .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+    .lang-switch a:hover{color:#06b6d4}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#06b6d4}
+    main{flex:1;max-width:700px;margin:0 auto;padding:40px 20px;width:100%}
+    h1{font-size:28px;margin-bottom:8px;text-align:center}
+    .subtitle{text-align:center;color:var(--sub);margin-bottom:32px}
+    .section{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+    .form-group input,.form-group select{width:100%;padding:12px;border:2px solid rgba(148,163,184,.1);border-radius:8px;font-size:16px;background:#0f172a;color:#e2e8f0}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:#06b6d4}
+    .row{display:flex;gap:12px}.row>*{flex:1}
+    .btn{width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;background:#06b6d4;color:#fff;transition:all .2s}
+    .btn:hover{opacity:.9}
+    .result{background:#0f172a;border-radius:8px;padding:20px;margin-top:20px;border:1px solid rgba(6,182,212,.2);display:none}
+    .result .final{font-size:36px;font-weight:700;color:#06b6d4}
+    .result .detail{font-size:14px;color:var(--sub);margin-top:8px;line-height:1.8}
+    .result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.08)}
+    .result-item:last-child{border-bottom:none}
+    .result-item .label{color:var(--sub);font-size:13px}
+    .result-item .value{font-weight:600;font-size:15px}
+    .unit-toggle{display:flex;border-radius:8px;overflow:hidden;border:2px solid rgba(148,163,184,.1);margin-bottom:20px}
+    .unit-toggle button{flex:1;padding:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;background:rgba(148,163,184,.05);color:var(--sub);transition:all .2s}
+    .unit-toggle button.active{background:#06b6d4;color:#fff}
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:9999;opacity:0;transition:all .3s ease;pointer-events:none}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .area-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .area-tab{padding:8px 16px;border:1px solid rgba(148,163,184,.2);border-radius:8px;background:rgba(148,163,184,.05);color:var(--sub);cursor:pointer;font-size:13px;transition:all .2s}
+    .area-tab.active{border-color:#06b6d4;background:rgba(6,182,212,.15);color:#06b6d4}
+    footer{text-align:center;padding:24px;color:var(--sub);font-size:13px;border-top:1px solid rgba(148,163,184,.1)}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:22px}.row{flex-direction:column}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/triangle-calculator/">
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/triangle-calculator/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Triangle Calculator"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How to calculate triangle area?","acceptedAnswer":{"@type":"Answer","text":"Area = base × height ÷ 2. Or use Heron's formula: with three sides a,b,c, semi-perimeter s=(a+b+c)/2, area=√(s(s-a)(s-b)(s-c))."}},{"@type":"Question","name":"How to calculate triangle perimeter?","acceptedAnswer":{"@type":"Answer","text":"Perimeter = side a + side b + side c."}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+  <a href="../../">🧰 ToolGuideHub</a>
+  
+</header>
+<main>
+  <h1>📐 Triangle Calculator</h1>
+  <p class="subtitle">Quickly calculate triangle area and perimeter</p>
+
+  <div class="unit-toggle">
+    <button id="btnCm" class="active" onclick="setUnit('cm')">cm</button>
+    <button id="btnM" onclick="setUnit('m')">m</button>
+    <button id="btnIn" onclick="setUnit('in')">inch</button>
+    <button id="btnFt" onclick="setUnit('ft')">foot</button>
+  </div>
+
+  <div class="section">
+    <div class="area-tabs">
+      <button class="area-tab active" onclick="setMode('base')">Base×Height</button>
+      <button class="area-tab" onclick="setMode('three')">Three Sides</button>
+    </div>
+    <div id="modeBase">
+      <div class="row">
+        <div class="form-group"><label>📏 Base</label><input type="number" id="base" placeholder="e.g. 10" step="any" min="0"></div>
+        <div class="form-group"><label>📐 Height</label><input type="number" id="height" placeholder="e.g. 8" step="any" min="0"></div>
+      </div>
+    </div>
+    <div id="modeThree" style="display:none">
+      <div class="row">
+        <div class="form-group"><label>📏 Side a</label><input type="number" id="sideA" placeholder="e.g. 3" step="any" min="0"></div>
+        <div class="form-group"><label>📏 Side b</label><input type="number" id="sideB" placeholder="e.g. 4" step="any" min="0"></div>
+        <div class="form-group"><label>📏 Side c</label><input type="number" id="sideC" placeholder="e.g. 5" step="any" min="0"></div>
+      </div>
+    </div>
+    <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn" onclick="calculate()">🧮 Calculate</button>
+  </div>
+
+  <div class="result" id="result">
+    <div class="final" id="resultArea">—</div>
+    <div class="detail">Area</div>
+    <div class="result-item"><span class="label">📏 Perimeter</span><span class="value" id="resultPerim">—</span></div>
+  </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+
+  <div class="section" style="margin-top:24px">
+    <h2 style="font-size:18px;margin-bottom:12px">❓ FAQ</h2>
+    <div style="font-size:14px;line-height:1.8;color:var(--sub)">
+      <p style="margin-bottom:12px"><strong style="color:#e2e8f0">How to calculate triangle area?</strong><br>
+      Area = base × height ÷ 2. Or use Heron's formula: with sides a,b,c, s=(a+b+c)/2, area=√(s(s-a)(s-b)(s-c)).</p>
+      <p style="margin-bottom:12px"><strong style="color:#e2e8f0">What is Heron's formula?</strong><br>
+      Used when you know all three sides. Semi-perimeter s=(a+b+c)/2, area=√(s(s-a)(s-b)(s-c)). Works for any triangle.</p>
+    </div>
+  </div>
+
+<h2>What is Triangle Calculator?</h2><p>Triangle Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Base and Height to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Convert units quickly when working with international measurements</li><li>Translate metric and imperial units while reading foreign materials</li><li>Verify conversion results in engineering or scientific work</li><li>Quick conversions on mobile without searching for formulas</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+<footer>© 2026 ToolGuideHub — All calculations run locally in your browser</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+var unit='cm';
+var mode='base';
+function setUnit(u){
+  unit=u;
+  ['btnCm','btnM','btnIn','btnFt'].forEach(function(id,i){
+    document.getElementById(id).classList.toggle('active',['cm','m','in','ft'][i]===u);
+  });
+}
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.area-tab').forEach(function(t){
+    t.classList.toggle('active',t.textContent===(m==='base'?'Base×Height':m==='three'?'Three Sides':t.textContent==='底×高'?'Three Sides':'Base×Height'));
+  });
+  document.getElementById('modeBase').style.display=m==='base'?'block':'none';
+  document.getElementById('modeThree').style.display=m==='three'?'block':'none';
+}
+function calculate(){
+  var result=document.getElementById('result');
+  var area,perim;
+  if(mode==='base'){
+    var b=parseFloat(document.getElementById('base').value)||0;
+    var h=parseFloat(document.getElementById('height').value)||0;
+    if(b<=0||h<=0){showToast('Please enter valid base and height');return;}
+    area=b*h/2;
+    perim=b+2*Math.sqrt((b/2)*(b/2)+h*h);
+  }else{
+    var a=parseFloat(document.getElementById('sideA').value)||0;
+    var c=parseFloat(document.getElementById('sideB').value)||0;
+    var d=parseFloat(document.getElementById('sideC').value)||0;
+    if(a<=0||c<=0||d<=0){showToast('Please enter valid sides');return;}
+    if(a+c<=d||a+d<=c||c+d<=a){showToast('Sides cannot form a triangle');return;}
+    var s=(a+c+d)/2;
+    area=Math.sqrt(s*(s-a)*(s-c)*(s-d));
+    perim=a+c+d;
+  }
+  var unitLabel={'cm':'cm²','m':'m²','in':'in²','ft':'ft²'}[unit];
+  var perimLabel={'cm':'cm','m':'m','in':'in','ft':'ft'}[unit];
+  document.getElementById('resultArea').textContent=area.toFixed(2)+' '+unitLabel;
+  document.getElementById('resultPerim').textContent=perim.toFixed(2)+' '+perimLabel;
+  result.style.display='block';
+}
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2500);
+}
+
+function fillExample(){
+  var vals = [["base", "10"], ["height", "8"], ["sideA", "3"], ["sideB", "4"], ["sideC", "5"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

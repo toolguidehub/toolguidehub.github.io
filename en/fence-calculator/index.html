@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online fence calculator. Enter fence length and post spacing to instantly calculate the number of posts, rails, pickets, and concrete bags needed.">
+<meta name="keywords" content="fence calculator, fence material calculator, fence post calculator, wood fence calculator, chain link fence calculator, picket fence calculator, how many fence posts do I need">
+<title>Free Fence Calculator - Posts, Rails, Pickets &amp; Concrete</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/fence-calculator/">
+<meta property="og:title" content="Free Fence Calculator - Posts, Rails, Pickets &amp; Concrete">
+<meta property="og:description" content="Free online fence calculator. Enter fence length and post spacing to instantly calculate the number of posts, rails, pickets, and concrete bags needed.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/fence-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/fence-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Fence Calculator","description":"Free online fence calculator. Enter fence length and post spacing to instantly calculate the number of posts, rails, pickets, and concrete bags needed. Supports privacy, picket, and chain-link fences with cost estimation and visual diagram.","applicationCategory":"DesignApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Fence Calculator FAQ","mainEntity":[{"@type":"Question","name":"What spacing should fence posts be?","acceptedAnswer":{"@type":"Answer","text":"Fence posts are typically spaced 1.8 to 2.4 meters (6-8 feet) apart. Privacy and picket fences usually use 2.4m spacing, while chain-link fences can use up to 3m spacing. Smaller spacing makes the fence sturdier but increases cost. Do not exceed 2.4m to prevent rails from sagging."}},{"@type":"Question","name":"How much concrete do I need per fence post?","acceptedAnswer":{"@type":"Answer","text":"Each fence post typically needs about 0.03-0.05 cubic meters of concrete (roughly 1-2 bags of 40kg concrete mix). The hole depth should be 1/3 to 1/2 of the post's above-ground height, and the width should be about 3 times the post diameter. This calculator automatically computes concrete volume based on your hole dimensions."}},{"@type":"Question","name":"What is the difference between a privacy fence and a picket fence?","acceptedAnswer":{"@type":"Answer","text":"A privacy fence uses wide boards (typically 150mm) placed tightly together with no gaps, standing 1.8m or taller to completely block the view. A picket fence uses narrower pickets (typically 90mm) with gaps between them, usually 1.2m tall, offering both aesthetics and airflow. Chain-link fences use metal mesh and are the most economical option."}},{"@type":"Question","name":"How do I calculate how many fence posts I need?","acceptedAnswer":{"@type":"Answer","text":"Fence post count = (total fence length / post spacing) + 1. For example, a 30m fence with 2.4m spacing needs 30/2.4 + 1 = 13.5, rounded up to 14 posts. If your fence has multiple sections (corners, gates), each section needs its own starting post."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations are performed locally in your browser. No data is sent to any server. Data is cleared when you close the page, so please record your results promptly."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Fence Calculator","item":"https://adi63586.github.io/Toolguidehub/en/fence-calculator/"}]}</script>
+<style>
+:root{--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--primary:#06b6d4;--primary-light:rgba(6,182,212,.15);--border:rgba(148,163,184,.1);--muted:#94a3b8;--danger:#ef4444;--success:#10b981;--warning:#f59e0b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--primary);text-decoration:none}
+.container{max-width:920px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:var(--card-bg);border-radius:8px;padding:4px;border:1px solid var(--border)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:var(--muted)}
+.lang-switch a.active{background:var(--primary-light);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:var(--muted)}
+.type-tabs{display:flex;gap:0;margin-bottom:16px;background:var(--card-bg);border-radius:10px;padding:4px;border:1px solid var(--border)}
+.type-tab{flex:1;padding:10px 12px;text-align:center;border-radius:8px;font-size:.85rem;color:var(--muted);cursor:pointer;transition:all .2s;user-select:none}
+.type-tab.active{background:var(--primary-light);color:#22d3ee;font-weight:600}
+.tool-section{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid var(--border)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:14px}
+label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:4px;margin-top:12px}
+label:first-child{margin-top:0}
+input[type=number],select{width:100%;padding:10px 12px;background:var(--bg);color:var(--text);border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.95rem;transition:border-color .2s}
+input:focus,select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+input::placeholder{color:#475569}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.result-section{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid var(--border)}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:14px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.result-card{background:var(--bg);border-radius:8px;padding:14px;text-align:center;border:1px solid rgba(148,163,184,.08)}
+.result-card .label{color:var(--muted);font-size:.8rem;margin-bottom:4px}
+.result-card .value{color:#22d3ee;font-size:1.4rem;font-weight:700}
+.result-card .sub{color:#64748b;font-size:.75rem;margin-top:2px}
+.fence-diagram{background:var(--bg);border-radius:8px;padding:20px;border:1px solid rgba(148,163,184,.08);margin:16px 0;text-align:center}
+.fence-diagram svg{max-width:100%;height:auto}
+.cost-table{width:100%;border-collapse:collapse;margin-top:10px}
+.cost-table th,.cost-table td{padding:8px 12px;text-align:center;border:1px solid var(--border);font-size:.85rem;color:var(--muted)}
+.cost-table th{background:var(--bg);color:#f1f5f9}
+.cost-table td.highlight{color:#22d3ee;font-weight:600}
+.cost-table tfoot td{color:#22d3ee;font-weight:700;font-size:.95rem}
+.formula-box{background:var(--bg);border-radius:8px;padding:14px;border:1px solid rgba(148,163,184,.08);margin-top:14px}
+.formula-box h3{font-size:.9rem;color:#f1f5f9;margin-bottom:8px}
+.formula-line{font-family:"Courier New",monospace;font-size:.85rem;color:var(--muted);margin:4px 0}
+.formula-line .highlight{color:#22d3ee}
+.info-section{background:var(--card-bg);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid var(--border)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+.info-section ul{color:var(--muted);font-size:.9rem;padding-left:20px;margin-bottom:8px}
+.info-section li{margin-bottom:4px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--card-bg);color:var(--text);padding:12px 24px;border-radius:8px;border:1px solid var(--border);font-size:.85rem;opacity:0;transition:all .3s;z-index:9999}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.footer{border-top:1px solid var(--border);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:var(--muted)}
+@media(max-width:600px){.row{flex-direction:column}.result-grid{grid-template-columns:1fr}.type-tab{font-size:.75rem;padding:8px 6px}.header h1{font-size:1.2rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header">
+<h1>🚧 Fence Calculator</h1>
+
+</div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<div class="type-tabs">
+<div class="type-tab active" data-type="privacy" onclick="switchType('privacy')">🔒 Privacy</div>
+<div class="type-tab" data-type="picket" onclick="switchType('picket')">🏡 Picket</div>
+<div class="type-tab" data-type="chain" onclick="switchType('chain')">⛓️ Chain-link</div>
+</div>
+
+<div class="tool-section">
+<h2>📐 Fence Parameters</h2>
+<div class="row">
+<div class="field">
+<label>Total Fence Length (meters)</label>
+<input type="number" id="fenceLength" placeholder="e.g. 30" value="30" oninput="calculate()">
+</div>
+<div class="field">
+<label>Post Spacing (meters)</label>
+<input type="number" id="postSpacing" placeholder="e.g. 2.4" value="2.4" step="0.1" oninput="calculate()">
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label>Fence Height (meters)</label>
+<input type="number" id="fenceHeight" placeholder="e.g. 1.8" value="1.8" step="0.1" oninput="calculate()">
+</div>
+<div class="field" id="picketWidthField">
+<label>Picket/Board Width (mm)</label>
+<input type="number" id="picketWidth" placeholder="e.g. 90" value="90" oninput="calculate()">
+</div>
+<div class="field" id="gapField">
+<label>Gap Between Pickets (mm)</label>
+<input type="number" id="gapWidth" placeholder="e.g. 50" value="50" oninput="calculate()">
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label>Rail Layers</label>
+<select id="railCount" onchange="calculate()">
+<option value="2">2 rails (standard)</option>
+<option value="3">3 rails (reinforced)</option>
+<option value="4">4 rails (extra tall)</option>
+</select>
+</div>
+<div class="field">
+<label>Post Hole Depth (meters)</label>
+<input type="number" id="holeDepth" placeholder="e.g. 0.6" value="0.6" step="0.1" oninput="calculate()">
+</div>
+<div class="field">
+<label>Post Hole Diameter (cm)</label>
+<input type="number" id="holeDiameter" placeholder="e.g. 30" value="30" oninput="calculate()">
+</div>
+</div>
+</div>
+
+<div class="tool-section">
+<h2>💰 Material Prices (optional)</h2>
+<div class="row">
+<div class="field">
+<label>Price per Post ($)</label>
+<input type="number" id="postPrice" placeholder="e.g. 8" value="8" oninput="calculate()">
+</div>
+<div class="field">
+<label>Price per Rail ($)</label>
+<input type="number" id="railPrice" placeholder="e.g. 6" value="6" oninput="calculate()">
+</div>
+<div class="field" id="picketPriceField">
+<label>Price per Picket/Board ($)</label>
+<input type="number" id="picketPrice" placeholder="e.g. 2" value="2" oninput="calculate()">
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label>Price per Concrete Bag ($)</label>
+<input type="number" id="concretePrice" placeholder="e.g. 5" value="5" oninput="calculate()">
+</div>
+<div class="field">
+<label>Concrete Bag Weight (kg)</label>
+<input type="number" id="bagWeight" placeholder="e.g. 40" value="40" oninput="calculate()">
+</div>
+</div>
+</div>
+
+<div class="result-section" id="resultSection">
+<h2>📊 Results</h2>
+<div class="result-grid">
+<div class="result-card">
+<div class="label">Fence Posts</div>
+<div class="value" id="postCount">0</div>
+<div class="sub" id="postSub">posts</div>
+</div>
+<div class="result-card">
+<div class="label">Rails</div>
+<div class="value" id="railCountResult">0</div>
+<div class="sub" id="railSub">rails</div>
+</div>
+<div class="result-card" id="picketCard">
+<div class="label">Pickets/Boards</div>
+<div class="value" id="picketCount">0</div>
+<div class="sub" id="picketSub">pickets</div>
+</div>
+<div class="result-card">
+<div class="label">Concrete</div>
+<div class="value" id="concreteBags">0</div>
+<div class="sub" id="concreteSub">bags</div>
+</div>
+</div>
+
+<div class="fence-diagram">
+<h3 style="font-size:.9rem;color:#f1f5f9;margin-bottom:10px">📏 Fence Layout Diagram</h3>
+<div id="diagramContainer"></div>
+</div>
+
+<div class="formula-box">
+<h3>📐 Calculation Breakdown</h3>
+<div class="formula-line" id="formula1"></div>
+<div class="formula-line" id="formula2"></div>
+<div class="formula-line" id="formula3"></div>
+<div class="formula-line" id="formula4"></div>
+</div>
+
+<div id="costSection" style="display:none">
+<h3 style="font-size:.9rem;color:#f1f5f9;margin:16px 0 8px">💰 Material Cost Estimate</h3>
+<table class="cost-table">
+<tr><th>Material</th><th>Qty</th><th>Unit Price</th><th>Subtotal</th></tr>
+<tr><td>Posts</td><td id="costPostQty">0</td><td id="costPostUnit">$0</td><td id="costPostTotal">$0</td></tr>
+<tr><td>Rails</td><td id="costRailQty">0</td><td id="costRailUnit">$0</td><td id="costRailTotal">$0</td></tr>
+<tr id="costPicketRow"><td>Pickets</td><td id="costPicketQty">0</td><td id="costPicketUnit">$0</td><td id="costPicketTotal">$0</td></tr>
+<tr><td>Concrete</td><td id="costConcreteQty">0</td><td id="costConcreteUnit">$0</td><td id="costConcreteTotal">$0</td></tr>
+<tfoot><tr><td colspan="3">Total</td><td id="costGrandTotal">$0</td></tr></tfoot>
+</table>
+</div>
+</div>
+
+<div class="info-section">
+<h2>📋 Fence Types Explained</h2>
+<p><strong style="color:#22d3ee">🔒 Privacy Fence</strong>: Uses wide boards (typically 150mm) placed tightly together with no gaps, standing 1.8m or taller. Completely blocks the view — ideal for backyards and pool enclosures.</p>
+<p><strong style="color:#22d3ee">🏡 Picket Fence</strong>: Uses narrower pickets (typically 90mm) with 50-70mm gaps between them, usually around 1.2m tall. Offers both aesthetics and airflow — great for front yards.</p>
+<p><strong style="color:#22d3ee">⛓️ Chain-link Fence</strong>: Uses metal mesh sold by the roll (15-25m per roll). The most economical option, requires tension bars and ties. Best for large areas and industrial sites.</p>
+</div>
+
+<div class="info-section">
+<h2>💡 Installation Tips</h2>
+<ul>
+<li><strong style="color:#f1f5f9">Hole depth:</strong> Should be 1/3 to 1/2 of the post's above-ground height, and must extend below the local frost line</li>
+<li><strong style="color:#f1f5f9">Post spacing:</strong> Keep it under 2.4m to prevent rails from sagging over time</li>
+<li><strong style="color:#f1f5f9">Concrete:</strong> Each post needs roughly 1-2 bags of 40kg concrete, depending on hole dimensions</li>
+<li><strong style="color:#f1f5f9">Buy 10% extra:</strong> Always order 10% more material for waste and cutting errors</li>
+<li><strong style="color:#f1f5f9">Underground utilities:</strong> Always call your local utility company before digging</li>
+<li><strong style="color:#f1f5f9">Corners & gates:</strong> Each corner and gate opening needs additional posts</li>
+</ul>
+</div>
+
+<div class="info-section">
+<h2>📝 How to Use</h2>
+<ul>
+<li>Select your fence type, then enter the total fence length and post spacing — materials are calculated automatically</li>
+<li>Privacy and picket fences require board width and gap inputs; chain-link fences do not</li>
+<li>Enter material unit prices to get an automatic cost estimate</li>
+<li>We recommend ordering 10% extra material beyond the calculated amounts</li>
+<li>All calculations run locally in your browser — no data is uploaded</li>
+</ul>
+</div>
+
+<div class="footer">
+<a href="../../">Home</a>
+<a href="../../#tools">All Tools</a>
+<a href="../../en/about/">About</a>
+<p>© 2026 ToolGuideHub · Pure frontend tools · No data uploaded</p>
+</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var currentType='privacy';
+
+function switchType(type){
+    currentType=type;
+    document.querySelectorAll('.type-tab').forEach(function(t){
+        t.classList.toggle('active',t.dataset.type===type);
+    });
+    var picketField=document.getElementById('picketWidthField');
+    var gapField=document.getElementById('gapField');
+    var picketCard=document.getElementById('picketCard');
+    var picketPriceField=document.getElementById('picketPriceField');
+    var costPicketRow=document.getElementById('costPicketRow');
+    if(type==='chain'){
+        picketField.style.display='none';
+        gapField.style.display='none';
+        picketCard.style.display='none';
+        picketPriceField.style.display='none';
+        costPicketRow.style.display='none';
+    }else{
+        picketField.style.display='';
+        gapField.style.display='';
+        picketCard.style.display='';
+        picketPriceField.style.display='';
+        costPicketRow.style.display='';
+        if(type==='privacy'){
+            document.getElementById('picketWidth').value=150;
+            document.getElementById('gapWidth').value=0;
+        }else{
+            document.getElementById('picketWidth').value=90;
+            document.getElementById('gapWidth').value=50;
+        }
+    }
+    calculate();
+}
+
+function calculate(){
+    var length=parseFloat(document.getElementById('fenceLength').value)||0;
+    var spacing=parseFloat(document.getElementById('postSpacing').value)||0;
+    var height=parseFloat(document.getElementById('fenceHeight').value)||0;
+    var holeDepth=parseFloat(document.getElementById('holeDepth').value)||0;
+    var holeDiameter=parseFloat(document.getElementById('holeDiameter').value)||0;
+    var rails=parseInt(document.getElementById('railCount').value)||2;
+
+    if(length<=0||spacing<=0){
+        document.getElementById('resultSection').style.display='none';
+        return;
+    }
+
+    document.getElementById('resultSection').style.display='block';
+
+    // Posts: length / spacing + 1, rounded up
+    var postCount=Math.ceil(length/spacing)+1;
+    // Adjust: if length is exact multiple of spacing, subtract 1 from the ceil result
+    if(length%spacing===0){
+        postCount=length/spacing+1;
+    }
+
+    // Rails: postCount-1 sections * rails per section
+    var railSections=postCount-1;
+    var railCount=railSections*rails;
+
+    // Pickets (for privacy and picket fences)
+    var picketCount=0;
+    var picketWidthMM=0;
+    var gapMM=0;
+    if(currentType!=='chain'){
+        picketWidthMM=parseFloat(document.getElementById('picketWidth').value)||0;
+        gapMM=parseFloat(document.getElementById('gapWidth').value)||0;
+        if(picketWidthMM>0){
+            var totalWidthMM=picketWidthMM+gapMM;
+            var lengthMM=length*1000;
+            picketCount=Math.ceil(lengthMM/totalWidthMM);
+        }
+    }
+
+    // Concrete: volume per hole = pi * r^2 * depth
+    // holeDiameter is in cm, holeDepth in meters
+    var radiusM=holeDiameter/2/100;
+    var volumePerHole=Math.PI*radiusM*radiusM*holeDepth; // cubic meters
+    var totalVolume=volumePerHole*postCount; // cubic meters
+    // Convert to bags: 1 bag of 40kg yields ~0.015 cubic meters of concrete
+    var bagWeight=parseFloat(document.getElementById('bagWeight').value)||40;
+    var yieldPerBag=0.015*(bagWeight/40); // cubic meters per bag
+    var concreteBags=Math.ceil(totalVolume/yieldPerBag);
+
+    // Update display
+    document.getElementById('postCount').textContent=postCount;
+    document.getElementById('railCountResult').textContent=railCount;
+    document.getElementById('picketCount').textContent=picketCount;
+    document.getElementById('concreteBags').textContent=concreteBags;
+
+    // Sub labels
+    document.getElementById('postSub').textContent='posts ('+spacing+'m spacing)';
+    document.getElementById('railSub').textContent='rails ('+rails+' layers × '+railSections+' sections)';
+    if(currentType!=='chain'){
+        document.getElementById('picketSub').textContent='pickets ('+picketWidthMM+'mm wide)';
+    }
+    document.getElementById('concreteSub').textContent='bags (~'+totalVolume.toFixed(2)+'m³)';
+
+    // Formulas
+    document.getElementById('formula1').innerHTML='Posts = ('+length+'m ÷ '+spacing+'m) + 1 = <span class="highlight">'+postCount+' posts</span>';
+    document.getElementById('formula2').innerHTML='Rails = '+railSections+' sections × '+rails+' layers = <span class="highlight">'+railCount+' rails</span>';
+    if(currentType!=='chain'&&picketWidthMM>0){
+        document.getElementById('formula3').innerHTML='Pickets = '+Math.round(length*1000)+'mm ÷ ('+picketWidthMM+'+'+gapMM+')mm = <span class="highlight">'+picketCount+' pickets</span>';
+    }else if(currentType==='chain'){
+        document.getElementById('formula3').innerHTML='Chain-link mesh = '+length+'m (sold by the roll)';
+    }else{
+        document.getElementById('formula3').innerHTML='Enter board width to calculate pickets';
+    }
+    document.getElementById('formula4').innerHTML='Concrete = π×('+(holeDiameter/2)+'cm)²×'+holeDepth+'m × '+postCount+' posts = <span class="highlight">'+totalVolume.toFixed(3)+'m³ → '+concreteBags+' bags</span>';
+
+    // Cost calculation
+    var postPrice=parseFloat(document.getElementById('postPrice').value)||0;
+    var railPrice=parseFloat(document.getElementById('railPrice').value)||0;
+    var picketPrice=parseFloat(document.getElementById('picketPrice').value)||0;
+    var concretePrice=parseFloat(document.getElementById('concretePrice').value)||0;
+
+    var costSection=document.getElementById('costSection');
+    var hasPrice=postPrice>0||railPrice>0||picketPrice>0||concretePrice>0;
+    costSection.style.display=hasPrice?'block':'none';
+
+    if(hasPrice){
+        var postTotal=postCount*postPrice;
+        var railTotal=railCount*railPrice;
+        var picketTotal=picketCount*picketPrice;
+        var concreteTotal=concreteBags*concretePrice;
+        var grandTotal=postTotal+railTotal+picketTotal+concreteTotal;
+
+        document.getElementById('costPostQty').textContent=postCount;
+        document.getElementById('costPostUnit').textContent='$'+postPrice;
+        document.getElementById('costPostTotal').textContent='$'+formatNum(postTotal);
+
+        document.getElementById('costRailQty').textContent=railCount;
+        document.getElementById('costRailUnit').textContent='$'+railPrice;
+        document.getElementById('costRailTotal').textContent='$'+formatNum(railTotal);
+
+        if(currentType!=='chain'){
+            document.getElementById('costPicketQty').textContent=picketCount;
+            document.getElementById('costPicketUnit').textContent='$'+picketPrice;
+            document.getElementById('costPicketTotal').textContent='$'+formatNum(picketTotal);
+        }
+
+        document.getElementById('costConcreteQty').textContent=concreteBags;
+        document.getElementById('costConcreteUnit').textContent='$'+concretePrice;
+        document.getElementById('costConcreteTotal').textContent='$'+formatNum(concreteTotal);
+
+        document.getElementById('costGrandTotal').textContent='$'+formatNum(grandTotal);
+    }
+
+    // Draw diagram
+    drawDiagram(length,spacing,postCount,currentType);
+}
+
+function drawDiagram(length,spacing,postCount,type){
+    var container=document.getElementById('diagramContainer');
+    var svgWidth=Math.min(700,length*8+40);
+    if(svgWidth<200)svgWidth=200;
+    var svgHeight=100;
+    var padding=20;
+    var drawWidth=svgWidth-padding*2;
+    var scale=drawWidth/length;
+
+    var svg='<svg width="'+svgWidth+'" height="'+svgHeight+'" viewBox="0 0 '+svgWidth+' '+svgHeight+'">';
+    // Ground line
+    svg+='<line x1="0" y1="80" x2="'+svgWidth+'" y2="80" stroke="rgba(148,163,184,0.2)" stroke-width="1" stroke-dasharray="4,4"/>';
+
+    // Draw posts
+    for(var i=0;i<postCount;i++){
+        var x=padding+i*spacing*scale;
+        if(x>svgWidth-padding)x=svgWidth-padding;
+        svg+='<rect x="'+(x-3)+'" y="35" width="6" height="45" fill="#06b6d4" rx="1"/>';
+        if(i<5||i>=postCount-2){
+            svg+='<text x="'+x+'" y="95" fill="#64748b" font-size="9" text-anchor="middle">'+(i*spacing)+'m</text>';
+        }else if(i===5){
+            svg+='<text x="'+x+'" y="95" fill="#64748b" font-size="9" text-anchor="middle">···</text>';
+        }
+    }
+
+    // Draw rails
+    var railY1=42,railY2=70;
+    svg+='<line x1="'+padding+'" y1="'+railY1+'" x2="'+(svgWidth-padding)+'" y2="'+railY1+'" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>';
+    svg+='<line x1="'+padding+'" y1="'+railY2+'" x2="'+(svgWidth-padding)+'" y2="'+railY2+'" stroke="rgba(6,182,212,0.4)" stroke-width="2"/>';
+
+    // Draw pickets for privacy/picket
+    if(type!=='chain'){
+        var picketWidthMM=parseFloat(document.getElementById('picketWidth').value)||90;
+        var gapMM=parseFloat(document.getElementById('gapWidth').value)||0;
+        var totalWidthMM=picketWidthMM+gapMM;
+        var picketW=Math.max(2,picketWidthMM/1000*scale);
+        var totalPickets=Math.floor(length*1000/totalWidthMM);
+        for(var j=0;j<totalPickets;j++){
+            var px=padding+j*totalWidthMM/1000*scale;
+            if(px>svgWidth-padding)break;
+            svg+='<rect x="'+px+'" y="38" width="'+picketW+'" height="42" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.3)" stroke-width="0.5"/>';
+        }
+    }else{
+        // Chain link pattern
+        svg+='<pattern id="chain" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">';
+        svg+='<path d="M0,4 L4,0 L8,4 L4,8 Z" fill="none" stroke="rgba(6,182,212,0.2)" stroke-width="0.5"/>';
+        svg+='</pattern>';
+        svg+='<rect x="'+padding+'" y="38" width="'+(svgWidth-padding*2)+'" height="42" fill="url(#chain)"/>';
+    }
+
+    svg+='</svg>';
+    container.innerHTML=svg;
+}
+
+function formatNum(n){
+    return Math.round(n).toLocaleString('en-US');
+}
+
+function showToast(msg){
+    var toast=document.getElementById('toast');
+    toast.textContent=msg;
+    toast.classList.add('show');
+    setTimeout(function(){toast.classList.remove('show');},2000);
+}
+
+// Initial calculation
+calculate();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

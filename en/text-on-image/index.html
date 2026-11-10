@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Add captions, meme text or watermarks to a photo with control over font, size, colour, opacity and position, then download the image.">
+<meta name="keywords" content="text on image, add text to photo, image text overlay, meme text, photo caption, watermark tool, free text overlay, online image editor">
+<title>Free Text on Image - Online Image Text Overlay Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/text-on-image/">
+<meta property="og:title" content="Text on Image - Free Online Image Text Overlay Tool">
+<meta property="og:description" content="Add captions, meme text or watermarks to a photo with control over font, size, colour, opacity and position, then download the image.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/text-on-image/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Text on Image - Free Online Text Overlay Tool", "description": "Add custom text, captions, and watermarks to photos with adjustable font, size, color, and position.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-15", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this text on image tool free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+"name": "Text on Image FAQ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free with no registration, login, or usage limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it upload my images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally: Text content and other values are processed on your device, never sent to a server using Canvas API. Your images never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What font options are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can choose from system fonts including Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana, Impact, and monospace. Size and bold/italic styles are adjustable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can download the image with text as a PNG file."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+.controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.btn{padding:9px 18px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.35)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.25)}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.option-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.option-row label{color:#94a3b8;font-size:.82rem;display:flex;align-items:center;gap:6px}
+.option-row input[type="range"]{width:120px;background:transparent;cursor:pointer}
+.option-row input[type="color"]{width:36px;height:36px;border:1px solid rgba(148,163,184,.2);border-radius:4px;background:transparent;cursor:pointer;padding:2px}
+.option-row input[type="number"]{width:60px;padding:6px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:4px;color:#e2e8f0;font-size:.82rem;outline:none}
+.option-row select{padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.82rem;outline:none}
+input[type="text"]{padding:6px 10px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem;outline:none;width:100%}
+input[type="text"]:focus{border-color:rgba(6,182,212,.4)}
+.canvas-wrap{text-align:center;background:#0a0f1e;border-radius:8px;padding:16px;min-height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.canvas-wrap canvas{max-width:100%;max-height:500px;border-radius:4px}
+.upload-zone{border:2px dashed rgba(148,163,184,.2);border-radius:8px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s}
+.upload-zone:hover{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.03)}
+.upload-zone .icon{font-size:2.5rem;margin-bottom:8px}
+.upload-zone .text{color:#94a3b8;font-size:.88rem}
+.upload-zone .hint{color:#64748b;font-size:.75rem;margin-top:4px}
+.faq-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(148,163,184,.08)}
+.faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.faq-item h3{font-size:.95rem;color:#f1f5f9;margin-bottom:6px}
+.faq-item p{font-size:.85rem;color:#94a3b8;line-height:1.7}
+.footer{text-align:center;color:#64748b;font-size:.82rem;padding:24px 0 12px;border-top:1px solid rgba(148,163,184,.08);margin-top:24px}
+.footer a{color:#64748b}
+.footer a:hover{color:#94a3b8}
+@media(max-width:640px){.header{flex-direction:column;gap:12px;align-items:flex-start}.header h1{font-size:1.3rem}}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Text on Image - Online Image Text Overlay Tool", "item": "https://adi63586.github.io/Toolguidehub/en/text-on-image/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Text on Image","description":"Step-by-step guide for using Text on Image","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Text on Image"},"step":[{"@type":"HowToStep","position":1,"name":"Upload image","text":"Click to upload an image or drag and drop a JPG, PNG, or WebP file."},{"@type":"HowToStep","position":2,"name":"Enter text","text":"Type your text in the text input field. Adjust font, size, color, and opacity."},{"@type":"HowToStep","position":3,"name":"Position text","text":"Use sliders to set the X/Y position and rotation angle of the text."},{"@type":"HowToStep","position":4,"name":"Download result","text":"Click the Download button to save the image with text overlay as PNG."}]}</script>
+
+
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/text-on-image/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>Text on Image</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section">
+    <h2>Upload Image</h2>
+    <div id="uploadZone" class="upload-zone" onclick="document.getElementById('fileInput').click()">
+      <div class="icon">🖼️</div>
+      <div class="text">Click to upload an image or drag & drop</div>
+      <div class="hint">Supports JPG, PNG, WebP</div>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFile(this.files[0])">
+  </div>
+
+  <div class="section" id="controlsSection" style="display:none">
+    <h2>Text Settings</h2>
+    <div class="form-group">
+      <label>Text content:</label>
+      <input type="text" id="textContent" value="Your Text Here" oninput="renderText()">
+    </div>
+    <div class="option-row">
+      <label>Font: <select id="fontFamily" onchange="renderText()">
+        <option value="Arial">Arial</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Georgia">Georgia</option>
+        <option value="'Times New Roman'">Times New Roman</option>
+        <option value="'Courier New'">Courier New</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Impact">Impact</option>
+        <option value="monospace">Monospace</option>
+      </select></label>
+      <label>Size: <input type="range" id="fontSize" min="12" max="200" value="48" oninput="document.getElementById('sizeVal').textContent=this.value+'px';renderText()"> <span id="sizeVal">48px</span></label>
+    </div>
+    <div class="option-row">
+      <label>Color: <input type="color" id="textColor" value="#ffffff" onchange="renderText()"></label>
+      <label>Background: <input type="color" id="textBgColor" value="#000000" onchange="renderText()"></label>
+      <label>Opacity: <input type="range" id="textOpacity" min="10" max="100" value="100" oninput="document.getElementById('opacityVal').textContent=this.value+'%';renderText()"> <span id="opacityVal">100%</span></label>
+    </div>
+    <div class="option-row">
+      <label>Position X: <input type="range" id="posX" min="0" max="100" value="50" oninput="renderText()"> <span id="posXVal">50%</span></label>
+      <label>Position Y: <input type="range" id="posY" min="0" max="100" value="50" oninput="renderText()"> <span id="posYVal">50%</span></label>
+    </div>
+    <div class="option-row">
+      <label>Rotation: <input type="range" id="rotation" min="-180" max="180" value="0" oninput="document.getElementById('rotVal').textContent=this.value+'°';renderText()"> <span id="rotVal">0°</span></label>
+      <label>Style: <select id="textStyle" onchange="renderText()">
+        <option value="normal">Normal</option>
+        <option value="bold">Bold</option>
+        <option value="italic">Italic</option>
+        <option value="bolditalic">Bold Italic</option>
+        <option value="outline">Outline</option>
+        <option value="shadow">Shadow</option>
+      </select></label>
+    </div>
+    <div class="controls-row" style="margin-top:12px">
+      <button class="btn btn-success" onclick="downloadImage()">⬇ Download</button>
+      <button class="btn btn-secondary" onclick="document.getElementById('textContent').value='';renderText()">🗑 Clear Text</button>
+    </div>
+  </div>
+
+  <div class="section" id="previewSection" style="display:none">
+    <h2>Preview</h2>
+    <div class="canvas-wrap" id="canvasWrap"></div>
+  </div>
+
+  <div class="section">
+    <h2>How to Use</h2>
+    <ol style="color:#94a3b8;font-size:.85rem;margin-left:18px;line-height:2">
+      <li><strong>Upload</strong> an image</li>
+      <li>Type your <strong>text</strong> in the text input field</li>
+      <li>Adjust <strong>font</strong>, <strong>size</strong>, <strong>color</strong>, and <strong>opacity</strong></li>
+      <li>Drag sliders to set <strong>position</strong> and <strong>rotation</strong></li>
+      <li><strong>Download</strong> the image with text overlay</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is this text on image tool free?</h3>
+      <p>Yes, it's completely free with no registration, login, or usage limits. Use it as many times as you need.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it upload my images?</h3>
+      <p>No. Everything runs locally: Text content and other values are processed on your device, never sent to a server using the HTML5 Canvas API. Your images never leave your device.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What fonts are available?</h3>
+      <p>We offer system fonts including Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana, Impact, and monospace. Size ranges from 12px to 200px with bold and italic options.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I add watermark text?</h3>
+      <p>Yes — use the opacity slider to make text semi-transparent, which works perfectly for watermarking. We recommend placing watermarks in corners (use X: 10-20, Y: 80-90) with low opacity.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What image formats are supported?</h3>
+      <p>JPG, PNG, and WebP images are supported. The output is always a PNG file with the text overlaid.</p>
+    </div>
+  </div>
+
+  <div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/image-to-png/">⚙️ 🖼️ Image to PNG</a><a href="../../en/image-compare/">🖼️ 🖼️ Image Compare</a><a href="../../en/image-to-data-uri/">📷 Image to Data URI</a></div></section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+
+let currentImage = null;
+
+document.getElementById('uploadZone').addEventListener('dragover', e => e.preventDefault());
+document.getElementById('uploadZone').addEventListener('drop', e => { e.preventDefault(); handleFile(e.dataTransfer.files[0]); });
+
+function handleFile(file) {
+  if (!file || !file.type.startsWith('image/')) { showToast('Please upload an image file.'); return; }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      currentImage = img;
+      document.getElementById('controlsSection').style.display = 'block';
+      document.getElementById('previewSection').style.display = 'block';
+      renderText();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderText() {
+  if (!currentImage) return;
+  const img = currentImage;
+  const text = document.getElementById('textContent').value || ' ';
+  const fontFamily = document.getElementById('fontFamily').value;
+  const fontSize = parseInt(document.getElementById('fontSize').value);
+  const color = document.getElementById('textColor').value;
+  const bgColor = document.getElementById('textBgColor').value;
+  const opacity = parseInt(document.getElementById('textOpacity').value) / 100;
+  const posX = parseInt(document.getElementById('posX').value) / 100;
+  const posY = parseInt(document.getElementById('posY').value) / 100;
+  const rotation = parseInt(document.getElementById('rotation').value);
+  const style = document.getElementById('textStyle').value;
+
+  document.getElementById('posXVal').textContent = posX * 100 + '%';
+  document.getElementById('posYVal').textContent = posY * 100 + '%';
+
+  const canvas = document.createElement('canvas');
+  canvas.width = img.width;
+  canvas.height = img.height;
+  const ctx = canvas.getContext('2d');
+  
+  ctx.drawImage(img, 0, 0);
+
+  let fontStyle = '';
+  if (style === 'bold') fontStyle = 'bold ';
+  else if (style === 'italic') fontStyle = 'italic ';
+  else if (style === 'bolditalic') fontStyle = 'bold italic ';
+  ctx.font = fontStyle + fontSize + 'px ' + fontFamily;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  const x = img.width * posX;
+  const y = img.height * posY;
+
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation * Math.PI / 180);
+  ctx.globalAlpha = opacity;
+
+  const metrics = ctx.measureText(text);
+  const tw = metrics.width;
+  const th = fontSize * 1.2;
+
+  if (style === 'outline') {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.strokeText(text, 0, 0);
+  } else if (style === 'shadow') {
+    ctx.fillStyle = color;
+    ctx.shadowColor = bgColor;
+    ctx.shadowBlur = fontSize / 4;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.fillText(text, 0, 0);
+  } else {
+    ctx.fillStyle = bgColor;
+    const pad = fontSize * 0.3;
+    ctx.fillRect(-tw/2 - pad, -th/2 - pad/2, tw + pad*2, th + pad);
+    ctx.fillStyle = color;
+    ctx.fillText(text, 0, 0);
+  }
+
+  ctx.restore();
+
+  const wrap = document.getElementById('canvasWrap');
+  wrap.innerHTML = '';
+  wrap.appendChild(canvas);
+}
+
+function downloadImage() {
+  const canvas = document.querySelector('#canvasWrap canvas');
+  if (!canvas) return;
+  const link = document.createElement('a');
+  link.download = 'text-on-image.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+<footer class="footer container">
+  <a href="../">Home</a>
+  <a href="../../en/privacy/">Privacy</a>
+  <a href="../../en/terms/">Terms</a>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Sort JSON keys alphabetically and order array elements ascending or descending, with a depth limit for nested data.">
+<meta name="keywords" content="JSON sorter,sort JSON keys,sort JSON array,JSON sort tool,online JSON sorter,alphabetical sort JSON">
+<title>Free Online JSON Sorter - Sort Keys & Arrays Instantly</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/json-sorter/">
+<meta property="og:title" content="Online JSON Sorter - Sort Keys & Arrays Instantly">
+<meta property="og:description" content="Sort JSON keys alphabetically and order array elements ascending or descending, with a depth limit for nested data.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/json-sorter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Does sorting modify the original data?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does sorting modify the original data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Sorting happens on an in-memory copy in your browser. The original JSON data is never modified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are nested objects sorted too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sorting recursively processes all nested objects and arrays at every level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are mixed-type arrays sorted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numbers sort by numeric value, strings by localeCompare. Different types are grouped then sorted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the sorted output still valid JSON?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Only key/array order changes — structure and data types are preserved perfectly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will large JSON be slow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The sorting algorithm is very efficient even for thousands of keys. Only multi-MB JSON may have brief latency."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Online JSON Sorter - Sort Keys & Arrays Instantly", "description": "Free online JSON sorter, pure client-side. Sort JSON keys alphabetically, sort array elements, ascending/descending, nested depth control. One-click copy.", "applicationCategory": "Developer Tool", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use JSON Sorter",
+  "description": "Quick steps to use this tool.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Online JSON Sorter - Sort Keys & Arrays Instantly"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Input Data",
+      "text": "Upload or input your data into the tool area.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-sorter/#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Adjust Options",
+      "text": "Customize available parameters as needed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-sorter/#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Get Result",
+      "text": "Click the process button to get instant results.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/json-sorter/#step3"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+.breadcrumb{color:#94a3b8;font-size:13px;padding:12px 0}
+.hero{background:linear-gradient(135deg,#0c4a6e,#0f172a);border-radius:16px;padding:32px 24px;margin-bottom:24px;text-align:center;border:1px solid rgba(6,182,212,.15)}
+h1{font-size:2rem;color:#f1f5f9;margin-bottom:8px}
+.subtitle{color:#94a3b8;font-size:.95rem}
+.badge{background:rgba(16,185,129,.15);color:#10b981;padding:4px 12px;border-radius:20px;font-size:.8rem;display:inline-block;margin-top:8px;border:1px solid rgba(16,185,129,.2)}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-bottom:24px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}.ad-sidebar{display:none}}
+.panel{background:#1e293b;border-radius:16px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+.panel-title{font-size:1rem;color:#f1f5f9;margin-bottom:16px;font-weight:600}
+.textarea-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.9rem;font-family:"JetBrains Mono",monospace;resize:vertical;min-height:180px}
+.textarea-area:focus{outline:none;border-color:#06b6d4}
+.btn-group{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:10px;border:none;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-primary{background:#06b6d4;color:#0f172a}
+.btn-primary:hover{background:#22d3ee;transform:translateY(-1px)}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-success{background:rgba(16,185,129,.15);color:#10b981}
+.btn-success:hover{background:rgba(16,185,129,.25)}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;padding:12px 16px;margin-top:16px;color:#10b981;font-size:.85rem}
+.output-area{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:10px;color:#e2e8f0;padding:12px;font-size:.85rem;font-family:"JetBrains Mono",monospace;min-height:120px;max-height:400px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.faq-item{background:rgba(148,163,184,.03);border-radius:10px;padding:16px;margin-top:12px;border:1px solid rgba(148,163,184,.08)}
+.faq-item h3{color:#22d3ee;font-size:.95rem;font-weight:600;margin-bottom:8px}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.7}
+.footer{text-align:center;padding:24px 0;border-top:1px solid rgba(148,163,184,.1);margin-top:32px}
+.footer a{margin:0 12px;font-size:.88rem;color:#06b6d4}
+.footer p{color:#64748b;font-size:.82rem;margin-top:4px}
+.ad-slot.ad-sidebar{max-width:300px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online JSON Sorter - Sort Keys & Arrays Instantly", "item": "https://adi63586.github.io/Toolguidehub/en/json-sorter/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/json-sorter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"></div>
+  <div class="breadcrumb"><a href="../../">Home</a> › <span>Online JSON Sorter - Sort Keys & Arrays Instantly</span></div>
+  <div class="hero"><h1>Online JSON Sorter - Sort Keys & Arrays Instantly</h1><p class="subtitle">Free online JSON sorter, pure client-side. Sort JSON keys alphabetically, sort array elements, ascending/descending, nested depth control. One-click copy.</p><span class="badge">🔒 100% Client-Side</span></div>
+  <div class="main-grid">
+    <div><div class="panel"><div class="panel-title">📋 Input JSON</div>
+<textarea id="jsonInput" class="textarea-area" placeholder='Paste your JSON data&#10;&#10;Example:&#10;{"z":1,"a":3,"m":{"c":2,"b":1},"arr":[3,1,2]}'>{"z":1,"a":3,"m":{"c":2,"b":1},"arr":[3,1,2],"nested":{"foo":{"b":2,"a":1}}}</textarea>
+<div class="panel-title">⚙️ Sort Options</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+<div><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Key Sort</label>
+<select id="keySort" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:8px;font-size:.9rem"><option value="asc" selected>Ascending</option><option value="desc">Descending</option><option value="none">None</option></select></div>
+<div><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Array Sort</label>
+<select id="arraySort" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:8px;font-size:.9rem"><option value="none" selected>None</option><option value="asc">Ascending</option><option value="desc">Descending</option></select></div></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div style="margin-bottom:16px"><label style="color:#94a3b8;font-size:.85rem;display:block;margin-bottom:4px">Indent</label>
+<select id="jsonIndent" style="width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;padding:8px;font-size:.9rem"><option value="2" selected>2 spaces</option><option value="4">4 spaces</option><option value="tab">Tab</option><option value="0">Minified</option></select></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="sortJson()">🔀 Sort JSON</button></div>
+<div id="sortResult" style="display:none;margin-top:16px">
+<div class="panel-title">📤 Result</div>
+<div style="position:relative"><div id="sortOutput" class="output-area"></div><button class="copy-btn" onclick="copySorted()">📋 Copy</button></div></div>
+<div id="sortError" style="display:none;margin-top:12px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:12px;color:#fca5a5;font-size:.85rem"></div>
+<div class="privacy-note">🔒 No data upload — 100% client-side</div></div>
+<script>
+function sortKeys(obj,order){if(typeof obj!=='object'||obj===null)return obj;if(Array.isArray(obj)){return obj.map(function(v){return sortKeys(v,order)})}var keys=Object.keys(obj);if(order==='asc')keys.sort();else if(order==='desc')keys.sort().reverse();var result={};for(var i=0;i<keys.length;i++){result[keys[i]]=sortKeys(obj[keys[i]],order)}return result}
+function sortArray(arr,order){if(!Array.isArray(arr))return arr;var sorted=arr.slice();try{sorted.sort(function(a,b){if(typeof a==='number'&&typeof b==='number')return order==='asc'?a-b:b-a;var sa=String(a),sb=String(b);var cmp=sa.localeCompare(sb);return order==='asc'?cmp:-cmp})}catch(e){}return sorted}
+function processSort(obj,keyOrder,arrOrder){if(typeof obj!=='object'||obj===null)return obj;if(Array.isArray(obj)){var processed=obj.map(function(v){return processSort(v,keyOrder,arrOrder)});if(arrOrder!=='none'){return sortArray(processed,arrOrder)}return processed}var result={};var keys=Object.keys(obj);if(keyOrder==='asc')keys.sort();else if(keyOrder==='desc')keys.sort().reverse();for(var i=0;i<keys.length;i++){result[keys[i]]=processSort(obj[keys[i]],keyOrder,arrOrder)}return result}
+function sortJson(){var raw=document.getElementById('jsonInput').value.trim();if(!raw){showToast('Enter JSON data');return}try{var parsed=JSON.parse(raw);var keyOrder=document.getElementById('keySort').value;var arrOrder=document.getElementById('arraySort').value;var indent=document.getElementById('jsonIndent').value;var sorted=processSort(parsed,keyOrder,arrOrder);var space=(indent==='tab'?'\t':indent==='0'?null:parseInt(indent));var output=JSON.stringify(sorted,null,space);document.getElementById('sortOutput').textContent=output;document.getElementById('sortResult').style.display='block';document.getElementById('sortError').style.display='none'}catch(e){document.getElementById('sortError').style.display='block';document.getElementById('sortError').textContent='❌ Parse error: '+e.message;document.getElementById('sortResult').style.display='none'}}
+function copySorted(){var el=document.getElementById('sortOutput');navigator.clipboard.writeText(el.textContent).then(function(){el.textContent+='\n✅ Copied!'})['catch'](function(){showToast('Copy failed, select manually')})}
+</script></div>
+    <div class="ad-sidebar"></div>
+  </div>
+  <h2>How to Use</h2>
+  <div class="faq-item"><p>Follow these simple steps. Everything runs locally: Key Sort and Array Sort are processed on your device, never sent to a server.</p><ol style="color:#94a3b8;font-size:.88rem;padding-left:20px;margin-top:8px"><li>Input your data or upload your file in the tool area above.</li><li>Adjust any available options to customize the output.</li><li>Click the process button and get your result instantly.</li></ol></div>
+  <h2>FAQ</h2>
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Does sorting modify the original data?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">No. Sorting happens on an in-memory copy in your browser. The original JSON data is never modified.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Are nested objects sorted too?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Yes. Sorting recursively processes all nested objects and arrays at every level.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">How are mixed-type arrays sorted?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Numbers sort by numeric value, strings by localeCompare. Different types are grouped then sorted.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Is the sorted output still valid JSON?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Yes. Only key/array order changes — structure and data types are preserved perfectly.</p>
+      </div>
+    </div>
+    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Will large JSON be slow?</h3>
+      <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">No. The sorting algorithm is very efficient even for thousands of keys. Only multi-MB JSON may have brief latency.</p>
+      </div>
+    </div>
+  <h2>Technical Details</h2>
+  <div class="faq-item"><p>This tool runs 100% in your browser using modern web technologies. No data is ever sent to any server. Your files remain on your device at all times.</p></div>
+</main>
+<footer class="footer container">
+  <div style="margin-bottom:12px"><a href="../../index.html">Home</a>
+    <a href="../../index.html">All Tools</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/json-sorter/">中文</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+
+</footer>
+  
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

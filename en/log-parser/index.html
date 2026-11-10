@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Parse Apache, Nginx or JSON server logs and get status-code and request-method statistics with real-time filtering.">
+<meta name="keywords" content="logparselogAnalyzeApachelogNginxloglogfilterlogstatistical">
+<title>Free Log Parser - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/log-parser/">
+<meta property="og:title" content="Free Log Parser - ToolGuideHub">
+<meta property="og:description" content="Parse Apache, Nginx or JSON server logs and get status-code and request-method statistics with real-time filtering.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/log-parser/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Log Parser - Apache/Nginx/JSON Format · Real-time Filter · Statistics", "description": "Free online Log Parser - Apache/Nginx/JSON Format · Real-time Filter · Statistics. Pure client-side processing, no registration required, no data upload to servers.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Log Parser",
+      "item": "https://adi63586.github.io/Toolguidehub/en/log-parser/"
+    }
+  ],
+  "name": "Log Parser"
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.85rem;font-family:monospace;resize:vertical;min-height:150px}textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}textarea::placeholder{color:#475569}.param-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}.param-row label{color:#94a3b8;font-size:.85rem;min-width:80px}.param-row select,.param-row input[type=text]{padding:6px 10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:.85rem}.param-row input[type=text]{flex:1}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(16,185,129,.2);color:#34d399;border:1px solid rgba(16,185,129,.3)}.btn-success:hover{background:rgba(16,185,129,.3)}.btn-danger{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}.btn-danger:hover{background:rgba(239,68,68,.3)}.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:16px}.stat-card{background:#0f172a;border-radius:8px;padding:12px;border:1px solid rgba(148,163,184,.1)}.stat-card .stat-val{font-size:1.4rem;font-weight:700;color:#22d3ee}.stat-card .stat-label{font-size:.75rem;color:#64748b;margin-top:2px}.log-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:8px}.log-table th{background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 8px;text-align:left;position:sticky;top:0}.log-table td{padding:5px 8px;border-bottom:1px solid rgba(148,163,184,.05);color:#94a3b8}.log-table tr:hover td{background:rgba(6,182,212,.05)}.status-2xx{color:#34d399}.status-3xx{color:#facc15}.status-4xx{color:#fb923c}.status-5xx{color:#f87171}.table-wrap{max-height:400px;overflow-y:auto;border-radius:8px;border:1px solid rgba(148,163,184,.1)}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.ad-slot.ad-sidebar{max-width:300px}.ad-sidebar-wrap{display:flex;flex-direction:column;gap:0}.seo-content{margin-top:24px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2rem;color:#f1f5f9;margin:20px 0 10px}.seo-content h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}.seo-content p{color:#94a3b8;margin-bottom:10px;line-height:1.8}.seo-content ul{color:#94a3b8;padding-left:20px;margin-bottom:10px}.seo-content li{margin-bottom:4px}.faq-item{background:#1e293b;border-radius:8px;padding:14px 18px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#e2e8f9;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.6}.footer{border-top:1px solid rgba(148,163,184,.1);padding:20px 0;text-align:center;margin-top:24px}.footer a{color:#64748b;margin:0 8px;font-size:.85rem}.footer a:hover{color:#22d3ee}.footer p{color:#64748b;font-size:.85rem}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/log-parser/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Log Parser","description":"Step-by-step guide for using Log Parser","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Log Parser"},"step":[{"@type":"HowToStep","position":1,"name":"Upload or paste","text":"Upload a file or paste content to view"},{"@type":"HowToStep","position":2,"name":"Browse content","text":"Explore the content and details"},{"@type":"HowToStep","position":3,"name":"Analyze","text":"Review any automatically generated analysis"},{"@type":"HowToStep","position":4,"name":"Export","text":"Copy or download the results"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Log Parser FAQ","mainEntity":[{"@type":"Question","name":"How does Log Parser work?","acceptedAnswer":{"@type":"Answer","text":"Log Parser processes everything locally in your browser. No data is sent to any server."}},{"@type":"Question","name":"Is my data safe with Log Parser?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything runs locally: Log format and Filter are processed on your device, never sent to a server. Your data is never uploaded to any server."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+ <div class="header"><h1>📋 Log Parser</h1></div>
+ <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › Log Parser</p>
+ <p class="hero-sub">Parse Apache/Nginx/JSON format logs with real-time filtering and statistics</p>
+ <span class="badge">Zero Dependencies · Works Offline</span>
+ <div class="main-grid">
+ <div>
+ <div class="input-section">
+ <h2>📝 Log Input</h2>
+ <div class="param-row">
+ <label>Log format:</label>
+ <select id="logFormat" onchange="parseLogs()">
+ <option value="apache">Apache Combined</option>
+ <option value="nginx">Nginx Combined</option>
+ <option value="json">JSONrow</option>
+ </select>
+ </div>
+ <textarea id="logInput" placeholder="Pastelogcontent...&#10;Apache/Nginx: 192.168.1.1 - - [16/Jul/2026:10:00:01 +0800] &quot;GET /api/users HTTP/1.1&quot; 200 1234&#10;JSON: {&quot;ip&quot;:&quot;192.168.1.1&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/api/users&quot;,&quot;status&quot;:200}" oninput="debounceParse()"></textarea>
+ <div class="param-row">
+ <label>Filter:</label>
+ <input type="text" id="filterInput" placeholder="Status code (e.g. 404), method (e.g. GET), URL keyword" oninput="parseLogs()">
+ </div>
+ <div class="btn-row">
+ <button class="btn btn-primary" onclick="parseLogs()">🔍 Parse</button>
+ <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+ <button class="btn btn-danger" onclick="clearAll()">✖ Clear</button>
+ </div>
+ </div>
+ <div class="result-section" id="statsSection" style="display:none">
+ <h2>📊 Statistics Overview</h2>
+ <div class="stat-grid" id="statGrid"></div>
+ </div>
+ <div class="result-section" id="tableSection" style="display:none">
+ <h2>📄 Parsed Results</h2>
+ <div class="table-wrap"><table class="log-table" id="logTable"></table></div>
+ <div class="btn-row" style="margin-top:8px">
+ <button class="btn btn-success" onclick="copyCSV()">📋 Copy CSV</button>
+ <button class="btn btn-primary" onclick="downloadCSV()">💾 Download CSV</button>
+ </div>
+ </div>
+ </div>
+ <div class="ad-sidebar-wrap">
+ </div>
+ </div>
+ <div class="seo-content">
+ <h2>What Can Log Parser Do?</h2>
+ <p>Log Parser is a free online tool that supports parsing Apache Combined, Nginx Combined, and JSON format logs. It provides real-time filtering, status code statistics, request method statistics, and Top URL analysis. Perfect for debugging, log analysis, and performance monitoring. All parsing happens locally in your browser with no server uploads.</p>
+ <h2>Features</h2>
+ <ul>
+ <li><strong>Multiple Format Parsing</strong>: Supports Apache/Nginx Combined format and JSON format</li>
+ <li><strong>Real-time Filtering</strong>: Filter by status code, request method, and URL keywords</li>
+ <li><strong>Statistical Analysis</strong>: Status code breakdown, method statistics, Top URLs, and request counts</li>
+ <li><strong>Table Display</strong>: Parsed results displayed in a clear, readable table</li>
+ <li><strong>Export Support</strong>: Copy and download parsed results in CSV format</li>
+ </ul>
+ <h2>How to Use</h2>
+ <p>1. Select log format (Apache/Nginx/JSON) and paste log content.</p>
+ <p>2. Click "Parse" or let it auto-parse as you type.</p>
+ <p>3. Use the filter input to search by keyword.</p>
+ <p>4. View statistics and parsed results, then export as CSV.</p>
+ <h2>Use Cases</h2>
+ <h3>Debugging</h3>
+ <p>Quickly filter 500 errors and 4xx anomalies to identify problematic URLs and response times.</p>
+ <h3>Performance Analysis</h3>
+ <p>Analyze Top URLs, request method distribution, and traffic patterns.</p>
+ <h3>Security Audit</h3>
+ <p>Filter suspicious request paths and abnormal status codes to assist security analysis.</p>
+ <h2>Log Format Reference</h2>
+ <p>Apache Combined Log Format: %h %l %u %t "%r" %>s %b "%{Referer}i" "%{User-Agent}i". Nginx Combined is similar but with slight field differences. JSON format has each line as a JSON object with custom fields. Key log analysis metrics include QPS (requests per second), error rate (5xx ratio), response time distribution, and traffic patterns.</p>
+ </div>
+ <h2>FAQ</h2>
+ <div class="faq-item"><h3>What log formats are supported?</h3><p>Supports Apache Combined, Nginx Combined, JSON format, and custom regex formats.</p></div>
+ <div class="faq-item"><h3>Is my log data uploaded to a server?</h3><p>No. All log parsing happens locally in your browser with no server uploads.</p></div>
+ <div class="faq-item"><h3>Can I export the parsed results?</h3><p>Yes. You can copy the results to clipboard or download them as a CSV file.</p></div>
+ </main>
+<footer class="footer container">
+ <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">AllTools</a><a href="../contact/">Contact</a>
+ <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/log-parser/">中文</a>
+</div>
+
+
+</footer>
+ 
+<script>
+var _parsed=[];
+var APACHE_RE=/^(\S+) (\S+) (\S+) \[([^\]]+)\] "(\S+) (\S+) (\S+)" (\d{3}) (\d+|-)/;
+window.debounceParse=function(){clearTimeout(window._dp);window._dp=setTimeout(parseLogs,400);};
+window.parseLogs=function(){
+  var input=document.getElementById('logInput').value.trim();
+  var fmt=document.getElementById('logFormat').value;
+  var filter=document.getElementById('filterInput').value.trim().toLowerCase();
+  if(!input){document.getElementById('statsSection').style.display='none';document.getElementById('tableSection').style.display='none';return;}
+  var lines=input.split('\n').filter(function(l){return l.trim();});
+  _parsed=[];
+  lines.forEach(function(line){
+    var entry=null;
+    if(fmt==='json'){
+      try{var obj=JSON.parse(line);entry={ip:obj.ip||obj.remote_addr||'-',time:obj.time||obj.timestamp||'-',method:obj.method||obj.request_method||'-',path:obj.path||obj.uri||obj.request_uri||'-',protocol:obj.protocol||'-',status:+(obj.status||obj.status_code||0),size:+(obj.size||obj.body_bytes_sent||0)};}catch(e){}
+    }else{
+      var m=line.match(APACHE_RE);
+      if(m){entry={ip:m[1],time:m[4],method:m[5],path:m[6],protocol:m[7],status:+m[8],size:m[9]==='-'?0:+m[9]};}
+    }
+    if(entry){
+      if(filter){
+        var fs=filter;
+        if(entry.status.toString().indexOf(fs)!==-1||entry.method.toLowerCase().indexOf(fs)!==-1||entry.path.toLowerCase().indexOf(fs)!==-1||entry.ip.indexOf(fs)!==-1){_parsed.push(entry);}
+      }else{_parsed.push(entry);}
+    }
+  });
+  renderStats();renderTable();
+};
+function renderStats(){
+  var total=_parsed.length;
+  var statusCounts={};var methodCounts={};var urlCounts={};
+  _parsed.forEach(function(e){
+    var sc=e.status>=200&&e.status<300?'2xx':e.status>=300&&e.status<400?'3xx':e.status>=400&&e.status<500?'4xx':'5xx';
+    statusCounts[sc]=(statusCounts[sc]||0)+1;
+    statusCounts[e.status]=(statusCounts[e.status]||0)+1;
+    methodCounts[e.method]=(methodCounts[e.method]||0)+1;
+    urlCounts[e.path]=(urlCounts[e.path]||0)+1;
+  });
+  var errors=_parsed.filter(function(e){return e.status>=400;}).length;
+  var html='<div class="stat-card"><div class="stat-val">'+total+'</div><div class="stat-label">Total Requests</div></div>';
+  html+='<div class="stat-card"><div class="stat-val">'+errors+'</div><div class="stat-label">Errors(4xx+5xx)</div></div>';
+  html+='<div class="stat-card"><div class="stat-val">'+(total?((errors/total)*100).toFixed(1):0)+'%</div><div class="stat-label">Error Rate</div></div>';
+  var topUrl=Object.entries(urlCounts).sort(function(a,b){return b[1]-a[1];})[0];
+  html+='<div class="stat-card"><div class="stat-val" style="font-size:.9rem">'+(topUrl?topUrl[0]:'-')+'</div><div class="stat-label">Top URL ('+(topUrl?topUrl[1]:0)+'times)</div></div>';
+  document.getElementById('statGrid').innerHTML=html;
+  document.getElementById('statsSection').style.display='block';
+}
+function renderTable(){
+  var html='<thead><tr><th>IP</th><th>Time</th><th>method</th><th>path</th><th>status code</th><th>Size</th></tr></thead><tbody>';
+  _parsed.slice(0,200).forEach(function(e){
+    var sc=e.status>=200&&e.status<300?'status-2xx':e.status>=300&&e.status<400?'status-3xx':e.status>=400&&e.status<500?'status-4xx':'status-5xx';
+    html+='<tr><td>'+e.ip+'</td><td>'+e.time+'</td><td>'+e.method+'</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+e.path+'</td><td class="'+sc+'">'+e.status+'</td><td>'+e.size+'</td></tr>';
+  });
+  html+='</tbody>';
+  document.getElementById('logTable').innerHTML=html;
+  document.getElementById('tableSection').style.display='block';
+}
+window.loadExample=function(){
+  document.getElementById('logFormat').value='apache';
+  document.getElementById('logInput').value='192.168.1.1 - - [16/Jul/2026:10:00:01 +0800] "GET /api/users HTTP/1.1" 200 1234 "https://example.com" "Mozilla/5.0"\n192.168.1.2 - - [16/Jul/2026:10:00:02 +0800] "POST /api/login HTTP/1.1" 401 56 "-" "curl/7.88"\n192.168.1.3 - - [16/Jul/2026:10:00:03 +0800] "GET /static/app.js HTTP/1.1" 304 0 "https://example.com" "Chrome/120"\n10.0.0.1 - - [16/Jul/2026:10:00:04 +0800] "GET /admin/config HTTP/1.1" 403 128 "-" "python-requests/2.31"\n192.168.1.1 - - [16/Jul/2026:10:00:05 +0800] "GET /api/users/42 HTTP/1.1" 404 89 "https://example.com" "Chrome/120"\n192.168.1.4 - - [16/Jul/2026:10:00:06 +0800] "DELETE /api/users/1 HTTP/1.1" 500 234 "-" "PostmanRuntime/7.36"\n192.168.1.5 - - [16/Jul/2026:10:00:07 +0800] "GET /api/health HTTP/1.1" 200 15 "-" "kube-probe/1.28"';
+  parseLogs();
+};
+window.clearAll=function(){
+  document.getElementById('logInput').value='';
+  document.getElementById('filterInput').value='';
+  document.getElementById('statsSection').style.display='none';
+  document.getElementById('tableSection').style.display='none';
+};
+window.copyCSV=function(){
+  var t='IP,Time,Method,Path,Status,Size\n';
+  _parsed.forEach(function(e){t+=e.ip+','+e.time+','+e.method+','+e.path+','+e.status+','+e.size+'\n';});
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(showMsg);
+};
+window.downloadCSV=function(){
+  var t='IP,Time,Method,Path,Status,Size\n';
+  _parsed.forEach(function(e){t+=e.ip+','+e.time+','+e.method+','+e.path+','+e.status+','+e.size+'\n';});
+  var b=new Blob([t],{type:'text/csv'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='parsed-logs.csv';a.click();
+};
+function showMsg(){var m=document.createElement('div');m.textContent='✓ Copied';m.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(m);setTimeout(function(){m.remove();},2000);}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){parseLogs();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyCSV();e.preventDefault();}});
+
+// === Implementation ===
+function showToast(msg){var m=document.createElement('div');m.textContent=msg;m.style.cssText='position:fixed;top:20px;right:20px;background:rgba(34,197,94,.2);color:#4ade80;padding:8px 16px;border-radius:8px;font-size:.85rem;z-index:9999;border:1px solid rgba(34,197,94,.3)';document.body.appendChild(m);setTimeout(function(){m.remove();},2000);}
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

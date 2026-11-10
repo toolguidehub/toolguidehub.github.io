@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Style Generator - ToolGuideHub</title>
+  <meta name="description" content="Turn plain text into stylised Unicode fonts such as bold, italic, script and double-struck, then copy the styled version for social posts.">
+  <meta property="og:title" content="Text Style Generator - Unicode Fancy Text">
+  <meta property="og:description" content="Turn plain text into stylised Unicode fonts such as bold, italic, script and double-struck, then copy the styled version for social posts.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Text Style Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+  <style>:root{--accent:#06b6d4;--text2:#94a3b8;}
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column }
+    header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px }
+    header h1 { font-size: 1.25rem; color: #f1f5f9 }
+    main { flex: 1; max-width: 800px; margin: 0 auto; padding: 32px 16px; width: 100% }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid rgba(148,163,184,.1) }
+    .card + .card { margin-top: 16px }
+    h2 { font-size: 1.1rem; color: #f1f5f9; margin-bottom: 16px }
+    textarea { width: 100%; min-height: 60px; background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; color: #e2e8f0; padding: 12px; font-family: monospace; font-size: 0.85rem; resize: vertical }
+    textarea:focus { outline: none; border-color: var(--accent) }
+    .style-list { display: flex; flex-direction: column; gap: 8px }
+    .style-row { display: flex; align-items: center; gap: 12px; background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 10px 16px }
+    .style-label { font-size: 0.8rem; color: var(--text2); min-width: 100px; flex-shrink: 0 }
+    .style-preview { flex: 1; font-size: 1.1rem; word-break: break-all }
+    .copy-btn { padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(148,163,184,.1); background: transparent; color: var(--accent); cursor: pointer; font-size: 0.8rem }
+    .copy-btn:hover { background: rgba(6,182,212,.1) }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #334155; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 0.9rem; z-index: 1000; opacity: 0; transition: opacity 0.3s; pointer-events: none }
+    .toast.show { opacity: 1 }
+    footer { background: #1e293b; border-top: 1px solid rgba(148,163,184,.1); padding: 16px 24px; text-align: center; color: var(--text2); font-size: 0.8rem }
+    @media (max-width: 375px) { main { padding: 16px 8px } .card { padding: 16px } }
+  .nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/text-styler/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Text Style Generator", "item": "https://adi63586.github.io/Toolguidehub/en/text-styler/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Text Style Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Text Style Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Text Style Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Type text to style.. and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Text Style Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Text Style Generator","description":"Step-by-step guide for using Text Style Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Text Style Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/text-styler/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div style="display:flex;justify-content:space-between;align-items:center;max-width:800px;margin:0 auto"><h1>✨ Text Style Generator</h1><div class="lang-switch" style="display:flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/text-styler/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="./" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee;text-decoration:none">EN</a></div></div>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;max-width:800px;margin-left:auto;margin-right:auto">Free online Text Style Generator. Create bold, italic, strikethrough, monospace, script, double-struck and more Unicode text styles. One-click copy for social media and design.</p><div class="nav-back" style="max-width:800px;margin:0 auto"><a href="../">← Back to Home</a></div></header>
+<main>
+  <div class="section">
+    <h2>Enter Text</h2>
+    <textarea id="textInput" placeholder="Type text to style...">Hello World</textarea>
+  </div>
+  <div class="section">
+    <h2>Generated Styles</h2>
+    <div class="style-list" id="styleList"></div>
+  </div>
+
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Text Style Generator is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Text Style Generator to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Text Style Generator provides accurate results instantly. Everything runs locally: Type text to style.. and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/text-styler/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const textInput = document.getElementById('textInput');
+const styleList = document.getElementById('styleList');
+const toast = document.getElementById('toast');
+
+const normal = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+const styles = {
+  'Bold': '𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵',
+  'Italic': '𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻0123456789',
+  'Bold Italic': '𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯0123456789',
+  'Monospace': '𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿',
+  'Script': '𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏0123456789',
+  'Double Struck': '𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡',
+  'Circled': 'ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ⓪①②③④⑤⑥⑦⑧⑨',
+  'Upside Down': '∀𐐒Ɔ◖ƎℲ⅁HIſ⋊⅂WNOԀÒᴚS⊥∩ᴧMX⅄Zɐqɔpǝɟɓɥıɾʞlɯuodbɹsʇnʌʍxʎz0⇂↊⇂Һގ9↊8⇂',
+};
+
+function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2000); }
+
+function convert(text, styleChars) {
+  let result = '';
+  for (const ch of text) {
+    const idx = normal.indexOf(ch);
+    result += idx >= 0 ? styleChars[idx] : ch;
+  }
+  return result;
+}
+
+function updateStyles() {
+  const text = textInput.value;
+  styleList.innerHTML = Object.entries(styles).map(([name, chars]) => {
+    const converted = convert(text, chars);
+    return `<div class="style-row">
+      <span class="style-label">${name}</span>
+      <span class="style-preview">${converted || '(empty)'}</span>
+      <button class="copy-btn" data-text="${converted.replace(/"/g, '&quot;')}">Copy</button>
+    </div>`;
+  }).join('');
+  styleList.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.text).then(() => showToast('Copied')).catch(() => showToast('Copy failed'));
+    });
+  });
+}
+
+textInput.addEventListener('input', updateStyles);
+updateStyles();
+</script>
+</body>
+</html>

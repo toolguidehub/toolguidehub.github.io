@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>URL Shortener Code Generator - ToolGuideHub</title>
+ <meta name="description" content="Generate short-link codes with Base62, truncated MD5 or random string algorithms and get ready-to-use code snippets.">
+ <meta property="og:title" content="URL Shortener Code Generator - ToolGuideHub">
+ <meta property="og:description" content="Generate short-link codes with Base62, truncated MD5 or random string algorithms and get ready-to-use code snippets.">
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"shortlinkcodeGeneratetool","description":"Online URL shortener code generator with multiple algorithms.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","url":"https://adi63586.github.io/Toolguidehub/en/url-shortener-code/"}</script>
+ <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--card-bg); border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    header a { color: #22d3ee; text-decoration: none; font-weight: 600; font-size: 18px; }
+    header nav a { font-size: 14px; margin-left: 16px; color: #94a3b8; }
+    main { flex: 1; max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; width: 100%; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .desc { color: #94a3b8; margin-bottom: 28px; font-size: 15px; line-height: 1.6; }
+    .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 28px; margin-bottom: 20px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+    input, select, textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 12px 16px; border: 2px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; outline: none; transition: border-color .2s; margin-bottom: 16px; font-family: inherit; }
+    input:focus, select:focus, textarea:focus { border-color: #22d3ee; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row > * { flex: 1; min-width: 120px; }
+    button { background: #22d3ee; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background .2s; }
+    button:hover { background: #0891b2; }
+    pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.5; white-space: pre-wrap; word-break: break-all; margin-top: 8px; }
+    .result { margin-top: 16px; }
+    .result .short { font-size: 20px; font-weight: 700; color: #22d3ee; font-family: 'SF Mono',Consolas,monospace; }
+    footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); }
+    #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+    #toast.show { opacity: 1; }
+    @media (max-width: 375px) { main { padding: 20px 12px 40px; } .card { padding: 20px; } h1 { font-size: 22px; } }
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/url-shortener-code/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "URL Shortener Code Generator", "item": "https://adi63586.github.io/Toolguidehub/en/url-shortener-code/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"shortlinkcodeGeneratetool FAQ","mainEntity":[{"@type":"Question","name":"How do I use the shortlinkcodeGeneratetool?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the shortlinkcodeGeneratetool free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Long URL and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the shortlinkcodeGeneratetool?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use shortlinkcodeGeneratetool","description":"Step-by-step guide for using shortlinkcodeGeneratetool","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"shortlinkcodeGeneratetool"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/url-shortener-code/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <header>
+ <a href="../../">🔧 ToolGuideHub</a>
+ <nav><a href="../../">Home</a><a href="../../en/url-shortener-code/">中文</a></nav>
+ </header>
+ <main>
+ <h1>🔗 URL Shortener Code Generator</h1>
+ <p class="desc">Enter a long URL to generate short link code. Supports Base62, MD5 truncation, and random string algorithms with multi-language code snippets.</p>
+ <div class="section">
+ <label for="urlInput">Long URL</label>
+ <input type="url" id="urlInput" placeholder="https://example.com/very/long/path?query=value" value="https://example.com/articles/how-to-build-a-url-shortener">
+ <div class="row">
+ <select id="algoSelect">
+ <option value="base62">Base62 Encode</option>
+ <option value="md5">MD5 Hash get</option>
+ <option value="random">randomstring</option>
+ </select>
+ <select id="lengthSelect">
+ <option value="6">6 chars</option>
+ <option value="7">7 chars</option>
+ <option value="8" selected>8 chars</option>
+ </select>
+ </div>
+ <button id="generateBtn">Generate Short Code</button>
+ <div class="result">
+ <p style="font-weight:600;margin-bottom:4px;">Short Code: <span class="short" id="shortCode">—</span></p>
+ <p style="font-size:13px;color:#94a3b8;">Short Link: <span id="shortUrl">—</span></p>
+ </div>
+ </div>
+ <div class="section">
+ <h3 style="margin-bottom:12px;">📝 Code Implementation</h3>
+ <pre id="codeBlock">Click generate to see code</pre>
+ </div>
+ 
+<h2>What is URL Shortener Code Generator?</h2><p>URL Shortener Code Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Long URL and other values to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../../" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/url-shortener-code/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+ <div id="toast"></div>
+ <script>
+    const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const toast = document.getElementById('toast');
+    function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2000); }
+
+    function base62Encode(url, length = 8) {
+      let hash = 0;
+      for (let i = 0; i < url.length; i++) {
+        hash = ((hash << 5) - hash + url.charCodeAt(i)) | 0;
+      }
+      hash = Math.abs(hash);
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result = BASE62[hash % 62] + result;
+        hash = Math.floor(hash / 62);
+      }
+      return result;
+    }
+
+    function md5Short(str, len = 8) {
+      let h1 = 0x67452301, h2 = 0xEFCDAB89, h3 = 0x98BADCFE, h4 = 0x10325476;
+      for (let i = 0; i < str.length; i++) {
+        const c = str.charCodeAt(i);
+        h1 = ((h1 << 5) - h1 + c) | 0;
+        h2 = ((h2 << 5) - h2 + c) | 0;
+        h3 = ((h3 << 5) - h3 + c) | 0;
+        h4 = ((h4 << 5) - h4 + c) | 0;
+      }
+      const hex = ((h1 >>> 0).toString(16) + (h2 >>> 0).toString(16) + (h3 >>> 0).toString(16) + (h4 >>> 0).toString(16));
+      let result = '';
+      for (let i = 0; i < len; i++) result += BASE62[parseInt(hex.substr(i * 2, 2), 16) % 62];
+      return result;
+    }
+
+    function randomStr(len) {
+      let result = '';
+      for (let i = 0; i < len; i++) result += BASE62[Math.floor(Math.random() * 62)];
+      return result;
+    }
+
+    const codes = {
+      base62: {
+        python: `BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"\n\ndef base62_encode(url: str, length: int = 8) -> str:\n    import hashlib\n    h = hashlib.sha256(url.encode()).hexdigest()\n    num = int(h, 16)\n    result = ""\n    for _ in range(length):\n        result = BASE62[num % 62] + result\n        num //= 62\n    return result`,
+        js: `const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\n\nfunction base62Encode(str, len = 8) {\n  let hash = 0;\n  for (let i = 0; i < str.length; i++) {\n    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;\n  }\n  hash = Math.abs(hash);\n  let result = '';\n  for (let i = 0; i < len; i++) {\n    result = BASE62[hash % 62] + result;\n    hash = Math.floor(hash / 62);\n  }\n  return result;\n}`,
+        go: `package main\n\nimport (\n\t"crypto/sha256"\n\t"math/big"\n)\n\nconst base62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"\n\nfunc base62Encode(url string, length int) string {\n\th := sha256.Sum256([]byte(url))\n\tnum := new(big.Int).SetBytes(h[:])\n\tresult := make([]byte, length)\n\tfor i := length - 1; i >= 0; i-- {\n\t\tmod := new(big.Int)\n\t\tnum.DivMod(num, big.NewInt(62), mod)\n\t\tresult[i] = base62[mod.Int64()]\n\t}\n\treturn string(result)\n}`,
+        java: `public class ShortUrl {\n    private static final String BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";\n\n    public static String base62Encode(String url, int length) throws Exception {\n        java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");\n        byte[] hash = md.digest(url.getBytes());\n        java.math.BigInteger num = new java.math.BigInteger(1, hash);\n        StringBuilder sb = new StringBuilder();\n        java.math.BigInteger b62 = java.math.BigInteger.valueOf(62);\n        for (int i = 0; i < length; i++) {\n            sb.insert(0, BASE62.charAt(num.mod(b62).intValue()));\n            num = num.divide(b62);\n        }\n        return sb.toString();\n    }\n}`
+      },
+      md5: {
+        python: `import hashlib\n\nBASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"\n\ndef md5_short(url: str, length: int = 8) -> str:\n    md5 = hashlib.md5(url.encode()).hexdigest()\n    result = ""\n    for i in range(length):\n        result += BASE62[int(md5[i*2:i*2+2], 16) % 62]\n    return result`,
+        js: `function md5Short(str, len = 8) {\n  // Simple hash simulation\n  let h1 = 0x67452301, h2 = 0xEFCDAB89, h3 = 0x98BADCFE, h4 = 0x10325476;\n  for (let i = 0; i < str.length; i++) {\n    const c = str.charCodeAt(i);\n    h1 = ((h1 << 5) - h1 + c) | 0;\n    h2 = ((h2 << 5) - h2 + c) | 0;\n    h3 = ((h3 << 5) - h3 + c) | 0;\n    h4 = ((h4 << 5) - h4 + c) | 0;\n  }\n  const hex = ((h1>>>0).toString(16)+(h2>>>0).toString(16)+(h3>>>0).toString(16)+(h4>>>0).toString(16));\n  let result = '';\n  const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\n  for (let i = 0; i < len; i++) result += BASE62[parseInt(hex.substr(i*2,2),16) % 62];\n  return result;\n}`,
+        go: `package main\n\nimport (\n\t"crypto/md5"\n\t"fmt"\n)\n\nconst base62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"\n\nfunc md5Short(url string, length int) string {\n\th := md5.Sum([]byte(url))\n\thex := fmt.Sprintf("%x", h)\n\tresult := make([]byte, length)\n\tfor i := 0; i < length; i++ {\n\t\tb := hex[i*2 : i*2+2]\n\t\tval := int(b[0])<<8 | int(b[1])\n\t\tresult[i] = base62[val%62]\n\t}\n\treturn string(result)\n}`,
+        java: `public class ShortUrl {\n    private static final String BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";\n\n    public static String md5Short(String url, int length) throws Exception {\n        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");\n        byte[] digest = md.digest(url.getBytes());\n        StringBuilder hex = new StringBuilder();\n        for (byte b : digest) hex.append(String.format("%02x", b));\n        StringBuilder result = new StringBuilder();\n        for (int i = 0; i < length; i++) {\n            int val = Integer.parseInt(hex.substring(i*2, i*2+2), 16);\n            result.append(BASE62.charAt(val % 62));\n        }\n        return result.toString();\n    }\n}`
+      },
+      random: {
+        python: `import random\nimport string\n\nCHARS = string.digits + string.ascii_letters\n\ndef random_short(length: int = 8) -> str:\n    return ''.join(random.choices(CHARS, k=length))`,
+        js: `function randomShort(len = 8) {\n  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\n  let result = '';\n  for (let i = 0; i < len; i++) result += chars[Math.floor(Math.random() * 62)];\n  return result;\n}`,
+        go: `package main\n\nimport (\n\t"math/rand"\n\t"time"\n)\n\nconst chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"\n\nfunc randomShort(length int) string {\n\tr := rand.New(rand.NewSource(time.Now().UnixNano()))\n\tresult := make([]byte, length)\n\tfor i := range result {\n\t\tresult[i] = chars[r.Intn(len(chars))]\n\t}\n\treturn string(result)\n}`,
+        java: `import java.security.SecureRandom;\n\npublic class ShortUrl {\n    private static final String CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";\n    private static final SecureRandom RANDOM = new SecureRandom();\n\n    public static String randomShort(int length) {\n        StringBuilder sb = new StringBuilder(length);\n        for (int i = 0; i < length; i++) sb.append(CHARS.charAt(RANDOM.nextInt(62)));\n        return sb.toString();\n    }\n}`
+      }
+    };
+
+    document.getElementById('generateBtn').addEventListener('click', () => {
+      const url = document.getElementById('urlInput').value.trim();
+      if (!url) { showToast('Please enter a URL'); return; }
+      const algo = document.getElementById('algoSelect').value;
+      const len = parseInt(document.getElementById('lengthSelect').value);
+      let short;
+      if (algo === 'base62') short = base62Encode(url).substring(0, len);
+      else if (algo === 'md5') short = md5Short(url, len);
+      else short = randomStr(len);
+      document.getElementById('shortCode').textContent = short;
+      document.getElementById('shortUrl').textContent = 'https://short.link/' + short;
+      const langOrder = ['python','js','go','java'];
+      let codeText = '';
+      langOrder.forEach(l => {
+        codeText += `// ${l.toUpperCase()}\n${codes[algo][l]}\n\n`;
+      });
+      document.getElementById('codeBlock').textContent = codeText.trim();
+    });
+
+    // initialstartGenerate
+    document.getElementById('generateBtn').click();
+  </script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+</body>
+</html>

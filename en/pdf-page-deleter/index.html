@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Preview every page of a PDF and delete the ones you don&#x27;t want, then download the cleaned-up document.">
+<meta name="keywords" content="PDF page remover,delete PDF pages,remove PDF pages,online PDF editor,PDF page deletion,PDF page management,PDF cleanup,PDF organizer,free PDF tool,client-side PDF">
+<title>Free PDF Page Deletion Tool - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/">
+<meta property="og:title" content="Free PDF Page Deletion Tool - ToolGuideHub">
+<meta property="og:description" content="Preview every page of a PDF and delete the ones you don&#x27;t want, then download the cleaned-up document.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free PDF Page Deletion Tool", "description": "Free online PDF page deletion tool. Upload, preview all pages, and remove unwanted pages. Pure client-side processing, no uploads to servers. No registration required.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is my PDF uploaded to a server?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is my PDF uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool runs entirely in your browser. All PDF processing is done locally on your device and never uploaded to any server. Your document privacy is fully protected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I delete multiple pages at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can select any number of pages to delete, including non-consecutive pages. A new PDF will be generated containing only the pages you chose to keep, with the original order preserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will deleting pages change the format of my PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The tool uses pdf-lib to process your document, fully preserving fonts, images, links, and other content on the remaining pages. Only the selected pages are removed; everything else stays intact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Files up to 200MB are recommended. Since processing happens in the browser, file size is limited by available memory. Very large files may cause the browser to slow down; consider splitting them or using a desktop PDF application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I undo the deletion after generating the new PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Before clicking the generate button, you can uncheck any page to undo your selection. Once the new PDF is generated and downloaded, the change is permanent. Always keep a backup of your original file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it support password-protected PDFs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Password-protected PDFs must be decrypted first before using this tool. Use a PDF unlocker to remove the password, then return here to delete pages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will bookmarks and outlines be preserved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most metadata and bookmarks are preserved, but bookmarks pointing to deleted pages may become invalid. We recommend checking bookmarks manually after deletion, especially for documents with complex outline structures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on mobile browsers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool is fully responsive and works on mobile browsers. However, due to smaller screen sizes, page thumbnails may appear small. For the best experience, we recommend using a desktop browser."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Free PDF Page Deletion Tool",
+  "description": "Simple steps to use the 📋 Free PDF Page Deletion Tool online tool. Everything runs locally: Free PDF Page Deletion Tool and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📋 Free PDF Page Deletion Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#22d3ee}
+.card{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:24px;border:1px solid rgba(148,163,184,.1)}
+.card h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:1.2rem}
+.drop-zone{border:2px dashed #334155;border-radius:12px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#0f172a}
+.drop-zone:hover,.drop-zone.dragover{border-color:#06b6d4;background:rgba(6,182,212,.05)}
+.drop-zone .icon{font-size:3rem;margin-bottom:12px}
+.drop-zone p{color:#94a3b8;font-size:.95rem}
+.drop-zone .hint{color:#475569;font-size:.8rem;margin-top:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;font-size:.9rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:#06b6d4;color:#0f172a;font-weight:600}
+.btn-primary:hover{background:#22d3ee}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn-danger{background:#ef4444;color:#fff}
+.btn-danger:hover{background:#f87171}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.pages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-top:16px}
+.page-item{background:#0f172a;border:2px solid #1e293b;border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.page-item:hover{border-color:#06b6d4}
+.page-item.selected{border-color:#ef4444;background:rgba(239,68,68,.08)}
+.page-item .thumb{width:100%;aspect-ratio:3/4;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:8px}
+.page-item .thumb canvas{max-width:100%;max-height:100%;display:block}
+.page-item .thumb .page-num{color:#475569;font-size:.8rem}
+.page-item .info{font-size:.8rem;color:#94a3b8}
+.page-item .check{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:#ef4444;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;opacity:0;transition:opacity .2s}
+.page-item.selected .check{opacity:1}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.info-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#0f172a;border-radius:8px;margin-bottom:16px;font-size:.85rem;color:#94a3b8}
+.info-bar .stats{display:flex;gap:16px;flex-wrap:wrap}
+.tutorial-section h3{font-size:1rem;color:#f1f5f9;margin:20px 0 10px}
+.tutorial-section p,.tutorial-section li{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.tutorial-section ul{padding-left:20px}
+.tutorial-section ol{padding-left:20px}
+.tutorial-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item h4{font-size:.95rem;color:#f1f5f9;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{text-align:center;padding:32px 16px;color:#475569;font-size:.8rem;border-top:1px solid #1e293b;margin-top:32px}
+.footer a{color:#64748b}
+.footer a:hover{color:#22d3ee}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;border:1px solid rgba(148,163,184,.2);font-size:.9rem;opacity:0;transition:all .3s;z-index:1000;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.progress-wrap{margin-top:16px}
+.progress-bar{height:8px;background:#0f172a;border-radius:4px;overflow:hidden}
+.progress-bar .fill{height:100%;background:#06b6d4;border-radius:4px;transition:width .3s;width:0%}
+.progress-text{text-align:center;font-size:.8rem;color:#94a3b8;margin-top:6px}
+.empty-state{text-align:center;padding:40px 20px;color:#475569}
+.empty-state .icon{font-size:2.5rem;margin-bottom:12px}
+@media(max-width:640px){
+.header h1{font-size:1.2rem}
+.pages-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.card{padding:16px}
+}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Free PDF Page Deletion Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/"
+    }
+  ],
+  "name": "Free PDF Page Deletion Tool"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pdf-page-deleter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>📄 Free PDF Page Deletion Tool</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../../">← Back to Tools</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="ad-slot">Top Ad Slot 728x90</div>
+
+  <div class="card">
+    <h2><span class="icon">📤</span>Upload PDF</h2>
+    <div class="drop-zone" id="dropZone">
+      <div class="icon">📁</div>
+      <p>Drag & drop a PDF here, or click to browse</p>
+      <div class="hint">Supports .pdf format, recommended up to 200MB</div>
+    </div>
+    <input type="file" id="fileInput" accept=".pdf,application/pdf" style="display:none">
+  </div>
+
+  <div class="card" id="previewCard" style="display:none">
+    <div class="info-bar">
+      <span id="fileName">-</span>
+      <div class="stats">
+        <span>Total: <strong id="totalPages">0</strong></span>
+        <span>Delete: <strong id="deleteCount" style="color:#ef4444">0</strong></span>
+        <span>Keep: <strong id="keepCount" style="color:#22d3ee">0</strong></span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-secondary" id="selectAllBtn">Select All</button>
+      <button class="btn btn-secondary" id="invertBtn">Invert</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+      <button class="btn btn-danger" id="deleteBtn" disabled>🗑️ Generate New PDF (Remove Selected)</button>
+    </div>
+    <div class="progress-wrap" id="renderProgress" style="display:none">
+      <div class="progress-bar"><div class="fill" id="renderFill"></div></div>
+      <div class="progress-text" id="renderText">Rendering page previews...</div>
+    </div>
+    <div class="pages-grid" id="pagesGrid"></div>
+  </div>
+
+  <div class="ad-slot">Middle Ad Slot 728x90</div>
+
+  <div class="card tutorial-section">
+    <h2><span class="icon">📖</span>How to Use</h2>
+    <p>This tool helps you quickly remove unwanted pages from PDF documents without installing any software. All processing happens in your browser, and your files are never uploaded to a server.</p>
+    <h3>Step-by-Step Guide</h3>
+    <ol>
+      <li><strong>Upload PDF:</strong> Click the upload area to select a PDF file, or drag and drop it into the dashed box.</li>
+      <li><strong>Preview Pages:</strong> Once uploaded, the tool automatically renders thumbnails of all pages so you can see exactly what each page contains.</li>
+      <li><strong>Select Pages to Delete:</strong> Click on page thumbnails to select the ones you want to remove. Selected pages will show a red border. You can select non-consecutive pages.</li>
+      <li><strong>Bulk Actions:</strong> Use the "Select All" button to quickly mark every page, "Invert" to flip your current selection, and "Clear" to deselect everything.</li>
+      <li><strong>Generate New PDF:</strong> When ready, click the "Generate New PDF" button. The tool will remove the selected pages and create a clean new PDF.</li>
+      <li><strong>Download:</strong> The new PDF is automatically downloaded by your browser. Review it to confirm the correct pages were removed.</li>
+    </ol>
+    <h3>Tips</h3>
+    <ul>
+      <li>Always keep a backup of the original PDF before deleting pages.</li>
+      <li>Password-protected PDFs must be decrypted first.</li>
+      <li>Large files may take longer to render previews—please be patient.</li>
+      <li>The generated PDF preserves fonts and formatting of the remaining pages.</li>
+    </ul>
+  </div>
+
+  <div class="card tutorial-section">
+    <h2><span class="icon">💡</span>Use Cases</h2>
+    <p>PDF page removal is useful in many everyday and professional scenarios. Here are some common applications:</p>
+    <h3>Document Cleanup</h3>
+    <p>After scanning multi-page documents, blank or mis-scanned pages often appear. This tool lets you quickly delete those extra pages, making the document cleaner and more professional. Ideal for organizing scanned contracts, reports, and archives.</p>
+    <h3>Report Extraction</h3>
+    <p>When you only need specific chapters from a lengthy PDF report, remove the irrelevant pages to keep only the content you need. This is especially useful when preparing meeting materials or creating summary documents.</p>
+    <h3>Exam & Assignment Processing</h3>
+    <p>Teachers and students often need to remove answer keys or specific question types from PDF exam papers. This tool allows precise page selection, generating a version tailored to your needs.</p>
+    <h3>eBook Cleanup</h3>
+    <p>eBooks frequently include copyright pages, advertisements, or table-of-contents pages that clutter the reading experience. Removing them creates a cleaner version and can improve loading speed on e-readers.</p>
+  </div>
+
+  <div class="card tutorial-section">
+    <h2><span class="icon">🔍</span>Learn More</h2>
+    <h3>PDF Page Structure</h3>
+    <p>PDF (Portable Document Format) stores pages as objects within a tree structure. Each page is an independent object containing a content stream, resource dictionary, and page attributes. Deleting a page modifies the page tree by removing references to specific page objects, without affecting the data integrity of other pages.</p>
+    <h3>Client-Side PDF Processing</h3>
+    <p>This tool is built on pdf-lib.js, which runs entirely in the browser using JavaScript ArrayBuffer and Uint8Array to manipulate PDF binary data directly. Compared to server-side solutions, client-side processing offers zero latency, zero uploads, and maximum privacy—especially valuable when handling sensitive documents.</p>
+    <h3>Page Rotation vs. Deletion</h3>
+    <p>Page rotation only changes the Rotate field of a page without altering the document structure. Page deletion permanently removes page objects, changing the total page count and renumbering subsequent pages. Deletion is irreversible, so always double-check before generating the new file.</p>
+  </div>
+
+  <div class="card">
+
+  <div class="seo-content">
+    <h2>How to Use the Free PDF Page Deletion Tool</h2>
+    <p>Solve math problems with the Free PDF Page Deletion Tool in three steps:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Enter Your Numbers or Equation</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Type the numbers, equation, or data set into the input fields. The tool supports various mathematical operations and formats.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Select the Operation</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Choose the mathematical operation or calculation you want to perform. Options vary based on the specific tool.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>View the Solution</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">The result is displayed instantly with clear formatting. Copy the answer or adjust inputs to explore different scenarios.</span>
+      </li>
+
+    </ol>
+  </div>
+
+    <h2><span class="icon">❓</span>FAQ</h2>
+    <div class="faq-item">
+      <h4>Q1: Is my PDF uploaded to a server?</h4>
+      <p>A: No. This tool runs entirely in your browser. All PDF processing is done locally on your device and never uploaded to any server. Your document privacy is fully protected.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q2: Can I delete multiple pages at once?</h4>
+      <p>A: Yes. You can select any number of pages to delete, including non-consecutive pages. A new PDF will be generated containing only the pages you chose to keep, with the original order preserved.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q3: Will deleting pages change the format of my PDF?</h4>
+      <p>A: No. The tool uses pdf-lib to process your document, fully preserving fonts, images, links, and other content on the remaining pages. Only the selected pages are removed; everything else stays intact.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q4: Is there a file size limit?</h4>
+      <p>A: Files up to 200MB are recommended. Since processing happens in the browser, file size is limited by available memory. Very large files may cause the browser to slow down; consider splitting them or using a desktop PDF application.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q5: Can I undo the deletion after generating the new PDF?</h4>
+      <p>A: Before clicking the generate button, you can uncheck any page to undo your selection. Once the new PDF is generated and downloaded, the change is permanent. Always keep a backup of your original file.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q6: Does it support password-protected PDFs?</h4>
+      <p>A: No. Password-protected PDFs must be decrypted first before using this tool. Use a PDF unlocker to remove the password, then return here to delete pages.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q7: Will bookmarks and outlines be preserved?</h4>
+      <p>A: Most metadata and bookmarks are preserved, but bookmarks pointing to deleted pages may become invalid. We recommend checking bookmarks manually after deletion, especially for documents with complex outline structures.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q8: Does it work on mobile browsers?</h4>
+      <p>A: Yes. The tool is fully responsive and works on mobile browsers. However, due to smaller screen sizes, page thumbnails may appear small. For the best experience, we recommend using a desktop browser.</p>
+    </div>
+  </div>
+
+  <div class="ad-slot">Bottom Ad Slot 728x90</div>
+
+  <div class="content-section">
+<h2>Related PDF Tools</h2>
+<p style="margin-bottom:12px">Explore our other free online PDF tools:</p>
+<div class="pdf-related-grid">
+<a href="../../en/pdf-splitter/" class="pdf-related-link"><span class="pdf-related-icon">📄</span><span class="pdf-related-label">PDF Splitter</span><span class="pdf-related-desc">Split PDF into files</span></a>
+<a href="../../en/pdf-text-extractor/" class="pdf-related-link"><span class="pdf-related-icon">🔍</span><span class="pdf-related-label">PDF Text Extractor</span><span class="pdf-related-desc">Extract text from PDF</span></a>
+<a href="../../en/pdf-to-html/" class="pdf-related-link"><span class="pdf-related-icon">🌐</span><span class="pdf-related-label">PDF to HTML</span><span class="pdf-related-desc">Convert PDF to HTML</span></a>
+<a href="../../en/pdf-to-image/" class="pdf-related-link"><span class="pdf-related-icon">🖼️</span><span class="pdf-related-label">PDF to Image</span><span class="pdf-related-desc">Convert PDF to images</span></a>
+<a href="../../en/pdf-to-word/" class="pdf-related-link"><span class="pdf-related-icon">📝</span><span class="pdf-related-label">PDF to Word</span><span class="pdf-related-desc">Convert PDF to Word</span></a>
+</div>
+</div>
+
+<div>
+<footer>
+    <p>ToolGuideHub | Contact: <a href="../contact/">Contact</a></p>
+    <p style="margin-top:6px"><a href="../../en/privacy-policy/">Privacy Policy</a> · <a href="../../en/terms-of-service/">Terms of Service</a></p>
+  <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script>
+'use strict';
+
+const $ = id => document.getElementById(id);
+const dropZone = $('dropZone');
+const fileInput = $('fileInput');
+const previewCard = $('previewCard');
+const pagesGrid = $('pagesGrid');
+const fileNameEl = $('fileName');
+const totalPagesEl = $('totalPages');
+const deleteCountEl = $('deleteCount');
+const keepCountEl = $('keepCount');
+const selectAllBtn = $('selectAllBtn');
+const invertBtn = $('invertBtn');
+const clearBtn = $('clearBtn');
+const deleteBtn = $('deleteBtn');
+const renderProgress = $('renderProgress');
+const renderFill = $('renderFill');
+const renderText = $('renderText');
+const toastEl = $('toast');
+
+let currentPdfBytes = null;
+let currentDoc = null;
+let totalPages = 0;
+let selectedPages = new Set();
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  setTimeout(() => toastEl.classList.remove('show'), 2500);
+}
+
+function updateStats() {
+  totalPagesEl.textContent = totalPages;
+  deleteCountEl.textContent = selectedPages.size;
+  keepCountEl.textContent = totalPages - selectedPages.size;
+  deleteBtn.disabled = selectedPages.size === 0 || selectedPages.size === totalPages;
+}
+
+function createPageItem(pageNum) {
+  const div = document.createElement('div');
+  div.className = 'page-item';
+  div.dataset.page = pageNum;
+  div.innerHTML = '<div class="thumb"><span class="page-num">Loading...</span></div><div class="info">Page ' + pageNum + '</div><div class="check">✓</div>';
+  div.addEventListener('click', () => togglePage(pageNum));
+  return div;
+}
+
+function togglePage(pageNum) {
+  const item = pagesGrid.querySelector('[data-page="' + pageNum + '"]');
+  if (!item) return;
+  if (selectedPages.has(pageNum)) {
+    selectedPages.delete(pageNum);
+    item.classList.remove('selected');
+  } else {
+    selectedPages.add(pageNum);
+    item.classList.add('selected');
+  }
+  updateStats();
+}
+
+async function renderThumbnails(pdfDocument) {
+  pagesGrid.innerHTML = '';
+  selectedPages.clear();
+  updateStats();
+  renderProgress.style.display = 'block';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const item = createPageItem(i);
+    pagesGrid.appendChild(item);
+  }
+
+  for (let i = 1; i <= totalPages; i++) {
+    const page = await pdfDocument.getPage(i);
+    const viewport = page.getViewport({ scale: 0.5 });
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+    page.cleanup();
+
+    const item = pagesGrid.querySelector('[data-page="' + i + '"]');
+    if (item) {
+      const thumb = item.querySelector('.thumb');
+      thumb.innerHTML = '';
+      thumb.appendChild(canvas);
+    }
+
+    const pct = Math.round((i / totalPages) * 100);
+    renderFill.style.width = pct + '%';
+    renderText.textContent = 'Rendering previews... ' + i + '/' + totalPages;
+  }
+
+  renderProgress.style.display = 'none';
+  showToast(totalPages + ' pages loaded. Click thumbnails to select pages to delete.');
+}
+
+async function loadPdf(file) {
+  if (!file || (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf'))) {
+    showToast('Please select a valid PDF file');
+    return;
+  }
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    currentPdfBytes = new Uint8Array(arrayBuffer);
+    currentDoc = await pdfjsLib.getDocument({ data: currentPdfBytes.slice() }).promise;
+    totalPages = currentDoc.numPages;
+
+    fileNameEl.textContent = file.name;
+    previewCard.style.display = 'block';
+
+    await renderThumbnails(currentDoc);
+  } catch (e) {
+    showToast('Failed to load PDF: ' + (e.message || 'Unknown error'));
+  }
+}
+
+dropZone.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => {
+  if (e.target.files && e.target.files[0]) loadPdf(e.target.files[0]);
+});
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  if (e.dataTransfer.files && e.dataTransfer.files[0]) loadPdf(e.dataTransfer.files[0]);
+});
+
+selectAllBtn.addEventListener('click', () => {
+  for (let i = 1; i <= totalPages; i++) selectedPages.add(i);
+  pagesGrid.querySelectorAll('.page-item').forEach(el => el.classList.add('selected'));
+  updateStats();
+});
+
+invertBtn.addEventListener('click', () => {
+  for (let i = 1; i <= totalPages; i++) {
+    if (selectedPages.has(i)) selectedPages.delete(i); else selectedPages.add(i);
+  }
+  pagesGrid.querySelectorAll('.page-item').forEach(el => {
+    const p = parseInt(el.dataset.page, 10);
+    el.classList.toggle('selected', selectedPages.has(p));
+  });
+  updateStats();
+});
+
+clearBtn.addEventListener('click', () => {
+  selectedPages.clear();
+  pagesGrid.querySelectorAll('.page-item').forEach(el => el.classList.remove('selected'));
+  updateStats();
+});
+
+deleteBtn.addEventListener('click', async () => {
+  if (selectedPages.size === 0 || selectedPages.size === totalPages) return;
+  deleteBtn.disabled = true;
+  deleteBtn.textContent = '⏳ Processing...';
+
+  try {
+    const srcDoc = await PDFLib.PDFDocument.load(currentPdfBytes);
+    const newDoc = await PDFLib.PDFDocument.create();
+    const pages = srcDoc.getPages();
+    const indicesToKeep = [];
+    for (let i = 0; i < pages.length; i++) {
+      if (!selectedPages.has(i + 1)) indicesToKeep.push(i);
+    }
+
+    const copiedPages = await newDoc.copyPages(srcDoc, indicesToKeep);
+    copiedPages.forEach(p => newDoc.addPage(p));
+
+    const pdfBytes = await newDoc.save();
+    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const origName = fileNameEl.textContent.replace(/\.pdf$/i, '');
+    a.href = url;
+    a.download = origName + '_removed_' + selectedPages.size + 'pages.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('Successfully removed ' + selectedPages.size + ' pages. New file downloaded.');
+  } catch (e) {
+    showToast('Processing failed: ' + (e.message || 'Unknown error'));
+  } finally {
+    deleteBtn.disabled = selectedPages.size === 0 || selectedPages.size === totalPages;
+    deleteBtn.textContent = '🗑️ Generate New PDF (Remove Selected)';
+  }
+});</script>
+
+<!-- Feedback Widget -->
+</main>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+  <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

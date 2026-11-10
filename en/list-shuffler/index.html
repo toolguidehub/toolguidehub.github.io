@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Shuffler - ToolGuideHub</title>
+  <meta name="description" content="Shuffle list items into a random order in one click and copy the shuffled result straight into your notes.">
+  <meta property="og:title" content="List Shuffler - ToolGuideHub">
+  <meta property="og:description" content="Shuffle list items into a random order in one click and copy the shuffled result straight into your notes.">
+  <meta property="og:type" content="website"><meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"List Shuffler","description":"Free online List Shuffler - randomly shuffle list items.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0"}}</script>
+  <style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--surface:#1e293b;--text:#e2e8f0}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 20px}header nav{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:12px}header a{color:#22d3ee;text-decoration:none;font-weight:600;font-size:14px}main{max-width:900px;margin:0 auto;padding:32px 16px 64px;flex:1;width:100%}h1{font-size:clamp(1.5rem,4vw,2rem);word-break:break-word;margin-bottom:8px}.desc{color:#94a3b8;font-size:14px;margin-bottom:24px}.section{background:#1e293b;border-radius:12px;box-shadow:var(--shadow);padding:24px;margin-bottom:20px}label{display:block;font-weight:600;margin-bottom:8px;font-size:14px}textarea{
+      background: var(--surface);
+      color: var(--text);width:100%;padding:12px 16px;border:2px solid rgba(148,163,184,.1);border-radius:8px;font-size:15px;font-family:'SF Mono','Fira Code',monospace;resize:vertical;min-height:120px}textarea:focus{outline:none;border-color:#22d3ee}.btn{background:#22d3ee;color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:600;margin-top:12px;transition:background .2s}.btn:hover{background:var(--primary-hover)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}textarea[readonly]{background:#0f172a}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;z-index:1000;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}footer{text-align:center;padding:20px;font-size:13px;color:#94a3b8;border-top:1px solid rgba(148,163,184,.1)}@media(max-width:600px){.btn{width:100%}.btn-secondary{width:100%;margin-left:0;margin-top:8px}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/list-shuffler/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "List Shuffler", "item": "https://adi63586.github.io/Toolguidehub/en/list-shuffler/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"List Shuffler FAQ","mainEntity":[{"@type":"Question","name":"How does the List Shuffler work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the List Shuffler free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Input List and Shuffled Result are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the List Shuffler?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use List Shuffler","description":"Step-by-step guide for using List Shuffler","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"List Shuffler"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/list-shuffler/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header><nav style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px"><a href="../../" style="color:#22d3ee;text-decoration:none;font-weight:600;font-size:14px">← Home</a><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/list-shuffler/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="../../en/list-shuffler/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;text-decoration:none;background:rgba(6,182,212,.2)">EN</a></div></nav></header>
+  <main>
+    <h1>List Shuffler</h1>
+    <p class="desc" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online List Shuffler - randomly shuffle list items, one per line, with instant copy support.</p>
+    <div class="section">
+      <label for="input">Input List (one per line)</label>
+      <textarea id="input" placeholder="Item 1&#10;Item 2&#10;Item 3&#10;...">Item A&#10;Item B&#10;Item C&#10;Item D&#10;Item E&#10;Item F&#10;Item G&#10;Item H</textarea>
+      <button class="btn" id="shuffleBtn">Shuffle</button>
+    </div>
+    <div class="section">
+      <label for="output">Shuffled Result</label>
+      <textarea id="output" readonly placeholder="Shuffled result will appear here..."></textarea>
+      <button class="btn btn-secondary" id="copyBtn">Copy Result</button>
+    </div>
+  
+<h2>What is List Shuffler?</h2><p>List Shuffler is a free online tool that runs entirely in your browser. No download or signup needed — enter Input List and Shuffled Result to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Randomize team assignments or group orders</li><li>Shuffle quiz questions for varied practice</li><li>Randomize playlist or reading list order</li><li>Quick random selection for decision making</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<div class="toast" id="toast">
+</div>
+  
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/list-shuffler/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <script>
+  const input=document.getElementById('input'),output=document.getElementById('output'),shuffleBtn=document.getElementById('shuffleBtn'),copyBtn=document.getElementById('copyBtn'),toast=document.getElementById('toast');
+  function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2000)}
+  function shuffle(){const lines=input.value.split('\n').map(s=>s.trim()).filter(Boolean);if(lines.length<2){showToast('Please enter at least 2 items');return}const arr=[...lines];for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}output.value=arr.join('\n')}
+  copyBtn.addEventListener('click',()=>{if(!output.value){showToast('Nothing to copy');return}navigator.clipboard.writeText(output.value).then(()=>showToast('Copied')).catch(()=>{output.select();document.execCommand('copy');showToast('Copied')})})
+  shuffleBtn.addEventListener('click',shuffle);shuffle();
+  </script>
+</body>
+</html>

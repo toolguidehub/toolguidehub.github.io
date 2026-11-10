@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Gray Code Converter | No Signup</title>
+<meta name="description" content="Convert between binary and Gray code, or from decimal, one value at a time or in bulk, with the MSB-first XOR rule shown.">
+<meta property="og:title" content="Gray Code Converter - ToolGuideHub">
+<meta property="og:description" content="Convert between binary and Gray code, or from decimal, one value at a time or in bulk, with the MSB-first XOR rule shown.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Gray Code Converter","applicationCategory":"UtilityApplication","operatingSystem":"All","description":"Online Gray code converter supporting bidirectional binary-to-Gray code conversion and decimal-to-Gray code conversion.","url":"https://adi63586.github.io/Toolguidehub/en/gray-code-converter/","offers":{"@type":"Offer","price":"0"}}</script>
+<style>:root{--hover:rgba(6,182,212,.3);--green:#10B981;--text2:#94a3b8;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100}
+header .logo{font-size:1.3rem;font-weight:700;color:#22d3ee;text-decoration:none}
+header nav{display:flex;gap:8px;flex-wrap:wrap}
+header nav a{color:var(--text2);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:0.9rem;transition:all .2s}
+header nav a:hover{background:var(--hover);color:#22d3ee}
+main{flex:1;max-width:900px;width:100%;margin:0 auto;padding:32px 20px 60px}
+h1{font-size:1.8rem;margin-bottom:8px;color:#e2e8f0}
+.subtitle{color:var(--text2);margin-bottom:28px;font-size:0.95rem}
+.section{background:#1e293b;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06);border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+.card h3{font-size:1rem;margin-bottom:16px;color:#e2e8f0}
+.mode-tabs{display:flex;gap:4px;margin-bottom:20px;background:#1e293b;border-radius:10px;padding:4px}
+.mode-tab{flex:1;padding:8px 12px;border:none;background:none;border-radius:8px;font-size:0.85rem;cursor:pointer;color:var(--text2);font-weight:600;transition:all .2s}
+.mode-tab.active{background:#22d3ee;color:#fff}
+.input-row{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.input-row label{font-size:0.9rem;font-weight:600;color:#e2e8f0}
+.input-row .hint{font-size:0.8rem;color:var(--text2)}
+input[type=text],input[type=number]{width:100%;padding:10px 14px;border:1.5px solid rgba(148,163,184,.1);border-radius:10px;font-size:0.95rem;font-family:'SF Mono',Monaco,monospace;background:#0f172a;transition:border-color .2s}
+input[type=text]:focus,input[type=number]:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+textarea{width:100%;padding:12px 14px;border:1.5px solid rgba(148,163,184,.1);border-radius:10px;font-size:0.9rem;font-family:'SF Mono',Monaco,monospace;background:#0f172a;transition:border-color .2s;resize:vertical;min-height:100px}
+textarea:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border:none;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.3)}
+.btn-outline{background:#1e293b;color:#22d3ee;border:1.5px solid rgba(148,163,184,.1)}
+.btn-outline:hover{background:var(--hover)}
+.result-area{margin-top:20px;display:none}
+.result-area.show{display:block}
+.result-box{background:#1e293b;border:1.5px solid rgba(6,182,212,.3);border-radius:10px;padding:16px;margin-bottom:12px}
+.result-box.error{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.4)}
+.result-label{font-size:0.8rem;color:var(--text2);margin-bottom:4px;font-weight:600}
+.result-value{font-size:1.3rem;font-weight:700;color:var(--green);font-family:'SF Mono',Monaco,monospace;word-break:break-all}
+.result-value.error{color:#dc2626}
+.batch-result{margin-top:12px}
+.batch-result table{width:100%;border-collapse:collapse;font-size:0.85rem}
+.batch-result th{text-align:left;padding:6px 10px;color:var(--text2);border-bottom:1px solid rgba(148,163,184,.1);font-weight:600}
+.batch-result td{padding:6px 10px;border-bottom:1px solid rgba(148,163,184,.1);font-family:'SF Mono',Monaco,monospace}
+.batch-result td:first-child{color:var(--text2)}
+.info-list{list-style:none;padding:0}
+.info-list li{padding:6px 0 6px 22px;position:relative;font-size:0.9rem;color:var(--text2);line-height:1.6}
+.info-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.info-list code{background:rgba(6,182,212,.1);padding:2px 6px;border-radius:4px;font-size:0.85rem;color:#22d3ee}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:12px 28px;border-radius:10px;font-size:0.9rem;z-index:9999;opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{background:#1e293b;border-top:1px solid rgba(148,163,184,.1);padding:20px;text-align:center;color:var(--text2);font-size:0.85rem}
+footer a{color:#22d3ee;text-decoration:none}
+@media(max-width:375px){main{padding:20px 12px 40px}h1{font-size:1.4rem}.section{padding:16px}.result-value{font-size:1rem}header{padding:12px 16px}header .logo{font-size:1.1rem}.mode-tab{font-size:0.78rem;padding:6px 8px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/gray-code-converter/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Gray Code Converter | No Signup", "item": "https://adi63586.github.io/Toolguidehub/en/gray-code-converter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Gray Code Converter FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Gray Code Converter?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Gray Code Converter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Binary Input and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Gray Code Converter?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Gray Code Converter","description":"Step-by-step guide for using Gray Code Converter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Gray Code Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/gray-code-converter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<a href="../../" class="logo">🧰 ToolGuideHub</a>
+<nav>
+<a href="../../">🏠 Home</a>
+
+<a href="../../en/gray-code-converter/">中文</a>
+</nav>
+</header>
+<main>
+<h1>🔁 Gray Code Converter</h1>
+<p class="subtitle">Bidirectional binary-to-Gray code conversion with decimal input and batch processing</p>
+<div class="section">
+<h3>⚙️ Conversion Mode</h3>
+<div class="mode-tabs">
+<button class="mode-tab active" id="tab1" onclick="switchMode('bin2gray')">Binary → Gray</button>
+<button class="mode-tab" id="tab2" onclick="switchMode('gray2bin')">Gray → Binary</button>
+<button class="mode-tab" id="tab3" onclick="switchMode('dec2gray')">Decimal → Gray</button>
+<button class="mode-tab" id="tab4" onclick="switchMode('batch')">Batch</button>
+</div>
+<div id="singleMode">
+<div class="input-row">
+<label id="inputLabel">Binary Input</label>
+<input type="text" id="inputValue" placeholder="e.g. 1011" onkeydown="if(event.key==='Enter')convert()">
+<span class="hint" id="inputHint">Enter a binary string containing only 0s and 1s</span>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-primary" onclick="convert()">🔄 Convert</button>
+<button class="btn btn-outline" onclick="loadSample()">✨ Sample</button>
+<button class="btn btn-outline" onclick="clearAll()">🗑 Clear</button>
+<button class="btn btn-outline" onclick="copyResult()">📋 Copy Result</button>
+</div>
+<div class="result-area" id="resultArea">
+<div class="result-box" id="resultBox">
+<div class="result-label" id="resultLabel">Gray Code Result</div>
+<div class="result-value" id="resultValue"></div>
+</div>
+</div>
+</div>
+<div id="batchMode" style="display:none">
+<div class="input-row">
+<label>Batch Input (one value per line)</label>
+<textarea id="batchInput" placeholder="e.g.:&#10;1011&#10;1100&#10;1001&#10;0110"></textarea>
+<span class="hint">Binary → Gray code, one binary number per line</span>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-primary" onclick="batchConvert()">🔄 Batch Convert</button>
+<button class="btn btn-outline" onclick="batchSample()">✨ Sample</button>
+<button class="btn btn-outline" onclick="clearBatch()">🗑 Clear</button>
+</div>
+<div class="result-area" id="batchResultArea">
+<div class="batch-result" id="batchResult"></div>
+</div>
+</div>
+</div>
+<div class="section">
+<h3>📖 About Gray Code</h3>
+<ul class="info-list">
+<li>Gray code is a reflected binary code where adjacent numbers differ by only one bit</li>
+<li><strong>Binary → Gray</strong>: MSB unchanged, each subsequent bit = current bit XOR previous bit (<code>G[i] = B[i] XOR B[i-1]</code>)</li>
+<li><strong>Gray → Binary</strong>: MSB unchanged, each subsequent bit = Gray bit XOR previous binary result (<code>B[i] = G[i] XOR B[i-1]</code>)</li>
+<li>Gray code is used in rotary encoders, Karnaugh maps, error detection, and analog-to-digital conversion</li>
+<li>Example: Binary <code>1011</code> → Gray code <code>1110</code></li>
+</ul>
+</div>
+</main>
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/base32-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base32 Encode Decode</a><a href="../../en/base45-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base45 Encoder</a><a href="../../en/base64-encode-decode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base64 Encode Decode</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/gray-code-converter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+var currentMode='bin2gray';
+function showToast(msg){
+  var t=document.getElementById('toast');var m=document.getElementById('toastMsg');
+  m.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2500);
+}
+function switchMode(mode){
+  currentMode=mode;
+  var tabs=['tab1','tab2','tab3','tab4'];
+  for(var i=0;i<tabs.length;i++){document.getElementById(tabs[i]).classList.remove('active');}
+  if(mode==='batch'){
+    document.getElementById('tab4').classList.add('active');
+    document.getElementById('singleMode').style.display='none';
+    document.getElementById('batchMode').style.display='block';
+    return;
+  }
+  document.getElementById('singleMode').style.display='block';
+  document.getElementById('batchMode').style.display='none';
+  var label,hint,placeholder,resultLabel;
+  if(mode==='bin2gray'){
+    label='Binary Input';hint='Enter a binary string containing only 0s and 1s';placeholder='e.g. 1011';resultLabel='Gray Code Result';
+    document.getElementById('tab1').classList.add('active');
+  }else if(mode==='gray2bin'){
+    label='Gray Code Input';hint='Enter a Gray code string containing only 0s and 1s';placeholder='e.g. 1110';resultLabel='Binary Result';
+    document.getElementById('tab2').classList.add('active');
+  }else{
+    label='Decimal Input';hint='Enter a non-negative integer (auto-converted to binary then to Gray code)';placeholder='e.g. 42';resultLabel='Gray Code Result';
+    document.getElementById('tab3').classList.add('active');
+  }
+  document.getElementById('inputLabel').textContent=label;
+  document.getElementById('inputHint').textContent=hint;
+  document.getElementById('inputValue').placeholder=placeholder;
+  document.getElementById('resultLabel').textContent=resultLabel;
+  document.getElementById('resultArea').classList.remove('show');
+}
+function isBinary(s){return /^[01]+$/.test(s);}
+function binToGray(bin){
+  var gray=bin[0];
+  for(var i=1;i<bin.length;i++){
+    gray+=(bin[i]===bin[i-1])?'0':'1';
+  }
+  return gray;
+}
+function grayToBin(gray){
+  var bin=gray[0];
+  for(var i=1;i<gray.length;i++){
+    bin+=((gray[i]===bin[i-1])?'0':'1');
+  }
+  return bin;
+}
+function decToBin(n){
+  if(n===0)return '0';
+  var s='';
+  while(n>0){s=(n%2)+s;n=Math.floor(n/2);}
+  return s;
+}
+function binToDec(b){
+  var n=0;
+  for(var i=0;i<b.length;i++){n=n*2+parseInt(b[i]);}
+  return n;
+}
+function convert(){
+  var input=document.getElementById('inputValue').value.trim();
+  if(!input){showToast('Please enter a value');return;}
+  var result='';
+  if(currentMode==='bin2gray'){
+    if(!isBinary(input)){showError('Input must contain only 0s and 1s');return;}
+    result=binToGray(input);
+  }else if(currentMode==='gray2bin'){
+    if(!isBinary(input)){showError('Input must contain only 0s and 1s');return;}
+    result=grayToBin(input);
+  }else if(currentMode==='dec2gray'){
+    var n=parseInt(input);
+    if(isNaN(n)||n<0){showError('Please enter a non-negative integer');return;}
+    var bin=decToBin(n);
+    result=binToGray(bin);
+  }
+  var box=document.getElementById('resultBox');
+  box.className='result-box';
+  document.getElementById('resultValue').textContent=result;
+  document.getElementById('resultArea').classList.add('show');
+}
+function showError(msg){
+  var box=document.getElementById('resultBox');
+  box.className='result-box error';
+  document.getElementById('resultValue').textContent=msg;
+  document.getElementById('resultValue').className='result-value error';
+  document.getElementById('resultArea').classList.add('show');
+  setTimeout(function(){document.getElementById('resultValue').className='result-value';},3000);
+}
+function loadSample(){
+  if(currentMode==='bin2gray'){document.getElementById('inputValue').value='1011';}
+  else if(currentMode==='gray2bin'){document.getElementById('inputValue').value='1110';}
+  else{document.getElementById('inputValue').value='42';}
+  convert();
+}
+function clearAll(){
+  document.getElementById('inputValue').value='';
+  document.getElementById('resultArea').classList.remove('show');
+}
+function copyResult(){
+  var val=document.getElementById('resultValue').textContent;
+  if(!val){showToast('No result to copy');return;}
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(val).then(function(){showToast('Copied: '+val);});
+  }else{
+    var ta=document.createElement('textarea');ta.value=val;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');showToast('Copied: '+val);}catch(e){showToast('Copy failed');}
+    document.body.removeChild(ta);
+  }
+}
+function batchConvert(){
+  var text=document.getElementById('batchInput').value.trim();
+  if(!text){showToast('Please enter batch data');return;}
+  var lines=text.split(/\n/);
+  var html='<table><tr><th>#</th><th>Input</th><th>Output</th><th>Decimal</th></tr>';
+  var hasError=false;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i].trim();
+    if(!line)continue;
+    var output='';
+    var dec='';
+    if(isBinary(line)){
+      output=binToGray(line);
+      dec=binToDec(line);
+    }else{
+      var n=parseInt(line);
+      if(!isNaN(n)&&n>=0){
+        var bin=decToBin(n);
+        output=binToGray(bin);
+        dec=n;
+      }else{
+        output='❌ Invalid';
+        dec='-';
+        hasError=true;
+      }
+    }
+    html+='<tr><td>'+(i+1)+'</td><td>'+line+'</td><td>'+output+'</td><td>'+dec+'</td></tr>';
+  }
+  html+='</table>';
+  document.getElementById('batchResult').innerHTML=html;
+  document.getElementById('batchResultArea').classList.add('show');
+  if(hasError){showToast('Some lines had invalid input');}
+}
+function batchSample(){
+  document.getElementById('batchInput').value='1011\n1100\n1001\n0110\n0011\n42\n255';
+  batchConvert();
+}
+function clearBatch(){
+  document.getElementById('batchInput').value='';
+  document.getElementById('batchResultArea').classList.remove('show');
+}
+</script>
+</body>
+</html>

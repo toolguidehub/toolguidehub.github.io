@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/regex-tester/">
+  <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Regex Tester & Debugger - ToolGuideHub</title>
+    <meta name="description" content="Free online regex tester with real-time match highlighting, group color coding, replace testing, and 30+ preset patterns.">
+    <meta property="og:title" content="Online Regex Tester & Debugger - ToolGuideHub">
+    <meta property="og:description" content="Free online regex tester with real-time match highlighting, group color coding, replace testing, and 30+ preset patterns.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/regex-tester/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Online Regex Tester & Debugger",
+        "description": "Free online regex tester with real-time match highlighting, group color coding, replace testing, and 30+ preset patterns. Pure client-side processing.",
+        "url": "https://adi63586.github.io/Toolguidehub/en/regex-tester/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this regex tester safe? Does it upload my data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Completely safe. All regex matching and text processing runs locally in your browser. No data is ever uploaded to any server — you can safely test sensitive content."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which regex engines are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Supports the JavaScript native regex engine with all standard flags: g (global), m (multiline), i (case-insensitive), s (dotAll), u (unicode). The syntax is compatible with most common regex flavors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What preset patterns are available?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "30+ commonly used regex patterns are built in, including email address, URL, phone number, IP address, date format, HTML tags, Chinese characters, UUID, MAC address, hex colors, IPv6, and more. One click to load any template."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+            {"@type": "ListItem", "position": 2, "name": "Online Regex Tester", "item": "https://adi63586.github.io/Toolguidehub/en/regex-tester/"}
+        ]
+    }
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+    </script>
+    <style>
+        :root{
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --primary: #06b6d4;
+            --primary-hover: #0891b2;
+            --border: rgba(148,163,184,.1);
+            --danger: #ef4444;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --radius: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,.3);;--surface:#1e293b}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        header .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        header nav { display: flex; gap: 12px; flex-wrap: wrap; }
+        header nav a { color: var(--text-secondary); text-decoration: none; font-size: .85rem; transition: color .2s; }
+        header nav a:hover { color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+        h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--primary); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 24px; font-size: .95rem; }
+
+        .main-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        @media (max-width: 768px) { .main-panel { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+        .card h2 { font-size: 1rem; margin-bottom: 10px; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+
+        .regex-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px; }
+        .regex-header label { font-weight: 600; font-size: .9rem; }
+        .flags { display: flex; gap: 4px; flex-wrap: wrap; }
+        .flag-btn {
+            padding: 2px 8px; border: 1px solid var(--border); border-radius: 4px;
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+            font-size: .75rem; font-family: monospace; transition: all .2s;
+        }
+        .flag-btn.active { background: var(--primary); color: #000; border-color: var(--primary); font-weight: 700; }
+        .flag-btn:hover { border-color: var(--primary); }
+
+        textarea, input[type="text"] {
+            width: 100%; background: var(--bg); border: 1px solid var(--border);
+            border-radius: var(--radius); color: var(--text); padding: 10px 12px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: .9rem;
+            resize: vertical; outline: none; transition: border-color .2s;
+        }
+        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 120px; }
+        .regex-input-wrap { position: relative; }
+        .regex-input-wrap input { font-size: 1rem; padding-right: 40px; }
+        .regex-input-wrap .clear-btn {
+            position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: var(--text-secondary); cursor: pointer;
+            font-size: 1.1rem; padding: 2px 6px; border-radius: 4px;
+        }
+        .regex-input-wrap .clear-btn:hover { color: var(--danger); }
+
+        .regex-error { color: var(--danger); font-size: .8rem; margin-top: 4px; min-height: 20px; }
+        .regex-error.ok { color: var(--success); }
+
+        .highlight-area {
+            background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 12px; min-height: 120px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: .9rem; white-space: pre-wrap; word-break: break-all;
+            position: relative; overflow: auto; max-height: 300px; line-height: 1.7;
+        }
+        .highlight-area .match-group-0 { background: rgba(245,158,11,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-1 { background: rgba(34,197,94,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-2 { background: rgba(59,130,246,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-3 { background: rgba(168,85,247,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-4 { background: rgba(236,72,153,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-5 { background: rgba(20,184,166,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-6 { background: rgba(249,115,22,.35); border-radius: 2px; padding: 0 2px; }
+        .highlight-area .match-group-7 { background: rgba(99,102,241,.35); border-radius: 2px; padding: 0 2px; }
+
+        .results { margin-top: 12px; }
+        .result-item {
+            background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 10px 12px; margin-bottom: 8px;
+        }
+        .result-item .match-full {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-weight: 600; color: var(--warning); word-break: break-all;
+        }
+        .result-item .match-groups { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .result-item .match-group {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-family: monospace; font-size: .8rem; padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .group-tag { font-size: .7rem; opacity: .8; }
+
+        .replace-area { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+        .replace-area label { font-size: .85rem; font-weight: 600; display: block; margin-bottom: 4px; }
+        .replace-preview {
+            margin-top: 8px; background: var(--bg); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 12px; font-family: monospace;
+            font-size: .9rem; white-space: pre-wrap; word-break: break-all;
+            min-height: 60px; max-height: 200px; overflow: auto;
+        }
+
+        .templates { margin-bottom: 20px; }
+        .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+        .template-item {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 8px 12px; cursor: pointer; transition: all .2s; font-size: .85rem;
+        }
+        .template-item:hover { border-color: var(--primary); background: rgba(6,182,212,.1); }
+        .template-item .t-name { font-weight: 600; }
+        .template-item .t-pattern { font-size: .75rem; color: var(--text-secondary); font-family: monospace; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        .explanation { margin-top: 8px; }
+        .explanation .explain-text { font-size: .85rem; color: var(--text-secondary); line-height: 1.8; }
+        .explanation .token {
+            display: inline-block; background: rgba(6,182,212,.15); border: 1px solid rgba(6,182,212,.3);
+            border-radius: 3px; padding: 1px 5px; margin: 2px; font-family: monospace; font-size: .8rem;
+        }
+        .explanation .token-desc { color: var(--text-secondary); font-size: .8rem; margin-left: 4px; }
+
+        .btn {
+            padding: 8px 16px; border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--card-bg); color: var(--text); cursor: pointer; font-size: .85rem;
+            transition: all .2s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn:hover { border-color: var(--primary); }
+        .btn-primary { background: var(--primary); color: #000; border-color: var(--primary); font-weight: 600; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-sm { padding: 4px 10px; font-size: .75rem; }
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+
+        footer {
+            text-align: center; padding: 24px 16px; color: var(--text-secondary);
+            border-top: 1px solid var(--border); font-size: .8rem; margin-top: 40px;
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        .toast {
+            position: fixed; bottom: 20px; right: 20px; background: var(--card-bg);
+            border: 1px solid var(--primary); color: var(--text); padding: 10px 20px;
+            border-radius: var(--radius); font-size: .85rem; z-index: 9999;
+            opacity: 0; transform: translateY(10px); transition: all .3s;
+            pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; font-size: .85rem; }
+        .stats span { color: var(--text-secondary); }
+        .stats strong { color: var(--primary); }
+    
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+    <a href="../../" class="logo">⚡ ToolGuideHub</a>
+    <nav>
+        <a href="../../">Home</a>
+        <a href="../../en/regex-tester/">Regex Tester</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>🔍 Online Regex Tester &amp; Debugger</h1>
+    <p class="subtitle">Real-time matching · Group color coding · 30+ templates · Client-side only · No data upload</p>
+
+    <!-- Templates -->
+    <div class="templates">
+        <div class="card">
+            <h2>📋 Preset Patterns <span style="font-weight:400;font-size:.8rem;color:var(--text-secondary)">Click to load</span></h2>
+            <div class="template-grid" id="templateGrid"></div>
+        </div>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+        <!-- Left: Regex Input -->
+        <div class="card">
+            <div class="regex-header">
+                <label>Regular Expression</label>
+                <div class="flags">
+                    <button class="flag-btn active" data-flag="g" title="Global match">g</button>
+                    <button class="flag-btn" data-flag="m" title="Multiline mode">m</button>
+                    <button class="flag-btn" data-flag="i" title="Case insensitive">i</button>
+                    <button class="flag-btn" data-flag="s" title="Dot matches newline">s</button>
+                    <button class="flag-btn" data-flag="u" title="Unicode">u</button>
+                </div>
+            </div>
+            <div class="regex-input-wrap">
+                <input type="text" id="regexInput" placeholder="Enter a regex pattern, e.g. \b[\w.-]+@[\w.-]+\.\w+\b" autofocus>
+                <button class="clear-btn" id="clearRegex" title="Clear">&times;</button>
+            </div>
+            <div class="regex-error" id="regexError"></div>
+
+            <!-- Explanation -->
+            <div class="explanation" id="explanation" style="display:none;"></div>
+
+            <!-- Replace -->
+            <div class="replace-area">
+                <label>🔄 Replace Test (optional)</label>
+                <input type="text" id="replaceInput" placeholder="$1 or enter replacement text directly">
+                <div class="replace-preview" id="replacePreview"><span style="color:var(--text-secondary)">Replacement result will appear here</span></div>
+            </div>
+
+            <div class="stats" id="stats">
+                <span>Matches: <strong>0</strong></span>
+            </div>
+        </div>
+
+        <!-- Right: Test Text -->
+        <div class="card">
+            <h2>📝 Test Text</h2>
+            <textarea id="testText" placeholder="Enter text to test against...">contact@example.com
+support@adi63586.github.io/Toolguidehub
+invalid-email
+user@domain.co.uk
+hello@world
+
+Phone: +1 (555) 123-4567, +44 20 7946 0958
+Website: https://www.example.com/path?q=test</textarea>
+            <div class="btn-group">
+                <button class="btn btn-primary" id="clearText">Clear Text</button>
+                <button class="btn" id="copyResults">📋 Copy Results</button>
+            </div>
+            <div class="highlight-area" id="highlightArea">
+                <span style="color:var(--text-secondary)">Match highlights will appear here...</span>
+            </div>
+            <div class="results" id="results"></div>
+        </div>
+    </div>
+
+<h2>What is Online Regex Tester & Debugger?</h2><p>Online Regex Tester & Debugger is a free online tool that runs entirely in your browser. No download or signup needed — enter Regular Expression and Replace Test to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Generate CSS code snippets quickly during frontend development</li><li>Experiment with different color schemes and effects while designing</li><li>Preview CSS changes in real-time while learning</li><li>Check designs on mobile without opening a code editor</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+
+<footer>
+    <p>© 2026 <a href="../../">ToolGuideHub</a> · Pure client-side processing, zero data upload · <a href="../../en/regex-tester/">Online Regex Tester</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+    // === Templates ===
+    const templates = [
+        { name: '📧 Email Address', pattern: '[\\w.-]+@[\\w.-]+\\.\\w{2,}' },
+        { name: '🌐 URL', pattern: 'https?://[^\\s<>"{}|\\\\^`\\[\\]]+' },
+        { name: '📱 Phone (US)', pattern: '\\+?1?\\s*\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}' },
+        { name: '📍 IP Address (v4)', pattern: '\\b(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\b' },
+        { name: '📅 Date YYYY-MM-DD', pattern: '\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])' },
+        { name: '💰 Dollar Amount', pattern: '\\$\\s*\\d+(?:\\.\\d{2})?' },
+        { name: '🏷️ HTML Tags', pattern: '<([a-zA-Z][a-zA-Z0-9]*)\\b[^>]*>(.*?)</\\1>' },
+        { name: '🔢 Positive Integer', pattern: '^[1-9]\\d*$' },
+        { name: '🔢 Integer (signed)', pattern: '^-?\\d+$' },
+        { name: '📐 Decimal Number', pattern: '^-?\\d+\\.\\d+$' },
+        { name: '🔤 Letters Only', pattern: '^[a-zA-Z]+$' },
+        { name: '🔤 Alphanumeric', pattern: '^[a-zA-Z0-9]+$' },
+        { name: '🐦 Twitter Handle', pattern: '@([a-zA-Z0-9_]+)' },
+        { name: '#️⃣ Hashtag', pattern: '#([a-zA-Z0-9_]+)' },
+        { name: '📏 Password 6-20 chars', pattern: '^[a-zA-Z0-9!@#$%^&*]{6,20}$' },
+        { name: '🔌 MAC Address', pattern: '([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}' },
+        { name: '📁 Filename w/ Ext', pattern: '([^\\\\/:*?"<>|]+)\\.(\\w{2,4})$' },
+        { name: '🕐 Time HH:MM', pattern: '([01]\\d|2[0-3]):[0-5]\\d' },
+        { name: '🌍 Domain Name', pattern: '([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}' },
+        { name: '📋 UUID', pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}' },
+        { name: '🔗 Markdown Link', pattern: '\\[([^\\]]+)\\]\\(([^)]+)\\)' },
+        { name: '💻 JS Variable Name', pattern: '^[$_a-zA-Z][$_a-zA-Z0-9]*$' },
+        { name: '📝 Blank Line', pattern: '^\\s*$' },
+        { name: '🔑 Base64 String', pattern: '^[A-Za-z0-9+/]+={0,2}$' },
+        { name: '🖼️ Hex Color', pattern: '#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b' },
+        { name: '🌐 IPv6', pattern: '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))' },
+        { name: '🎯 CSS Hex Color', pattern: '#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b' },
+        { name: '🔢 Number w/ Commas', pattern: '\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?' },
+        { name: '📧 Strict Email', pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$' },
+    ];
+
+    const templateGrid = document.getElementById('templateGrid');
+    templates.forEach(t => {
+        const div = document.createElement('div');
+        div.className = 'template-item';
+        div.innerHTML = '<div class="t-name">' + t.name + '</div><div class="t-pattern">' + escapeHtml(t.pattern).substring(0, 40) + '</div>';
+        div.title = t.pattern;
+        div.addEventListener('click', () => {
+            document.getElementById('regexInput').value = t.pattern;
+            document.getElementById('regexInput').dispatchEvent(new Event('input'));
+        });
+        templateGrid.appendChild(div);
+    });
+
+    // === DOM refs ===
+    const regexInput = document.getElementById('regexInput');
+    const testText = document.getElementById('testText');
+    const regexError = document.getElementById('regexError');
+    const highlightArea = document.getElementById('highlightArea');
+    const resultsDiv = document.getElementById('results');
+    const replaceInput = document.getElementById('replaceInput');
+    const replacePreview = document.getElementById('replacePreview');
+    const explanation = document.getElementById('explanation');
+    const stats = document.getElementById('stats');
+    const toast = document.getElementById('toast');
+
+    // === Flag buttons ===
+    const flagButtons = document.querySelectorAll('.flag-btn');
+    flagButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            updateAll();
+        });
+    });
+
+    function getFlags() {
+        const flags = [];
+        flagButtons.forEach(b => { if (b.classList.contains('active')) flags.push(b.dataset.flag); });
+        return flags.join('');
+    }
+
+    // === Core: Execute matching ===
+    function updateAll() {
+        const pattern = regexInput.value;
+        const text = testText.value;
+        const flags = getFlags();
+        const replaceStr = replaceInput.value;
+
+        if (!pattern) {
+            regexError.textContent = '';
+            regexError.className = 'regex-error';
+            highlightArea.innerHTML = '<span style="color:var(--text-secondary)">Match highlights will appear here...</span>';
+            resultsDiv.innerHTML = '';
+            replacePreview.innerHTML = '<span style="color:var(--text-secondary)">Replacement result will appear here</span>';
+            explanation.style.display = 'none';
+            stats.innerHTML = '<span>Matches: <strong>0</strong></span>';
+            return;
+        }
+
+        let regex;
+        try {
+            regex = new RegExp(pattern, flags);
+            regexError.textContent = '✅ Valid regex pattern';
+            regexError.className = 'regex-error ok';
+        } catch(e) {
+            regexError.textContent = '❌ ' + e.message;
+            regexError.className = 'regex-error';
+            highlightArea.innerHTML = '<span style="color:var(--text-secondary)">Match highlights will appear here...</span>';
+            resultsDiv.innerHTML = '';
+            replacePreview.innerHTML = '<span style="color:var(--text-secondary)">Replacement result will appear here</span>';
+            explanation.style.display = 'none';
+            stats.innerHTML = '<span>Matches: <strong>0</strong></span>';
+            return;
+        }
+
+        // Matching
+        const matches = [];
+        let match;
+        if (flags.includes('g')) {
+            while ((match = regex.exec(text)) !== null) {
+                matches.push({ index: match.index, full: match[0], groups: match.slice(1) });
+                if (match[0].length === 0) regex.lastIndex++;
+            }
+        } else {
+            match = regex.exec(text);
+            if (match) matches.push({ index: match.index, full: match[0], groups: match.slice(1) });
+        }
+
+        // Highlighting
+        if (matches.length === 0) {
+            highlightArea.innerHTML = escapeHtml(text) || '<span style="color:var(--text-secondary)">No matches found</span>';
+        } else {
+            let html = '';
+            let lastIdx = 0;
+            for (const m of matches) {
+                html += escapeHtml(text.slice(lastIdx, m.index));
+                html += '<span class="match-group-0">' + escapeHtml(m.full) + '</span>';
+                lastIdx = m.index + m.full.length;
+            }
+            html += escapeHtml(text.slice(lastIdx));
+            highlightArea.innerHTML = html || '<span style="color:var(--text-secondary)">(empty text)</span>';
+        }
+
+        // Results list
+        if (matches.length === 0) {
+            resultsDiv.innerHTML = '<div style="color:var(--text-secondary);padding:12px">No matches found</div>';
+        } else {
+            let resultsHtml = '';
+            const groupColors = ['#f59e0b','#22c55e','#3b82f6','#a855f7','#ec4899','#14b8a6','#f97316','#6366f1'];
+            matches.forEach((m, mi) => {
+                resultsHtml += '<div class="result-item">';
+                resultsHtml += '<div class="match-full">#' + (mi + 1) + ': ' + escapeHtml(m.full) + '</div>';
+                if (m.groups.length > 0) {
+                    resultsHtml += '<div class="match-groups">';
+                    m.groups.forEach((g, gi) => {
+                        const color = groupColors[gi % groupColors.length];
+                        resultsHtml += '<span class="match-group" style="background:' + color + '22;border:1px solid ' + color + '44">';
+                        resultsHtml += '<span class="group-tag" style="color:' + color + '">$' + (gi + 1) + '</span>';
+                        resultsHtml += escapeHtml(g || '(empty)');
+                        resultsHtml += '</span>';
+                    });
+                    resultsHtml += '</div>';
+                }
+                resultsHtml += '</div>';
+            });
+            resultsDiv.innerHTML = resultsHtml;
+        }
+
+        // Replace preview
+        if (replaceStr) {
+            try {
+                const replaced = text.replace(regex, replaceStr);
+                replacePreview.innerHTML = escapeHtml(replaced) || '<span style="color:var(--text-secondary)">(replaced to empty)</span>';
+            } catch(e) {
+                replacePreview.innerHTML = '<span style="color:var(--danger)">Replace error: ' + escapeHtml(e.message) + '</span>';
+            }
+        } else {
+            replacePreview.innerHTML = '<span style="color:var(--text-secondary)">Replacement result will appear here</span>';
+        }
+
+        // Explain
+        try { explainRegex(pattern); } catch(e) { explanation.style.display = 'none'; }
+
+        // Stats
+        stats.innerHTML = '<span>Matches: <strong>' + matches.length + '</strong></span>';
+    }
+
+    // === Regex explanation ===
+    function explainRegex(pattern) {
+        const tokens = [];
+        let i = 0;
+        while (i < pattern.length) {
+            if (pattern[i] === '\\' && i + 1 < pattern.length) {
+                const esc = pattern[i+1];
+                const map = {
+                    'd': 'digit [0-9]', 'D': 'non-digit', 'w': 'word char [a-zA-Z0-9_]', 'W': 'non-word char',
+                    's': 'whitespace', 'S': 'non-whitespace', 'b': 'word boundary', 'B': 'non-word boundary',
+                    'n': 'newline', 't': 'tab', 'r': 'carriage return', 'f': 'form feed', 'v': 'vertical tab',
+                    '0': 'null char', '.': 'literal dot', '*': 'literal asterisk', '+': 'literal plus',
+                    '?': 'literal question', '^': 'literal caret', '$': 'literal dollar',
+                    '|': 'literal pipe', '(': 'literal left paren', ')': 'literal right paren',
+                    '[': 'literal left bracket', ']': 'literal right bracket', '{': 'literal left brace', '}': 'literal right brace',
+                };
+                tokens.push({ raw: '\\' + esc, desc: map[esc] || 'escaped char' });
+                i += 2;
+            } else if (pattern[i] === '^') { tokens.push({ raw: '^', desc: 'start of line anchor' }); i++; }
+            else if (pattern[i] === '$') { tokens.push({ raw: '$', desc: 'end of line anchor' }); i++; }
+            else if (pattern[i] === '.') { tokens.push({ raw: '.', desc: 'any char except newline' }); i++; }
+            else if (pattern[i] === '*') { tokens.push({ raw: '*', desc: '0 or more times' }); i++; }
+            else if (pattern[i] === '+') { tokens.push({ raw: '+', desc: '1 or more times' }); i++; }
+            else if (pattern[i] === '?') { tokens.push({ raw: '?', desc: '0 or 1 time / lazy quantifier' }); i++; }
+            else if (pattern[i] === '|') { tokens.push({ raw: '|', desc: 'alternation (OR)' }); i++; }
+            else if (pattern[i] === '(' && pattern[i+1] === '?') {
+                let j = i+2, type = '';
+                while (j < pattern.length && pattern[j] !== ')') { type += pattern[j]; j++; }
+                tokens.push({ raw: pattern.slice(i, j+1), desc: 'special group (' + type + ')' });
+                i = j + 1;
+            } else if (pattern[i] === '(') { tokens.push({ raw: '(', desc: 'capturing group start' }); i++; }
+            else if (pattern[i] === ')') { tokens.push({ raw: ')', desc: 'capturing group end' }); i++; }
+            else if (pattern[i] === '[') {
+                let j = i;
+                while (j < pattern.length && pattern[j] !== ']') j++;
+                tokens.push({ raw: pattern.slice(i, j+1), desc: 'character class' });
+                i = j + 1;
+            } else if (pattern[i] === '{') {
+                let j = i;
+                while (j < pattern.length && pattern[j] !== '}') j++;
+                tokens.push({ raw: pattern.slice(i, j+1), desc: 'quantifier / repetition' });
+                i = j + 1;
+            } else {
+                tokens.push({ raw: pattern[i], desc: 'literal character' });
+                i++;
+            }
+        }
+        if (tokens.length > 0) {
+            let html = '<strong>🔍 Regex Breakdown:</strong><br>';
+            for (const t of tokens) {
+                html += '<span class="token">' + escapeHtml(t.raw) + '</span>';
+                html += '<span class="token-desc">→ ' + t.desc + '</span><br>';
+            }
+            explanation.innerHTML = html;
+            explanation.style.display = 'block';
+        }
+    }
+
+    // === Helper ===
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // === Toast ===
+    function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    // === Event Listeners ===
+    regexInput.addEventListener('input', updateAll);
+    testText.addEventListener('input', updateAll);
+    replaceInput.addEventListener('input', updateAll);
+    document.getElementById('clearRegex').addEventListener('click', () => {
+        regexInput.value = '';
+        regexInput.dispatchEvent(new Event('input'));
+        regexInput.focus();
+    });
+    document.getElementById('clearText').addEventListener('click', () => {
+        testText.value = '';
+        testText.dispatchEvent(new Event('input'));
+        testText.focus();
+    });
+    document.getElementById('copyResults').addEventListener('click', () => {
+        const resultsText = resultsDiv.textContent.trim();
+        if (!resultsText || resultsText === 'No matches found') {
+            showToast('No match results to copy');
+            return;
+        }
+        navigator.clipboard.writeText(resultsText).then(() => showToast('✅ Results copied to clipboard'));
+    });
+
+    // Initial trigger
+    updateAll();
+})();
+</script>
+</body>
+</html>

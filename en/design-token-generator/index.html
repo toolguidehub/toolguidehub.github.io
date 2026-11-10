@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Free Design Token Generator - ToolGuideHub</title>
+ <meta name="description" content="Build design tokens and CSS variable sets visually, then export them in multiple formats for your design system.">
+ <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/design-token-generator/">
+ <meta property="og:title" content="Free Design Token Generator - ToolGuideHub">
+ <meta property="og:description" content="Build design tokens and CSS variable sets visually, then export them in multiple formats for your design system.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/design-token-generator/">
+ <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--bg:#0f172a;--text:#e2e8f0;--text-secondary:#94a3b8;--primary:#06b6d4;--border:rgba(148,163,184,.1);}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+        .container{max-width:960px;margin:0 auto;padding:20px}
+        header{text-align:center;padding:30px 0 20px}
+        header h1{font-size:2rem;margin-bottom:8px}
+        header p{color:#94a3b8;font-size:1.05rem}
+        .section{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(148,163,184,.1);padding:24px;margin-bottom:20px}
+        .section h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid rgba(148,163,184,.1)}
+        .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+        .btn-primary{background:#22d3ee;color:#fff}
+        .btn-primary:hover{background:var(--primary-hover)}
+        .btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1)}
+        .btn-success{background:#10b981;color:#fff}
+        .row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+        .row>*{flex:1;min-width:120px}
+        input[type="text"],input[type="number"],input[type="color"],select{padding:8px 12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:13px}
+        input:focus,select:focus{outline:none;border-color:#22d3ee}
+        label{font-size:13px;font-weight:600;display:block;margin-bottom:4px}
+        .token-section{margin-bottom:20px}
+        .token-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+        .token-row input[type="text"]{width:120px}
+        .token-row input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer}
+        .token-row input[type="number"]{width:80px}
+        .color-swatch{width:36px;height:36px;border-radius:8px;border:2px solid rgba(148,163,184,.1);display:inline-block}
+        .output-box{background:#0f172a;color:#e2e8f0;border-radius:8px;padding:16px;font-family:'SF Mono',monospace;font-size:12px;white-space:pre-wrap;max-height:400px;overflow-y:auto;line-height:1.6}
+                .faq-item h3{font-size:1.05rem;margin-bottom:6px}
+        .faq-item p{color:#94a3b8;font-size:0.95rem;line-height:1.6}
+        footer{text-align:center;padding:30px 0;color:#94a3b8;font-size:0.85rem}
+        footer a{color:#22d3ee;text-decoration:none}
+        @media(max-width:768px){.container{padding:12px}header h1{font-size:1.5rem}}
+        
+    .faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+ <style>
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/design-token-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Design Token Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Design Token Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Design Token Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: your design tokens are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Design Token Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+<script>/*gtag_stub: analytics removed*/window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){};</script>
+</head>
+<body>
+<main class="container">
+<header>
+<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/design-token-generator/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="index.html" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;text-decoration:none;background:rgba(6,182,212,.2)">EN</a></div></div>
+<h1>🎨 Design Token Generator
+ <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+ <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+ <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+ <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+ </div>
+</h1>
+
+<p>Visually build Design Tokens and CSS variable systems - Multi-format export</p>
+<div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/design-token-generator/"
+    }
+  ],
+  "name": "Tools"
+}</script>
+<div class="section">
+<h2>🎨 Color Tokens</h2>
+<div id="color-tokens"></div>
+<button class="btn btn-secondary" onclick="addColorToken()" style="margin-top:8px">+ Add Color</button>
+</div>
+<div class="section">
+<h2>📐 Spacing Tokens</h2>
+<div id="spacing-tokens"></div>
+</div>
+<div class="section">
+<h2>🔤 Font Tokens</h2>
+<div id="font-tokens"></div>
+</div>
+<div class="section">
+<h2>📦 Export</h2>
+<div class="row">
+<select id="export-format" style="max-width:200px">
+<option value="css">CSS Variables</option>
+<option value="scss">SCSS Variables</option>
+<option value="json">JSON</option>
+<option value="tailwind">Tailwind config</option>
+</select>
+<button class="btn btn-primary" onclick="generateOutput()">🔄 Generate</button>
+<button class="btn btn-success" onclick="copyOutput()">📋 Copy</button>
+</div>
+<div class="output-box" id="output-box">Click "Generate" to see output...</div>
+</div>
+<div class="section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>Q1: What are Design Tokens?</h3>
+<p>Design Tokens are system-level design values stored as key-value pairs (Color, Font, Spacing, etc.). They link design and development, ensuring consistent UI properties. Tokens can be exported as CSS variables, SCSS variables, JSON configs and more, supporting cross-platform use (Web/iOS/Android).</p></div>
+<div class="faq-item"><h3>Q2: What is the difference between Design Tokens and CSS Variables?</h3>
+<p>CSS variables are Web-platform specific and can only be used in CSS. Design Tokens are a higher-level concept that is independent of platform. A token can be exported as CSS variables, SCSS variables, Android XML, iOS Swift and other formats. Tokens also support naming conventions (such as --color-primary instead of --blue-500) and theme switching.</p></div>
+<div class="faq-item"><h3>Q3: How to organize Design Token naming?</h3>
+<p>Use a hierarchical structure: category.attribute.variant, such as color.primary.500, spacing.md.4, font.size.lg. Use semantic names for concrete values: use --color-danger instead of --red-500, so themes only need to change the value without changing the structure. Layer tokens from Base tokens (raw values) to Semantic tokens (aliases) to Component tokens (specific usage).</p></div>
+</div>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Design Token Generator - Free Online CSS Variable System Builder", "step": [{"@type": "HowToStep", "position": 1, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 2, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 3, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Design Token Generator - Free Online CSS Variable System Builder", "description": "Free online Design Token generator. Visually build CSS variable systems with colors, fonts, spacing. Export to CSS/SCSS/JSON/Tailwind formats.", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/design-token-generator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<script>
+var colorTokens=[
+{name:'primary',value:'#3b82f6'},{name:'secondary',value:'#8b5cf6'},{name:'success',value:'#10b981'},
+{name:'warning',value:'#f59e0b'},{name:'danger',value:'#ef4444'},{name:'bg',value:'#f8fafc'},
+{name:'text',value:'#1e293b'},{name:'border',value:'#e2e8f0'}
+];
+var spacingTokens=[
+{name:'xs',value:'4'},{name:'sm',value:'8'},{name:'md',value:'16'},
+{name:'lg',value:'24'},{name:'xl',value:'32'},{name:'2xl',value:'48'}
+];
+var fontTokens=[
+{name:'family',value:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"},
+{name:'size-sm',value:'14'},{name:'size-base',value:'16'},{name:'size-lg',value:'18'},
+{name:'size-xl',value:'24'},{name:'weight-normal',value:'400'},{name:'weight-bold',value:'700'}
+];
+function renderColors(){
+var el=document.getElementById('color-tokens');el.innerHTML='';
+colorTokens.forEach(function(t,i){
+var row=document.createElement('div');row.className='token-row';
+row.innerHTML='<input type="text" value="'+t.name+'" onchange="colorTokens['+i+'].name=this.value"><input type="color" value="'+t.value+'" onchange="colorTokens['+i+'].value=this.value;this.nextElementSibling.textContent=this.value"><span style="font-family:monospace;font-size:12px;width:80px">'+t.value+'</span><div class="color-swatch" style="background:'+t.value+'"></div><button class="btn btn-secondary" onclick="colorTokens.splice('+i+',1);renderColors()" style="padding:4px 10px;font-size:12px">✕</button>';
+el.appendChild(row);});
+}
+function addColorToken(){colorTokens.push({name:'new-color',value:'#6366f1'});renderColors();}
+function renderSpacing(){
+var el=document.getElementById('spacing-tokens');el.innerHTML='';
+spacingTokens.forEach(function(t,i){
+var row=document.createElement('div');row.className='token-row';
+row.innerHTML='<input type="text" value="'+t.name+'" onchange="spacingTokens['+i+'].name=this.value" style="width:100px"><input type="number" value="'+t.value+'" onchange="spacingTokens['+i+'].value=this.value" style="width:80px"><span style="font-size:12px;color:var(--text-secondary)">px</span>';
+el.appendChild(row);});
+}
+function renderFonts(){
+var el=document.getElementById('font-tokens');el.innerHTML='';
+fontTokens.forEach(function(t,i){
+var row=document.createElement('div');row.className='token-row';
+row.innerHTML='<input type="text" value="'+t.name+'" onchange="fontTokens['+i+'].name=this.value" style="width:120px"><input type="text" value="'+t.value+'" onchange="fontTokens['+i+'].value=this.value" style="flex:2">';
+el.appendChild(row);});
+}
+function generateOutput(){
+var fmt=document.getElementById('export-format').value;
+var out='';
+if(fmt==='css'){
+out+=':root {\n';
+colorTokens.forEach(function(t){out+='  --color-'+t.name+': '+t.value+';\n';});
+spacingTokens.forEach(function(t){out+='  --spacing-'+t.name+': '+t.value+'px;\n';});
+fontTokens.forEach(function(t){out+='  --font-'+t.name+': '+t.value+';\n';});
+out+='}';
+}else if(fmt==='scss'){
+colorTokens.forEach(function(t){out+='$color-'+t.name+': '+t.value+';\n';});
+spacingTokens.forEach(function(t){out+='$spacing-'+t.name+': '+t.value+'px;\n';});
+fontTokens.forEach(function(t){out+='$font-'+t.name+': '+t.value+';\n';});
+}else if(fmt==='json'){
+var obj={color:{},spacing:{},font:{}};
+colorTokens.forEach(function(t){obj.color[t.name]=t.value;});
+spacingTokens.forEach(function(t){obj.spacing[t.name]=t.value+'px';});
+fontTokens.forEach(function(t){obj.font[t.name]=t.value;});
+out=JSON.stringify(obj,null,2);
+}else if(fmt==='tailwind'){
+out='// tailwind.config.js\nmodule.exports = {\n  theme: {\n    extend: {\n';
+out+='      colors: {\n';
+colorTokens.forEach(function(t){out+="        '"+t.name+"': '"+t.value+"',\n";});
+out+='      },\n      spacing: {\n';
+spacingTokens.forEach(function(t){out+="        '"+t.name+"': '"+t.value+"px',\n";});
+out+='      },\n      fontFamily: {\n';
+fontTokens.forEach(function(t){if(t.name==='family')out+="        'sans': '"+t.value+"',\n";});
+out+='      }\n    }\n  }\n}';
+}
+document.getElementById('output-box').textContent=out;
+gtag('event','generate_tokens',{event_category:'design_token',event_label:fmt});
+}
+function copyOutput(){
+var text=document.getElementById('output-box').textContent;
+if(text&&text!=='Click "Generate" to see output...'){
+navigator.clipboard.writeText(text).then(function(){;});
+}
+}
+renderColors();renderSpacing();renderFonts();
+</script>
+</main>
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Does Design Token Generator upload my data to a server?</h3>
+ <p>No. Design Token Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is Design Token Generator free to use?</h3>
+ <p>Yes, Design Token Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using Design Token Generator?</h3>
+ <p>Absolutely. Everything runs locally: your design tokens are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can I use Design Token Generator on my phone?</h3>
+ <p>Yes. Design Token Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ </div>
+
+<footer><p>&copy; 2026 WebTools - Free Online Tools | <a href="../../en/privacy/">Privacy Policy</a> | <a href="../../en/terms/">Terms of Service</a></p> | <a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+<script>(function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+</body>
+</html>

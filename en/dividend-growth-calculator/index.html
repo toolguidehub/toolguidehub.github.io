@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project future dividend payments, the growth rate and doubling time from your current dividend assumptions.">
+<meta name="keywords" content="dividend growth calculator,dividend growth rate,dividend investing,future dividends,dividend doubling,dividend yield">
+<title>Dividend Growth Calculator - Investment Tool | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/dividend-growth-calculator/">
+<meta property="og:title" content="Dividend Growth Calculator - Free Online Investment Tool">
+<meta property="og:description" content="Project future dividend payments, the growth rate and doubling time from your current dividend assumptions.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/dividend-growth-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Dividend Growth Calculator","description":"Free online Dividend Growth Calculator. Calculate future dividend amount, doubling years, total income and growth projection table.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Dividend Growth Calculator","item":"https://adi63586.github.io/Toolguidehub/en/dividend-growth-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Dividend Growth Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Dividend Growth Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Dividend Growth Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Holding Period and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Dividend Growth Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Dividend Growth Calculator","description":"Step-by-step guide for using Dividend Growth Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Dividend Growth Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.hero{background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:12px;padding:20px;margin-bottom:16px;text-align:center}
+.hero p{color:#94a3b8;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.75rem}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none}
+.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4)}
+.form-group .unit{display:block;color:#64748b;font-size:.75rem;margin-top:4px}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.result-item{background:#0a0f1e;border-radius:8px;padding:14px}
+.result-item .label{color:#94a3b8;font-size:.8rem}
+.result-item .value{font-size:1.2rem;font-weight:700;color:#22d3ee;margin-top:4px}
+.result-item .value.highlight{color:#fbbf24;font-size:1.5rem}
+.result-item.wide{grid-column:1/-1}
+.growth-table{margin-top:12px;overflow-x:auto}
+.growth-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+.growth-table th{background:rgba(6,182,212,.1);color:#22d3ee;padding:8px 12px;text-align:left}
+.growth-table td{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8}
+.growth-table tr:hover td{background:rgba(6,182,212,.05)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+.footer{text-align:center;color:#64748b;font-size:.85rem;margin-top:32px;padding-top:20px;border-top:1px solid rgba(148,163,184,.08)}
+@media(max-width:640px){.result-grid{grid-template-columns:1fr}.header h1{font-size:1.2rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/dividend-growth-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📈 Dividend Growth Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> › <a href="../index.html#tools">Tools</a> › Dividend Growth Calculator</p>
+<div class="hero"><p>Calculate dividend growth rate, future dividend amounts, doubling years, and total dividend income over your holding period.</p><span class="badge">Zero Dependency · Works Offline</span></div>
+
+<div class="section">
+<h2>📥 Input Parameters</h2>
+<div class="form-group"><label>Current Dividend Per Share ($)</label><input type="number" id="currentDividend" placeholder="e.g. 2.5" value="2.5" step="0.01"><span class="unit">Most recent dividend per share</span></div>
+<div class="form-row">
+<div class="form-group"><label>Annual Dividend Growth (%)</label><input type="number" id="growthRate" placeholder="e.g. 8" value="8" step="0.1"><span class="unit">Expected average annual growth rate</span></div>
+<div class="form-group"><label>Holding Period (Years)</label><input type="number" id="years" placeholder="10" value="10" min="1" max="50"><span class="unit">Number of years you plan to hold</span></div>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" id="btnCalc">🔍 Calculate</button>
+<button class="btn btn-secondary" id="btnClear">🗑️ Clear</button>
+</div>
+</div>
+
+<div class="section" id="resultSection" style="display:none">
+<h2>📊 Results</h2>
+<div class="result-grid">
+<div class="result-item"><div class="label">Future Dividend Per Share</div><div class="value highlight" id="futureDividend">-</div></div>
+<div class="result-item"><div class="label">Dividend Doubling Time</div><div class="value" id="doubleYears">-</div></div>
+<div class="result-item"><div class="label">Total Dividend Income (Cumulative)</div><div class="value" id="totalDividends">-</div></div>
+<div class="result-item"><div class="label">Total Growth</div><div class="value" id="totalGrowth">-</div></div>
+</div>
+<div class="growth-table" id="growthTable"></div>
+<div class="btn-group"><button class="btn btn-secondary" id="btnCopy">📋 Copy Results</button></div>
+</div>
+
+<div class="footer"><p>Data is calculated locally in your browser. Results are for reference only.</p></div>
+<div class="toast" id="toast"></div>
+</main>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+var fmt=function(n,d){if(isNaN(n)||!isFinite(n))return'-';return n.toFixed(d||2);};
+
+function calc(){
+var d0=parseFloat($('currentDividend').value)||0;
+var g=parseFloat($('growthRate').value)/100||0;
+var yrs=parseInt($('years').value)||10;
+if(d0<=0||yrs<=0){showToast('Please fill all parameters');return;}
+
+var future=d0*Math.pow(1+g,yrs);
+var doubleYrs=g>0?Math.log(2)/Math.log(1+g):Infinity;
+var total=0;
+var tableHtml='<table><thead><tr><th>Year</th><th>Dividend/Share</th><th>Cumulative</th></tr></thead><tbody>';
+for(var i=1;i<=yrs;i++){
+var di=d0*Math.pow(1+g,i);
+total+=di;
+tableHtml+='<tr><td>Year '+i+'</td><td>$'+fmt(di,4)+'</td><td>$'+fmt(total,2)+'</td></tr>';
+}
+tableHtml+='</tbody></table>';
+var totalGrowth=((future/d0-1)*100);
+
+$('futureDividend').textContent='$'+fmt(future,4)+' /share';
+$('doubleYears').textContent=isFinite(doubleYrs)?fmt(doubleYrs,1)+' years':'N/A (0% growth)';
+$('totalDividends').textContent='$'+fmt(total,2)+' /share';
+$('totalGrowth').textContent=fmt(totalGrowth,1)+'%';
+$('growthTable').innerHTML=tableHtml;
+$('resultSection').style.display='block';
+}
+
+function showToast(msg){
+var t=$('toast');t.textContent=msg;t.classList.add('show');
+setTimeout(function(){t.classList.remove('show');},2000);
+}
+
+$('btnCalc').addEventListener('click',calc);
+$('btnClear').addEventListener('click',function(){
+$('currentDividend').value='2.5';$('growthRate').value='8';$('years').value='10';
+$('resultSection').style.display='none';showToast('Reset');
+});
+$('btnCopy').addEventListener('click',function(){
+var lines=['Dividend Growth Results',
+'Future Dividend/Share: '+$('futureDividend').textContent,
+'Doubling Time: '+$('doubleYears').textContent,
+'Total Dividends: '+$('totalDividends').textContent,
+'Total Growth: '+$('totalGrowth').textContent];
+navigator.clipboard.writeText(lines.join('\n')).then(function(){showToast('Copied!');});
+});
+})();
+</script>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="../biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="../extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/dividend-growth-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

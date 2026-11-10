@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Pig Latin Translator | No Signup</title>
+    <meta name="description" content="Translate English to Pig Latin and back, choosing between several rule variants for vowels, consonant clusters, and y.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pig-latin/">
+    <meta property="og:title" content="Free Pig Latin Translator - ToolGuideHub">
+    <meta property="og:description" content="Translate English to Pig Latin and back, choosing between several rule variants for vowels, consonant clusters, and y.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pig-latin/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container{ max-width:960px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', monospace; transition: border .2s; resize: vertical; min-height: 120px; }
+        textarea:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .mode-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .mode-tab { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 14px; font-weight: 500; transition: all .2s; }
+        .mode-tab.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .mode-tab:hover:not(.active) { background: rgba(148,163,184,.1); }
+        .suffix-select { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .suffix-option { padding: 6px 14px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; transition: all .2s; }
+        .suffix-option.active { background: #8b5cf6; color: #fff; border-color: #8b5cf6; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is Pig Latin?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Pig Latin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pig Latin is an English language game where words are altered by moving the initial consonants to the end and adding 'ay'. For example, 'hello' becomes 'ellohay', 'apple' becomes 'appleay'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the rules of Pig Latin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basic rules: If a word starts with a consonant, move the consonant cluster to the end and add 'ay' (e.g., pig→igpay, string→ingstray). If it starts with a vowel, add 'ay'/'way'/'yay' at the end (e.g., apple→appleay)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Pig Latin used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pig Latin is mainly used for entertainment and language games. It's also commonly used in programming exercises and introductory cryptography lessons."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Fun Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/category/fun/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pig Latin Translator"
+    }
+  ],
+  "name": "Pig Latin Translator"
+}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pig Latin Translator", "description": "Free online Pig Latin translator. Convert English text to Pig Latin and back. Multiple rule variants supported. Pure frontend, no server needed.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pig-latin/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Pig Latin Translator","description":"Step-by-step guide for using Pig Latin Translator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Pig Latin Translator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+    <header>
+        <h1>🐷 Pig Latin Translator</h1>
+        <p>Convert English text to Pig Latin and back, with multiple rule variants</p>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<div class="section">
+        <h2>🔄 Translation Mode</h2>
+        <div class="mode-tabs">
+            <div class="mode-tab active" onclick="setMode('encode')">English → Pig Latin</div>
+            <div class="mode-tab" onclick="setMode('decode')">Pig Latin → English</div>
+        </div>
+        <div class="form-group">
+            <label id="input-label">Enter English Text</label>
+            <textarea id="input" placeholder="Enter text, e.g.: Hello World">Hello World</textarea>
+        </div>
+        <div style="margin-bottom:16px">
+            <label style="font-weight:600;font-size:0.95rem;display:block;margin-bottom:8px">Vowel-word suffix</label>
+            <div class="suffix-select">
+                <div class="suffix-option active" onclick="setSuffix('ay',this)">-ay</div>
+                <div class="suffix-option" onclick="setSuffix('way',this)">-way</div>
+                <div class="suffix-option" onclick="setSuffix('yay',this)">-yay</div>
+            </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="translate()">🔄 Translate</button>
+            <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+            <button class="btn btn-secondary" onclick="swapText()">⇄ Swap</button>
+        </div>
+        <div class="form-group" style="margin-top:16px">
+            <label id="output-label">Pig Latin Result</label>
+            <textarea id="output" readonly placeholder="Translation result will appear here"></textarea>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📖 Rules</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+            <thead><tr><th style="padding:8px;border:1px solid rgba(148,163,184,.1);background:#0f172a;text-align:left">Rule</th><th style="padding:8px;border:1px solid rgba(148,163,184,.1);background:#0f172a;text-align:left">Original</th><th style="padding:8px;border:1px solid rgba(148,163,184,.1);background:#0f172a;text-align:left">Pig Latin</th></tr></thead>
+            <tbody>
+                <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Consonant start</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">hello</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">ellohay</td></tr>
+                <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Vowel start</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">apple</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">appleay</td></tr>
+                <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Consonant cluster</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">string</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">ingstray</td></tr>
+                <tr><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Capitalized</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Hello</td><td style="padding:8px;border:1px solid rgba(148,163,184,.1)">Ellohay</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+
+    <div class="section">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item"><h3>What is Pig Latin?</h3><p>Pig Latin is an English language game where words are altered by moving the initial consonants to the end and adding 'ay'. For example, 'hello' becomes 'ellohay', 'apple' becomes 'appleay'.</p></div>
+        <div class="faq-item"><h3>What are the rules of Pig Latin?</h3><p>Basic rules: If a word starts with a consonant, move the consonant cluster to the end and add 'ay' (e.g., pig→igpay, string→ingstray). If it starts with a vowel, add 'ay'/'way'/'yay' at the end (e.g., apple→appleay).</p></div>
+        <div class="faq-item"><h3>What is Pig Latin used for?</h3><p>Pig Latin is mainly used for entertainment and language games. It's also commonly used in programming exercises and introductory cryptography lessons as a simple substitution cipher.</p></div>
+        <div class="faq-item"><h3>Is this tool safe?</h3><p>Completely safe! All translation is done locally in your browser. No data is sent to any server.</p></div>
+    </div>
+
+    
+
+    
+<div class="faq-section">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <h3>What is Pig Latin?</h3>
+      <p>Pig Latin is an English language game where words are altered by moving the initial consonants to the end and adding 'ay'. For example, 'hello' becomes 'ellohay', 'apple' becomes 'appleay'.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What are the rules of Pig Latin?</h3>
+      <p>Basic rules: If a word starts with a consonant, move the consonant cluster to the end and add 'ay' (e.g., pig→igpay, string→ingstray). If it starts with a vowel, add 'ay'/'way'/'yay' at the end (e.g., apple→appleay).</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is Pig Latin used for?</h3>
+      <p>Pig Latin is mainly used for entertainment and language games. It's also commonly used in programming exercises and introductory cryptography lessons.</p>
+    </div>
+  </div></main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/pig-latin/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+let currentMode = 'encode', currentSuffix = 'ay';
+const VOWELS = 'aeiouAEIOU';
+
+function setMode(mode) {
+    currentMode = mode;
+    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('input-label').textContent = mode === 'encode' ? 'Enter English Text' : 'Enter Pig Latin Text';
+    document.getElementById('output-label').textContent = mode === 'encode' ? 'Pig Latin Result' : 'English Result';
+}
+
+function setSuffix(s, el) {
+    currentSuffix = s;
+    document.querySelectorAll('.suffix-option').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+}
+
+function encodeWord(word) {
+    if (!word || !/[a-zA-Z]/.test(word)) return word;
+    const core = word.replace(/[^a-zA-Z]/g, '');
+    if (!core) return word;
+    const isCap = core[0] === core[0].toUpperCase();
+    if (VOWELS.includes(core[0])) {
+        const result = core + currentSuffix;
+        return isCap ? result.charAt(0).toUpperCase() + result.slice(1).toLowerCase() : result;
+    }
+    const match = core.match(/^[^aeiouAEIOU]+/);
+    const cluster = match ? match[0] : core[0];
+    const rest = core.slice(cluster.length);
+    const result = rest + cluster + 'ay';
+    return isCap ? result.charAt(0).toUpperCase() + result.slice(1).toLowerCase() : result;
+}
+
+function decodeWord(word) {
+    if (!word || !/[a-zA-Z]/.test(word)) return word;
+    const core = word.replace(/[^a-zA-Z]/g, '');
+    if (!core) return word;
+    const isCap = core[0] === core[0].toUpperCase();
+    let lower = core.toLowerCase();
+    if (lower.endsWith('ay')) {
+        let stem = lower.slice(0, -2);
+        if (currentSuffix === 'way' && stem.endsWith('w')) stem = stem.slice(0, -1);
+        else if (currentSuffix === 'yay' && stem.endsWith('y')) stem = stem.slice(0, -1);
+        const match = stem.match(/([^aeiou]+)$/);
+        if (match) {
+            const decoded = match[1] + stem.slice(0, -match[1].length);
+            return isCap ? decoded.charAt(0).toUpperCase() + decoded.slice(1) : decoded;
+        }
+        return isCap ? stem.charAt(0).toUpperCase() + stem.slice(1) : stem;
+    }
+    return word;
+}
+
+function translate() {
+    const input = document.getElementById('input').value;
+    if (!input.trim()) return;
+    const words = input.split(/(\s+)/);
+    const result = words.map(w => /^\s+$/.test(w) ? w : (currentMode === 'encode' ? encodeWord(w) : decodeWord(w))).join('');
+    document.getElementById('output').value = result;
+}
+
+function copyResult() {
+    const output = document.getElementById('output');
+    if (!output.value) return;
+    navigator.clipboard.writeText(output.value).then(() => {
+        const btn = event.target.closest('.btn'); const orig = btn.textContent;
+        btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 2000);
+    });
+}
+
+function swapText() {
+    const input = document.getElementById('input'), output = document.getElementById('output');
+    if (!output.value) return;
+    input.value = output.value;
+    currentMode = currentMode === 'encode' ? 'decode' : 'encode';
+    document.querySelectorAll('.mode-tab').forEach((t, i) => t.classList.toggle('active', (currentMode === 'encode' && i === 0) || (currentMode === 'decode' && i === 1)));
+    document.getElementById('input-label').textContent = currentMode === 'encode' ? 'Enter English Text' : 'Enter Pig Latin Text';
+    document.getElementById('output-label').textContent = currentMode === 'encode' ? 'Pig Latin Result' : 'English Result';
+    translate();
+}
+
+document.getElementById('input').addEventListener('input', translate);
+translate();
+</script>
+</body>
+</html>

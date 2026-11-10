@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Parse h1-h6 headings from HTML into a nested table of contents with anchor links, optional numbering, and HTML or Markdown output.">
+<meta name="keywords" content="html table of contents, toc generator, html headings table, document outline, heading tree, table of contents generator, html toc maker, page navigation">
+<title>Free HTML Table of Contents Generator Online - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/">
+<meta property="og:title" content="Free HTML Table of Contents Generator Online - ToolGuideHub">
+<meta property="og:description" content="Parse h1-h6 headings from HTML into a nested table of contents with anchor links, optional numbering, and HTML or Markdown output.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HTML Table of Contents Generator", "description": "Free online HTML table of contents generator. Parse h1-h6 headings into a structured TOC tree. Numbering, nesting control, anchor links. One-click copy.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is HTML Table of Contents Generator Online free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is HTML Table of Contents Generator Online free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, HTML Table of Contents Generator Online is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does HTML Table of Contents Generator Online upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. HTML Table of Contents Generator Online uses pure front-end technology. All processing happens in your browser — no data is uploaded to any server. The tool works even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use HTML Table of Contents Generator Online on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. HTML Table of Contents Generator Online is fully responsive and works on phones, tablets, and desktops. The interface automatically adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software to use HTML Table of Contents Generator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. HTML Table of Contents Generator Online is an online tool — just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using HTML Table of Contents Generator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since all data is processed locally in your browser and never sent to any server, there is no risk of data leakage. Your data stays under your control at all times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for HTML Table of Contents Generator Online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML Table of Contents Generator Online is a free online tool with no usage limits. Since processing is done locally, performance depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the HTML Table of Contents Generator",
+  "description": "Simple steps to use the HTML Table of Contents Generator online tool. Everything runs locally: Max heading level and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "HTML Table of Contents Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px}
+input[type=text],input[type=number],input[type=date],input[type=url],input[type=range]{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:rgba(6,182,212,.5)}
+input[type=color]{width:48px;height:40px;padding:2px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;cursor:pointer;margin-bottom:12px}
+input[type=file]{width:100%;padding:10px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;margin-bottom:12px;cursor:pointer}
+textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:inherit;resize:vertical;min-height:100px;margin-bottom:12px}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.options{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.options label{display:flex;align-items:center;gap:6px;font-size:.85rem;color:#94a3b8;cursor:pointer;margin-bottom:0}
+.options input[type=checkbox],.options input[type=radio]{accent-color:#06b6d4}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:140px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.result-box{background:#0f172a;border-radius:8px;padding:12px;margin:8px 0;border:1px solid rgba(148,163,184,.08);overflow-x:auto;white-space:pre-wrap;word-break:break-all;font-family:monospace;font-size:.85rem}
+.color-swatch{display:inline-block;width:32px;height:32px;border-radius:6px;vertical-align:middle;margin-right:4px;border:1px solid rgba(148,163,184,.2)}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.table-wrap{overflow-x:auto;margin:8px 0}
+table.data{width:100%;border-collapse:collapse;font-size:.85rem}
+table.data th,table.data td{padding:8px 10px;text-align:center;border:1px solid rgba(148,163,184,.15)}
+table.data th{background:#0f172a;color:#22d3ee;font-weight:600}
+table.data td{color:#cbd5e1}
+.grid{display:grid;gap:8px;margin:8px 0}
+.grid-cols-2{grid-template-columns:1fr 1fr}
+.grid-cols-3{grid-template-columns:1fr 1fr 1fr}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.preview-box{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);text-align:center;min-height:100px;display:flex;align-items:center;justify-content:center}
+.gradient-text{font-size:3rem;font-weight:800;display:inline-block;background:linear-gradient(90deg,#f97316,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.effects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:12px 0}
+.effect-card{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all .3s;position:relative}
+.effect-card:hover{border-color:rgba(6,182,212,.4)}
+.effect-card.selected{border-color:#06b6d4;box-shadow:0 0 12px rgba(6,182,212,.2)}
+.effect-card .demo-el{padding:12px 24px;background:rgba(6,182,212,.15);color:#22d3ee;border-radius:6px;display:inline-block;font-size:.9rem;transition:all .3s;cursor:default}
+.toc-list{list-style:none;padding-left:0}
+.toc-list li{padding:4px 0}
+.toc-list .toc-h2{padding-left:12px;font-weight:600}
+.toc-list .toc-h3{padding-left:24px}
+.toc-list .toc-h4{padding-left:36px}
+.toc-list .toc-h5{padding-left:48px}
+.toc-list .toc-h6{padding-left:60px}
+.toc-list a{color:#94a3b8;font-size:.9rem}
+.toc-list a:hover{color:#22d3ee}
+.countdown-display{font-size:3rem;font-weight:800;color:#22d3ee;text-align:center;padding:20px}
+.countdown-label{font-size:.9rem;color:#64748b;margin-top:4px}
+.zodiac-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.9rem;margin:4px}
+.palette-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin:12px 0}
+.palette-item{background:#0f172a;border-radius:8px;overflow:hidden;border:1px solid rgba(148,163,184,.1)}
+.palette-color{height:60px;width:100%}
+.palette-info{padding:6px 8px;font-size:.75rem;color:#94a3b8;text-align:center}
+@keyframes pulse{0%{opacity:1}50%{opacity:.5}100%{opacity:1}
+.countdown-active{animation:pulse 2s infinite}
+@media(max-width:600px){.row{flex-direction:column}.grid-cols-2,.grid-cols-3{grid-template-columns:1fr}.countdown-display{font-size:2rem}.gradient-text{font-size:2rem}
+.ad-slot.ad-sidebar{max-width:300px}
+}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HTML Table of Contents Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/"
+    }
+  ],
+  "name": "HTML Table of Contents Generator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/html-table-of-contents/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📑 HTML Table of Contents Generator</h1></div>
+<p class="nav-back"><a href="../../en/">← All Tools</a></p>
+
+<div class="hero" style="margin-bottom:16px">
+  <p>Free online HTML table of contents generator. Automatically parse h1-h6 headings into a structured nested TOC tree. Supports auto numbering, indentation, anchor links, and Markdown output with one-click HTML copy.</p>
+</div>
+
+<div class="input-section">
+  <h2>📝 Input HTML Content</h2>
+  <textarea id="htmlInput" rows="8" placeholder="Paste HTML containing heading tags (h1-h6)..."></textarea>
+  <div class="options">
+    <label><input type="checkbox" id="numOpt" checked> Auto numbering</label>
+    <label><input type="checkbox" id="anchorOpt" checked> Anchor links</label>
+    <label><input type="checkbox" id="nestedOpt" checked> Nested list</label>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label>Min heading level</label>
+      <select id="minLevel">
+        <option value="1" selected>h1</option>
+        <option value="2">h2</option>
+        <option value="3">h3</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Max heading level</label>
+      <select id="maxLevel">
+        <option value="2">h2</option>
+        <option value="3">h3</option>
+        <option value="4">h4</option>
+        <option value="5">h5</option>
+        <option value="6" selected>h6</option>
+      </select>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="genBtn">📑 Generate TOC</button>
+    <button class="btn btn-secondary" id="exampleBtn">📋 Load Example</button>
+    <button class="btn btn-danger" id="clearBtn">🗑️ Clear</button>
+  </div>
+</div>
+
+<div class="result-section" id="resultSection">
+  <h2>✅ Result</h2>
+  <div class="stat-row" id="statRow"></div>
+  <div class="output-tabs" style="display:flex;gap:8px;margin:12px 0">
+    <span class="output-tab active" data-tab="preview" style="cursor:pointer;padding:6px 14px;background:rgba(6,182,212,.15);color:#22d3ee;border-radius:6px;font-size:.85rem">Preview</span>
+    <span class="output-tab" data-tab="html" style="cursor:pointer;padding:6px 14px;background:rgba(148,163,184,.1);color:#94a3b8;border-radius:6px;font-size:.85rem">HTML Code</span>
+    <span class="output-tab" data-tab="markdown" style="cursor:pointer;padding:6px 14px;background:rgba(148,163,184,.1);color:#94a3b8;border-radius:6px;font-size:.85rem">Markdown</span>
+  </div>
+  <div id="previewPanel" class="toc-preview" style="padding:12px;background:#0f172a;border-radius:8px;border:1px solid rgba(148,163,184,.08)"></div>
+  <div id="htmlPanel" class="result-box" style="display:none"></div>
+  <div id="markdownPanel" class="result-box" style="display:none"></div>
+  <div class="btn-row">
+    <button class="btn btn-success" id="copyHtml">📋 Copy HTML</button>
+    <button class="btn btn-success" id="copyMd">📋 Copy Markdown</button>
+    <button class="btn btn-secondary" id="downloadBtn">💾 Download HTML</button>
+  </div>
+</div>
+
+<div class="info-section">
+  <h2>How to Use</h2>
+  <p>Paste HTML code with heading tags (h1-h6) into the input box, then click "Generate TOC" to automatically parse the headings into a structured nested table of contents.</p>
+  <p>Supports auto numbering (1.1.1 format), anchor link generation, and nested/flat list switching. Output formats include HTML code and Markdown.</p>
+  <p>Shortcuts: Ctrl+Enter to generate, Ctrl+Shift+C to copy the HTML result.</p>
+</div>
+
+</main>
+
+<div class="info-section seo-content" style="max-width:900px;margin:0 auto;padding:24px 16px">
+<h2>What does the HTML Table of Contents Generator do?</h2>
+<p>The HTML Table of Contents Generator is a free online tool that automatically parses h1-h6 heading tags in HTML code and generates a structured nested table of contents. Whether you are writing technical documentation, blog posts, or product manuals, just paste your HTML and generate a numbered, anchor-linked TOC in one click to greatly improve document navigation.</p>
+
+<h2>Core Features</h2>
+<p>• <strong>Automatic heading parsing</strong>: Detects all h1-h6 levels with customizable parsing range (e.g., only h2-h4)</p>
+<p>• <strong>Auto numbering</strong>: Generates 1.1.1-style hierarchical numbers that clearly indicate heading levels</p>
+<p>• <strong>Anchor links</strong>: Automatically assigns id attributes and TOC links for instant in-page jumps</p>
+<p>• <strong>Nested TOC tree</strong>: Builds nested ul/ol lists by heading level for a clear structure at a glance</p>
+<p>• <strong>Markdown output</strong>: Generates Markdown-format TOCs for README files and documentation sites</p>
+<p>• <strong>One-click copy/download</strong>: Copy HTML or Markdown to the clipboard, or download as an HTML file</p>
+
+<h2>How to Use</h2>
+<p>1. Paste HTML containing heading tags into the input box, or click "Load Example" to try it quickly</p>
+<p>2. Configure options: heading level range, auto numbering, anchor links, nested or flat list</p>
+<p>3. Click "Generate TOC" or press Ctrl+Enter to parse and generate automatically</p>
+<p>4. Switch between Preview/HTML Code/Markdown views and click copy or download to get the result</p>
+
+<h2>Use Cases</h2>
+<h3>Case 1: Technical Documentation</h3>
+<p>Developers writing API docs and technical specifications can quickly generate navigation TOCs to improve readability and user experience.</p>
+<h3>Case 2: Blog Post Optimization</h3>
+<p>Bloggers add TOC navigation to long articles so readers can jump to the sections they care about, reducing bounce rate and improving engagement.</p>
+<h3>Case 3: Markdown Document Conversion</h3>
+<p>Convert HTML heading structure to a Markdown TOC for use in GitHub README files, documentation sites, and more.</p>
+
+<h2>Extended Knowledge</h2>
+<p>A Table of Contents is the standard navigation component of long documents. A good TOC follows heading hierarchy conventions: h1 as the main page title (one per page), h2 as chapter titles, and h3-h6 for finer subdivisions. Auto numbering uses the "chapter.section.subsection" format (e.g., 2.3.1), and anchor links use the id attribute for in-page jumps. Nested ul/ol lists are the most common TOC HTML structure, which is semantic and SEO-friendly.</p>
+</div>
+
+<div class="info-section" style="max-width:900px;margin:0 auto;padding:24px 16px">
+<h2>❓ FAQ</h2>
+<div class="faq-item"><h3>Is this tool free?</h3><p>Completely free, no registration or download required. All features run locally in your browser and data is never uploaded to any server.</p></div>
+<div class="faq-item"><h3>Does my data go through a server?</h3><p>No. This is a pure frontend application. All operations happen locally in your browser and your data never leaves your device.</p></div>
+<div class="faq-item"><h3>Which heading levels are supported?</h3><p>All heading levels from h1 to h6 are supported, and you can freely choose the parsing range (e.g., only h2-h4). Heading hierarchy is detected automatically to build a nested TOC tree.</p></div>
+<div class="faq-item"><h3>Can I customize the generated TOC?</h3><p>Yes. Auto numbering (1.1.1 format), anchor link generation, indentation control, and nested/flat list switching are all supported. Output formats include HTML and Markdown.</p></div>
+<div class="faq-item"><h3>How do I insert the TOC into my web page?</h3><p>Click the "Copy HTML" button and paste the generated TOC HTML code into your page. Anchor links will jump to the corresponding headings automatically.</p></div>
+<div class="faq-item"><h3>Does it support Markdown output?</h3><p>Yes. Switch the output format to Markdown to generate an indented, linked Markdown TOC, ideal for README files and documentation sites.</p></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<footer class="footer container" style="max-width:900px">
+<div style="margin-bottom:12px">
+<a href="../../index.html">Home</a>
+<a href="../../en/">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy</a>
+<a href="../../en/terms/">Terms</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../../en/html-table-of-contents/">中文</a>
+</div>
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">HTML Table of Contents Generator | No registration · Data never leaves your browser</p>
+
+</footer>
+
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+var lastHtmlOutput='';
+var lastMdOutput='';
+
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function generateTOC(){
+  var html=document.getElementById('htmlInput').value;
+  var num=document.getElementById('numOpt').checked;
+  var anchor=document.getElementById('anchorOpt').checked;
+  var nested=document.getElementById('nestedOpt').checked;
+  var minLv=parseInt(document.getElementById('minLevel').value);
+  var maxLv=parseInt(document.getElementById('maxLevel').value);
+  if(minLv>maxLv){showToast('Minimum level cannot be greater than maximum');return;}
+  if(!html.trim()){showToast('Please enter HTML content first');return;}
+
+  var re=/<h([1-6])(?:\s+[^>]*id=["']([^"']*)["'])?[^>]*>([\s\S]*?)<\/h\1>/gi;
+  var headings=[];
+  var m;
+  while((m=re.exec(html))!==null){
+    var level=parseInt(m[1]);
+    if(level<minLv||level>maxLv) continue;
+    var existingId=m[2]||'';
+    var text=m[3].replace(/<[^>]*>/g,'').trim();
+    if(text) headings.push({level:level,text:text,existingId:existingId});
+  }
+
+  if(headings.length===0){
+    document.getElementById('resultSection').classList.add('show');
+    document.getElementById('statRow').innerHTML='<span class="stat-item" style="color:#f87171">No headings found. Make sure your HTML contains h'+minLv+'-h'+maxLv+' tags</span>';
+    document.getElementById('previewPanel').innerHTML='';
+    document.getElementById('htmlPanel').textContent='';
+    document.getElementById('markdownPanel').textContent='';
+    lastHtmlOutput='';lastMdOutput='';
+    return;
+  }
+
+  var idMap={};var idCount={};
+  headings.forEach(function(h){
+    if(h.existingId){h.id=h.existingId;return;}
+    var base=h.text.toLowerCase().replace(/[^\w\u4e00-\u9fff]+/g,'-').replace(/^-+|-+$/g,'');
+    if(!base) base='heading';
+    if(!idCount[base]) idCount[base]=0;
+    idCount[base]++;
+    h.id=idCount[base]>1?base+'-'+idCount[base]:base;
+  });
+
+  var counters=[0,0,0,0,0,0];
+  headings.forEach(function(h){
+    counters[h.level-1]++;
+    for(var j=h.level;j<6;j++) counters[j]=0;
+    var numStr='';
+    if(num){
+      for(var k=minLv;k<=h.level;k++){
+        numStr+=(numStr?'.':'')+counters[k-1];
+      }
+      numStr+=' ';
+    }
+    h.numStr=numStr;
+  });
+
+  var htmlOut='';
+  if(nested){
+    htmlOut=buildNestedHtml(headings,minLv,anchor);
+  }else{
+    htmlOut='<ul class="toc-list">\n';
+    headings.forEach(function(h){
+      var cls='toc-h'+h.level;
+      var link=anchor?'<a href="#'+escapeHtml(h.id)+'">'+escapeHtml(h.numStr+h.text)+'</a>':escapeHtml(h.numStr+h.text);
+      htmlOut+='<li class="'+cls+'">'+link+'</li>\n';
+    });
+    htmlOut+='</ul>';
+  }
+  lastHtmlOutput=htmlOut;
+
+  var mdOut='';
+  headings.forEach(function(h){
+    var indent='  '.repeat(h.level-minLv);
+    var link=anchor?'['+h.numStr+h.text+'](#'+h.id+')':h.numStr+h.text;
+    mdOut+=indent+'- '+link+'\n';
+  });
+  lastMdOutput=mdOut;
+
+  var previewHtml='';
+  if(nested){
+    previewHtml=buildNestedPreview(headings,minLv,anchor);
+  }else{
+    previewHtml='<ul style="list-style:none;padding-left:0">';
+    headings.forEach(function(h){
+      var cls='toc-h'+h.level;
+      var link=anchor?'<a href="#'+escapeHtml(h.id)+'">'+escapeHtml(h.numStr+h.text)+'</a>':escapeHtml(h.numStr+h.text);
+      previewHtml+='<li class="'+cls+'">'+link+'</li>';
+    });
+    previewHtml+='</ul>';
+  }
+
+  var levelCounts={};
+  headings.forEach(function(h){levelCounts[h.level]=(levelCounts[h.level]||0)+1;});
+  var statHtml='<span class="stat-item">Total <strong>'+headings.length+'</strong> headings</span>';
+  for(var lv=minLv;lv<=maxLv;lv++){
+    if(levelCounts[lv]) statHtml+='<span class="stat-item">h'+lv+': <strong>'+levelCounts[lv]+'</strong></span>';
+  }
+  document.getElementById('statRow').innerHTML=statHtml;
+
+  document.getElementById('previewPanel').innerHTML=previewHtml;
+  document.getElementById('htmlPanel').textContent=htmlOut;
+  document.getElementById('markdownPanel').textContent=mdOut;
+  document.getElementById('resultSection').classList.add('show');
+}
+
+function buildNestedHtml(headings,minLv,anchor){
+  var out='<ul class="toc-list">\n';
+  var stack=[minLv-1];
+  headings.forEach(function(h,i){
+    while(stack.length>1&&stack[stack.length-1]>=h.level){
+      out+='</li>\n</ul>\n';stack.pop();
+    }
+    if(i>0&&stack[stack.length-1]<h.level){
+      out+='<ul>\n';stack.push(h.level);
+    }else if(i>0){
+      out+='</li>\n';
+    }
+    var link=anchor?'<a href="#'+escapeHtml(h.id)+'">'+escapeHtml(h.numStr+h.text)+'</a>':escapeHtml(h.numStr+h.text);
+    out+='<li>'+link;
+  });
+  while(stack.length>1){out+='</li>\n</ul>\n';stack.pop();}
+  out+='</li>\n</ul>';
+  return out;
+}
+
+function buildNestedPreview(headings,minLv,anchor){
+  var out='<ul style="list-style:none;padding-left:0">';
+  var stack=[minLv-1];
+  headings.forEach(function(h,i){
+    while(stack.length>1&&stack[stack.length-1]>=h.level){
+      out+='</li></ul>';stack.pop();
+    }
+    if(i>0&&stack[stack.length-1]<h.level){
+      out+='<ul style="list-style:none;padding-left:16px">';stack.push(h.level);
+    }else if(i>0){
+      out+='</li>';
+    }
+    var link=anchor?'<a href="#'+escapeHtml(h.id)+'">'+escapeHtml(h.numStr+h.text)+'</a>':escapeHtml(h.numStr+h.text);
+    out+='<li class="toc-h'+h.level+'">'+link;
+  });
+  while(stack.length>1){out+='</li></ul>';stack.pop();}
+  out+='</li></ul>';
+  return out;
+}
+
+document.getElementById('genBtn').addEventListener('click',generateTOC);
+document.getElementById('exampleBtn').addEventListener('click',function(){
+  document.getElementById('htmlInput').value='<h2>Complete Frontend Development Guide</h2>\n<p>This article covers the core knowledge of frontend development.</p>\n<h2>Chapter 1 HTML Basics</h2>\n<p>HTML is the skeleton of the web.</p>\n<h3>1.1 Semantic Tags</h3>\n<p>Use correct HTML tags to improve accessibility.</p>\n<h3>1.2 Forms and Validation</h3>\n<p>HTML5 form validation features.</p>\n<h4>1.2.1 Built-in Validation Attributes</h4>\n<p>Attributes such as required and pattern.</p>\n<h4>1.2.2 Custom Validation</h4>\n<p>Use the Constraint Validation API.</p>\n<h2>Chapter 2 Advanced CSS</h2>\n<p>CSS controls the visual presentation of pages.</p>\n<h3>2.1 Flexbox Layout</h3>\n<p>The ultimate solution for one-dimensional layout.</p>\n<h3>2.2 Grid Layout</h3>\n<p>A powerful tool for two-dimensional layout.</p>\n<h2>Chapter 3 JavaScript Core</h2>\n<p>JavaScript brings pages to life.</p>\n<h3>3.1 Asynchronous Programming</h3>\n<p>Promises and async/await.</p>\n<h3>3.2 Modularization</h3>\n<p>ES Modules and CommonJS.</p>';
+  generateTOC();
+});
+document.getElementById('clearBtn').addEventListener('click',function(){
+  document.getElementById('htmlInput').value='';
+  document.getElementById('resultSection').classList.remove('show');
+  document.getElementById('previewPanel').innerHTML='';
+  document.getElementById('htmlPanel').textContent='';
+  document.getElementById('markdownPanel').textContent='';
+  lastHtmlOutput='';lastMdOutput='';
+});
+
+document.querySelectorAll('.output-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.output-tab').forEach(function(t){t.classList.remove('active');t.style.background='rgba(148,163,184,.1)';t.style.color='#94a3b8';});
+    this.classList.add('active');this.style.background='rgba(6,182,212,.15)';this.style.color='#22d3ee';
+    var target=this.getAttribute('data-tab');
+    document.getElementById('previewPanel').style.display=target==='preview'?'block':'none';
+    document.getElementById('htmlPanel').style.display=target==='html'?'block':'none';
+    document.getElementById('markdownPanel').style.display=target==='markdown'?'block':'none';
+  });
+});
+
+document.getElementById('copyHtml').addEventListener('click',function(){
+  if(!lastHtmlOutput){showToast('Generate a TOC first');return;}
+  navigator.clipboard.writeText(lastHtmlOutput).then(function(){showToast('HTML copied to clipboard')}).catch(function(){showToast('Copy failed')});
+});
+document.getElementById('copyMd').addEventListener('click',function(){
+  if(!lastMdOutput){showToast('Generate a TOC first');return;}
+  navigator.clipboard.writeText(lastMdOutput).then(function(){showToast('Markdown copied to clipboard')}).catch(function(){showToast('Copy failed')});
+});
+
+document.getElementById('downloadBtn').addEventListener('click',function(){
+  if(!lastHtmlOutput){showToast('Generate a TOC first');return;}
+  var blob=new Blob([lastHtmlOutput],{type:'text/html'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='toc.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('File downloaded');
+});
+
+var debounceTimer;
+document.getElementById('htmlInput').addEventListener('input',function(){
+  clearTimeout(debounceTimer);
+  debounceTimer=setTimeout(generateTOC,500);
+});
+
+['numOpt','anchorOpt','nestedOpt'].forEach(function(id){
+  document.getElementById(id).addEventListener('change',generateTOC);
+});
+['minLevel','maxLevel'].forEach(function(id){
+  document.getElementById(id).addEventListener('change',generateTOC);
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey&&e.key==='Enter'){generateTOC();e.preventDefault();}
+  if(e.ctrlKey&&e.shiftKey&&e.key==='C'){
+    if(lastHtmlOutput){navigator.clipboard.writeText(lastHtmlOutput).then(function(){showToast('HTML copied')});e.preventDefault();}
+  }
+});
+
+var ta=document.getElementById('htmlInput');
+ta.addEventListener('dragover',function(e){e.preventDefault();this.style.borderColor='rgba(6,182,212,.5)';});
+ta.addEventListener('dragleave',function(){this.style.borderColor='';});
+ta.addEventListener('drop',function(e){
+  e.preventDefault();this.style.borderColor='';
+  var file=e.dataTransfer.files[0];
+  if(file){
+    var reader=new FileReader();
+    reader.onload=function(ev){ta.value=ev.target.result;generateTOC();};
+    reader.readAsText(file);
+  }
+});
+
+window.addEventListener('load',function(){
+  document.getElementById('exampleBtn').click();
+});
+</script>
+
+</body>
+</html>

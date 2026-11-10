@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>D-Day Counter - ToolGuideHub</title>
+ <meta name="description" content="Track a D-Day countdown or count-up to important dates with second-by-second updates.">
+ <meta property="og:title" content="Countdown to Important Dates - ToolGuideHub">
+ <meta property="og:description" content="Track a D-Day countdown or count-up to important dates with second-by-second updates.">
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name": "D-Day Counter","applicationCategory":"UtilityApplication","operatingSystem":"Any","description": "Online D-Day countdown calculator. Calculate days until important dates. Support countdown and count-up modes. Real-time second-level updates."}</script>
+ <style>:root{--text2:#94a3b8;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+    header { background: #22d3ee; color: #fff; padding: 16px 24px; text-align: center; }
+    header a { color: #fff; text-decoration: none; font-weight: 700; font-size: 18px; }
+    main { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+    h1 { font-size: 24px; text-align: center; margin-bottom: 24px; }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.1); margin-bottom: 16px; }
+    label { display: block; font-size: 14px; font-weight: 600; color: var(--text2); margin-bottom: 6px; }
+    input[type="text"], input[type="date"] { width: 100%; padding: 10px 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; margin-bottom: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: #22d3ee; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; font-weight: 600; width: 100%; }
+    .btn:hover { opacity: .9; }
+    .result { text-align: center; padding: 20px; }
+    .result .days { font-size: 64px; font-weight: 800; color: #22d3ee; line-height: 1; }
+    .result .label { font-size: 14px; color: var(--text2); margin-top: 4px; }
+    .result .detail { font-size: 13px; color: var(--text2); margin-top: 8px; }
+    .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .preset { padding: 6px 14px; border: 1px solid rgba(148,163,184,.1); border-radius: 20px; font-size: 13px; cursor: pointer; background: #0f172a; }
+    .preset:hover { border-color: #22d3ee; color: #22d3ee; }
+    .mode-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+    .mode-btn { flex: 1; padding: 8px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; cursor: pointer; background: #0f172a; text-align: center; }
+    .mode-btn.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+    @media (max-width: 375px) { .result .days { font-size: 48px; } main { padding: 16px 12px; } }
+  
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/dday-counter/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "D-Day Counter", "item": "https://adi63586.github.io/Toolguidehub/en/dday-counter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"D-Day Counter FAQ","mainEntity":[{"@type":"Question","name":"How does the D-Day Counter work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the D-Day Counter free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: eventname and targetDate are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the D-Day Counter results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use D-Day Counter","description":"Step-by-step guide for using D-Day Counter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"D-Day Counter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/dday-counter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><a href="../../">ToolGuideHub</a></header>
+<main>
+ <h1>D-Day Counter</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Online D-Day countdown calculator. Calculate days until important dates. Support countdown and count-up modes. Real-time second-level updates.</p>
+ <div class="section">
+ <div class="mode-toggle" id="modeToggle">
+ <div class="mode-btn active" data-mode="countdown">⏳ Countdown</div>
+ <div class="mode-btn" data-mode="countup">📆 Count-up</div>
+ </div>
+ <label for="titleInput">Event Name (optional)</label>
+ <input type="text" id="titleInput" placeholder="e.g. Birthday, Wedding, Project deadline">
+ <label for="dateInput">Target Date</label>
+ <input type="date" id="dateInput">
+ <div class="presets" id="presets">
+ <span class="preset" data-days="1">Tomorrow</span>
+ <span class="preset" data-days="7">Next Week</span>
+ <span class="preset" data-days="30">30 Days</span>
+ <span class="preset" data-days="100">100 Days</span>
+ <span class="preset" data-days="365">Next Year</span>
+ </div>
+ <button class="btn" id="calcBtn">Calculate</button>
+ </div>
+ <div class="card result" id="result" style="display:none">
+ <div class="days" id="daysNum">0</div>
+ <div class="label" id="daysLabel">days</div>
+ <div class="detail" id="detail"></div>
+ </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>D-Day Counter is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use D-Day Counter to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. D-Day Counter provides accurate results instantly. Everything runs locally: eventname and targetDate are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/military-time/">⚙️ 🕐 Military Time Converter</a><a href="../../en/date-add/">⚙️ 📅 Date Add Calculator</a><a href="../../en/day-of-week/">⚙️ 📆 Day of Week Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/dday-counter/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer><div id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;display:none;z-index:9999"></div><script>
+const dateInput = document.getElementById('dateInput');
+const titleInput = document.getElementById('titleInput');
+const calcBtn = document.getElementById('calcBtn');
+const result = document.getElementById('result');
+const daysNum = document.getElementById('daysNum');
+const daysLabel = document.getElementById('daysLabel');
+const detail = document.getElementById('detail');
+const modeToggle = document.getElementById('modeToggle');
+const presets = document.getElementById('presets');
+
+let mode = 'countdown';
+let timer = null;
+
+// Set today as default
+const today = new Date().toISOString().split('T')[0];
+dateInput.value = today;
+
+// Mode toggle
+modeToggle.addEventListener('click', function(e) {
+  const btn = e.target.closest('.mode-btn');
+  if (!btn) return;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  mode = btn.dataset.mode;
+  if (dateInput.value) calculate();
+});
+
+// Presets
+presets.addEventListener('click', function(e) {
+  const p = e.target.closest('.preset');
+  if (!p) return;
+  const days = parseInt(p.dataset.days);
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  dateInput.value = d.toISOString().split('T')[0];
+  calculate();
+});
+
+// Calculate
+calcBtn.addEventListener('click', calculate);
+
+function calculate() {
+  if (!dateInput.value) return;
+  if (timer) clearInterval(timer);
+
+  const target = new Date(dateInput.value + 'T00:00:00');
+  const title = titleInput.value || 'targetDate';
+
+  function update() {
+    const now = new Date();
+    const diffMs = mode === 'countdown' ? target - now : now - target;
+    const diffDaysTotal = diffMs / (1000 * 60 * 60 * 24);
+    const absDays = Math.abs(Math.floor(diffDaysTotal));
+
+    daysNum.textContent = absDays;
+    if (mode === 'countdown') {
+      daysLabel.textContent = diffMs > 0 ? 'days until' : 'days since (passed)';
+    } else {
+      daysLabel.textContent = diffMs > 0 ? 'days since' : 'days until (upcoming)';
+    }
+    document.title = `${absDays} days - ${title}`;
+  }
+
+  update();
+  result.style.display = 'block';
+  timer = setInterval(update, 1000);
+}
+
+// Auto-calc on date change
+dateInput.addEventListener('change', calculate);
+if (dateInput.value) calculate();
+
+
+
+</script>
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+</script></body>
+</html>

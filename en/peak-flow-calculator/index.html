@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimate predicted peak expiratory flow from age, sex and height, with green, yellow and red zones for asthma management.">
+<meta name="keywords" content="peak flow calculator,PEF,predicted peak flow,asthma management,online tool,free">
+<title>Peak Flow Calculator | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/peak-flow-calculator/">
+<meta property="og:title" content="Peak Flow Calculator | ToolGuideHub">
+<meta property="og:description" content="Estimate predicted peak expiratory flow from age, sex and height, with green, yellow and red zones for asthma management.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/peak-flow-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/peak-flow-calculator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Peak Flow Calculator","description":"Estimate predicted peak expiratory flow based on age, gender, and height. Asthma management tool with green/yellow/red zone ranges.","applicationCategory":"HealthApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Peak Expiratory Flow (PEF)?","acceptedAnswer":{"@type":"Answer","text":"PEF is the maximum speed of exhalation, measured in liters per minute (L/min). It's a key daily monitoring metric for asthma patients, reflecting large airway patency."}},{"@type":"Question","name":"How to interpret peak flow values?","acceptedAnswer":{"@type":"Answer","text":"Green zone (>80% of personal best): well controlled. Yellow zone (50-80%): caution, may need medication adjustment. Red zone (<50%): medical emergency — seek immediate care."}},{"@type":"Question","name":"How to use a peak flow meter?","acceptedAnswer":{"@type":"Answer","text":"1) Stand or sit upright; 2) Set pointer to zero; 3) Take a deep breath; 4) Seal lips around mouthpiece; 5) Blow out as hard and fast as possible; 6) Record reading. Repeat 3 times, use highest value. Measure morning and evening daily."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the Peak Flow Calculator","totalTime":"PT2M","tool":{"@type":"HowToTool","name":"Peak Flow Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Select gender","text":"Select male or female"},{"@type":"HowToStep","position":2,"name":"Enter age and height","text":"Enter age in years and height in cm"},{"@type":"HowToStep","position":3,"name":"Click calculate","text":"Click calculate to get predicted PEF and zone ranges"},{"@type":"HowToStep","position":4,"name":"View results","text":"View green/yellow/red zone ranges"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Peak Flow Calculator","item":"https://adi63586.github.io/Toolguidehub/en/peak-flow-calculator/"}]}</script>
+<style>:root{--red:#EF4444;--muted:#64748b;--accent:#06b6d4;--green:#10B981;--yellow:#F59E0B;}*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh}a{color:var(--accent);text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.4rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:var(--muted)}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:var(--muted);font-size:.85rem;margin-bottom:16px}.nav-back a{color:var(--muted)}.hero{margin-bottom:20px}.hero p{color:var(--muted);font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:12px}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.05rem;color:#f1f5f9;margin-bottom:14px}.form-group{margin-bottom:14px}.form-group label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:120px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 24px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}.btn-primary{background:var(--accent);color:#fff;width:100%}.btn-primary:hover{background:#0891b2}.btn-outline{background:transparent;border:1px solid rgba(148,163,184,.3);color:var(--muted)}.btn-outline:hover{border-color:var(--accent);color:var(--accent)}.btn-sm{padding:6px 14px;font-size:.8rem}.result-card{text-align:center;padding:20px;margin-top:12px}.result-value{font-size:2.5rem;font-weight:800;color:var(--accent)}.result-unit{font-size:.9rem;color:var(--muted)}.zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.zone-item{padding:14px 10px;border-radius:10px;text-align:center}.zone-item .zone-label{font-size:.8rem;font-weight:700;margin-bottom:4px}.zone-item .zone-range{font-size:.85rem}.zone-green{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3)}.zone-green .zone-label{color:var(--green)}.zone-yellow{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3)}.zone-yellow .zone-label{color:var(--yellow)}.zone-red{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3)}.zone-red .zone-label{color:var(--red)}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.05rem;color:#f1f5f9;margin-bottom:12px}.info-section h3{font-size:.95rem;color:#e2e8f0;margin:14px 0 8px}.info-section p{color:var(--muted);font-size:.9rem;margin-bottom:8px}.faq-item{margin-bottom:14px}.faq-item h3{font-size:.9rem;color:#e2e8f0;margin-bottom:4px}.faq-item p{color:var(--muted);font-size:.85rem}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+@media(max-width:600px){.zone-grid{grid-template-columns:1fr}.result-value{font-size:2rem}}</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🫁 Peak Flow Calculator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Peak Flow Calculator</p>
+<div class="hero"><p>Free online Peak Expiratory Flow (PEF) calculator. Predict normal PEF based on age, gender, and height. Get green/yellow/red zone ranges for asthma management.</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="ad-slot"></div>
+<div class="section">
+  <h2>📋 Input Parameters</h2>
+  <div class="form-row">
+    <div class="form-group"><label>Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div>
+    <div class="form-group"><label>Age (years)</label><input type="number" id="age" placeholder="e.g. 35" min="15" max="85" value="35"></div>
+    <div class="form-group"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 170" min="140" max="220" step="0.1" value="170"></div>
+  </div>
+  <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="calculate()">📊 Calculate Predicted PEF</button>
+  <div id="results" style="display:none;">
+    <div class="result-card"><div class="result-value" id="pefValue">-</div><div class="result-unit">L/min (predicted normal)</div></div>
+    <div class="zone-grid">
+      <div class="zone-item zone-green"><div class="zone-label">🟢 Green Zone (&gt;80%)</div><div class="zone-range" id="zoneGreen">-</div><div style="font-size:.75rem;color:var(--muted);margin-top:4px">Well Controlled</div></div>
+      <div class="zone-item zone-yellow"><div class="zone-label">🟡 Yellow (50%-80%)</div><div class="zone-range" id="zoneYellow">-</div><div style="font-size:.75rem;color:var(--muted);margin-top:4px">Caution</div></div>
+      <div class="zone-item zone-red"><div class="zone-label">🔴 Red (&lt;50%)</div><div class="zone-range" id="zoneRed">-</div><div style="font-size:.75rem;color:var(--muted);margin-top:4px">Emergency</div></div>
+    </div>
+  </div>
+  <div style="margin-top:16px;display:flex;gap:8px;"><button class="btn btn-outline btn-sm" onclick="copyResult()">📋 Copy</button><button class="btn btn-outline btn-sm" onclick="resetForm()">🔄 Reset</button></div>
+</div>
+<div class="info-section">
+  <h2>📖 About Peak Flow</h2>
+  <div class="faq-item"><h3>What is PEF?</h3><p>Peak Expiratory Flow measures the maximum speed of exhalation (L/min). It's vital for daily asthma monitoring and reflects large airway function.</p></div>
+  <div class="faq-item"><h3>Finding personal best</h3><p>Measure 2-3 times daily for 2-3 weeks when well-controlled. Use the highest value as your personal best. This calculator provides a predicted normal based on demographics.</p></div>
+</div>
+<div id="toast" class="toast"></div>
+</main>
+<script>
+function calculate(){
+  var gender=document.getElementById('gender').value;
+  var age=parseInt(document.getElementById('age').value)||35;
+  var height=parseFloat(document.getElementById('height').value)||170;
+  var pef;
+  if(gender==='male') pef=Math.round((height*5.48+1.58-age*0.041)*60);
+  else pef=Math.round((height*3.72+2.24-age*0.030)*60);
+  pef=Math.max(100,Math.min(900,pef));
+  document.getElementById('pefValue').textContent=pef;
+  document.getElementById('zoneGreen').textContent='>'+Math.round(pef*0.8)+' L/min';
+  document.getElementById('zoneYellow').textContent=Math.round(pef*0.5)+' - '+Math.round(pef*0.8)+' L/min';
+  document.getElementById('zoneRed').textContent='<'+Math.round(pef*0.5)+' L/min';
+  document.getElementById('results').style.display='block';
+}
+function copyResult(){
+  var pef=document.getElementById('pefValue').textContent;
+  navigator.clipboard.writeText('Predicted PEF: '+pef+' L/min\nGreen: >'+Math.round(parseInt(pef)*0.8)+' L/min\nYellow: '+Math.round(parseInt(pef)*0.5)+'-'+Math.round(parseInt(pef)*0.8)+' L/min\nRed: <'+Math.round(parseInt(pef)*0.5)+' L/min').then(function(){showToast('Copied!');}).catch(function(){showToast('Copy failed');});
+}
+function resetForm(){document.getElementById('gender').value='male';document.getElementById('age').value='35';document.getElementById('height').value='170';document.getElementById('results').style.display='none';}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';setTimeout(function(){t.style.opacity='0';},2000);}
+</script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/peak-flow-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<!-- Related Tools Section -->
+<div id="related-tools-section" style="margin-top:32px"></div>
+<style>
+.related-tools-inner{max-width:900px;margin:0 auto;padding:0 16px}
+.related-tools-title{color:#a5b4fc;margin-bottom:16px;font-size:1.1rem}
+.related-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.related-tool-card{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.12);border-radius:8px;text-decoration:none;color:#cbd5e1;transition:all .2s;font-size:.9rem}
+.related-tool-card:hover{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.25);transform:translateY(-1px)}
+.related-tool-icon{font-size:1.2rem}
+.related-tool-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script>
+(function(){
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 Related ToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+function fillExample(){
+  var vals = [["age", "35"], ["height", "170"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  showToast('Example filled & calculated');
+}
+</script>
+
+</body>
+</html>

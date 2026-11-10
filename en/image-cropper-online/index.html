@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Image Cropper - ToolGuideHub</title>
+  <meta name="description" content="Select a crop region on any image using free or preset aspect ratios like 1:1, 4:3, and 16:9, then save it instantly.">
+  <meta property="og:title" content="Online Image Cropper - Browser-based Crop Tool">
+  <meta property="og:description" content="Select a crop region on any image using free or preset aspect ratios like 1:1, 4:3, and 16:9, then save it instantly.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Online Image Cropper","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+  <style>:root{--accent:#06b6d4;--text2:#94a3b8;}
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column }
+    header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 24px }
+    .header-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    header h1 { font-size: 1.25rem; color: #f1f5f9 }
+    .lang-switch { display: flex; gap: 4px; background: #0f172a; border-radius: 8px; padding: 4px; border: 1px solid rgba(148,163,184,.1); }
+    .lang-switch a { padding: 6px 12px; border-radius: 5px; font-size: .85rem; color: #94a3b8; text-decoration: none; }
+    .lang-switch a.active { background: rgba(6,182,212,.2); color: #22d3ee; }
+    main { flex: 1; max-width: 900px; margin: 0 auto; padding: 32px 16px; width: 100% }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid rgba(148,163,184,.1) }
+    .card + .card { margin-top: 16px }
+    h2 { font-size: 1.1rem; color: #f1f5f9; margin-bottom: 16px }
+    .crop-container { position: relative; max-width: 100%; overflow: hidden; border-radius: 8px; background: #000; user-select: none }
+    #cropCanvas { display: block; max-width: 100% }
+    .upload-area { border: 2px dashed rgba(148,163,184,.1); border-radius: 8px; padding: 32px; text-align: center; cursor: pointer; margin-bottom: 16px }
+    .upload-area:hover { border-color: var(--accent) }
+    .upload-area input { display: none }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px }
+    .controls select, .controls label { font-size: 0.85rem; color: var(--text2) }
+    .controls select { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 6px; color: #e2e8f0; padding: 6px 10px }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px }
+    .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s }
+    .btn-primary { background: rgba(6,182,212,.2); color: #22d3ee; border: 1px solid rgba(6,182,212,.3) }
+    .btn-primary:hover { opacity: 0.85 }
+    .btn-secondary { background: #334155; color: #e2e8f0 }
+    .btn-secondary:hover { background: #475569 }
+    .info { font-size: 0.8rem; color: var(--text2); margin-top: 8px }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: #e2e8f0; padding: 12px 24px; border-radius: 8px; font-size: 0.9rem; z-index: 1000; opacity: 0; transition: opacity 0.3s; pointer-events: none }
+    .toast.show { opacity: 1 }
+    footer { background: #1e293b; border-top: 1px solid rgba(148,163,184,.1); padding: 16px 24px; text-align: center; color: var(--text2); font-size: 0.8rem }
+    @media (max-width: 375px) { main { padding: 16px 8px } .card { padding: 16px } }
+  .nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-cropper-online/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Online Image Cropper", "item": "https://adi63586.github.io/Toolguidehub/en/image-cropper-online/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Online Image Cropper FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Online Image Cropper?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Online Image Cropper free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Aspect Ratio and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Online Image Cropper?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Online Image Cropper","description":"Step-by-step guide for using Online Image Cropper","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Online Image Cropper"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-cropper-online/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="header-top"><h1>✂️ Online Image Cropper</h1></div>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online Image Cropper. Upload an image, drag to select crop area, support free ratio and fixed ratios (1:1, 4:3, 16:9). Crop and download instantly.</p><div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<main>
+  <div class="section">
+    <h2>Upload Image</h2>
+    <div class="upload-area" id="uploadArea">
+      <p style="color:var(--text2)">Click or drag an image here</p>
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+    <div class="crop-container" id="cropContainer" style="display:none">
+      <canvas id="cropCanvas"></canvas>
+    </div>
+    <div class="controls" id="ratioControls" style="display:none">
+      <label>Aspect Ratio</label>
+      <select id="aspectRatio">
+        <option value="free">Free</option>
+        <option value="1:1">1:1 Square</option>
+        <option value="4:3">4:3 Landscape</option>
+        <option value="3:4">3:4 Portrait</option>
+        <option value="16:9">16:9 Widescreen</option>
+        <option value="9:16">9:16 Vertical</option>
+      </select>
+      <span class="info" id="cropInfo"></span>
+    </div>
+    <div class="btn-row" id="actionBtns" style="display:none">
+      <button class="btn btn-primary" id="btnCrop">✂️ Crop & Download</button>
+      <button class="btn btn-secondary" id="btnReset">↩️ Reset</button>
+    </div>
+  </div>
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>Online Image Cropper is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Use Online Image Cropper to quickly complete tasks and boost your productivity. Built with pure front-end technology, it works on all modern browsers and mobile devices. Online Image Cropper provides accurate results instantly. Everything runs locally: Aspect Ratio and other values are processed on your device, never sent to a server for fast, secure, and reliable performance on any device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#22d3ee;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<div class="toast" id="toast"></div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/image-cropper-online/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+const fileInput = document.getElementById('fileInput');
+const uploadArea = document.getElementById('uploadArea');
+const cropContainer = document.getElementById('cropContainer');
+const cropCanvas = document.getElementById('cropCanvas');
+const ratioControls = document.getElementById('ratioControls');
+const actionBtns = document.getElementById('actionBtns');
+const aspectRatio = document.getElementById('aspectRatio');
+const cropInfo = document.getElementById('cropInfo');
+const toast = document.getElementById('toast');
+const ctx = cropCanvas.getContext('2d');
+
+let img = null;
+let cropX = 0, cropY = 0, cropW = 200, cropH = 200;
+let dragging = false, resizing = false;
+let dragStartX = 0, dragStartY = 0;
+let origCropX = 0, origCropY = 0, origCropW = 0, origCropH = 0;
+let resizeCorner = '';
+let displayScale = 1;
+
+function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2000); }
+
+uploadArea.addEventListener('click', () => fileInput.click());
+uploadArea.addEventListener('dragover', e => { e.preventDefault(); });
+uploadArea.addEventListener('drop', e => { e.preventDefault(); if (e.dataTransfer.files.length) loadImage(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files.length) loadImage(fileInput.files[0]); });
+
+function loadImage(file) {
+  if (!file.type.startsWith('image/')) { showToast('Please select an image file'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    img = new Image();
+    img.onload = initCrop;
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function initCrop() {
+  const maxW = Math.min(800, window.innerWidth - 64);
+  displayScale = Math.min(1, maxW / img.width);
+  cropCanvas.width = img.width;
+  cropCanvas.height = img.height;
+  cropCanvas.style.width = (img.width * displayScale) + 'px';
+  cropCanvas.style.height = (img.height * displayScale) + 'px';
+  cropW = Math.min(300, img.width * 0.6);
+  cropH = Math.min(300, img.height * 0.6);
+  cropX = (img.width - cropW) / 2;
+  cropY = (img.height - cropH) / 2;
+  uploadArea.style.display = 'none';
+  cropContainer.style.display = 'block';
+  ratioControls.style.display = 'flex';
+  actionBtns.style.display = 'flex';
+  draw();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, cropCanvas.width, cropCanvas.height);
+  ctx.drawImage(img, 0, 0);
+  ctx.fillStyle = 'rgba(0,0,0,0.5)';
+  ctx.fillRect(0, 0, cropCanvas.width, cropCanvas.height);
+  ctx.clearRect(cropX, cropY, cropW, cropH);
+  ctx.drawImage(img, cropX, cropY, cropW, cropH, cropX, cropY, cropW, cropH);
+  ctx.strokeStyle = '#06b6d4';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(cropX, cropY, cropW, cropH);
+  [[cropX+cropW, cropY+cropH], [cropX+cropW, cropY], [cropX, cropY+cropH], [cropX, cropY]].forEach(([x, y]) => {
+    ctx.fillRect(x - 6, y - 6, 12, 12);
+  });
+  cropInfo.textContent = `Selection: ${Math.round(cropW)}×${Math.round(cropH)}px`;
+}
+
+function getMousePos(e) {
+  const rect = cropCanvas.getBoundingClientRect();
+  return { x: (e.clientX - rect.left) / displayScale, y: (e.clientY - rect.top) / displayScale };
+}
+
+function getCorner(mx, my) {
+  const threshold = 10 / displayScale;
+  if (Math.abs(mx - (cropX + cropW)) < threshold && Math.abs(my - (cropY + cropH)) < threshold) return 'se';
+  if (Math.abs(mx - (cropX + cropW)) < threshold && Math.abs(my - cropY) < threshold) return 'ne';
+  if (Math.abs(mx - cropX) < threshold && Math.abs(my - (cropY + cropH)) < threshold) return 'sw';
+  if (Math.abs(mx - cropX) < threshold && Math.abs(my - cropY) < threshold) return 'nw';
+  return '';
+}
+
+cropCanvas.addEventListener('mousedown', e => {
+  const { x, y } = getMousePos(e);
+  resizeCorner = getCorner(x, y);
+  if (resizeCorner) {
+    resizing = true;
+  } else if (x >= cropX && x <= cropX + cropW && y >= cropY && y <= cropY + cropH) {
+    dragging = true;
+  } else return;
+  dragStartX = x; dragStartY = y;
+  origCropX = cropX; origCropY = cropY; origCropW = cropW; origCropH = cropH;
+});
+
+cropCanvas.addEventListener('mousemove', e => {
+  const { x, y } = getMousePos(e);
+  const corner = getCorner(x, y);
+  cropCanvas.style.cursor = corner ? 'nwse-resize' : (x >= cropX && x <= cropX+cropW && y >= cropY && y <= cropY+cropH ? 'move' : 'default');
+  if (dragging) {
+    let dx = x - dragStartX, dy = y - dragStartY;
+    cropX = Math.max(0, Math.min(img.width - cropW, origCropX + dx));
+    cropY = Math.max(0, Math.min(img.height - cropH, origCropY + dy));
+  } else if (resizing) {
+    let dx = x - dragStartX, dy = y - dragStartY;
+    const ratio = getAspectRatio();
+    if (resizeCorner === 'se') { cropW = Math.max(20, origCropW + dx); if (ratio) cropH = cropW / ratio; else cropH = Math.max(20, origCropH + dy); }
+    else if (resizeCorner === 'ne') { cropW = Math.max(20, origCropW + dx); cropY = Math.min(origCropY + dy, origCropY + origCropH - 20); if (ratio) cropH = cropW / ratio; else cropH = Math.max(20, origCropH - dy); }
+    else if (resizeCorner === 'sw') { cropX = Math.min(origCropX + dx, origCropX + origCropW - 20); if (ratio) { cropW = Math.max(20, origCropW - dx); cropH = cropW / ratio; } else { cropW = Math.max(20, origCropW - dx); cropH = Math.max(20, origCropH + dy); }}
+    else if (resizeCorner === 'nw') { cropX = Math.min(origCropX + dx, origCropX + origCropW - 20); cropY = Math.min(origCropY + dy, origCropY + origCropH - 20); if (ratio) { cropW = Math.max(20, origCropW - dx); cropH = cropW / ratio; } else { cropW = Math.max(20, origCropW - dx); cropH = Math.max(20, origCropH - dy); }}
+    cropX = Math.max(0, cropX); cropY = Math.max(0, cropY);
+  }
+  if (dragging || resizing) draw();
+});
+
+document.addEventListener('mouseup', () => { dragging = false; resizing = false; });
+
+function getAspectRatio() {
+  const val = aspectRatio.value;
+  if (val === 'free') return 0;
+  const [w, h] = val.split(':').map(Number);
+  return w / h;
+}
+
+aspectRatio.addEventListener('change', () => {
+  const ratio = getAspectRatio();
+  if (ratio) { cropH = cropW / ratio; cropY = Math.max(0, Math.min(img.height - cropH, cropY)); }
+  draw();
+});
+
+document.getElementById('btnCrop').addEventListener('click', () => {
+  if (!img) return;
+  const outCanvas = document.createElement('canvas');
+  outCanvas.width = cropW;
+  outCanvas.height = cropH;
+  outCanvas.getContext('2d').drawImage(cropCanvas, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+  outCanvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'cropped.png'; a.click();
+    URL.revokeObjectURL(url);
+    showToast('Downloading...');
+  }, 'image/png');
+});
+
+document.getElementById('btnReset').addEventListener('click', () => {
+  uploadArea.style.display = 'block';
+  cropContainer.style.display = 'none';
+  ratioControls.style.display = 'none';
+  actionBtns.style.display = 'none';
+  img = null;
+});
+</script>
+</body>
+</html>

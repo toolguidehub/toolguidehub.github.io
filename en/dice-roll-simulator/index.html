@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Roll Simulator - ToolGuideHub</title>
+  <meta name="description" content="Roll several D4 to D100 dice at once and keep a history of every result for games and probability tests.">
+  <meta property="og:title" content="Dice Roll Simulator - ToolGuideHub">
+  <meta property="og:description" content="Roll several D4 to D100 dice at once and keep a history of every result for games and probability tests.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/dice-roll-simulator/">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/dice-roll-simulator/">
+        <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dice Roll Simulator",
+    "description": "Online dice roll simulator. Support multi-sided dice (D4/D6/D8/D10/D12/D20/D100) and multiple dice at once with history.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "url": "https://adi63586.github.io/Toolguidehub/en/dice-roll-simulator/",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);--surface:#1e293b;--text:#e2e8f0}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: var(--card-bg);
+  border-bottom: 1px solid rgba(148,163,184,.1);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header a {
+  text-decoration: none;
+  color: #22d3ee;
+  font-weight: 700;
+  font-size: 18px;
+}
+.lang-switch {
+  display: flex;
+  gap: 8px;
+}
+.lang-switch a {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+  background: #0f172a;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.lang-switch a.active {
+  background: #22d3ee;
+  color: #fff;
+  border-color: #22d3ee;
+}
+main {
+  flex: 1;
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.tool-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.tool-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.tool-header p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #22d3ee;
+}
+.input-group {
+  margin-bottom: 16px;
+}
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+textarea, input[type="text"], input[type="url"], input[type="number"], select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid rgba(148,163,184,.1);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background: #0f172a;
+}
+textarea:focus, input:focus, select:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+textarea {
+      background: var(--surface);
+      color: var(--text); min-height: 120px; resize: vertical; }
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary {
+  background: #22d3ee;
+  color: #fff;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary {
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid rgba(148,163,184,.1);
+}
+.btn-secondary:hover { background: rgba(148,163,184,.1); }
+.result-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: #0f172a;
+  border-radius: 8px;
+  font-size: 14px;
+  word-break: break-all;
+  min-height: 48px;
+}
+.preview-box {
+  margin-top: 16px;
+  border: 2px dashed rgba(148,163,184,.1);
+  border-radius: 8px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+.range-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.range-group input[type="range"] {
+  flex: 1;
+}
+.range-group .range-val {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+  color: #22d3ee;
+}
+.color-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid rgba(148,163,184,.1);
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 13px;
+  border-top: 1px solid rgba(148,163,184,.1);
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  main { margin: 16px auto; }
+  .tool-header h1 { font-size: 22px; }
+}
+
+  
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Dice Roll Simulator", "item": "https://adi63586.github.io/Toolguidehub/en/dice-roll-simulator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Dice Roll Simulator FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Dice Roll Simulator?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Dice Roll Simulator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Dice Type and Number of Dice are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Dice Roll Simulator?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Dice Roll Simulator","description":"Step-by-step guide for using Dice Roll Simulator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Dice Roll Simulator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/dice-roll-simulator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <a href="../../">🧰 ToolGuideHub</a>
+    
+  </header>
+  <main>
+    <div class="tool-header">
+      <h1>Dice Roll Simulator</h1>
+      <p>Online dice roll simulator. Support multi-sided dice (D4/D6/D8/D10/D12/D20/D100) and multiple dice at once with history.</p>
+    </div>
+
+        <div class="section">
+          <h2>🎲 Dice Settings</h2>
+          <div class="input-group">
+            <label>Dice Type</label>
+            <select id="diceType">
+              <option value="4">D4 (4-sided)</option>
+              <option value="6" selected>D6 (6-sided)</option>
+              <option value="8">D8 (8-sided)</option>
+              <option value="10">D10 (10-sided)</option>
+              <option value="12">D12 (12-sided)</option>
+              <option value="20">D20 (20-sided)</option>
+              <option value="100">D100 (Percentile)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Number of Dice</label>
+            <input type="number" id="diceCount" min="1" max="20" value="1">
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="rollBtn">🎲 Roll!</button>
+            <button class="btn btn-secondary" id="clearHistoryBtn">🗑️ Clear History</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>📊 Result</h2>
+          <div class="result-box" id="rollResult" style="font-size:28px;font-weight:700;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center">
+            Click to roll!
+          </div>
+          <div class="result-box" id="rollDetails" style="margin-top:8px;font-size:14px;color:#94a3b8">
+            Details
+          </div>
+        </div>
+        <div class="section">
+          <h2>📜 History</h2>
+          <div id="history" style="max-height:200px;overflow-y:auto;font-size:13px">
+          </div>
+        </div>
+        <script>
+        const diceType = document.getElementById('diceType');
+        const diceCount = document.getElementById('diceCount');
+        const rollResult = document.getElementById('rollResult');
+        const rollDetails = document.getElementById('rollDetails');
+        const history = document.getElementById('history');
+        let historyData = [];
+        document.getElementById('rollBtn').addEventListener('click', function() {
+          const sides = parseInt(diceType.value);
+          const count = parseInt(diceCount.value);
+          const results = [];
+          for (let i = 0; i < count; i++) {
+            results.push(Math.floor(Math.random() * sides) + 1);
+          }
+          const total = results.reduce((a,b) => a+b, 0);
+          rollResult.innerHTML = '🎯 <span style="font-size:36px">' + total + '</span>';
+          if (count === 1) {
+            rollDetails.textContent = 'D' + sides + ' = ' + results[0];
+          } else {
+            rollDetails.textContent = count + '×D' + sides + ' = [' + results.join(', ') + '] Sum=' + total;
+          }
+          const entry = { time: new Date().toLocaleTimeString(), sides, count, results, total };
+          historyData.unshift(entry);
+          if (historyData.length > 50) historyData.pop();
+          renderHistory();
+          rollResult.style.transform = 'scale(1.2)';
+          setTimeout(() => rollResult.style.transform = 'scale(1)', 150);
+        });
+        function renderHistory() {
+          history.innerHTML = historyData.map((h,i) => 
+            '<div style="padding:4px 0;border-bottom:1px solid rgba(148,163,184,.1)">' +
+            '<span style="color:#94a3b8">' + h.time + '</span> ' +
+            h.count + '×D' + h.sides + ' = <strong>' + h.total + '</strong>' +
+            (h.count > 1 ? ' [' + h.results.join(',') + ']' : '') +
+            '</div>'
+          ).join('');
+        }
+        document.getElementById('clearHistoryBtn').addEventListener('click', function() {
+          historyData = [];
+          history.innerHTML = '';
+        });
+        </script>
+        
+  
+<h2>What is Dice Roll Simulator?</h2><p>Dice Roll Simulator is a free online tool that runs entirely in your browser. No download or signup needed — enter Dice Type and Number of Dice to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/probability-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Probability Calculator …</a> <a href="../../en/dice-roller/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online Dice Roller</a> <a href="../../en/decision-maker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Decision Maker - Coin F…</a> <a href="../../en/logic-gate-simulator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Logic Gate Simulator On…</a> <a href="../../en/mock-interview-simulator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Mock Interview Simulator</a> <a href="../../en/color-blind-simulator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Online Color Blind Simu…</a> <a href="../../en/monte-carlo-simulator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Monte Carlo Simulator</a> <a href="../../en/screen-resolution-simulator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Screen Resolution Simul…</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/dice-roll-simulator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+  </script>
+</body>
+</html>

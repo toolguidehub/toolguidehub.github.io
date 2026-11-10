@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Distribute a shift's tips across waitstaff, bartenders, runners and kitchen by role weight, and see each person's calculated share.">
+<meta name="keywords" content="tip pool calculator,tip splitting,tip distribution,restaurant tip,waitstaff tip,service tip,online tool,free">
+<title>Tip Pool Calculator - Split Tips by Role | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/tip-pool-calculator/">
+<meta property="og:title" content="Free Online Tip Pool Calculator - Split Tips by Role | ToolGuideHub">
+<meta property="og:description" content="Distribute a shift's tips across waitstaff, bartenders, runners and kitchen by role weight, and see each person's calculated share.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/tip-pool-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/tip-pool-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tip Pool Calculator","description":"Free online Tip Pool Calculator. Split tips by role-based weights for waitstaff, bartenders, runners, and kitchen. Pure frontend calculation.","applicationCategory":"FinanceApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Tip Pool Calculator","description":"Enter the total tip amount, add staff members with roles, and the calculator distributes tips based on role weights","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Tip Pool Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter Total Tips","text":"Enter the total tip amount received for the shift"},{"@type":"HowToStep","position":2,"name":"Add Staff Members","text":"Click Add to add staff members, selecting roles (Server/Bartender/Runner/Kitchen etc.) with automatic weight assignment"},{"@type":"HowToStep","position":3,"name":"View Distribution","text":"Click Calculate to see each person's share based on role weights"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Tip Pool Calculator","item":"https://adi63586.github.io/Toolguidehub/en/tip-pool-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Tip Pool Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Tip Pool Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Tip Pool Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Total Tip Amount and Weight are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Tip Pool Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.hero{background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(34,211,238,.05));border:1px solid rgba(6,182,212,.2);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero p{color:#94a3b8;font-size:.9rem;flex:1;min-width:200px}
+.badge{background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 10px;border-radius:20px;font-size:.8rem;white-space:nowrap}
+.section-card{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section-card h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin-bottom:12px}
+.input-row label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.input-row input,.input-row select{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:.9rem}
+.input-row input:focus,.input-row select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.staff-list{margin-bottom:12px}
+.staff-item{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:6px;flex-wrap:wrap}
+.staff-item .name{flex:1;min-width:80px;font-size:.9rem}
+.staff-item .role{font-size:.8rem;color:#06b6d4;background:rgba(6,182,212,.1);padding:2px 8px;border-radius:10px}
+.staff-item .weight{font-size:.8rem;color:#64748b}
+.staff-item .share{font-size:.9rem;color:#22d3ee;font-weight:600;min-width:80px;text-align:right}
+.staff-item .del-btn{background:rgba(239,68,68,.1);color:#f87171;border:none;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:.75rem}
+.staff-item .del-btn:hover{background:rgba(239,68,68,.2)}
+.summary-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.summary-item{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px 16px;text-align:center;flex:1;min-width:100px}
+.summary-item .num{font-size:1.3rem;color:#22d3ee;font-weight:600}
+.summary-item .lbl{font-size:.8rem;color:#64748b}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-preset{background:rgba(6,182,212,.08);color:#06b6d4;border:1px solid rgba(6,182,212,.15);padding:6px 12px;font-size:.8rem;cursor:pointer}
+.btn-preset:hover{background:rgba(6,182,212,.2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.staff-item .share{width:100%;text-align:left}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>💰 Tip Pool Calculator</h1></div>
+<p class="nav-back"><a href="../../index.html">Home</a> › <a href="../../index.html#tools">Tools</a> › Tip Pool Calculator</p>
+<div class="hero"><p>Fairly distribute tips by role weight. Supports Server, Bartender, Runner, Kitchen roles with automatic weighted calculation for each person's share.</p><span class="badge">Fair Distribution · Pure Frontend</span></div>
+<div class="ad-slot"></div>
+
+<div class="section-card">
+  <h2>💵 Enter Total Tips</h2>
+  <div class="input-row">
+    <div><label for="totalTip">Total Tip Amount ($)</label><input type="number" id="totalTip" value="1000" min="0.01" step="0.01" style="width:200px"></div>
+  </div>
+</div>
+
+<div class="section-card">
+  <h2>👥 Add Staff Members</h2>
+  <div class="preset-row" style="margin-bottom:12px">
+    <span style="font-size:.85rem;color:#64748b;margin-right:8px">Quick Presets:</span>
+    <button class="btn btn-preset" data-preset="small">🍽️ Small (3)</button>
+    <button class="btn btn-preset" data-preset="medium">🍸 Medium (5)</button>
+    <button class="btn btn-preset" data-preset="large">🏨 Large (8)</button>
+    <button class="btn btn-preset" data-preset="bar">🍺 Bar (3)</button>
+  </div>
+  <div class="input-row">
+    <div><input type="text" id="staffName" placeholder="Name" style="width:120px"></div>
+    <div><select id="staffRole" style="width:150px">
+      <option value="server">🍽️ Server (Weight 5)</option>
+      <option value="bartender">🍸 Bartender (Weight 4)</option>
+      <option value="runner">🏃 Runner (Weight 3)</option>
+      <option value="kitchen">👨‍🍳 Kitchen (Weight 3)</option>
+      <option value="host">🎀 Host (Weight 2)</option>
+      <option value="busser">🧹 Busser (Weight 2)</option>
+      <option value="custom">✏️ Custom</option>
+    </select></div>
+    <div id="customWeightDiv" style="display:none"><label style="font-size:.8rem;color:#94a3b8">Weight</label><input type="number" id="customWeight" value="3" min="0.5" max="10" step="0.5" style="width:80px"></div>
+    <button class="btn btn-primary" id="addStaffBtn">+ Add</button>
+  </div>
+  <div class="staff-list" id="staffList">
+    <div style="text-align:center;color:#64748b;padding:20px">👥 No staff added yet. Use a quick preset above or add manually.</div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" id="calcBtn">🔍 Calculate</button>
+    <button class="btn btn-secondary" id="copyBtn">📋 Copy Results</button>
+    <button class="btn btn-secondary" id="undoBtn" disabled>↩ Undo Delete</button>
+    <button class="btn btn-danger" id="clearBtn">🗑 Clear All</button>
+  </div>
+</div>
+
+<div class="section-card" id="resultsSection" style="display:none">
+  <h2>📊 Distribution Results</h2>
+  <div class="summary-bar">
+    <div class="summary-item"><div class="num" id="resTotal">-</div><div class="lbl">Total Tips</div></div>
+    <div class="summary-item"><div class="num" id="resPeople">-</div><div class="lbl">People</div></div>
+    <div class="summary-item"><div class="num" id="resTotalWeight">-</div><div class="lbl">Total Weight</div></div>
+    <div class="summary-item" id="resCheckItem" style="display:none"><div class="num" id="resCheck">-</div><div class="lbl">Balance Check</div></div>
+  </div>
+  <div class="staff-list" id="resultList"></div>
+</div>
+
+<div class="info-section">
+  <h2>📖 How to Use</h2>
+  <p>• Enter the total tip amount for the shift (supports any currency).</p>
+  <p>• Use <strong>Quick Presets</strong> to instantly load common team configurations, or add staff members manually.</p>
+  <p>• Add staff members by role. System auto-assigns fair weights — Server (5), Bartender (4), Runner/Kitchen (3), Host/Busser (2).</p>
+  <p>• Select "Custom" to manually set weight values (0.5-10) for flexible distribution.</p>
+  <p>• Click "Calculate" to distribute tips proportionally by weight, rounded to the nearest cent. Any rounding discrepancy is automatically corrected.</p>
+  <p>• Click "Copy Results" to export the distribution details to clipboard in one click.</p>
+  <p>• All calculations are done locally in your browser — no data is ever uploaded.</p>
+</div>
+
+<div class="info-section">
+  <h2>❓ FAQ</h2>
+  <h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:8px">What is a Tip Pool?</h3>
+  <p>A Tip Pool is a common practice in the restaurant and service industry: all tips collected during a shift are pooled together and distributed fairly among staff based on each role's contribution weight. Servers who directly interact with guests typically receive the highest weight, while kitchen and support staff receive slightly lower weights.</p>
+  <h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:8px;margin-top:12px">How should weights be set?</h3>
+  <p>Common practice: Server(5) > Bartender(4) > Runner/Kitchen(3) > Host/Busser(2). You can also choose "Custom" for flexible adjustments. Higher weight means a larger share — someone with weight 5 earns 2.5x more than someone with weight 2.</p>
+  <h3 style="font-size:1rem;color:#f1f5f9;margin-bottom:8px;margin-top:12px">Are calculations accurate?</h3>
+  <p>The system calculates proportionally by weight, rounded to the nearest cent. Due to rounding, totals may occasionally differ by ±0.01 — the system auto-detects and corrects any discrepancy.</p>
+</div>
+
+<div class="info-section" style="margin-bottom:24px">
+  <h2>🔗 Related Tools</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+    <a href="../sales-commission-calculator/" style="background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:10px 14px;color:#e2e8f0;text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:8px">
+      <span>💼</span> Sales Commission Calculator
+    </a>
+    <a href="../option-price-calculator/" style="background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:10px 14px;color:#e2e8f0;text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:8px">
+      <span>📊</span> Option Price Calculator
+    </a>
+    <a href="../grocery-list/" style="background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:10px 14px;color:#e2e8f0;text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:8px">
+      <span>🛒</span> Grocery List Generator
+    </a>
+    <a href="../mileage-log/" style="background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:10px 14px;color:#e2e8f0;text-decoration:none;font-size:.9rem;display:flex;align-items:center;gap:8px">
+      <span>🚗</span> Mileage Log
+    </a>
+  </div>
+</div>
+
+<footer class="footer"><a href="../../">Home</a> <a href="../../en/privacy/">Privacy</a> <a href="../../en/terms/">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+var ROLES = {
+  server: {name:'Server', weight:5, icon:'🍽️'},
+  bartender: {name:'Bartender', weight:4, icon:'🍸'},
+  runner: {name:'Runner', weight:3, icon:'🏃'},
+  kitchen: {name:'Kitchen', weight:3, icon:'👨‍🍳'},
+  host: {name:'Host', weight:2, icon:'🎀'},
+  busser: {name:'Busser', weight:2, icon:'🧹'},
+  custom: {name:'Custom', weight:null, icon:'✏️'}
+};
+var PRESETS = {
+  small: [
+    {name:'Server A', role:'server'},{name:'Server B', role:'server'},{name:'Kitchen', role:'kitchen'}
+  ],
+  medium: [
+    {name:'Server A', role:'server'},{name:'Server B', role:'server'},{name:'Bartender', role:'bartender'},
+    {name:'Runner', role:'runner'},{name:'Kitchen', role:'kitchen'}
+  ],
+  large: [
+    {name:'Server A', role:'server'},{name:'Server B', role:'server'},{name:'Server C', role:'server'},
+    {name:'Bartender', role:'bartender'},{name:'Bartender B', role:'bartender'},{name:'Runner', role:'runner'},
+    {name:'Kitchen', role:'kitchen'},{name:'Busser', role:'busser'}
+  ],
+  bar: [
+    {name:'Bartender', role:'bartender'},{name:'Server', role:'server'},{name:'Busser', role:'busser'}
+  ]
+};
+var staff = [];
+var undoStack = [];
+
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000);}
+
+function updateUndoBtn(){
+  var btn = document.getElementById('undoBtn');
+  btn.disabled = undoStack.length===0;
+  btn.textContent = undoStack.length>0 ? '↩ Undo Delete ('+undoStack.length+')' : '↩ Undo Delete';
+}
+
+function renderStaffList(){
+  var list = document.getElementById('staffList');
+  if(staff.length===0){
+    list.innerHTML='<div style="text-align:center;color:#64748b;padding:20px">👥 No staff added yet. Use a quick preset above or add manually.</div>';
+    return;
+  }
+  var html = '';
+  staff.forEach(function(s,i){
+    var role = ROLES[s.role];
+    html += '<div class="staff-item"><span class="name">'+(role?role.icon:'')+' '+s.name+'</span><span class="role">'+role.name+'</span><span class="weight">Weight: '+(role.weight||s.weight)+'</span><button class="del-btn" data-idx="'+i+'">✕</button></div>';
+  });
+  list.innerHTML = html;
+  list.querySelectorAll('.del-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var idx = parseInt(btn.dataset.idx);
+      undoStack.push(staff[idx]);
+      if(undoStack.length>20) undoStack.shift();
+      staff.splice(idx,1);
+      renderStaffList();
+      updateUndoBtn();
+      document.getElementById('resultsSection').style.display='none';
+    });
+  });
+}
+
+function applyPreset(name){
+  var preset = PRESETS[name];
+  if(!preset) return;
+  if(staff.length>0){
+    if(!confirm('Current staff list will be replaced with the preset. Continue?')) return;
+  }
+  staff = JSON.parse(JSON.stringify(preset));
+  renderStaffList();
+  document.getElementById('resultsSection').style.display='none';
+  showToast('Preset loaded: '+name);
+}
+
+function addStaff(){
+  var name = document.getElementById('staffName').value.trim();
+  if(!name){showToast('Please enter a name');return;}
+  var roleKey = document.getElementById('staffRole').value;
+  var item = {name:name, role:roleKey};
+  if(roleKey==='custom'){item.weight=parseFloat(document.getElementById('customWeight').value)||3;}
+  staff.push(item);
+  document.getElementById('staffName').value='';
+  renderStaffList();
+  document.getElementById('resultsSection').style.display='none';
+}
+
+function undoDelete(){
+  if(undoStack.length===0) return;
+  staff.push(undoStack.pop());
+  renderStaffList();
+  updateUndoBtn();
+  document.getElementById('resultsSection').style.display='none';
+  showToast('Deleted staff restored');
+}
+
+function calculate(){
+  var totalTip = parseFloat(document.getElementById('totalTip').value)||0;
+  if(totalTip<=0){showToast('Please enter a valid tip amount');return;}
+  if(staff.length===0){showToast('Please add at least one staff member');return;}
+
+  var totalWeight = 0;
+  staff.forEach(function(s){
+    if(s.role==='custom'){totalWeight+=s.weight||3;}
+    else{totalWeight+=ROLES[s.role].weight;}
+  });
+
+  var totalDistributed = 0;
+  staff.forEach(function(s){
+    var w = (s.role==='custom')?(s.weight||3):ROLES[s.role].weight;
+    s.share = Math.round(totalTip*w/totalWeight*100)/100;
+    totalDistributed += s.share;
+  });
+
+  var diff = Math.round((totalTip - totalDistributed)*100);
+  if(diff!==0){
+    var maxW = -1, maxIdx = 0;
+    staff.forEach(function(s,i){
+      var w = (s.role==='custom')?(s.weight||3):ROLES[s.role].weight;
+      if(w>maxW){maxW=w;maxIdx=i;}
+    });
+    staff[maxIdx].share = Math.round((staff[maxIdx].share*100 + diff))/100;
+  }
+
+  document.getElementById('resTotal').textContent = '$'+totalTip.toFixed(2);
+  document.getElementById('resPeople').textContent = staff.length;
+  document.getElementById('resTotalWeight').textContent = totalWeight.toFixed(1);
+
+  var actualSum = staff.reduce(function(a,s){return a+s.share;},0);
+  var checkEl = document.getElementById('resCheck');
+  var checkItem = document.getElementById('resCheckItem');
+  checkItem.style.display = 'block';
+  if(Math.abs(actualSum-totalTip)<0.005){
+    checkEl.textContent = '✅ Exact Match';
+    checkEl.style.color = '#22d3ee';
+  } else {
+    checkEl.textContent = '⚠ Diff '+(actualSum-totalTip).toFixed(2);
+    checkEl.style.color = '#f87171';
+  }
+
+  var resultList = document.getElementById('resultList');
+  var html = '';
+  staff.forEach(function(s,i){
+    var role = ROLES[s.role];
+    var w = (s.role==='custom')?(s.weight||3):ROLES[s.role].weight;
+    var pct = (w/totalWeight*100).toFixed(1);
+    html += '<div class="staff-item"><span class="name">'+(role?role.icon:'')+' '+s.name+'</span><span class="role">'+role.name+'</span><span class="weight">Weight '+w+' ('+pct+'%)</span><span class="share">$'+s.share.toFixed(2)+'</span></div>';
+  });
+  resultList.innerHTML = html;
+  document.getElementById('resultsSection').style.display='block';
+  showToast('Calculation complete ✓');
+}
+
+function copyResults(){
+  if(staff.length===0||!staff[0].share){showToast('Please calculate first');return;}
+  var totalTip = parseFloat(document.getElementById('totalTip').value).toFixed(2);
+  var txt = '📊 Tip Pool Distribution\n═══════════════\nTotal Tips: $'+totalTip+'\nPeople: '+staff.length+'\n\n';
+  staff.forEach(function(s){
+    var role = ROLES[s.role];
+    txt += role.icon+' '+s.name+' ('+role.name+')  Weight '+ (role.weight||s.weight) +' → $'+s.share.toFixed(2)+'\n';
+  });
+  var actualSum = staff.reduce(function(a,s){return a+s.share;},0);
+  txt += '\n═══════════════\nTotal: $'+actualSum.toFixed(2);
+  navigator.clipboard.writeText(txt).then(function(){showToast('Copied to clipboard ✓')});
+}
+
+function clearAll(){
+  staff=[];
+  undoStack=[];
+  document.getElementById('totalTip').value='1000';
+  document.getElementById('staffName').value='';
+  renderStaffList();
+  updateUndoBtn();
+  document.getElementById('resultsSection').style.display='none';
+  showToast('Cleared');
+}
+
+document.getElementById('staffRole').addEventListener('change',function(){
+  document.getElementById('customWeightDiv').style.display = this.value==='custom'?'block':'none';
+});
+
+document.getElementById('addStaffBtn').addEventListener('click',addStaff);
+document.getElementById('calcBtn').addEventListener('click',calculate);
+document.getElementById('copyBtn').addEventListener('click',copyResults);
+document.getElementById('clearBtn').addEventListener('click',clearAll);
+document.getElementById('undoBtn').addEventListener('click',undoDelete);
+document.getElementById('staffName').addEventListener('keydown',function(e){if(e.key==='Enter')addStaff();});
+document.getElementById('totalTip').addEventListener('keydown',function(e){if(e.key==='Enter')calculate();});
+
+document.querySelectorAll('.btn-preset').forEach(function(btn){
+  btn.addEventListener('click',function(){applyPreset(btn.dataset.preset);});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate a weekly workout plan from your goal, experience level, training days, and session length, listing exercises with sets, reps, and rest.">
+<meta name="keywords" content="fitness,workout,exercise,gym,training,plan,generator">
+<title>Fitness Plan Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/fitness-plan-generator/">
+<meta property="og:title" content="Fitness Plan Generator - ToolGuideHub">
+<meta property="og:description" content="Generate a weekly workout plan from your goal, experience level, training days, and session length, listing exercises with sets, reps, and rest.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/fitness-plan-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/fitness-plan-generator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Fitness Plan Generator", "description": "Free online fitness plan generator. Auto-generates personalized training plans based on goals (muscle gain/fat loss/body shaping). Includes weekly schedule, exercise guide, sets and reps. Pure frontend, no data upload.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Fitness Plan Generator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Fitness Plan Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Fitness Plan Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Fitness Plan Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Goal and Level are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Fitness Plan Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Fitness Plan Generator","description":"Step-by-step guide for using Fitness Plan Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Fitness Plan Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#22d3ee}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}
+.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}
+.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#22d3ee;margin-bottom:12px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;color:#94a3b8;font-size:.85rem;margin-bottom:4px;font-weight:500}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-group select{cursor:pointer}
+.form-row{display:flex;gap:10px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:120px}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.result-card{background:#0f172a;border-radius:10px;padding:16px;border:1px solid rgba(148,163,184,.1);text-align:center}
+.result-card .result-label{color:#94a3b8;font-size:.8rem;margin-bottom:4px}
+.result-card .result-value{font-size:1.3rem;font-weight:700;color:#06b6d4}
+.result-card.highlight{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.05)}.result-card.highlight .result-value{color:#10b981}
+.result-card.warn{border-color:rgba(239,68,68,.2)}.result-card.warn .result-value{color:#ef4444}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}.btn-primary:hover{background:#0891b2}
+.btn-secondary{background:#334155;color:#e2e8f0}.btn-secondary:hover{background:#475569}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.task-item{background:#0f172a;border-radius:8px;padding:12px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}
+.task-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.task-name{font-weight:600;color:#e2e8f0}
+.task-del{color:#ef4444;cursor:pointer;font-size:.85rem}.task-del:hover{color:#f87171}
+.detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(148,163,184,.06)}
+.detail-label{color:#94a3b8;font-size:.85rem}
+.detail-value{font-weight:600;color:#06b6d4}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}.result-grid{grid-template-columns:1fr 1fr}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🏋️ Fitness Plan Generator</h1>
+</div>
+<p class="nav-back"><a href="../">Home</a> › <a href="../#tools">Tools</a> › Fitness Plan Generator</p>
+<div class="hero"><p>Free online fitness plan generator. Auto-generates personalized training plans based on goals (muscle gain/fat loss/body shaping). Includes weekly schedule, exercise guide, sets and reps. Pure frontend, no data upload. | No registration · Data never leaves your device</p><span class="badge">Zero dependencies · Works offline</span></div>
+
+<div class="section"><h2>🎯 Training Settings</h2>
+<div class="form-row">
+<div class="form-group"><label>Goal</label><select id="goal"><option value="muscle">Muscle Gain</option><option value="fatloss">Fat Loss</option><option value="toning">Body Toning</option></select></div>
+<div class="form-group"><label>Level</label><select id="level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Days Per Week</label><select id="daysPerWeek"><option value="3">3 Days</option><option value="4">4 Days</option><option value="5">5 Days</option><option value="6">6 Days</option></select></div>
+<div class="form-group"><label>Session Duration</label><select id="duration"><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option><option value="90">90 min</option></select></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" id="generateBtn">🏋️ Generate Plan</button>
+<button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+</div>
+</div>
+
+<div class="section"><h2>📋 Training Plan</h2>
+<div id="planOutput" style="color:#94a3b8;text-align:center;padding:20px">👆 Select goal and click "Generate Plan"</div>
+<div class="btn-row" id="copyRow" style="display:none">
+<button class="btn btn-primary" onclick="copyResults()">📋 Copy Plan</button>
+</div>
+</div>
+
+<script>
+(function(){
+var el=function(id){return document.getElementById(id);};
+var plans={
+  muscle:{name:{cn:'Muscle Gain',en:'Muscle Gain'},exercises:{beginner:[['Push-ups','3group×10times'],['DumbbellCurls','3group×12times'],['Squats','3group×12times'],['sit-ups','3group×15times']],intermediate:[['Bench press','4group×8times'],['Pull-ups','4group×8times'],['Squats','4group×10times'],['Deadlift','4group×8times'],['Shoulder press','3group×10times'],['BarbellRows','3group×10times']],advanced:[['Bench press','5group×5times'],['Squats','5group×5times'],['Deadlift','5group×5times'],['Pull-ups','4group×8times'],['BarbellRows','4group×8times'],['Shoulder press','4group×8times'],['armExtensions','3group×10times'],['Curls','3group×10times']]}},
+  fatloss:{name:{cn:'Fat Loss',en:'Fat Loss'},exercises:{beginner:[['Jumping jacks','3group×30seconds'],['High knees','3group×30seconds'],['Burpeesskip','3group×8times'],['Plank','3group×30seconds']],intermediate:[['Running','20minutes'],['Jump rope','4group×2minutes'],['Burpeesskip','4group×10times'],['Squatsskip','4group×12times'],['mountain climbers','4group×30seconds']],advanced:[['HIITsprints','8group×30seconds'],['Burpeesskip','5group×15times'],['Kettlebell swings','4group×15times'],['Jump ropedouble-unders','4group×1minutes'],['Battle ropes','4group×30seconds'],['Squatsskip','4group×15times']]}},
+  toning:{name:{cn:'Body Toning',en:'Body Toning'},exercises:{beginner:[['Glute bridges','3group×15times'],['Plank','3group×20seconds'],['DumbbellLateral raises','3group×12times'],['Crunches','3group×15times']],intermediate:[['Squats','4group×12times'],['DumbbellFlyes','4group×12times'],['Hip thrust','4group×12times'],['Russian twists','4group×20times'],['Bulgariansquats','3group×10times']],advanced:[['Squats','4group×15times'],['Deadlift','4group×12times'],['DumbbellFlyes','4group×15times'],['Hip thrust','4group×15times'],['Face pulls','3group×15times'],['HangingLeg raises','3group×12times']]}}
+};
+
+el('generateBtn').addEventListener('click',function(){
+  var goal=el('goal').value,level=el('level').value,days=parseInt(el('daysPerWeek').value);
+  var plan=plans[goal],exSet=plan.exercises[level];
+  var html='<div style="background:#0f172a;border-radius:10px;padding:16px;border:1px solid rgba(148,163,184,.1)">';
+  html+='<div class="result-grid" style="margin-bottom:16px">';
+  html+='<div class="result-card"><div class="result-label">🎯 Goal</div><div class="result-value" style="font-size:1rem">'+plan.name.en+'</div></div>';
+  html+='<div class="result-card"><div class="result-label">📅 Training Days</div><div class="result-value" style="font-size:1rem">'+days+' days/week</div></div>';
+  html+='<div class="result-card"><div class="result-label">⏱️ Session Time</div><div class="result-value" style="font-size:1rem">'+el('duration').value+'minutes</div></div>';
+  html+='<div class="result-card"><div class="result-label">🏅 Level</div><div class="result-value" style="font-size:1rem">'+el('level').selectedOptions[0].text+'</div></div>';
+  html+='</div>';
+  var dayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  for(var d=0;d<days;d++){
+    html+='<div class="task-item"><div class="task-name">'+dayNames[d]+'</div><div style="margin-top:8px;color:#94a3b8;font-size:.85rem">';
+    var start=d*Math.floor(exSet.length/days)+Math.min(d,exSet.length%days);
+    var count=Math.floor(exSet.length/days)+(d<exSet.length%days?1:0);
+    for(var e=start;e<start+count&&e<exSet.length;e++){
+      html+=exSet[e][0]+': '+exSet[e][1]+'<br>';
+    }
+    html+='</div></div>';
+  }
+  html+='<p style="color:#f59e0b;font-size:.8rem;margin-top:12px">⚠️ ⚠️ Warm up 5 min + stretch 5 min. Rest 60-90s between sets. Stop if you feel discomfort.</p>';
+  html+='</div>';
+  el('planOutput').innerHTML=html;
+  el('copyRow').style.display='flex';
+  showToast('Plan Generated 🏋️');
+});
+
+el('resetBtn').addEventListener('click',function(){
+  el('goal').value='muscle';el('level').value='beginner';el('daysPerWeek').value='3';el('duration').value='45';
+  el('planOutput').innerHTML='<div style="color:#94a3b8;text-align:center;padding:20px">👆 Select goal and click "Generate Plan"</div>';
+  el('copyRow').style.display='none';showToast('Reset 🔄');
+});
+})();
+</script>
+
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>The Fitness Plan Generator is a free online tool that helps users perform quick calculations. All processing happens locally in the browser with no data upload, ensuring privacy. The tool is fast, mobile-friendly, and easy to use.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"></div></section>
+</main>
+<div id="toast" class="toast"></div>
+<script>
+(function(){
+var el=function(id){return document.getElementById(id);};
+var toastTimer=null;
+function showToast(msg){var t=el('toast');t.textContent=msg;t.style.opacity='1';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.style.opacity='0';},2000);}
+function copyResults(){
+  var labels=document.querySelectorAll('.result-label');
+  var text=[];
+  labels.forEach(function(label){
+    var valEl=label.nextElementSibling;
+    if(valEl&&valEl.classList.contains('result-value')){
+      text.push(label.textContent+': '+valEl.textContent);
+    }
+  });
+  var details=document.querySelectorAll('.detail-row');
+  details.forEach(function(row){
+    var lbl=row.querySelector('.detail-label');
+    var val=row.querySelector('.detail-value');
+    if(lbl&&val)text.push(lbl.textContent+': '+val.textContent);
+  });
+  if(text.length>0){navigator.clipboard.writeText(text.join('\n')).then(function(){showToast('Results copied 📋');});}
+  else{showToast('No results to copy');}
+}
+
+window.showToast=showToast;
+window.copyResults=copyResults;
+
+var TOOL_SLUG='fitness-plan-generator';
+var LANG='en';
+
+})();
+</script>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/fitness-plan-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimate your walking or running stride length from your height, for pace, cadence, and step-count calculations.">
+<meta name="keywords" content="stride length,step length,running,walking,health tracking,fitness calculator">
+<title>Stride Length Calculator | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/stride-length-calculator/">
+<meta property="og:title" content="Stride Length Calculator - ToolGuideHub">
+<meta property="og:description" content="Estimate your walking or running stride length from your height, for pace, cadence, and step-count calculations.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/stride-length-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Stride Length Calculator", "description": "Estimate walking and running stride length based on height. Useful for running training, walking plans and health tracking.", "applicationCategory": "HealthApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a normal stride length?", "acceptedAnswer": {"@type": "Answer", "text": "Walking stride is about 0.413-0.415×height. Running stride is about 0.65-0.75×height. This tool uses 0.414 for walking and 0.70 for running."}}, {"@type": "Question", "name": "Relationship between stride and cadence?", "acceptedAnswer": {"@type": "Answer", "text": "Speed = Stride × Cadence. Increasing either improves speed. Elite runners typically maintain cadence above 180 steps/min."}}, {"@type": "Question", "name": "How to measure actual stride length?", "acceptedAnswer": {"@type": "Answer", "text": "Walk a known distance, count steps, then divide distance by steps. This is the most accurate method."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Stride Length Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/stride-length-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Stride Length Calculator","description":"Step-by-step guide for using Stride Length Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Stride Length Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#4F46E5;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.6rem}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#4F46E5}.hero{background:linear-gradient(135deg,#EEF2FF 0%,#E0E7FF 100%);border-radius:12px;padding:20px 24px;margin-bottom:20px;font-size:.95rem;color:#3730A3;line-height:1.7}.hero .badge{display:inline-block;background:#4F46E5;color:#fff;padding:3px 10px;border-radius:20px;font-size:.75rem;margin-top:8px}.panel{background:#0f172a;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.1)}.panel-title{font-size:1.1rem;margin-bottom:14px;font-weight:600}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid #e2e8f0}.btn-secondary:hover{background:#0f172a}.btn-large{padding:12px 32px;font-size:1.1rem;font-weight:600}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}input,select,textarea{padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;background:#0f172a;color:#e2e8f0;font-size:.9rem;width:100%}input:focus,select:focus,textarea:focus{outline:none;border-color:#4F46E5;box-shadow:0 0 0 2px #EEF2FF}.input-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.result-main{background:#EEF2FF;border-radius:8px;padding:20px;margin-bottom:12px;text-align:center;position:relative}.result-main .lbl{font-size:.85rem;color:#64748b;margin-bottom:4px}.result-main .val{font-size:2rem;font-weight:700;color:#4F46E5}.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.result-item{background:#0f172a;border-radius:8px;padding:12px;text-align:center;position:relative}.result-item .val{font-size:1.2rem;font-weight:600;color:#e2e8f0}.result-item .lbl{font-size:.8rem;color:#64748b}footer{text-align:center;color:#94a3b8;font-size:.8rem;padding:20px 0}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:10px 20px;border-radius:8px;font-size:.9rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}.copy-btn{position:absolute;top:8px;right:8px;padding:4px 10px;background:#0f172a;border:1px solid #e2e8f0;border-radius:6px;font-size:.7rem;color:#64748b;cursor:pointer;z-index:10;opacity:0;transition:opacity .2s}.result-main:hover .copy-btn,.result-item:hover .copy-btn{opacity:1}.copy-btn.copied{background:#16a34a;color:#fff;border-color:#16a34a}@media(max-width:768px){.header h1{font-size:1.3rem}.container{padding:12px 10px}.hero{padding:14px 16px}.panel{padding:14px}.result-main .val{font-size:1.5rem}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/stride-length-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Stride Length Calculator</h1></div>
+<p class="nav-back"><a href="../../en/index.html">Home</a> &rsaquo; <a href="../../en/#tools">Tools</a> &rsaquo; Stride Length Calculator</p>
+<div class="hero"><p>Estimate walking and running stride length based on height. Useful for running training, walking plans and health tracking. <span class="badge">💰 No Registration · Client-Side Computation</span></p></div>
+<div class="panel">
+  <div class="panel-title">📋 Input Parameters</div>
+  <div class="input-group">
+    <div><label>Height (cm)</label><input type="number" id="height" value="170" step="any"></div>
+<div><label>Activity Type</label><select id="activityType"><option value="walking"> Walking</option>
+<option value="running"> Running</option></select></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-large" id="calcBtn">📊 Calculate</button>
+    <button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+  </div>
+</div>
+<div class="panel" id="resultPanel">
+  <div class="panel-title">📈 Results</div>
+  <div id="resultContent" style="min-height:200px"></div>
+
+<h2>What is Stride Length Calculator?</h2><p>Stride Length Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Height and Activity Type to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Convert units quickly when working with international measurements</li><li>Translate metric and imperial units while reading foreign materials</li><li>Verify conversion results in engineering or scientific work</li><li>Quick conversions on mobile without searching for formulas</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</div>
+
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/stride-length-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div class="toast" id="toast"></div>
+</main>
+<script>
+function showToast(msg) {
+  var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2000);
+}
+function calc(){
+  var h=parseFloat(document.getElementById('height').value)||170;
+  var type=document.getElementById('activityType').value;
+  var ratio=type==='walking'?0.414:0.70;
+  var stride=h*ratio;
+  var stepsPerKm=100000/stride;
+  var stepsPerMile=160934/stride;
+  var result=document.getElementById('resultContent');
+  result.innerHTML='<div class="result-main"><div class="lbl">EstimateStride length</div><div class="val">'+stride.toFixed(1)+' <span style="font-size:0.6em">cm</span></div></div><div class="result-grid"><div class="result-item"><div class="val">'+Math.round(stepsPerKm)+'</div><div class="lbl">Steps/km</div></div><div class="result-item"><div class="val">'+Math.round(stepsPerMile)+'</div><div class="lbl">Steps/miles</div></div><div class="result-item"><div class="val">'+(stride/2).toFixed(1)+' cm</div><div class="lbl">Single stepStep</div></div></div>';
+}
+document.getElementById('calcBtn').addEventListener('click',calc);
+document.getElementById('resetBtn').addEventListener('click',function(){location.reload();});
+calc();
+</script>
+<script>
+(function(){
+  var processed=new Set();
+  function addCopyBtns(){
+    var results=document.querySelectorAll('.result-main,.result-item');
+    results.forEach(function(el){
+      if(processed.has(el))return;
+      if(el.querySelector('.copy-btn'))return;
+      var btn=document.createElement('button');
+      btn.className='copy-btn';
+      btn.innerHTML='📋 Copy';
+      btn.title='Copy result';
+      btn.onclick=function(e){
+        e.stopPropagation();
+        var text=el.textContent||el.value||'';
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML='✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta=document.createElement('textarea');ta.value=text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+          btn.innerHTML='✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  addCopyBtns();
+  document.addEventListener('click',function(){setTimeout(addCopyBtns,100);});
+  if(window.MutationObserver){
+    var obs=new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

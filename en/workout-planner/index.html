@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Plan Generator - ToolGuideHub</title>
+  <meta name="description" content="Get a personalised weekly training plan from your goal, experience level and how many days a week you can train.">
+  <meta name="keywords" content="workout plan,training plan,exercise plan,fitness plan generator,online workout,free">
+  <meta property="og:title" content="Workout Plan Generator - ToolGuideHub">
+  <meta property="og:description" content="Get a personalised weekly training plan from your goal, experience level and how many days a week you can train.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/workout-planner/">
+      <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Workout Plan Generator",
+    "description":"Free online workout plan generator. Auto-generates a personalized training plan based on your goals.",
+    "applicationCategory":"HealthApplication",
+    "operatingSystem":"All",
+    "url":"https://adi63586.github.io/Toolguidehub/en/workout-planner/",
+    "offers":{"@type":"Offer","price":"0"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},
+      {"@type":"ListItem","position":3,"name":"Workout Plan Generator"}
+    ]
+  }
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Workout Planner FAQ","mainEntity":[{"@type":"Question","name":"How does the Workout Planner work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Workout Planner free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Fitness Goal and Fitness Level are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Workout Planner?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Workout Planner","description":"Step-by-step guide for using Workout Planner","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Workout Planner"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;--primary-light:rgba(6,182,212,.15);}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; }
+header { background: #0f172a; border-bottom: 1px solid rgba(148,163,184,.1); padding: 16px 20px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+header .logo { font-size: 20px; font-weight: 700; color: #22d3ee; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+header .logo span { font-size: 14px; color: #94a3b8; font-weight: 400; }
+main { max-width: 800px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 28px; margin-bottom: 8px; }
+.hero { color: #94a3b8; margin-bottom: 24px; font-size: 15px; }
+.card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #94a3b8; }
+.form-group select { width: 100%; padding: 10px 14px; border: 1.5px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 16px; background: #0f172a; }
+.btn-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.btn { padding: 10px 20px; border-radius: 8px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all .2s; }
+.btn-primary { background: #22d3ee; color: #fff; }
+.btn-primary:hover { opacity: .9; }
+.btn-outline { background: #0f172a; color: #22d3ee; border: 1.5px solid #22d3ee; }
+.btn-outline:hover { background: var(--primary-light); }
+.btn-copy { background: #10b981; color: #fff; font-size: 13px; padding: 6px 14px; }
+.plan-day { background: #0f172a; padding: 14px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #22d3ee; }
+.plan-day h3 { font-size: 15px; margin-bottom: 4px; color: #22d3ee; }
+.plan-day p { font-size: 13px; color: #94a3b8; }
+.tips { margin-top: 16px; padding: 12px; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2); border-radius: 8px; font-size: 13px; }
+.tips ul { padding-left: 20px; margin-top: 6px; }
+footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(148,163,184,.1); margin-top: 32px; }
+footer a { color: #22d3ee; text-decoration: none; }
+@media (max-width: 375px) { h1 { font-size: 22px; } }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/workout-planner/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header style="display:flex;justify-content:space-between;align-items:center"><a href="../../" class="logo">⚡ ToolGuideHub <span>Free Online Tools</span></a><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../../en/workout-planner/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a><a href="../../en/workout-planner/" style="background:rgba(6,182,212,.2);color:#22d3ee;padding:6px 12px;border-radius:5px;font-size:.85rem">EN</a></div></header>
+<main>
+  <h1>🏋️ Workout Plan Generator</h1>
+  <p class="hero">Free online workout plan generator. Select your goal, fitness level, and days per week to get a personalized training plan.</p>
+
+  <div class="section">
+    <div class="form-group">
+      <label for="goal">Fitness Goal</label>
+      <select id="goal">
+        <option value="fat-loss">Fat Loss</option>
+        <option value="muscle-gain">Muscle Gain</option>
+        <option value="endurance">Endurance</option>
+        <option value="general">General Health</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="level">Fitness Level</label>
+      <select id="level">
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="daysPerWeek">Days Per Week</label>
+      <select id="daysPerWeek">
+        <option value="3">3 days/week</option>
+        <option value="4" selected>4 days/week</option>
+        <option value="5">5 days/week</option>
+        <option value="6">6 days/week</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="generatePlan()">Generate Plan</button>
+      <button class="btn btn-outline" onclick="clearAll()">Reset</button>
+    </div>
+  </div>
+
+  <div class="section" id="results" style="display:none;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h2 style="font-size:18px;">📋 Your Training Plan</h2>
+      <button class="btn btn-copy" onclick="copyPlan()">📋 Copy Plan</button>
+    </div>
+    <div id="planContainer"></div>
+    <div class="tips">
+      <strong>💡 Training Tips:</strong>
+      <ul id="tipsList"></ul>
+    </div>
+  </div>
+
+<h2>What is Workout Plan Generator?</h2><p>Workout Plan Generator is a free online tool that creates personalized weekly training plans based on your fitness goal, experience level, and available days per week. No download or signup needed — all processing runs locally in your browser.</p>
+<h2>Use Cases</h2><ul><li>Create a structured weekly workout plan for fat loss or muscle gain</li><li>Get personalized routines based on your fitness level</li><li>Plan gym sessions with proper exercise splits and rest days</li><li>Build a home workout schedule without a personal trainer</li></ul>
+<h2>Key Features</h2><ul><li>4 goal modes: Fat Loss, Muscle Gain, Endurance, General Health</li><li>3 fitness levels with appropriate exercise selection</li><li>Customizable days per week (3-6 days)</li><li>One-click copy to save your training plan</li><li>Print-friendly output for gym reference</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#94a3b8;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/workout-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Workout Generator</a><a href="../../en/calorie-burn-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">Calorie Burn Calculator</a><a href="../../en/bmi-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;border:1px solid rgba(148,163,184,.1);">BMI Calculator</a></div></section>
+<footer>
+  <p>© 2026 <a href="../../">ToolGuideHub</a> · All tools are free · <a href="../../en/terms/">Terms</a> · <a href="../../en/privacy/">Privacy</a></p>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+<div id="toast" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:999;display:none;box-shadow:0 4px 12px rgba(0,0,0,.3);"></div>
+
+<script>
+var plans = {
+  "fat-loss": {
+    "beginner": [
+      {day:"Mon",type:"Cardio + Core",detail:"Brisk walking30minutes + Plank3group×30seconds + Crunches3group×15times + Russian twists3group×20times"},
+      {day:"Tue",type:"Full body strength",detail:"Bodyweight Squats 3×12 + Knee push-ups 3×8 + Glute bridges 3×15 + Bird-dog3group×10times/side"},
+      {day:"Wed",type:"Rest/Stretching",detail:"Yoga/Stretching 20min or Walking 30min"},
+      {day:"Thu",type:"HIIT",detail:"Jumping jacks 30s + rest 15s × 8 rounds + High knees 30s + rest 15s × 6 rounds + Burpee jumps 20s + rest 20s × 5 rounds"},
+      {day:"Fri",type:"Upper body + Core",detail:"Push-ups 3×10 + Band rows 3×12 + Shoulder press 3×10 + Dead bugs 3×12/side"},
+      {day:"Sat",type:"Cardio",detail:"Jogging/Jump rope/Cycling 30-45min moderate intensity"},
+      {day:"Sun",type:"break",detail:"Complete rest or light stretching"}
+    ],
+    "intermediate": [
+      {day:"Mon",type:"Lower body strength",detail:"Barbell Squats 4×8-10 + Romanian deadlift 4×10 + Bulgarian split squat 3×10/side + Calf raises 3×15"},
+      {day:"Tue",type:"Upper body push",detail:"BarbellBench press4group×8-10times + DumbbellShoulder press4group×10times + Dips3group×to failure + Lateral raises3group×15times"},
+      {day:"Wed",type:"HIIT + Core",detail:"Battle ropes 30s×8 + Medicine ball slams 3×12 + Hanging leg raises 3×12 + Plank 3×45s"},
+      {day:"Thu",type:"Upper body pull",detail:"Pull-ups 4×to failure + Barbell rows 4×10 + Seated rows 3×12 + Curls 3×12"},
+      {day:"Fri",type:"Lower body + Cardio",detail:"Goblet Squats4group×12times + DumbbellLunges3group×12times/side + Kettlebell swings4group×15times + Jump rope15minutes"},
+      {day:"Sat",type:"Full body metabolic",detail:"Farmer walks 4×30s + Wall balls 3×12 + Rowing/Air bike 20min intervals"},
+      {day:"Sun",type:"break",detail:"Completebreak"}
+    ],
+    "advanced": [
+      {day:"Mon",type:"Lower body heavy",detail:"Barbell Squats 5×5 + Conventional deadlift 5×5 + Leg press 4×10 + Leg curls 4×12"},
+      {day:"Tue",type:"Upper body push",detail:"Barbell bench press 5×5 + Incline dumbbell press 4×8 + Overhead press 4×6 + Close-grip bench 3×10"},
+      {day:"Wed",type:"Metabolic training",detail:"CrossFit WOD: 21-15-9 Burpees+Kettlebell swings for time + Core training 4 sets"},
+      {day:"Thu",type:"Upper Body Pull",detail:"Weighted Pull-ups5group×5times + Pendlay Rows4group×8times + Single-armDumbbellRows3group×10times/side + HammerCurls3group×12times"},
+      {day:"Fri",type:"Lower Body Power",detail:"Power Cleans5group×3times + Front Squats4group×6times + BulgarianSplit squat3group×8times/side + Nordic Curls3group×8times"},
+      {day:"Sat",type:"Accessory + Cardio",detail:"Face pulls4group×15times + Tricep pushdown3group×12times + Curls3group×12times + 45 minutes low-intensity cardio"},
+      {day:"Sun",type:"break",detail:"Active recovery: Swimming/Walking/foam rolling cool-down"}
+    ]
+  },
+  "muscle-gain": {
+    "beginner": [
+      {day:"Mon",type:"Full body strength",detail:"DumbbellSquats3group×10times + DumbbellBench press3group×10times + DumbbellRows3group×10times/side + DumbbellShoulder press3group×10times"},
+      {day:"Tue",type:"break",detail:"Rest day"},
+      {day:"Wed",type:"Full body strength",detail:"Goblet Squats3group×12times + Push-ups3group×to failure + Band pull-downs3group×12times + Lateral raises3group×12times"},
+      {day:"Thu",type:"break",detail:"Rest day"},
+      {day:"Fri",type:"Full body strength",detail:"DumbbellLunges3group×10times/side + DumbbellFlyes3group×12times + Single-armRows3group×10times/side + Curls3group×12times"},
+      {day:"Sat",type:"Light Cardio",detail:"Brisk walking20minutes + Core training: Crunches+Flat+Supermans 3 sets each"},
+      {day:"Sun",type:"break",detail:"Completebreak"}
+    ],
+    "intermediate": [
+      {day:"Mon",type:"Chest + Triceps",detail:"BarbellBench press4group×8-10times + Incline Dumbbell Press4group×10times + Cable Flyes3group×15times + Close-gripBench press3group×10times"},
+      {day:"Tue",type:"Back + Biceps",detail:"Pull-ups4group×to failure + BarbellRows4group×8-10times + Lat Pulldowns3group×12times + Curls4group×10times"},
+      {day:"Wed",type:"break",detail:"Rest day"},
+      {day:"Thu",type:"Shoulders + Abs",detail:"Overhead press4group×8times + Lateral raises4group×12times + Face pulls3group×15times + HangingLeg raises3group×12times"},
+      {day:"Fri",type:"Legs",detail:"BarbellSquats4group×8-10times + RomanianDeadlift4group×10times + Leg press3group×12times + CalfRaises4group×15times"},
+      {day:"Sat",type:"Weak Point Training",detail:"Target weak areas: 3-4 exercises × 3 sets + 15 min cardio"},
+      {day:"Sun",type:"break",detail:"Completebreak"}
+    ],
+    "advanced": [
+      {day:"Mon",type:"Chest Heavy",detail:"Barbell Bench Press 5×5 + Incline Dumbbell 4×8 + Weighted Dips 3×8 + Cable Flyes 3×15"},
+      {day:"Tue",type:"Back Heavy",detail:"TraditionalDeadlift5group×5times + BarbellRows4group×8times + Weighted Pull-ups4group×6times + Single-armRows3group×10times"},
+      {day:"Wed",type:"break",detail:"Rest day"},
+      {day:"Thu",type:"Shoulders",detail:"Overhead press5group×5times + Push Press4group×6times + Lateral raises5group×12times + Face pulls4group×15times"},
+      {day:"Fri",type:"Leg heavy",detail:"BarbellSquats5group×5times + Front Squats4group×8times + BulgarianSplit squat3group×10times + Nordic Curls3group×8times"},
+      {day:"Sat",type:"Arm Specialization",detail:"Close-gripBench press4group×8times + Curls4group×8times + Tricep pushdown3group×12times + HammerCurls3group×12times"},
+      {day:"Sun",type:"break",detail:"Completebreak"}
+    ]
+  },
+  "endurance": {
+    "beginner": [
+      {day:"Mon",type:"Running",detail:"Jogging 20minutes(walk/run combo)+ Stretching5minutes"},
+      {day:"Tue",type:"Cross Training",detail:"Cycling/Swimming 30minutes low intensity"},
+      {day:"Wed",type:"Strength",detail:"Bodyweight training: Squats3group×15times + Push-ups3group×8times + Glute bridges3group×15times"},
+      {day:"Thu",type:"Running",detail:"Jogging 25minutes Moderate intensity"},
+      {day:"Fri",type:"break",detail:"Rest day"},
+      {day:"Sat",type:"Long Distance",detail:"Running/Brisk walking 35-40minutes Easy pace"},
+      {day:"Sun",type:"break",detail:"Stretching+foam rolling"}
+    ],
+    "intermediate": [
+      {day:"Mon",type:"Interval Run",detail:"Warm-up10minutes + 400m×6group(Intervals90seconds) + Cool-down10minutes"},
+      {day:"Tue",type:"Cross + Strength",detail:"Cycling45minutes + Core training: Flat+Crunches+Supermans 3 sets each"},
+      {day:"Wed",type:"Tempo run",detail:"Warm-up10minutes + Tempo run20minutes + Cool-down10minutes"},
+      {day:"Thu",type:"Recovery run",detail:"Easy run 30minutes + Stretching10minutes"},
+      {day:"Fri",type:"Strength",detail:"Lower body strength: Squats4group×10times + Lunges3group×12times + Hip thrust3group×12times"},
+      {day:"Sat",type:"Long Distance",detail:"Running 60-75minutes Easy pace"},
+      {day:"Sun",type:"break",detail:"Completebreak"}
+    ],
+    "advanced": [
+      {day:"Mon",type:"Intervals",detail:"Warm-up15minutes + 800m×6group(Pace3K) + Cool-down15minutes"},
+      {day:"Tue",type:"Easy run+Strength",detail:"Easy run45minutes + Lower body strengthTraining30minutes"},
+      {day:"Wed",type:"Tempo run",detail:"Warm-up15minutes + Tempo run30minutes + Cool-down15minutes"},
+      {day:"Thu",type:"Recovery run",detail:"Easy run40minutes + Core training"},
+      {day:"Fri",type:"Fartlek",detail:"Fartlek run 50 min (alternating pace) + Stretching"},
+      {day:"Sat",type:"Long Distance",detail:"Running 90-120minutes Easy pace"},
+      {day:"Sun",type:"break",detail:"Active recovery"}
+    ]
+  },
+  "general": {
+    "beginner": [
+      {day:"Mon",type:"Full body",detail:"Bodyweight Squats 3×12 + Knee push-ups 3×8 + Glute bridges 3×15 + Plank3group×20seconds"},
+      {day:"Tue",type:"Cardio",detail:"Brisk walking25minutes"},
+      {day:"Wed",type:"break",detail:"Rest day"},
+      {day:"Thu",type:"Full body",detail:"DumbbellSquats3group×10times + Band rows3group×12times + Shoulder press3group×10times + Crunches3group×15times"},
+      {day:"Fri",type:"Cardio",detail:"Jogging/Cycling 20minutes"},
+      {day:"Sat",type:"Activity",detail:"Outdoor activity: Walking/Sports/Hiking"},
+      {day:"Sun",type:"break",detail:"Rest day"}
+    ],
+    "intermediate": [
+      {day:"Mon",type:"Strength",detail:"DumbbellSquats4group×10times + Push-ups4group×12times + DumbbellRows4group×10times + Shoulder press3group×10times"},
+      {day:"Tue",type:"Cardio",detail:"Running/Cycling 30minutes Moderate intensity"},
+      {day:"Wed",type:"break",detail:"Rest day"},
+      {day:"Thu",type:"Strength",detail:"Lunges3group×12times/side + Pull-ups3group×to failure + Lateral raises3group×15times + Core training"},
+      {day:"Fri",type:"HIIT",detail:"HIIT 15minutes: 30secondsExercise+15secondsbreak"},
+      {day:"Sat",type:"Cardio",detail:"Running/Swimming 40minutes"},
+      {day:"Sun",type:"break",detail:"Stretching+Cool-down"}
+    ],
+    "advanced": [
+      {day:"Mon",type:"Strength",detail:"BarbellSquats4group×8times + Bench press4group×8times + Deadlift4group×6times + Shoulder press3group×8times"},
+      {day:"Tue",type:"Cardio",detail:"Interval Run 30minutes"},
+      {day:"Wed",type:"Strength",detail:"Pull-ups4group×to failure + Rows4group×10times + Lunges3group×10times + Core training"},
+      {day:"Thu",type:"Cardio",detail:"Cycling/Swimming 40minutes"},
+      {day:"Fri",type:"Full body",detail:"CrossFitStyle: 21-15-9 Burpees+Squats + Core"},
+      {day:"Sat",type:"Outdoor",detail:"Outdoor exercise: Running/Hiking/Ball sports 60 min"},
+      {day:"Sun",type:"break",detail:"Active recovery"}
+    ]
+  }
+};
+
+var tipsMap = {
+  "fat-loss": ["Maintain calorie deficit: daily intake < expenditure by 300-500 kcal","Protein intake at least 1.6g/kg body weight","Get 7-8 hours of sleep for recovery","Stay hydrated: 2-3 liters of water daily"],
+  "muscle-gain": ["Maintain calorie surplus: daily intake > expenditure by 300-500 kcal","Protein intake 1.8-2.2g/kg body weight","Progressive overload: increase weight or reps weekly","Get 8+ hours of sleep"],
+  "endurance": ["Carbohydrates: 60-65% of total calories","Refuel within 30 minutes post-workout (carbs + protein)","Increase weekly mileage by no more than 10%","Hydrate: 150-300ml every 15-20 minutes"],
+  "general": ["At least 150 minutes of moderate exercise per week","Warm up 5-10 minutes before exercise","Stretch 5-10 minutes after exercise","Stay hydrated and listen to your body"]
+};
+
+var currentPlanText = '';
+
+  function generatePlan() {
+    var goal = document.getElementById('goal').value;
+    var level = document.getElementById('level').value;
+    var days = parseInt(document.getElementById('daysPerWeek').value);
+  
+    var fullPlan = plans[goal][level];
+    var restDays = ['Rest/Stretch','Rest','Rest Day'];
+    var workoutDays = fullPlan.filter(function(d) { return restDays.indexOf(d.type) === -1 || d.type === 'Rest/Stretch'; });
+    var pureRest = fullPlan.filter(function(d) { return d.type === 'Rest' || d.type === 'Rest Day'; });
+  
+    var planDays = [];
+    var dayNames = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    var wi = 0, ri = 0;
+  
+    for (var i = 0; i < 7; i++) {
+      if (wi < days && wi < workoutDays.length) {
+        planDays.push(workoutDays[wi]);
+        wi++;
+      } else if (ri < pureRest.length) {
+        planDays.push(pureRest[ri]);
+        ri++;
+      } else {
+        planDays.push({day: dayNames[i], type: "Rest", detail: "Rest day"});
+      }
+    }
+  
+    for (var j = 0; j < planDays.length; j++) {
+      planDays[j].day = dayNames[j];
+    }
+  
+    var html = '';
+    currentPlanText = '🏋️ Workout Plan (' + document.getElementById('goal').options[document.getElementById('goal').selectedIndex].text + ' - ' + document.getElementById('level').options[document.getElementById('level').selectedIndex].text + ')\n\n';
+  
+    for (var k = 0; k < planDays.length; k++) {
+      var d = planDays[k];
+      html += '<div class="plan-day"><h3>' + d.day + ' - ' + d.type + '</h3><p>' + d.detail + '</p></div>';
+      currentPlanText += d.day + ' - ' + d.type + ': ' + d.detail + '\n';
+    }
+  
+    document.getElementById('planContainer').innerHTML = html;
+  
+    var tipsHtml = '';
+    var tips = tipsMap[goal];
+    for (var t = 0; t < tips.length; t++) {
+      tipsHtml += '<li>' + tips[t] + '</li>';
+    }
+    document.getElementById('tipsList').innerHTML = tipsHtml;
+    document.getElementById('results').style.display = 'block';
+  
+    showToast('Plan generated');
+  }
+
+  function copyPlan() {
+    if (!currentPlanText) return;
+    navigator.clipboard.writeText(currentPlanText).then(function() {
+      showToast('Copied to clipboard');
+    }).catch(function() {
+      showToast('Copy failed, please copy manually');
+    });
+  }
+
+  function clearAll() {
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('goal').value = 'fat-loss';
+    document.getElementById('level').value = 'beginner';
+    document.getElementById('daysPerWeek').value = '4';
+    currentPlanText = '';
+    showToast('Reset');
+  }
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(function(){ t.style.display = 'none'; }, 2000);
+}
+</script>
+</body>
+</html>

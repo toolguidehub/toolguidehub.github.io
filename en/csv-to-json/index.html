@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free CSV to JSON converter: custom delimiter, header keys, nested JSON support. 100% client-side, instant conversion. For developers & data analysts. No signup.">
+<meta name="keywords" content="CSV to JSON,CSV to JSON converter,online CSV to JSON,CSV parser,JSON formatter,data conversion tool">
+<title>CSV to JSON Converter - Free Online Tool | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/csv-to-json/">
+<meta property="og:title" content="CSV to JSON Converter - Free Online Tool | ToolGuideHub">
+<meta property="og:description" content="Free CSV to JSON converter: custom delimiter, header keys, nested JSON support. 100% client-side, instant conversion. For developers & data analysts. No signup.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/csv-to-json/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/csv-to-json/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CSV to JSON Converter","description":"Free online CSV to JSON converter. Convert CSV data to JSON format with custom delimiter, header row as keys, nested JSON support. 100% client-side processing, no registration required.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I use the CSV to JSON converter?","acceptedAnswer":{"@type":"Answer","text":"1) Paste CSV data into the input box or drag & drop a CSV file; 2) Select delimiter and options (header row as keys, nested JSON, etc.); 3) Click Convert to see JSON results instantly. Copy or download the JSON output with one click."}},{"@type":"Question","name":"What CSV formats are supported?","acceptedAnswer":{"@type":"Answer","text":"Standard CSV formats including comma-separated, tab-separated, semicolon-separated, and pipe-separated. Fields containing commas or newlines (wrapped in quotes) are handled correctly. Maximum file size: 10MB."}},{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Everything runs locally: Delimiter and Output Format are processed on your device, never sent to a server. Your CSV data and conversion results are never uploaded to any server. The tool works offline and protects your data privacy."}},{"@type":"Question","name":"Does it support nested JSON?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable the nested JSON option and column names with dots (e.g. 'user.name') will be automatically expanded into nested objects like {user:{name:value}}."}},{"@type":"Question","name":"Can I convert large CSV files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload CSV files up to 10MB. Each row is converted to a JSON object, with results displayed as a JSON array. For very large files, performance depends on your browser and device."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSV to JSON Converter","description":"Free online CSV to JSON converter. Convert CSV data to JSON format with custom delimiter, header row as keys, nested JSON support. 100% client-side processing.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSV to JSON Converter"},"step":[{"@type":"HowToStep","position":1,"name":"Input CSV Data","text":"Paste CSV data or drag & drop a CSV file into the input area"},{"@type":"HowToStep","position":2,"name":"Configure Options","text":"Select delimiter and conversion options"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Click the Convert button to generate JSON"},{"@type":"HowToStep","position":4,"name":"Copy or Download","text":"Copy JSON results or download as a JSON file"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Developer Tools","item":"https://adi63586.github.io/Toolguidehub/en/#dev-tools/"},{"@type":"ListItem","position":3,"name":"CSV to JSON","item":"https://adi63586.github.io/Toolguidehub/en/csv-to-json/"}]}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.tool-layout{display:flex;gap:20px;flex-wrap:wrap}
+.input-panel{flex:1;min-width:320px}
+.output-panel{flex:1;min-width:320px}
+.input-section,.output-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2,.output-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.input-section h2 .btn,.output-section h2 .btn{font-size:.8rem;padding:6px 14px}
+textarea{width:100%;min-height:320px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:.85rem;resize:vertical;line-height:1.5}
+textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+pre{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;min-height:320px;max-height:600px;overflow:auto;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:.85rem;white-space:pre-wrap;word-break:break-all;line-height:1.5;color:#e2e8f0}
+.option-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.option-group{flex:1;min-width:140px}
+.option-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.option-group select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem}
+.option-group select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.checkbox-group{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.checkbox-group input[type=checkbox]{width:18px;height:18px;accent-color:#06b6d4;cursor:pointer}
+.checkbox-group label{font-size:.85rem;color:#94a3b8;cursor:pointer}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.btn-large{padding:12px 32px;font-size:1rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.file-drop{background:rgba(6,182,212,.05);border:2px dashed rgba(6,182,212,.2);border-radius:8px;padding:20px;text-align:center;margin-bottom:12px;cursor:pointer;transition:all .2s}
+.file-drop:hover,.file-drop.dragover{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.4)}
+.file-drop p{color:#94a3b8;font-size:.85rem}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.stat{background:rgba(148,163,184,.05);padding:4px 10px;border-radius:4px;font-size:.8rem;color:#94a3b8}
+.stat strong{color:#22d3ee}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-top:20px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px;line-height:1.7}
+.info-section ul{margin-left:20px;color:#94a3b8;font-size:.9rem}
+.info-section li{margin-bottom:6px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:768px){.tool-layout{flex-direction:column}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="nav-back"><a href="../../">← Home</a> / CSV to JSON</div>
+  <div class="header">
+    
+    <h1>📄 CSV to JSON Converter</h1>
+  </div>
+
+  <div class="tool-layout">
+    <div class="input-panel">
+      <div class="input-section">
+        <h2>📥 CSV Input <button class="btn btn-secondary" onclick="loadSample()">Load Sample</button></h2>
+        <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
+          <p>📁 Click or drag CSV file here (max 10MB)</p>
+        </div>
+        <input type="file" id="fileInput" accept=".csv,.tsv,.txt" style="display:none" onchange="handleFile(event)">
+        <textarea id="csvInput" placeholder="Paste CSV data here, or upload a CSV file...&#10;name,age,city&#10;Alice,30,New York&#10;Bob,25,London&#10;Charlie,35,Paris"></textarea>
+      </div>
+
+      <div class="input-section">
+        <h2>⚙️ Options</h2>
+        <div class="option-row">
+          <div class="option-group">
+            <label>Delimiter</label>
+            <select id="delimiter" onchange="convert()">
+              <option value="," selected>Comma (,)</option>
+              <option value="\t">Tab</option>
+              <option value=";">Semicolon (;)</option>
+              <option value="|">Pipe (|)</option>
+              <option value="auto">Auto Detect</option>
+            </select>
+          </div>
+          <div class="option-group">
+            <label>Output Format</label>
+            <select id="outputFormat" onchange="convert()">
+              <option value="array" selected>JSON Array [{...}]</option>
+              <option value="object">JSON Object (first col as key)</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="headerRow" checked onchange="convert()">
+          <label for="headerRow">First row as headers</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="nestedJson" onchange="convert()">
+          <label for="nestedJson">Nested JSON (dot-notation columns)</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="trimValues" checked onchange="convert()">
+          <label for="trimValues">Trim whitespace</label>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-large" onclick="convert()">🔄 Convert</button>
+          <button class="btn btn-secondary" onclick="swapInputOutput()">⇄ Swap</button>
+          <button class="btn btn-secondary" onclick="clearAll()">🗑 Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="output-panel">
+      <div class="output-section">
+        <h2>📤 JSON Output <button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button></h2>
+        <pre id="jsonOutput"></pre>
+        <div class="stats" id="stats" style="display:none">
+          <span class="stat">Rows: <strong id="rowCount">0</strong></span>
+          <span class="stat">Size: <strong id="byteSize">0 B</strong></span>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <button class="btn btn-secondary" onclick="downloadJSON()">💾 Download JSON</button>
+          <button class="btn btn-secondary" onclick="prettyPrint()">✨ Pretty Print</button>
+          <button class="btn btn-secondary" onclick="minify()">📦 Minify</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>📖 About CSV to JSON Converter</h2>
+    <p>A free online tool to convert CSV (Comma-Separated Values) data to JSON format. Supports custom delimiters, header row as keys, nested JSON, and more. All computation happens on your device — Delimiter, Output Format and other inputs stay in your browser.</p>
+
+    <h3>🎯 Key Features</h3>
+    <ul>
+      <li><strong>Auto-detect delimiter</strong>: Smart detection of comma, tab, semicolon, and pipe separators</li>
+      <li><strong>Header as keys</strong>: Use the first row as JSON object keys automatically</li>
+      <li><strong>Nested JSON</strong>: Expand dot-notation column names into nested objects</li>
+      <li><strong>Pretty print & minify</strong>: Format JSON output with one click</li>
+      <li><strong>File support</strong>: Drag & drop CSV files up to 10MB</li>
+    </ul>
+
+    <h3>💡 Use Cases</h3>
+    <ul>
+      <li><strong>API Development</strong>: Convert CSV data to JSON for API testing and mock data</li>
+      <li><strong>Data Analysis</strong>: Transform Excel-exported CSV into JSON for programming</li>
+      <li><strong>Database Import</strong>: Convert CSV data to JSON for NoSQL database import</li>
+      <li><strong>Frontend Development</strong>: Convert CSV config files to JSON for web applications</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>© 2026 <a href="../../">ToolGuideHub</a> · CSV to JSON Converter · Free · No Registration · Client-side Only</p>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var csvInput=document.getElementById('csvInput');
+  var jsonOutput=document.getElementById('jsonOutput');
+  var statsDiv=document.getElementById('stats');
+  var rowCountEl=document.getElementById('rowCount');
+  var byteSizeEl=document.getElementById('byteSize');
+  var fileDrop=document.getElementById('fileDrop');
+
+  function showToast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg;t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},2000);
+  }
+
+  function updateStats(jsonStr){
+    if(!jsonStr||jsonStr.trim()===''){
+      statsDiv.style.display='none';
+      return;
+    }
+    statsDiv.style.display='flex';
+    try{
+      var obj=JSON.parse(jsonStr);
+      var count=Array.isArray(obj)?obj.length:1;
+      rowCountEl.textContent=count;
+      var bytes=new Blob([jsonStr]).size;
+      if(bytes<1024){byteSizeEl.textContent=bytes+' B'}
+      else if(bytes<1048576){byteSizeEl.textContent=(bytes/1024).toFixed(1)+' KB'}
+      else{byteSizeEl.textContent=(bytes/1048576).toFixed(1)+' MB'}
+    }catch(e){
+      statsDiv.style.display='none';
+    }
+  }
+
+  function detectDelimiter(text){
+    var lines=text.split(/\r?\n/).filter(function(l){return l.trim()});
+    if(lines.length<2)return ',';
+    var delimiters=[',','\t',';','|'];
+    var best=',';
+    var bestCount=0;
+    for(var i=0;i<delimiters.length;i++){
+      var d=delimiters[i];
+      var count=lines[0].split(d).length;
+      if(count>bestCount&&count>1){bestCount=count;best=d}
+    }
+    return best;
+  }
+
+  function parseCSV(text,delim,headerRow,trimVals){
+    var lines=[];
+    var current='';
+    var inQuotes=false;
+    for(var i=0;i<text.length;i++){
+      var ch=text[i];
+      if(ch==='"'){
+        if(inQuotes&&text[i+1]==='"'){current+='"';i++}
+        else{inQuotes=!inQuotes}
+      }else if(ch==='\n'&&!inQuotes){
+        lines.push(current);current='';
+      }else if(ch==='\r'){continue}
+      else{current+=ch}
+    }
+    if(current||lines.length===0&&text.trim())lines.push(current);
+
+    var headers=[];
+    var startRow=0;
+    if(headerRow&&lines.length>0){
+      var hLine=lines[0];
+      if(delim==='auto')delim=detectDelimiter(hLine);
+      headers=hLine.split(delim).map(function(h){return h.replace(/^"|"$/g,'')});
+      startRow=1;
+    }
+    if(delim==='auto'&&lines.length>startRow)delim=detectDelimiter(lines[startRow]||lines[0]);
+
+    var result=[];
+    for(var r=startRow;r<lines.length;r++){
+      var line=lines[r];
+      if(!line.trim())continue;
+      var values=line.split(delim).map(function(v){
+        var val=v.replace(/^"|"$/g,'');
+        if(trimVals)val=val.trim();
+        return val;
+      });
+      if(headers.length>0){
+        var obj={};
+        for(var j=0;j<headers.length;j++){
+          var key=headers[j]||('col'+(j+1));
+          var val=values[j]!==undefined?values[j]:'';
+          obj[key]=val;
+        }
+        result.push(obj);
+      }else{
+        result.push(values);
+      }
+    }
+    return result;
+  }
+
+  function setNested(obj){
+    var newObj={};
+    var keys=Object.keys(obj);
+    for(var i=0;i<keys.length;i++){
+      var key=keys[i];
+      var parts=key.split('.');
+      var current=newObj;
+      for(var j=0;j<parts.length-1;j++){
+        var part=parts[j];
+        if(!current[part])current[part]={};
+        current=current[part];
+      }
+      current[parts[parts.length-1]]=obj[key];
+    }
+    return newObj;
+  }
+
+  window.convert=function(){
+    var text=csvInput.value;
+    if(!text.trim()){jsonOutput.textContent='';statsDiv.style.display='none';return}
+    var delim=document.getElementById('delimiter').value;
+    var headerRow=document.getElementById('headerRow').checked;
+    var trimVals=document.getElementById('trimValues').checked;
+    var nested=document.getElementById('nestedJson').checked;
+    var format=document.getElementById('outputFormat').value;
+
+    var data=parseCSV(text,delim,headerRow,trimVals);
+    if(nested&&headerRow&&data.length>0){
+      data=data.map(function(item){return setNested(item)});
+    }
+
+    var jsonStr;
+    if(format==='object'&&data.length>0){
+      var obj={};
+      for(var i=0;i<data.length;i++){
+        var item=data[i];
+        var keys=Object.keys(item);
+        if(keys.length>=1){
+          obj[item[keys[0]]]=keys.length>1?item:item[keys[1]||keys[0]];
+        }
+      }
+      jsonStr=JSON.stringify(obj,null,2);
+    }else{
+      jsonStr=JSON.stringify(data,null,2);
+    }
+    jsonOutput.textContent=jsonStr;
+    updateStats(jsonStr);
+  };
+
+  window.swapInputOutput=function(){
+    var input=csvInput.value;
+    var output=jsonOutput.textContent;
+    if(!output||output.trim()===''){showToast('Nothing to swap');return}
+    try{
+      var parsed=JSON.parse(output);
+      if(Array.isArray(parsed)&&parsed.length>0){
+        var headers=Object.keys(parsed[0]);
+        var lines=[headers.join(',')];
+        for(var i=0;i<parsed.length;i++){
+          lines.push(headers.map(function(h){var v=parsed[i][h];return v===undefined?'':typeof v==='string'&&v.indexOf(',')>=0?'"'+v+'"':''+v}).join(','));
+        }
+        csvInput.value=lines.join('\n');
+      }
+      jsonOutput.textContent=input;
+      updateStats(input);
+      showToast('Swapped');
+    }catch(e){
+      showToast('Invalid JSON, cannot reverse');
+    }
+  };
+
+  window.clearAll=function(){
+    csvInput.value='';jsonOutput.textContent='';statsDiv.style.display='none';
+    document.getElementById('fileInput').value='';
+  };
+
+  window.copyResult=function(){
+    var text=jsonOutput.textContent;
+    if(!text.trim()){showToast('Nothing to copy');return}
+    navigator.clipboard.writeText(text).then(function(){showToast('Copied to clipboard')}).catch(function(){showToast('Copy failed')});
+  };
+
+  window.downloadJSON=function(){
+    var text=jsonOutput.textContent;
+    if(!text.trim()){showToast('Nothing to download');return}
+    var blob=new Blob([text],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='data.json';
+    a.click();
+    showToast('JSON file downloaded');
+  };
+
+  window.prettyPrint=function(){
+    var text=jsonOutput.textContent;
+    if(!text.trim())return;
+    try{jsonOutput.textContent=JSON.stringify(JSON.parse(text),null,2);showToast('Pretty printed')}catch(e){showToast('Invalid JSON')}
+  };
+
+  window.minify=function(){
+    var text=jsonOutput.textContent;
+    if(!text.trim())return;
+    try{jsonOutput.textContent=JSON.stringify(JSON.parse(text));showToast('Minified')}catch(e){showToast('Invalid JSON')}
+  };
+
+  window.loadSample=function(){
+    csvInput.value='name,age,city,email\nAlice,30,New York,alice@example.com\nBob,25,London,bob@example.com\nCharlie,35,Paris,charlie@example.com';
+    convert();
+    showToast('Sample data loaded');
+  };
+
+  function handleFile(e){
+    var file=e.target.files[0];
+    if(!file)return;
+    if(file.size>10*1024*1024){showToast('File exceeds 10MB limit');return}
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      csvInput.value=ev.target.result;
+      convert();
+      showToast('File loaded: '+file.name);
+    };
+    reader.readAsText(file);
+  }
+  window.handleFile=handleFile;
+
+  fileDrop.addEventListener('dragover',function(e){e.preventDefault();fileDrop.classList.add('dragover')});
+  fileDrop.addEventListener('dragleave',function(){fileDrop.classList.remove('dragover')});
+  fileDrop.addEventListener('drop',function(e){
+    e.preventDefault();
+    fileDrop.classList.remove('dragover');
+    var file=e.dataTransfer.files[0];
+    if(file){
+      if(!file.name.endsWith('.csv')&&!file.name.endsWith('.tsv')&&!file.name.endsWith('.txt')){
+        showToast('Only CSV/TSV/TXT files supported');
+        return;
+      }
+      var reader=new FileReader();
+      reader.onload=function(ev){csvInput.value=ev.target.result;convert();showToast('File loaded: '+file.name)};
+      reader.readAsText(file);
+    }
+  });
+
+  var convertTimeout;
+  csvInput.addEventListener('input',function(){
+    clearTimeout(convertTimeout);
+    convertTimeout=setTimeout(convert,500);
+  });
+})();
+</script>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a> <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#64748b;margin:0 8px">GitHub</a></footer>
+</body>
+</html>

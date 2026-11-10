@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>SIP Calculator — ToolGuideHub</title>
+<meta name="description" content="Free online SIP calculator: enter monthly investment, expected annual return and investment period to get future value, total gain and a yearly growth chart.">
+<meta property="og:title" content="SIP Calculator — ToolGuideHub">
+<meta property="og:description" content="Free online SIP calculator: enter monthly investment, expected annual return and investment period to get future value, total gain and a yearly growth chart.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/sip-calculator/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/sip-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SIP Calculator","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"Based on standard math formulas, results are precise."}},{"@type":"Question","name":"Do I need to download anything?","acceptedAnswer":{"@type":"Answer","text":"No, it works directly in your browser."}}]}</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());</script>
+<style>
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --primary: #06b6d4;
+  --primary-hover: #22d3ee;
+  --border: rgba(148,163,184,.1);
+  --danger: #ef4444;
+  --success: #10b981;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+header a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 18px; }
+.lang-switch a { padding: 6px 12px; border-radius: 6px; font-size: .85rem; color: var(--text-secondary); border: 1px solid var(--border); }
+.lang-switch a:hover { color: var(--primary); border-color: var(--primary); }
+main { flex: 1; max-width: 720px; margin: 0 auto; padding: 32px 20px 48px; width: 100%; }
+h1 { font-size: 28px; margin-bottom: 8px; text-align: center; }
+.subtitle { color: var(--text-secondary); text-align: center; margin-bottom: 24px; font-size: 15px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.form-group input, .form-group select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 15px; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+.btn { display: inline-block; padding: 12px 28px; border-radius: 8px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; background: var(--primary); color: #fff; transition: background .2s; }
+.btn:hover { background: var(--primary-hover); }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+@media (max-width: 480px) { .result-grid { grid-template-columns: 1fr; } }
+.stat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stat-card .stat-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+.stat-card .stat-value { font-size: 20px; font-weight: 700; color: var(--primary-hover); }
+.stat-card .stat-value.green { color: var(--success); }
+.stat-card .stat-value.gray { color: var(--text); }
+.chart-wrap { margin-top: 16px; }
+.chart-wrap canvas { width: 100%; height: 240px; background: var(--bg); border-radius: 10px; border: 1px solid var(--border); }
+.chart-legend { display: flex; gap: 20px; justify-content: center; margin-top: 10px; font-size: 13px; color: var(--text-secondary); }
+.legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.schedule-wrap { margin-top: 16px; max-height: 260px; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; }
+.schedule-wrap table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.schedule-wrap th { position: sticky; top: 0; background: var(--card-bg); color: var(--text-secondary); font-weight: 600; padding: 8px 12px; text-align: right; }
+.schedule-wrap td { padding: 6px 12px; text-align: right; border-top: 1px solid var(--border); color: var(--text); }
+.schedule-wrap td:first-child, .schedule-wrap th:first-child { text-align: left; }
+.toast { position: fixed; top: 20px; right: 20px; background: var(--danger); color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 1000; opacity: 0; transform: translateY(-10px); transition: all .3s; }
+.toast.show { opacity: 1; transform: translateY(0); }
+footer { text-align: center; padding: 20px; color: var(--text-secondary); font-size: 13px; border-top: 1px solid var(--border); }
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<a href="../index.html">ToolGuideHub</a>
+
+</header>
+<main>
+<h1>📈 SIP Calculator</h1>
+<p class="subtitle">Enter monthly investment, expected annual return and investment period to get future value, total gain and a yearly growth chart. Compound interest with annual schedule for your wealth planning.</p>
+<div class="card">
+  <div class="form-group"><label>Monthly Investment ($)</label><input type="number" id="v1" placeholder="e.g. 1000" step="any"></div>
+  <div class="form-group"><label>Expected Annual Return (%)</label><input type="number" id="v2" placeholder="e.g. 8" step="any"></div>
+  <div class="form-group"><label>Investment Period (years)</label><input type="number" id="v3" placeholder="e.g. 10" step="any" min="1" max="50"></div>
+  <div class="form-group"><label>Initial Principal ($, optional)</label><input type="number" id="v4" placeholder="e.g. 50000" step="any"></div>
+  <button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn" onclick="calc()">🧮 Calculate</button>
+</div>
+<div class="card" id="result" style="display:none">
+  <div class="result-grid">
+    <div class="stat-card"><div class="stat-label">Future Value</div><div class="stat-value" id="rv">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total Invested</div><div class="stat-value gray" id="rinv">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total Gain</div><div class="stat-value green" id="rgain">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total Gain %</div><div class="stat-value" id="rrate">—</div></div>
+  </div>
+  <div class="chart-wrap">
+    <canvas id="chart" width="680" height="240"></canvas>
+    <div class="chart-legend"><span><span class="legend-dot" style="background:#64748b"></span>Total invested</span><span><span class="legend-dot" style="background:#10b981"></span>Account value</span></div>
+  </div>
+  <div class="schedule-wrap" id="schedWrap">
+    <table><thead><tr><th>Year</th><th>Total invested</th><th>Account value</th><th>Gain</th></tr></thead><tbody id="schedBody"></tbody></table>
+  </div>
+</div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+<div class="card">
+<h2 style="font-size:18px;margin-bottom:12px">📖 How It Works</h2>
+<p style="color:var(--text-secondary);font-size:14px;line-height:1.8">SIP compound interest formula (monthly):<code>Month-end value = (previous value + monthly investment) × (1 + monthly rate)</code>, where monthly rate = annual return ÷ 12. The chart compares cumulative investment vs account value year by year.</p>
+</div>
+
+</main>
+<footer><p>© 2024 ToolGuideHub · All local · Data never leaves your browser</p></footer>
+<div class="toast" id="toast"></div>
+<script>
+function fmt(n){return Math.round(n).toLocaleString('en-US')}
+function show(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2500)}
+function calc(){
+  var a=parseFloat(document.getElementById('v1').value)||0;
+  var b=parseFloat(document.getElementById('v2').value)||0;
+  var c=parseInt(document.getElementById('v3').value)||0;
+  var d=parseFloat(document.getElementById('v4').value)||0;
+  if(a<=0||c<=0){show('Please enter a valid amount and period');return}
+  if(c>50){show('Investment period should not exceed 50 years');return}
+  var monthly=a, rate=b/100/12, years=c, initial=d;
+  var fv=initial, invested=initial;
+  var series=[{year:0,invested:initial,value:initial}];
+  for(var i=1;i<=years;i++){
+    for(var m=0;m<12;m++){
+      fv=(fv+monthly)*(1+rate);
+      invested+=monthly;
+    }
+    series.push({year:i,invested:invested,value:fv});
+  }
+  var gain=fv-invested;
+  var ratePct=invested>0?(gain/invested*100):0;
+  document.getElementById('result').style.display='block';
+  document.getElementById('rv').textContent='$'+fmt(fv);
+  document.getElementById('rinv').textContent='$'+fmt(invested);
+  document.getElementById('rgain').textContent='$'+fmt(gain);
+  document.getElementById('rrate').textContent=ratePct.toFixed(1)+'%';
+  drawChart(series);
+  buildSchedule(series);
+}
+function drawChart(series){
+  var canvas=document.getElementById('chart');
+  var ctx=canvas.getContext('2d');
+  var W=canvas.width,H=canvas.height,padL=64,padR=16,padT=20,padB=28;
+  ctx.clearRect(0,0,W,H);
+  var maxV=0;
+  for(var i=0;i<series.length;i++){if(series[i].value>maxV)maxV=series[i].value}
+  if(maxV<=0)return;
+  // 网格 + Y轴
+  ctx.strokeStyle='rgba(148,163,184,.15)';
+  ctx.fillStyle='#94a3b8';
+  ctx.font='11px sans-serif';
+  ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4;
+    var val=maxV*(4-g)/4;
+    ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    ctx.fillText(formatY(val),padL-8,y+4);
+  }
+  function formatY(v){if(v>=1e8)return (v/1e8).toFixed(1)+'M';if(v>=1e4)return (v/1e4).toFixed(0)+'k';return v.toFixed(0)}
+  // X轴标签
+  ctx.textAlign='center';
+  var n=series.length-1;
+  if(n>0){
+    for(var g=0;g<=Math.min(n,8);g++){
+      var idx=Math.round(g*n/8);
+      var x=padL+(W-padL-padR)*idx/n;
+      ctx.fillText(series[idx].year+'y',x,H-8);
+    }
+  }
+  // 两条线
+  function plotLine(getVal,color){
+    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+    for(var i=0;i<series.length;i++){
+      var x=padL+(W-padL-padR)*i/n;
+      var y=padT+(H-padT-padB)*(1-series[i][getVal]/maxV);
+      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+  plotLine('invested','#64748b');
+  plotLine('value','#10b981');
+}
+function buildSchedule(series){
+  var tb=document.getElementById('schedBody');
+  tb.innerHTML='';
+  for(var i=1;i<series.length;i++){
+    var s=series[i],p=series[i-1];
+    var yrGain=s.value-p.value;
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>Year '+s.year+'</td><td>$'+fmt(s.invested)+'</td><td>$'+fmt(s.value)+'</td><td style="color:#10b981">+$'+fmt(yrGain)+'</td>';
+    tb.appendChild(tr);
+  }
+}
+
+function fillExample(){
+  var vals = [["v1", "1000"], ["v2", "8"], ["v3", "10"], ["v4", "50000"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calc();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>

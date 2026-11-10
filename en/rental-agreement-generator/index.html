@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate a standard rental contract for a house or equipment by filling in lessor, lessee, term, and rent.">
+<title>Rental Agreement Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/rental-agreement-generator/">
+<meta property="og:title" content="Free Online Rental Agreement Generator | Standard Lease Templates">
+<meta property="og:description" content="Generate a standard rental contract for a house or equipment by filling in lessor, lessee, term, and rent.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/rental-agreement-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Rental Agreement Generator","description":"Free online rental agreement generator. Fill in lessor, lessee, lease term, rent and automatically generate standard rental contract template. Suitable for house rental, equipment rental. Pure frontend, no data upload.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Rental Agreement Generator","item":"https://adi63586.github.io/Toolguidehub/en/rental-agreement-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Rental Agreement Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the Rental Agreement Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Rental Agreement Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Rental Type and Agreement Date are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Rental Agreement Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Rental Agreement Generator","description":"Step-by-step guide for using Rental Agreement Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Rental Agreement Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+.hero{background:#1e293b;border-radius:12px;padding:16px 20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.hero p{color:#94a3b8;font-size:.9rem}
+.badge{display:inline-block;margin-top:8px;padding:2px 10px;border-radius:4px;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.75rem}
+.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.input-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.input-group{flex:1;min-width:140px}
+.input-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.input-group input,.input-group select,.input-group textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:inherit}
+.input-group input:focus,.input-group select:focus,.input-group textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.input-group textarea{min-height:120px;resize:vertical}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1);display:none}
+.result-section.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
+.result-card{background:#0f172a;border-radius:8px;padding:16px;text-align:center}
+.result-card .label{font-size:.75rem;color:#64748b;margin-bottom:4px}
+.result-card .value{font-size:1.3rem;color:#f1f5f9;font-weight:600}
+.result-card .unit{font-size:.75rem;color:#64748b;margin-top:2px}
+.result-card.highlight .value{color:#22d3ee}
+.preview-box{background:#0f172a;color:#333;border-radius:8px;padding:24px;margin-top:12px;min-height:200px;border:1px solid rgba(148,163,184,.3);white-space:pre-wrap;font-family:Georgia,serif;line-height:1.8}
+.code-box{background:#0f172a;border-radius:8px;padding:16px;margin-top:12px;border:1px solid rgba(148,163,184,.2);font-family:monospace;font-size:.85rem;color:#e2e8f0;white-space:pre-wrap;overflow-x:auto;max-height:400px;overflow-y:auto}
+.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{margin-left:20px;color:#94a3b8;font-size:.9rem}
+.info-section li{margin-bottom:6px}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem;line-height:1.7}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.ad-slot.ad-sidebar{max-width:300px}
+.color-option{display:inline-block;width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid transparent;margin:4px;transition:border-color .2s}
+.color-option.active{border-color:#22d3ee}
+.color-option:hover{border-color:#94a3b8}
+.template-select{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.template-opt{padding:8px 16px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;cursor:pointer;font-size:.85rem;color:#94a3b8;transition:all .2s}
+.template-opt.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:#22d3ee}
+.stat-row{display:flex;gap:12px;flex-wrap:wrap}
+.stat-item{flex:1;min-width:100px;background:#0f172a;border-radius:8px;padding:12px;text-align:center}
+.stat-item .num{font-size:1.5rem;color:#22d3ee;font-weight:700}
+.stat-item .lbl{font-size:.75rem;color:#64748b;margin-top:4px}
+@media(max-width:600px){.input-row{flex-direction:column;gap:8px}.input-group{min-width:100%}.result-grid{grid-template-columns:repeat(2,1fr)}.stat-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.header{flex-direction:column;gap:8px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/rental-agreement-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📋 Rental Agreement Generator</h1></div>
+<p class="nav-back"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; Rental Agreement Generator</p>
+<div class="hero"><p>Free online rental agreement generator. Fill in lessor, lessee, lease term, rent and generate standard rental contract. For house rental, equipment rental. | No registration · No data upload · Reference only</p><span class="badge">Zero dependencies · Works offline</span></div>
+
+<div class="info-section">
+  <h2>Tutorial</h2>
+  <p>Select rental type, fill in lessor and lessee info, property description, rent amount, deposit, lease term, and generate a complete agreement</p>
+</div>
+
+<div class="input-section">
+<h2>Fill in Details</h2>
+<div class="input-row">
+<div class="input-group"><label>Rental Type</label><select id="raType"><option value="residential">Residential Property</option><option value="commercial">Commercial Property</option><option value="equipment">Equipment</option><option value="vehicle">Vehicle</option></select></div>
+<div class="input-group"><label>Agreement Date</label><input type="date" id="raDate"></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Lessor (Landlord) Name</label><input type="text" id="raLessor" placeholder="Full name of lessor"></div>
+<div class="input-group"><label>Lessor ID Number</label><input type="text" id="raLessorId" placeholder="ID or registration number"></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Lessee (Tenant) Name</label><input type="text" id="raLessee" placeholder="Full name of lessee"></div>
+<div class="input-group"><label>Lessee ID Number</label><input type="text" id="raLesseeId" placeholder="ID or registration number"></div>
+</div>
+<div class="input-row">
+<div class="input-group" style="min-width:100%"><label>Property / Rental Item Description</label><input type="text" id="raProperty" placeholder="e.g. 123 Main Street, Apt 4B, Springfield"></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Monthly Rent ($)</label><input type="number" id="raRent" placeholder="e.g. 1500" min="0"></div>
+<div class="input-group"><label>Deposit ($)</label><input type="number" id="raDeposit" placeholder="e.g. 3000" min="0"></div>
+<div class="input-group"><label>Lease Term (months)</label><input type="number" id="raTerm" placeholder="e.g. 12" min="1"></div>
+</div>
+<div class="input-row">
+<div class="input-group"><label>Payment Frequency</label><select id="raPayMethod"><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="semi-annually">Semi-Annually</option><option value="annually">Annually</option></select></div>
+<div class="input-group"><label>Start Date</label><input type="date" id="raStartDate"></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn btn-primary" onclick="raGenerate()">Generate Agreement</button>
+<button class="btn btn-secondary" onclick="raCopy()">📋 Copy</button>
+<button class="btn btn-success" onclick="raDownload()">⬇️ Download TXT</button>
+</div>
+</div>
+
+<div class="result-section" id="raResult">
+<h2>Agreement Preview</h2>
+<div class="preview-box" id="raPreview" style="color:#e2e8f0;font-family:Georgia,serif"></div>
+</div>
+
+<div class="info-section">
+  <h2>FAQ</h2>
+  <div class="faq-item"><h3>Is the generated agreement legally binding?</h3><p>The agreement generated is for reference only and does not constitute legal advice. It is recommended to have it reviewed by a professional lawyer before signing.</p></div>
+  <div class="faq-item"><h3>What rental types are supported?</h3><p>Supports house rental (residential/commercial), equipment rental, vehicle rental and more, each with corresponding clause templates.</p></div>
+  <div class="faq-item"><h3>Is personal info secure?</h3><p>All data is processed locally in your browser only, never uploaded to any server. Your information is absolutely secure.</p></div>
+</div>
+</main>
+<div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../index.html">Home</a>
+<a href="../index.html#tools">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../privacy/">Privacy Policy</a>
+<a href="../terms/">Terms of Service</a>
+<a href="../../en/rental-agreement-generator/">CN</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.85rem">Rental Agreement Generator | No registration · No data upload</p>
+
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+var raResultText='';
+
+function fmtDate(d){
+  if(!d)return '________';
+  var parts=d.split('-');
+  if(parts.length!==3)return d;
+  return parts[0]+'-'+parts[1]+'-'+parts[2];
+}
+
+function addMonths(dateStr,months){
+  if(!dateStr)return '';
+  var parts=dateStr.split('-');
+  if(parts.length!==3)return '';
+  var dt=new Date(parseInt(parts[0]),parseInt(parts[1])-1,parseInt(parts[2]));
+  dt.setMonth(dt.getMonth()+months);
+  return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+}
+
+function raGenerate(){
+  var type=document.getElementById('raType').value;
+  var date=document.getElementById('raDate').value;
+  var lessor=document.getElementById('raLessor').value||'[Lessor Name]';
+  var lessorId=document.getElementById('raLessorId').value||'[ID Number]';
+  var lessee=document.getElementById('raLessee').value||'[Lessee Name]';
+  var lesseeId=document.getElementById('raLesseeId').value||'[ID Number]';
+  var property=document.getElementById('raProperty').value||'[Property Description]';
+  var rent=parseInt(document.getElementById('raRent').value)||0;
+  var deposit=parseInt(document.getElementById('raDeposit').value)||0;
+  var term=parseInt(document.getElementById('raTerm').value)||12;
+  var payMethod=document.getElementById('raPayMethod').value;
+  var startDate=document.getElementById('raStartDate').value;
+
+  var typeNames={residential:'RESIDENTIAL LEASE AGREEMENT',commercial:'COMMERCIAL LEASE AGREEMENT',equipment:'EQUIPMENT RENTAL AGREEMENT',vehicle:'VEHICLE RENTAL AGREEMENT'};
+  var typeName=typeNames[type]||'LEASE AGREEMENT';
+
+  var lines=[];
+  lines.push(typeName);
+  lines.push('');
+  lines.push('Reference No.: __________');
+  lines.push('');
+  lines.push('This Lease Agreement ("Agreement") is made and entered into on '+fmtDate(date)+', by and between:');
+  lines.push('');
+  lines.push('LESSOR (Party A): '+lessor);
+  lines.push('ID/Registration No.: '+lessorId);
+  lines.push('');
+  lines.push('LESSEE (Party B): '+lessee);
+  lines.push('ID/Registration No.: '+lesseeId);
+  lines.push('');
+  lines.push('WHEREAS, Party A agrees to lease the property/item described below to Party B, and Party B agrees to lease the same from Party A under the following terms and conditions:');
+  lines.push('');
+  lines.push('ARTICLE 1 - LEASED PROPERTY');
+  lines.push('Party A leases to Party B the following property/item: '+property);
+  lines.push('');
+  lines.push('ARTICLE 2 - LEASE TERM');
+  lines.push('The lease term shall be '+term+' months, commencing on '+fmtDate(startDate)+' and ending on '+fmtDate(addMonths(startDate,term))+'.');
+  lines.push('');
+  lines.push('ARTICLE 3 - RENT AND PAYMENT');
+  lines.push('1. The monthly rent shall be $'+rent.toLocaleString()+'.');
+  lines.push('2. Payment frequency: '+payMethod+'. Party B shall pay the rent before the ____ day of each payment period.');
+  lines.push('3. Party B shall pay the rent to Party A at the designated account.');
+  lines.push('');
+  lines.push('ARTICLE 4 - DEPOSIT');
+  lines.push('Party B shall pay a security deposit of $'+deposit.toLocaleString()+' on the date of signing this Agreement. Upon expiration or termination of the lease, if Party B has no breach, Party A shall refund the deposit within ____ days after Party B returns the property.');
+  lines.push('');
+  lines.push('ARTICLE 5 - PARTY A RIGHTS AND OBLIGATIONS');
+  lines.push('1. Party A shall deliver the property on time and ensure it is fit for the agreed purpose.');
+  lines.push('2. Party A warrants that the property is free from ownership disputes.');
+  lines.push('3. Party A is responsible for structural repairs of the property.');
+  lines.push('');
+  lines.push('ARTICLE 6 - PARTY B RIGHTS AND OBLIGATIONS');
+  lines.push('1. Party B shall pay rent and related fees on time.');
+  lines.push('2. Party B shall use the property reasonably and shall not sublease without consent.');
+  lines.push('3. Party B shall take care of the property and compensate for damages caused by Party B.');
+  lines.push('');
+  lines.push('ARTICLE 7 - TERMINATION');
+  lines.push('1. This Agreement may be terminated by mutual agreement of both parties.');
+  lines.push('2. Either party may terminate this Agreement if the other party breaches the Agreement.');
+  lines.push('3. This Agreement may be terminated due to force majeure events.');
+  lines.push('');
+  lines.push('ARTICLE 8 - LIABILITY FOR BREACH');
+  lines.push('Either party who breaches this Agreement shall pay a penalty of $____ and compensate the non-breaching party for resulting losses.');
+  lines.push('');
+  lines.push('ARTICLE 9 - DISPUTE RESOLUTION');
+  lines.push('Disputes arising from this Agreement shall be resolved through negotiation. If negotiation fails, either party may file a lawsuit with the court of competent jurisdiction.');
+  lines.push('');
+  lines.push('ARTICLE 10 - MISCELLANEOUS');
+  lines.push('1. Matters not covered in this Agreement may be addressed in a supplementary agreement.');
+  lines.push('2. This Agreement is made in two copies, one for each party, with equal legal effect.');
+  lines.push('3. This Agreement shall take effect upon signing by both parties.');
+  lines.push('');
+  lines.push('');
+  lines.push('LESSOR (Party A): ________________     LESSEE (Party B): ________________');
+  lines.push('');
+  lines.push('Date: '+fmtDate(date)+'                      Date: '+fmtDate(date));
+  lines.push('');
+  lines.push('');
+  lines.push('[Disclaimer] This agreement is auto-generated by an online tool for reference only and does not constitute legal advice. It is recommended to have it reviewed by a professional lawyer before signing.');
+
+  raResultText=lines.join('\n');
+  document.getElementById('raPreview').textContent=raResultText;
+  document.getElementById('raResult').classList.add('show');
+  showToast('Agreement generated');
+}
+
+function raCopy(){
+  if(!raResultText){showToast('Please generate the agreement first');return;}
+  navigator.clipboard.writeText(raResultText).then(function(){showToast('Copied to clipboard');})['catch'](function(){showToast('Copy failed');});
+}
+
+function raDownload(){
+  if(!raResultText){showToast('Please generate the agreement first');return;}
+  var blob=new Blob([raResultText],{type:'text/plain;charset=utf-8'});
+  var a=document.createElement('a');
+  a.download='rental-agreement.txt';
+  a.href=URL.createObjectURL(blob);
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+(function(){
+  var today=new Date();
+  var todayStr=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  document.getElementById('raDate').value=todayStr;
+  document.getElementById('raStartDate').value=todayStr;
+})();
+
+function fillExample(){
+  var vals = [["raProperty", "123"], ["raRent", "1500"], ["raDeposit", "3000"], ["raTerm", "12"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  raGenerate();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+
+
+
+</body>
+</html>

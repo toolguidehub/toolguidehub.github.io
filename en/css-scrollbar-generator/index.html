@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Visual CSS scrollbar generator: design custom scrollbars with colors, width, radius. Live preview + copy CSS code instantly. For web designers. No signup.">
+<meta name="keywords" content="CSS scrollbar generator,online tool,free,::-webkit-scrollbar,scrollbar style,custom scrollbar,scrollbar css,scrollbar design">
+<title>CSS Scrollbar Generator - Visual Custom Scrollbar Styler</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/css-scrollbar-generator/">
+<meta property="og:title" content="CSS Scrollbar Generator - Visual Custom Scrollbar Styler">
+<meta property="og:description" content="Visual CSS scrollbar generator: design custom scrollbars with colors, width, radius. Live preview + copy CSS code instantly. For web designers. No signup.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/css-scrollbar-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/css-scrollbar-generator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CSS Scrollbar Generator","description":"Free online CSS scrollbar style generator. Visually customize web page scrollbar appearance. Adjust width, colors, border-radius, and borders with live preview. One-click copy CSS code. No registration required.","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which browsers does the CSS scrollbar generator support?","acceptedAnswer":{"@type":"Answer","text":"The ::-webkit-scrollbar pseudo-elements work in Chrome, Edge, Safari, Opera, and other WebKit/Blink-based browsers. Firefox uses scrollbar-width and scrollbar-color properties. This tool generates compatible code for both."}},{"@type":"Question","name":"How do I apply custom scrollbar styles to my website?","acceptedAnswer":{"@type":"Answer","text":"Copy the generated CSS code and paste it into your website's stylesheet. It will automatically apply to all scrollbars. To target a specific element, prepend its selector (e.g., .custom-box::-webkit-scrollbar)."}},{"@type":"Question","name":"Is the CSS scrollbar generator completely free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no registration or login required. All operations happen locally in your browser. No data is collected or uploaded."}},{"@type":"Question","name":"Which parts of the scrollbar can I customize?","acceptedAnswer":{"@type":"Answer","text":"You can customize all pseudo-elements: the scrollbar track, thumb, buttons, and corner. Adjust width, background color, border, border-radius, and hover effects. This tool provides a visual interface with live preview."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"CSS Scrollbar Generator","item":"https://adi63586.github.io/Toolguidehub/en/css-scrollbar-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use CSS Scrollbar Generator","description":"Step-by-step guide for using CSS Scrollbar Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"CSS Scrollbar Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>
+:root {
+  --primary: #06b6d4;
+  --primary-light: #22d3ee;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --border: rgba(148,163,184,.15);
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #22d3ee;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:var(--surface);border-radius:8px;padding:4px;border:1px solid var(--border)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:var(--text-secondary)}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:var(--accent)}
+.nav-back{color:var(--text-secondary);font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:var(--text-secondary)}
+.nav-back a:hover{color:var(--text)}
+input,select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 12px;color:var(--text);font-size:.85rem;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:rgba(6,182,212,.5)}
+input[type=range]{-webkit-appearance:none;appearance:none;background:rgba(148,163,184,.2);height:6px;border-radius:3px;outline:none;padding:0;border:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg)}
+input[type=color]{-webkit-appearance:none;appearance:none;width:36px;height:36px;border:none;border-radius:6px;cursor:pointer;padding:0;background:transparent}
+input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+input[type=color]::-webkit-color-swatch{border:2px solid rgba(148,163,184,.3);border-radius:6px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:rgba(6,182,212,.2);color:var(--accent);border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:var(--text-secondary);border:1px solid var(--border)}
+.btn-secondary:hover{background:rgba(148,163,184,.2);color:var(--text)}
+.tool-section{background:var(--surface);border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid var(--border)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.tool-section p{color:var(--text-secondary);font-size:.9rem;margin-bottom:8px}
+.preview-wrapper{border:2px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px}
+.preview-content{padding:20px;height:280px;overflow-y:auto;background:var(--bg);color:var(--text-secondary);font-size:.9rem;line-height:2}
+.preview-content p{margin-bottom:8px;padding-right:4px}
+.control-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.control-item{display:flex;flex-direction:column;gap:6px}
+.control-item label{color:var(--text-secondary);font-size:.8rem;font-weight:500}
+.control-item .input-row{display:flex;align-items:center;gap:8px}
+.control-item .input-row input[type=range]{flex:1}
+.control-item .input-row .val{color:var(--accent);font-size:.8rem;min-width:36px;text-align:right;font-family:monospace}
+.css-output{background:var(--bg);border-radius:8px;padding:16px;color:var(--text);font-size:.82rem;overflow-x:auto;margin-bottom:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-all;border:1px solid var(--border)}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#22c55e;color:#fff;padding:10px 24px;border-radius:8px;font-size:.9rem;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.error{background:#ef4444}
+.tab-row{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border-radius:8px;padding:4px;border:1px solid var(--border)}
+.tab-btn{padding:8px 16px;border:none;background:transparent;color:var(--text-secondary);border-radius:6px;cursor:pointer;font-size:.85rem;transition:all .2s}
+.tab-btn.active{background:rgba(6,182,212,.2);color:var(--accent)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.preset-dot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s}
+.preset-dot:hover{border-color:var(--accent);transform:scale(1.15)}
+.preset-dot.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(34,211,238,.3)}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    <h1>🎨 CSS Scrollbar Generator</h1>
+    
+  </div>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+  <!-- Preview -->
+  <div class="tool-section">
+    <h2>📱 Live Preview</h2>
+    <p>Scroll the preview area below to see your custom scrollbar in action</p>
+    <div class="preview-wrapper">
+      <div class="preview-content" id="previewContent">
+        <p>🧪 Scrollbar Preview Area — scroll up and down to see your custom scrollbar styles</p>
+        <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+        <p>The CSS Scrollbar Generator is a free online tool that helps frontend developers quickly create custom scrollbar CSS code. Through a visual interface, you can intuitively adjust scrollbar properties including width, colors, border-radius, and borders with live preview.</p>
+        <p>📋 Supported CSS Pseudo-elements:</p>
+        <p>• ::-webkit-scrollbar — the entire scrollbar</p>
+        <p>• ::-webkit-scrollbar-track — the scrollbar track</p>
+        <p>• ::-webkit-scrollbar-thumb — the scrollbar thumb</p>
+        <p>• ::-webkit-scrollbar-thumb:hover — thumb hover state</p>
+        <p>• ::-webkit-scrollbar-button — scrollbar buttons</p>
+        <p>• ::-webkit-scrollbar-corner — scrollbar corner</p>
+        <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+        <p>🎯 Use Cases:</p>
+        <p>• Personal blog / portfolio website styling</p>
+        <p>• Corporate website custom design</p>
+        <p>• Web app UI component library development</p>
+        <p>• Dark mode / theme switching</p>
+        <p>• Improving overall visual consistency</p>
+        <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+        <p>💡 Tip: After adjusting the parameters below, scroll here to see the effect!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Presets -->
+  <div class="tool-section">
+    <h2>🎨 Preset Themes</h2>
+    <div class="presets" id="presets">
+      <span class="preset-dot active" data-preset="default" style="background:linear-gradient(135deg,#475569,#22d3ee)" title="Default Dark"></span>
+      <span class="preset-dot" data-preset="minimal" style="background:linear-gradient(135deg,#e2e8f0,#94a3b8)" title="Minimal Gray"></span>
+      <span class="preset-dot" data-preset="vibrant" style="background:linear-gradient(135deg,#a855f7,#ec4899)" title="Vibrant Purple"></span>
+      <span class="preset-dot" data-preset="ocean" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)" title="Ocean Blue"></span>
+      <span class="preset-dot" data-preset="sunset" style="background:linear-gradient(135deg,#f97316,#ef4444)" title="Sunset Orange"></span>
+      <span class="preset-dot" data-preset="forest" style="background:linear-gradient(135deg,#22c55e,#15803d)" title="Forest Green"></span>
+      <span class="preset-dot" data-preset="midnight" style="background:linear-gradient(135deg,#1e1b4b,#312e81)" title="Midnight Blue"></span>
+      <span class="preset-dot" data-preset="rosegold" style="background:linear-gradient(135deg,#fda4af,#fb923c)" title="Rose Gold"></span>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="tool-section">
+    <h2>⚙️ Scrollbar Properties</h2>
+    <div class="tab-row" id="tabs">
+      <button class="tab-btn active" data-tab="scrollbar">General</button>
+      <button class="tab-btn" data-tab="track">Track</button>
+      <button class="tab-btn" data-tab="thumb">Thumb</button>
+      <button class="tab-btn" data-tab="thumb-hover">Hover</button>
+    </div>
+
+    <!-- General -->
+    <div class="tab-content active" id="tab-scrollbar">
+      <div class="control-grid">
+        <div class="control-item">
+          <label>Scrollbar Width</label>
+          <div class="input-row">
+            <input type="range" id="scrollbarWidth" min="4" max="30" value="10">
+            <span class="val" id="scrollbarWidthVal">10px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Track -->
+    <div class="tab-content" id="tab-track">
+      <div class="control-grid">
+        <div class="control-item">
+          <label>Track Background</label>
+          <div class="input-row">
+            <input type="color" id="trackBg" value="#1e293b">
+            <span class="val" id="trackBgVal">#1e293b</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Track Border Radius</label>
+          <div class="input-row">
+            <input type="range" id="trackRadius" min="0" max="20" value="10">
+            <span class="val" id="trackRadiusVal">10px</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Track Border Width</label>
+          <div class="input-row">
+            <input type="range" id="trackBorderWidth" min="0" max="6" value="0">
+            <span class="val" id="trackBorderWidthVal">0px</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Track Border Color</label>
+          <div class="input-row">
+            <input type="color" id="trackBorderColor" value="#334155">
+            <span class="val" id="trackBorderColorVal">#334155</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thumb -->
+    <div class="tab-content" id="tab-thumb">
+      <div class="control-grid">
+        <div class="control-item">
+          <label>Thumb Background</label>
+          <div class="input-row">
+            <input type="color" id="thumbBg" value="#22d3ee">
+            <span class="val" id="thumbBgVal">#22d3ee</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Thumb Border Radius</label>
+          <div class="input-row">
+            <input type="range" id="thumbRadius" min="0" max="20" value="10">
+            <span class="val" id="thumbRadiusVal">10px</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Thumb Border Width</label>
+          <div class="input-row">
+            <input type="range" id="thumbBorderWidth" min="0" max="6" value="2">
+            <span class="val" id="thumbBorderWidthVal">2px</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Thumb Border Color</label>
+          <div class="input-row">
+            <input type="color" id="thumbBorderColor" value="#0f172a">
+            <span class="val" id="thumbBorderColorVal">#0f172a</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hover -->
+    <div class="tab-content" id="tab-thumb-hover">
+      <div class="control-grid">
+        <div class="control-item">
+          <label>Hover Background</label>
+          <div class="input-row">
+            <input type="color" id="thumbHoverBg" value="#67e8f9">
+            <span class="val" id="thumbHoverBgVal">#67e8f9</span>
+          </div>
+        </div>
+        <div class="control-item">
+          <label>Hover Border Color</label>
+          <div class="input-row">
+            <input type="color" id="thumbHoverBorder" value="#0f172a">
+            <span class="val" id="thumbHoverBorderVal">#0f172a</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CSS Output -->
+  <div class="tool-section">
+    <h2>📋 Generated CSS Code</h2>
+    <div class="css-output" id="cssOutput"></div>
+    <div class="result-actions">
+      <button class="btn btn-primary" id="copyBtn">📋 Copy CSS</button>
+      <button class="btn btn-secondary" id="resetBtn">🔄 Reset Default</button>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p>1. Choose a preset theme or customize properties directly in the control panel</p>
+    <p>2. Switch tabs (General/Track/Thumb/Hover) to adjust different parts</p>
+    <p>3. Scroll in the preview area to see real-time effects</p>
+    <p>4. Copy the generated CSS code and paste it into your website's stylesheet</p>
+    <p style="margin-top:8px;font-size:.82rem;color:#64748b;">💡 Note: Firefox users need scrollbar-width and scrollbar-color properties. The generated code includes Firefox-compatible styles.</p>
+  </div>
+
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/css-scrollbar-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var presets = {
+  default: {scrollbarWidth:10, trackBg:'#1e293b', trackRadius:10, trackBorderWidth:0, trackBorderColor:'#334155', thumbBg:'#22d3ee', thumbRadius:10, thumbBorderWidth:2, thumbBorderColor:'#0f172a', thumbHoverBg:'#67e8f9', thumbHoverBorder:'#0f172a'},
+  minimal: {scrollbarWidth:6, trackBg:'#f1f5f9', trackRadius:3, trackBorderWidth:0, trackBorderColor:'#e2e8f0', thumbBg:'#cbd5e1', thumbRadius:3, thumbBorderWidth:0, thumbBorderColor:'#cbd5e1', thumbHoverBg:'#94a3b8', thumbHoverBorder:'#94a3b8'},
+  vibrant: {scrollbarWidth:12, trackBg:'#1e1b4b', trackRadius:8, trackBorderWidth:1, trackBorderColor:'#4c1d95', thumbBg:'#a855f7', thumbRadius:8, thumbBorderWidth:2, thumbBorderColor:'#4c1d95', thumbHoverBg:'#c084fc', thumbHoverBorder:'#6b21a8'},
+  ocean: {scrollbarWidth:10, trackBg:'#0c4a6e', trackRadius:6, trackBorderWidth:1, trackBorderColor:'#0369a1', thumbBg:'#06b6d4', thumbRadius:6, thumbBorderWidth:1, thumbBorderColor:'#0891b2', thumbHoverBg:'#22d3ee', thumbHoverBorder:'#06b6d4'},
+  sunset: {scrollbarWidth:10, trackBg:'#431407', trackRadius:8, trackBorderWidth:0, trackBorderColor:'#9a3412', thumbBg:'#f97316', thumbRadius:8, thumbBorderWidth:2, thumbBorderColor:'#9a3412', thumbHoverBg:'#fb923c', thumbHoverBorder:'#c2410c'},
+  forest: {scrollbarWidth:8, trackBg:'#052e16', trackRadius:4, trackBorderWidth:1, trackBorderColor:'#166534', thumbBg:'#22c55e', thumbRadius:4, thumbBorderWidth:1, thumbBorderColor:'#15803d', thumbHoverBg:'#4ade80', thumbHoverBorder:'#16a34a'},
+  midnight: {scrollbarWidth:10, trackBg:'#0f0a2e', trackRadius:12, trackBorderWidth:1, trackBorderColor:'#312e81', thumbBg:'#6366f1', thumbRadius:12, thumbBorderWidth:2, thumbBorderColor:'#312e81', thumbHoverBg:'#818cf8', thumbHoverBorder:'#4338ca'},
+  rosegold: {scrollbarWidth:10, trackBg:'#fff1f2', trackRadius:10, trackBorderWidth:1, trackBorderColor:'#fecdd3', thumbBg:'#fda4af', thumbRadius:10, thumbBorderWidth:2, thumbBorderColor:'#f43f5e', thumbHoverBg:'#fecdd3', thumbHoverBorder:'#e11d48'}
+};
+
+var currentPreset = 'default';
+var controls = ['scrollbarWidth','trackBg','trackRadius','trackBorderWidth','trackBorderColor','thumbBg','thumbRadius','thumbBorderWidth','thumbBorderColor','thumbHoverBg','thumbHoverBorder'];
+
+function getValues() {
+  var vals = {};
+  for (var i = 0; i < controls.length; i++) {
+    var el = document.getElementById(controls[i]);
+    vals[controls[i]] = el.type === 'range' ? parseInt(el.value) : el.value;
+  }
+  return vals;
+}
+
+function setValues(vals) {
+  for (var i = 0; i < controls.length; i++) {
+    var el = document.getElementById(controls[i]);
+    if (el.type === 'range') el.value = vals[controls[i]];
+    else el.value = vals[controls[i]];
+    updateLabel(controls[i]);
+  }
+  applyScrollbarStyle();
+  updateCSS();
+}
+
+function updateLabel(id) {
+  var el = document.getElementById(id);
+  var labelEl = document.getElementById(id + 'Val');
+  if (!labelEl) return;
+  if (el.type === 'range') labelEl.textContent = el.value + 'px';
+  else if (el.type === 'color') labelEl.textContent = el.value;
+}
+
+function applyScrollbarStyle() {
+  var v = getValues();
+  var css = '';
+  css += '::-webkit-scrollbar{width:' + v.scrollbarWidth + 'px;height:' + v.scrollbarWidth + 'px;}\n';
+  css += '::-webkit-scrollbar-track{background:' + v.trackBg + ';border-radius:' + v.trackRadius + 'px;';
+  if (v.trackBorderWidth > 0) css += 'border:' + v.trackBorderWidth + 'px solid ' + v.trackBorderColor + ';';
+  css += '}\n';
+  css += '::-webkit-scrollbar-thumb{background:' + v.thumbBg + ';border-radius:' + v.thumbRadius + 'px;';
+  if (v.thumbBorderWidth > 0) css += 'border:' + v.thumbBorderWidth + 'px solid ' + v.thumbBorderColor + ';';
+  css += '}\n';
+  css += '::-webkit-scrollbar-thumb:hover{background:' + v.thumbHoverBg + ';';
+  if (v.thumbBorderWidth > 0) css += 'border-color:' + v.thumbHoverBorder + ';';
+  css += '}\n';
+  css += '::-webkit-scrollbar-button{display:none;}\n';
+  css += '::-webkit-scrollbar-corner{background:' + v.trackBg + ';}';
+
+  var styleId = 'dynamic-scrollbar-style';
+  var existingStyle = document.getElementById(styleId);
+  if (existingStyle) existingStyle.remove();
+  var styleEl = document.createElement('style');
+  styleEl.id = styleId;
+  styleEl.textContent = css;
+  document.head.appendChild(styleEl);
+
+  var ffStyleId = 'ff-scrollbar-style';
+  var existingFF = document.getElementById(ffStyleId);
+  if (existingFF) existingFF.remove();
+  var ffStyle = document.createElement('style');
+  ffStyle.id = ffStyleId;
+  ffStyle.textContent = '*{scrollbar-width:' + (v.scrollbarWidth > 8 ? 'auto' : 'thin') + ';scrollbar-color:' + v.thumbBg + ' ' + v.trackBg + ';}';
+  document.head.appendChild(ffStyle);
+}
+
+function updateCSS() {
+  var v = getValues();
+  var css = '/* Custom CSS Scrollbar Styles */\n';
+  css += '::-webkit-scrollbar {\n  width: ' + v.scrollbarWidth + 'px;\n  height: ' + v.scrollbarWidth + 'px;\n}\n\n';
+  css += '::-webkit-scrollbar-track {\n  background: ' + v.trackBg + ';\n  border-radius: ' + v.trackRadius + 'px;\n';
+  if (v.trackBorderWidth > 0) css += '  border: ' + v.trackBorderWidth + 'px solid ' + v.trackBorderColor + ';\n';
+  css += '}\n\n';
+  css += '::-webkit-scrollbar-thumb {\n  background: ' + v.thumbBg + ';\n  border-radius: ' + v.thumbRadius + 'px;\n';
+  if (v.thumbBorderWidth > 0) css += '  border: ' + v.thumbBorderWidth + 'px solid ' + v.thumbBorderColor + ';\n';
+  css += '}\n\n';
+  css += '::-webkit-scrollbar-thumb:hover {\n  background: ' + v.thumbHoverBg + ';\n';
+  if (v.thumbBorderWidth > 0) css += '  border-color: ' + v.thumbHoverBorder + ';\n';
+  css += '}\n\n';
+  css += '::-webkit-scrollbar-button {\n  display: none;\n}\n\n';
+  css += '::-webkit-scrollbar-corner {\n  background: ' + v.trackBg + ';\n}\n\n';
+  css += '/* Firefox compatibility */\n';
+  css += '* {\n  scrollbar-width: ' + (v.scrollbarWidth > 8 ? 'auto' : 'thin') + ';\n  scrollbar-color: ' + v.thumbBg + ' ' + v.trackBg + ';\n}';
+  document.getElementById('cssOutput').textContent = css;
+}
+
+function showToast(msg, isError) {
+  var toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast' + (isError ? ' error' : '');
+  setTimeout(function(){toast.classList.add('show');},10);
+  setTimeout(function(){toast.classList.remove('show');},2000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  for (var i = 0; i < controls.length; i++) {
+    (function(id){
+      var el = document.getElementById(id);
+      el.addEventListener('input', function() {
+        updateLabel(id);
+        applyScrollbarStyle();
+        updateCSS();
+        var dots = document.querySelectorAll('.preset-dot');
+        for (var d = 0; d < dots.length; d++) dots[d].classList.remove('active');
+        currentPreset = '';
+      });
+    })(controls[i]);
+  }
+
+  var presetDots = document.querySelectorAll('.preset-dot');
+  for (var p = 0; p < presetDots.length; p++) {
+    presetDots[p].addEventListener('click', function() {
+      var presetName = this.getAttribute('data-preset');
+      if (presets[presetName]) {
+        setValues(presets[presetName]);
+        currentPreset = presetName;
+        var dots = document.querySelectorAll('.preset-dot');
+        for (var d = 0; d < dots.length; d++) dots[d].classList.remove('active');
+        this.classList.add('active');
+      }
+    });
+  }
+
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  for (var t = 0; t < tabBtns.length; t++) {
+    tabBtns[t].addEventListener('click', function() {
+      var tabName = this.getAttribute('data-tab');
+      var allBtns = document.querySelectorAll('.tab-btn');
+      for (var b = 0; b < allBtns.length; b++) allBtns[b].classList.remove('active');
+      this.classList.add('active');
+      var allContents = document.querySelectorAll('.tab-content');
+      for (var c = 0; c < allContents.length; c++) allContents[c].classList.remove('active');
+      document.getElementById('tab-' + tabName).classList.add('active');
+    });
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', function() {
+    var css = document.getElementById('cssOutput').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(css).then(function() {
+        showToast('✅ CSS code copied to clipboard!');
+      }).catch(function() {
+        fallbackCopy(css);
+      });
+    } else {
+      fallbackCopy(css);
+    }
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    setValues(presets['default']);
+    currentPreset = 'default';
+    var dots = document.querySelectorAll('.preset-dot');
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].classList.remove('active');
+      if (dots[d].getAttribute('data-preset') === 'default') dots[d].classList.add('active');
+    }
+    showToast('🔄 Reset to default');
+  });
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToast('✅ CSS code copied to clipboard!');
+    } catch(e) {
+      showToast('❌ Copy failed. Please select and copy manually', true);
+    }
+    document.body.removeChild(ta);
+  }
+
+  applyScrollbarStyle();
+  updateCSS();
+});
+</script>
+</body>
+</html>

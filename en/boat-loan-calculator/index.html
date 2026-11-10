@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boat Loan Calculator - Monthly Payment & Interest | ToolGuideHub</title>
+  <meta name="description" content="Work out monthly payments and total interest on a boat or yacht loan, with a full amortisation schedule.">
+  <meta property="og:title" content="Boat Loan Calculator - Monthly Payment & Interest | ToolGuideHub">
+  <meta property="og:description" content="Work out monthly payments and total interest on a boat or yacht loan, with a full amortisation schedule.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/boat-loan-calculator/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Boat Loan Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web Browser","description":"Free online boat loan calculator for yacht and boat financing with amortization schedule.","url":"https://adi63586.github.io/Toolguidehub/en/boat-loan-calculator/"}</script>
+  <style>:root{--primary-hover:rgba(6,182,212,.3);--surface:#1e293b;}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}header{background:var(--surface);border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}header h1{font-size:1.25rem;font-weight:700}header a{color:#22d3ee;text-decoration:none;font-size:.9rem}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}main{flex:1;padding:24px;max-width:900px;margin:0 auto;width:100%}.section{background:var(--surface);border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:16px}.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:16px}.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;color:#94a3b8}.form-group input,.form-group select{width:100%;padding:10px 12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:.9rem;font-family:inherit;background:#0f172a;color:#e2e8f0}.form-group input:focus,.form-group select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(79,70,229,.1)}.input-with-suffix{position:relative}.input-with-suffix input{padding-right:60px}.input-with-suffix .suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.85rem}.btn-row{display:flex;gap:8px;flex-wrap:wrap}button{padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s}.btn-primary{background:#22d3ee;color:#0f172a}.btn-primary:hover{background:var(--primary-hover)}.btn-outline{background:var(--surface);color:#22d3ee;border:1px solid #22d3ee}.btn-outline:hover{background:rgba(79,70,229,.05)}.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}.result-item{background:#1e293b;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:16px;text-align:center}.result-value{font-size:1.5rem;font-weight:700;color:#22d3ee;margin-top:4px}.result-label{font-size:.8rem;color:#94a3b8}.schedule-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.85rem}.schedule-table th{background:#1e293b;padding:8px 10px;text-align:right;font-weight:600;font-size:.8rem;color:#e2e8f0}.schedule-table td{padding:8px 10px;text-align:right;border-bottom:1px solid rgba(148,163,184,.1)}.schedule-table td:first-child{text-align:center}.schedule-scroll{max-height:400px;overflow-y:auto;border-radius:8px;border:1px solid rgba(148,163,184,.1)}footer{background:var(--surface);border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.8rem;color:#94a3b8}@media(max-width:600px){main{padding:12px}.section{padding:16px}.results{grid-template-columns:1fr 1fr}}.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}.copy-btn:hover{background:rgba(6,182,212,.25)}.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/boat-loan-calculator/">
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Boat Loan Calculator - Monthly Payment & Interest","item":"https://adi63586.github.io/Toolguidehub/en/boat-loan-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Boat Loan Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Boat Loan Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Boat Loan Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Boat Price and Down Payment are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Boat Loan Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Boat Loan Calculator","description":"Step-by-step guide for using Boat Loan Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Boat Loan Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/boat-loan-calculator/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><h1>🚤 Boat Loan Calculator</h1><p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online boat loan calculator for yacht and boat financing. Calculate monthly payments, total interest, and view detailed amortization schedule.</p><a href="../../">← Back to Home</a></header>
+<main>
+  <div class="section">
+    <div class="form-row">
+      <div class="form-group"><label>Boat Price</label><div class="input-with-suffix"><input type="number" id="price" placeholder="150000" value="150000"><span class="suffix">USD</span></div></div>
+      <div class="form-group"><label>Down Payment</label><div class="input-with-suffix"><input type="number" id="down-pct" placeholder="20" value="20" min="0" max="100"><span class="suffix">%</span></div></div>
+      <div class="form-group"><label>Loan Term</label><select id="years"><option value="5">5 Years (60 payments)</option><option value="10" selected>10 Years (120 payments)</option><option value="15">15 Years (180 payments)</option><option value="20">20 Years (240 payments)</option></select></div>
+      <div class="form-group"><label>Annual Rate</label><div class="input-with-suffix"><input type="number" id="rate" placeholder="6.5" value="6.5" step="0.01"><span class="suffix">%</span></div></div>
+      <div class="form-group"><label>Repayment</label><select id="method"><option value="equal-installment">Equal Installment</option><option value="equal-principal">Equal Principal</option></select></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="btn-primary" onclick="calculate()">💰 Calculate</button><button class="btn-outline" onclick="clearForm()">🗑️ Reset</button></div>
+  </div>
+  <div class="section" id="result-card" style="display:none"><h3 style="margin-bottom:12px;font-size:.95rem;color:#94a3b8">Results</h3><div class="results" id="results"></div><div class="schedule-scroll" style="margin-top:16px"><table class="schedule-table" id="schedule"><thead><tr><th>Period</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Remaining</th></tr></thead><tbody></tbody></table></div></div>
+</main>
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#475569;line-height:1.8"><p>The Boat Loan Calculator is a free online tool that runs entirely in your browser — no software installation required. Your data stays on your device and is never uploaded to any server, ensuring complete privacy. Compatible with all major browsers and mobile devices, it's available anytime, anywhere. Use this boat loan calculator to evaluate yacht and boat financing options and plan repayment strategies. Built with pure front-end technology, it works instantly without registration or plugins.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/auto-loan-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🚗 Auto Loan Calculator</a><a href="../../en/personal-loan-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">💰 Personal Loan Calculator</a><a href="../../en/mortgage-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🏠 Mortgage Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/boat-loan-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+function showToast(m){var t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#f1f5f9;padding:10px 20px;border-radius:8px;z-index:9999;opacity:0;transition:opacity .3s";document.body.appendChild(t);}t.textContent=m;t.style.opacity="1";setTimeout(function(){t.style.opacity="0"},2500);}
+function formatMoney(n){return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function calculate(){
+  var price=parseFloat(document.getElementById('price').value)||0;
+  var dpPct=parseFloat(document.getElementById('down-pct').value)||0;
+  var years=parseInt(document.getElementById('years').value)||10;
+  var annualRate=parseFloat(document.getElementById('rate').value)||0;
+  var method=document.getElementById('method').value;
+  if(price<=0||dpPct<0||dpPct>100||annualRate<0){showToast('Please enter valid values');return}
+  var downPayment=price*dpPct/100;
+  var loan=price-downPayment;
+  var months=years*12;
+  var mr=annualRate/100/12;
+  var monthly,totalP,totalI,schedule=[];
+  if(method==='equal-installment'){
+    if(mr===0){monthly=loan/months;totalI=0}else{monthly=loan*mr*Math.pow(1+mr,months)/(Math.pow(1+mr,months)-1)}
+    totalP=monthly*months;totalI=totalP-loan;
+    var rem=loan;
+    for(var i=1;i<=months;i++){var int=rem*mr;var pri=monthly-int;rem-=pri;schedule.push({p:i,pmt:monthly,pri:Math.max(0,pri),int:Math.max(0,int),rem:Math.max(0,rem)})}
+  }else{
+    var mp=loan/months;totalP=0;totalI=0;var rem=loan;
+    for(var i=1;i<=months;i++){var int=rem*mr;var pmt=mp+int;rem-=mp;totalP+=pmt;totalI+=int;schedule.push({p:i,pmt:pmt,pri:mp,int:int,rem:Math.max(0,rem)})}
+    monthly=schedule[0]?schedule[0].pmt:0;
+  }
+  document.getElementById('result-card').style.display='block';
+  document.getElementById('results').innerHTML='<div class="result-item"><div class="result-label">Loan Amount</div><div class="result-value">$'+formatMoney(loan)+'</div></div><div class="result-item"><div class="result-label">Down Payment</div><div class="result-value">$'+formatMoney(downPayment)+'</div></div><div class="result-item"><div class="result-label">'+(method==='equal-installment'?'Monthly Payment':'First Payment')+'</div><div class="result-value">$'+formatMoney(monthly)+'</div></div><div class="result-item"><div class="result-label">Total Interest</div><div class="result-value">$'+formatMoney(totalI)+'</div></div><div class="result-item"><div class="result-label">Total Payment</div><div class="result-value">$'+formatMoney(totalP)+'</div></div>';
+  var tbody=document.querySelector('#schedule tbody');
+  var show=schedule.length>48?schedule.slice(0,48):schedule;
+  tbody.innerHTML=show.map(function(s){return '<tr><td>'+s.p+'</td><td>$'+formatMoney(s.pmt)+'</td><td>$'+formatMoney(s.pri)+'</td><td>$'+formatMoney(s.int)+'</td><td>$'+formatMoney(s.rem)+'</td></tr>'}).join('');
+  if(schedule.length>48){tbody.innerHTML+='<tr><td colspan="5" style="text-align:center;color:#94a3b8">... Showing first 48 of '+schedule.length+' periods</td></tr>'}
+}
+function clearForm(){document.getElementById('price').value='150000';document.getElementById('down-pct').value='20';document.getElementById('years').value='10';document.getElementById('rate').value='6.5';document.getElementById('method').value='equal-installment';document.getElementById('result-card').style.display='none'}
+calculate();
+</script>
+<script>(function(){var p=new Set();function a(){document.querySelectorAll('[id*="result"],[id*="output"],[class*="result"],[class*="output"]').forEach(function(e){if(p.has(e)||e.querySelector('.copy-btn')||e.tagName==='INPUT'||e.tagName==='TEXTAREA'||e.tagName==='SELECT'||(e.children.length===0&&e.textContent.trim().length<5))return;var b=document.createElement('button');b.className='copy-btn';b.innerHTML='📋 Copy';b.title='Copy results';b.onclick=function(ev){ev.stopPropagation();var t=e.textContent||e.value||'';if(e.tagName==='INPUT'||e.tagName==='TEXTAREA')t=e.value;navigator.clipboard.writeText(t.trim()).then(function(){b.innerHTML='✅ Copied';b.classList.add('copied');setTimeout(function(){b.innerHTML='📋 Copy';b.classList.remove('copied')},2000)}).catch(function(){var ta=document.createElement('textarea');ta.value=t.trim();ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);b.innerHTML='✅ Copied';b.classList.add('copied');setTimeout(function(){b.innerHTML='📋 Copy';b.classList.remove('copied')},2000)})};e.appendChild(b);p.add(e)})}a();document.addEventListener('click',function(){setTimeout(a,100)});if(window.MutationObserver){var o=new MutationObserver(function(){a()});o.observe(document.body,{childList:true,subtree:true})}})();
+function fillExample(){
+  var vals = [["price", "150000"], ["rate", "6.5"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  calculate();
+  showToast('Example filled & calculated');
+}
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

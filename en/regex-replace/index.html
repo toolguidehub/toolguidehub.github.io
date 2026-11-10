@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Regex Replace - ToolGuideHub</title>
+    <meta name="description" content="Find and replace with regular expressions, using capture groups like $1 in the replacement, with a live preview.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/regex-replace/">
+    <meta property="og:title" content="Free Online Regex Replace - ToolGuideHub">
+    <meta property="og:description" content="Find and replace with regular expressions, using capture groups like $1 in the replacement, with a live preview.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/regex-replace/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:2rem;color:#e2e8f0;margin-bottom:8px}
+header p{color:#94a3b8;font-size:1.05rem}
+.section{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(148,163,184,.1);padding:24px;margin-bottom:20px}
+.section h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid rgba(148,163,184,.1)}
+textarea,input[type="text"],select{width:100%;padding:12px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:14px;font-family:'SF Mono','Fira Code','Consolas',monospace;transition:border .2s}
+textarea:focus,input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+textarea{
+      background: var(--surface);
+      color: var(--text);resize:vertical;min-height:120px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:#22d3ee;color:#fff}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px)}
+.btn-secondary{background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.1)}
+.btn-secondary:hover{background:rgba(148,163,184,.1)}
+.btn-success{background:#10b981;color:#fff}
+.btn-success:hover{opacity:.9}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.row>*{flex:1;min-width:120px}
+.faq-item h3{font-size:1.05rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:0.95rem;line-height:1.6}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:16px;font-family:'SF Mono','Fira Code','Consolas',monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto;min-height:60px}
+footer{text-align:center;padding:30px 0;color:#94a3b8;font-size:0.85rem}
+footer a{color:#22d3ee;text-decoration:none}
+
+.error-msg{color:#ef4444;font-size:13px;margin-top:4px}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0;font-size:13px;color:#94a3b8}
+.stats span{display:flex;align-items:center;gap:4px}
+.flag-group{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0}
+.flag-group label{display:flex;align-items:center;gap:4px;font-size:13px;cursor:pointer}
+.flag-group input[type="checkbox"]{width:16px;height:16px;cursor:pointer}
+@media(max-width:768px){.container{padding:12px}header h1{font-size:1.5rem}.row{flex-direction:column}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+    <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/regex-replace/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header>
+        <h1>🔄 Regex Replace</h1>
+        
+        <p>Online regex find & replace, supports capture groups, multiline, global replace, real-time preview</p>
+    </header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Regex Replace",
+      "item": "https://adi63586.github.io/Toolguidehub/en/regex-replace/"
+    }
+  ],
+  "name": "Regex Replace"
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is the Regex Replace tool free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the Regex Replace tool free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free. No registration required, no usage limits. Everything runs locally: Find Pattern and Replace With are processed on your device, never sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What regex features are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All JavaScript regex features are supported, including capture groups ($1, $2...), named groups, lookaheads, character classes, quantifiers, and flags like g (global), i (case-insensitive), m (multiline), s (dotAll)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is capture group replacement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Capture group replacement lets you reference matched subgroups in the replacement string. For example, regex (\\w+)@(\\w+)\\.com with replacement $1 at $2 dot com transforms user@example.com to user at example dot com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I preview replacements in real-time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. As you type the regex pattern and replacement string, the result area shows the replaced text in real-time with match count statistics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Everything runs locally: Find Pattern and Replace With are processed on your device, never sent to a server. Your text data is never uploaded to any server."
+      }
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Regex Replace Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter or paste the original text", "name": "Enter or paste the original te"}, {"@type": "HowToStep", "position": 2, "text": "Enter the regex pattern", "name": "Enter the regex pattern"}, {"@type": "HowToStep", "position": 3, "text": "Enter the replacement string (supports $1, $2 capture group references)", "name": "Enter the replacement string ("}, {"@type": "HowToStep", "position": 4, "text": "View real-time results, copy or download", "name": "View real-time results, copy o"}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Replace", "description": "Free online Regex Replace tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/regex-replace/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+
+    <div class="section">
+        <h2>📝 Input Text</h2>
+        <textarea id="inputText" rows="8" placeholder="Enter or paste your text here...">Hello World 2024
+foo@bar.com
+Phone: 123-456-7890
+Date: 2024-01-15
+URL: https://example.com/path</textarea>
+    </div>
+
+    <div class="section">
+        <h2>🔍 Regex Settings</h2>
+        <div class="row">
+            <div style="flex:2">
+                <label style="font-size:13px;color:#94a3b8;display:block;margin-bottom:4px">Find Pattern</label>
+                <input type="text" id="regexPattern" value="(\w+)@(\w+)\.com" placeholder="Enter regex, e.g. \d+ or (\w+),(\w+)">
+            </div>
+            <div style="flex:2">
+                <label style="font-size:13px;color:#94a3b8;display:block;margin-bottom:4px">Replace With</label>
+                <input type="text" id="replaceStr" value="$1 at $2 dot com" placeholder="Replacement text, supports $1, $2 capture groups">
+            </div>
+        </div>
+        <div class="flag-group">
+            <label><input type="checkbox" id="flagG" checked> g Global</label>
+            <label><input type="checkbox" id="flagI"> i Case-insensitive</label>
+            <label><input type="checkbox" id="flagM"> m Multiline</label>
+            <label><input type="checkbox" id="flagS"> s dotAll</label>
+        </div>
+        <div id="regexError" class="error-msg" style="display:none"></div>
+        <div class="stats" id="matchStats">
+            <span>Matches: <strong id="matchCount">0</strong></span>
+            <span>Replacements: <strong id="replaceCount">0</strong></span>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="doReplace()">🔄 Replace</button>
+            <button class="btn btn-success" onclick="copyResult()">📋 Copy Result</button>
+            <button class="btn btn-secondary" onclick="downloadResult()">📥 Download</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Result</h2>
+        <div class="result-box" id="resultBox">Replacement result will appear here...</div>
+    </div>
+
+    <div class="section">
+        <h2>💡 Common Regex Examples</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('\\d+','[NUM]')">Numbers → [NUM]</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('[\\w.+-]+@[\\w-]+\\.[\\w.]+','[EMAIL]')">Email → [EMAIL]</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('https?://[\\w./-]+','[URL]')">URL → [URL]</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('(\\d{4})-(\\d{2})-(\\d{2})','$2/$3/$1')">Date YYYY-MM-DD → MM/DD/YYYY</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('(\\d{3})-(\\d{3})-(\\d{4})','($1) $2-$3')">Phone 123-456-7890 → (123) 456-7890</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('<[^>]+>','')">Strip HTML tags</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('^\\s+|\\s+$','')">Trim whitespace</button>
+            <button class="btn btn-secondary" style="text-align:left;font-family:monospace;font-size:12px" onclick="loadExample('(\\w+)\\s*=\\s*([\\w\"\\'\\']+)','$1: $2')">key=value → key: value</button>
+        </div>
+    </div>
+
+    
+
+      <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Regex Replace?</h3>
+      <p>Regex Replace has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Regex Replace upload my data to a server?</h3>
+      <p>No. Regex Replace uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Regex Replace is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Regex Replace free to use?</h3>
+      <p>Yes, Regex Replace is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Regex Replace?</h3>
+      <p>Absolutely. Everything runs locally: Find Pattern and Replace With are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use Regex Replace on my phone?</h3>
+      <p>Yes. Regex Replace is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+  </div>
+
+</main>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Replace", "description": "Free online Regex Replace tool", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/regex-replace/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/regex-replace/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showToast(m){var t=document.getElementById("toast");if(!t)return;t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+var lastResult='';
+
+function getFlags(){
+    var f='';
+    if(document.getElementById('flagG').checked)f+='g';
+    if(document.getElementById('flagI').checked)f+='i';
+    if(document.getElementById('flagM').checked)f+='m';
+    if(document.getElementById('flagS').checked)f+='s';
+    return f;
+}
+
+function doReplace(){
+    var text=document.getElementById('inputText').value;
+    var pattern=document.getElementById('regexPattern').value;
+    var replacement=document.getElementById('replaceStr').value;
+    var flags=getFlags();
+    var errEl=document.getElementById('regexError');
+    errEl.style.display='none';
+    if(!pattern){document.getElementById('resultBox').textContent=text;lastResult=text;return}
+    try{
+        var regex=new RegExp(pattern,flags);
+        var count=0;
+        var result=text.replace(regex,function(){
+            count++;return replacement.replace(/\$(\d+)/g,function(_,n){return arguments[parseInt(n)]||'';});
+        });
+        lastResult=result;
+        document.getElementById('resultBox').textContent=result;
+        document.getElementById('matchCount').textContent=count;
+        document.getElementById('replaceCount').textContent=count;
+    }catch(e){
+        errEl.textContent='Regex error: '+e.message;
+        errEl.style.display='block';
+    }
+}
+
+function loadExample(pattern,replacement){
+    document.getElementById('regexPattern').value=pattern;
+    document.getElementById('replaceStr').value=replacement;
+    doReplace();
+}
+
+function copyResult(){
+    if(!lastResult)return;
+    navigator.clipboard.writeText(lastResult).then(function(){showToast('Copied!')}).catch(function(){showToast('Copy failed')});
+}
+
+function downloadResult(){
+    if(!lastResult)return;
+    var blob=new Blob([lastResult],{type:'text/plain'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');a.href=url;a.download='regex-replace-result.txt';a.click();
+    URL.revokeObjectURL(url);
+}
+
+document.getElementById('inputText').addEventListener('input',doReplace);
+document.getElementById('regexPattern').addEventListener('input',doReplace);
+document.getElementById('replaceStr').addEventListener('input',doReplace);
+document.getElementById('flagG').addEventListener('change',doReplace);
+document.getElementById('flagI').addEventListener('change',doReplace);
+document.getElementById('flagM').addEventListener('change',doReplace);
+document.getElementById('flagS').addEventListener('change',doReplace);
+
+doReplace();
+</script>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+
+</body>
+</html>

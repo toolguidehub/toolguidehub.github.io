@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Schedule flashcard reviews with the SM-2 algorithm: rate your recall and it calculates the next review date.">
+<meta name="keywords" content="spaced repetition scheduler,SM-2 algorithm,review planner,ebbinghaus forgetting curve,flashcard scheduler">
+<title>Spaced Repetition Scheduler - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/spaced-repetition-scheduler/">
+<meta property="og:title" content="Spaced Repetition Scheduler - ToolGuideHub">
+<meta property="og:description" content="Schedule flashcard reviews with the SM-2 algorithm: rate your recall and it calculates the next review date.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/spaced-repetition-scheduler/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/spaced-repetition-scheduler/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Spaced Repetition Scheduler","description":"Online spaced repetition scheduler based on the SM-2 algorithm. Rate your recall to auto-calculate next review date.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/#tools"},{"@type":"ListItem","position":3,"name":"Spaced Repetition Scheduler","item":"https://adi63586.github.io/Toolguidehub/en/spaced-repetition-scheduler/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Spaced Repetition Scheduler FAQ","mainEntity":[{"@type":"Question","name":"How does the Spaced Repetition Scheduler work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Spaced Repetition Scheduler free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Subject Name and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Spaced Repetition Scheduler?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Spaced Repetition Scheduler","description":"Step-by-step guide for using Spaced Repetition Scheduler","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Spaced Repetition Scheduler"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none}.form-group input:focus,.form-group select:focus{border-color:rgba(6,182,212,.4)}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:120px}.btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-danger{background:rgba(239,68,68,.15);color:#EF4444;border:1px solid rgba(239,68,68,.25)}.btn-danger:hover{background:rgba(239,68,68,.25)}.result-card{background:#0f172a;border:1px solid rgba(6,182,212,.15);border-radius:10px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}.result-card .left{flex:1}.result-card .subject{font-size:1rem;color:#f1f5f9;font-weight:600}.result-card .dates{color:#94a3b8;font-size:.85rem;margin-top:4px}.result-card .dates span{margin-right:12px}.result-card .right{display:flex;gap:8px;align-items:center}.quality-btns{display:flex;gap:4px;flex-wrap:wrap}.quality-btn{padding:6px 10px;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:600;border:1px solid transparent;transition:all .15s}.q0{background:rgba(239,68,68,.2);color:#EF4444;border-color:rgba(239,68,68,.3)}.q0:hover{background:rgba(239,68,68,.3)}.q1{background:rgba(245,158,11,.2);color:#F59E0B;border-color:rgba(245,158,11,.3)}.q1:hover{background:rgba(245,158,11,.3)}.q2{background:rgba(245,158,11,.2);color:#FBBF24;border-color:rgba(245,158,11,.3)}.q2:hover{background:rgba(245,158,11,.3)}.q3{background:rgba(16,185,129,.15);color:#10B981;border-color:rgba(16,185,129,.25)}.q3:hover{background:rgba(16,185,129,.25)}.q4{background:rgba(6,182,212,.15);color:#22d3ee;border-color:rgba(6,182,212,.25)}.q4:hover{background:rgba(6,182,212,.25)}.q5{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}.q5:hover{background:rgba(6,182,212,.3)}.stats-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}.stat-item{text-align:center;background:#0f172a;border-radius:8px;padding:10px 16px;border:1px solid rgba(148,163,184,.1)}.stat-value{color:#22d3ee;font-weight:700;font-size:1.1rem}.stat-label{color:#64748b;font-size:.8rem;margin-top:2px}.overdue{color:#EF4444;font-size:.8rem}.today-tag{background:rgba(16,185,129,.2);color:#10B981;padding:2px 8px;border-radius:4px;font-size:.75rem}.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}.footer{text-align:center;color:#64748b;font-size:.85rem;padding:16px 0;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}@media(max-width:600px){.header h1{font-size:1.2rem}.form-row{flex-direction:column}.result-card{flex-direction:column;gap:10px}.result-card .dates span{display:block}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🧠 Spaced Repetition Scheduler</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../../#tools">Tools</a> &rsaquo; Spaced Repetition Scheduler</p>
+<p style="color:#94a3b8;margin-bottom:8px">Based on the SM-2 algorithm. Rate your recall quality to auto-calculate next review date. Multi-subject support with progress stats.</p><span class="badge">Zero Dependencies · Data Stored Locally</span>
+
+<div class="section">
+<h2>Add Subject</h2>
+<div class="form-row">
+<div class="form-group"><label>Subject Name</label><input type="text" id="subjectName" placeholder="e.g. Spanish Vocabulary, Math Formulas..."></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="addSubject()">➕ Add</button>
+<button class="btn btn-secondary" onclick="exportData()">💾 Export</button>
+<button class="btn btn-secondary" onclick="importData()">📂 Import</button>
+<button class="btn btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+</div>
+</div>
+
+<div class="section">
+<h2>Review Schedule</h2>
+<div id="reviewList"></div>
+<div class="stats-row" id="statsRow"></div>
+</div>
+
+<div class="info-section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>What is spaced repetition?</h3><p>Spaced repetition is based on the Ebbinghaus forgetting curve. It schedules reviews right before you are about to forget, maximizing retention with minimal study time. Research shows it can reduce study time by 50%.</p></div>
+<div class="faq-item"><h3>What do ratings 0-5 mean?</h3><p>0=Complete blackout, 1=Recalled with extreme difficulty, 2=Recalled with hesitation, 3=Recalled with some effort, 4=Recalled easily, 5=Perfect recall. Higher ratings produce longer intervals.</p></div>
+<div class="faq-item"><h3>How does SM-2 calculate intervals?</h3><p>Initial intervals: 1 day → 6 days, then multiplied by the easiness factor (EF). Rating ≥3 increases EF (longer intervals), rating &lt;3 decreases EF and resets interval to 1 day.</p></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1)"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#f1f5f9;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/vocabulary-builder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📖 Vocabulary Builder</a><a href="../../en/pomodoro-tracker/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">🍅 Pomodoro Tracker</a><a href="../../en/speed-reading/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">📚 Speed Reading Trainer</a></div></section>
+
+
+<div class="toast" id="toast"></div>
+<input type="file" id="importFile" accept=".json" style="display:none">
+
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+
+var items=JSON.parse(localStorage.getItem("sr_items")||"[]");
+
+function sm2(item,quality){
+  if(quality>=3){
+    if(item.reps===0){item.interval=1}
+    else if(item.reps===1){item.interval=6}
+    else{item.interval=Math.round(item.interval*item.ef)}
+    item.reps++;
+    item.ef=item.ef+(0.1-(5-quality)*(0.08+(5-quality)*0.02));
+    if(item.ef<1.3)item.ef=1.3;
+  }else{
+    item.reps=0;
+    item.interval=1;
+    item.ef=Math.max(1.3,item.ef-0.2);
+  }
+  var today=new Date();
+  item.lastReview=today.toISOString().split("T")[0];
+  var next=new Date(today);
+  next.setDate(next.getDate()+item.interval);
+  item.nextReview=next.toISOString().split("T")[0];
+  return item;
+}
+
+function addSubject(){
+  var name=document.getElementById("subjectName").value.trim();
+  if(!name){showToast("Please enter a subject name");return}
+  if(items.some(function(i){return i.name===name})){showToast("Subject already exists");return}
+  items.push({name:name,ef:2.5,reps:0,interval:0,lastReview:"",nextReview:new Date().toISOString().split("T")[0]});
+  save();render();
+  document.getElementById("subjectName").value="";
+  showToast("Added "+name);
+}
+
+function rateItem(idx,quality){
+  items[idx]=sm2(items[idx],quality);
+  save();render();
+  var qLabels=["Blackout","Very Hard","Hesitated","Some Effort","Easy","Perfect"];
+  showToast(items[idx].name+" rated "+quality+"("+qLabels[quality]+") → next "+items[idx].nextReview);
+}
+
+function deleteItem(idx){
+  var name=items[idx].name;
+  items.splice(idx,1);
+  save();render();
+  showToast("Deleted "+name);
+}
+
+function save(){localStorage.setItem("sr_items",JSON.stringify(items))}
+
+function render(){
+  var today=new Date().toISOString().split("T")[0];
+  var sorted=items.slice().sort(function(a,b){
+    if(!a.nextReview)return -1;if(!b.nextReview)return 1;
+    return a.nextReview<b.nextReview?-1:a.nextReview>b.nextReview?1:0;
+  });
+  var html="";
+  var overdueCount=0,todayCount=0,totalCount=items.length;
+  sorted.forEach(function(item,idx){
+    var realIdx=items.indexOf(item);
+    var isOverdue=item.nextReview&&item.nextReview<today;
+    var isToday=item.nextReview===today;
+    if(isOverdue)overdueCount++;
+    if(isToday)todayCount++;
+    html+='<div class="result-card">';
+    html+='<div class="left">';
+    html+='<div class="subject">'+item.name+(isOverdue?' <span class="overdue">Overdue</span>':'')+(isToday?' <span class="today-tag">Today</span>':'')+'</div>';
+    html+='<div class="dates">';
+    html+='<span>Last: '+(item.lastReview||"—")+'</span>';
+    html+='<span>Next: '+item.nextReview+'</span>';
+    html+='<span>Interval: '+item.interval+'d</span>';
+    html+='<span>EF: '+item.ef.toFixed(2)+'</span>';
+    html+='<span>Reviews: '+item.reps+'</span>';
+    html+='</div></div>';
+    html+='<div class="right">';
+    html+='<div class="quality-btns">';
+    for(var q=0;q<=5;q++){
+      html+='<span class="quality-btn q'+q+'" onclick="rateItem('+realIdx+','+q+')">'+q+'</span>';
+    }
+    html+='</div>';
+    html+='<span style="color:#EF4444;cursor:pointer;font-size:.85rem" onclick="deleteItem('+realIdx+')">✕</span>';
+    html+='</div></div>';
+  });
+  if(items.length===0){
+    html='<p style="color:#64748b;text-align:center;padding:20px">No subjects yet. Click "Add" to get started.</p>';
+  }
+  document.getElementById("reviewList").innerHTML=html;
+  document.getElementById("statsRow").innerHTML=
+    '<div class="stat-item"><div class="stat-value">'+totalCount+'</div><div class="stat-label">Subjects</div></div>'+
+    '<div class="stat-item"><div class="stat-value" style="color:#EF4444">'+overdueCount+'</div><div class="stat-label">Overdue</div></div>'+
+    '<div class="stat-item"><div class="stat-value" style="color:#10B981">'+todayCount+'</div><div class="stat-label">Today</div></div>';
+}
+
+function exportData(){
+  if(items.length===0){showToast("No data to export");return}
+  var blob=new Blob([JSON.stringify(items,null,2)],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="spaced-repetition-data.json";a.click();
+  showToast("Export successful");
+}
+
+function importData(){
+  document.getElementById("importFile").click();
+}
+
+document.getElementById("importFile").addEventListener("change",function(e){
+  var file=e.target.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var data=JSON.parse(ev.target.result);
+      if(Array.isArray(data)){items=data;save();render();showToast("Imported "+data.length+" subjects")}
+      else{showToast("Invalid format")}
+    }catch(err){showToast("File parse error")}
+  };
+  reader.readAsText(file);
+  e.target.value="";
+});
+
+function clearAll(){
+  if(items.length===0)return;
+  items=[];save();render();showToast("All data cleared");
+}
+
+render();
+</script>
+</main>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a> <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#64748b;margin:0 8px">GitHub</a></footer>
+</body>
+</html>

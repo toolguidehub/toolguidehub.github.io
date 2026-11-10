@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online HTTP status code lookup. Search all standard response codes (1xx-5xx) by code or keyword, filter by category, and view detailed descriptions.">
+<meta name="keywords" content="HTTP status codes, status code lookup, HTTP response, 200, 404, 500, developer tool">
+<title>HTTP Status Code Lookup - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/http-status-lookup/">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/http-status-lookup/">
+<meta property="og:title" content="HTTP Status Code Lookup - Quick Reference Tool">
+<meta property="og:description" content="Free online HTTP status code lookup. Search all standard response codes (1xx-5xx) by code or keyword, filter by category, and view detailed descriptions.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/http-status-lookup/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Http Status Lookup", "description": "Free online HTTP status code lookup tool. Search HTTP response codes (1xx-5xx) with instant meanings, usage examples. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-14", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Http Status Lookup","description":"Step-by-step guide for using Http Status Lookup","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Http Status Lookup"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}
+.input-section,.result-section,.info-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.input-section h2,.result-section h2,.info-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.info-section h3{font-size:.95rem;color:#e2e8f0;margin:16px 0 8px}
+.info-section p{color:#94a3b8;font-size:.9rem;margin-bottom:8px}
+.info-section ul{list-style:none;margin-bottom:12px}
+.info-section li{color:#94a3b8;font-size:.9rem;padding:4px 0;padding-left:20px;position:relative}
+.info-section li::before{content:"•";position:absolute;left:4px;color:#06b6d4}
+.info-section code{background:rgba(6,182,212,.1);color:#22d3ee;padding:2px 6px;border-radius:3px;font-size:.85rem}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.search-box{width:100%;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;font-size:.95rem;margin-bottom:16px}
+.search-box:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.cat-tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.cat-tab{padding:8px 16px;background:#1e293b;color:#94a3b8;border:1px solid rgba(148,163,184,.1);border-radius:8px;cursor:pointer;font-size:.85rem;transition:all .2s}
+.cat-tab:hover{color:#e2e8f0}
+.cat-tab.active{background:rgba(6,182,212,.2);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.status-grid{display:grid;gap:10px}
+.status-card{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .2s}
+.status-card:hover{border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.03)}
+.status-card.hidden{display:none}
+.status-code{font-size:1.4rem;font-weight:700;margin-right:10px}
+.status-name{font-size:.9rem;color:#94a3b8}
+.status-desc{font-size:.85rem;color:#64748b;margin-top:4px}
+.cat-1 .status-code{color:#22d3ee}.cat-2 .status-code{color:#10b981}.cat-3 .status-code{color:#f59e0b}.cat-4 .status-code{color:#f87171}.cat-5 .status-code{color:#ef4444}
+.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}
+.ad-slot.ad-sidebar{max-width:300px}
+.detail-panel{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:10px;padding:20px;margin-bottom:16px;display:none}
+.detail-panel h3{color:#22d3ee;font-size:1.1rem;margin-bottom:8px}
+.detail-panel p{color:#94a3b8;font-size:.9rem;margin-bottom:6px}
+.stats{display:flex;gap:16px;margin-top:8px;font-size:.8rem;color:#64748b}
+.stats span{background:rgba(148,163,184,.08);padding:4px 10px;border-radius:4px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Http Status Lookup",
+      "item": "https://adi63586.github.io/Toolguidehub/en/http-status-lookup/"
+    }
+  ],
+  "name": "Http Status Lookup"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Http Status Lookup FAQ","mainEntity":[{"@type":"Question","name":"How does the Http Status Lookup check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: HTTP status codes and other values are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the Http Status Lookup free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: HTTP status codes and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Http Status Lookup report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header">
+ <h1>HTTP Status Code Lookup</h1>
+ 
+ </div>
+ <div style="background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:12px 16px;margin:12px 0;color:#22d3ee;font-size:.9rem">📌 This tool has been merged into <a href="../../en/http-status-codes/" style="color:#22d3ee;text-decoration:underline">http status codes</a>. Please use the new version.</div>
+ <p class="nav-back"><a href="../../">← AllTools</a></p>
+
+ <div class="input-section">
+ <h2>Search status code</h2>
+ <input type="text" class="search-box" id="searchBox" placeholder="Input status code (such as 404) or about keyword (such as Not Found) to search..." oninput="filterStatus()">
+ <div class="cat-tabs">
+ <button class="cat-tab active" onclick="filterCat('all',this)">All</button>
+ <button class="cat-tab" onclick="filterCat(1,this)" style="color:#22d3ee">1xx info</button>
+ <button class="cat-tab" onclick="filterCat(2,this)" style="color:#10b981">2xx success</button>
+ <button class="cat-tab" onclick="filterCat(3,this)" style="color:#f59e0b">3xx redirect</button>
+ <button class="cat-tab" onclick="filterCat(4,this)" style="color:#f87171">4xx client error</button>
+ <button class="cat-tab" onclick="filterCat(5,this)" style="color:#ef4444">5xx server error</button>
+ </div>
+ <div class="stats" id="stats"></div>
+ </div>
+
+ <div class="detail-panel" id="detailPanel">
+ <h3 id="detailTitle"></h3>
+ <p id="detailCode"></p>
+ <p id="detailDesc"></p>
+ <p id="detailSpec"></p>
+ <p id="detailTip"></p>
+ <div class="btn-row"><button class="btn btn-secondary" onclick="closeDetail()">Close</button></div>
+ </div>
+
+ <div class="result-section">
+ <div class="status-grid" id="statusGrid"></div>
+ </div>
+
+ <div class="info-section">
+ <h2>What can this HTTP Status Code Lookup tool do?</h2>
+ <p>This tool provides fast HTTP status code lookup and search. It includes all standard status codes (1xx-5xx) per the RFC specification, supporting search by code, keyword, or category. Click any status code for a detailed description. Ideal for web development, debugging, and API design reference.</p>
+
+ <h2>Features</h2>
+ <ul>
+ <li><strong>Real-time Search</strong>: Type a status code or keyword to filter, e.g. "404" or "Not Found"</li>
+ <li><strong>Category Browse</strong>: Filter by class — 1xx Informational / 2xx Success / 3xx Redirection / 4xx Client Error / 5xx Server Error</li>
+ <li><strong>Detailed Descriptions</strong>: Click any status code to view full description, RFC source, and usage tips</li>
+ <li><strong>Copy & Share</strong>: One-click copy of status code info to share with your team</li>
+ <li><strong>Offline Available</strong>: All data is built-in — no network required to look up status codes</li>
+ </ul>
+
+ <h2>How to Use</h2>
+ <p>1. Type a status code (such as 404) or a keyword (such as "Not Found") in the search box — results filter instantly as you type. 2. Click a category tab to quickly switch between specific classes of status codes. 3. Click a status code card to view the detailed description, including the RFC source and usage suggestions. 4. Use Ctrl+Shift+C to quickly copy the currently selected status code info.</p>
+
+ <h2>Use Cases</h2>
+ <h3>Scenario 1: Web development debugging</h3>
+ <p>When an API returns a 4xx/5xx error, quickly look up the status code and its meaning to determine the cause, without having to search through specification documents.</p>
+ <h3>Scenario 2: API design</h3>
+ <p>When designing a RESTful API, use standard status codes to confirm the interface contract and ensure compliance with the HTTP specification.</p>
+ <h3>Scenario 3: Log analysis</h3>
+ <p>When analyzing Nginx/Apache logs, quickly identify the type of problem (client error, server error, or network-related) by status code.</p>
+
+ <h2>Extended Knowledge</h2>
+ <p>HTTP status codes are based on the IANA RFC standard. 1xx codes indicate informational responses (such as 101 Switching Protocols used in WebSocket upgrades); 2xx codes indicate success (200 OK is the most common, 201 Created is used for resource creation, 204 No Content is used for delete operations); 3xx codes are used for redirection (301 permanent redirect for SEO migration, 302 temporary redirect, 304 Not Modified for caching); 4xx codes are client errors (400 Bad Request for malformed requests, 401 Unauthorized for missing authentication, 403 Forbidden for insufficient permissions, 404 Not Found when the resource does not exist); 5xx codes are server errors (500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, 504 Gateway Timeout).</p>
+
+ <h2>FAQ</h2>
+ <div class="faq-item"><h3>How does the HTTP Status Code Lookup work?</h3><p>Type a status code or keyword into the search box, or click a category tab to filter. Click any status code card to view its full description, RFC source, and usage tips. Everything runs locally in your browser.</p></div>
+ <div class="faq-item"><h3>Is the HTTP Status Code Lookup free to use?</h3><p>Yes, this tool is completely free with no signup required. All data is built into the page and processed on your device — nothing is ever uploaded to a server.</p></div>
+ <div class="faq-item"><h3>What does the lookup report include?</h3><p>Each status code entry includes the code, name, a short description, the RFC specification source, and practical usage tips. Use Ctrl+Shift+C to copy the selected entry.</p></div>
+ </div>
+
+ </main>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer container">
+ <div style="margin-bottom:12px">
+ <a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+ <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../http-status-lookup/">中文</a>
+</div>
+
+
+</footer>
+ 
+<script>
+var statuses=[
+{code:100,cat:1,name:"Continue",cn:"Continue",desc:"",spec:"RFC 9110",tip:""},
+{code:101,cat:1,name:"Switching Protocols",cn:"switchprotocol",desc:"",spec:"RFC 9110",tip:"Upgradeheadtrigger"},
+{code:102,cat:1,name:"Processing",cn:"Processing",desc:"",spec:"RFC 2518",tip:"longTimeoperationwhenBack"},
+{code:200,cat:2,name:"OK",cn:"success",desc:"",spec:"RFC 9110",tip:"mostcommonuse successstatus code"},
+{code:201,cat:2,name:"Created",cn:"Alreadycreate",desc:"",spec:"RFC 9110",tip:""},
+{code:202,cat:2,name:"Accepted",cn:"Accepted",desc:"request accepted but not yet processing complete (async process)",spec:"RFC 9110",tip:"async task common use"},
+{code:204,cat:2,name:"No Content",cn:"Nocontent",desc:"requestsuccessbutNoresponsebodyBack",spec:"RFC 9110",tip:"DELETEoperationcommonuse"},
+{code:206,cat:2,name:"Partial Content",cn:"partialseparatecontent",desc:"",spec:"RFC 9110",tip:""},
+{code:301,cat:3,name:"Moved Permanently",cn:"",desc:"",spec:"RFC 9110",tip:""},
+{code:302,cat:3,name:"Found",cn:"",desc:"",spec:"RFC 9110",tip:""},
+{code:303,cat:3,name:"See Other",cn:"",desc:"",spec:"RFC 9110",tip:""},
+{code:304,cat:3,name:"Not Modified",cn:"Notmodify",desc:"",spec:"RFC 9110",tip:""},
+{code:307,cat:3,name:"Temporary Redirect",cn:"",desc:"",spec:"RFC 9110",tip:""},
+{code:308,cat:3,name:"Permanent Redirect",cn:"",desc:"",spec:"RFC 7538",tip:""},
+{code:400,cat:4,name:"Bad Request",cn:"errorrequest",desc:"",spec:"RFC 9110",tip:"CheckrequestFormatandParameters"},
+{code:401,cat:4,name:"Unauthorized",cn:"Notauthentication",desc:"",spec:"RFC 9110",tip:""},
+{code:403,cat:4,name:"Forbidden",cn:"",desc:"",spec:"RFC 9110",tip:"AlreadyauthenticationbutNopermission"},
+{code:404,cat:4,name:"Not Found",cn:"Notfindto",desc:"The requested resource could not be found on the server",spec:"RFC 9110",tip:"Check the URL or resource path"},
+{code:413,cat:4,name:"Payload Too Large",cn:"requestbodythroughbig",desc:"requestbodyexceedserverlimit",spec:"RFC 9110",tip:"CompressDataorseparateblockUpload"},
+{code:415,cat:4,name:"Unsupported Media Type",cn:"Unsupported media type",desc:"The Content-Type of the request is not supported",spec:"RFC 9110",tip:"Check the Content-Type header"},
+{code:422,cat:4,name:"Unprocessable Entity",cn:"Unprocessable entity",desc:"Well-formed request but semantically invalid, validation failed",spec:"RFC 9110",tip:"Common for form validation failures"},
+{code:429,cat:4,name:"Too Many Requests",cn:"Too many requests",desc:"Client sent too many requests, rate limited",spec:"RFC 6585",tip:"Use with Retry-After header"},
+{code:500,cat:5,name:"Internal Server Error",cn:"Internal server error",desc:"Server encountered an unexpected error",spec:"RFC 9110",tip:"Check server logs"},
+{code:501,cat:5,name:"Not Implemented",cn:"Not implemented",desc:"Server does not support the requested functionality",spec:"RFC 9110",tip:"Unsupported HTTP method"},
+{code:502,cat:5,name:"Bad Gateway",cn:"Bad gateway",desc:"Gateway received an invalid response from upstream",spec:"RFC 9110",tip:"Check upstream service"},
+{code:503,cat:5,name:"Service Unavailable",cn:"Service unavailable",desc:"Server temporarily overloaded or under maintenance",spec:"RFC 9110",tip:"Use with Retry-After header"},
+{code:504,cat:5,name:"Gateway Timeout",cn:"Gateway timeout",desc:"Gateway timed out waiting for upstream response",spec:"RFC 9110",tip:"Check upstream response time"},
+];
+
+var currentCat='all';
+var selectedCode=null;
+
+function renderGrid(){
+  var g=document.getElementById('statusGrid');
+  var q=document.getElementById('searchBox').value.toLowerCase().trim();
+  var count=0;
+  var html='';
+  for(var i=0;i<statuses.length;i++){
+    var s=statuses[i];
+    if(currentCat!=='all'&&s.cat!==currentCat)continue;
+    if(q&&!(String(s.code).indexOf(q)===0||s.name.toLowerCase().indexOf(q)!==-1||s.cn.indexOf(q)!==-1||s.desc.indexOf(q)!==-1))continue;
+    count++;
+    html+='<div class="status-card cat-'+s.cat+'" onclick="showDetail('+s.code+')"><span class="status-code">'+s.code+'</span><span class="status-name">'+s.name+'</span><div class="status-desc">'+s.desc+'</div></div>';
+  }
+  g.innerHTML=html;
+  document.getElementById('stats').innerHTML='<span>Showing '+count+' / '+statuses.length+'</span>';
+}
+
+function filterCat(cat,el){
+  currentCat=cat;
+  document.querySelectorAll('.cat-tab').forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+  renderGrid();
+}
+
+function filterStatus(){renderGrid()}
+
+function showDetail(code){
+  var s=statuses.find(function(x){return x.code===code});
+  if(!s)return;
+  var p=document.getElementById('detailPanel');
+  p.style.display='block';
+  document.getElementById('detailTitle').textContent=s.code+' '+s.name;
+  document.getElementById('detailCode').innerHTML='<strong>Status code:</strong> '+s.code;
+  document.getElementById('detailDesc').innerHTML='<strong>Description:</strong> '+s.desc;
+  document.getElementById('detailSpec').innerHTML='<strong>Specification:</strong> '+s.spec;
+  document.getElementById('detailTip').innerHTML='<strong>Tip:</strong> '+s.tip;
+  selectedCode=s;
+  p.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeDetail(){document.getElementById('detailPanel').style.display='none';selectedCode=null}
+
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey&&e.shiftKey&&e.key==='C'&&selectedCode){
+    navigator.clipboard.writeText(selectedCode.code+' '+selectedCode.name+': '+selectedCode.desc);
+    showToast('Status code info copied');
+    e.preventDefault();
+  }
+});
+
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+
+window.addEventListener('load',function(){renderGrid()});
+</script>
+
+</body>
+</html>

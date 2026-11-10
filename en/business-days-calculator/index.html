@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Add or subtract business days from a date, or count working days between two dates, skipping weekends.">
+<meta name="keywords" content="business days calculator, working days calculator, business day counter, date calculator, free online tool, add business days, subtract business days">
+<title>Business Days Calculator - Working Days Count | ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/business-days-calculator/">
+<meta property="og:title" content="Business Days Calculator - Working Days Count | ToolGuideHub">
+<meta property="og:description" content="Add or subtract business days from a date, or count working days between two dates, skipping weekends.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/business-days-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Business Days Calculator","description":"Calculate working days between two dates, excluding weekends and holidays. Add or subtract business days from a date.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Business Days Calculator FAQ","mainEntity":[{"@type":"Question","name":"How do I use the business days calculator?","acceptedAnswer":{"@type":"Answer","text":"Select a start date and end date, then click Calculate to get the number of business days between them (excluding weekends). You can also use the Add or Subtract Business Days mode to find the date before or after N business days."}},{"@type":"Question","name":"Does the calculation include the start date?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculation includes the start date but excludes the end date. For example, Monday to Friday (5 business days) with start date Monday and end date next Monday equals 5 business days."}},{"@type":"Question","name":"What counts as a business day?","acceptedAnswer":{"@type":"Answer","text":"Business days are typically Monday through Friday, excluding weekends (Saturday and Sunday). This tool excludes weekends by default and allows you to add custom holidays."}},{"@type":"Question","name":"Can I add custom holidays?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can add custom holiday dates in the holidays field, one per line in YYYY-MM-DD format. You can also load US Federal Holidays for 2025-2026 with one click."}},{"@type":"Question","name":"How to calculate project deadline?","acceptedAnswer":{"@type":"Answer","text":"Enter your project start date, then switch to 'Add Business Days' mode. Input the number of business days your project requires. The calculator will show the exact deadline date, excluding weekends and any holidays you specify."}},{"@type":"Question","name":"Business days vs calendar days conversion","acceptedAnswer":{"@type":"Answer","text":"Calendar days include every day (weekends and holidays), while business days only count Monday through Friday excluding holidays. For example, 10 calendar days might equal only 7-8 business days depending on weekends and holidays in the period."}},{"@type":"Question","name":"Which countries' holidays are supported?","acceptedAnswer":{"@type":"Answer","text":"The tool comes with US Federal Holidays for 2025-2026 preloaded. You can add any country's holidays manually by entering the dates in YYYY-MM-DD format, one per line. This makes it flexible for international use."}},{"@type":"Question","name":"Is the calculation accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculation is performed entirely in your browser using reliable date arithmetic. It correctly handles month boundaries, leap years, and holiday exclusions. All processing is 100% client-side for both accuracy and privacy."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the Business Days Calculator","description":"Business Days Calculator usage steps","totalTime":"PT2M","tool":{"@type":"HowToTool","name":"Business Days Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Choose mode","text":"Select Between Two Dates, Add Business Days, or Subtract Business Days"},{"@type":"HowToStep","position":2,"name":"Enter dates","text":"Input start date and end date (or number of business days)"},{"@type":"HowToStep","position":3,"name":"Add holidays","text":"Optionally add holidays or load US Federal Holidays with one click"},{"@type":"HowToStep","position":4,"name":"View result","text":"Click calculate to get business days count or target date"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://adi63586.github.io/Toolguidehub/en/#calculators/"},{"@type":"ListItem","position":3,"name":"Business Days Calculator","item":"https://adi63586.github.io/Toolguidehub/en/business-days-calculator/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.nav-back a:hover{color:#94a3b8}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:640px){.main-grid{grid-template-columns:1fr}.container{padding:16px 12px}.header h1{font-size:1.2rem}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s;font-family:inherit}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.form-group input::placeholder,.form-group textarea::placeholder{color:#475569;font-style:italic}.form-row{display:flex;gap:12px;flex-wrap:wrap}.form-row .form-group{flex:1;min-width:160px}.tab-bar{display:flex;gap:4px;margin-bottom:16px;background:#0f172a;border-radius:10px;padding:4px;border:1px solid rgba(148,163,184,.1);flex-wrap:wrap}.tab-btn{flex:1;padding:10px 8px;border:none;background:transparent;color:#94a3b8;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s;min-width:120px}.tab-btn.active{background:rgba(6,182,212,.15);color:#22d3ee}.tab-btn:hover:not(.active){background:rgba(148,163,184,.05)}.tab-content{display:none}.tab-content.active{display:block}.holidays-input{margin-bottom:14px}.holidays-input label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.holidays-input textarea{width:100%;min-height:80px;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.85rem;resize:vertical;font-family:monospace;outline:none;transition:all .2s}.holidays-input textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.holidays-hint{color:#475569;font-size:.78rem;margin-top:4px}.preset-bar{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;align-items:center}.preset-bar span{color:#64748b;font-size:.8rem;margin-right:4px}.preset-btn{padding:5px 10px;background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.78rem;transition:all .2s;white-space:nowrap}.preset-btn:hover{background:rgba(6,182,212,.25)}.holiday-btn{padding:5px 10px;background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2);border-radius:6px;cursor:pointer;font-size:.78rem;transition:all .2s;white-space:nowrap}.holiday-btn:hover{background:rgba(34,197,94,.2)}.btn-group{display:flex;gap:10px;flex-wrap:wrap}.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;font-weight:500;transition:all .2s}.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}.btn-primary:hover{opacity:.9;transform:translateY(-1px)}.btn-danger{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.25)}.btn-danger:hover{background:rgba(239,68,68,.25)}.result-box{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:10px;padding:20px;margin-top:16px;display:none;position:relative;cursor:pointer;transition:all .2s}.result-box:hover{border-color:rgba(6,182,212,.4)}.result-box.show{display:block;animation:fadeInUp .3s ease-out}.result-label{color:#94a3b8;font-size:.85rem;margin-bottom:4px}.result-number{font-size:2rem;font-weight:700;color:#22d3ee;line-height:1.2}.result-detail{color:#64748b;font-size:.85rem;margin-top:8px}.result-detail span{color:#94a3b8;font-weight:500}.copy-hint{position:absolute;top:8px;right:8px;color:#475569;font-size:.7rem;opacity:0;transition:opacity .2s}.result-box:hover .copy-hint{opacity:1}@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.seo-content{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{color:#22d3ee;font-size:1.2rem;margin-bottom:12px}.seo-content h3{color:#e2e8f0;font-size:1rem;margin:16px 0 8px}.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem;line-height:1.7}.seo-content ul{padding-left:20px;margin:8px 0}.seo-content li{margin-bottom:6px}.seo-content strong{color:#e2e8f0}.faq-item{background:#0f172a;border-radius:8px;padding:16px;margin-bottom:10px;border:1px solid rgba(148,163,184,.08)}.faq-item h3{color:#e2e8f0;font-size:.95rem;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.88rem}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#1e293b;color:#22d3ee;padding:12px 24px;border-radius:10px;font-size:.9rem;border:1px solid rgba(6,182,212,.3);transition:transform .3s ease;z-index:9999;pointer-events:none}.toast.show{transform:translateX(-50%) translateY(0)}.footer{border-top:1px solid rgba(148,163,184,.1);padding-top:20px;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 10px;font-size:.85rem}.footer a:hover{color:#94a3b8}.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}.copy-btn:hover{background:rgba(6,182,212,.25)}.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+li, .seo-content, .range-row span, .cycle-count span, .result-card .label, .result-card .cycle-note { font-size: 14px !important; }
+/* W3 layout fixes */
+input, select, textarea { font-size: 16px !important; }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]), select, textarea { min-height: 44px; }
+input[type=checkbox], input[type=radio] { width: 20px !important; height: 20px !important; flex: 0 0 auto; }label:has(> input[type=checkbox]), label:has(> input[type=radio]) { min-height: 44px; padding: 11px 0; box-sizing: border-box; }
+button { min-height: 44px; min-width: 44px; font-size: 14px !important; }
+label, p, .btn, .tab-btn, .preset-btn, .quick-btn, .holiday-btn, .holidays-hint, .copy-btn, .copy-hint, .lang-switch, .lang-switch a, .nav-back, .nav-back a, .badge, .breadcrumb, .footer, .footer a, .footer p, .footer div, .result-label, .result-detail, .sidebar li, .seo-content p, .seo-content li, .faq-item p, .result-number .copy-tip, .hint, .info-text, .privacy-note, .freshness, .result-unit, .info-label, .label, .day-result, .key, .compass-mark, .preset-tag, .quick-chip, .mode-btn, .op-btn, .pc-mode-tab, .val, .zh-link, .preset-bar span, .toast, .updated, .unit, .stat-label, .stat, .stats-bar, .stat-count, .sub, .value, .lbl, .log-area, .dir-pill, .ip-label, .canvas-bg-switch, .a, .count-badge, .font-name, .result-box, .cycle, .dbl-history, .coords, .file-info, .result-row, .result-secondary, .warning-box, .coord-display, .pc-deduction-item, .log-container, .result-item .label, .result-item .sub, .result-item .value, .param-row span { font-size: 14px !important; }
+footer div, footer a, footer p, footer span { font-size: 14px !important; }
+div[style*=".8rem"], div[style*=".75rem"], div[style*=".85rem"], span[style*=".8rem"], span[style*=".75rem"], span[style*=".85rem"] { font-size: 14px !important; }
+@media(max-width:640px){ .hero { margin-bottom: 12px; } .hero p { margin-bottom: 4px; } .section { padding: 14px; margin-bottom: 10px; } .header { margin-bottom: 12px; } .nav-back { margin-bottom: 8px; } }
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/business-days-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>📅 Business Days Calculator</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../../#calculators">Calculators</a> &rsaquo; Business Days Calculator</p>
+<div class="hero"><p>Calculate working days between two dates, excluding weekends and custom holidays. Add or subtract business days from a start date. Load US federal holidays with one click. All computation happens on your device — Start Date, End Date and other inputs stay in your browser.</p><span class="badge">100% Client-Side · No Upload</span></div>
+<div class="main-grid">
+<div>
+<div class="tab-bar"><button class="tab-btn active" onclick="switchMode('between')">📊 Between Two Dates</button><button class="tab-btn" onclick="switchMode('add')">➕ Add Days</button><button class="tab-btn" onclick="switchMode('subtract')">➖ Subtract Days</button></div>
+<div id="mode-between" class="tab-content active">
+<div class="section">
+<div class="preset-bar"><span>Quick:</span><button class="preset-btn" onclick="applyPreset('week')">This Week</button><button class="preset-btn" onclick="applyPreset('month')">This Month</button><button class="preset-btn" onclick="applyPreset('quarter')">This Quarter</button><button class="preset-btn" onclick="applyPreset('year')">This Year</button></div>
+<div class="form-row">
+<div class="form-group"><label>Start Date</label><input type="date" id="startDate" placeholder="YYYY-MM-DD"></div>
+<div class="form-group"><label>End Date</label><input type="date" id="endDate" placeholder="YYYY-MM-DD"></div></div>
+<div class="holidays-input"><label>Custom Holidays (optional, one per line YYYY-MM-DD)</label><textarea id="holidaysBetween" placeholder="2026-01-01&#10;2026-12-25"></textarea><div class="holidays-hint"><button class="btn btn-secondary" onclick="fillExample()" style="margin-left:8px">🎲 Try example</button><button class="holiday-btn" onclick="loadUSHolidays()">🇺🇸 Load US Federal Holidays 2025-2026</button></div></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="calcBetween()">📊 Calculate</button><button class="btn btn-danger" onclick="resetBetween()">🔄 Reset</button></div>
+<div id="resultBetween" class="result-box" onclick="copyResult('betweenDays')"><span class="copy-hint">click to copy</span><div class="result-label">Business Days</div><div class="result-number" id="betweenDays">0</div><div class="result-detail">Calendar days: <span id="totalDays">0</span> · Weekend days: <span id="weekendDays">0</span> · Holidays: <span id="holidayDays">0</span></div></div>
+</div>
+</div>
+<div id="mode-add" class="tab-content">
+<div class="section">
+<div class="form-row">
+<div class="form-group"><label>Start Date</label><input type="date" id="addStartDate" placeholder="YYYY-MM-DD"></div>
+<div class="form-group"><label>Business Days to Add</label><input type="number" id="addDays" min="1" max="3650" value="10" placeholder="e.g. 10"></div></div>
+<div class="holidays-input"><label>Custom Holidays (optional)</label><textarea id="holidaysAdd" placeholder="2026-01-01&#10;2026-12-25"></textarea><div class="holidays-hint"><button class="holiday-btn" onclick="loadUSHolidaysMode('add')">🇺🇸 Load US Federal Holidays 2025-2026</button></div></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="calcAdd()">📅 Calculate Date</button><button class="btn btn-danger" onclick="resetAdd()">🔄 Reset</button></div>
+<div id="resultAdd" class="result-box" onclick="copyResult('addResultDate')"><span class="copy-hint">click to copy</span><div class="result-label">Target Date</div><div class="result-number" id="addResultDate">—</div><div class="result-detail"><span id="addDaysDisplay">0</span> business days from <span id="addStartDisplay">—</span> (weekends & holidays excluded)</div></div>
+</div>
+</div>
+<div id="mode-subtract" class="tab-content">
+<div class="section">
+<div class="form-row">
+<div class="form-group"><label>Start Date</label><input type="date" id="subStartDate" placeholder="YYYY-MM-DD"></div>
+<div class="form-group"><label>Business Days to Subtract</label><input type="number" id="subDays" min="1" max="3650" value="10" placeholder="e.g. 10"></div></div>
+<div class="holidays-input"><label>Custom Holidays (optional)</label><textarea id="holidaysSubtract" placeholder="2026-01-01&#10;2026-12-25"></textarea><div class="holidays-hint"><button class="holiday-btn" onclick="loadUSHolidaysMode('subtract')">🇺🇸 Load US Federal Holidays 2025-2026</button></div></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="calcSubtract()">📅 Calculate Date</button><button class="btn btn-danger" onclick="resetSubtract()">🔄 Reset</button></div>
+<div id="resultSubtract" class="result-box" onclick="copyResult('subResultDate')"><span class="copy-hint">click to copy</span><div class="result-label">Result Date</div><div class="result-number" id="subResultDate">—</div><div class="result-detail"><span id="subDaysDisplay">0</span> business days before <span id="subStartDisplay">—</span> (weekends & holidays excluded)</div></div>
+</div>
+</div>
+</div>
+<div class="seo-content">
+<h2>Business Days Calculator - Count Working Days Online</h2>
+<p>This free online business days calculator helps you quickly determine the number of working days between two dates, excluding weekends (Saturday and Sunday) and custom holidays. Whether you need to calculate project delivery dates, contract fulfillment days, or plan work schedules, this tool provides accurate results instantly.</p>
+<h3>Why choose Business Days Calculator</h3>
+<ul>
+<li><strong>Calculate between dates</strong>: Enter start and end dates to get the exact count of business days excluding weekends</li>
+<li><strong>Add business days</strong>: Find the future date after adding a specific number of business days</li>
+<li><strong>Subtract business days</strong>: Find the past date before subtracting a specific number of business days</li>
+<li><strong>Quick presets</strong>: Jump to This Week, This Month, This Quarter, or This Year with one click</li>
+<li><strong>US Federal Holidays</strong>: Load 2025-2026 US holidays instantly with one click</li>
+<li><strong>Custom holidays</strong>: Add company holidays, public holidays, or any dates to exclude</li>
+<li><strong>Privacy first</strong>: All calculation happens in your browser, nothing is uploaded</li>
+</ul>
+<h3>When to use Business Days Calculator</h3>
+<p>Project deadline planning, contract delivery date calculation, employee leave day counting, government processing time estimation, exam preparation planning, and more.</p>
+</div>
+<div class="section"><h2>Frequently Asked Questions</h2>
+<div class="faq-item"><h3>How do I use the business days calculator?</h3><p>Select a start date and end date, then click Calculate to get the number of business days between them (excluding weekends). You can also use the Add or Subtract Business Days mode to find the date before or after N business days.</p></div>
+<div class="faq-item"><h3>Does it include the start date?</h3><p>Yes. The calculation includes the start date but excludes the end date. For example, Monday to Friday with start on Monday and end on next Monday equals 5 business days.</p></div>
+<div class="faq-item"><h3>What counts as a business day?</h3><p>Monday through Friday, excluding weekends (Saturday and Sunday). You can also add custom holidays to exclude specific dates.</p></div>
+<div class="faq-item"><h3>Can I add custom holidays?</h3><p>Yes. Enter holiday dates in the holidays field, one per line in YYYY-MM-DD format. You can also load US Federal Holidays for 2025-2026 with one click.</p></div>
+<div class="faq-item"><h3>How to calculate project deadline?</h3><p>Enter your project start date, then switch to "Add Business Days" mode. Input the number of business days your project requires. The calculator will show the exact deadline date, excluding weekends and any holidays you specify.</p></div>
+<div class="faq-item"><h3>Business days vs calendar days conversion?</h3><p>Calendar days include every day (weekends and holidays), while business days only count Monday through Friday excluding holidays. For example, 10 calendar days might equal only 7-8 business days depending on weekends and holidays in the period.</p></div>
+<div class="faq-item"><h3>Which countries' holidays are supported?</h3><p>The tool comes with US Federal Holidays for 2025-2026 preloaded. You can add any country's holidays manually by entering the dates in YYYY-MM-DD format, one per line. This makes it flexible for international use.</p></div>
+<div class="faq-item"><h3>Is the calculation accurate?</h3><p>Yes. The calculation is performed entirely in your browser using reliable date arithmetic. It correctly handles month boundaries, leap years, and holiday exclusions. All processing is 100% client-side for both accuracy and privacy.</p></div>
+</div>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;border:1px solid rgba(148,163,184,.1);"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><a href="../../en/workdays-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Workdays Calculator</a>
+<a href="../../en/business-day-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Working Days Between Two Dates</a>
+<a href="../../en/work-hours-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Work Hours Calculator</a>
+<a href="../../en/time-duration-calc/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Time Duration Calculator</a>
+<a href="../../en/date-difference-calculator/" style="display:block;padding:6px 0;color:#06b6d4;text-decoration:none;font-size:14px;">Date Difference Calculator</a></section>
+
+<div class="toast" id="toast"></div>
+<noscript>
+<div style="padding:16px;max-width:800px;margin:0 auto;color:#cbd5e1">
+<h2>Business Days Calculator Features</h2>
+<p>The Business Days Calculator is a free online tool that helps you quickly count working days between two dates, automatically excluding weekends (Saturday and Sunday). It supports custom holiday exclusions and offers three calculation modes:</p>
+<ul>
+<li><strong>Count Business Days Between Two Dates</strong>: Enter a start date and end date to get the total calendar days, weekend days, holiday days, and actual business days.</li>
+<li><strong>Add N Business Days to a Date</strong>: Input a start date and number of business days to calculate the target date. Ideal for project deadline calculation and contract delivery date estimation.</li>
+<li><strong>Subtract N Business Days from a Date</strong>: Go back N business days from a specified date, useful for tracing back start dates.</li>
+</ul>
+<p>The tool includes preloaded US Federal Holidays for 2025-2026, loadable with one click. You can also manually enter custom holidays (one per line, YYYY-MM-DD format). All calculations run locally in your browser — no data is uploaded to any server, ensuring complete privacy.</p>
+<p><strong>Common use cases</strong>: Project scheduling, contract deadline calculation, HR attendance tracking, logistics time estimation, construction timeline planning, SLA response time calculation, and more.</p>
+</div>
+</noscript>
+<script>
+var US_HOLIDAYS = [
+  "2025-01-01","2025-01-20","2025-02-17","2025-05-26",
+  "2025-06-19","2025-07-04","2025-09-01","2025-10-13",
+  "2025-11-11","2025-11-27","2025-12-25",
+  "2026-01-01","2026-01-19","2026-02-16","2026-05-25",
+  "2026-06-19","2026-07-04","2026-09-07","2026-10-12",
+  "2026-11-11","2026-11-26","2026-12-25"
+];
+var US_HOLIDAY_NAMES = [
+  "2025-01-01 # New Year's Day","2025-01-20 # MLK Day","2025-02-17 # Presidents Day","2025-05-26 # Memorial Day",
+  "2025-06-19 # Juneteenth","2025-07-04 # Independence Day","2025-09-01 # Labor Day","2025-10-13 # Columbus Day",
+  "2025-11-11 # Veterans Day","2025-11-27 # Thanksgiving","2025-12-25 # Christmas",
+  "2026-01-01 # New Year's Day","2026-01-19 # MLK Day","2026-02-16 # Presidents Day","2026-05-25 # Memorial Day",
+  "2026-06-19 # Juneteenth","2026-07-04 # Independence Day","2026-09-07 # Labor Day","2026-10-12 # Columbus Day",
+  "2026-11-11 # Veterans Day","2026-11-26 # Thanksgiving","2026-12-25 # Christmas"
+];
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function parseHolidays(text){if(!text.trim())return[];return text.trim().split("\n").map(function(l){return l.trim()}).filter(function(l){return l&&/^\d{4}-\d{2}-\d{2}/.test(l)}).map(function(l){return l.split("#")[0].trim()})}
+function isWeekend(d){var day=d.getDay();return day===0||day===6}
+function sameDay(a,b){return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate()}
+function nextDay(d){var r=new Date(d);r.setDate(r.getDate()+1);return r}
+function prevDay(d){var r=new Date(d);r.setDate(r.getDate()-1);return r}
+function toDate(str){var p=str.split("-");return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]))}
+function formatDate(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function switchMode(m){document.querySelectorAll(".tab-content").forEach(function(t){t.classList.remove("active")});document.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active")});document.getElementById("mode-"+m).classList.add("active");document.querySelector(".tab-btn[onclick*='"+m+"']").classList.add("active")}
+function loadUSHolidays(){document.getElementById("holidaysBetween").value=US_HOLIDAY_NAMES.join("\n");showToast("US Federal Holidays 2025-2026 loaded!")}
+function loadUSHolidaysMode(mode){var ta=document.getElementById("holidays"+mode.charAt(0).toUpperCase()+mode.slice(1));ta.value=US_HOLIDAY_NAMES.join("\n");showToast("US Federal Holidays 2025-2026 loaded!")}
+function applyPreset(preset){var today=new Date();var start,end;switch(preset){case"week":var day=today.getDay();var diff=day===0?6:day-1;start=new Date(today);start.setDate(today.getDate()-diff);end=new Date(start);end.setDate(start.getDate()+4);break;case"month":start=new Date(today.getFullYear(),today.getMonth(),1);end=new Date(today.getFullYear(),today.getMonth()+1,0);break;case"quarter":var q=Math.floor(today.getMonth()/3);start=new Date(today.getFullYear(),q*3,1);end=new Date(today.getFullYear(),q*3+3,0);break;case"year":start=new Date(today.getFullYear(),0,1);end=new Date(today.getFullYear(),11,31);break}document.getElementById("startDate").value=formatDate(start);document.getElementById("endDate").value=formatDate(end);showToast(preset.charAt(0).toUpperCase()+preset.slice(1)+" preset applied")}
+function copyResult(id){var el=document.getElementById(id);if(!el||el.textContent==="—"||el.textContent==="0")return;var text=el.textContent.trim();navigator.clipboard.writeText(text).then(function(){showToast("Copied: "+text)}).catch(function(){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);showToast("Copied: "+text)})}
+function getDefaultDates(){var d=new Date();var start=new Date(d.getFullYear(),d.getMonth(),1);var end=new Date(d.getFullYear(),d.getMonth()+1,0);return{start:formatDate(start),end:formatDate(end)}}
+window.onload=function(){var def=getDefaultDates();document.getElementById("startDate").value=def.start;document.getElementById("endDate").value=def.end;document.getElementById("addStartDate").value=formatDate(new Date());document.getElementById("subStartDate").value=formatDate(new Date())}
+function calcBetween(){var s=document.getElementById("startDate").value;var e=document.getElementById("endDate").value;if(!s||!e){showToast("Please select start and end dates");return}var start=toDate(s);var end=toDate(e);if(start>=end){showToast("End date must be after start date");return}var holidays=parseHolidays(document.getElementById("holidaysBetween").value);var biz=0,total=0,wknd=0,hol=0;var cur=new Date(start);while(cur<end){total++;if(isWeekend(cur)){wknd++}else{var isHol=false;for(var i=0;i<holidays.length;i++){if(sameDay(cur,toDate(holidays[i]))){isHol=true;break}}if(isHol){hol++}else{biz++}}cur=nextDay(cur)}document.getElementById("betweenDays").textContent=biz;document.getElementById("totalDays").textContent=total;document.getElementById("weekendDays").textContent=wknd;document.getElementById("holidayDays").textContent=hol;document.getElementById("resultBetween").classList.add("show")}
+function resetBetween(){document.getElementById("startDate").value="";document.getElementById("endDate").value="";document.getElementById("holidaysBetween").value="";document.getElementById("resultBetween").classList.remove("show")}
+function calcAdd(){var s=document.getElementById("addStartDate").value;var n=parseInt(document.getElementById("addDays").value);if(!s){showToast("Please select start date");return}if(!n||n<1){showToast("Please enter valid number of business days");return}var start=toDate(s);var holidays=parseHolidays(document.getElementById("holidaysAdd").value);var cur=new Date(start);var count=0;if(!isWeekend(cur)){var isHol=false;for(var i=0;i<holidays.length;i++){if(sameDay(cur,toDate(holidays[i]))){isHol=true;break}}if(!isHol){count=1}}while(count<n){cur=nextDay(cur);if(!isWeekend(cur)){var isHol=false;for(var i=0;i<holidays.length;i++){if(sameDay(cur,toDate(holidays[i]))){isHol=true;break}}if(!isHol){count++}}}document.getElementById("addResultDate").textContent=formatDate(cur);document.getElementById("addStartDisplay").textContent=formatDate(start);document.getElementById("addDaysDisplay").textContent=n;document.getElementById("resultAdd").classList.add("show")}
+function resetAdd(){document.getElementById("addStartDate").value="";document.getElementById("addDays").value="10";document.getElementById("holidaysAdd").value="";document.getElementById("resultAdd").classList.remove("show")}
+function calcSubtract(){var s=document.getElementById("subStartDate").value;var n=parseInt(document.getElementById("subDays").value);if(!s){showToast("Please select start date");return}if(!n||n<1){showToast("Please enter valid number of business days");return}var start=toDate(s);var holidays=parseHolidays(document.getElementById("holidaysSubtract").value);var cur=new Date(start);var count=0;if(!isWeekend(cur)){var isHol=false;for(var i=0;i<holidays.length;i++){if(sameDay(cur,toDate(holidays[i]))){isHol=true;break}}if(!isHol){count=1}}while(count<n){cur=prevDay(cur);if(!isWeekend(cur)){var isHol=false;for(var i=0;i<holidays.length;i++){if(sameDay(cur,toDate(holidays[i]))){isHol=true;break}}if(!isHol){count++}}}document.getElementById("subResultDate").textContent=formatDate(cur);document.getElementById("subStartDisplay").textContent=formatDate(start);document.getElementById("subDaysDisplay").textContent=n;document.getElementById("resultSubtract").classList.add("show")}
+function resetSubtract(){document.getElementById("subStartDate").value="";document.getElementById("subDays").value="10";document.getElementById("holidaysSubtract").value="";document.getElementById("resultSubtract").classList.remove("show")}
+document.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.tagName!=="TEXTAREA"){e.preventDefault();var activeTab=document.querySelector(".tab-btn.active");if(!activeTab)return;var txt=activeTab.textContent;if(txt.indexOf("Between")!==-1)calcBetween();else if(txt.indexOf("Add")!==-1)calcAdd();else if(txt.indexOf("Subtract")!==-1)calcSubtract()}});
+</script>
+
+<script>(function(){var processed=new Set();function addCopyBtns(){var results=document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]');results.forEach(function(el){if(processed.has(el))return;if(el.querySelector('.copy-btn'))return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT')return;if(el.children.length===0&&el.textContent.trim().length<5)return;var btn=document.createElement('button');btn.className='copy-btn';btn.innerHTML='📋 Copy';btn.title='CopyResult';btn.onclick=function(e){e.stopPropagation();var text=el.textContent||el.value||'';if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')text=el.value;navigator.clipboard.writeText(text.trim()).then(function(){btn.innerHTML='✅ Copied';btn.classList.add('copied');setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);}).catch(function(){var ta=document.createElement('textarea');ta.value=text.trim();ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);btn.innerHTML='✅ Copied';btn.classList.add('copied');setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);});};el.appendChild(btn);processed.add(el);});}addCopyBtns();document.addEventListener('click',function(){setTimeout(addCopyBtns,100);});if(window.MutationObserver){var obs=new MutationObserver(function(){addCopyBtns();});obs.observe(document.body,{childList:true,subtree:true});}})();
+
+function fillExample(){
+  var vals = [["addDays", "10"], ["subDays", "10"]];
+  for(var i=0;i<vals.length;i++){
+    var el = document.getElementById(vals[i][0]);
+    if(el){el.value = vals[i][1];}
+  }
+  loadUSHolidays();
+  var t=document.getElementById('toast');
+  if(t){t.textContent='Example filled & calculated';t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+}
+</script>
+
+
+
+<footer class="footer container">
+<div style="margin-bottom:12px">
+<a href="../../">Home</a>
+<a href="../../#calculators">All Tools</a>
+<a href="../contact/">Contact</a>
+<a href="../../en/privacy/">Privacy</a>
+<a href="../../en/terms/">Terms</a>
+<a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<a href="../business-days-calculator/">CN</a>
+</div>
+<p>Business Days Calculator · 100% Client-Side · Your Data Never Leaves Your Browser</p>
+
+</footer>
+</body>
+</html>

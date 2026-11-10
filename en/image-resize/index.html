@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Resize PNG, JPG, or WebP images by exact pixels or percentage, keeping the aspect ratio and batch-downloading the results.">
+<meta name="keywords" content="image resize,resize image,change image size,image scaler,online image resizer,free resize image">
+<title>Free Online Image Resizer - Image Resize | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-resize/">
+<meta property="og:title" content="Free Online Image Resizer">
+<meta property="og:description" content="Resize PNG, JPG, or WebP images by exact pixels or percentage, keeping the aspect ratio and batch-downloading the results.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-resize/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Online Tools - No Signup">
+<meta name="twitter:description" content="Free online image resizer - image resize | no signup tool. Fast, secure, and no registration required. Works entirely in your browser.">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Image Resizer", "description": "Free online image resizer — resize images by pixels or percentage precisely. Maintain aspect ratio, preset sizes for social media, thumbnails. Client-side Canvas processing.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Does resizing reduce quality?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does resizing reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Downsizing usually doesn't visibly degrade quality. Upsizing causes blur (pixel interpolation) — we recommend staying within 2x original size. We use high-quality Canvas scaling (bilinear interpolation)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I batch resize multiple images?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Upload multiple images, set a uniform target size or percentage, and batch download. Each image can also have individual size settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What formats and size limits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Input supports PNG/JPG/WebP. Output keeps original format or converts uniformly. Max dimension ~8192x8192px (browser Canvas limit), files under 50MB each."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image Resizer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/image-resize/"
+    }
+  ],
+  "name": "Image Resizer"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Image Resizer",
+  "description": "Steps to use the Image Resizer",
+  "totalTime": "PT30S",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Image Resizer"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload Images",
+      "text": "Click or drag PNG/JPG/WebP images. Batch upload supported."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Set Dimensions",
+      "text": "Enter target width/height or scale by percentage. Maintain aspect ratio optional."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Download Results",
+      "text": "Download individually or batch download all resized images."
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.nav-back a:hover{color:#94a3b8}
+
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.upload-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.upload-zone:hover,.upload-zone.dragover{border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.05)}
+.upload-zone p{color:#64748b;margin-top:8px;font-size:.9rem}
+.form-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.form-row label{color:#94a3b8;font-size:.85rem;min-width:60px}
+.form-row input[type=range]{flex:1;min-width:150px;accent-color:#06b6d4}
+.form-row input[type=number],.form-row select{padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.85rem;width:100px}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:rgba(6,182,212,.5)}
+.form-row span{color:#22d3ee;font-weight:600;min-width:40px}
+.result-item{display:flex;align-items:center;gap:12px;padding:12px;background:#0f172a;border-radius:8px;margin-bottom:8px;flex-wrap:wrap}
+.result-item img{width:80px;height:80px;object-fit:cover;border-radius:4px;border:1px solid rgba(148,163,184,.1)}
+.result-item .info{flex:1;min-width:150px}
+.result-item .info .name{color:#e2e8f0;font-size:.85rem;word-break:break-all}
+.result-item .info .size{color:#64748b;font-size:.75rem;margin-top:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+.footer a:hover{color:#94a3b8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){.header h1{font-size:1.3rem}.btn{padding:6px 14px;font-size:.8rem}.result-item{flex-direction:column;align-items:flex-start}}
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.ad-slot.ad-sidebar{max-width:300px}
+</style>
+<style>
+
+@media (max-width: 640px) {
+
+}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-resize/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header">
+    
+    <h1>Image Resizer</h1>
+  </div>
+  <p class="nav-back"><a href="../../">← All Tools</a></p>
+
+  <div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Updated: 2026-07-12
+    </span>
+  </div>
+  <div class="tool-section">
+    <h2>📐 Image Resizer</h2>
+    <p>Free online image resizer — resize images by pixels or percentage precisely. Maintain aspect ratio, preset sizes for social media, thumbnails. Client-side Canvas processing.</p>
+    <div class="upload-zone" id="uploadZone">
+      <div style="font-size:2rem">📐</div>
+      <p>Click to upload or drag & drop files here</p>
+      <p style="color:#475569;font-size:.75rem">Batch supported, max 50MB per file</p>
+    </div>
+    <input type="file" id="fileInput" multiple accept="image/*,.xls,.xlsx,.epub,.pdf" style="display:none">
+    <div id="settings" style="display:none">
+    </div>
+    <div id="results"></div>
+    <div id="batchActions" style="display:none;margin-top:12px">
+      <button class="btn btn-primary" onclick="downloadAll()">📥 Batch Download</button>
+      <button class="btn btn-secondary" onclick="clearResults()">🗑️ Clear</button>
+    </div>
+  </div>
+  <div class="tool-section">
+    <h2>📖 How to Use</h2>
+    <p><strong>1. Upload Images:</strong> Click or drag PNG/JPG/WebP images. Batch upload supported.</p>
+    <p><strong>2. Set Dimensions:</strong> Enter target width/height or scale by percentage. Maintain aspect ratio optional.</p>
+    <p><strong>3. Download Results:</strong> Download individually or batch download all resized images.</p>
+
+  </div>
+
+  <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is my data safe when using Image Resizer?</h3>
+      <p>Absolutely. Everything runs locally: Mode and Width are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Image Resizer upload my data to a server?</h3>
+      <p>No. Image Resizer uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Image Resizer?</h3>
+      <p>Image Resizer has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use Image Resizer on my phone?</h3>
+      <p>Yes. Image Resizer is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Image Resizer is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What image formats are supported?</h3>
+      <p>Common formats including PNG, JPEG, WebP, GIF, BMP, and SVG are supported. The exact formats depend on the specific tool.</p>
+    </div>
+  </div>
+
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/image-resize/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<script>
+  'use strict';
+  (function() {
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '\x3Cdiv class="related-tools-inner">\x3Ch3 class="related-tools-title">'
+      + (en ? 'You May Also Like' : 'Related Tools')
+      + '\x3C/h3>\x3Cdiv class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '\x3Ca href="' + link + '" class="related-tool-card">'
+        + '\x3Cspan class="related-tool-icon">' + (r.icon || '🔧') + '\x3C/span>'
+        + '\x3Cspan class="related-tool-name">' + r.name + '\x3C/span>\x3C/a>';
+    });
+    h += '\x3C/div>\x3C/div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+
+<div class="toast" id="toast"></div>
+<script>
+// === Image Resize Tool ===
+var files = [];
+var results = [];
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1048576).toFixed(2) + ' MB';
+}
+
+document.getElementById('uploadZone').addEventListener('click', function() {
+  document.getElementById('fileInput').click();
+});
+document.getElementById('fileInput').addEventListener('change', function(e) {
+  handleFiles(e.target.files);
+});
+var uz = document.getElementById('uploadZone');
+uz.addEventListener('dragover', function(e) { e.preventDefault(); uz.classList.add('dragover'); });
+uz.addEventListener('dragleave', function(e) { uz.classList.remove('dragover'); });
+uz.addEventListener('drop', function(e) {
+  e.preventDefault(); uz.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+
+function handleFiles(fileList) {
+  var imgs = [];
+  for (var i = 0; i < fileList.length; i++) {
+    if (fileList[i].type.startsWith('image/')) imgs.push(fileList[i]);
+  }
+  if (imgs.length === 0) { showToast('Please upload image files'); return; }
+  for (var i = 0; i < imgs.length; i++) files.push(imgs[i]);
+  renderFileList();
+}
+
+function renderFileList() {
+  var container = document.getElementById('results');
+  container.innerHTML = ''; results = [];
+  if (files.length === 0) {
+    document.getElementById('settings').style.display = 'none';
+    document.getElementById('batchActions').style.display = 'none';
+    return;
+  }
+  var settings = document.getElementById('settings');
+  settings.style.display = 'block';
+  settings.innerHTML =
+    '<div class="form-row"><label>Mode</label>' +
+    '<select id="resizeMode"><option value="pixel" selected>By Pixels</option><option value="percent">By Percentage</option></select></div>' +
+    '<div class="form-row" id="pixelRow"><label>Width</label>' +
+    '<input type="number" id="targetW" value="800" min="1" max="8192" style="width:100px">' +
+    '<label>Height</label>' +
+    '<input type="number" id="targetH" value="600" min="1" max="8192" style="width:100px">' +
+    '<label style="min-width:auto"><input type="checkbox" id="keepRatio" checked> Keep Ratio</label></div>' +
+    '<div class="form-row" id="percentRow" style="display:none"><label>Scale</label>' +
+    '<input type="range" id="percentSlider" min="1" max="200" value="50" style="flex:1;min-width:200px">' +
+    '<span id="percentVal">50%</span></div>' +
+    '<div class="form-row"><label>Format</label>' +
+    '<select id="outFormat"><option value="original" selected>Original</option><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select>' +
+    '<label>Quality</label><input type="range" id="quality" min="10" max="100" value="90" style="width:120px"><span id="qualityVal">90%</span>' +
+    '<button class="btn btn-primary" onclick="resizeAll()" style="margin-left:auto">🔄 Resize</button></div>';
+
+  document.getElementById('resizeMode').addEventListener('change', function() {
+    var m = this.value;
+    document.getElementById('pixelRow').style.display = m === 'pixel' ? 'flex' : 'none';
+    document.getElementById('percentRow').style.display = m === 'percent' ? 'flex' : 'none';
+  });
+  document.getElementById('percentSlider').addEventListener('input', function() {
+    document.getElementById('percentVal').textContent = this.value + '%';
+  });
+  document.getElementById('quality').addEventListener('input', function() {
+    document.getElementById('qualityVal').textContent = this.value + '%';
+  });
+  document.getElementById('targetW').addEventListener('input', function() {
+    if (document.getElementById('keepRatio').checked && files.length > 0 && files[0]._img) {
+      var img = files[0]._img;
+      document.getElementById('targetH').value = Math.round(this.value * img.height / img.width);
+    }
+  });
+  document.getElementById('targetH').addEventListener('input', function() {
+    if (document.getElementById('keepRatio').checked && files.length > 0 && files[0]._img) {
+      var img = files[0]._img;
+      document.getElementById('targetW').value = Math.round(this.value * img.width / img.height);
+    }
+  });
+
+  for (var i = 0; i < files.length; i++) {
+    (function(idx) {
+      var f = files[idx];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          files[idx]._img = img;
+          var div = document.createElement('div');
+          div.className = 'result-item';
+          div.innerHTML = '<img src="' + e.target.result + '" alt="preview">' +
+            '<div class="info"><div class="name">' + f.name + '</div>' +
+            '<div class="size">' + img.width + '×' + img.height + ' · ' + formatSize(f.size) + '</div></div>' +
+            '<button class="btn btn-secondary" onclick="removeFile(' + idx + ')">✕</button>';
+          container.appendChild(div);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(f);
+    })(i);
+  }
+  document.getElementById('batchActions').style.display = 'block';
+}
+
+function removeFile(idx) { files.splice(idx, 1); renderFileList(); }
+
+function resizeAll() {
+  if (files.length === 0) { showToast('Please upload images first'); return; }
+  var mode = document.getElementById('resizeMode').value;
+  var format = document.getElementById('outFormat').value;
+  var quality = parseInt(document.getElementById('quality').value) / 100;
+  var container = document.getElementById('results');
+  container.innerHTML = ''; results = []; var processed = 0;
+
+  for (var i = 0; i < files.length; i++) {
+    (function(idx, file) {
+      var img = file._img;
+      if (!img) { processed++; return; }
+      var targetW, targetH;
+      if (mode === 'pixel') {
+        targetW = parseInt(document.getElementById('targetW').value) || img.width;
+        targetH = parseInt(document.getElementById('targetH').value) || img.height;
+      } else {
+        var pct = parseInt(document.getElementById('percentSlider').value) / 100;
+        targetW = Math.round(img.width * pct);
+        targetH = Math.round(img.height * pct);
+      }
+      var outType = format === 'original' ? (file.type || 'image/png') : format;
+      var canvas = document.createElement('canvas');
+      canvas.width = targetW; canvas.height = targetH;
+      var ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, targetW, targetH);
+      canvas.toBlob(function(blob) {
+        var url = URL.createObjectURL(blob);
+        var ext = outType === 'image/png' ? '.png' : outType === 'image/jpeg' ? '.jpg' : '.webp';
+        var baseName = file.name.replace(/\.[^.]+$/, '');
+        var div = document.createElement('div');
+        div.className = 'result-item';
+        div.innerHTML = '<img src="' + url + '" alt="result">' +
+          '<div class="info"><div class="name">' + baseName + ext + '</div>' +
+          '<div class="size">' + targetW + '×' + targetH + ' · ' + formatSize(blob.size) +
+          ' (was ' + formatSize(file.size) + ')</div></div>' +
+          '<a class="btn btn-primary" href="' + url + '" download="' + baseName + ext + '">⬇ Download</a>';
+        container.appendChild(div);
+        results.push({ name: baseName + ext, url: url });
+        processed++;
+        if (processed === files.length) showToast('All resized!');
+      }, outType, quality);
+    })(i, files[i]);
+  }
+}
+
+function downloadAll() {
+  if (results.length === 0) { showToast('Resize images first'); return; }
+  for (var i = 0; i < results.length; i++) {
+    (function(r, d) { setTimeout(function() { var a = document.createElement('a'); a.href = r.url; a.download = r.name; a.click(); }, d); })(results[i], i * 300);
+  }
+  showToast('Downloading ' + results.length + ' files');
+}
+
+function clearResults() {
+  files = []; results = []; document.getElementById('fileInput').value = '';
+  renderFileList(); showToast('Cleared');
+}
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Down Payment Calculator - ToolGuideHub</title>
+  <meta name="description" content="Work out the down payment needed for a home from the price and percentage, then compare scenarios.">
+  <meta property="og:title" content="Down Payment Calculator - Free Online Home Down Payment Tool">
+  <meta property="og:description" content="Work out the down payment needed for a home from the price and percentage, then compare scenarios.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Down Payment Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"Free online down payment calculator for home buying.","offers":{"@type":"Offer","price":"0"}}</script>
+  <style>:root{--primary-light:rgba(6,182,212,.15);--card-bg:#1e293b;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+    header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); color: #e2e8f0; padding: 20px 0 24px; text-align: center; }
+    header h1 { font-size: 1.6rem; margin-bottom: 6px; color: #e2e8f0; }
+    header p { color: #94a3b8; font-size: 0.9rem; margin: 0 auto; max-width: 640px; padding: 0 16px; }
+    header .nav-back{max-width:750px;margin:0 auto;text-align:left;padding:0 16px}
+    .lang-switch{display:inline-flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-top:12px}
+    .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    .container { max-width: 750px; margin: 0 auto; padding: 20px 16px; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; color: #22d3ee; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row > .form-group { flex: 1; min-width: 160px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; }
+    .form-group input, .form-group select { width: 100%; padding: 10px 12px; background: #0f172a; color: #e2e8f0; border: 2px solid rgba(148,163,184,.25); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
+    .form-group select option { background: #1e293b; color: #e2e8f0; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #22d3ee; }
+    .btn { padding: 10px 24px; background: linear-gradient(135deg,#06b6d4,#0891b2); color: #062a2e; border: none; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: all .2s; }
+    .btn:hover { background: linear-gradient(135deg,#22d3ee,#06b6d4); transform: translateY(-1px); }
+    .btn-secondary { padding: 10px 24px; background: transparent; color: #22d3ee; border: 2px solid #22d3ee; border-radius: 8px; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: all .2s; }
+    .btn-secondary:hover { background: rgba(6,182,212,.15); }
+    .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(148,163,184,.1); }
+    .result-row .label { color: #94a3b8; }
+    .result-row .value { font-weight: 700; font-size: 1rem; }
+    .highlight { background: rgba(6,182,212,.12); border: 1px solid rgba(6,182,212,.3); border-radius: 8px; padding: 14px; margin-top: 12px; text-align: center; font-weight: 700; font-size: 1.15rem; color: #22d3ee; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85rem; }
+    .comparison-table th, .comparison-table td { padding: 8px 10px; text-align: center; border: 1px solid rgba(148,163,184,.1); }
+    .comparison-table th { background: #0f172a; color: #22d3ee; font-weight: 600; }
+    .comparison-table td:first-child { text-align: left; font-weight: 600; }
+    footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 0.8rem; }
+    @media (max-width: 600px) { .container { padding: 12px; } .card { padding: 16px; } }
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/down-payment-calculator/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Down Payment Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/down-payment-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Down Payment Calculator FAQ","mainEntity":[{"@type":"Question","name":"How does the Down Payment Calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Down Payment Calculator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Home Price and Down Payment are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Down Payment Calculator results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Down Payment Calculator","description":"Step-by-step guide for using Down Payment Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Down Payment Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/down-payment-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+<h1>🏦 Down Payment Calculator</h1>
+<p class="tool-description">Free online down payment calculator. Calculate how much you need for a home down payment based on house price and down payment percentage, then compare different down payment scenarios.</p>
+
+</header>
+<main class="container">
+  <div class="section">
+    <h2>📋 Property Details</h2>
+    <div class="row">
+      <div class="form-group"><label>Home Price ($)</label><input type="number" id="housePrice" value="400000" min="0" step="1000"></div>
+      <div class="form-group"><label>Down Payment (%)</label><input type="number" id="downPct" value="20" min="1" max="100" step="1"></div>
+    </div>
+    <div class="row">
+      <div class="form-group"><label>Interest Rate (%)</label><input type="number" id="interestRate" value="6.5" min="0" max="20" step="0.01"></div>
+      <div class="form-group"><label>Loan Term</label><select id="loanTerm"><option value="10">10 years</option><option value="15">15 years</option><option value="20">20 years</option><option value="25">25 years</option><option value="30" selected>30 years</option></select></div>
+    </div>
+    <button class="btn" id="calcBtn">🔍 Calculate</button>
+    <button class="btn-secondary" id="clearBtn" style="margin-left:8px">🗑 Clear</button>
+  </div>
+  <div class="section" id="resultsCard" style="display:none">
+    <h2>📊 Results</h2>
+    <div id="results"></div>
+  </div>
+
+<h2>What is Down Payment Calculator?</h2><p>Down Payment Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter Home Price and Down Payment to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Compare different loan or investment options before committing</li><li>Calculate key figures quickly during financial planning</li><li>Make informed spending decisions with accurate cost analysis</li><li>Mobile calculations without opening a spreadsheet app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/bitcoin-calculator/">₿ Bitcoin Calculator</a><a href="../../en/biweekly-payment-calculator/">🔄 Biweekly Payment Calculator</a><a href="../../en/extra-payment-calculator/">💸 Extra Payment Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/down-payment-calculator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+(function() {
+  var calcBtn = document.getElementById('calcBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var resultsCard = document.getElementById('resultsCard');
+  var resultsEl = document.getElementById('results');
+
+  function formatMoney(num) {
+    if (Math.abs(num) >= 1000000) return '$' + (num / 1000000).toFixed(2) + 'M';
+    if (Math.abs(num) >= 1000) return '$' + (num / 1000).toFixed(1) + 'K';
+    return '$' + num.toFixed(0);
+  }
+
+  function calcMonthly(principal, annualRate, years) {
+    var mr = annualRate / 100 / 12;
+    var n = years * 12;
+    if (mr === 0) return principal / n;
+    return principal * mr * Math.pow(1 + mr, n) / (Math.pow(1 + mr, n) - 1);
+  }
+
+  function calculate() {
+    var price = parseFloat(document.getElementById('housePrice').value) || 0;
+    var downPct = parseFloat(document.getElementById('downPct').value) || 20;
+    var rate = parseFloat(document.getElementById('interestRate').value) || 6.5;
+    var years = parseInt(document.getElementById('loanTerm').value) || 30;
+
+    if (price <= 0) { resultsCard.style.display = 'block'; resultsEl.innerHTML = '<p style="text-align:center;color:#ef4444">⚠️ Please enter a valid home price</p>'; return; }
+
+    var downPayment = price * (downPct / 100);
+    var loanAmount = price - downPayment;
+    var monthly = calcMonthly(loanAmount, rate, years);
+    var totalPayment = monthly * years * 12;
+    var totalInterest = totalPayment - loanAmount;
+
+    var compareRates = [10, 15, 20, 25, 30, 40];
+    var compareRows = '<tr><th>Down Pmt</th><th>Amount</th><th>Loan</th><th>Monthly</th><th>Interest</th></tr>';
+    for (var i = 0; i < compareRates.length; i++) {
+      var pct = compareRates[i];
+      var dp = price * (pct / 100);
+      var la = price - dp;
+      var m = calcMonthly(la, rate, years);
+      var ti = m * years * 12 - la;
+      var cls = pct === downPct ? ' style="background:rgba(6,182,212,.15);font-weight:700"' : '';
+      compareRows += '<tr' + cls + '><td>' + pct + '%</td><td>$' + formatMoney(dp) + '</td><td>$' + formatMoney(la) + '</td><td>$' + m.toFixed(0) + '</td><td>$' + formatMoney(ti) + '</td></tr>';
+    }
+
+    resultsCard.style.display = 'block';
+    resultsEl.innerHTML =
+      '<div class="result-row"><span class="label">🏠 Home Price</span><span class="value">$' + formatMoney(price) + '</span></div>' +
+      '<div class="result-row"><span class="label">💰 Down Payment (' + downPct + '%)</span><span class="value">$' + formatMoney(downPayment) + '</span></div>' +
+      '<div class="result-row"><span class="label">🏦 Loan Amount</span><span class="value">$' + formatMoney(loanAmount) + '</span></div>' +
+      '<div class="result-row"><span class="label">📅 Monthly Payment</span><span class="value">$' + monthly.toFixed(0) + '</span></div>' +
+      '<div class="result-row"><span class="label">💵 Total Repayment</span><span class="value">$' + formatMoney(totalPayment) + '</span></div>' +
+      '<div class="result-row"><span class="label">📈 Total Interest</span><span class="value">$' + formatMoney(totalInterest) + '</span></div>' +
+      '<div class="highlight">🎯 Down Payment = $' + formatMoney(downPayment) + ' | Monthly = $' + monthly.toFixed(0) + '</div>' +
+      '<h3 style="margin-top:16px;font-size:0.95rem;color:#22d3ee">📊 Down Payment Comparison</h3>' +
+      '<div style="overflow-x:auto"><table class="comparison-table">' + compareRows + '</table></div>';
+  }
+
+  function clearAll() {
+    document.getElementById('housePrice').value = '400000';
+    document.getElementById('downPct').value = '20';
+    document.getElementById('interestRate').value = '6.5';
+    document.getElementById('loanTerm').value = '30';
+    resultsCard.style.display = 'none';
+  }
+
+  calcBtn.addEventListener('click', calculate);
+  clearBtn.addEventListener('click', clearAll);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') calculate();
+  });
+})();
+</script>
+</body>
+</html>

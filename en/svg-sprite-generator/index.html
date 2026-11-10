@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free SVG Sprite Generator - ToolGuideHub</title>
+    <meta name="description" content="Combine multiple SVG icons into a single sprite using symbol and use elements, cutting HTTP requests and simplifying icon management on your site.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/svg-sprite-generator/">
+    <meta property="og:title" content="Free SVG Sprite Generator - ToolGuideHub">
+    <meta property="og:description" content="Combine multiple SVG icons into a single sprite using symbol and use elements, cutting HTTP requests and simplifying icon management on your site.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/svg-sprite-generator/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, select, input[type="number"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, select:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-danger { background: #ef4444; color: #fff; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+        .drop-zone { border: 2px dashed rgba(148,163,184,.1); border-radius: 12px; padding: 40px 20px; text-align: center; cursor: pointer; transition: all .2s; background: #0f172a; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #22d3ee; background: rgba(59,130,246,.05); }
+        .drop-zone .icon { font-size: 3rem; margin-bottom: 12px; }
+        .drop-zone .hint { color: #94a3b8; font-size: 0.9rem; }
+        .icon-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-top: 12px; }
+        .icon-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 8px; text-align: center; position: relative; }
+        .icon-item svg { width: 32px; height: 32px; margin: 0 auto; }
+        .icon-item .icon-name { font-size: 11px; color: #94a3b8; margin-top: 4px; word-break: break-all; }
+        .icon-item .remove-btn { position: absolute; top: 2px; right: 2px; background: #ef4444; color: #fff; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .output-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+        .output-tab { padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 14px; transition: all .2s; }
+        .output-tab.active { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .code-output { background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); </script>
+<style>
+
+@media (max-width: 640px) {   }
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free SVG Sprite Generator", "item": "https://adi63586.github.io/Toolguidehub/en/svg-sprite-generator/"}]}</script>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/svg-sprite-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <h1>🎨 SVG Sprite Generator
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</h1>
+
+            <input type="file" id="fileInput" accept=".svg" multiple style="display:none" onchange="handleFiles(this.files)">
+        </main>
+
+        <div class="section" id="iconsCard" style="display:none">
+            <h2>📋 Added Icons (<span id="iconCount">0</span>)</h2>
+            <div class="icon-list" id="iconList"></div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="generateSprite()">🚀 Generate Sprite</button>
+                <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+            </div>
+        </div>
+
+        <div class="section" id="outputCard" style="display:none">
+            <h2>📦 Generated Output</h2>
+            <div class="output-tabs">
+                <div class="output-tab active" onclick="showOutput('sprite')">SVG Sprite</div>
+                <div class="output-tab" onclick="showOutput('css')">CSS Reference</div>
+                <div class="output-tab" onclick="showOutput('html')">HTML Usage</div>
+            </div>
+            <div class="code-output" id="codeOutput"></div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="copyOutput()">📋 Copy Code</button>
+                <button class="btn btn-secondary" onclick="downloadSprite()">💾 Download SVG</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item"><h3>Q1: What is an SVG sprite?</h3><p>An SVG sprite combines multiple SVG icons into a single SVG file. Each icon is wrapped in a &lt;symbol&gt; element and referenced via &lt;use&gt; tags, reducing HTTP requests and improving page load speed.</p></div>
+            <div class="faq-item"><h3>Q2: How do I use an SVG sprite in HTML?</h3><p>Place the SVG sprite code at the beginning of your HTML body, then reference icons using &lt;svg&gt;&lt;use href="#icon-name"/&gt;&lt;/svg&gt;. You can also save the sprite as a separate file and reference it with &lt;use href="sprite.svg#icon-name"/&gt;.</p></div>
+            <div class="faq-item"><h3>Q3: What are the advantages of SVG sprites over PNG sprites?</h3><p>SVG sprites support lossless scaling, smaller file sizes, CSS color/style modifications, and animations. PNG sprites are bitmaps that blur when scaled and cannot be styled with CSS.</p></div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is an SVG sprite?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an SVG sprite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An SVG sprite combines multiple SVG icons into one file using symbol elements, referenced via use tags to reduce HTTP requests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use an SVG sprite in HTML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Place sprite code in HTML body, reference icons with svg+use href=#icon-name, or save as separate file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the advantages of SVG sprites over PNG sprites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG supports lossless scaling, smaller files, CSS styling, and animations. PNG is bitmap, blurs when scaled."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use SVG Sprite Generator", "step": [{"@type": "HowToStep", "position": 1, "text": "Upload multiple SVG files", "name": "Upload multiple SVG files"}, {"@type": "HowToStep", "position": 2, "text": "Click Generate Sprite", "name": "Click Generate Sprite"}, {"@type": "HowToStep", "position": 3, "text": "Copy SVG Sprite code or download file", "name": "Copy SVG Sprite code or downlo"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SVG Sprite Generator", "description": "Free online SVG sprite generator", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/svg-sprite-generator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+        </script>
+        <script>
+        </script>
+        <script>
+var svgIcons = [];
+        var currentOutput = 'sprite';
+        var dz = document.getElementById('dropZone');
+if (dz) {
+        dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
+        dz.addEventListener('dragleave', function() { dz.classList.remove('dragover'); });
+        dz.addEventListener('drop', function(e) { e.preventDefault(); dz.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(function(file) {
+                if (!file.name.endsWith('.svg')) return;
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var name = file.name.replace('.svg', '').replace(/[^a-zA-Z0-9_-]/g, '-');
+                    svgIcons.push({ name: name, content: e.target.result });
+                    renderIconList();
+                };
+                reader.readAsText(file);
+            });
+        }
+
+        function renderIconList() {
+            var list = document.getElementById('iconList');
+            list.innerHTML = '';
+            svgIcons.forEach(function(icon, idx) {
+                var div = document.createElement('div');
+                div.className = 'icon-item';
+                div.innerHTML = '\x3Cbutton class="remove-btn" onclick="removeIcon(' + idx + ')">×\x3C/button>' +
+                    '\x3Cdiv>' + icon.content.replace(/<\?xml[^?]*\?>/g, '').replace(/\x3Csvg/, '\x3Csvg width="32" height="32"') + '\x3C/div>' +
+                    '\x3Cdiv class="icon-name">' + icon.name + '\x3C/div>';
+                list.appendChild(div);
+            });
+            document.getElementById('iconCount').textContent = svgIcons.length;
+            document.getElementById('iconsCard').style.display = svgIcons.length ? '' : 'none';
+        }
+
+        function removeIcon(idx) { svgIcons.splice(idx, 1); renderIconList(); }
+        function clearAll() { svgIcons = []; renderIconList(); document.getElementById('fileInput').value = ''; renderIconList(); document.getElementById('outputCard').style.display = 'none'; }
+
+        function generateSprite() {
+            if (!svgIcons.length) { showToast('请先UploadSVG文件'); return; }
+            var symbols = '';
+            svgIcons.forEach(function(icon) {
+                var svg = icon.content;
+                var viewBoxMatch = svg.match(/viewBox="([^"]+)"/);
+                var viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 24 24';
+                var innerContent = svg.replace(/<\?xml[^?]*\?>/g, '').replace(/\x3Csvg[^>]*>/, '').replace(/<\/svg>/, '');
+                symbols += '  \x3Csymbol id="' + icon.name + '" viewBox="' + viewBox + '">\n    ' + innerContent.trim() + '\n  \x3C/symbol>\n';
+            });
+            var sprite = '\x3Csvg xmlns="http://www.w3.org/2000/svg" style="display:none">\n' + symbols + '\x3C/svg>';
+            document.getElementById('outputCard').style.display = '';
+            showOutput('sprite');
+            window._spriteCode = sprite;
+            window._cssCode = svgIcons.map(function(i) { return '.icon-' + i.name + ' { display: inline-block; width: 1em; height: 1em; }'; }).join('\n');
+            window._htmlCode = svgIcons.map(function(i) { return '\x3Csvg class="icon icon-' + i.name + '">\x3Cuse href="#' + i.name + '"/>\x3C/svg>'; }).join('\n');
+            document.getElementById('codeOutput').textContent = sprite;
+        }
+
+        function showOutput(type) {
+            currentOutput = type;
+            document.querySelectorAll('.output-tab').forEach(function(t) { t.classList.toggle('active', t.textContent.toLowerCase().indexOf(type) > -1); });
+            var codes = { sprite: window._spriteCode, css: window._cssCode, html: window._htmlCode };
+            document.getElementById('codeOutput').textContent = codes[type] || '';
+        }
+
+        function copyOutput() {
+            var text = document.getElementById('codeOutput').textContent;
+            navigator.clipboard.writeText(text).then(function() { showToast('Copy'); });
+        }
+
+        window.downloadSprite = downloadSprite; function downloadSprite() {
+            var blob = new Blob([window._spriteCode], { type: 'image/svg+xml' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a'); a.href = url; a.download = 'sprite.svg'; a.click();
+            URL.revokeObjectURL(url);
+            }
+</script>
+          <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Does SVG Sprite Generator upload my data to a server?</h3>
+      <p>No. SVG Sprite Generator uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using SVG Sprite Generator?</h3>
+      <p>Absolutely. Everything runs locally: en/svg-sprite-generator/index.html and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for SVG Sprite Generator?</h3>
+      <p>SVG Sprite Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. SVG Sprite Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is SVG Sprite Generator free to use?</h3>
+      <p>Yes, SVG Sprite Generator is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use SVG Sprite Generator on my phone?</h3>
+      <p>Yes. SVG Sprite Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What image formats are supported?</h3>
+      <p>Common formats including PNG, JPEG, WebP, GIF, BMP, and SVG are supported. The exact formats depend on the specific tool.</p>
+    </div>
+  </div>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/svg-sprite-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+</header>
+</body>
+</html>

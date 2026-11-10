@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/unicode-table/">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicode Character Table - Search, Browse &amp; Copy</title>
+  <meta name="description" content="Browse and copy Unicode characters including emoji, arrows, maths symbols, currency signs and geometric shapes from a searchable table.">
+  <meta name="keywords" content="Unicode table, Unicode characters, special characters, emoji list, arrow symbols, math symbols, unicode lookup, character map">
+  <meta property="og:title" content="Unicode Character Table - Search, Browse &amp; Copy">
+  <meta property="og:description" content="Browse and copy Unicode characters including emoji, arrows, maths symbols, currency signs and geometric shapes from a searchable table.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/unicode-table/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Unicode Character Table",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "description": "Browse, search, and copy Unicode characters. Includes emojis, arrows, math symbols, currency signs, geometric shapes, and more.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-light: #22d3ee;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: rgba(148,163,184,.1);
+      --text: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px 20px; position: sticky; top: 0; z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    header .nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+    header .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    header .logo span { color: var(--text-secondary); font-weight: 400; font-size: .9rem; }
+    main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    h1 { font-size: 1.6rem; margin-bottom: 8px; color: var(--text); }
+    .subtitle { color: var(--text-secondary); margin-bottom: 20px; font-size: .95rem; }
+
+    .search-bar {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .search-bar input {
+      flex: 1; min-width: 200px; padding: 10px 16px;
+      border: 2px solid var(--border); border-radius: var(--radius);
+      font-size: 1rem; outline: none; transition: border-color .2s;
+    }
+    .search-bar input:focus { border-color: var(--primary); }
+    .search-bar select {
+      padding: 10px 16px; border: 2px solid var(--border); border-radius: var(--radius);
+      font-size: 1rem; outline: none; background: var(--surface); cursor: pointer;
+    }
+    .search-bar select:focus { border-color: var(--primary); }
+    .sample-btn {
+      padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--surface); color: #22d3ee; cursor: pointer; font-size: .9rem;
+      transition: all .2s; white-space: nowrap;
+    }
+    .sample-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    .categories {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+    }
+    .category-tag {
+      padding: 6px 14px; border-radius: 20px; font-size: .85rem;
+      border: 1px solid var(--border); background: var(--surface);
+      cursor: pointer; transition: all .2s; user-select: none;
+      white-space: nowrap;
+    }
+    .category-tag:hover { border-color: var(--primary); color: var(--primary); }
+    .category-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    .stats { color: var(--text-secondary); font-size: .85rem; margin-bottom: 12px; }
+
+    .char-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 8px; margin-bottom: 24px;
+    }
+    .char-cell {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 4px; text-align: center;
+      cursor: pointer; transition: all .15s; position: relative;
+      min-height: 72px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .char-cell:hover { border-color: var(--primary); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .char-cell .char-symbol { font-size: 1.5rem; line-height: 1.2; }
+    .char-cell .char-code { font-size: .65rem; color: var(--text-secondary); margin-top: 4px; font-family: monospace; }
+    .char-cell.copied { border-color: #22c55e; background: rgba(16,185,129,.1); }
+    .char-cell.copied::after {
+      content: '✓'; position: absolute; top: 4px; right: 6px;
+      font-size: .65rem; color: #22c55e; font-weight: bold;
+    }
+
+    .pagination {
+      display: flex; justify-content: center; align-items: center; gap: 8px;
+      margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .pagination button {
+      padding: 8px 14px; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--surface); cursor: pointer; font-size: .9rem; transition: all .15s;
+    }
+    .pagination button:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+    .pagination button:disabled { opacity: .4; cursor: not-allowed; }
+    .pagination button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .pagination .page-info { color: var(--text-secondary); font-size: .85rem; }
+
+    .toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: #1e293b; color: #fff; padding: 10px 20px; border-radius: 8px;
+      font-size: .9rem; z-index: 999; opacity: 0; pointer-events: none;
+      transition: opacity .3s; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
+
+    footer {
+      text-align: center; padding: 20px; color: var(--text-secondary);
+      font-size: .85rem; border-top: 1px solid var(--border); margin-top: 40px;
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      main { padding: 12px; }
+      h1 { font-size: 1.3rem; }
+      .char-grid { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 6px; }
+      .char-cell { padding: 8px 2px; min-height: 60px; }
+      .char-cell .char-symbol { font-size: 1.2rem; }
+      .char-cell .char-code { font-size: .6rem; }
+    }
+  
+    ::placeholder { color: #64748b; opacity: 1; }
+    input, textarea, select { color: #f1f5f9; background-color: #0f172a; }
+    input:focus, textarea:focus, select:focus { background-color: #0f172a; }
+  </style>
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/unicode-table/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="../../" class="logo">ToolGuideHub <span>| Unicode Table</span></a>
+      <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-left:auto"><a href="../../en/unicode-table/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none">中文</a><a href="index.html" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee;text-decoration:none">EN</a></div>
+    </div>
+  </header>
+  <main>
+    <h1>🔤 Unicode Character Table</h1>
+    <p class="subtitle">Browse, search, and copy Unicode characters. Includes emojis 😀, arrows →, math symbols ∑, currency signs €, geometric shapes, and more.</p>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by name or code, e.g. 'arrow' 'heart' 'U+2603'…" autocomplete="off">
+      <select id="blockSelect">
+        <option value="all">All Blocks</option>
+      </select>
+      <button class="sample-btn" id="fillSampleBtn" title="Fill a sample search and show results">🎲 Try Example</button>
+    </div>
+
+    <div class="categories" id="categories"></div>
+    <div class="stats" id="stats"></div>
+    <div class="char-grid" id="charGrid"></div>
+    <div class="pagination" id="pagination"></div>
+  <h2>What is 🔤 Unicode Character Table?</h2><p>🔤 Unicode Character Table is a free online tool that runs entirely in your browser. No software installation, no account registration, just open the page and start using it. All input data is processed locally and never uploaded to any server, ensuring complete privacy. Whether you're a student, engineer, designer, or office worker, you can get started in seconds.</p><h2>Use Cases</h2><ul><li>Process data formats quickly during development and debugging</li><li>Verify encoding/decoding results when troubleshooting API issues</li><li>Understand data transformation principles while learning programming</li><li>Switch between devices without installing local tools</li></ul><h2>Key Features</h2><ul><li><strong>Completely Free</strong>: Unlimited developer tools</li><li><strong>Local Processing</strong>: Data stays in your browser, ideal for sensitive information</li><li><strong>Zero Install</strong>: No IDE or CLI tools needed</li><li><strong>Cross-Device</strong>: Use on any device, no data loss</li></ul><h3>Is 🔤 Unicode Character Table accurate?</h3><p>This tool's logic is based on standard mathematical formulas. Results are accurate and reliable.</p><h3>Do I need internet to use 🔤 Unicode Character Table?</h3><p>You need internet to load the page initially. Once loaded, the tool works offline.</p><h3>Is my data recorded?</h3><p>No. This tool has no backend server. All data exists only in your browser's memory.</p>
+</main>
+  <section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="color:#e2e8f0;font-size:18px;margin-bottom:12px">🔗 Related Tools</h2>
+<a href="../../en/unicode-range-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">CSS unicode-range Generator</a>
+</section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/unicode-table/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+
+  <script>
+(function(){
+    const UNICODE_BLOCKS = [
+      { name: 'Basic Latin', range: [0x0020, 0x007F], key: 'basic-latin' },
+      { name: 'Latin-1 Supplement', range: [0x00A0, 0x00FF], key: 'latin-1' },
+      { name: 'Latin Extended', range: [0x0100, 0x024F], key: 'latin-ext' },
+      { name: 'IPA Extensions', range: [0x0250, 0x02AF], key: 'ipa' },
+      { name: 'Spacing Modifiers', range: [0x02B0, 0x02FF], key: 'spacing-mod' },
+      { name: 'Combining Diacritics', range: [0x0300, 0x036F], key: 'combining' },
+      { name: 'Greek & Coptic', range: [0x0370, 0x03FF], key: 'greek' },
+      { name: 'Cyrillic', range: [0x0400, 0x04FF], key: 'cyrillic' },
+      { name: 'Hebrew', range: [0x0590, 0x05FF], key: 'hebrew' },
+      { name: 'Arabic', range: [0x0600, 0x06FF], key: 'arabic' },
+      { name: 'General Punctuation', range: [0x2000, 0x206F], key: 'punctuation' },
+      { name: 'Currency Symbols', range: [0x20A0, 0x20CF], key: 'currency' },
+      { name: 'Letterlike Symbols', range: [0x2100, 0x214F], key: 'letterlike' },
+      { name: 'Arrows', range: [0x2190, 0x21FF], key: 'arrows' },
+      { name: 'Mathematical Operators', range: [0x2200, 0x22FF], key: 'math-ops' },
+      { name: 'Misc Technical', range: [0x2300, 0x23FF], key: 'technical' },
+      { name: 'Box Drawing', range: [0x2500, 0x257F], key: 'box-drawing' },
+      { name: 'Block Elements', range: [0x2580, 0x259F], key: 'block-elements' },
+      { name: 'Geometric Shapes', range: [0x25A0, 0x25FF], key: 'geometric' },
+      { name: 'Misc Symbols', range: [0x2600, 0x26FF], key: 'misc-symbols' },
+      { name: 'Dingbats', range: [0x2700, 0x27BF], key: 'dingbats' },
+      { name: 'Supplemental Arrows', range: [0x2900, 0x297F], key: 'arrows-b' },
+      { name: 'Supplemental Math', range: [0x2A00, 0x2AFF], key: 'math-b' },
+      { name: 'CJK Punctuation', range: [0x3000, 0x303F], key: 'cjk-punct' },
+      { name: 'Hiragana', range: [0x3040, 0x309F], key: 'hiragana' },
+      { name: 'Katakana', range: [0x30A0, 0x30FF], key: 'katakana' },
+      { name: 'Bopomofo', range: [0x3100, 0x312F], key: 'bopomofo' },
+      { name: 'CJK Compatibility', range: [0x3300, 0x33FF], key: 'cjk-comp' },
+      { name: 'Fullwidth ASCII', range: [0xFF00, 0xFFEF], key: 'fullwidth' },
+      { name: 'Emoticons', range: [0x1F600, 0x1F64F], key: 'emoji-faces' },
+      { name: 'Emoji Objects', range: [0x1F300, 0x1F5FF], key: 'emoji-objects' },
+      { name: 'Emoji Transport', range: [0x1F680, 0x1F6FF], key: 'emoji-transport' },
+      { name: 'Emoji Symbols', range: [0x1F700, 0x1F77F], key: 'emoji-symbols' },
+      { name: 'Emoji Supplement', range: [0x1F900, 0x1F9FF], key: 'emoji-supp' },
+    ];
+
+    const HOT_CATEGORIES = [
+      { label: 'Emoji', blocks: ['emoji-faces','emoji-objects','emoji-transport','emoji-symbols','emoji-supp'] },
+      { label: 'Arrows', blocks: ['arrows','arrows-b'] },
+      { label: 'Math', blocks: ['math-ops','math-b'] },
+      { label: 'Currency', blocks: ['currency'] },
+      { label: 'Shapes', blocks: ['geometric','block-elements','box-drawing'] },
+      { label: 'Letters', blocks: ['basic-latin','latin-1','latin-ext','greek','cyrillic'] },
+      { label: 'CJK', blocks: ['cjk-punct','hiragana','katakana','bopomofo','cjk-comp','fullwidth'] },
+      { label: 'All', blocks: [] },
+    ];
+
+    const CHAR_NAMES = {
+      0x0020:'Space', 0x0021:'Exclamation', 0x0022:'Double Quote', 0x0023:'Hash', 0x0024:'Dollar',
+      0x0025:'Percent', 0x0026:'Ampersand', 0x0027:'Single Quote', 0x0028:'Left Paren', 0x0029:'Right Paren',
+      0x002A:'Asterisk', 0x002B:'Plus', 0x002C:'Comma', 0x002D:'Hyphen', 0x002E:'Period',
+      0x002F:'Slash', 0x0030:'Digit 0', 0x0031:'Digit 1', 0x0032:'Digit 2', 0x0033:'Digit 3',
+      0x0034:'Digit 4', 0x0035:'Digit 5', 0x0036:'Digit 6', 0x0037:'Digit 7', 0x0038:'Digit 8',
+      0x0039:'Digit 9', 0x003A:'Colon', 0x003B:'Semicolon', 0x003C:'Less Than', 0x003D:'Equals',
+      0x003E:'Greater Than', 0x003F:'Question', 0x0040:'At Sign', 0x005B:'Left Bracket', 0x005C:'Backslash',
+      0x005D:'Right Bracket', 0x005E:'Circumflex', 0x005F:'Underscore', 0x0060:'Grave Accent',
+      0x007B:'Left Brace', 0x007C:'Vertical Bar', 0x007D:'Right Brace', 0x007E:'Tilde',
+      0x00A0:'No-Break Space', 0x00A9:'Copyright', 0x00AE:'Registered', 0x00B0:'Degree',
+      0x00B1:'Plus-Minus', 0x00B2:'Superscript 2', 0x00B3:'Superscript 3', 0x00B5:'Micro',
+      0x00B7:'Middle Dot', 0x00D7:'Multiplication', 0x00F7:'Division',
+      0x2013:'En Dash', 0x2014:'Em Dash', 0x2018:'Left Single Quote', 0x2019:'Right Single Quote',
+      0x201C:'Left Double Quote', 0x201D:'Right Double Quote', 0x2022:'Bullet', 0x2026:'Ellipsis',
+      0x2032:'Prime', 0x2033:'Double Prime', 0x20AC:'Euro Sign', 0x2122:'Trademark',
+      0x2190:'Left Arrow', 0x2191:'Up Arrow', 0x2192:'Right Arrow', 0x2193:'Down Arrow',
+      0x2194:'Left-Right Arrow', 0x21D2:'Double Right Arrow', 0x2260:'Not Equal', 0x2264:'Less or Equal',
+      0x2265:'Greater or Equal', 0x221A:'Square Root', 0x221E:'Infinity', 0x222B:'Integral',
+      0x2248:'Almost Equal', 0x03C0:'π', 0x03A9:'Ω',
+    };
+
+    let currentBlock = 'all';
+    let currentCategory = null;
+    let searchQuery = '';
+    let page = 1;
+    const PAGE_SIZE = 120;
+
+    function buildCharList() {
+      const chars = [];
+      for (const block of UNICODE_BLOCKS) {
+        for (let cp = block.range[0]; cp <= block.range[1]; cp++) {
+          if ((cp >= 0x0000 && cp <= 0x001F) || (cp >= 0x007F && cp <= 0x009F)) continue;
+          if (cp >= 0xD800 && cp <= 0xDFFF) continue;
+          chars.push({
+            cp: cp,
+            char: String.fromCodePoint(cp),
+            hex: cp.toString(16).toUpperCase().padStart(cp > 0xFFFF ? 5 : 4, '0'),
+            blockKey: block.key,
+            blockName: block.name,
+            name: CHAR_NAMES[cp] || '',
+          });
+        }
+      }
+      return chars;
+    }
+
+    const ALL_CHARS = buildCharList();
+
+    function filterChars() {
+      let filtered = ALL_CHARS;
+      if (currentBlock !== 'all') {
+        filtered = filtered.filter(c => c.blockKey === currentBlock);
+      }
+      if (currentCategory) {
+        const catBlocks = HOT_CATEGORIES.find(c => c.label === currentCategory);
+        if (catBlocks && catBlocks.blocks.length > 0) {
+          filtered = filtered.filter(c => catBlocks.blocks.includes(c.blockKey));
+        }
+      }
+      if (searchQuery.trim()) {
+        const q = searchQuery.trim().toLowerCase();
+        const uMatch = q.match(/^u\+([0-9a-fA-F]+)$/);
+        if (uMatch) {
+          const targetHex = uMatch[1].toUpperCase();
+          filtered = filtered.filter(c => c.hex === targetHex || c.hex === targetHex.padStart(4,'0'));
+        } else {
+          filtered = filtered.filter(c =>
+            c.name.toLowerCase().includes(q) ||
+            c.blockName.toLowerCase().includes(q) ||
+            c.char.toLowerCase().includes(q) ||
+            c.hex.toLowerCase().includes(q) ||
+            `U+${c.hex}`.toLowerCase().includes(q)
+          );
+        }
+      }
+      return filtered;
+    }
+
+    function render() {
+      const filtered = filterChars();
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+      if (page > totalPages) page = Math.max(1, totalPages);
+      const start = (page - 1) * PAGE_SIZE;
+      const pageChars = filtered.slice(start, start + PAGE_SIZE);
+
+      document.getElementById('stats').textContent = `${filtered.length} characters · Page ${page}/${Math.max(1,totalPages)}`;
+
+      const grid = document.getElementById('charGrid');
+      grid.innerHTML = '';
+      if (pageChars.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-secondary);">No characters found. Try a different search term.</div>';
+      }
+      pageChars.forEach(c => {
+        const cell = document.createElement('div');
+        cell.className = 'char-cell';
+        cell.title = `U+${c.hex}${c.name ? ' — ' + c.name : ''} · ${c.blockName}`;
+        cell.innerHTML = `<span class="char-symbol">${c.char}</span><span class="char-code">U+${c.hex}</span>`;
+        cell.addEventListener('click', () => copyChar(c, cell));
+        grid.appendChild(cell);
+      });
+
+      renderPagination(totalPages);
+      document.getElementById('blockSelect').value = currentBlock;
+    }
+
+    function renderPagination(totalPages) {
+      const container = document.getElementById('pagination');
+      if (totalPages <= 1) { container.innerHTML = ''; return; }
+      let html = `<button ${page===1?'disabled':''} id="btnFirst">««</button>`;
+      html += `<button ${page===1?'disabled':''} id="btnPrev">«</button>`;
+      const startPg = Math.max(1, page - 2);
+      const endPg = Math.min(totalPages, page + 2);
+      for (let i = startPg; i <= endPg; i++) {
+        html += `<button class="${i===page?'active':''}" data-page="${i}">${i}</button>`;
+      }
+      html += `<button ${page===totalPages?'disabled':''} id="btnNext">»</button>`;
+      html += `<button ${page===totalPages?'disabled':''} id="btnLast">»»</button>`;
+      html += `<span class="page-info">/ ${totalPages}</span>`;
+      container.innerHTML = html;
+
+      document.getElementById('btnFirst')?.addEventListener('click',()=>{page=1;render();scrollTop();});
+      document.getElementById('btnPrev')?.addEventListener('click',()=>{page--;render();scrollTop();});
+      document.getElementById('btnNext')?.addEventListener('click',()=>{page++;render();scrollTop();});
+      document.getElementById('btnLast')?.addEventListener('click',()=>{page=totalPages;render();scrollTop();});
+      container.querySelectorAll('[data-page]').forEach(b => {
+        b.addEventListener('click',()=>{page=parseInt(b.dataset.page);render();scrollTop();});
+      });
+    }
+
+    function scrollTop() {
+      document.getElementById('charGrid').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function copyChar(c, cell) {
+      navigator.clipboard.writeText(c.char).then(() => {
+        cell.classList.add('copied');
+        setTimeout(() => cell.classList.remove('copied'), 1200);
+        showToast(`Copied: ${c.char}  (U+${c.hex})`);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = c.char; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        cell.classList.add('copied');
+        setTimeout(() => cell.classList.remove('copied'), 1200);
+        showToast(`Copied: ${c.char}  (U+${c.hex})`);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function initUI() {
+      const blockSelect = document.getElementById('blockSelect');
+      UNICODE_BLOCKS.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b.key;
+        opt.textContent = b.name;
+        blockSelect.appendChild(opt);
+      });
+      blockSelect.addEventListener('change', () => {
+        currentBlock = blockSelect.value;
+        currentCategory = null;
+        page = 1;
+        updateCategoryTags();
+        render();
+      });
+
+      const catContainer = document.getElementById('categories');
+      HOT_CATEGORIES.forEach(cat => {
+        const tag = document.createElement('span');
+        tag.className = 'category-tag';
+        tag.textContent = cat.label;
+        tag.addEventListener('click', () => {
+          currentCategory = (currentCategory === cat.label) ? null : cat.label;
+          currentBlock = 'all';
+          document.getElementById('blockSelect').value = 'all';
+          page = 1;
+          updateCategoryTags();
+          render();
+        });
+        catContainer.appendChild(tag);
+      });
+
+      const searchInput = document.getElementById('searchInput');
+      let searchTimer;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          searchQuery = searchInput.value;
+          page = 1;
+          render();
+        }, 250);
+      });
+
+      document.getElementById('fillSampleBtn').addEventListener('click', () => {
+        searchInput.value = 'arrow';
+        searchQuery = 'arrow';
+        page = 1;
+        render();
+      });
+
+      updateCategoryTags();
+      render();
+    }
+
+    function updateCategoryTags() {
+      document.querySelectorAll('.category-tag').forEach(tag => {
+        tag.classList.toggle('active', tag.textContent === currentCategory);
+      });
+    }
+
+    initUI();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Card Maker - ToolGuideHub</title>
+  <meta name="description" content="Create a professional business card from templates you can customise and export for printing.">
+  <meta property="og:title" content="Business Card Maker - ToolGuideHub">
+  <meta property="og:description" content="Create a professional business card from templates you can customise and export for printing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/business-card-maker/">
+  <meta property="og:site_name" content="ToolGuideHub">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Business Card Maker","description":"Free online business card designer - create professional cards instantly","applicationCategory":"Utility"}</script>
+  <style>:root{--text-light:#94a3b8;--card-bg:#1e293b;}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}
+    header{background:#1e293b;color:#e2e8f0;padding:20px 0;text-align:center;border-bottom:1px solid rgba(148,163,184,.1)}
+    header h1{font-size:1.6rem;font-weight:700;letter-spacing:-.5px;color:#22d3ee}
+    header p{font-size:.9rem;opacity:.85;margin-top:4px}
+    .container{max-width:960px;margin:0 auto;padding:24px 16px 60px}
+    .section{background:var(--card-bg);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:24px;margin-bottom:20px}
+    h2{font-size:1.25rem;font-weight:600;margin-bottom:16px;color:#0891b2}
+    .form-group{margin-bottom:16px}
+    label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px;color:var(--text-light)}
+    input,select{width:100%;padding:10px 12px;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s;box-sizing:border-box;background:#0f172a;color:#e2e8f0}
+    input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .row>*{flex:1;min-width:120px}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .btn-primary{background:#22d3ee;color:#fff}
+    .btn-primary:hover{background:#0891b2;transform:translateY(-1px)}
+    .btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+    .btn-secondary:hover{background:rgba(148,163,184,.2)}
+    .btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .template-select{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .template-dot{width:32px;height:32px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:transform .2s}
+    .template-dot:hover{transform:scale(1.15)}
+    .template-dot.active{border-color:#e2e8f0;box-shadow:0 0 0 2px #fff,0 0 0 4px #1e293b}
+    .card-preview{width:350px;height:200px;margin:20px auto;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:all .3s;max-width:100%;overflow:hidden}
+    .card-inner{text-align:center;padding:20px;width:100%}
+    .card-inner .name{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+    .card-inner .title{font-size:.9rem;opacity:.85;margin-bottom:12px}
+    .card-inner .info{font-size:.8rem;opacity:.75;line-height:1.5}
+    canvas{display:none}
+    @media(max-width:600px){
+      .card-preview{width:280px;height:170px}
+      .card-inner .name{font-size:1.2rem}
+    }
+    footer{text-align:center;padding:20px;color:var(--text-light);font-size:.85rem}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;font-size:.9rem;z-index:9999;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+  .nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+  .lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+  .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+  .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/business-card-maker/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Business Card Maker", "item": "https://adi63586.github.io/Toolguidehub/en/business-card-maker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Business Card Maker FAQ","mainEntity":[{"@type":"Question","name":"How does the Business Card Maker work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the Business Card Maker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Name and Job Title are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the Business Card Maker?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Business Card Maker","description":"Step-by-step guide for using Business Card Maker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Business Card Maker"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/business-card-maker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap">
+      <h1>💳 Business Card Maker</h1>
+      
+    </div>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online business card designer. Customize name, title, contact info with multiple color templates. Download as PNG instantly.</p>
+  <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+  <main class="container">
+    <div class="section">
+      <h2>🎨 Choose Template</h2>
+      <div class="template-select" id="templates">
+        <div class="template-dot active" style="background:linear-gradient(135deg,#1e293b,#334155)" data-bg="#1e293b" data-fg="#fff" onclick="selectTemplate(this)"></div>
+        <div class="template-dot" style="background:linear-gradient(135deg,#1e40af,#3b82f6)" data-bg="#1e40af" data-fg="#fff" onclick="selectTemplate(this)"></div>
+        <div class="template-dot" style="background:linear-gradient(135deg,#166534,#22c55e)" data-bg="#166534" data-fg="#fff" onclick="selectTemplate(this)"></div>
+        <div class="template-dot" style="background:linear-gradient(135deg,#991b1b,#ef4444)" data-bg="#991b1b" data-fg="#fff" onclick="selectTemplate(this)"></div>
+        <div class="template-dot" style="background:linear-gradient(135deg,#854d0e,#f59e0b)" data-bg="#854d0e" data-fg="#fff" onclick="selectTemplate(this)"></div>
+        <div class="template-dot" style="background:linear-gradient(135deg,#f8fafc,#e2e8f0)" data-bg="#f8fafc" data-fg="#1e293b" onclick="selectTemplate(this)"></div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>📝 Your Info</h2>
+      <div class="row">
+        <div class="form-group"><label>Name</label><input type="text" id="name" placeholder="John Doe" value="John Doe" oninput="updateCard()"></div>
+        <div class="form-group"><label>Job Title</label><input type="text" id="jobTitle" placeholder="CEO & Founder" value="CEO & Founder" oninput="updateCard()"></div>
+      </div>
+      <div class="row">
+        <div class="form-group"><label>Company</label><input type="text" id="company" placeholder="Acme Inc." value="Acme Inc." oninput="updateCard()"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="john@acme.com" value="john@acme.com" oninput="updateCard()"></div>
+      </div>
+      <div class="row">
+        <div class="form-group"><label>Phone</label><input type="text" id="phone" placeholder="+1 (555) 000-0000" value="+1 (555) 000-0000" oninput="updateCard()"></div>
+        <div class="form-group"><label>Website</label><input type="text" id="website" placeholder="www.acme.com" value="www.acme.com" oninput="updateCard()"></div>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="downloadCard()">⬇️ Download PNG</button>
+    </div>
+    <div class="card-preview" id="cardPreview">
+      <div class="card-inner">
+        <div class="name" id="cardName">John Doe</div>
+        <div class="title" id="cardTitle">CEO & Founder</div>
+        <div class="info" id="cardInfo">Acme Inc.<br>john@acme.com | +1 (555) 000-0000<br>www.acme.com</div>
+      </div>
+    </div>
+  
+<h2>What is Business Card Maker?</h2><p>Business Card Maker is a free online tool that runs entirely in your browser. No download or signup needed — enter your name, job title, company, and contact details, pick a color template, and download your card as a PNG image instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Design a professional card for networking events, conferences, or client meetings</li><li>Create consistent contact cards for your whole team in seconds</li><li>Preview different color templates before sending the design to a printer</li><li>Build a quick card for a side project, portfolio, or personal brand</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+  <canvas id="cardCanvas" width="700" height="400"></canvas>
+  
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/business-card-generator/">💳 Business Card Generator</a><a href="../../en/startup-name-generator/">🚀 Startup Name Generator</a><a href="../../en/business-model-canvas/">💼 Free Online Business Model Canvas | No Registration</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/business-card-maker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <div class="toast" id="toast"></div>
+  <script>
+    let currentBg = '#1e293b', currentFg = '#fff';
+    function selectTemplate(el){
+      document.querySelectorAll('.template-dot').forEach(d=>d.classList.remove('active'));
+      el.classList.add('active');
+      currentBg = el.dataset.bg;
+      currentFg = el.dataset.fg;
+      updateCard();
+    }
+    function updateCard(){
+      const preview = document.getElementById('cardPreview');
+      const name = document.getElementById('name').value||'';
+      const title = document.getElementById('jobTitle').value||'';
+      const company = document.getElementById('company').value||'';
+      const email = document.getElementById('email').value||'';
+      const phone = document.getElementById('phone').value||'';
+      const website = document.getElementById('website').value||'';
+      preview.style.background = currentBg;
+      preview.style.color = currentFg;
+      document.getElementById('cardName').textContent = name;
+      document.getElementById('cardTitle').textContent = title;
+      document.getElementById('cardInfo').innerHTML = `${company}<br>${[email,phone].filter(Boolean).join(' | ')}<br>${website}`;
+    }
+    function downloadCard(){
+      const canvas = document.getElementById('cardCanvas');
+      const ctx = canvas.getContext('2d');
+      const name = document.getElementById('cardName').textContent;
+      const title = document.getElementById('cardTitle').textContent;
+      const info = document.getElementById('cardInfo').innerHTML.replace(/<br>/g,'\n');
+      ctx.fillStyle = currentBg;
+      ctx.beginPath();
+      ctx.roundRect(0,0,700,400,20);
+      ctx.fill();
+      ctx.fillStyle = currentFg;
+      ctx.textAlign = 'center';
+      ctx.font = 'bold 36px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+      ctx.fillText(name, 350, 140);
+      ctx.font = '22px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+      ctx.fillText(title, 350, 180);
+      ctx.font = '16px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+      const lines = info.split('\n');
+      lines.forEach((line,i)=>ctx.fillText(line,350,230+i*24));
+      const link=document.createElement('a');
+      link.download='business-card.png';
+      link.href=canvas.toDataURL('image/png');
+      link.click();
+      const toast=document.getElementById('toast');
+      toast.textContent='Business card downloaded!';
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),2000);
+    }
+    updateCard();
+  </script>
+</body>
+</html>

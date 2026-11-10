@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Combine up to six photos into a 1x1 to 3x3 grid collage, adjusting gap, corner radius, background, and output size, then save as PNG.">
+<meta name="keywords" content="photo collage,collage maker,image grid,photo grid,picture collage,image combiner,photo layout,grid maker">
+<title>Free Online Photo Collage Maker - Image Grid Creator</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-collage-maker/">
+<meta property="og:title" content="Free Online Photo Collage Maker - Image Grid Creator">
+<meta property="og:description" content="Combine up to six photos into a 1x1 to 3x3 grid collage, adjusting gap, corner radius, background, and output size, then save as PNG.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-collage-maker/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Photo Collage Maker", "description": "Free online Photo Collage Maker.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is the Collage Maker free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the Collage Maker free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free with no registration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do images upload to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All computation happens on your device — Layout, Gap and other inputs stay in your browser via Canvas API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many images can I combine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 6 images. Grid layouts from 1x1 to 3x3 are supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What output sizes are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Small (300px/cell), Medium (600px/cell), or Large (1000px/cell). Downloaded as PNG."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.upload-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.upload-cell{aspect-ratio:1;background:#0f172a;border:2px dashed rgba(148,163,184,.15);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;overflow:hidden;position:relative;min-height:120px}
+.upload-cell:hover{border-color:rgba(6,182,212,.4)}
+.upload-cell.has-image{border-style:solid;border-color:rgba(6,182,212,.25)}
+.upload-cell .icon{font-size:1.5rem;color:#475569}
+.upload-cell .text{color:#475569;font-size:.7rem;margin-top:4px}
+.upload-cell img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.upload-cell .remove-btn{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:12px;cursor:pointer;z-index:2;display:none;align-items:center;justify-content:center}
+.upload-cell:hover .remove-btn{display:flex}
+.upload-cell input{display:none}
+.control-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.control-row label{color:#94a3b8;font-size:.82rem}
+.control-row select,.control-row input[type=color],.control-row input[type=number]{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:6px 10px;color:#e2e8f0;font-size:.82rem;outline:none}
+.control-row input[type=number]{width:60px}
+.btn{padding:8px 20px;border:none;border-radius:8px;font-size:.85rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}
+.btn-success{background:linear-gradient(135deg,#10b981,#059669);color:#fff}
+.btn-success:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(16,185,129,.3)}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+#collagePrev{width:100%;max-width:600px;height:auto;margin:12px auto;display:block;border-radius:8px}
+.faq-item{margin-bottom:16px;border-bottom:1px solid rgba(148,163,184,.08);padding-bottom:16px}
+.faq-item:last-child{border-bottom:none}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:4px}
+.faq-item p{color:#94a3b8;font-size:.85rem;margin-top:6px;line-height:1.7}
+.footer{text-align:center;color:#64748b;font-size:.85rem;margin-top:32px;padding-top:20px;border-top:1px solid rgba(148,163,184,.08)}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Photo Collage Maker - Online Image Grid Creator", "item": "https://adi63586.github.io/Toolguidehub/en/image-collage-maker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Photo Collage Maker","description":"Step-by-step guide for using Photo Collage Maker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Photo Collage Maker"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-collage-maker/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>🖼️ Photo Collage Maker</h1></div>
+<div class="nav-back"><a href="../../">← Back to Home</a></div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div class="section">
+<h2>Select Images (up to 6)</h2>
+<div class="upload-grid" id="uploadGrid"></div>
+<div class="control-row">
+<label>Layout:</label><select id="layoutRows" onchange="makeCollage()"><option value="1">1 Row</option><option value="2" selected>2 Rows</option><option value="3">3 Rows</option></select>
+<select id="layoutCols" onchange="makeCollage()"><option value="1">1 Col</option><option value="2" selected>2 Cols</option><option value="3">3 Cols</option></select>
+<label>Gap:</label><input type="number" id="gap" value="6" min="0" max="40" onchange="makeCollage()"><label>px</label>
+<label>Radius:</label><input type="number" id="radius" value="6" min="0" max="30" onchange="makeCollage()"><label>px</label>
+<label>BG:</label><input type="color" id="bgColor" value="#1e293b" onchange="makeCollage()">
+</div>
+<div class="control-row">
+<label>Size:</label><select id="outSize"><option value="300">Small</option><option value="600" selected>Medium</option><option value="1000">Large</option></select>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="makeCollage()">🔄 Generate Collage</button>
+<button class="btn btn-success" id="downloadCollageBtn" style="display:none" onclick="downloadCollage()">⬇️ Download PNG</button>
+</div>
+<canvas id="collagePrev" style="display:none"></canvas>
+</div>
+<div class="section"><div class="seo-content"><h2>How to Make a Photo Collage</h2>
+<ol style="padding-left:20px;margin-top:12px">
+<li style="margin-bottom:12px"><strong>Upload Images</strong><br><span style="color:#94a3b8;font-size:.9rem">Click empty cells to upload images. Up to 6 images. Click × to remove.</span></li>
+<li style="margin-bottom:12px"><strong>Customize Layout</strong><br><span style="color:#94a3b8;font-size:.9rem">Adjust rows, columns, gap spacing, corner radius, and background color.</span></li>
+<li style="margin-bottom:12px"><strong>Download</strong><br><span style="color:#94a3b8;font-size:.9rem">Choose output size and download your collage as PNG.</span></li>
+</ol></div></div>
+<div class="section">
+<h2>FAQ</h2>
+<div class="faq-item"><h3>How many images can I combine?</h3><p>Up to 6 images. Grid layouts range from 1×1 to 3×3. Only cells with images are included.</p></div>
+<div class="faq-item"><h3>Are my images uploaded to a server?</h3><p>No. All computation happens on your device — Layout, Gap and other inputs stay in your browser. Your images never leave your device.</p></div>
+<div class="faq-item"><h3>What are the output dimensions?</h3><p>Choose Small (300px/cell), Medium (600px/cell), or Large (1000px/cell). Final size = (cell size × columns + gap × (columns-1)).</p></div>
+</div>
+<div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+const MAX_IMAGES=6;const images=new Array(MAX_IMAGES).fill(null);
+function initGrid(){const grid=document.getElementById('uploadGrid');grid.innerHTML='';for(let i=0;i<MAX_IMAGES;i++){const cell=document.createElement('div');cell.className='upload-cell';cell.id='cell-'+i;cell.innerHTML=`<div class="icon">📷</div><div class="text">Image ${i+1}</div><input type="file" accept="image/*" onchange="uploadImage(${i},this.files[0])"><button class="remove-btn" onclick="event.stopPropagation();removeImage(${i})">✕</button>`;cell.onclick=function(){this.querySelector('input').click()};grid.appendChild(cell)}}initGrid();
+function uploadImage(idx,file){if(!file||!file.type.startsWith('image/')){showToast('Please select an image');return}
+const r=new FileReader();r.onload=function(e){const img=new Image();img.onload=function(){images[idx]={img:img,dataUrl:e.target.result};const cell=document.getElementById('cell-'+idx);cell.innerHTML=`<img src="${e.target.result}"><input type="file" accept="image/*" onchange="uploadImage(${idx},this.files[0])"><button class="remove-btn" onclick="event.stopPropagation();removeImage(${idx})">✕</button>`;cell.classList.add('has-image');makeCollage()};img.src=e.target.result};r.readAsDataURL(file)}
+function removeImage(idx){images[idx]=null;const cell=document.getElementById('cell-'+idx);cell.innerHTML=`<div class="icon">📷</div><div class="text">Image ${idx+1}</div><input type="file" accept="image/*" onchange="uploadImage(${idx},this.files[0])"><button class="remove-btn" onclick="event.stopPropagation();removeImage(${idx})">✕</button>`;cell.classList.remove('has-image');makeCollage()}
+function makeCollage(){const rows=parseInt(document.getElementById('layoutRows').value);const cols=parseInt(document.getElementById('layoutCols').value);const gap=parseInt(document.getElementById('gap').value);const radius=parseInt(document.getElementById('radius').value);const bg=document.getElementById('bgColor').value;const sz=parseInt(document.getElementById('outSize').value);const valid=images.filter(i=>i!==null);if(!valid.length){document.getElementById('collagePrev').style.display='none';document.getElementById('downloadCollageBtn').style.display='none';return}
+const tc=Math.min(cols,valid.length);const tr=Math.ceil(valid.length/cols);const cw=sz*tc+gap*(tc-1);const ch=sz*tr+gap*(tr-1);const can=document.getElementById('collagePrev');can.width=cw;can.height=ch;const ctx=can.getContext('2d');ctx.fillStyle=bg;ctx.fillRect(0,0,cw,ch);valid.forEach((item,idx)=>{const col=idx%cols;const row=Math.floor(idx/cols);const x=col*(sz+gap);const y=row*(sz+gap);ctx.save();ctx.beginPath();ctx.moveTo(x+radius,y);ctx.lineTo(x+sz-radius,y);ctx.quadraticCurveTo(x+sz,y,x+sz,y+radius);ctx.lineTo(x+sz,y+sz-radius);ctx.quadraticCurveTo(x+sz,y+sz,x+sz-radius,y+sz);ctx.lineTo(x+radius,y+sz);ctx.quadraticCurveTo(x,y+sz,x,y+sz-radius);ctx.lineTo(x,y+radius);ctx.quadraticCurveTo(x,y,x+radius,y);ctx.closePath();ctx.clip();const img=item.img;const min=Math.min(img.width,img.height);const sx=img.width>img.height?(img.width-img.height)/2:0;const sy=img.height>img.width?(img.height-img.width)/2:0;ctx.drawImage(img,sx,sy,min,min,x,y,sz,sz);ctx.restore()});can.style.display='block';document.getElementById('downloadCollageBtn').style.display='inline-block'}
+function downloadCollage(){const c=document.getElementById('collagePrev');const l=document.createElement('a');l.download='collage.png';l.href=c.toDataURL('image/png');l.click();showToast('✅ Downloaded')}
+</script>
+<link rel="stylesheet" href="../../related-tools.css"><div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div><script src="../../related-tools.js"></script>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/image-collage-maker/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</main>
+</body>
+</html>

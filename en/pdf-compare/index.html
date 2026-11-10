@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare two PDF files side by side page by page, highlighting text changes and visual differences without uploading.">
+<meta name="keywords" content="PDF compare,PDF comparison tool,PDF diff,side-by-side PDF compare,online PDF comparison">
+<title>Free PDF Compare Tool - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/pdf-compare/">
+<meta property="og:title" content="Free PDF Compare Tool - ToolGuideHub">
+<meta property="og:description" content="Compare two PDF files side by side page by page, highlighting text changes and visual differences without uploading.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/pdf-compare/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF Compare", "description": "Free online PDF compare tool. Side-by-side comparison of two PDF files, view differences page by page with highlighted changes. Supports text layer comparison and visual diff. Pure frontend, files stay on your device.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How does the PDF compare tool work?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the PDF compare tool work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It uses PDF.js to render two PDF files locally in your browser, displayed side by side page by page. Text is extracted and compared with a diff algorithm to highlight differences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of PDF comparison are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two modes: 1) Text comparison - extracts and compares text from both PDFs; 2) Visual comparison - side-by-side page viewing of rendered PDFs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the PDF comparison?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Text comparison accuracy depends on the PDF text layer quality. Scanned PDFs cannot use text comparison but visual comparison mode still works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare large files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but it is recommended to keep files under 50 pages each and under 50MB. Larger files may cause performance issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my files secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Files are fully secure. This tool runs 100% in your browser using PDF.js for local rendering and processing. Files never leave your device."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.container{max-width:1200px;margin:0 auto;padding:20px;flex:1}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:2em;color:#f1f5f9;margin-bottom:8px}
+header p{color:#94a3b8;font-size:1.05em;max-width:700px;margin:0 auto}
+.tool-card{background:#1e293b;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:30px;margin-bottom:30px}
+textarea{
+      background:#0f172a;
+      color:#e2e8f0;width:100%;min-height:200px;padding:16px;border:2px solid rgba(148,163,184,.2);border-radius:10px;font-family:"SF Mono","Consolas","Monaco",monospace;font-size:14px;line-height:1.5;resize:vertical;transition:border-color .2s}
+textarea:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px rgba(34,211,238,.15)}
+textarea.input-area{min-height:180px}
+textarea.output-area{min-height:150px;background:#0f172a}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0;padding:16px;background:rgba(15,23,42,.5);border-radius:10px}
+.controls label{font-size:14px;color:#94a3b8;display:flex;align-items:center;gap:6px}
+.controls select,.controls input[type="number"],.controls input[type="text"]{padding:6px 10px;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:14px;background:#0f172a;color:#e2e8f0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:15px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3);transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,182,212,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:#10b981;color:#fff}
+.btn-success:hover{background:#059669}
+.btn-danger{background:#ef4444;color:#fff;padding:6px 14px;font-size:13px}
+.btn-danger:hover{background:#dc2626}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.output-header h3{font-size:16px;color:#e2e8f0}
+.result-actions{display:flex;gap:8px}
+.toolbar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.status{padding:10px 16px;border-radius:8px;margin:8px 0;font-size:14px}
+.status-ok{background:#d1fae5;color:#065f46}
+.status-error{background:#fee2e2;color:#991b1b}
+.status-info{background:#dbeafe;color:#1e40af}
+.faq-section{background:#1e293b;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.08);padding:30px;margin-bottom:30px}
+.faq-section h2{font-size:1.5em;color:#f1f5f9;margin-bottom:20px;text-align:center}
+.faq-item{border-bottom:1px solid rgba(148,163,184,.1);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:#e2e8f0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:"+";font-size:20px;color:#22d3ee;transition:transform .2s}
+.faq-q.active::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:#94a3b8;padding-top:0}
+.faq-a.show{max-height:500px;padding-top:12px}
+.feedback-section h2{font-size:1.3em;color:#f1f5f9;margin-bottom:10px}
+footer{text-align:center;padding:20px;color:#94a3b8;font-size:13px;border-top:1px solid rgba(148,163,184,.1);margin-top:auto}
+footer a{color:#22d3ee;text-decoration:none}
+.copy-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .3s;z-index:9999;pointer-events:none;border:1px solid rgba(148,163,184,.15)}
+.copy-toast.show{opacity:1}
+@media(max-width:768px){.tool-card,.faq-section,header h1{font-size:1.5em}.controls{flex-direction:column;align-items:stretch}}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free PDF Compare Tool", "item": "https://adi63586.github.io/Toolguidehub/en/pdf-compare/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use PDF Compare","description":"Step-by-step guide for using PDF Compare","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"PDF Compare"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Input or paste the data you want to analyze"},{"@type":"HowToStep","position":2,"name":"Click Analyze","text":"Press the analyze button to start processing"},{"@type":"HowToStep","position":3,"name":"View results","text":"Review the analysis results and statistics"},{"@type":"HowToStep","position":4,"name":"Export data","text":"Copy or download the analysis output"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/pdf-compare/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+<header>
+<div class="header"><h1>PDF Compare Tool</h1></div>
+<p>Free online PDF compare tool. Side-by-side comparison of two PDF files, view differences page by page with highlighted changes. Supports text layer comparison and visual diff. Pure frontend, files stay on your device.</p>
+<div class="nav-back"><a href="../index.html">← All Tools</a></div></header>
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div id="tool-content" class="tool-card">
+  <div id="app-container"></div>
+</div>
+
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">📌 How does the PDF compare tool work?</div><div class="faq-a"><p>It uses PDF.js to render two PDF files locally in your browser, displayed side by side page by page. Text is extracted and compared with a diff algorithm to highlight differences.</p></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">📌 What types of PDF comparison are supported?</div><div class="faq-a"><p>Two modes: 1) Text comparison - extracts and compares text from both PDFs; 2) Visual comparison - side-by-side page viewing of rendered PDFs.</p></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">📌 How accurate is the PDF comparison?</div><div class="faq-a"><p>Text comparison accuracy depends on the PDF text layer quality. Scanned PDFs cannot use text comparison but visual comparison mode still works.</p></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">📌 Can I compare large files?</div><div class="faq-a"><p>Yes, but it is recommended to keep files under 50 pages each and under 50MB. Larger files may cause performance issues.</p></div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">📌 Are my files secure?</div><div class="faq-a"><p>Files are fully secure. This tool runs 100% in your browser using PDF.js for local rendering and processing. Files never leave your device.</p></div></div>
+</div>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/online-pdf-editor/">📄 Online PDF Editor</a><a href="//en/excel-to-pdf/">📄 Free Online Excel to PDF Converter</a><a href="//en/merge-pdf/">📄 Free Online PDF Merger - Combine Multiple PDFs into One</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/pdf-compare/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<div id="copyToast" class="copy-toast">Copied!</div>
+<script>
+function toggleFaq(el){
+  el.classList.toggle("active");
+  var answer = el.nextElementSibling;
+  answer.classList.toggle("show");
+}
+
+function showToast(msg){
+  var t = document.getElementById("copyToast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function(){ t.classList.remove("show"); }, 2000);
+}
+
+function copyToClipboard(text, msg){
+  if (!text) { showToast("Nothing to copy"); return; }
+  navigator.clipboard.writeText(text).then(function(){
+    showToast(msg || "Copied!");
+  }).catch(function(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.left = "-9999px";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); showToast(msg || "Copied!"); } catch(e) {}
+    document.body.removeChild(ta);
+  });
+}
+
+/* PDF Compare Tool */
+var app = document.getElementById("app-container");
+app.innerHTML = `
+  <div class="controls" style="flex-direction:column;align-items:stretch">
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
+        <label style="display:block;margin-bottom:6px;font-weight:600;color:#e2e8f0">PDF A (Original)</label>
+        <input type="file" id="pdfFileA" accept=".pdf" style="width:100%;padding:8px;border:1px solid rgba(148,163,184,.2);border-radius:6px;background:#0f172a;color:#e2e8f0">
+      </div>
+      <div style="flex:1;min-width:200px">
+        <label style="display:block;margin-bottom:6px;font-weight:600;color:#e2e8f0">PDF B (Modified)</label>
+        <input type="file" id="pdfFileB" accept=".pdf" style="width:100%;padding:8px;border:1px solid rgba(148,163,184,.2);border-radius:6px;background:#0f172a;color:#e2e8f0">
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="comparePDFs()" id="compareBtn">🔍 Compare PDFs</button>
+      <label style="color:#94a3b8">Page: <input type="number" id="pageNum" value="1" min="1" style="width:60px;padding:4px;border:1px solid rgba(148,163,184,.2);border-radius:4px;background:#0f172a;color:#e2e8f0">
+      <button class="btn btn-secondary" onclick="goPage(-1)">◀ Prev</button>
+      <button class="btn btn-secondary" onclick="goPage(1)">Next ▶</button>
+      </label>
+      <span id="pageInfo" style="font-size:14px;color:#94a3b8"></span>
+    </div>
+    <div id="loadingStatus" class="status status-info" style="display:none">Loading PDFs...</div>
+  </div>
+  <div id="pdfViewer" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px">
+    <div style="flex:1;min-width:300px">
+      <h3 style="text-align:center;margin-bottom:8px;font-size:16px;color:#e2e8f0">PDF A</h3>
+      <canvas id="pdfCanvasA" style="width:100%;border:1px solid rgba(148,163,184,.2);border-radius:8px"></canvas>
+    </div>
+    <div style="flex:1;min-width:300px">
+      <h3 style="text-align:center;margin-bottom:8px;font-size:16px;color:#e2e8f0">PDF B</h3>
+      <canvas id="pdfCanvasB" style="width:100%;border:1px solid rgba(148,163,184,.2);border-radius:8px"></canvas>
+    </div>
+  </div>
+  <div id="diffStatus" style="margin-top:12px;text-align:center"></div>
+`;
+
+var pdfjsLib = null;
+var pdfDocA = null;
+var pdfDocB = null;
+var currentPage = 1;
+
+function loadPDFJS(callback) {
+  if (pdfjsLib) { callback(); return; }
+  var script = document.createElement("script");
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+  script.onload = function() {
+    pdfjsLib = window.pdfjsLib;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    callback();
+  };
+  script.onerror = function() {
+    document.getElementById("loadingStatus").className = "status status-error";
+    document.getElementById("loadingStatus").style.display = "block";
+    document.getElementById("loadingStatus").textContent = "Failed to load PDF.js library. Check internet connection.";
+  };
+  document.head.appendChild(script);
+}
+
+function comparePDFs() {
+  var fileA = document.getElementById("pdfFileA").files[0];
+  var fileB = document.getElementById("pdfFileB").files[0];
+  if (!fileA || !fileB) {
+    document.getElementById("loadingStatus").className = "status status-error";
+    document.getElementById("loadingStatus").style.display = "block";
+    document.getElementById("loadingStatus").textContent = "Please select both PDF files.";
+    return;
+  }
+  document.getElementById("loadingStatus").className = "status status-info";
+  document.getElementById("loadingStatus").style.display = "block";
+  document.getElementById("loadingStatus").textContent = "Loading PDF.js library...";
+  document.getElementById("compareBtn").disabled = true;
+
+  loadPDFJS(function() {
+    document.getElementById("loadingStatus").textContent = "Rendering PDFs...";
+    var loaded = 0;
+    var readerA = new FileReader();
+    var readerB = new FileReader();
+    
+    readerA.onload = function(e) {
+      pdfjsLib.getDocument({data: e.target.result}).promise.then(function(pdf) {
+        pdfDocA = pdf; loaded++;
+        if (loaded === 2) renderPage(1);
+      });
+    };
+    readerB.onload = function(e) {
+      pdfjsLib.getDocument({data: e.target.result}).promise.then(function(pdf) {
+        pdfDocB = pdf; loaded++;
+        if (loaded === 2) renderPage(1);
+      });
+    };
+    readerA.readAsArrayBuffer(fileA);
+    readerB.readAsArrayBuffer(fileB);
+  });
+}
+
+function renderPage(pageNum) {
+  if (!pdfDocA || !pdfDocB) return;
+  if (pageNum < 1) pageNum = 1;
+  var maxPage = Math.max(pdfDocA.numPages, pdfDocB.numPages);
+  if (pageNum > maxPage) pageNum = maxPage;
+  currentPage = pageNum;
+  
+  document.getElementById("pageNum").value = pageNum;
+  document.getElementById("pageInfo").textContent = "Page " + pageNum + " of " + maxPage + " (A: " + pdfDocA.numPages + "p, B: " + pdfDocB.numPages + "p)";
+  document.getElementById("compareBtn").disabled = true;
+  document.getElementById("loadingStatus").style.display = "block";
+  document.getElementById("loadingStatus").textContent = "Rendering page " + pageNum + "...";
+
+  var rendered = 0;
+  function checkDone() {
+    rendered++;
+    if (rendered === 2) {
+      document.getElementById("compareBtn").disabled = false;
+      document.getElementById("loadingStatus").style.display = "none";
+      compareTextContent();
+    }
+  }
+
+  function renderOne(pdfDoc, canvasId, pn) {
+    if (pn > pdfDoc.numPages) {
+      var canvas = document.getElementById(canvasId);
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#1e293b";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "16px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("No page", canvas.width/2, canvas.height/2);
+      checkDone();
+      return;
+    }
+    pdfDoc.getPage(pn).then(function(page) {
+      var viewport = page.getViewport({scale: 1.5});
+      var canvas = document.getElementById(canvasId);
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      var ctx = canvas.getContext("2d");
+      page.render({canvasContext: ctx, viewport: viewport}).promise.then(function() { checkDone(); });
+    });
+  }
+
+  renderOne(pdfDocA, "pdfCanvasA", pageNum);
+  renderOne(pdfDocB, "pdfCanvasB", pageNum);
+}
+
+function goPage(delta) {
+  var newPage = currentPage + delta;
+  if (newPage < 1) return;
+  renderPage(newPage);
+}
+
+function compareTextContent() {
+  if (!pdfDocA || !pdfDocB) return;
+  var pageNum = currentPage;
+  var promises = [];
+  
+  if (pageNum <= pdfDocA.numPages) promises.push(pdfDocA.getPage(pageNum).then(function(p) { return p.getTextContent(); }));
+  else promises.push(Promise.resolve({items: []}));
+  if (pageNum <= pdfDocB.numPages) promises.push(pdfDocB.getPage(pageNum).then(function(p) { return p.getTextContent(); }));
+  else promises.push(Promise.resolve({items: []}));
+
+  Promise.all(promises).then(function(results) {
+    var textA = results[0].items.map(function(item) { return item.str; }).join(' ');
+    var textB = results[1].items.map(function(item) { return item.str; }).join(' ');
+    var div = document.getElementById("diffStatus");
+    var wordCountA = textA.split(/\s+/).filter(Boolean).length;
+    var wordCountB = textB.split(/\s+/).filter(Boolean).length;
+    if (textA === textB) {
+      div.innerHTML = "<span style='color:#10b981;font-weight:600'>No text differences found on this page.</span>";
+    } else {
+      div.innerHTML = "<span style='color:#f59e0b;font-weight:600'>Text differs! (A: " + wordCountA + " words, B: " + wordCountB + " words)</span>"
+        + "<div style='text-align:center;margin-top:8px'><button class='btn btn-secondary' onclick=\"copyToClipboard('PDF A: ' + " + wordCountA + " + ' words, PDF B: ' + " + wordCountB + " + ' words, Page ' + " + pageNum + ", Status: Text differs', 'Copied!')\">📋 Copy Result</button></div>";
+      drawWordChart(wordCountA, wordCountB, pageNum);
+    }
+  });
+}
+
+function drawWordChart(a, b, pageNum) {
+  var div = document.getElementById("diffStatus");
+  var cv = document.createElement("canvas");
+  cv.width = 320; cv.height = 120;
+  cv.style.cssText = "max-width:100%;height:120px;margin:10px auto;display:block;background:#0f172a;border-radius:8px";
+  div.appendChild(cv);
+  var ctx = cv.getContext("2d");
+  var W = cv.width, H = cv.height;
+  var max = Math.max(a, b, 1);
+  var vals = [a, b], colors = ["#f59e0b", "#06b6d4"], labels = ["PDF A", "PDF B"];
+  var bw = 70, bh = H - 34, bx0 = (W - 2 * bw - 30) / 2;
+  ctx.font = "11px sans-serif"; ctx.textAlign = "center";
+  vals.forEach(function(v, i) {
+    var h = Math.max(4, v / max * (bh - 10));
+    var x = bx0 + i * (bw + 30) + bw / 2, y = bh - h + 10;
+    ctx.fillStyle = colors[i]; ctx.fillRect(bx0 + i * (bw + 30), y, bw, h);
+    ctx.fillStyle = "#e2e8f0"; ctx.fillText(v + " words", x, y - 4);
+    ctx.fillStyle = "#94a3b8"; ctx.fillText(labels[i] + " · Page " + pageNum, x, H - 8);
+  });
+}
+
+document.getElementById("pageNum").addEventListener("change", function() {
+  var val = parseInt(this.value);
+  if (!isNaN(val) && val > 0) renderPage(val);
+});
+
+["pdfFileA", "pdfFileB"].forEach(function(id) {
+  document.getElementById(id).addEventListener("change", function() {
+    var a = document.getElementById("pdfFileA").files[0];
+    var b = document.getElementById("pdfFileB").files[0];
+    if (a && b) comparePDFs();
+  });
+});
+
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Regex Replace Tool - ToolGuideHub</title>
+    <meta name="description" content="Run a regex find-and-replace across your text with capture groups, flags, and multiple modes, previewing every change.">
+    <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/regex-replace-online/">
+    <meta property="og:title" content="Free Regex Replace Tool - ToolGuideHub">
+    <meta property="og:description" content="Run a regex find-and-replace across your text with capture groups, flags, and multiple modes, previewing every change.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/regex-replace-online/">
+    <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;;--surface:#1e293b;--text:#e2e8f0}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        textarea, input[type="text"] { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        textarea:focus, input:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        textarea {
+      background: var(--surface);
+      color: var(--text); resize: vertical; min-height: 150px; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .btn-success { background: #10b981; color: #fff; }
+        .btn-success:hover { opacity: .9; }
+        .result-box { background:#0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 16px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 13px; white-space: pre-wrap; word-break: break-all; max-height: 400px; overflow-y: auto; min-height: 80px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .row > * { flex: 1; min-width: 120px; }
+        .flags { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .flags label { display: flex; align-items: center; gap: 4px; font-size: 13px; cursor: pointer; }
+        .flags input[type="checkbox"] { width: 16px; height: 16px; }
+        .match-info { font-size: 13px; color: #94a3b8; margin-top: 8px; }
+        .match-info strong { color: #22d3ee; }
+        .highlight { background: #fef08a; border-radius: 2px; }
+        .sample-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .sample-btns button { padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #0f172a; border: 1px solid rgba(148,163,184,.1); cursor: pointer; }
+        .sample-btns button:hover { background: rgba(148,163,184,.1); }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}</style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/regex-replace-online/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+    <main class="container">
+<header>
+            <h1>🔄 Regex Replace Tool
+  <div class="trust-signals" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0;padding:8px 0;">
+    <span style="background:rgba(6,182,212,.1);color:#22d3ee;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">🔒 Client-side — Your data never leaves your browser</span>
+    <span style="background:rgba(99,102,241,.1);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">✅ 100% Free — No signup, no limits</span>
+    <span style="background:rgba(245,158,11,.1);color:#fbbf24;padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;">⚡ Instant — No server processing</span>
+  </div>
+</h1>
+
+            <p>Online regular expression find & replace - Capture groups, multiple modes, real-time preview</p>
+        <div class="nav-back"><a href="../../">← Back to Home</a></div></header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Regex Replace Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/regex-replace-online/"
+    }
+  ],
+  "name": "Regex Replace Tool"
+}</script>
+
+        <div class="section">
+            <h2>📝 Input Text</h2>
+            <textarea id="input-text" placeholder="Enter text to process...">Hello World 2024
+foo@bar.com
+2024-01-15
+The quick brown fox jumps over the lazy dog
+phone: 555-1234-5678</textarea>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Regex Settings</h2>
+            <div class="row">
+                <div style="flex:2">
+                    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Find pattern:</label>
+                    <input type="text" id="regex-pattern" placeholder="Enter regex, e.g.: \d+ or (\w+)@(\w+)\.com" value="\d{4}-\d{2}-\d{2}">
+                </div>
+                <div style="flex:2">
+                    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Replace with:</label>
+                    <input type="text" id="regex-replace" placeholder="Replacement text, $1 $2 for capture groups" value="[$&]">
+                </div>
+            </div>
+            <div class="flags">
+                <label><input type="checkbox" id="flag-g" checked> g Global</label>
+                <label><input type="checkbox" id="flag-i"> i Case-insensitive</label>
+                <label><input type="checkbox" id="flag-m"> m Multiline</label>
+                <label><input type="checkbox" id="flag-s"> s DotAll</label>
+            </div>
+            <div class="sample-btns">
+                <strong style="font-size:13px">Samples:</strong>
+                <button onclick="loadSample1()">Date Format</button>
+                <button onclick="loadSample2()">Email Extract</button>
+                <button onclick="loadSample3()">Phone Mask</button>
+                <button onclick="loadSample4()">Remove Blank Lines</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✅ Replace Result</h2>
+            <div class="result-box" id="result-text">Waiting to execute...</div>
+            <div class="match-info" id="match-info"></div>
+            <div style="margin-top:8px;display:flex;gap:8px">
+                <button class="btn btn-primary" onclick="executeReplace()">▶️ Execute Replace</button>
+                <button class="btn btn-success" onclick="copyResult()">📋 Copy Result</button>
+                <button class="btn btn-secondary" onclick="downloadResult()">💾 Download</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Match Highlight Preview</h2>
+            <div class="result-box" id="highlight-text" style="line-height:1.8">Waiting to execute...</div>
+        </div>
+
+        <div class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Q1: How do I use capture groups?</h3>
+                <p>Use parentheses () in the regex to create capture groups, then reference them in the replacement with $1, $2, $3, etc. $& represents the entire match, $` is the text before the match, $' is the text after. Example: (\w+)@(\w+)\.com replaced with $1[at]$2.com.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q2: What do the flag options do?</h3>
+                <p>g=global (match all occurrences, not just the first); i=case-insensitive; m=multiline (^ and $ match line start/end); s=dotAll (. also matches newlines). Flags can be combined, e.g., e.g., gi means global + case-insensitive.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Q3: What regex syntax is supported?</h3>
+                <p>Supports JavaScript standard regex: character classes \d\w\s, quantifiers +*?{n,m}, groups (), alternation |, anchors ^$, lookaheads (?=)(?!), lookbehinds (?<=)(?<!), named groups (?&lt;name&gt;). Does not support PCRE-only features like \K or conditional expressions.</p>
+            </div>
+        </div>
+
+        <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "How do I use capture groups?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use capture groups?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use () to create capture groups, reference with $1/$2/$3 in replacement. $& is the full match."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the flag options do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "g=global, i=case-insensitive, m=multiline, s=dotAll. Can be combined."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What regex syntax is supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript standard regex: character classes, quantifiers, groups, alternation, anchors, lookaheads/lookbehinds, named groups."
+      }
+    }
+  ]
+}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Regex Replace Tool", "step": [{"@type": "HowToStep", "position": 1, "text": "Enter text to process in the input box", "name": "Enter text to process in the i"}, {"@type": "HowToStep", "position": 2, "text": "Enter regex pattern and replacement text", "name": "Enter regex pattern and replac"}, {"@type": "HowToStep", "position": 3, "text": "Click 'Execute Replace' to see results", "name": "Click 'Execute Replace' to see"}]}</script>
+        <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Replace Tool", "description": "Free online regex replace tool", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/regex-replace-online/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+        <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+        <script>
+        function getFlags() {
+            var flags = '';
+            if (document.getElementById('flag-g').checked) flags += 'g';
+            if (document.getElementById('flag-i').checked) flags += 'i';
+            if (document.getElementById('flag-m').checked) flags += 'm';
+            if (document.getElementById('flag-s').checked) flags += 's';
+            return flags;
+        }
+
+        function executeReplace() {
+            var input = document.getElementById('input-text').value;
+            var pattern = document.getElementById('regex-pattern').value;
+            var replacement = document.getElementById('regex-replace').value;
+            var flags = getFlags();
+            var resultEl = document.getElementById('result-text');
+            var infoEl = document.getElementById('match-info');
+            var highlightEl = document.getElementById('highlight-text');
+
+            if (!pattern) {
+                resultEl.textContent = 'Please enter a regex pattern';
+                infoEl.innerHTML = '';
+                highlightEl.textContent = input;
+                return;
+            }
+
+            try {
+                var regex = new RegExp(pattern, flags);
+                var matches = [];
+                var match;
+                var tempRegex = new RegExp(pattern, flags);
+                while ((match = tempRegex.exec(input)) !== null) {
+                    matches.push({ index: match.index, length: match[0].length, text: match[0] });
+                    if (!flags.includes('g')) break;
+                    if (match[0].length === 0) tempRegex.lastIndex++;
+                }
+
+                var result = input.replace(regex, replacement);
+                resultEl.textContent = result;
+                infoEl.innerHTML = '<strong>' + matches.length + '</strong> match(es)' + (matches.length > 0 ? ': ' + matches.map(function(m) { return '"' + escHtml(m.text) + '"'; }).join(', ') : '');
+
+                var highlighted = input;
+                var offset = 0;
+                matches.forEach(function(m) {
+                    var idx = m.index + offset;
+                    highlighted = highlighted.substring(0, idx) + '<span class="highlight">' + escHtml(m.text) + '</span>' + highlighted.substring(idx + m.text.length);
+                    offset += '<span class="highlight">'.length + '</span>'.length + escHtml(m.text).length - m.text.length;
+                });
+                highlightEl.innerHTML = highlighted;
+
+                gtag('event', 'execute_replace', { event_category: 'regex-replace', event_label: pattern.substring(0, 30) });
+            } catch (e) {
+                resultEl.innerHTML = '<span style="color:#ef4444">❌ Regex error: ' + escHtml(e.message) + '</span>';
+                infoEl.innerHTML = '';
+                highlightEl.textContent = input;
+            }
+        }
+
+        function loadSample1() {
+            document.getElementById('regex-pattern').value = '(\\d{4})-(\\d{2})-(\\d{2})';
+            document.getElementById('regex-replace').value = '$1/$2/$3';
+            document.getElementById('flag-g').checked = true;
+        }
+
+        function loadSample2() {
+            document.getElementById('regex-pattern').value = '(\\w+)@(\\w+)\\.(\\w+)';
+            document.getElementById('regex-replace').value = '$1 [at] $2 [dot] $3';
+            document.getElementById('flag-g').checked = true;
+        }
+
+        function loadSample3() {
+            document.getElementById('regex-pattern').value = '(\\d{3})-(\\d{4})-(\\d{4})';
+            document.getElementById('regex-replace').value = '$1-****-$3';
+            document.getElementById('flag-g').checked = true;
+        }
+
+        function loadSample4() {
+            document.getElementById('regex-pattern').value = '\\n\\s*\\n';
+            document.getElementById('regex-replace').value = '\\n';
+            document.getElementById('flag-g').checked = true;
+        }
+
+        function copyResult() {
+            var text = document.getElementById('result-text').textContent;
+            if (!text || text === 'Waiting to execute...') return;
+            navigator.clipboard.writeText(text).then(function() {
+                gtag('event', 'copy_result', { event_category: 'regex-replace' });
+                ;
+            });
+        }
+
+        function downloadResult() {
+            var text = document.getElementById('result-text').textContent;
+            if (!text || text === 'Waiting to execute...') return;
+            var blob = new Blob([text], { type: 'text/plain' });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'regex-replace-result.txt';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        ['input-text','regex-pattern','regex-replace'].forEach(function(id) {
+            document.getElementById(id).addEventListener('input', function() {
+                clearTimeout(window._replaceTimer);
+                window._replaceTimer = setTimeout(executeReplace, 300);
+            });
+        });
+        ['flag-g','flag-i','flag-m','flag-s'].forEach(function(id) {
+            document.getElementById(id).addEventListener('change', executeReplace);
+        });
+
+        executeReplace();
+        </script>
+    </main>
+      <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Does Regex Replace Tool upload my data to a server?</h3>
+      <p>No. Regex Replace Tool uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Regex Replace Tool free to use?</h3>
+      <p>Yes, Regex Replace Tool is completely free to use. No registration or login required — all features are available immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Regex Replace Tool?</h3>
+      <p>Absolutely. Everything runs locally: Find pattern and Replace with are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Regex Replace Tool?</h3>
+      <p>Regex Replace Tool has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Regex Replace Tool is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+  </div>
+
+<footer>
+        <p>&copy; 2026 WebTools - Free Online Tools | <a href="../../en/privacy/">Privacy Policy</a> | <a href="../../en/terms/">Terms of Service</a></p>
+     | <a href="../contact/">Contact</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+</p></body>
+</html>

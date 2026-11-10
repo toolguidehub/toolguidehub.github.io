@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Work out a screen's aspect ratio, total pixels, PPI, and diagonal from width and height, or reverse it from a resolution.">
+<meta name="keywords" content="resolution calculator,screen resolution,aspect ratio,display resolution,PPI calculator,pixel density,monitor resolution,screen size,resolution converter,video resolution">
+<title>Free Online Resolution Calculator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/resolution-calculator/">
+<meta property="og:title" content="📐 Resolution Calculator">
+<meta property="og:description" content="Work out a screen's aspect ratio, total pixels, PPI, and diagonal from width and height, or reverse it from a resolution.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/resolution-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Resolution Calculator", "description": "Free online screen resolution calculator. Calculate aspect ratio, total pixels, PPI and diagonal size from width and height. Reverse-calculate dimensions from resolution. Ideal for designers, developers and video editors.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What is aspect ratio?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is aspect ratio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aspect ratio is the proportional relationship between screen width and height, expressed as x:y. Common ratios include 16:9 (HD TV), 4:3 (traditional monitor), 21:9 (ultrawide), and 16:10 (some laptops)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is PPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PPI (Pixels Per Inch) measures pixel density. Higher PPI means sharper display. Desktop monitors typically range 100-150 PPI, while phone screens range 300-500 PPI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are 1080p and 4K resolutions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1080p is 1920x1080 (about 2MP). 4K UHD is 3840x2160 (about 8.3MP), 4 times 1080p. 8K resolution is 7680x4320."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to calculate screen size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Screen size is the diagonal measurement in inches. Use Pythagorean theorem: diagonal = sqrt(width^2 + height^2). Then convert pixels to inches by dividing by PPI."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Resolution Calculator",
+  "description": "Simple steps to use the 📐 Resolution Calculator online tool. Everything runs locally: Resolution Calculator and other values are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "📐 Resolution Calculator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/resolution-calculator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/resolution-calculator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/resolution-calculator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4} .container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px} .nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px} .form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group input:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap} .form-row .form-group{flex:1;min-width:180px}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.result-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;text-align:center}
+.result-card .val{font-size:1.4rem;color:#22d3ee;font-weight:bold;display:block;margin-top:4px}
+.result-card .lbl{font-size:.8rem;color:#64748b}
+.tag-btn{display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#94a3b8;cursor:pointer;font-size:.8rem;transition:all .2s}
+.tag-btn:hover{border-color:rgba(6,182,212,.3);color:#22d3ee}
+.result-panel{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;margin-top:12px}
+.result-panel canvas{width:100%;height:auto;margin-top:12px}
+.faq-item{margin-bottom:16px} .faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px} .faq-item p{color:#94a3b8;font-size:.9rem}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Resolution Calculator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/resolution-calculator/"
+    }
+  ],
+  "name": "Resolution Calculator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/resolution-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head><body><main class="container"><div class="header"><h1>📐 Resolution Calculator</h1>
+<p class="tool-description" style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online screen resolution calculator. Calculate aspect ratio, total pixels, PPI and diagonal size from width and height. Reverse-calculate dimensions fro...</p></div><p class="nav-back"><a href="../../index.html">&larr; Back to Home</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+<div class="section">
+<h2>🧮 Resolution Calculator</h2>
+<div class="form-row">
+  <div class="form-group"><label>Width (px)</label><input type="number" id="resW" placeholder="e.g. 1920" min="1"></div>
+  <div class="form-group"><label>Height (px)</label><input type="number" id="resH" placeholder="e.g. 1080" min="1"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Screen size (in, optional)</label><input type="number" id="resDiag" placeholder="e.g. 27" min="1"></div>
+  <div class="form-group"><label>PPI (optional)</label><input type="number" id="resPPI" placeholder="e.g. 109" min="1"></div>
+</div>
+<div class="btn-group">
+  <button class="btn btn-primary" onclick="calcResolution()">🧮 Calculate</button>
+  <button class="btn btn-secondary" onclick="fillResExample()">🎲 Fill Example</button>
+</div>
+<div class="result-panel" id="result">
+  <div class="result-grid">
+    <div class="result-card"><span class="lbl">Aspect Ratio</span><span class="val" id="resRatio">--</span></div>
+    <div class="result-card"><span class="lbl">Total Pixels</span><span class="val" id="resPixels">--</span></div>
+    <div class="result-card"><span class="lbl">Megapixels</span><span class="val" id="resMP">--</span></div>
+    <div class="result-card"><span class="lbl">PPI</span><span class="val" id="resPPIOut">--</span></div>
+    <div class="result-card"><span class="lbl">Diagonal (in)</span><span class="val" id="resDiagOut">--</span></div>
+    <div class="result-card"><span class="lbl">Category</span><span class="val" id="resCat">--</span></div>
+  </div>
+  <div style="text-align:center;margin-top:12px">
+    <button class="btn btn-secondary" onclick="copyResResult()">📋 Copy Result</button>
+  </div>
+  <canvas id="resChart" width="600" height="150"></canvas>
+</div>
+</div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function resGcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){const t=b;b=a%b;a=t;}return a||1;}
+function resCategory(pixels){
+  const standards=[[7680,4320,'8K UHD'],[3840,2160,'4K UHD'],[2560,1440,'2K QHD'],[1920,1080,'Full HD'],[1280,720,'HD']];
+  let best=null,bestDiff=Infinity;
+  standards.forEach(s=>{const d=Math.abs(pixels-s[0]*s[1]);if(d<bestDiff){bestDiff=d;best=s[2];}});
+  if(bestDiff/pixels<0.15)return best;
+  return 'Custom';
+}
+function drawResChart(curPixels){
+  const cv=document.getElementById('resChart');if(!cv)return;
+  const ctx=cv.getContext('2d');const w=cv.width,h=cv.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle='rgba(148,163,184,.06)';ctx.fillRect(0,0,w,h);
+  const data=[['HD',0.92],['FHD',2.07],['2K',3.69],['4K',8.29],['8K',33.18],['Yours',curPixels/1e6]];
+  const max=Math.max.apply(null,data.map(d=>d[1]))*1.1;
+  const bw=w/data.length;
+  data.forEach((d,i)=>{
+    const bh=(d[1]/max)*(h-28);
+    ctx.fillStyle=(i===data.length-1)?'#22d3ee':'#06b6d4';
+    ctx.fillRect(i*bw+4,h-8-bh,bw-8,bh);
+    ctx.fillStyle='#94a3b8';ctx.font='11px sans-serif';ctx.textAlign='center';
+    ctx.fillText(d[0],i*bw+bw/2,h-12);
+    ctx.fillText(d[1].toFixed(1)+'MP',i*bw+bw/2,h-14-bh);
+  });
+  ctx.strokeStyle='rgba(148,163,184,.15)';ctx.beginPath();ctx.moveTo(0,h-8);ctx.lineTo(w,h-8);ctx.stroke();
+}
+function calcResolution(){
+  const w=parseFloat(document.getElementById('resW').value);
+  const h=parseFloat(document.getElementById('resH').value);
+  if(!w||!h||w<1||h<1){showToast('Please enter width and height');return;}
+  const g=resGcd(w,h);
+  const ratio=(w/g)+':'+(h/g);
+  const pixels=w*h,mp=pixels/1e6;
+  const diagIn=parseFloat(document.getElementById('resDiag').value);
+  const ppiIn=parseFloat(document.getElementById('resPPI').value);
+  let ppi=null,diagOut=null;
+  if(diagIn&&diagIn>0){diagOut=diagIn;ppi=Math.sqrt(w*w+h*h)/diagIn;}
+  else if(ppiIn&&ppiIn>0){ppi=ppiIn;diagOut=Math.sqrt(w*w+h*h)/ppiIn;}
+  document.getElementById('resRatio').textContent=ratio;
+  document.getElementById('resPixels').textContent=Math.round(pixels).toLocaleString();
+  document.getElementById('resMP').textContent=mp.toFixed(1)+' MP';
+  document.getElementById('resPPIOut').textContent=ppi?ppi.toFixed(1):'--';
+  document.getElementById('resDiagOut').textContent=diagOut?diagOut.toFixed(1):'--';
+  document.getElementById('resCat').textContent=resCategory(pixels);
+  drawResChart(pixels);
+}
+function fillResExample(){
+  document.getElementById('resW').value='1920';
+  document.getElementById('resH').value='1080';
+  document.getElementById('resDiag').value='24';
+  document.getElementById('resPPI').value='';
+  calcResolution();
+}
+function resFallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+function copyResResult(){
+  const items=['Aspect Ratio','Total Pixels','Megapixels','PPI','Diagonal (in)','Category'].map((l,i)=>{
+    const el=document.querySelectorAll('#result .result-card .val')[i];
+    return l+': '+(el?el.textContent:'--');
+  });
+  const text='Resolution Calculator Result\n'+items.join('\n');
+  const done=()=>showToast('✅ Result copied');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,()=>{resFallbackCopy(text);done();});}
+  else{resFallbackCopy(text);done();}
+}
+let resInputTimer=null;
+['resW','resH','resDiag','resPPI'].forEach(id=>{
+  document.getElementById(id).addEventListener('input',()=>{clearTimeout(resInputTimer);resInputTimer=setTimeout(calcResolution,300);});
+});
+</script>
+<!-- Related Tools (cross-recommendation) -->
+
+
+
+
+<div class="toast" id="toast"></div>
+
+<h2>What is Resolution Calculator?</h2><p>Resolution Calculator is a free online tool that runs entirely in your browser. No download or signup needed — enter screen width and height to get aspect ratio, total pixels, PPI and diagonal size instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify screen resolutions during design or development</li><li>Calculate aspect ratios for video production</li><li>Compare display specifications when shopping</li><li>Quick resolution calculations on mobile</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+
+</main>
+<section class="faq-section" style="background:#1e293b;border-radius:12px;padding:20px;margin-top:16px;border:1px solid rgba(148,163,184,.1)">
+      <h2 style="font-size:1.1rem;color:#f1f5f9;margin-bottom:12px">About Resolution Calculator</h2>
+      <div class="faq-item" style="margin-bottom:12px">
+        <h3 style="font-size:.95rem;color:#e2e8f0;margin-bottom:6px">How to use Resolution Calculator?</h3>
+        <p style="color:#94a3b8;font-size:.9rem">Simply enter width and height in pixels, optionally add screen size or PPI, then click Calculate to get aspect ratio, total pixels, megapixels, PPI, diagonal size and display category.</p>
+      </div>
+      <div class="faq-item">
+        <h3 style="font-size:.95rem;color:#e2e8f0;margin-bottom:6px">Is this tool free?</h3>
+        <p style="color:#94a3b8;font-size:.9rem">Resolution Calculator is a free online tool. Works on both desktop and mobile. Responsive design adapts to any screen size. Open your browser and start using anytime.</p>
+      </div>
+    </section>
+
+
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+</footer>
+</body>
+</html>

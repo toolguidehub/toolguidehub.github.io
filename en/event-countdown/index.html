@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Event Countdown - ToolGuideHub</title>
+ <meta name="description" content="Count down the days, hours, minutes and seconds to an event with a live real-time timer.">
+ <meta property="og:title" content="Event Countdown - ToolGuideHub">
+ <meta property="og:description" content="Count down the days, hours, minutes and seconds to an event with a live real-time timer.">
+ <meta property="og:type" content="website">
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Event Countdown",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "description": "Free online event countdown timer. Track days, hours, minutes, and seconds in real-time."
+  }
+  </script>
+ <style>:root{--primary-light:rgba(6,182,212,.15);}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    header .logo{font-size:1.25rem;font-weight:700;color:#22d3ee;text-decoration:none}
+    header nav{display:flex;gap:16px}
+    header nav a{color:#94a3b8;text-decoration:none;font-size:.9rem;transition:color .2s}
+    header nav a:hover{color:#22d3ee}
+    main{flex:1;max-width:800px;margin:0 auto;padding:32px 20px;width:100%}
+    h1{font-size:1.75rem;margin-bottom:8px;color:#e2e8f0}
+    .subtitle{color:#94a3b8;margin-bottom:28px;font-size:.95rem}
+    .section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:24px;margin-bottom:20px}
+    .section h2{font-size:1.1rem;margin-bottom:16px;color:#e2e8f0}
+    label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px;color:#e2e8f0}
+    input,select{width:100%;padding:10px 14px;border:1px solid rgba(148,163,184,.1);border-radius:8px;font-size:1rem;font-family:inherit;background:#0f172a;color:#e2e8f0;color-scheme:dark;transition:border-color .2s}
+    input:focus,select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 0 3px var(--primary-light)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;gap:6px}
+    .btn-primary{background:#22d3ee;color:#fff;width:100%}
+    .btn-primary:hover{background:#4338CA;transform:translateY(-1px)}
+    .btn-sm{padding:6px 16px;font-size:.85rem}
+    .input-row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+    .input-row>div{flex:1;min-width:120px}
+    .countdown-display{display:flex;justify-content:center;gap:16px;margin:24px 0}
+    .cd-unit{text-align:center;min-width:70px}
+    .cd-val{font-size:2.5rem;font-weight:800;color:#22d3ee;background:var(--primary-light);border-radius:12px;padding:12px 8px;line-height:1.2}
+    .cd-label{font-size:.8rem;color:#94a3b8;margin-top:6px}
+    .event-title{font-size:1.2rem;font-weight:600;text-align:center;margin-bottom:8px}
+    .event-date{text-align:center;color:#94a3b8;font-size:.9rem;margin-bottom:16px}
+    .presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+    .preset-btn{padding:6px 14px;border:1px solid rgba(148,163,184,.1);border-radius:20px;background:#1e293b;cursor:pointer;font-size:.85rem;transition:all .2s}
+    .preset-btn:hover{background:var(--primary-light);border-color:#22d3ee}
+    .progress-bar{height:6px;background:var(--primary-light);border-radius:3px;margin-top:8px;overflow:hidden}
+    .progress-fill{height:100%;background:#22d3ee;border-radius:3px;transition:width .5s}
+    footer{background:#1e293b;border-top:1px solid rgba(148,163,184,.1);padding:16px 24px;text-align:center;font-size:.85rem;color:#94a3b8}
+    footer a{color:#22d3ee;text-decoration:none}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:1.4rem}.countdown-display{gap:8px}.cd-val{font-size:1.6rem;padding:8px 4px}.cd-unit{min-width:50px}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Event Countdown", "item": "https://adi63586.github.io/Toolguidehub/en/event-countdown/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Event Countdown FAQ","mainEntity":[{"@type":"Question","name":"How does the Event Countdown work?","acceptedAnswer":{"@type":"Answer","text":"Enter your values into the input fields, adjust any parameters, and click Calculate. The tool processes your input instantly and displays accurate results. All calculations happen locally in your browser for privacy and speed."}},{"@type":"Question","name":"Is the Event Countdown free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Event Name and Target Date are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Are the Event Countdown results accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculator uses standard mathematical formulas and algorithms to ensure accurate results. Calculations are performed using JavaScript's built-in precision. For financial or medical decisions, always verify with a professional."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Event Countdown","description":"Step-by-step guide for using Event Countdown","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Event Countdown"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/event-countdown/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/event-countdown/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+
+<body>
+<header>
+ <a href="../../" class="logo">ToolGuideHub</a>
+ <nav>
+ <a href="../../">Home</a>
+ <a href="../../en/event-countdown/">中文</a>
+ </nav>
+</header>
+<main>
+ <h1>⏰ Event Countdown</h1>
+ <p class="subtitle">Set a target date and time. Track days, hours, minutes, and seconds in real-time.</p>
+ <div class="section">
+ <label for="event-name">Event Name</label>
+ <input type="text" id="event-name" value="New Year" placeholder="Enter event name...">
+ <div class="input-row" style="margin-top:12px">
+ <div>
+ <label for="target-date">Target Date</label>
+ <input type="date" id="target-date">
+ </div>
+ <div>
+ <label for="target-time">Target Time</label>
+ <input type="time" id="target-time" value="00:00">
+ </div>
+ </div>
+ <div class="presets">
+ <button class="preset-btn" data-label="New Year" data-date="next-new-year">🎉 New Year</button>
+ <button class="preset-btn" data-label="Christmas" data-date="next-christmas">🎄 Christmas</button>
+ <button class="preset-btn" data-label="Valentine's Day" data-date="next-valentine">💝 Valentine</button>
+ <button class="preset-btn" data-label="Tomorrow" data-date="tomorrow">🌅 Tomorrow</button>
+ <button class="preset-btn" data-label="Weekend" data-date="next-saturday">🎊 Weekend</button>
+ </div>
+ <div class="event-title" id="event-title">New Year</div>
+ <div class="event-date" id="event-date"></div>
+ <div class="countdown-display">
+ <div class="cd-unit"><div class="cd-val" id="cd-days">00</div><div class="cd-label">Days</div></div>
+ <div class="cd-unit"><div class="cd-val" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+ <div class="cd-unit"><div class="cd-val" id="cd-mins">00</div><div class="cd-label">Mins</div></div>
+ <div class="cd-unit"><div class="cd-val" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
+ </div>
+ <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+ <div style="text-align:center;color:#94a3b8;font-size:.85rem;margin-top:8px" id="progress-label"></div>
+ </div>
+
+<h2>What is Event Countdown?</h2><p>Event Countdown is a free online tool that runs entirely in your browser. No download or signup needed — enter Event Name and Target Date to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Count down to New Year, Christmas, or personal milestones</li><li>Track time remaining until a product launch or project deadline</li><li>Prepare for holidays, trips, and travel dates</li><li>Display a live countdown during events and gatherings</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/event-countdown/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+    <a href="../../en/event-countdown/" style="color:#22d3ee;text-decoration:none;font-size:14px">EN</a>
+  </div>
+  
+</footer>
+
+<script>
+
+(function(){
+  var timer=null;
+  var eventName=document.getElementById('event-name');
+  var targetDate=document.getElementById('target-date');
+  var targetTime=document.getElementById('target-time');
+
+  function pad(n){return n<10?'0'+n:''+n;}
+
+  function getNextDate(mmdd){
+    var now=new Date();
+    var y=now.getFullYear();
+    var m=parseInt(mmdd.substring(0,2)),d=parseInt(mmdd.substring(3,5));
+    var target=new Date(y,m-1,d);
+    if(target<=now)target=new Date(y+1,m-1,d);
+    return target;
+  }
+
+  function fmtDate(d){return d.getFullYear()+'-'+(d.getMonth()<9?'0':'')+(d.getMonth()+1)+'-'+(d.getDate()<10?'0':'')+d.getDate();}
+
+  function updateCountdown(){
+    var d=targetDate.value,t=targetTime.value||'00:00';
+    if(!d)return;
+    var target=new Date(d+'T'+t+':00');
+    var now=new Date();
+    var diff=target-now;
+    if(diff<=0){
+      document.getElementById('cd-days').textContent='00';
+      document.getElementById('cd-hours').textContent='00';
+      document.getElementById('cd-mins').textContent='00';
+      document.getElementById('cd-secs').textContent='00';
+      document.getElementById('progress-label').textContent='🎉 Time is up!';
+      document.getElementById('progress').style.width='100%';
+      return;
+    }
+    var totalSec=Math.floor(diff/1000);
+    var days=Math.floor(totalSec/86400);
+    var hours=Math.floor((totalSec%86400)/3600);
+    var mins=Math.floor((totalSec%3600)/60);
+    var secs=totalSec%60;
+    document.getElementById('cd-days').textContent=pad(days);
+    document.getElementById('cd-hours').textContent=pad(hours);
+    document.getElementById('cd-mins').textContent=pad(mins);
+    document.getElementById('cd-secs').textContent=pad(secs);
+    document.getElementById('event-title').textContent=eventName.value||'Event';
+    document.getElementById('event-date').textContent='Target: '+d+' '+t;
+    // progress: total days from now until target
+    var startOfTargetDay=new Date(d+'T00:00:00');
+    var totalDayDiff=startOfTargetDay-now;
+    if(totalDayDiff>0){
+      var elapsed=86400000*30-totalDayDiff; // approximate 30-day window
+      var pct=Math.max(0,Math.min(100,Math.round((elapsed/(86400000*30))*100)));
+      document.getElementById('progress').style.width=pct+'%';
+    }
+    document.getElementById('progress-label').textContent=days<=0?'🎉 Today is the day!':'🎉 '+days+(days>1?' days':' day')+' remaining';
+  }
+
+  document.getElementById('event-name').addEventListener('input',function(){
+    document.getElementById('event-title').textContent=this.value||'Event';
+  });
+  targetDate.addEventListener('input',updateCountdown);
+  targetTime.addEventListener('input',updateCountdown);
+
+  document.querySelectorAll('.preset-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      eventName.value=this.dataset.label;
+      var dv=this.dataset.date;
+      var d=new Date();
+      if(dv==='tomorrow'){d.setDate(d.getDate()+1)}
+      else if(dv==='next-saturday'){
+        var daysUntil=(6-d.getDay()+7)%7||7;
+        d.setDate(d.getDate()+daysUntil);
+      }
+      else if(dv==='next-new-year'){d=getNextDate('01-01')}
+      else if(dv==='next-spring-festival'){
+        // approximate spring festival
+        d=new Date(2026,0,29);
+        if(d<=new Date())d=new Date(2027,1,17);
+      }
+      else if(dv==='next-christmas'){d=getNextDate('12-25')}
+      else if(dv==='next-valentine'){d=getNextDate('02-14')}
+      targetDate.value=fmtDate(d);
+      updateCountdown();
+    });
+  });
+
+  // init
+  var ny=getNextDate('01-01');
+  targetDate.value=fmtDate(ny);
+  updateCountdown();
+  timer=setInterval(updateCountdown,1000);
+})();
+</script>
+
+</body>
+</html>

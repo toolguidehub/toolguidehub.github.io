@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate a crossword grid and clues from your own word list, ready to print or solve online.">
+<meta name="keywords" content="crossword-generator,online tool,free tool">
+<title>Free Online Crossword Generator | No Signup</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/crossword-generator/">
+<meta property="og:title" content="Crossword Generator - Free Online Tool">
+<meta property="og:description" content="Generate a crossword grid and clues from your own word list, ready to print or solve online.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/crossword-generator/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website">
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,Roboto,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.6rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.tool-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.tool-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn:hover{background:rgba(6,182,212,.3)}
+input{width:100%;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+
+</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "crossword-generator", "description": "Free online Crossword Generator tool. Pure client-side processing, no registration required.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-12", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Crossword Generator FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Crossword Generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Crossword Generator is completely free. Everything runs locally: Crossword Generator and other values are processed on your device, never sent to a server with no registration required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe with Crossword Generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Everything runs locally: Crossword Generator and other values are processed on your device, never sent to a server. Your data is never uploaded to any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which browsers are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crossword Generator supports all modern browsers including Chrome, Firefox, Safari, and Edge."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Crossword Generator",
+  "description": "Simple steps to use Crossword Generator. Everything runs locally: Crossword Generator and other values are processed on your device, never sent to a server.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "crossword-generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Step 1",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/crossword-generator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Step 2",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/crossword-generator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Step 3",
+      "text": "Follow the on-screen instructions to complete the operation.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/crossword-generator/#output"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/#tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "crossword-generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/crossword-generator/"
+    }
+  ],
+  "name": "crossword-generator"
+}</script>
+<style>
+
+@media (max-width: 640px) {
+  
+  
+}
+</style>
+
+<style>
+.faq-section{margin-top:32px;padding:24px;border-radius:12px;background:rgba(15,23,42,.6);border:1px solid rgba(148,163,184,.08)}
+.faq-section h2{font-size:1.25rem;color:#f1f5f9;margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+</style>
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/crossword-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body><div class="toast" id="toast" role="status"></div>
+<main class="container">
+  <div class="header">
+    <h1>Crossword Generator
+  
+</h1>
+
+    
+  </div>
+  <p class="nav-back"><a href='../index.html'>← All Tools</a></p>
+
+  
+
+  <div class="tool-section">
+    <h2>Crossword Generator</h2>
+    <p>Enter a word list to automatically generate an interlocking crossword puzzle grid. Supports export and printing.</p>
+    <div style="margin-top:12px">
+      <label style="font-size:.85rem;color:#94a3b8">Word List (one per line, format: word,clue)</label>
+      <textarea id="wordInput" rows="8" style="width:100%;margin-top:6px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:8px 12px;color:#e2e8f0;font-size:.85rem;outline:none;resize:vertical;font-family:monospace" placeholder="apple,red fruit&#10;banana,yellow fruit&#10;cherry,small red fruit&#10;orange,orange citrus&#10;grape,purple fruit"></textarea>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <label style="font-size:.85rem;color:#94a3b8">Grid Size:
+        <select id="gridSize" style="background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:4px 8px;color:#e2e8f0;font-size:.85rem;margin-left:4px">
+          <option value="10">10×10</option>
+          <option value="13" selected>13×13</option>
+          <option value="15">15×15</option>
+          <option value="20">20×20</option>
+        </select>
+      </label>
+      <button class="btn" onclick="generateCrossword()">🔄 Generate</button>
+      <button class="btn" onclick="printCrossword()">🖨️ Print</button>
+      <button class="btn" onclick="clearAll()">🗑️ Clear</button>
+    </div>
+    <div id="result" style="margin-top:16px"></div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+    <div id="cluesArea" style="margin-top:16px;display:none">
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <h3 style="font-size:.95rem;color:#22d3ee;margin-bottom:8px">➡️ Across</h3>
+          <div id="acrossClues" style="font-size:.85rem;color:#94a3b8;line-height:2"></div>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <h3 style="font-size:.95rem;color:#22d3ee;margin-bottom:8px">⬇️ Down</h3>
+          <div id="downClues" style="font-size:.85rem;color:#94a3b8;line-height:2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div>
+</div>
+<div id="related-tools-section"></div>
+
+    <div class="info-section faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Can I use Crossword Generator on my phone?</h3>
+      <p>Yes. Crossword Generator is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe when using Crossword Generator?</h3>
+      <p>Absolutely. Everything runs locally: Crossword Generator and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are there any usage limits for Crossword Generator?</h3>
+      <p>Crossword Generator has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to install any software?</h3>
+      <p>No. Crossword Generator is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What text encodings are supported?</h3>
+      <p>UTF-8 is the primary encoding. Most tools also support ASCII, UTF-16, and other common encodings.</p>
+    </div>
+  </div>
+
+<script>
+'use strict';
+(function() {
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();
+
+// === Crossword Generator ===
+var placedWords = [];
+var gridData = [];
+var gridSizeN = 13;
+
+function parseWords(text) {
+  var lines = text.trim().split('\n');
+  var words = [];
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var parts = line.split(',');
+    var word = parts[0].trim().toUpperCase().replace(/[^A-Z]/g, '');
+    var clue = parts.length > 1 ? parts.slice(1).join(',').trim() : word;
+    if (word.length >= 2) words.push({ word: word, clue: clue });
+  }
+  return words;
+}
+
+function createGrid(n) {
+  var g = [];
+  for (var i = 0; i < n; i++) { g.push(new Array(n).fill(null)); }
+  return g;
+}
+
+function canPlace(grid, word, row, col, dir, n) {
+  var r = row, c = col;
+  for (var i = 0; i < word.length; i++) {
+    if (r < 0 || r >= n || c < 0 || c >= n) return false;
+    if (grid[r][c] !== null && grid[r][c] !== word[i]) return false;
+    if (dir === 'H') {
+      if (i === 0 && c > 0 && grid[r][c-1] !== null) return false;
+      if (i === word.length - 1 && c < n - 1 && grid[r][c+1] !== null) return false;
+      if (grid[r][c] === null) {
+        if (r > 0 && grid[r-1][c] !== null) return false;
+        if (r < n - 1 && grid[r+1][c] !== null) return false;
+      }
+    } else {
+      if (i === 0 && r > 0 && grid[r-1][c] !== null) return false;
+      if (i === word.length - 1 && r < n - 1 && grid[r+1][c] !== null) return false;
+      if (grid[r][c] === null) {
+        if (c > 0 && grid[r][c-1] !== null) return false;
+        if (c < n - 1 && grid[r][c+1] !== null) return false;
+      }
+    }
+    if (dir === 'H') c++; else r++;
+  }
+  return true;
+}
+
+function placeWord(grid, word, row, col, dir) {
+  var r = row, c = col;
+  for (var i = 0; i < word.length; i++) {
+    grid[r][c] = word[i];
+    if (dir === 'H') c++; else r++;
+  }
+}
+
+function findPlacement(grid, word, n) {
+  if (placedWords.length === 0) {
+    var mid = Math.floor(n / 2);
+    var startCol = mid - Math.floor(word.length / 2);
+    if (startCol < 0) startCol = 0;
+    if (canPlace(grid, word, mid, startCol, 'H', n)) {
+      return { row: mid, col: startCol, dir: 'H' };
+    }
+    return null;
+  }
+  var best = null;
+  var bestScore = -1;
+  for (var r = 0; r < n; r++) {
+    for (var c = 0; c < n; c++) {
+      if (grid[r][c] === null) continue;
+      for (var i = 0; i < word.length; i++) {
+        if (word[i] !== grid[r][c]) continue;
+        if (c + i < n && canPlace(grid, word, r, c - i, 'H', n)) {
+          if (1 > bestScore) { bestScore = 1; best = { row: r, col: c - i, dir: 'H' }; }
+        }
+        if (r + i < n && canPlace(grid, word, r - i, c, 'V', n)) {
+          if (1 > bestScore) { bestScore = 1; best = { row: r - i, col: c, dir: 'V' }; }
+        }
+      }
+    }
+  }
+  return best;
+}
+
+function generateCrossword() {
+  var text = document.getElementById('wordInput').value;
+  var words = parseWords(text);
+  if (words.length === 0) { showToast('Please enter at least one word'); return; }
+  gridSizeN = parseInt(document.getElementById('gridSize').value);
+  words.sort(function(a, b) { return b.word.length - a.word.length; });
+  var grid = createGrid(gridSizeN);
+  placedWords = [];
+  for (var i = 0; i < words.length; i++) {
+    var placement = findPlacement(grid, words[i].word, gridSizeN);
+    if (placement) {
+      placeWord(grid, words[i].word, placement.row, placement.col, placement.dir);
+      placedWords.push({ word: words[i].word, clue: words[i].clue, row: placement.row, col: placement.col, dir: placement.dir });
+    }
+  }
+  gridData = grid;
+  renderGrid(grid);
+  renderClues();
+  if (placedWords.length === 0) {
+    showToast('Could not place any words, try a larger grid');
+  } else {
+    showToast('Crossword generated, placed ' + placedWords.length + ' words');
+  }
+}
+
+function renderGrid(grid) {
+  var container = document.getElementById('result');
+  var n = grid.length;
+  var cellSize = n <= 13 ? 32 : 26;
+  var html = '<div style="overflow-x:auto"><table style="border-collapse:collapse;margin:0 auto">';
+  var num = 1;
+  var numMap = {};
+  for (var r = 0; r < n; r++) {
+    html += '<tr>';
+    for (var c = 0; c < n; c++) {
+      if (grid[r][c] === null) {
+        html += '<td style="width:' + cellSize + 'px;height:' + cellSize + 'px;background:#0f172a"></td>';
+      } else {
+        var isStart = false;
+        for (var w = 0; w < placedWords.length; w++) {
+          if (placedWords[w].row === r && placedWords[w].col === c) { isStart = true; break; }
+        }
+        var numLabel = '';
+        if (isStart) {
+          numMap[r + ',' + c] = num;
+          numLabel = '<span style="position:absolute;top:0;left:2px;font-size:9px;color:#64748b">' + num + '</span>';
+          num++;
+        }
+        html += '<td style="width:' + cellSize + 'px;height:' + cellSize + 'px;background:#1e293b;border:1px solid rgba(148,163,184,.2);text-align:center;position:relative;vertical-align:middle">' + numLabel + '<span style="font-size:' + Math.floor(cellSize * 0.5) + 'px;color:#e2e8f0;font-weight:600">' + grid[r][c] + '</span></td>';
+      }
+    }
+    html += '</tr>';
+  }
+  html += '</table></div>';
+  var totalWords = document.getElementById('wordInput').value.trim().split('\n').filter(function(l){return l.trim()}).length;
+  html += '<p style="text-align:center;margin-top:8px;color:#64748b;font-size:.8rem">Placed ' + placedWords.length + ' / ' + totalWords + ' words</p>';
+  container.innerHTML = html;
+}
+
+function renderClues() {
+  var across = [];
+  var down = [];
+  var num = 1;
+  var numMap = {};
+  for (var i = 0; i < placedWords.length; i++) {
+    var pw = placedWords[i];
+    var key = pw.row + ',' + pw.col;
+    if (!(key in numMap)) { numMap[key] = num; num++; }
+    var entry = numMap[key] + '. ' + pw.clue + ' <span style="color:#475569">(' + pw.word.length + ' letters)</span>';
+    if (pw.dir === 'H') across.push(entry); else down.push(entry);
+  }
+  across.sort(function(a, b) { return parseInt(a) - parseInt(b); });
+  down.sort(function(a, b) { return parseInt(a) - parseInt(b); });
+  document.getElementById('acrossClues').innerHTML = across.length ? across.join('<br>') : '<span style="color:#475569">None</span>';
+  document.getElementById('downClues').innerHTML = down.length ? down.join('<br>') : '<span style="color:#475569">None</span>';
+  document.getElementById('cluesArea').style.display = placedWords.length > 0 ? 'block' : 'none';
+}
+
+function printCrossword() {
+  if (placedWords.length === 0) { showToast('Please generate a puzzle first'); return; }
+  var n = gridData.length;
+  var cellSize = 30;
+  var num = 1;
+  var numMap = {};
+  for (var i = 0; i < placedWords.length; i++) {
+    var key = placedWords[i].row + ',' + placedWords[i].col;
+    if (!(key in numMap)) { numMap[key] = num; num++; }
+  }
+  var html = '<html><head><title>Crossword Puzzle</title><style>body{font-family:sans-serif;padding:20px}table{border-collapse:collapse;margin:0 auto}td{width:' + cellSize + 'px;height:' + cellSize + 'px;border:1px solid #333;text-align:center;vertical-align:middle;position:relative;font-size:14px}.empty{background:#333}.num{position:absolute;top:0;left:2px;font-size:8px;color:#999}h2{margin-top:20px}</style></head><body>';
+  html += '<h1 style="text-align:center">Crossword Puzzle</h1><table>';
+  for (var r = 0; r < n; r++) {
+    html += '<tr>';
+    for (var c = 0; c < n; c++) {
+      if (gridData[r][c] === null) { html += '<td class="empty"></td>'; }
+      else {
+        var isStart = placedWords.some(function(w) { return w.row === r && w.col === c; });
+        var numLabel = isStart ? '<span class="num">' + numMap[r + ',' + c] + '</span>' : '';
+        html += '<td>' + numLabel + '</td>';
+      }
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  var across = [], down = [];
+  for (var i = 0; i < placedWords.length; i++) {
+    var entry = numMap[placedWords[i].row + ',' + placedWords[i].col] + '. ' + placedWords[i].clue;
+    if (placedWords[i].dir === 'H') across.push(entry); else down.push(entry);
+  }
+  across.sort(function(a, b) { return parseInt(a) - parseInt(b); });
+  down.sort(function(a, b) { return parseInt(a) - parseInt(b); });
+  html += '<h2>Across</h2><p>' + across.join('<br>') + '</p>';
+  html += '<h2>Down</h2><p>' + down.join('<br>') + '</p>';
+  html += '</body></html>';
+  var w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(function() { w.print(); }, 300);
+}
+
+function clearAll() {
+  document.getElementById('wordInput').value = '';
+  document.getElementById('result').innerHTML = '';
+  document.getElementById('cluesArea').style.display = 'none';
+  placedWords = [];
+  gridData = [];
+  showToast('Cleared');
+}
+
+function showToast(msg) {
+  var existing = document.getElementById('toast');
+  if (existing) { existing.textContent = msg; existing.classList.add('show'); setTimeout(function(){existing.classList.remove('show')},3000); return; }
+  var t = document.createElement('div');
+  t.id = 'toast';
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);z-index:9999;font-size:.9rem;transition:opacity .3s;opacity:0';
+  document.body.appendChild(t);
+  setTimeout(function(){ t.style.opacity = '1'; }, 10);
+  setTimeout(function(){ t.style.opacity = '0'; setTimeout(function(){ t.remove(); }, 300); }, 3000);
+}
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+
+
+
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/crossword-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</main>
+</footer>
+</body>
+</html>

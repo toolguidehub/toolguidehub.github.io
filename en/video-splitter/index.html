@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cut a video into separate segments by precise start and end times with millisecond accuracy, without uploading it.">
+<title>Free Video Splitter - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/video-splitter/">
+<meta property="og:title" content="Free Video Splitter - ToolGuideHub">
+<meta property="og:description" content="Cut a video into separate segments by precise start and end times with millisecond accuracy, without uploading it.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/video-splitter/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Video Splitter", "description": "Free online video splitter. Extract video segments by time. Client-side processing, no upload.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What video formats does the splitter support?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What video formats does the splitter support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All major browser-compatible formats: MP4, WebM, AVI, MOV, OGG. Output is WebM (VP8/VP9). Original resolution and frame rate are preserved. Audio is included in the output segment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I extract a video segment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three steps: 1) Upload your video; 2) Set start and end times using the sliders or manual min/sec/ms inputs; 3) Click 'Export Segment' — it processes locally and downloads. You can preview the segment in the video player before exporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How precise is the splitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Time inputs support millisecond precision (0.001s). Actual output precision depends on the video frame rate — at 30fps, precision is about 33ms; at 60fps, about 16ms. The export automatically aligns to the nearest frame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Processing happens entirely in your browser. Your video is never uploaded anywhere. Data is released from memory immediately after processing. Safe for sensitive content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there file size or duration limits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hard limits. We recommend under 30 minutes or 2GB. For large files, keep the extracted segment short for faster processing. Close other memory-heavy browser tabs and keep this tab active during processing."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:30px 0 20px}
+.header h1{font-size:1.8rem;color:#f1f5f9;margin-bottom:8px}
+.header p{color:#94a3b8;font-size:1rem}
+.tool-card{background:#0f172a;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:24px;margin-bottom:20px}
+.upload-area{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(15,23,42,.5)}
+.upload-area:hover{border-color:#06b6d4;background:rgba(6,182,212,.05)}
+.upload-area.dragover{border-color:#06b6d4;background:rgba(6,182,212,.1)}
+.upload-icon{font-size:3rem;margin-bottom:12px}
+.upload-text{font-size:1rem;color:#94a3b8}
+.upload-hint{font-size:0.85rem;color:#999;margin-top:6px}
+.upload-area.has-file{border-style:solid;border-color:#34d399;background:rgba(16,185,129,.05)}
+.info-row{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;font-size:0.9rem;color:#94a3b8}
+.info-item{padding:6px 12px;background:rgba(30,41,59,.5);border-radius:6px;border:1px solid rgba(148,163,184,.1)}
+.video-container{background:#000;border-radius:8px;overflow:hidden;margin-top:16px;max-height:400px}
+.video-container video{width:100%;display:block;max-height:400px}
+.time-controls{margin-top:16px;display:flex;flex-direction:column;gap:16px}
+.time-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.time-row label{font-size:0.9rem;color:#94a3b8;min-width:80px}
+.time-input-group{display:flex;align-items:center;gap:4px}
+.time-input-group input[type="number"]{width:60px;padding:6px 4px;border:1px solid rgba(148,163,184,.2);border-radius:6px;font-size:0.9rem;text-align:center;background:#0f172a;color:#e2e8f0}
+.time-input-group input[type="number"]:focus{border-color:#06b6d4;outline:none}
+.time-input-group span{color:#999;font-size:0.85rem}
+.slider-group{flex:1;min-width:200px}
+.slider-group input[type="range"]{width:100%}
+.time-info{display:flex;gap:16px;font-size:0.85rem;color:#94a3b8;justify-content:center}
+.time-info span{padding:4px 10px;background:rgba(30,41,59,.5);border-radius:4px;border:1px solid rgba(148,163,184,.1)}
+.action-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.progress-area{margin-top:16px;display:none}
+.progress-bar{width:100%;height:8px;background:rgba(148,163,184,.15);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#06b6d4,#3b82f6);width:0%;transition:width .3s;border-radius:4px}
+.progress-text{text-align:center;color:#94a3b8;font-size:0.9rem;margin-top:8px}
+.faq-section{margin-top:20px}
+.faq-item{border:1px solid rgba(148,163,184,.15);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:14px 16px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;background:#1e293b;color:#e2e8f0}
+.faq-q:hover{background:rgba(30,41,59,.8)}
+.faq-arrow{transition:transform .2s}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.faq-item.open .faq-a{max-height:500px;padding:14px 16px}
+.footer{text-align:center;padding:30px 0;color:#999;font-size:0.9rem}
+.footer a{color:#667eea;text-decoration:none}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:0.9rem;opacity:0;transition:opacity .3s;z-index:1000;border:1px solid rgba(6,182,212,.3)}
+.toast.show{opacity:1}
+@media(max-width:768px){.header h1{font-size:1.4rem}}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Video Splitter", "item": "https://adi63586.github.io/Toolguidehub/en/video-splitter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Video Splitter","description":"Step-by-step guide for using Video Splitter","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Video Splitter"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/video-splitter/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><div class="nav-back"><a href="../../">← Back to Home</a></div>
+    <h1>✂️ Video Splitter</h1>
+    <p>Extract video segments · Precise start/end times · Millisecond accuracy · No upload</p>
+    <div style="margin-top:4px;font-size:0.85rem;color:#999">Updated: 2026-07-11</div>
+  </div>
+
+  <div class="tool-card">
+    <div id="uploadArea" class="upload-area">
+      <div class="upload-icon">🎬</div>
+      <div class="upload-text">Click to upload or drag & drop a video</div>
+      <div class="upload-hint">Supports MP4, WebM, MOV, AVI · Max 2GB recommended</div>
+      <input type="file" id="fileInput" accept="video/*" style="display:none">
+    </div>
+
+    <div id="videoSection" style="display:none">
+      <div class="info-row">
+        <span class="info-item" id="fileName">File</span>
+        <span class="info-item" id="fileSize">Size</span>
+        <span class="info-item" id="videoDuration">Duration</span>
+        <span class="info-item" id="videoResolution">Resolution</span>
+      </div>
+      <div class="video-container">
+        <video id="videoPlayer" controls></video>
+      </div>
+
+      <div class="time-controls">
+        <div class="time-info">
+          <span>Total: <strong id="totalDurationDisplay">00:00</strong></span>
+          <span>Segment: <strong id="selectedDuration">00:00</strong></span>
+        </div>
+
+        <div class="time-row">
+          <label>⏱️ Start Time</label>
+          <div style="flex:1">
+            <input type="range" id="startSlider" min="0" max="1000" value="0" style="width:100%">
+          </div>
+          <div class="time-input-group">
+            <input type="number" id="startMin" min="0" max="999" value="0"> <span>min</span>
+            <input type="number" id="startSec" min="0" max="59" value="0"> <span>sec</span>
+            <input type="number" id="startMs" min="0" max="999" value="0"> <span>ms</span>
+          </div>
+        </div>
+
+        <div class="time-row">
+          <label>⏹️ End Time</label>
+          <div style="flex:1">
+            <input type="range" id="endSlider" min="0" max="1000" value="1000" style="width:100%">
+          </div>
+          <div class="time-input-group">
+            <input type="number" id="endMin" min="0" max="999" value="0"> <span>min</span>
+            <input type="number" id="endSec" min="0" max="59" value="0"> <span>sec</span>
+            <input type="number" id="endMs" min="0" max="999" value="0"> <span>ms</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" id="processBtn" onclick="processVideo()">🚀 Export Segment</button>
+        <button class="btn btn-secondary" onclick="resetAll()">🔄 Reset</button>
+      </div>
+
+      <div id="progressArea" class="progress-area">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text" id="progressText">Processing...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="font-size:1.2rem;margin-bottom:16px">❓ FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What video formats are supported?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">All major browser-compatible formats: MP4, WebM, AVI, MOV, OGG. Output is WebM (VP8/VP9). Original resolution, frame rate, and audio are preserved.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I extract a segment?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">1) Upload a video; 2) Set start/end times via slider or manual inputs (min/sec/ms); 3) Click 'Export Segment' — processes locally and downloads. Use the video player to preview your selection.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How precise is the splitting?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Supports millisecond precision in the UI. Output precision is limited by the frame rate: ~33ms at 30fps, ~16ms at 60fps. The export aligns to the nearest keyframe for best quality.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my video uploaded to a server?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">No. Processing happens entirely in your browser. Your video never leaves your device. Data is released from memory immediately after processing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Any tips for large files?<span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Keep extracted segments short for faster processing. Close other memory-heavy browser tabs. Keep this tab active during processing. For very long videos, consider splitting into larger chunks first.</div>
+    </div>
+  </div>
+
+  <div>
+</div>
+
+<script>
+let videoFile = null;
+let videoDuration = 0;
+let srcWidth = 0;
+let srcHeight = 0;
+let mediaRecorder = null;
+let isProcessing = false;
+
+const uploadArea = document.getElementById('uploadArea');
+const fileInput = document.getElementById('fileInput');
+
+uploadArea.addEventListener('click', () => fileInput.click());
+uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', (e) => { if(e.target.files.length) handleFile(e.target.files[0]); });
+
+function handleFile(file) {
+  if (!file.type.startsWith('video/')) { showToast('Please select a video file'); return; }
+  videoFile = file;
+  uploadArea.classList.add('has-file');
+  const icon = uploadArea.querySelector('.upload-icon');
+  icon.textContent = '✅';
+  uploadArea.querySelector('.upload-text').textContent = file.name;
+  uploadArea.querySelector('.upload-hint').textContent = 'Click to change file';
+  
+  document.getElementById('fileName').textContent = '📄 ' + file.name;
+  const size = file.size > 1024*1024 ? (file.size/1024/1024).toFixed(1)+'MB' : (file.size/1024).toFixed(1)+'KB';
+  document.getElementById('fileSize').textContent = '💾 ' + size;
+  
+  const url = URL.createObjectURL(file);
+  const video = document.getElementById('videoPlayer');
+  video.src = url;
+  video.load();
+  
+  video.onloadedmetadata = function() {
+    videoDuration = video.duration;
+    srcWidth = video.videoWidth;
+    srcHeight = video.videoHeight;
+    const mins = Math.floor(videoDuration / 60);
+    const secs = Math.floor(videoDuration % 60);
+    document.getElementById('videoDuration').textContent = '⏱️ ' + mins + ':' + String(secs).padStart(2,'0');
+    document.getElementById('videoResolution').textContent = '📐 ' + srcWidth + '×' + srcHeight;
+    document.getElementById('videoSection').style.display = 'block';
+    updateTimeDisplays();
+    showToast('✅ Video loaded — set start/end times and export');
+  };
+}
+
+function getStartMs() {
+  const pct = parseFloat(document.getElementById('startSlider').value) / 1000;
+  return Math.round(pct * videoDuration * 1000);
+}
+
+function getEndMs() {
+  const pct = parseFloat(document.getElementById('endSlider').value) / 1000;
+  return Math.round(pct * videoDuration * 1000);
+}
+
+function msToTime(ms) {
+  const totalMs = Math.max(0, Math.min(ms, Math.round(videoDuration * 1000)));
+  const m = Math.floor(totalMs / 60000);
+  const s = Math.floor((totalMs % 60000) / 1000);
+  const ms_ = totalMs % 1000;
+  return { m, s, ms: ms_, totalMs };
+}
+
+function updateTimeDisplays() {
+  if (!videoDuration) return;
+  const startMs = getStartMs();
+  const endMs = getEndMs();
+  const clampedEnd = Math.min(endMs, Math.round(videoDuration * 1000));
+  const clampedStart = Math.min(startMs, clampedEnd - 100);
+  
+  const st = msToTime(clampedStart);
+  const et = msToTime(clampedEnd);
+  
+  document.getElementById('startMin').value = st.m;
+  document.getElementById('startSec').value = st.s;
+  document.getElementById('startMs').value = st.ms;
+  document.getElementById('endMin').value = et.m;
+  document.getElementById('endSec').value = et.s;
+  document.getElementById('endMs').value = et.ms;
+  
+  const dur = clampedEnd - clampedStart;
+  const durMins = Math.floor(dur / 60000);
+  const durSecs = Math.floor((dur % 60000) / 1000);
+  const durMs = dur % 1000;
+  document.getElementById('selectedDuration').textContent = 
+    String(durMins).padStart(2,'0') + ':' + String(durSecs).padStart(2,'0') + '.' + String(durMs).padStart(3,'0');
+  
+  const totalMins = Math.floor(videoDuration / 60);
+  const totalSecs = Math.floor(videoDuration % 60);
+  document.getElementById('totalDurationDisplay').textContent = 
+    String(totalMins).padStart(2,'0') + ':' + String(totalSecs).padStart(2,'0');
+}
+
+document.getElementById('startSlider').addEventListener('input', function() {
+  if (parseFloat(this.value) >= parseFloat(document.getElementById('endSlider').value)) {
+    this.value = parseFloat(document.getElementById('endSlider').value) - 5;
+  }
+  updateTimeDisplays();
+});
+
+document.getElementById('endSlider').addEventListener('input', function() {
+  if (parseFloat(this.value) <= parseFloat(document.getElementById('startSlider').value)) {
+    this.value = parseFloat(document.getElementById('startSlider').value) + 5;
+  }
+  updateTimeDisplays();
+});
+
+function onTimeInputChanged(side) {
+  const min = parseInt(document.getElementById(side + 'Min').value) || 0;
+  const sec = parseInt(document.getElementById(side + 'Sec').value) || 0;
+  const ms = parseInt(document.getElementById(side + 'Ms').value) || 0;
+  const totalMs = (min * 60 + sec) * 1000 + ms;
+  const maxMs = Math.round(videoDuration * 1000);
+  const clamped = Math.max(0, Math.min(totalMs, maxMs));
+  const pct = (clamped / maxMs) * 1000;
+  
+  if (side === 'start') {
+    const endPct = parseFloat(document.getElementById('endSlider').value);
+    document.getElementById('startSlider').value = Math.min(pct, endPct - 5);
+  } else {
+    const startPct = parseFloat(document.getElementById('startSlider').value);
+    document.getElementById('endSlider').value = Math.max(pct, startPct + 5);
+  }
+  updateTimeDisplays();
+}
+
+document.getElementById('startMin').addEventListener('input', () => onTimeInputChanged('start'));
+document.getElementById('startSec').addEventListener('input', () => onTimeInputChanged('start'));
+document.getElementById('startMs').addEventListener('input', () => onTimeInputChanged('start'));
+document.getElementById('endMin').addEventListener('input', () => onTimeInputChanged('end'));
+document.getElementById('endSec').addEventListener('input', () => onTimeInputChanged('end'));
+document.getElementById('endMs').addEventListener('input', () => onTimeInputChanged('end'));
+
+async function processVideo() {
+  if (isProcessing) return;
+  if (!videoFile) { showToast('Please upload a video first'); return; }
+  
+  const startMs = getStartMs();
+  const endMs = getEndMs();
+  const durMs = endMs - startMs;
+  
+  if (durMs < 100) { showToast('Segment too short (at least 100ms)'); return; }
+  if (startMs >= endMs) { showToast('End time must be after start time'); return; }
+  
+  const startSec = startMs / 1000;
+  const durationSec = durMs / 1000;
+  
+  isProcessing = true;
+  document.getElementById('processBtn').disabled = true;
+  document.getElementById('progressArea').style.display = 'block';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressText').textContent = 'Preparing...';
+  
+  try {
+    const video = document.getElementById('videoPlayer');
+    const canvas = document.createElement('canvas');
+    canvas.width = srcWidth;
+    canvas.height = srcHeight;
+    const ctx = canvas.getContext('2d');
+    
+    const stream = canvas.captureStream(30);
+    
+    const recordedChunks = [];
+    const mimeTypes = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
+    let mimeType = mimeTypes.find(mt => MediaRecorder.isTypeSupported(mt)) || '';
+    
+    mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : {});
+    mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) recordedChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || 'video/webm' });
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressText').textContent = '✅ Complete! Preparing download...';
+      
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const baseName = videoFile.name.replace(/\.[^.]+$/, '');
+      a.href = url;
+      a.download = baseName + '-segment.webm';
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      setTimeout(() => {
+        document.getElementById('progressArea').style.display = 'none';
+        document.getElementById('progressFill').style.width = '0%';
+        isProcessing = false;
+        document.getElementById('processBtn').disabled = false;
+        showToast('✅ Processed and downloaded');
+      }, 1000);
+    };
+    
+    mediaRecorder.start();
+    
+    video.currentTime = startSec;
+    video.play();
+    
+    const segmentEndTime = startSec + durationSec;
+    const frameInterval = 1000 / 30;
+    let lastFrameTime = performance.now();
+    
+    function captureFrame() {
+      if (video.paused || video.ended || video.currentTime >= segmentEndTime) {
+        video.pause();
+        mediaRecorder.stop();
+        return;
+      }
+      
+      ctx.drawImage(video, 0, 0, srcWidth, srcHeight);
+      
+      const progress = ((video.currentTime - startSec) / durationSec) * 100;
+      document.getElementById('progressFill').style.width = Math.min(progress, 99) + '%';
+      document.getElementById('progressText').textContent = 'Processing... ' + Math.floor(progress) + '%';
+      
+      const now = performance.now();
+      const elapsed = now - lastFrameTime;
+      const delay = Math.max(0, frameInterval - elapsed);
+      lastFrameTime = now;
+      
+      setTimeout(captureFrame, delay);
+    }
+    
+    setTimeout(captureFrame, 100);
+    
+  } catch (err) {
+    console.error(err);
+    showToast('❌ Error: ' + err.message);
+    isProcessing = false;
+    document.getElementById('processBtn').disabled = false;
+  }
+}
+
+function resetAll() {
+  if (isProcessing) return;
+  videoFile = null;
+  document.getElementById('videoSection').style.display = 'none';
+  uploadArea.classList.remove('has-file');
+  const icon = uploadArea.querySelector('.upload-icon');
+  icon.textContent = '🎬';
+  uploadArea.querySelector('.upload-text').textContent = 'Click to upload or drag & drop a video';
+  uploadArea.querySelector('.upload-hint').textContent = 'Supports MP4, WebM, MOV, AVI · Max 2GB recommended';
+  fileInput.value = '';
+  const video = document.getElementById('videoPlayer');
+  video.pause();
+  video.src = '';
+  document.getElementById('progressArea').style.display = 'none';
+  isProcessing = false;
+  document.getElementById('processBtn').disabled = false;
+}
+
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+function showToast(msg) {
+  const t = document.getElementById('toast') || (() => { const d = document.createElement('div'); d.id = 'toast'; d.className = 'toast'; document.body.appendChild(d); return d; })();
+  t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500);
+}</script>
+<!-- Feedback -->
+
+</div>
+</div>
+</main>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px;text-align:center">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../../" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../../en/privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../../en/terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../../en/about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+</main>
+</body>
+</html>

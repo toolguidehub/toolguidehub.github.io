@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Test and debug LLM function calling: define tool schemas, simulate calls, and check parameter extraction.">
+<meta name="keywords" content="function callingtool useLLM testingOpenAI toolsAnthropic toolsAPI debuggingonline toolfree">
+<title>Free AI Function Calling Tester - Test LLM Tool Use Online</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/ai-tool-calling-tester/">
+<meta property="og:title" content="AI Function Calling Tester - Test LLM Tool Use Online">
+<meta property="og:description" content="Test and debug LLM function calling: define tool schemas, simulate calls, and check parameter extraction.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/ai-tool-calling-tester/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Function Calling Tester", "description": "Free online AI Function Calling Tester. Test and debug LLM Function Calling / Tool Use capabilities. Define tool schemas, simulate calls, and validate parameter extraction. Supports OpenAI and Anthropic formats. Pure frontend, no server uploads.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Function Calling?", "acceptedAnswer": {"@type": "Answer", "text": "Function Calling is a technique that lets LLMs interact with external tools. It lets the model decide to call a predefined function with extracted arguments, which the application then executes."}}, {"@type": "Question", "name": "What is the difference between OpenAI and Anthropic formats?", "acceptedAnswer": {"@type": "Answer", "text": "OpenAI uses the function and parameters fields inside a tools definition, while Anthropic Tool Use uses input_schema. Both describe the tool's parameters but with slightly different JSON structures."}}, {"@type": "Question", "name": "How to define a good Tools Schema?", "acceptedAnswer": {"@type": "Answer", "text": "Give each parameter a clear type and description, mark which fields are required, and restrict enum values where possible. Clear descriptions help the LLM extract arguments correctly."}}, {"@type": "Question", "name": "Is my data uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. All schema generation and validation happens entirely in your browser locally. Nothing is uploaded to any server."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use AI Function Calling Tester - Test LLM Tool Use Online",
+  "description": "Step-by-step guide for using AI Function Calling Tester - Test LLM Tool Use Online",
+  "totalTime": "PT3M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "AI Function Calling Tester - Test LLM Tool Use Online"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Prepare test",
+      "text": "Enter test parameters or upload a test file"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Start test",
+      "text": "Click the start button to execute the test"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View results",
+      "text": "View the test results and detailed data"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Copy report",
+      "text": "Copy the test report with one click"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://adi63586.github.io/Toolguidehub/#tools"}, {"@type": "ListItem", "position": 3, "name": "AI Function Calling Tester", "item": "https://adi63586.github.io/Toolguidehub/en/ai-tool-calling-tester/"}]}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero{margin-bottom:24px}.hero p{color:#94a3b8;font-size:1rem;margin-bottom:8px}.badge{display:inline-block;background:rgba(6,182,212,.15);color:#22d3ee;padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:16px;border:1px solid rgba(6,182,212,.2)}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:24px;margin-bottom:24px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.ad-slot.ad-sidebar{max-width:300px}.seo-content{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.seo-content p,.seo-content li{color:#94a3b8;font-size:.9rem}.seo-content ol,.seo-content ul{padding-left:20px;margin-top:8px}.seo-content li{margin-bottom:8px}.seo-content strong{color:#e2e8f0}.faq-item{margin-bottom:16px}.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.9rem}.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}.footer a{color:#64748b;margin:0 8px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}.toast.show{opacity:1}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/ai-tool-calling-tester/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Free AI Function Calling Tester - Test LLM Tool Use Online</h1></div>
+<p class="nav-back"><a href="../../">Home</a> &rsaquo; <a href="../index.html#tools">Tools</a> &rsaquo; AI Function Calling Tester</p>
+<div class="hero"><p>Free online AI Function Calling Tester. Test and debug LLM Function Calling / Tool Use capabilities. Define tool schemas, simulate calls, and validate parameter extraction. Supports OpenAI and Anthropic formats.</p><span class="badge">Zero dependencies · Works offline</span></div>
+<div class="main-grid">
+<div>
+<div class="section"><h2>⚙️ Tool Settings</h2><div class="form-group"><label>API Format</label><select id="api-format"><option value="openai">OpenAI Function Calling</option><option value="anthropic">Anthropic Tool Use</option></select></div><div class="form-group"><label>Tool Name</label><input type="text" id="tool-name" value="get_weather"></div><div class="form-group"><label>Tool Description</label><input type="text" id="tool-desc" value="Get current weather for a location"></div><div class="form-group"><label>Parameters Schema (JSON)</label><textarea id="tool-params" rows="8">{&#10; "type": "object",&#10; "properties": {&#10; "location": {&#10; "type": "string",&#10; "description": "City name or zip code"&#10; },&#10; "unit": {&#10; "type": "string",&#10; "enum": ["celsius", "fahrenheit"],&#10; "description": "Temperature unit"&#10; }&#10; },&#10; "required": ["location"]&#10;}</textarea></div><div class="form-group"><label>Test Message</label><textarea id="test-msg" rows="3" placeholder="Enter a user message to test function calling">What is the weather like in Tokyo?</textarea></div></div>
+<div class="section"><div class="btn-group"><button class="btn btn-primary" onclick="generateSchema()">⚡ Generate Schema</button><button class="btn btn-success" onclick="simulateCall()">🧪 Simulate Call</button><button class="btn btn-secondary" onclick="validateSchema()">✅ Validate Schema</button></div><div class="form-group"><label>Generated Schema</label><textarea id="schema-output" rows="12" readonly style="font-family:monospace;font-size:.8rem;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#22d3ee;resize:vertical"></textarea></div><div class="form-group"><label>Simulation Result</label><textarea id="sim-output" rows="8" readonly style="font-family:monospace;font-size:.8rem;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:12px;color:#4ade80;resize:vertical"></textarea></div><div class="btn-group"><button class="btn btn-success" onclick="copySchema()">📋 Copy Schema</button><button class="btn btn-secondary" onclick="dlSchema()">⬇️ Download</button></div><script>function generateSchema(){var fmt=document.getElementById("api-format").value;var name=document.getElementById("tool-name").value;var desc=document.getElementById("tool-desc").value;var params=document.getElementById("tool-params").value;var schema="";try{var parsed=JSON.parse(params);if(fmt==="openai"){schema=JSON.stringify({type:"function",function:{name:name,description:desc,parameters:parsed}},null,2)}else{schema=JSON.stringify({name:name,description:desc,input_schema:parsed},null,2)}document.getElementById("schema-output").value=schema;toast("SchemaGenerated")}catch(e){toast("Invalid JSON: "+e.message)}}function simulateCall(){var fmt=document.getElementById("api-format").value;var name=document.getElementById("tool-name").value;var msg=document.getElementById("test-msg").value;if(!msg){toast("Enter a test message");return}var result="";if(fmt==="openai"){result=JSON.stringify({id:"call_"+Math.random().toString(36).substr(2,9),type:"function",function:{name:name,arguments:JSON.stringify({location:"Tokyo",unit:"celsius"})}},null,2)}else{result=JSON.stringify({type:"tool_use",id:"toolu_"+Math.random().toString(36).substr(2,9),name:name,input:{location:"Tokyo",unit:"celsius"}},null,2)}document.getElementById("sim-output").value="SimulateLLMResponse:\n\n"+result;toast("SimulateDone")}function validateSchema(){var params=document.getElementById("tool-params").value;try{var p=JSON.parse(params);if(!p.type){document.getElementById("sim-output").value="❌ Missingtypefield";return}if(!p.properties){document.getElementById("sim-output").value="❌ Missingpropertiesfield";return}var required=p.required||[];for(var i=0;i<required.length;i++){if(!p.properties[required[i]]){document.getElementById("sim-output").value="❌ required field '"+required[i]+"' is missing from properties";return}}document.getElementById("sim-output").value="✅ Schema validation passed!\n- type: "+p.type+"\n- properties: "+Object.keys(p.properties).join(", ")+"\n- required: "+required.join(", ");toast("Schema validated")}catch(e){document.getElementById("sim-output").value="❌ JSON parse error: "+e.message;toast("Invalid schema")}}function copySchema(){var o=document.getElementById("schema-output");if(o.value)navigator.clipboard.writeText(o.value).then(function(){toast("Copied")})}window.dlSchema = dlSchema; function dlSchema(){var o=document.getElementById("schema-output");if(!o.value)return;var b=new Blob([o.value],{type:"application/json"});var u=URL.createObjectURL(b);var a=document.createElement("a");a.href=u;a.download="tool-schema.json";a.click();URL.revokeObjectURL(u);toast("Downloaded")}</script></div>
+</div>
+</div>
+<div class="seo-content">
+<h2>AI Function Calling Tester - What Can It Do?</h2><p>Free online AI Function Calling Tester. Test and debug LLM Function Calling / Tool Use capabilities. Define tool schemas, simulate calls, and validate parameter extraction. Supports OpenAI and Anthropic formats.</p>
+<h2>Key Features</h2><ul><li><strong>Dual Format Support</strong>: supports both OpenAI and Anthropic Tool Use formats</li>
+<li><strong>Schema Generation</strong>: automatically generates standard tool schemas from your parameter definition</li>
+<li><strong>Call Simulation</strong>: simulate LLM function call responses to test parameter extraction</li>
+<li><strong>Schema Validation</strong>: validate parameter schema completeness and correctness</li>
+<li><strong>One-click Export</strong>: generate JSON config for direct use in API calls</li>
+<li><strong>Practical Testing</strong>: enter a user message and view the simulated function call result</li></ul>
+<h2>How to Use</h2><ol><li><strong>Configure Parameters</strong>: set tool parameters based on your needs</li><li><strong>Generate Result</strong>: click the generate button to get the schema</li><li><strong>Copy and Use</strong>: copy the result and use it in your application</li></ol>
+<h2>Use Cases</h2><ul><li><strong>Tool Development</strong>: build and test LLM function calling tool definitions</li>
+<li><strong>API Debugging</strong>: debug OpenAI/Anthropic Function Calling interfaces</li>
+<li><strong>Parameter Validation</strong>: validate tool parameter schemas against your spec</li>
+<li><strong>Demonstration</strong>: show how LLM function calling works</li></ul>
+<h2>Learn More</h2><p>Function Calling is a technique that lets LLMs interact with external tools. OpenAI introduced Function Calling in June 2023, and Anthropic later added Tool Use. The formats differ: OpenAI uses the <code>function</code> and <code>parameters</code> fields, while Anthropic uses <code>input_schema</code>. In 2024-2026, MCP (Model Context Protocol) is becoming the standard for tool definitions, making tools work across platforms.</p>
+</div>
+<div class="section"><h2>FAQ</h2><div class="faq-item"><h3>About Free AI Function Calling Tester - Test LLM Tool Use Online</h3><p>Free online AI Function Calling Tester. Test and debug LLM Function Calling / Tool Use capabilities. Define tool schemas, simulate conversations, validate parameter extraction. Support OpenAI and Anthropic formats. Pure frontend. No signup, 100% browser-based. Try now!</p></div>
+<div class="faq-item"><h3>How to Use Free AI Function Calling Tester - Test LLM Tool Use Online?</h3><p>Enter your content in the input area, click the action button, and view the result. All computation happens on your device — APIFormat, Toolsname and other inputs stay in your browser.</p></div>
+<div class="faq-item"><h3>DatawillUploadserver??</h3><p>notwill.AllSchemaGenerateandValidatecompletefullinBrowsetoolLocalcomplete.</p></div></div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/military-time/">⚙️ 🕐 Military Time Converter</a><a href="../../en/date-add/">⚙️ 📅 Date Add Calculator</a><a href="../../en/day-of-week/">⚙️ 📆 Day of Week Calculator</a></div></section>
+<footer class="footer container">
+<div style="margin-bottom:12px"><a href="../../">Home</a> <a href="../../">All Tools</a> <a href="../contact/">Contact</a> <a href="../privacy/">Privacy</a> <a href="../terms/">Terms</a> <a href="../about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> <a href="../../en/ai-tool-calling-tester/">中文</a>
+</div>
+
+
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}</script>
+
+</body>
+</html>

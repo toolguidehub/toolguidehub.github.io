@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Split a list of names into random teams or groups of a chosen size, ideal for classrooms, games and group activities, then export the result.">
+<meta name="keywords" content="random team generatorgroup makerteam splitterrandom group generatorteam randomizerclassroom group makerteam builderrandom assignment">
+<title>Free Random Team Generator - Group Maker | Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/team-generator/">
+<meta property="og:title" content="👥 Random Team Generator">
+<meta property="og:description" content="Split a list of names into random teams or groups of a chosen size, ideal for classrooms, games and group activities, then export the result.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/team-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Random Team Generator", "description": "Free online random team generator. Enter names and randomly split into teams. Perfect for classroom activities, game teams, project groups, and team building. Export results.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is the random grouping fair?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the random grouping fair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Each click generates completely different team assignments. We use the Fisher-Yates shuffle algorithm ensuring every person has an equal chance of being assigned to any team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize team count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. You can either set the number of teams (system calculates members per team) or set members per team (system calculates team count)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click 'Copy Result' to copy the team assignments to your clipboard, then paste into any document or chat app. Everything runs locally: Number of Teams and Members per Team are processed on your device, never sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What scenarios is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Perfect for classroom group work, sports teams, corporate team building, project group assignments, gaming teams, and any random draw scenarios."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Random Team Generator",
+  "description": "Simple steps to use the 👥 Random Team Generator online tool. Everything runs locally: Number of Teams and Members per Team are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "👥 Random Team Generator"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/team-generator/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/team-generator/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/team-generator/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select,.form-group textarea,.form-group input[type="date"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.code-output{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;margin-top:12px;position:relative;max-height:400px;overflow-y:auto}
+.code-output pre{font-family:"Fira Code","JetBrains Mono","Cascadia Code",monospace;font-size:.9rem;color:#cbd5e1;white-space:pre-wrap;line-height:1.6}
+.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;border-radius:4px;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.1);color:#94a3b8;font-size:.75rem;cursor:pointer}
+.copy-btn:hover{background:rgba(148,163,184,.2)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:100px;display:flex;align-items:center;justify-content:center}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:.8rem;color:#64748b}
+.stats span{background:rgba(148,163,184,.08);padding:4px 10px;border-radius:4px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+.list-item{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.list-item .item-text{flex:1;word-break:break-word}
+.list-item .item-actions{display:flex;gap:4px;flex-shrink:0}
+.empty-state{text-align:center;padding:32px;color:#64748b;font-size:.9rem}
+.checkbox-input{width:20px;height:20px;margin-right:10px;accent-color:#22d3ee;cursor:pointer;flex-shrink:0}
+.stat-value{font-size:1.8rem;font-weight:700;color:#22d3ee}
+.stat-label{font-size:.75rem;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;background:rgba(6,182,212,.15);color:#22d3ee;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid rgba(148,163,184,.1)}
+th{color:#94a3b8;font-weight:600;font-size:.8rem;text-transform:uppercase}
+td{color:#e2e8f0}
+tr:hover td{background:rgba(148,163,184,.05)}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Random Team Generator",
+      "item": "https://adi63586.github.io/Toolguidehub/en/team-generator/"
+    }
+  ],
+  "name": "Random Team Generator"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/team-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header"><h1>👥 Random Team Generator</h1></div>
+ <p class="nav-back"><a href="../../index.html">&larr; All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+ <div class="section"><p class="info-text">Enter your list of names, choose how many teams, and generate random groups instantly!</p>
+ <div class="tool-body">
+ <div class="form-group">
+ <label for="memberList">Member Names (one per line)</label>
+ <textarea id="memberList" rows="6" placeholder="Alice
+Bob
+Charlie
+Diana
+Eve
+Frank
+Grace">Alice
+Bob
+Charlie
+Diana
+Eve
+Frank
+Grace
+Henry</textarea>
+ </div>
+ <div class="form-row">
+ <div class="form-group" style="flex:1">
+ <label for="numTeams">Number of Teams</label>
+ <input type="number" id="numTeams" min="2" max="50" value="2" onchange="updateMembersPerTeam()" oninput="updateMembersPerTeam()">
+ </div>
+ <div class="form-group" style="flex:1">
+ <label for="membersPerTeam">Members per Team</label>
+ <input type="number" id="membersPerTeam" min="1" max="100" value="4">
+ </div>
+ </div>
+ <div class="form-row">
+ <div class="form-group" style="flex:auto">
+ <label><input type="checkbox" id="shuffleTeams" checked> Random team labels</label>
+ </div>
+ </div>
+ <div class="btn-group">
+ <button class="btn btn-primary" onclick="generateTeams()">🎲 Generate Teams</button>
+ <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+ <button class="btn btn-secondary" onclick="shuffleNames()">🔀 Shuffle Names</button>
+ </div>
+ <div class="stats" id="teamStats">
+ <span>Total: <strong id="totalCount">0</strong> | Teams: <strong id="teamCount">0</strong></span>
+ </div>
+ <div id="resultArea"></div>
+ </div>
+ </div>
+ <div class="seo-content">
+ <h2>How to Use the Random Team Generator</h2>
+ <p>Generate with the Random Team Generator in three easy steps:</p>
+ <ol style="padding-left:20px;margin-top:12px">
+
+ <li style="margin-bottom:16px">
+ <strong>Configure Your Preferences</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Adjust the settings and options for your random team generator. Choose parameters such as length, complexity, style, or quantity based on your needs.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Click Generate</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Click the "Generate" button to create your content. The tool instantly processes your preferences and produces the result right in your browser — no waiting, no server requests.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Copy or Download the Result</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Review the generated output and click "Copy" to copy it to your clipboard, or "Download" to save it as a file. You can generate as many times as you need with no limits.</span>
+ </li>
+
+ </ol>
+ </div>
+
+ <div class="section"><h2>FAQ</h2>
+ <div class="faq-item"><h3>Is the random grouping fair?</h3><p>Yes! Each click generates completely different team assignments. We use the Fisher-Yates shuffle algorithm ensuring every person has an equal chance of being assigned to any team.</p></div>
+ <div class="faq-item"><h3>Can I customize team count?</h3><p>Absolutely. You can either set the number of teams (system calculates members per team) or set members per team (system calculates team count).</p></div>
+ <div class="faq-item"><h3>Can I save the result?</h3><p>Click 'Copy Result' to copy the team assignments to your clipboard, then paste into any document or chat app. Everything runs locally: Number of Teams and Members per Team are processed on your device, never sent to a server.</p></div>
+ <div class="faq-item"><h3>What scenarios is this for?</h3><p>Perfect for classroom group work, sports teams, corporate team building, project group assignments, gaming teams, and any random draw scenarios.</p></div>
+ </div>
+ <div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/team-generator/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+function updateMembersPerTeam(){
+  var names=getNames();
+  var nt=parseInt(document.getElementById("numTeams").value)||2;
+  document.getElementById("membersPerTeam").value=nt>0?Math.ceil(names.length/nt):1;
+}
+function getNames(){
+  return document.getElementById("memberList").value.split("\n").map(function(s){return s.trim()}).filter(function(s){return s.length>0});
+}
+function shuffle(arr){
+  for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t}
+  return arr;
+}
+function shuffleNames(){
+  var names=getNames();
+  shuffle(names);
+  document.getElementById("memberList").value=names.join("\n");
+  toast(lang==="zh-CN"?"":"Names shuffled");
+}
+function generateTeams(){
+  lang=document.documentElement.lang;
+  var names=getNames();
+  if(names.length<2){toast(lang==="zh-CN"?"":"Need at least 2 members");return}
+  var mode=document.getElementById("shuffleTeams").checked;
+  var shuffled=names.slice();
+  shuffle(shuffled);
+  var numTeams=parseInt(document.getElementById("numTeams").value)||2;
+  if(numTeams<1)numTeams=2;
+  if(numTeams>names.length)numTeams=names.length;
+  document.getElementById("numTeams").value=numTeams;
+  updateMembersPerTeam();
+  var teams=[];
+  for(var i=0;i<numTeams;i++)teams.push([]);
+  for(var i=0;i<shuffled.length;i++)teams[i%numTeams].push(shuffled[i]);
+  document.getElementById("totalCount").textContent=names.length;
+  document.getElementById("teamCount").textContent=numTeams;
+  var icons=["🟦","🟥","🟩","🟨","🟣","🟧","🟤","🔵","🔴","🟢","🟡","🟠","🟣","🤎","💙","❤️","💚","💛","💜","🧡"];
+  var teamLabels=[];
+  if(lang==="zh-CN"){
+    for(var i=0;i<numTeams;i++)teamLabels.push("No. "+(i+1)+" group");
+  }else{
+    for(var i=0;i<numTeams;i++)teamLabels.push("Team "+(i+1));
+  }
+  if(mode){
+    var shuffledLabels=teamLabels.slice();
+    shuffle(shuffledLabels);
+    teamLabels=shuffledLabels;
+  }
+  var html="";
+  for(var i=0;i<numTeams;i++){
+    var icon=icons[i%icons.length];
+    html+='<div class="list-item" style="flex-direction:column;align-items:stretch;padding:16px;margin-bottom:12px">';
+    html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">';
+    html+='<span style="font-weight:600;font-size:1rem;color:#f1f5f9">'+icon+" "+teamLabels[i]+'</span>';
+    html+='<span style="font-size:.8rem;color:#64748b">'+(lang==="zh-CN"?teams[i].length+" person":teams[i].length+" members")+'</span></div>';
+    html+='<div style="display:flex;flex-wrap:wrap;gap:4px">';
+    for(var j=0;j<teams[i].length;j++){
+      html+='<span class="tag" style="font-size:.85rem;padding:4px 10px;margin:2px">'+teams[i][j]+'</span>';
+    }
+    html+='</div></div>';
+  }
+  document.getElementById("resultArea").innerHTML=html;
+  document.getElementById("totalCount").textContent=names.length;
+  document.getElementById("teamCount").textContent=numTeams;
+  toast(lang==="zh-CN"?"":"Teams generated!");
+}
+function copyResult(){
+  var items=document.querySelectorAll("#resultArea .list-item");
+  if(!items.length){toast("Nothing to copy");return;}
+  var lines=[];
+  for(var i=0;i<items.length;i++){
+    var h=items[i].querySelector("span[style*='font-weight:600']");
+    var members=items[i].querySelectorAll(".tag");
+    var line=(h?h.textContent:"")+": ";
+    var names=[];
+    for(var j=0;j<members.length;j++)names.push(members[j].textContent);
+    line+=names.join(", ");
+    lines.push(line);
+  }
+  navigator.clipboard.writeText(lines.join("\n")).then(function(){toast("Copied!")}).catch(function(){toast("Copy failed")});
+}
+document.addEventListener("DOMContentLoaded",function(){generateTeams();});</script>
+
+<!-- Feedback Widget -->
+</main>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+</body>
+</html>

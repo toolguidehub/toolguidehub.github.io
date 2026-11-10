@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online network connection analyzer. Detect connection type, speed, latency, and quality using the Network Information API. No signup required.">
+<meta name="keywords" content="network connection analyzer,speed test,network detector,connection test,latency test,bandwidth test,network info,RTT test">
+<title>Free Network Connection Analyzer - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/">
+<meta property="og:title" content="Free Network Connection Analyzer - ToolGuideHub">
+<meta property="og:description" content="Free online network connection analyzer. Detect connection type, speed, latency, and quality using the Network Information API. No signup required.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Network Connection Analyzer", "description": "Free online network connection analyzer using Network Information API. Detect connection type, speed, latency, and quality. Client-side processing, no data uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-19", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Network Connection Analyzer FAQ",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the network connection analyzer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The network connection analyzer is an online tool based on the browser Network Information API. It detects your network connection type (WiFi/4G/5G etc.), downlink speed, round-trip time (RTT), data saver mode, and other network status information, with connection quality assessment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What network information can be detected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It detects: 1) Connection type - WiFi, cellular (4G/5G/3G), Ethernet etc.; 2) Effective connection type - speed tier like 4G, 3G, 2G; 3) Downlink bandwidth - estimated download speed (Mbps); 4) Round-trip time (RTT) - network latency (ms); 5) Data saver mode; 6) Online status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the speed test accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool uses two methods: 1) Network Information API estimates, which are based on browser historical data and have limited accuracy; 2) Actual download test, which downloads test files to measure real speed. The download test is more accurate but consumes some data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some features show unsupported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network Information API support varies across browsers. Chrome Android has the most complete support, desktop Chrome supports some features, and Firefox/Safari do not support it yet. Unsupported features will show as 'Browser not supported'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much data does the test consume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network Information API detection consumes no data. The actual download test downloads approximately 1-5MB of test data to measure speed. You can choose whether to run the download test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is data uploaded to servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All network information detection happens locally in your browser. Results are never uploaded to any server. The download test fetches files from public CDNs without sending data to our servers."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Network Connection Analyzer",
+  "description": "Simple steps to use the network connection analyzer. All detection happens locally in your browser.",
+  "totalTime": "PT30S",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "Network Connection Analyzer"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Open the tool",
+      "text": "Open the network connection analyzer page. Basic network info is detected automatically.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/#detect"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "View network status",
+      "text": "Check connection type, speed, latency and other network status information.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/#status"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Run speed test",
+      "text": "Click the speed test button to measure actual download speed.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/#speedtest"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}.header h1{font-size:1.5rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:12px 0}.info-card{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:14px}.info-label{color:#94a3b8;font-size:.8rem;margin-bottom:4px}.info-value{color:#22d3ee;font-size:1.2rem;font-weight:600}.info-value.good{color:#10b981}.info-value.warn{color:#f59e0b}.info-value.bad{color:#ef4444}.info-value.na{color:#64748b;font-size:.9rem;font-weight:400}.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}.btn-primary{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.15);color:#e2e8f0}.btn-secondary:hover{background:rgba(148,163,184,.25)}.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.quality-bar{height:8px;background:#0f172a;border-radius:4px;margin:8px 0;overflow:hidden}.quality-fill{height:100%;border-radius:4px;transition:width .5s}.speed-result{font-size:2rem;color:#22d3ee;font-weight:700;text-align:center;margin:16px 0}.speed-unit{font-size:.9rem;color:#94a3b8;font-weight:400}.progress-bar{height:4px;background:#0f172a;border-radius:2px;margin:8px 0;overflow:hidden}.progress-fill{height:100%;background:#06b6d4;border-radius:2px;transition:width .3s;width:0}.seo-content{color:#94a3b8;font-size:.9rem;line-height:1.8;margin-bottom:16px}.seo-content h2{color:#f1f5f9;font-size:1.1rem;margin:16px 0 8px}.seo-content h3{color:#e2e8f0;font-size:1rem;margin:12px 0 6px}.faq-item{border-bottom:1px solid rgba(148,163,184,.1);padding:12px 0}.faq-item:last-child{border-bottom:none}.faq-item h3{color:#e2e8f0;font-size:.95rem;margin-bottom:6px;cursor:pointer}.faq-item p{color:#94a3b8;font-size:.85rem}.footer{color:#475569;font-size:.8rem;text-align:center;padding:20px 0;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}.footer a{color:#64748b;margin:0 8px}.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:10px 24px;border-radius:8px;font-size:.9rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9999}.toast.show{opacity:1}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Network Tools",
+      "item": "https://adi63586.github.io/Toolguidehub/tools/network/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Network Connection Analyzer",
+      "item": "https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/"
+    }
+  ],
+  "name": "Network Connection Analyzer"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/network-connection-analyzer/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><h1>🌐 Network Connection Analyzer</h1></div>
+  <div class="nav-back"><a href="../../index.html">&larr; Back to Home</a></div>
+  <div class="section">
+    <p style="color:#94a3b8;font-size:.85rem;margin-bottom:12px">Detect network status using the Network Information API. Supports connection type, speed, and latency detection. Client-side processing, no data uploads.</p>
+    <div class="info-grid" id="networkInfo">
+      <div class="info-card"><div class="info-label">Online Status</div><div class="info-value" id="onlineStatus">Detecting...</div></div>
+      <div class="info-card"><div class="info-label">Connection Type</div><div class="info-value" id="connType">Detecting...</div></div>
+      <div class="info-card"><div class="info-label">Effective Type</div><div class="info-value" id="effType">Detecting...</div></div>
+      <div class="info-card"><div class="info-label">Downlink</div><div class="info-value" id="downlink">Detecting...</div></div>
+      <div class="info-card"><div class="info-label">Round-Trip Time</div><div class="info-value" id="rtt">Detecting...</div></div>
+      <div class="info-card"><div class="info-label">Data Saver</div><div class="info-value" id="saveData">Detecting...</div></div>
+    </div>
+    <div class="section" style="margin-top:12px">
+      <h2>Connection Quality</h2>
+      <div class="quality-bar"><div class="quality-fill" id="qualityBar" style="width:0;background:#64748b"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:.8rem;color:#64748b"><span>Poor</span><span>Fair</span><span>Good</span><span>Excellent</span></div>
+      <p style="margin-top:8px;color:#94a3b8;font-size:.85rem" id="qualityText">Waiting for detection...</p>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Speed Test</h2>
+    <p style="color:#94a3b8;font-size:.85rem;margin-bottom:12px">Measure actual download speed by downloading test files (consumes ~1-5MB of data)</p>
+    <div class="progress-bar"><div class="progress-fill" id="speedProgress"></div></div>
+    <div class="speed-result" id="speedResult" style="display:none"><span id="speedValue">0</span> <span class="speed-unit">Mbps</span></div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="speedTestBtn" onclick="runSpeedTest()">🚀 Start Speed Test</button>
+      <button class="btn btn-secondary" onclick="refreshInfo()">🔄 Refresh Info</button>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Latency Test (Ping)</h2>
+    <p style="color:#94a3b8;font-size:.85rem;margin-bottom:12px">Measure round-trip latency to public servers</p>
+    <div id="pingResults" style="font-size:.85rem;color:#94a3b8"></div>
+    <div class="btn-group"><button class="btn btn-primary" onclick="runPingTest()">📡 Test Latency</button></div>
+  </div>
+  <div class="seo-content">
+    <h2>Network Connection Analyzer - Complete Network Status Detection</h2>
+    <p>The network connection analyzer is an online tool based on the browser Network Information API. It provides comprehensive network status detection without any software installation. All detection happens locally in your browser.</p>
+    <h3>Detection Features</h3>
+    <ul style="padding-left:20px;margin:12px 0;color:#94a3b8;font-size:.9rem">
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Connection Type</strong> - WiFi, 4G/5G cellular, Ethernet, etc.</li>
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Effective Type</strong> - Browser-assessed connection speed tier</li>
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Downlink Bandwidth</strong> - Estimated download speed (Mbps)</li>
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Round-Trip Time</strong> - Network RTT latency (ms)</li>
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Speed Test</strong> - Download test files to measure actual speed</li>
+      <li style="margin-bottom:8px"><strong style="color:#e2e8f0">Latency Test</strong> - Ping test to measure network delay</li>
+    </ul>
+  </div>
+  <div class="section"><h2>FAQ</h2>
+<div class="faq-item"><h3>What is the network connection analyzer?</h3><p>An online tool based on the browser Network Information API that detects your network connection type, speed, latency, and other network status information with quality assessment.</p></div>
+<div class="faq-item"><h3>What network information can be detected?</h3><p>Connection type, effective connection type, downlink bandwidth, round-trip time, data saver mode, and online status.</p></div>
+<div class="faq-item"><h3>Is the speed test accurate?</h3><p>Network Information API provides estimates with limited accuracy. The actual download test is more accurate but consumes some data.</p></div>
+<div class="faq-item"><h3>Why do some features show unsupported?</h3><p>Network Information API support varies across browsers. Chrome Android has the most complete support, Firefox/Safari do not support it yet.</p></div>
+<div class="faq-item"><h3>Is data uploaded to servers?</h3><p>No. All network information detection happens locally in your browser. Results are never uploaded to any server.</p></div>
+  </div>
+</main>
+<section class="related-tools" data-consolidation="1" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">&rarr; Same job, main tool</h2><p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0;">Prefer the full version? Use our <a href="../speed-test/" style="color:#22d3ee;text-decoration:none;font-weight:600;">Speed Test</a> &ndash; our main speed test that measures download, upload and ping in one run.</p></section>
+<footer class="footer container" style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem;">
+<div style="margin-bottom:12px"><a href="../../index.html">Home</a> <a href="../../index.html">All Tools</a> <a href="../contact/">Contact</a> <a href="../../en/privacy/">Privacy</a> <a href="../../en/terms/">Terms</a> <a href="../../en/about/">About</a>
+<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a> <a href="../../en/network-connection-analyzer/">中文</a>
+</div>
+
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},3000)}
+function copyText(id){var el=document.getElementById(id);if(!el)return;var t=el.textContent||el.innerText;navigator.clipboard.writeText(t).then(function(){showToast("Copied!")})["catch"](function(){showToast("Copy failed")})}
+
+function refreshInfo(){
+  var output=document.getElementById('output')||document.getElementById('result')||document.getElementById('info');
+  var info=[];
+  info.push('=== Network Connection Info ===');
+  info.push('Online Status: '+(navigator.onLine?'Online':'Offline'));
+  info.push('Connection Type: '+(navigator.connection?navigator.connection.effectiveType:'Unknown'));
+  info.push('Downlink: '+(navigator.connection?navigator.connection.downlink+' Mbps':'Unknown'));
+  info.push('RTT: '+(navigator.connection?navigator.connection.rtt+'ms':'Unknown'));
+  info.push('User Agent: '+navigator.userAgent.substring(0,100));
+  info.push('Platform: '+navigator.platform);
+  info.push('Language: '+navigator.language);
+  info.push('Cookies: '+(navigator.cookieEnabled?'Enabled':'Disabled'));
+  if(output){output.textContent=info.join('\\n');output.style.display='block';}
+  showToast('Info refreshed');
+}
+
+function runPingTest(){
+  var output=document.getElementById('output')||document.getElementById('result')||document.getElementById('ping-result');
+  if(output)output.textContent='Testing latency...';
+  var pings=[];var done=0;var count=5;
+  for(var i=0;i<count;i++){
+    (function(idx){
+      var start=performance.now();
+      var img=new Image();
+      img.onload=img.onerror=function(){
+        pings.push(performance.now()-start);done++;
+        if(done===count){
+          var avg=pings.reduce(function(a,b){return a+b},0)/pings.length;
+          if(output)output.textContent='Latency: '+avg.toFixed(1)+'ms ('+count+' tests)';
+          showToast('Latency: '+avg.toFixed(0)+'ms');
+        }
+      };
+      img.src='https://speed.cloudflare.com/__down?bytes=100&t='+Date.now()+idx;
+    })(i);
+  }
+}
+
+function runSpeedTest(){
+  var output=document.getElementById('output')||document.getElementById('result')||document.getElementById('speed-result');
+  if(output)output.textContent='Testing download speed...';
+  var startTime=performance.now();
+  var totalBytes=0;
+  var sizes=[1e5,5e5,1e6,2e6];
+  var idx=0;
+  function next(){
+    if(idx>=sizes.length){
+      var elapsed=(performance.now()-startTime)/1000;
+      var mbps=(totalBytes*8)/(elapsed*1e6);
+      if(output)output.textContent='Speed Test Result:\nDownload Speed: '+mbps.toFixed(2)+' Mbps\nDuration: '+elapsed.toFixed(2)+'s\nData Downloaded: '+(totalBytes/1e6).toFixed(2)+' MB';
+      showToast('Speed: '+mbps.toFixed(1)+' Mbps');
+      return;
+    }
+    var xhr=new XMLHttpRequest();
+    xhr.open('GET','https://speed.cloudflare.com/__down?bytes='+sizes[idx],true);
+    xhr.responseType='arraybuffer';
+    xhr.onload=function(){if(xhr.response)totalBytes+=xhr.response.byteLength;idx++;next();};
+    xhr.onerror=function(){idx++;next();};
+    xhr.send();
+  }
+  next();
+}
+</script>
+
+</body></html>

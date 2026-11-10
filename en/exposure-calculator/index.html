@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Balance aperture, shutter speed and ISO with an exposure triangle calculator and find equivalent combinations.">
+<meta name="keywords" content="exposure triangle calculator,EV calculator,aperture shutter ISO,exposure compensation,reciprocity,equivalent exposure,photography exposure,shutter speed calculator,aperture calculator,ISO calculator,exposure settings,photography calculator">
+<title>Free Exposure Triangle Calculator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/exposure-calculator/">
+<meta property="og:title" content="Free Exposure Triangle Calculator - ToolGuideHub">
+<meta property="og:description" content="Balance aperture, shutter speed and ISO with an exposure triangle calculator and find equivalent combinations.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/exposure-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Exposure Triangle Calculator", "description": "Free online exposure triangle calculator for photographers.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this exposure triangle calculator free?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this exposure triangle calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely free to use. No registration or login required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the exposure triangle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The exposure triangle consists of three core parameters: Aperture (controls light and depth of field), Shutter Speed (controls light and motion blur), and ISO (controls sensor sensitivity and noise). They work together to determine image brightness. Adjusting one parameter requires compensating changes in others to maintain the same exposure — this is called reciprocity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Exposure Value (EV)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EV (Exposure Value) is a standardized unit measuring exposure. EV 0 is defined as f/1.0 + 1 second + ISO 100. Each +1 EV doubles the light. Typical values: bright sunlight EV 12-15, overcast EV 10-11, indoor light EV 5-7, night EV -2 to 2. This calculator automatically computes EV from your settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the reciprocity law in photography?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The reciprocity law states that aperture and shutter speed are interchangeable in terms of exposure: opening aperture by one stop (e.g. f/5.6→f/4 doubles light) equals slowing shutter by one stop (e.g. 1/125→1/60 doubles light). ISO follows the same stop system. This allows photographers to change creative parameters (depth of field, motion blur) while keeping total exposure constant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the right exposure settings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By shooting scenario: Portraits → wide aperture (f/1.4-f/2.8) for shallow DOF, creamy bokeh; Landscapes → narrow aperture (f/8-f/16) for maximum sharpness; Sports/Action → fast shutter (1/500+) to freeze motion; Low light → wide aperture + high ISO + slow shutter (tripod recommended); Handheld → shutter speed no slower than 1/focal length. Use this tool to find equivalent combinations."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}
+.container{max-width:880px;margin:0 auto}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 0}
+h1{text-align:center;font-size:2rem;margin:20px 0;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.card{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid rgba(148,163,184,.1)}
+.card-title{font-size:1.1rem;font-weight:600;margin-bottom:16px;color:#e2e8f0}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:500;margin-bottom:6px;color:#94a3b8;font-size:0.9rem}
+.form-group input,.form-group select{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:0.95rem;color-scheme:dark;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#06b6d4;box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .2s;width:100%;justify-content:center;background:#06b6d4;color:#fff}
+.btn-primary{background:#06b6d4;color:#fff}
+.btn-primary:hover{background:#0891b2}
+.result-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin:16px 0}
+.result-item{text-align:center;padding:16px;background:#0f172a;border-radius:10px;border:1px solid rgba(148,163,184,.15)}
+.result-item .label{font-size:0.8rem;color:#94a3b8;margin-bottom:4px}
+.result-item .value{font-size:1.8rem;font-weight:700;color:#e2e8f0}
+.result-item .unit{font-size:0.85rem;color:#94a3b8}
+.result-item.highlight{background:rgba(6,182,212,.1);border-color:#06b6d4}
+.result-item.highlight .value{color:#22d3ee}
+.ev-display{text-align:center;padding:20px;margin:12px 0;background:rgba(6,182,212,.08);border-radius:12px;border:1px solid rgba(6,182,212,.3)}
+.ev-display .ev-value{font-size:3rem;font-weight:800;color:#22d3ee}
+.ev-label{font-size:0.9rem;color:#94a3b8}
+.info-text{font-size:0.9rem;color:#94a3b8;padding:12px 16px;background:rgba(30,41,59,.5);border:1px solid rgba(148,163,184,.1);border-radius:8px;line-height:1.7;margin-top:12px}
+.eq-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.85rem}
+.eq-table th,.eq-table td{padding:8px 10px;text-align:center;border-bottom:1px solid rgba(148,163,184,.15);color:#e2e8f0}
+.eq-table th{background:rgba(6,182,212,.1);font-weight:600;color:#22d3ee}
+.eq-table tr:hover{background:rgba(148,163,184,.05)}
+.faq-section{margin-top:32px}
+.faq-section h2{font-size:1.3rem;margin-bottom:16px;color:#e2e8f0}
+.faq-q{padding:12px 16px;cursor:pointer;font-weight:500;display:flex;justify-content:space-between;align-items:center;background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:8px;margin-bottom:8px;color:#e2e8f0;transition:background .2s}
+.faq-q:hover{background:rgba(6,182,212,.1)}
+.faq-q .arrow{transition:transform .3s;font-size:0.8rem}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .3s ease;color:#94a3b8}
+.faq-item.open .faq-a{max-height:400px;padding:12px 16px}
+.faq-a p{margin:0;font-size:0.9rem;color:#94a3b8;line-height:1.7}
+@media(max-width:640px){.form-row,.form-row-2,.result-grid{grid-template-columns:1fr 1fr}h1{font-size:1.5rem}}
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Exposure Triangle Calculator", "item": "https://adi63586.github.io/Toolguidehub/en/exposure-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Exposure Triangle Calculator","description":"Step-by-step guide for using Exposure Triangle Calculator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Exposure Triangle Calculator"},"step":[{"@type":"HowToStep","position":1,"name":"Enter values","text":"Input the numbers or values you want to calculate"},{"@type":"HowToStep","position":2,"name":"Set parameters","text":"Choose calculation mode or adjust options if needed"},{"@type":"HowToStep","position":3,"name":"Click Calculate","text":"Press the calculate button to get your result"},{"@type":"HowToStep","position":4,"name":"View results","text":"Review the calculation output and copy if needed"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/exposure-calculator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="header"><h1>Free Exposure Triangle Calculator</h1></div>
+  <p style="text-align:center;color:#94a3b8;margin-bottom:24px;font-size:0.95rem">Aperture · Shutter Speed · ISO · Exposure Value (EV) · Equivalent Combinations</p>
+
+  <div class="card">
+    <div class="card-title">⚙️ Current Exposure Settings</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Aperture</label>
+        <select id="aperture">
+          <option value="1">f/1</option><option value="1.4">f/1.4</option><option value="2">f/2</option><option value="2.8">f/2.8</option><option value="4">f/4</option><option value="5.6">f/5.6</option><option value="8" selected>f/8</option><option value="11">f/11</option><option value="16">f/16</option><option value="22">f/22</option><option value="32">f/32</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Shutter Speed</label>
+        <select id="shutter">
+          <option value="30">30"</option><option value="15">15"</option><option value="8">8"</option><option value="4">4"</option><option value="2">2"</option><option value="1">1"</option><option value="0.5">1/2</option><option value="0.25">1/4</option><option value="0.125">1/8</option><option value="0.0667">1/15</option><option value="0.0333">1/30</option><option value="0.0167">1/60</option><option value="0.00833">1/125</option><option value="0.004">1/250</option><option value="0.002" selected>1/500</option><option value="0.001">1/1000</option><option value="0.0005">1/2000</option><option value="0.00025">1/4000</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>ISO</label>
+        <select id="iso">
+          <option value="50">50</option><option value="100" selected>100</option><option value="200">200</option><option value="400">400</option><option value="800">800</option><option value="1600">1600</option><option value="3200">3200</option><option value="6400">6400</option><option value="12800">12800</option><option value="25600">25600</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>Exposure Compensation</label>
+        <select id="evComp">
+          <option value="-5">-5 EV</option><option value="-4">-4 EV</option><option value="-3">-3 EV</option><option value="-2">-2 EV</option><option value="-1">-1 EV</option><option value="0" selected>0 EV (Standard)</option><option value="1">+1 EV</option><option value="2">+2 EV</option><option value="3">+3 EV</option><option value="4">+4 EV</option><option value="5">+5 EV</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <button class="btn btn-primary" id="calcBtn">📐 Calculate EV</button>
+      </div>
+    </div>
+
+    <div class="ev-display">
+      <div class="ev-label">Current Exposure Value (EV)</div>
+      <div class="ev-value" id="evResult">--</div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px" id="evDesc">Enter parameters and click calculate</div>
+    </div>
+
+    <div class="result-grid">
+      <div class="result-item"><div class="label">Aperture</div><div class="value" id="dispAperture">f/8</div></div>
+      <div class="result-item"><div class="label">Shutter</div><div class="value" id="dispShutter">1/500</div><div class="unit">sec</div></div>
+      <div class="result-item"><div class="label">ISO</div><div class="value" id="dispIso">100</div></div>
+      <div class="result-item highlight"><div class="label">Total EV</div><div class="value" id="dispEv">--</div><div class="unit">EV</div></div>
+    </div>
+
+    <div class="info-text" id="sceneTip"><strong>📷 Scene Tip</strong>: Suitable for sunny outdoor photography.</div>
+  </div>
+
+  <div class="card" id="eqCard" style="display:none">
+    <div class="card-title">🔄 Equivalent Exposure Combinations (Same Total Exposure)</div>
+    <table class="eq-table">
+      <thead><tr><th>#</th><th>Aperture</th><th>Shutter</th><th>ISO</th><th>Effect</th></tr></thead>
+      <tbody id="eqTableBody"></tbody>
+    </table>
+    <div class="info-text"><strong>💡 Tip</strong>: Choose different combinations to change depth of field (aperture), motion blur (shutter), or image quality (ISO) while keeping total exposure constant.</div>
+  </div>
+
+  <div class="faq-section">
+    <h2>❓ FAQs</h2>
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the exposure triangle?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>The exposure triangle is a photography fundamental: Aperture (controls light entry and depth of field), Shutter Speed (controls exposure time and motion blur), and ISO (controls sensor sensitivity and noise). They are interdependent — changing one requires adjusting others to maintain the same exposure. Mastering the exposure triangle is essential for creative photography.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How does reciprocity work?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Reciprocity means aperture and shutter speed are interchangeable: widening aperture by 1 stop (f/5.6→f/4 = 2x light) = slowing shutter by 1 stop (1/125→1/60 = 2x light). ISO follows the same stop system. For example: want shallower DOF? Open aperture (f/8→f/5.6) and speed up shutter (1/125→1/250) to keep exposure constant. This calculator finds all equivalent combinations automatically.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Recommended exposure settings for different scenes?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>Sunny portraits: f/2.8, 1/1000, ISO 100; Cloudy landscapes: f/8, 1/250, ISO 200; Indoors/static: f/4, 1/60, ISO 800; Night/tripod: f/11, 30", ISO 100; Sports/birds: f/5.6, 1/2000, ISO 800; Stars/milky way: f/2.8, 20", ISO 3200. These are starting points — adjust based on actual light and creative intent.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is correct exposure and how do I judge it?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>There's no absolute "correct" exposure — it depends on creative intent. Technically, the histogram is the best tool: a good histogram has a smooth curve that doesn't clip at either edge (no blown highlights or lost shadows). Modern cameras support ETTR (Expose To The Right) — maximize exposure without clipping highlights for the best signal-to-noise ratio.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">High ISO vs low ISO — which should I use?<span class="arrow">▼</span></div>
+      <div class="faq-a"><p>ISO controls sensor light sensitivity. Low ISO (100-200): best image quality, minimal noise — use in bright conditions. Medium ISO (400-800): good quality, suitable for overcast or indoor. High ISO (1600+): visible noise but enables shooting in low light. Modern cameras handle high ISO well — some flagships are usable at ISO 6400. Rule of thumb: use the lowest ISO that still allows your minimum shutter speed.</p></div>
+    </div>
+  </div>
+
+  <div class="card" style="background:rgba(30,41,59,.5);margin-top:20px">
+    <p style="font-size:0.85rem;color:#94a3b8;text-align:center">💡 All calculations run locally in your browser. Works offline.</p>
+  </div>
+</main>
+
+<script>
+function toggleFaq(el){var item=el.parentElement;item.classList.toggle('open')}
+function log2(x){return Math.log(x)/Math.LN2}
+function calcEV(a,ss,iso){return Math.round((log2(a*a/ss)-log2(iso/100))*10)/10}
+function sceneDesc(ev){if(ev>=15)return'☀️ Bright sunlight/snow — use minimum ISO and fast shutter';if(ev>=13)return'☀️ Sunny outdoor — classic Sunny 16 scene';if(ev>=11)return'⛅ Cloudy/shade — soft light, great for portraits';if(ev>=9)return'🌤️ Overcast/dusk — may need wider aperture or higher ISO';if(ev>=7)return'🏠 Bright indoor — fast lens recommended';if(ev>=5)return'🕯️ Low indoor — tripod or high ISO recommended';if(ev>=3)return'🌆 Dusk/dim — tripod recommended, use high ISO';return'🌙 Night/low light — tripod required, long exposure'}
+
+document.getElementById('calcBtn').addEventListener('click',function(){
+  const a=parseFloat(document.getElementById('aperture').value);
+  const ss=parseFloat(document.getElementById('shutter').value);
+  const iso=parseFloat(document.getElementById('iso').value);
+  const comp=parseFloat(document.getElementById('evComp').value);
+  const ev=calcEV(a,ss,iso)+comp;
+  document.getElementById('evResult').textContent=ev.toFixed(1);
+  document.getElementById('evDesc').textContent=sceneDesc(ev);
+  document.getElementById('dispEv').textContent=ev.toFixed(1);
+  const shutterLabel=ss>=1?Math.round(ss)+'"':Math.round(1/ss)>0?'1/'+Math.round(1/ss):(1/ss).toFixed(1);
+  document.getElementById('dispAperture').textContent='f/'+a;
+  document.getElementById('dispShutter').textContent=shutterLabel;
+  document.getElementById('dispIso').textContent=iso;
+  document.getElementById('sceneTip').innerHTML='<strong>📷 Scene Tip</strong>: '+sceneDesc(ev);
+  
+  // Equivalent combos
+  const tbl=document.getElementById('eqTableBody');tbl.innerHTML='';
+  const baseEV=calcEV(a,ss,iso)+comp;
+  const combos=[{ap:2.8,iso:100,label:'Wide aperture · shallow DOF'},{ap:4,iso:100,label:'Medium aperture'},{ap:5.6,iso:200,label:'Standard'},{ap:8,iso:400,label:'Narrow · deep DOF'},{ap:11,iso:800,label:'Landscape/architecture'},{ap:16,iso:1600,label:'Maximum DOF'}];
+  combos.forEach(function(c,i){
+    const isoStop=Math.log2(c.iso/100);
+    const reqT=c.ap*c.ap/Math.pow(2,baseEV+isoStop);
+    const sv=Math.max(0.000125,Math.min(30,reqT));
+    const sl=sv>=1?Math.round(sv)+'"':Math.round(1/sv)>0?'1/'+Math.round(1/sv):(1/sv).toFixed(1);
+    tbl.innerHTML+='<tr><td>'+(i+1)+'</td><td>f/'+c.ap+'</td><td>'+sl+'</td><td>'+c.iso+'</td><td>'+c.label+'</td></tr>'});
+  document.getElementById('eqCard').style.display='block';
+});
+</script>
+<script>
+function showToast(msg){var t=document.createElement("div");t.textContent=msg;t.style.cssText="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:10px 24px;border-radius:20px;font-size:.9rem;z-index:9999;border:1px solid rgba(6,182,212,.3);animation:toastIn .3s ease";document.body.appendChild(t);setTimeout(function(){t.style.opacity="0";t.style.transition="opacity .3s";setTimeout(function(){t.remove()},300)},2000)}
+function copyText(txt){navigator.clipboard.writeText(txt).then(function(){showToast("Copied!")})}
+</script>
+<div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#94a3b8;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/moon-phase-calculator/">⚙️ Moon Phase Calculator</a><a href="../../en/roman-numerals-converter/">⚙️ 🏛️ Roman Numerals Converter</a><a href="../../en/meeting-cost-calculator/">🔧 Meeting Cost Calculator</a></div></section>
+<footer>
+<p><a href="../">Home</a> | <a href="../about/">About Us</a> | <a href="../terms/">Terms of Service</a> | <a href="../privacy/">Privacy Policy</a> | <a href="../../en/exposure-calculator/">中文</a></p>
+
+</footer>
+<div class="toast" id="toast">
+
+</div>
+</div>
+</body>
+</html>

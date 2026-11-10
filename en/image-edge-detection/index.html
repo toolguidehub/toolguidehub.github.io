@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Trace outlines in a photo using Sobel edge detection, toggling between black-and-white and colored edge output.">
+<meta name="keywords" content="image edge detection,sobel edge detection,edge detector,edge detection online,image contour detection,sobel operator,image processing,edge enhancement,online image tool,contour finder">
+<title>Free Image Edge Detection Tool - Online Tool</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/image-edge-detection/">
+<meta property="og:title" content="🔍 Image Edge Detection Tool">
+<meta property="og:description" content="Trace outlines in a photo using Sobel edge detection, toggling between black-and-white and colored edge output.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/image-edge-detection/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Image Edge Detection Tool", "description": "Free online image edge detection tool. Uses Sobel operator to detect edges in images in real-time, highlighting contours and boundaries. Adjustable edge intensity, color or black-white edge modes. Supports JPG, PNG, GIF, BMP formats. Real-time preview, one-click download. Perfect for designers, developers, researchers. Client-side processing, privacy guaranteed.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is Image Edge Detection Tool - Free Online Tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Image Edge Detection Tool - Free Online Tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Image Edge Detection Tool - Free Online Tool is completely free to use. No registration or login required — all features are available directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Image Edge Detection Tool - Free Online Tool upload my data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Image Edge Detection Tool - Free Online Tool uses pure front-end technology. All processing happens in your browser — no data is uploaded to any server. The tool works even without an internet connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Image Edge Detection Tool - Free Online Tool on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Image Edge Detection Tool - Free Online Tool is fully responsive and works on phones, tablets, and desktops. The interface automatically adapts to your screen size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install any software to use Image Edge Detection Tool - Free Online Tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Image Edge Detection Tool - Free Online Tool is an online tool — just open the webpage in your browser. No downloads, plugins, or installations needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe when using Image Edge Detection Tool - Free Online Tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since all data is processed locally in your browser and never sent to any server, there is no risk of data leakage. Your data stays under your control at all times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits for Image Edge Detection Tool - Free Online Tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Image Edge Detection Tool - Free Online Tool is a free online tool with no usage limits. Since processing is done locally, performance depends on your device. For very large files, we recommend processing in batches for the best experience."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Image Edge Detection Tool",
+  "description": "Simple steps to use the 🔍 Image Edge Detection Tool online tool. Everything runs locally: Mode and Upload Image are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "🔍 Image Edge Detection Tool"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-edge-detection/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-edge-detection/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/image-edge-detection/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--surface:#0f172a;--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group input[type="date"],.form-group select,.form-group textarea,.form-group input[type="range"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:500}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-success{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.btn-success:hover{background:rgba(34,197,94,.3)}
+.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.code-input{font-family:"Cascadia Code","Fira Code","Consolas",monospace;font-size:.85rem;tab-size:2}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:16px;min-height:100px;overflow:auto}
+.result-box{background:#0f172a;border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:20px;text-align:center;min-height:80px}
+.result-box .big-number{font-size:3rem;font-weight:700;color:#22d3ee}
+.result-box .label{color:#94a3b8;font-size:.9rem}
+
+.faq-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(148,163,184,.1)}
+.faq-item h3{color:#f1f5f9;font-size:.95rem;margin-bottom:6px;cursor:pointer}
+.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.5}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:16px;text-align:center;color:#64748b;font-size:.85rem}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.2);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+canvas{max-width:100%;max-height:500px}
+.file-drop-zone{border:2px dashed rgba(148,163,184,.3);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s}
+.file-drop-zone:hover{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.05)}
+.file-drop-zone.dragover{border-color:#22d3ee;background:rgba(6,182,212,.1)}
+.file-drop-zone svg{width:48px;height:48px;color:#64748b;margin-bottom:12px}
+.file-drop-zone p{color:#94a3b8;font-size:.9rem}
+img{max-width:100%}
+input[type="range"]{accent-color:#22d3ee}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image Edge Detection Tool",
+      "item": "https://adi63586.github.io/Toolguidehub/en/image-edge-detection/"
+    }
+  ],
+  "name": "Image Edge Detection Tool"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/image-edge-detection/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<div class="nav-back"><a href="../">Back to Home</a></div>
+<div class="header">
+<h1>🔍 Image Edge Detection Tool</h1>
+
+</div>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+  <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Updated: 2026-07-11
+  </span>
+</div>
+
+  <div class="section">
+    <h2>Edge Detection</h2>
+    <div class="form-row">
+      <div class="form-group" style="flex:1;min-width:140px">
+        <label>Edge Intensity <span id="edgeIntensityVal">1.0</span></label>
+        <input type="range" id="edgeIntensity" min="0.1" max="3.0" value="1.0" step="0.1" oninput="processEdgeDetection()">
+      </div>
+      <div class="form-group" style="flex:0;min-width:140px">
+        <label>Mode</label>
+        <select id="edgeMode" onchange="processEdgeDetection()">
+          <option value="bw">Black & White</option>
+          <option value="color">Color Edges</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Upload Image</label>
+      <div class="file-drop-zone" id="edgeDropZone" ondragover="event.preventDefault();this.classList.add('dragover')" ondrop="event.preventDefault();this.classList.remove('dragover');handleEdgeFile(event.dataTransfer.files[0])" onclick="document.getElementById('edgeInput').click()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <p>Click or drag image here</p>
+      </div>
+      <input type="file" id="edgeInput" accept="image/*" onchange="handleEdgeFile(event.target.files[0])" style="display:none">
+    </div>
+    <div id="edgeResult" style="display:none;margin-top:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><p style="color:#94a3b8;font-size:.85rem;margin-bottom:6px">Original</p><img id="edgeOriginal" style="width:100%;border-radius:8px"></div>
+        <div><p style="color:#94a3b8;font-size:.85rem;margin-bottom:6px">Result</p><canvas id="edgeCanvas" style="width:100%;border-radius:8px"></canvas></div>
+      </div>
+      <div class="btn-group" style="justify-content:center">
+        <button class="btn btn-primary" onclick="downloadEdgeResult()">Download</button>
+      </div>
+    </div>
+  </div>
+<div class="seo-content">
+    <h2>How to Use the Image Edge Detection Tool</h2>
+    <p>Process your images with the Image Edge Detection Tool in three steps:</p>
+    <ol style="padding-left:20px;margin-top:12px">
+
+      <li style="margin-bottom:16px">
+        <strong>Upload Your Image</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Click the upload area or drag and drop an image file. The tool supports common formats including PNG, JPG, GIF, SVG, and WebP. Your image stays on your device at all times.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Configure Image Settings</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Adjust image processing options such as dimensions, quality, filters, or effects. Preview changes in real time before applying them.</span>
+      </li>
+
+      <li style="margin-bottom:16px">
+        <strong>Download the Processed Image</strong><br>
+        <span style="color:#94a3b8;font-size:.9rem">Once you are satisfied with the result, click "Download" to save the processed image. The tool never uploads your images to any server.</span>
+      </li>
+
+    </ol>
+  </div>
+
+<div class="section"><h2>Frequently Asked Questions</h2>
+<div class="faq-item"><h3>What is edge detection?</h3><p>Edge detection identifies points in an image where brightness changes sharply. The Sobel operator used in this tool calculates the gradient of image intensity at each pixel, highlighting edges and contours.</p></div>
+<div class="faq-item"><h3>What is the Sobel operator?</h3><p>The Sobel operator performs 2D spatial gradient convolution on images. It uses 3x3 kernels to approximate the derivative in horizontal and vertical directions, combining them to find edge magnitude and direction.</p></div>
+<div class="faq-item"><h3>Can I adjust the detection sensitivity?</h3><p>Yes! Use the "Edge Intensity" slider to control how sensitive the detection is. Higher values amplify weaker edges, while lower values only show strong edges.</p></div>
+<div class="faq-item"><h3>Is this tool free?</h3><p>Yes, completely free! No registration required, all processing happens in your browser locally.</p></div>
+</div>
+<div>
+<div class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#22d3ee;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/image-crop-circle/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Image Circle Cropper</a><a href="../../en/image-cropper-online/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Online Image Cropper</a><a href="../../en/image-enhancer/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Image Enhancer</a></div></div>
+<div class="toast" id="toast"></div>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/image-edge-detection/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+</div>
+<script>
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+var edgeImageData=null;
+function handleEdgeFile(file){
+  if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      document.getElementById("edgeOriginal").src=e.target.result;
+      edgeImageData=img;
+      document.getElementById("edgeResult").style.display="block";
+      processEdgeDetection();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function processEdgeDetection(){
+  if(!edgeImageData)return;
+  var intensity=parseFloat(document.getElementById("edgeIntensity").value);
+  var mode=document.getElementById("edgeMode").value;
+  document.getElementById("edgeIntensityVal").textContent=intensity.toFixed(1);
+  var canvas=document.getElementById("edgeCanvas");
+  var ctx=canvas.getContext("2d");
+  canvas.width=edgeImageData.width;
+  canvas.height=edgeImageData.height;
+  ctx.drawImage(edgeImageData,0,0);
+  var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+  var data=imageData.data;
+  var w=canvas.width,h=canvas.height;
+  var grayscale=new Float32Array(w*h);
+  for(var i=0;i<w*h;i++){
+    var idx=i*4;
+    grayscale[i]=data[idx]*0.299+data[idx+1]*0.587+data[idx+2]*0.114;
+  }
+  var sobelX=[-1,0,1,-2,0,2,-1,0,1];
+  var sobelY=[-1,-2,-1,0,0,0,1,2,1];
+  var magnitude=new Float32Array(w*h);
+  var maxMag=0;
+  for(var y=1;y<h-1;y++){
+    for(var x=1;x<w-1;x++){
+      var idx=y*w+x;
+      var gx=0,gy=0;
+      for(var ky=-1;ky<=1;ky++){
+        for(var kx=-1;kx<=1;kx++){
+          var pixel=grayscale[(y+ky)*w+(x+kx)];
+          var kIdx=(ky+1)*3+(kx+1);
+          gx+=pixel*sobelX[kIdx];
+          gy+=pixel*sobelY[kIdx];
+        }
+      }
+      var mag=Math.sqrt(gx*gx+gy*gy)*intensity;
+      magnitude[idx]=mag;
+      if(mag>maxMag)maxMag=mag;
+    }
+  }
+  var output=ctx.createImageData(w,h);
+  for(var i=0;i<w*h;i++){
+    var idx=i*4;
+    var val=Math.min(255,Math.round(magnitude[i]/maxMag*255));
+    if(mode==="bw"){
+      output.data[idx]=val;
+      output.data[idx+1]=val;
+      output.data[idx+2]=val;
+    }else{
+      var srcIdx=i*4;
+      output.data[idx]=Math.min(255,Math.round(data[srcIdx]/2+val/2));
+      output.data[idx+1]=Math.min(255,Math.round(data[srcIdx+1]/2+val/2));
+      output.data[idx+2]=Math.min(255,Math.round(data[srcIdx+2]/2+val/2));
+    }
+    output.data[idx+3]=255;
+  }
+  ctx.putImageData(output,0,0);
+}
+function downloadEdgeResult(){
+  var canvas=document.getElementById("edgeCanvas");
+  var a=document.createElement("a");
+  a.download="edge-detection.png";
+  a.href=canvas.toDataURL("image/png");
+  a.click();
+}
+
+</script>
+
+</main>
+</body>
+</html>

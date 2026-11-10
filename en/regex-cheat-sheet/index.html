@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Look up regex metacharacters, quantifiers, groups, and lookarounds, and test patterns live against sample text.">
+<meta name="keywords" content="regex cheat sheet,regular expression reference,regex patterns,regex tester,regex quick reference,regex metacharacters,regex guide">
+<title>Free Regex Cheat Sheet - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/regex-cheat-sheet/">
+<meta property="og:title" content="Free Regex Cheat Sheet - ToolGuideHub">
+<meta property="og:description" content="Look up regex metacharacters, quantifiers, groups, and lookarounds, and test patterns live against sample text.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/regex-cheat-sheet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Cheat Sheet", "description": "Free online regex cheat sheet with interactive tester. Quick reference for regex patterns, metacharacters, quantifiers, groups. Test patterns live. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-21", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Regex Cheat Sheet FAQ",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a regular expression?", "acceptedAnswer": {"@type": "Answer", "text": "A regular expression (regex) is a sequence of characters that defines a search pattern. It is used for string matching, validation, search and replace, and text parsing."}},
+    {"@type": "Question", "name": "What is the difference between greedy and lazy quantifiers?", "acceptedAnswer": {"@type": "Answer", "text": "Greedy quantifiers (*, +) match as much as possible. Lazy quantifiers (*?, +?) match as little as possible. For example, a.*b on 'aXbYb' matches 'aXbYb' (greedy) vs 'aXb' (lazy)."}},
+    {"@type": "Question", "name": "What are lookaheads and lookbehinds?", "acceptedAnswer": {"@type": "Answer", "text": "Lookaheads (?=...) and (?!...) check what comes after without consuming characters. Lookbehinds (?<=...) and (?<!...) check what comes before. They are zero-width assertions."}},
+    {"@type": "Question", "name": "Is my data uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. All regex testing happens locally in your browser. No data is sent to any server."}},
+    {"@type": "Question", "name": "Which regex flavor does this support?", "acceptedAnswer": {"@type": "Answer", "text": "This uses JavaScript's built-in RegExp engine, which follows the ECMAScript specification. Most common patterns are compatible with PCRE, Python, and Java regex."}},
+    {"@type": "Question", "name": "How do I escape special characters?", "acceptedAnswer": {"@type": "Answer", "text": "Use a backslash (\\) before special characters to match them literally. For example, \\. matches a literal dot, \\\\ matches a literal backslash."}}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"},
+    {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://adi63586.github.io/Toolguidehub/#developer-tools"},
+    {"@type": "ListItem", "position": 3, "name": "Regex Cheat Sheet", "item": "https://adi63586.github.io/Toolguidehub/en/regex-cheat-sheet/"}
+  ],
+  "name": "Regex Cheat Sheet"
+}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Regex Cheat Sheet","description":"Step-by-step guide for using Regex Cheat Sheet","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Regex Cheat Sheet"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}a{color:#06b6d4;text-decoration:none}.container{max-width:960px;margin:0 auto;padding:24px 16px}.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.header h1{font-size:1.6rem;color:#f1f5f9}.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}.nav-back a{color:#64748b}.hero-sub{color:#94a3b8;font-size:.95rem;margin-bottom:8px}.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);margin-bottom:16px}.input-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.input-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}input[type=text],textarea{width:100%;padding:10px 12px;background:#0f172a;color:#e2e8f0;border:1px solid rgba(148,163,184,.2);border-radius:8px;font-size:.9rem;font-family:monospace}textarea{min-height:120px;resize:vertical}input:focus,textarea:focus{outline:none;border-color:rgba(6,182,212,.5)}input::placeholder,textarea::placeholder{color:#475569}.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{padding:8px 20px;border:none;border-radius:6px;font-size:.85rem;cursor:pointer;transition:all .2s}.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}.btn-primary:hover{background:rgba(6,182,212,.3)}.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.15)}.btn-secondary:hover{background:rgba(148,163,184,.2)}.btn-success{background:rgba(16,185,129,.2);color:#34d399;border:1px solid rgba(16,185,129,.3)}.btn-success:hover{background:rgba(16,185,129,.3)}.result-section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}.result-section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}.result-box{background:#0f172a;border-radius:8px;padding:14px;border:1px solid rgba(148,163,184,.1);margin-bottom:8px}.result-label{color:#64748b;font-size:.8rem;margin-bottom:4px}.result-value{color:#e2e8f0;font-size:1rem;word-break:break-all}.cheat-section{margin-bottom:20px}.cheat-section h3{font-size:1rem;color:#22d3ee;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid rgba(6,182,212,.2)}.cheat-table{width:100%;border-collapse:collapse}.cheat-table th{text-align:left;color:#94a3b8;font-size:.8rem;padding:6px 10px;border-bottom:1px solid rgba(148,163,184,.1)}.cheat-table td{padding:6px 10px;border-bottom:1px solid rgba(148,163,184,.05);font-size:.85rem}.cheat-table td:first-child{font-family:monospace;color:#22d3ee;white-space:nowrap;cursor:pointer}.cheat-table td:first-child:hover{color:#f1f5f9;text-decoration:underline}.cheat-table td:last-child{color:#94a3b8}.match-highlight{background:rgba(6,182,212,.3);border-radius:2px;padding:0 2px}.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.ad-slot.ad-sidebar{max-width:300px}.ad-sidebar-wrap{display:flex;flex-direction:column;gap:0}.seo-content{margin-top:24px;padding:20px 0;border-top:1px solid rgba(148,163,184,.1)}.seo-content h2{font-size:1.2rem;color:#f1f5f9;margin:20px 0 10px}.seo-content h3{font-size:1rem;color:#e2e8f0;margin:16px 0 8px}.seo-content p{color:#94a3b8;margin-bottom:10px;line-height:1.8}.seo-content ul{color:#94a3b8;padding-left:20px;margin-bottom:10px}.seo-content li{margin-bottom:4px}.faq-item{background:#1e293b;border-radius:8px;padding:14px 18px;margin-bottom:8px;border:1px solid rgba(148,163,184,.1)}.faq-item h3{font-size:.95rem;color:#e2e8f9;margin-bottom:6px}.faq-item p{color:#94a3b8;font-size:.85rem;line-height:1.6}.footer{border-top:1px solid rgba(148,163,184,.1);padding:20px 0;text-align:center;margin-top:24px}.footer a{color:#64748b;margin:0 8px;font-size:.85rem}.footer a:hover{color:#22d3ee}.footer p{color:#64748b;font-size:.85rem}
+
+.copy-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.25);border-radius:6px;cursor:pointer;font-size:.8rem;transition:all .2s;margin-left:8px;vertical-align:top}
+.copy-btn:hover{background:rgba(6,182,212,.25)}
+.copy-btn.copied{background:rgba(34,197,94,.15);color:#22c55e;border-color:rgba(34,197,94,.3)}
+
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/regex-cheat-sheet/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+  <div class="header"><h1>📋 Regex Cheat Sheet</h1></div>
+  <p class="nav-back"><a href="../../">Home</a> › <a href="../index.html#developer-tools">Developer Tools</a> › Regex Cheat Sheet</p>
+  <p class="hero-sub">Interactive regex reference with live pattern tester</p>
+  <span class="badge">Zero Dependencies · Works Offline</span>
+  <div class="main-grid">
+    <div>
+      <div class="input-section">
+        <h2>🧪 Live Regex Tester</h2>
+        <div style="margin-bottom:8px"><label style="color:#94a3b8;font-size:.85rem">Pattern:</label><input type="text" id="regexPattern" value="\\b[A-Z][a-z]+\\b" placeholder="Enter regex pattern" oninput="testRegex()"></div>
+        <div style="margin-bottom:8px"><label style="color:#94a3b8;font-size:.85rem">Flags:</label><input type="text" id="regexFlags" value="g" placeholder="g, i, m, s, u" style="width:80px" oninput="testRegex()"></div>
+        <div style="margin-bottom:8px"><label style="color:#94a3b8;font-size:.85rem">Test String:</label><textarea id="testString" oninput="testRegex()">Hello World foo Bar baz Quux</textarea></div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="testRegex()">🔍 Test</button>
+          <button class="btn btn-secondary" onclick="loadPattern('email')">📧 Email</button>
+          <button class="btn btn-secondary" onclick="loadPattern('url')">🔗 URL</button>
+          <button class="btn btn-secondary" onclick="loadPattern('phone')">📱 Phone</button>
+          <button class="btn btn-secondary" onclick="loadPattern('ip')">🌐 IP</button>
+        </div>
+      </div>
+      <div class="result-section" id="testResult" style="display:none">
+        <h2>📄 Test Results</h2>
+        <div id="testOutput"></div>
+      </div>
+      <div class="cheat-section">
+        <h3>🔤 Character Classes</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">.</td><td>Any character (except newline)</td></tr>
+          <tr><td onclick="insertPattern(this)">\\d</td><td>Digit [0-9]</td></tr>
+          <tr><td onclick="insertPattern(this)">\\D</td><td>Not a digit [^0-9]</td></tr>
+          <tr><td onclick="insertPattern(this)">\\w</td><td>Word character [a-zA-Z0-9_]</td></tr>
+          <tr><td onclick="insertPattern(this)">\\W</td><td>Not a word character</td></tr>
+          <tr><td onclick="insertPattern(this)">\\s</td><td>Whitespace (space, tab, newline)</td></tr>
+          <tr><td onclick="insertPattern(this)">\\S</td><td>Not whitespace</td></tr>
+          <tr><td onclick="insertPattern(this)">[abc]</td><td>Any of a, b, or c</td></tr>
+          <tr><td onclick="insertPattern(this)">[^abc]</td><td>Not a, b, or c</td></tr>
+          <tr><td onclick="insertPattern(this)">[a-z]</td><td>Character range a to z</td></tr>
+        </table>
+      </div>
+      <div class="cheat-section">
+        <h3>🔢 Quantifiers</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">*</td><td>0 or more (greedy)</td></tr>
+          <tr><td onclick="insertPattern(this)">+</td><td>1 or more (greedy)</td></tr>
+          <tr><td onclick="insertPattern(this)">?</td><td>0 or 1 (optional)</td></tr>
+          <tr><td onclick="insertPattern(this)">{n}</td><td>Exactly n times</td></tr>
+          <tr><td onclick="insertPattern(this)">{n,}</td><td>n or more times</td></tr>
+          <tr><td onclick="insertPattern(this)">{n,m}</td><td>Between n and m times</td></tr>
+          <tr><td onclick="insertPattern(this)">*?</td><td>0 or more (lazy)</td></tr>
+          <tr><td onclick="insertPattern(this)">+?</td><td>1 or more (lazy)</td></tr>
+          <tr><td onclick="insertPattern(this)">??</td><td>0 or 1 (lazy)</td></tr>
+        </table>
+      </div>
+      </div>
+      <div class="cheat-section">
+        <h3>📍 Anchors & Boundaries</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">^</td><td>Start of string/line</td></tr>
+          <tr><td onclick="insertPattern(this)">$</td><td>End of string/line</td></tr>
+          <tr><td onclick="insertPattern(this)">\\b</td><td>Word boundary</td></tr>
+          <tr><td onclick="insertPattern(this)">\\B</td><td>Not a word boundary</td></tr>
+        </table>
+      </div>
+      <div class="cheat-section">
+        <h3>📦 Groups & References</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">(abc)</td><td>Capturing group</td></tr>
+          <tr><td onclick="insertPattern(this)">(?:abc)</td><td>Non-capturing group</td></tr>
+          <tr><td onclick="insertPattern(this)">(?&lt;name&gt;abc)</td><td>Named capturing group</td></tr>
+          <tr><td onclick="insertPattern(this)">\\1</td><td>Backreference to group 1</td></tr>
+          <tr><td onclick="insertPattern(this)">\\k&lt;name&gt;</td><td>Backreference to named group</td></tr>
+          <tr><td onclick="insertPattern(this)">|</td><td>Alternation (OR)</td></tr>
+        </table>
+      </div>
+      <div class="cheat-section">
+        <h3>👁️ Lookaround</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">(?=abc)</td><td>Positive lookahead</td></tr>
+          <tr><td onclick="insertPattern(this)">(?!abc)</td><td>Negative lookahead</td></tr>
+          <tr><td onclick="insertPattern(this)">(?&lt;=abc)</td><td>Positive lookbehind</td></tr>
+          <tr><td onclick="insertPattern(this)">(?&lt;!abc)</td><td>Negative lookbehind</td></tr>
+        </table>
+      </div>
+      <div class="cheat-section">
+        <h3>⚡ Special Characters</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertPattern(this)">\\</td><td>Escape special character</td></tr>
+          <tr><td onclick="insertPattern(this)">\\n</td><td>Newline</td></tr>
+          <tr><td onclick="insertPattern(this)">\\t</td><td>Tab</td></tr>
+          <tr><td onclick="insertPattern(this)">\\r</td><td>Carriage return</td></tr>
+          <tr><td onclick="insertPattern(this)">\\xHH</td><td>Hex character</td></tr>
+          <tr><td onclick="insertPattern(this)">\\uHHHH</td><td>Unicode character</td></tr>
+        </table>
+      </div>
+      <div class="cheat-section">
+        <h3>🚩 Flags</h3>
+        <table class="cheat-table">
+          <tr><td onclick="insertFlag(this)">g</td><td>Global — find all matches</td></tr>
+          <tr><td onclick="insertFlag(this)">i</td><td>Case-insensitive</td></tr>
+          <tr><td onclick="insertFlag(this)">m</td><td>Multiline — ^ and $ match line boundaries</td></tr>
+          <tr><td onclick="insertFlag(this)">s</td><td>Dotall — . matches newline</td></tr>
+          <tr><td onclick="insertFlag(this)">u</td><td>Unicode — enable Unicode support</td></tr>
+          <tr><td onclick="insertFlag(this)">y</td><td>Sticky — match at current position</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="ad-sidebar-wrap">
+      </div>
+  <div class="seo-content">
+    <h2>What Is the Regex Cheat Sheet?</h2>
+    <p>The Regex Cheat Sheet is a free online interactive reference for regular expressions. It provides a comprehensive quick-reference table for regex metacharacters, quantifiers, anchors, groups, lookarounds, and flags, combined with a live pattern tester. Click any pattern in the reference to insert it into the tester. All processing runs locally in your browser.</p>
+    <h2>Core Features</h2>
+    <ul>
+      <li><strong>Live Tester</strong>: Test regex patterns against sample text in real-time</li>
+      <li><strong>Click-to-Insert</strong>: Click any pattern in the cheat sheet to insert it into the tester</li>
+      <li><strong>Common Patterns</strong>: Pre-built patterns for email, URL, phone, and IP validation</li>
+      <li><strong>Match Highlighting</strong>: Visual highlighting of all matches in the test string</li>
+      <li><strong>Group Capture</strong>: Shows captured groups for each match</li>
+    </ul>
+    <h2>Common Regex Patterns</h2>
+    <p><strong>Email</strong>: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/</p>
+    <p><strong>URL</strong>: /^https?:\\/\\/(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}(\\/\\S*)?$/</p>
+    <p><strong>Phone (US)</strong>: /^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$/</p>
+    <p><strong>IP Address</strong>: /^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$/</p>
+    <h2>Regex Best Practices</h2>
+    <p>Use non-capturing groups (?:...) when you don't need to reference the group. Prefer character classes over alternation for single characters ([abc] vs a|b|c). Use anchors (^ and $) to prevent partial matches. Be careful with greedy quantifiers on large inputs — they can cause catastrophic backtracking. Test your patterns with edge cases including empty strings and special characters.</p>
+  </div>
+  <h2>❓ FAQ</h2>
+  <div class="faq-item"><h3>What is a regular expression?</h3><p>A sequence of characters defining a search pattern for string matching, validation, and text parsing.</p></div>
+  <div class="faq-item"><h3>Greedy vs lazy quantifiers?</h3><p>Greedy (*, +) match as much as possible. Lazy (*?, +?) match as little as possible.</p></div>
+  <div class="faq-item"><h3>What are lookaheads/lookbehinds?</h3><p>Zero-width assertions that check what comes after/before without consuming characters.</p></div>
+  <div class="faq-item"><h3>Is my data uploaded?</h3><p>No. All regex testing happens locally in your browser.</p></div>
+  <div class="faq-item"><h3>Which regex flavor?</h3><p>JavaScript ECMAScript RegExp. Most patterns are compatible with PCRE, Python, and Java.</p></div>
+  <div class="faq-item"><h3>How to escape special characters?</h3><p>Use backslash: \\. matches a literal dot, \\\\ matches a literal backslash.</p></div>
+</main>
+
+<footer class="footer">
+  <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/regex-cheat-sheet/">中文</a>
+</div>
+
+
+</footer>
+  <script>
+window.testRegex=function(){
+  var pattern=document.getElementById('regexPattern').value;
+  var flags=document.getElementById('regexFlags').value;
+  var testStr=document.getElementById('testString').value;
+  var out=document.getElementById('testOutput');
+  var result=document.getElementById('testResult');
+  if(!pattern){out.innerHTML='<div style="color:#94a3b8">Enter a pattern to test</div>';result.style.display='block';return;}
+  try{
+    var re=new RegExp(pattern,flags);
+    var matches=[];
+    var match;
+    if(flags.indexOf('g')!==-1){
+      while((match=re.exec(testStr))!==null){
+        matches.push({full:match[0],index:match.index,groups:match.slice(1)});
+        if(match[0].length===0)re.lastIndex++;
+        if(matches.length>100)break;
+      }
+    }else{
+      match=re.exec(testStr);
+      if(match)matches.push({full:match[0],index:match.index,groups:match.slice(1)});
+    }
+    var html='<div class="result-box"><div class="result-label">Pattern</div><div class="result-value info">/'+pattern+'/'+flags+'</div></div>';
+    html+='<div class="result-box"><div class="result-label">Matches</div><div class="result-value '+(matches.length>0?'success':'danger')+'">'+matches.length+' match'+(matches.length!==1?'es':'')+'</div></div>';
+    if(matches.length>0){
+      var highlighted=testStr;
+      var offset=0;
+      var sorted=matches.slice().sort(function(a,b){return b.index-a.index});
+      sorted.forEach(function(m){
+        var start=m.index+offset;
+        var end=start+m.full.length;
+        highlighted=highlighted.substring(0,start)+'<span class="match-highlight">'+highlighted.substring(start,end)+'</span>'+highlighted.substring(end);
+        offset+='<span class="match-highlight">'.length+'</span>'.length;
+      });
+      html+='<div class="result-box"><div class="result-label">Highlighted</div><div style="font-family:monospace;font-size:.85rem;line-height:1.8;color:#e2e8f0">'+highlighted+'</div></div>';
+      matches.slice(0,20).forEach(function(m,i){
+        html+='<div class="result-box"><div class="result-label">Match '+(i+1)+'</div>';
+        html+='<div class="result-value" style="font-size:.85rem">Full: <span style="color:#22d3ee">"'+m.full+'"</span> at index '+m.index+'</div>';
+        if(m.groups.length>0){
+          m.groups.forEach(function(g,j){
+            html+='<div style="color:#94a3b8;font-size:.8rem;margin-top:2px">Group '+(j+1)+': '+(g!==undefined?'"'+g+'"':'undefined')+'</div>';
+          });
+        }
+        html+='</div>';
+      });
+      if(matches.length>20)html+='<div style="color:#64748b;font-size:.8rem;padding:4px">... and '+(matches.length-20)+' more matches</div>';
+    }else{
+      html+='<div class="result-box"><div style="color:#94a3b8;font-size:.85rem">No matches found</div></div>';
+    }
+    out.innerHTML=html;
+  }catch(e){
+    out.innerHTML='<div class="result-box"><div class="result-value danger">❌ Invalid regex: '+e.message+'</div></div>';
+  }
+  result.style.display='block';
+};
+window.insertPattern=function(td){
+  var pattern=td.textContent;
+  var input=document.getElementById('regexPattern');
+  var pos=input.selectionStart;
+  var val=input.value;
+  input.value=val.substring(0,pos)+pattern+val.substring(pos);
+  input.focus();
+  input.setSelectionRange(pos+pattern.length,pos+pattern.length);
+  testRegex();
+};
+window.insertFlag=function(td){
+  var flag=td.textContent;
+  var input=document.getElementById('regexFlags');
+  if(input.value.indexOf(flag)===-1)input.value+=flag;
+  testRegex();
+};
+window.loadPattern=function(name){
+  var patterns={
+    email:{pattern:'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',flags:'i',test:'user@example.com\ninvalid-email\ntest.name+tag@domain.co.uk'},
+    url:{pattern:'^https?:\\/\\/(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}(\\/\\S*)?$',flags:'i',test:'https://example.com\nhttp://www.test.org/path\nnot-a-url\nftp://files.com'},
+    phone:{pattern:'^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$',flags:'',test:'(555) 123-4567\n555.123.4567\n555-123-4567\n12345\n+1-555-123-4567'},
+    ip:{pattern:'^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$',flags:'',test:'192.168.1.1\n10.0.0.1\n999.999.999.999\n1.2.3\nhello'}
+  };
+  var p=patterns[name];
+  document.getElementById('regexPattern').value=p.pattern;
+  document.getElementById('regexFlags').value=p.flags;
+  document.getElementById('testString').value=p.test;
+  testRegex();
+};
+testRegex();
+</script>
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script src="../../related-tools.js"></script>
+
+<script>(function(){ var processed = new Set(); function addCopyBtns(){ var results = document.querySelectorAll('[id*="result"],[id*="Result"],[id*="output"],[id*="Output"],[class*="result"],[class*="output"]'); results.forEach(function(el){ if(processed.has(el)) return; if(el.querySelector('.copy-btn')) return; if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT') return; if(el.children.length===0 && el.textContent.trim().length<5) return;
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.innerHTML = '📋 Copy';
+      btn.title = 'CopyResult';
+      btn.onclick = function(e){
+        e.stopPropagation();
+        var text = el.textContent || el.value || '';
+        if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') text = el.value;
+        navigator.clipboard.writeText(text.trim()).then(function(){
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        }).catch(function(){
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.innerHTML = '✅ Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){btn.innerHTML='📋 Copy';btn.classList.remove('copied');},2000);
+        });
+      };
+      el.appendChild(btn);
+      processed.add(el);
+    });
+  }
+  // Run initially
+  addCopyBtns();
+  // Re-run after button clicks (most tools update results on click)
+  document.addEventListener('click', function(){setTimeout(addCopyBtns,100);});
+  // Observe DOM changes
+  if(window.MutationObserver){
+    var obs = new MutationObserver(function(){addCopyBtns();});
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+</body></html>

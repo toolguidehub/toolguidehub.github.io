@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Journal - ToolGuideHub</title>
+  <meta name="description" content="Record dreams with date, mood and tags, then review patterns and statistics, all stored locally on your device.">
+  <meta property="og:title" content="Dream Journal - Record & Analyze Your Dreams Online">
+  <meta property="og:description" content="Record dreams with date, mood and tags, then review patterns and statistics, all stored locally on your device.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dream Journal",
+    "description": "Online dream recording and analysis tool",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web"
+  }
+  </script>
+  <style>:root{--shadow:0 1px 3px rgba(0,0,0,.3);--surface:#1e293b;--text:#e2e8f0}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: #1e293b; border-bottom: 1px solid rgba(148,163,184,.1); padding: 24px 20px; text-align: center; }
+    header h1 { color: #e2e8f0; font-size: 1.6rem; }
+    header p { color: #94a3b8; font-size: .9rem; margin-top: 4px; }
+    header .nav-back{max-width:680px;margin:0 auto;text-align:left}
+    .lang-switch{display:inline-flex;gap:4px;background:#0f172a;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);margin-top:12px}
+    .lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8;text-decoration:none}
+    .lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+    main { flex: 1; max-width: 680px; margin: 0 auto; padding: 24px 16px; width: 100%; }
+    .card { background: #1e293b; border-radius: 12px; padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px; }
+    .field-group { margin-bottom: 12px; }
+    .field-group label { display: block; font-size: .85rem; font-weight: 600; color: #94a3b8; margin-bottom: 6px; }
+    .field-group input, .field-group textarea, .field-group select { width: 100%; padding: 12px 14px; border: 2px solid rgba(148,163,184,.1); border-radius: 12px; font-size: 1rem; outline: none; transition: border-color .2s; background: #0f172a; font-family: inherit; }
+    .field-group textarea {
+      background: #0f172a;
+      color: var(--text); resize: vertical; min-height: 100px; }
+    .field-group input:focus, .field-group textarea:focus, .field-group select:focus { border-color: #22d3ee; }
+    .field-group select option{background:#1e293b;color:#e2e8f0}
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 6px 14px; border-radius: 20px; font-size: .82rem; cursor: pointer; border: 1.5px solid rgba(148,163,184,.1); background: #0f172a; transition: all .2s; }
+    .tag.selected { background: #22d3ee; color: #062a2e; border-color: #22d3ee; }
+    .btn { padding: 12px 24px; background: linear-gradient(135deg,#06b6d4,#0891b2); color: #062a2e; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .2s; }
+    .btn:hover { background: linear-gradient(135deg,#22d3ee,#06b6d4); transform: translateY(-1px); }
+    .btn-sm { padding: 6px 14px; font-size: .8rem; background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.3); border-radius: 8px; cursor: pointer; transition: all .2s; }
+    .btn-sm:hover { background: rgba(239,68,68,.25); }
+    .dream-entry { border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; position: relative; }
+    .dream-entry .dream-date { font-size: .8rem; color: #94a3b8; }
+    .dream-entry .dream-title { font-weight: 700; font-size: 1.05rem; margin: 4px 0; }
+    .dream-entry .dream-text { font-size: .9rem; color: #94a3b8; margin: 4px 0; }
+    .dream-entry .dream-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+    .dream-entry .dream-tag-badge { font-size: .75rem; background: rgba(6,182,212,.15); color: #22d3ee; padding: 2px 10px; border-radius: 10px; }
+    .dream-entry .dream-delete { position: absolute; top: 10px; right: 10px; }
+    .stats-row { display: flex; gap: 12px; margin-bottom: 16px; }
+    .stat-card { flex: 1; background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 12px; padding: 12px; text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: #22d3ee; }
+    .stat-label { font-size: .78rem; color: #94a3b8; }
+    .empty-state { text-align: center; padding: 30px 20px; color: #94a3b8; }
+    footer { text-align: center; padding: 20px; color: #94a3b8; font-size: .85rem; border-top: 1px solid rgba(148,163,184,.1); margin-top: auto; }
+    @media (max-width: 375px) { .stats-row { flex-direction: column; } }
+  .nav-back{color:#64748b;font-size:.85rem;margin-bottom:12px}.nav-back a{color:#64748b;text-decoration:none}.nav-back a:hover{color:#94a3b8}
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/dream-journal/">
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Dream Journal", "item": "https://adi63586.github.io/Toolguidehub/en/dream-journal/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Dream Journal FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Dream Journal?","acceptedAnswer":{"@type":"Answer","text":"Enter a date, a title, and a description of your dream, choose a mood and select tags, then click Save Dream. Your entries are stored locally in your browser and displayed below with statistics. No data is sent to any server."}},{"@type":"Question","name":"Is the Dream Journal free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: your dream entries are stored on your device and are never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Where is my dream data stored?","acceptedAnswer":{"@type":"Answer","text":"Your dream entries are saved in your browser's local storage on your device. Nothing is sent to any server. Clearing your browser data for this site will remove your entries."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Dream Journal","description":"Step-by-step guide for recording and reviewing your dreams with the Dream Journal tool. Everything runs locally in your browser.","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Dream Journal"},"step":[{"@type":"HowToStep","position":1,"name":"Add details","text":"Enter the date, a title, and a description of your dream, then choose the mood and select relevant tags."},{"@type":"HowToStep","position":2,"name":"Save the entry","text":"Click Save Dream to store the entry. It appears instantly in the Dream Records list below."},{"@type":"HowToStep","position":3,"name":"Review your records","text":"View your saved dreams, monthly statistics, and most-used tags. Delete individual entries or clear all records anytime."}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/dream-journal/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-back"><a href="../../">← Back to Home</a></div>
+    <h1>🌙 Dream Journal</h1>
+    <p>Record your dreams, explore the world of your subconscious</p>
+    
+  </header>
+  <main>
+    <div class="section">
+      <div class="field-group">
+        <label>📅 Date</label>
+        <input type="date" id="dreamDate">
+      </div>
+      <div class="field-group">
+        <label>📝 Dream Title</label>
+        <input type="text" id="dreamTitle" placeholder="Give your dream a title..." maxlength="60">
+      </div>
+      <div class="field-group">
+        <label>💭 Dream Content</label>
+        <textarea id="dreamContent" placeholder="Describe your dream... people, scenes, emotions, events..." rows="4"></textarea>
+      </div>
+      <div class="field-group">
+        <label>😊 Mood</label>
+        <select id="dreamMood">
+          <option value="happy">😊 Happy</option>
+          <option value="scary">😱 Scary</option>
+          <option value="sad">😢 Sad</option>
+          <option value="strange">🤔 Strange</option>
+          <option value="exciting">🤩 Exciting</option>
+          <option value="neutral">😐 Neutral</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>🏷️ Tags (multi-select)</label>
+        <div class="tag-row" id="tagRow">
+          <span class="tag" data-tag="Flying">✈️ Flying</span>
+          <span class="tag" data-tag="Falling">⬇️ Falling</span>
+          <span class="tag" data-tag="Chase">🏃 Chase</span>
+          <span class="tag" data-tag="Water">🌊 Water</span>
+          <span class="tag" data-tag="Exam">📝 Exam</span>
+          <span class="tag" data-tag="Teeth">🦷 Teeth</span>
+          <span class="tag" data-tag="Death">💀 Death</span>
+          <span class="tag" data-tag="Animals">🐾 Animals</span>
+          <span class="tag" data-tag="Work">💼 Work</span>
+          <span class="tag" data-tag="Family">👨‍👩‍👧‍👦 Family</span>
+          <span class="tag" data-tag="Travel">🚗 Travel</span>
+          <span class="tag" data-tag="Reunion">👋 Reunion</span>
+        </div>
+      </div>
+      <button class="btn" id="saveBtn" style="width:100%">💾 Save Dream</button>
+    </div>
+    <div class="section" id="listCard">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="font-size:1.1rem">📖 Dream Records</h3>
+        <button class="btn-sm" id="clearBtn">Clear All</button>
+      </div>
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Total</div></div>
+        <div class="stat-card"><div class="stat-num" id="statMonth">0</div><div class="stat-label">This Month</div></div>
+        <div class="stat-card"><div class="stat-num" id="statTopTag">--</div><div class="stat-label">Top Tag</div></div>
+      </div>
+      <div id="dreamList"><div class="empty-state">🌌 No dreams yet. Start recording your first dream!</div></div>
+    </div>
+  
+<h2>What is Dream Journal?</h2><p>Dream Journal is a free online tool that runs entirely in your browser. No download or signup needed — record the date, title, content, mood, and tags of your dreams, then review your dream records and statistics. All data is stored locally on your device.</p>
+<h2>Use Cases</h2><ul><li>Track recurring dream themes and symbols over time</li><li>Discover patterns between your mood and dream content</li><li>Keep a private journal without installing any app</li><li>Review your most common dream tags at a glance</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Works on any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/gratitude-journal/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Gratitude Journal</a> <a href="../../en/daily-journal/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Daily Journal</a> <a href="../../en/json-formatter/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">JSON Formatter</a> <a href="../../en/base64-encode/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Base64 Encode</a> <a href="../../en/password-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Password Generator</a> <a href="../../en/image-compress/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Image Compress</a> <a href="../../en/qr-code-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">QR Code Generator</a> <a href="../../en/url-encoder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">URL Encoder</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/dream-journal/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+  <script>
+    (function(){
+      const STORAGE_KEY = 'dream_journal_en_entries';
+      let dreams = [];
+      let selectedTags = [];
+
+      function load() {
+        try { dreams = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { dreams = []; }
+        render();
+      }
+
+      function save() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(dreams));
+        render();
+      }
+
+      function render() {
+        const list = document.getElementById('dreamList');
+        if (dreams.length === 0) {
+          list.innerHTML = '<div class="empty-state">🌌 No dreams yet. Start recording your first dream!</div>';
+        } else {
+          list.innerHTML = dreams.map((d,i) =>
+            '<div class="dream-entry">' +
+            '<div class="dream-date">📅 ' + d.date + ' · ' + d.mood + '</div>' +
+            '<div class="dream-title">' + escapeHtml(d.title) + '</div>' +
+            '<div class="dream-text">' + escapeHtml(d.content.slice(0,120)) + (d.content.length > 120 ? '...' : '') + '</div>' +
+            '<div class="dream-tags">' + d.tags.map(t => '<span class="dream-tag-badge">'+t+'</span>').join('') + '</div>' +
+            '<button class="dream-delete btn-sm" data-idx="'+i+'">Delete</button>' +
+            '</div>'
+          ).join('');
+        }
+        document.getElementById('statTotal').textContent = dreams.length;
+        const now = new Date();
+        const thisMonth = dreams.filter(d => d.date.startsWith(now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0'))).length;
+        document.getElementById('statMonth').textContent = thisMonth;
+        const tagCounts = {};
+        dreams.forEach(d => d.tags.forEach(t => tagCounts[t] = (tagCounts[t]||0)+1));
+        const topTag = Object.entries(tagCounts).sort((a,b) => b[1]-a[1])[0];
+        document.getElementById('statTopTag').textContent = topTag ? topTag[0] : '--';
+      }
+
+      function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+      document.getElementById('dreamDate').value = new Date().toISOString().slice(0,10);
+
+      document.getElementById('tagRow').addEventListener('click', function(e){
+        const tag = e.target.closest('.tag');
+        if (!tag) return;
+        tag.classList.toggle('selected');
+        const tagName = tag.dataset.tag;
+        if (tag.classList.contains('selected')) {
+          if (!selectedTags.includes(tagName)) selectedTags.push(tagName);
+        } else {
+          selectedTags = selectedTags.filter(t => t !== tagName);
+        }
+      });
+
+      document.getElementById('saveBtn').addEventListener('click', function(){
+        const title = document.getElementById('dreamTitle').value.trim();
+        const content = document.getElementById('dreamContent').value.trim();
+        if (!title || !content) return;
+        const entry = {
+          date: document.getElementById('dreamDate').value,
+          title,
+          content,
+          mood: document.getElementById('dreamMood').options[document.getElementById('dreamMood').selectedIndex].text,
+          tags: [...selectedTags]
+        };
+        dreams.unshift(entry);
+        if (dreams.length > 500) dreams = dreams.slice(0,500);
+        save();
+        document.getElementById('dreamTitle').value = '';
+        document.getElementById('dreamContent').value = '';
+        selectedTags = [];
+        document.querySelectorAll('#tagRow .tag').forEach(t => t.classList.remove('selected'));
+      });
+
+      document.getElementById('dreamList').addEventListener('click', function(e){
+        const btn = e.target.closest('.dream-delete');
+        if (!btn) return;
+        const idx = parseInt(btn.dataset.idx);
+        dreams.splice(idx, 1);
+        save();
+      });
+
+      document.getElementById('clearBtn').addEventListener('click', function(){
+        if (dreams.length === 0 || !confirm('Clear all dream records? This cannot be undone.')) return;
+        dreams = [];
+        save();
+      });
+
+      load();
+    })();
+  </script>
+</body>
+</html>

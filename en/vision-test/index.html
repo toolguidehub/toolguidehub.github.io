@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check your eyesight at home with a standard Snellen or Tumbling E chart. Follow the distance instructions for a quick vision self-test.">
+<meta name="keywords" content="vision testeye testSnellen chartE chartvision screeningeye examvisual acuity testonline eye testvision checkeye chart">
+<title>Online Vision Test - Snellen & Tumbling E Chart</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/vision-test/">
+<meta property="og:title" content="Online Vision Test - Snellen & Tumbling E Chart">
+<meta property="og:description" content="Check your eyesight at home with a standard Snellen or Tumbling E chart. Follow the distance instructions for a quick vision self-test.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/vision-test/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Vision Test", "description": "Free online vision test with standard Snellen chart and Tumbling E chart. Supports different testing distances and adjustable chart sizes. Perfect for daily eye check and vision screening.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-10", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Is this tool free to use?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is completely free to use. No registration, subscription, or payment is required. All processing happens directly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload data to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs locally: Chart Type and Test Distance are processed on your device, never sent to a server using JavaScript. Your data never leaves your device, ensuring complete privacy and security. The tool works even when offline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this tool is fully responsive and works on all modern browsers including Chrome, Safari, Firefox, and Edge on desktop, tablet, and mobile devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an internet connection required to use this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No internet connection is required after the page loads. Since all processing happens in your browser, you can use this tool offline once the page is loaded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a file size limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no server-side file size limit since files are processed locally in your browser. The only limitation is your device's memory (RAM). For very large files, we recommend processing them in smaller chunks."
+      }
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use the Vision Test",
+  "description": "Simple steps to use the 👁️ Vision Test online tool. Everything runs locally: Chart Type and Test Distance are processed on your device, never sent to a server with no data upload.",
+  "totalTime": "PT1M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "👁️ Vision Test"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your input",
+      "text": "Type, paste, or upload your content into the input area on the tool page. The tool supports standard input formats.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/vision-test/#input"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Configure settings",
+      "text": "Adjust any available options or settings to customize how your data is processed. Select your preferred output format if applicable.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/vision-test/#options"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "View and save results",
+      "text": "Click the process button to instantly see results in your browser. All data processing is done locally on your device — nothing is uploaded to any server. You can copy, download, or share the output directly.",
+      "url": "https://adi63586.github.io/Toolguidehub/en/vision-test/#output"
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem;color:#f1f5f9}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)}
+.lang-switch a{padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+.nav-back{color:#64748b;font-size:.85rem;margin-bottom:16px}
+.nav-back a{color:#64748b}
+.section{background:#1e293b;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid rgba(148,163,184,.1)}
+.section h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;color:#94a3b8;font-size:.9rem;margin-bottom:6px;font-weight:500}
+.form-group input[type="number"],.form-group input[type="text"],.form-group select,.form-group textarea,.form-group input[type="date"],.form-group input[type="range"]{width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0;font-size:.9rem;outline:none;transition:all .2s}
+.form-group textarea{
+      background: var(--surface);
+      color: var(--text);min-height:80px;resize:vertical}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 3px rgba(6,182,212,.1)}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:200px}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;transition:all .2s;font-weight:600}
+.btn-primary{background:rgba(6,182,212,.2);color:#22d3ee;border:1px solid rgba(6,182,212,.3)}
+.btn-primary:hover{background:rgba(6,182,212,.3)}
+.btn-secondary{background:rgba(148,163,184,.1);color:#94a3b8;border:1px solid rgba(148,163,184,.2)}
+.btn-secondary:hover{background:rgba(148,163,184,.2)}
+.btn-success{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+.btn-success:hover{background:rgba(34,197,94,.25)}
+.btn-danger{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.btn-danger:hover{background:rgba(239,68,68,.25)}
+.preview-box{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:16px;min-height:100px;display:flex;align-items:center;justify-content:center}
+.faq-item{margin-bottom:16px}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px}
+.faq-item p{color:#94a3b8;font-size:.9rem}
+.info-text{color:#94a3b8;font-size:.85rem;margin-bottom:12px}
+.footer{border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem}
+.footer a{color:#64748b;margin:0 8px}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#22d3ee;padding:10px 24px;border-radius:8px;border:1px solid rgba(6,182,212,.3);font-size:.85rem;z-index:999;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid rgba(148,163,184,.1)}
+th{color:#94a3b8;font-weight:600;font-size:.8rem;text-transform:uppercase}
+td{color:#e2e8f0}
+tr:hover td{background:rgba(148,163,184,.05)}
+canvas{max-width:100%}
+.ad-slot.ad-sidebar{max-width:300px}
+@media(max-width:640px){h1{font-size:1.2rem;word-break:break-word}.container{padding:0 12px}.btn{padding:8px 14px;font-size:.85rem}.panel{padding:16px}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ToolGuideHub",
+      "item": "https://adi63586.github.io/Toolguidehub/en/#online-tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Vision Test",
+      "item": "https://adi63586.github.io/Toolguidehub/en/vision-test/"
+    }
+  ],
+  "name": "Vision Test"
+}</script>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/vision-test/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+ <div class="header"><h1>Online Vision Test</h1></div>
+ <p class="nav-back"><a href="../../index.html">&larr; All Tools</a></p>
+
+<!-- Freshness badge - GEO signal -->
+<div style="text-align:center;margin-top:-8px;margin-bottom:16px;font-size:0.8rem;color:#64748b">
+ <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:20px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.12)">
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ Updated: 2026-07-11
+ </span>
+</div>
+
+ <div class="section"><p class="info-text">Free online vision test with standard Snellen chart and Tumbling E chart. Supports different testing distances and adjustable chart sizes. Perfect for daily eye check and vision screening.</p>
+ <div class="tool-body">
+
+<div class="form-row">
+ <div class="form-group">
+ <label>Chart Type</label>
+ <select id="chartType" onchange="initChart()">
+ <option value="snellen">Snellen Chart (E)</option>
+ <option value="tumbling">Tumbling E (4 directions)</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label>Test Distance</label>
+ <select id="testDistance" onchange="initChart()">
+ <option value="2">2 meters</option>
+ <option value="3">3 meters</option>
+ <option value="4">4 meters</option>
+ <option value="5">5 meters</option>
+ </select>
+ </div>
+</div>
+<div class="btn-group">
+ <button class="btn btn-primary" onclick="randomizeChart()">Randomize</button>
+ <button class="btn btn-success" onclick="showLarger()">Larger Row</button>
+ <button class="btn btn-secondary" onclick="showSmaller()">Smaller Row</button>
+ <button class="btn btn-secondary" onclick="resetChart()">Reset</button>
+</div>
+<div class="form-group" style="text-align:center">
+ <canvas id="visionCanvas" width="400" height="500" style="background:#0f172a;border-radius:12px;max-width:100%;margin:0 auto;display:block"></canvas>
+</div>
+<div class="form-group">
+ <p id="visionResult" class="info-text" style="text-align:center;font-size:1.1rem">Select test distance and click "Randomize" to start</p>
+</div>
+<div class="form-row">
+ <div class="form-group">
+ <label>Manual Vision Selection</label>
+ <select id="visionSelect" onchange="showSelectedVision()" style="width:100%;padding:10px 14px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:8px;color:#e2e8f0">
+ <option value="0.1">0.1 (20/200)</option>
+ <option value="0.2">0.2 (20/100)</option>
+ <option value="0.3">0.3 (20/70)</option>
+ <option value="0.4">0.4 (20/50)</option>
+ <option value="0.5">0.5 (20/40)</option>
+ <option value="0.6">0.6 (20/30)</option>
+ <option value="0.7">0.7</option>
+ <option value="0.8">0.8 (20/25)</option>
+ <option value="0.9">0.9</option>
+ <option value="1.0" selected>1.0 (20/20)</option>
+ <option value="1.2">1.2 (20/15)</option>
+ <option value="1.5">1.5</option>
+ </select>
+ </div>
+</div>
+
+ </div>
+ </div>
+ <div class="seo-content">
+ <h2>How to Use the Vision Test</h2>
+ <p>Validate your content with the Vision Test in three steps:</p>
+ <ol style="padding-left:20px;margin-top:12px">
+
+ <li style="margin-bottom:16px">
+ <strong>Enter Content to Validate</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Type, paste, or upload the content you want to validate into the input area. The tool accepts direct text input and file upload for batch processing.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Run Validation</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">Click the "Validate" or "Check" button to analyze your content. The tool performs a thorough check and provides detailed feedback, including error locations and suggested fixes.</span>
+ </li>
+
+ <li style="margin-bottom:16px">
+ <strong>Review Results</strong><br>
+ <span style="color:#94a3b8;font-size:.9rem">View the validation results, including any errors, warnings, or success messages. If errors are found, the tool highlights their exact location to help you fix them quickly.</span>
+ </li>
+
+ </ol>
+ </div>
+
+ <div class="section"><h2>FAQ</h2>
+ <div class="faq-item"><h3>Is this vision test accurate?</h3><p>This tool provides a basic screening using standard Snellen and Tumbling E charts. It is not a replacement for a professional eye exam. For accurate results, visit an optometrist.</p></div>
+ <div class="faq-item"><h3>Does this tool work on mobile?</h3><p>Yes, the chart adapts to your screen size. For best accuracy, use a desktop browser at the recommended testing distance.</p></div>
+ <div class="faq-item"><h3>How do I use the Tumbling E chart?</h3><p>Each "E" points in a different direction (up, down, left, right). Identify which direction each E faces and compare with the standard vision values.</p></div>
+
+ </div>
+ <div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+var lang=document.documentElement.lang;
+function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2000)}
+
+var currentRow=5;
+var optotypes='ETOVZHLNFSD';
+var dirs=[0,90,180,270];
+
+function initChart(){
+  currentRow=5;
+  drawChart();
+  updateResult();
+}
+
+function randomizeChart(){
+  drawChart();
+}
+
+function showLarger(){
+  if(currentRow>0)currentRow--;
+  drawChart();
+  updateResult();
+}
+
+function showSmaller(){
+  if(currentRow<11)currentRow++;
+  drawChart();
+  updateResult();
+}
+
+function resetChart(){
+  currentRow=5;
+  drawChart();
+  updateResult();
+}
+
+function getOptotypeSize(row){
+  var snellen=[ "0.1","0.2","0.3","0.4","0.5","0.6","0.7","0.8","0.9","1.0","1.2","1.5" ];
+  var dist=parseInt(document.getElementById('testDistance').value);
+  // Size in px for 5m reference
+  var baseSizes=[80,60,48,40,34,28,24,22,20,18,15,12];
+  var idx=Math.min(row,11);
+  return baseSizes[idx]*(5/dist);
+}
+
+function drawChart(){
+  var c=document.getElementById('visionCanvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var w=c.width,h=c.height;
+  ctx.fillStyle='#fff';
+  ctx.fillRect(0,0,w,h);
+  
+  var chartType=document.getElementById('chartType').value;
+  var size=getOptotypeSize(currentRow);
+  var dist=parseInt(document.getElementById('testDistance').value);
+  
+  // Draw 5 optotypes in current row
+  var count=5;
+  var gap=10;
+  var totalW=count*size*1.2+(count-1)*gap;
+  var startX=(w-totalW)/2;
+  var y=h/2-size/2;
+  
+  ctx.fillStyle='#000';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  
+  for(var i=0;i<count;i++){
+    var x=startX+i*(size*1.2+gap);
+    var opto=optotypes[(Math.floor(Math.random()*optotypes.length))];
+    var dir=dirs[Math.floor(Math.random()*4)];
+    
+    if(chartType==='snellen'){
+      // Draw E-like optotype
+      var fs=size*1.2;
+      ctx.font='bold '+fs+'px serif';
+      ctx.fillText('E',x+size/2*0.6,y+size/2);
+    }else{
+      // Draw Tumbling E in random direction
+      ctx.save();
+      ctx.translate(x+size*0.6,y+size/2);
+      ctx.rotate(dir*Math.PI/180);
+      var fs=size*1.2;
+      ctx.font='bold '+fs+'px serif';
+      ctx.fillText('E',0,0);
+      ctx.restore();
+    }
+  }
+  
+  // Draw vision value
+  ctx.font='14px sans-serif';
+  ctx.fillStyle='#64748b';
+  ctx.fillText('Estimated: '+getVisionValue(currentRow,dist)+' - Row '+(currentRow+1),w/2,h-20);
+}
+
+function getVisionValue(row,dist){
+  var visions=["0.1","0.15","0.2","0.25","0.3","0.4","0.5","0.6","0.7","0.8","1.0","1.2"];
+  var idx=Math.min(row,11);
+  return visions[idx];
+}
+
+function updateResult(){
+  var dist=parseInt(document.getElementById('testDistance').value);
+  var val=getVisionValue(currentRow,dist);
+  document.getElementById('visionResult').textContent='Current: '+val+' ('+dist+'m)';
+}
+
+function showSelectedVision(){
+  var sel=document.getElementById('visionSelect');
+  var val=parseFloat(sel.value);
+  var visions=[0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.6,0.7,0.8,1.0,1.2];
+  var idx=visions.indexOf(val);
+  if(idx>=0){
+    currentRow=idx;
+    drawChart();
+    updateResult();
+  }
+}
+
+initChart();
+</script>
+
+<!-- Feedback Widget -->
+</main>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/vision-test/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+function toggleFeedback(){const p=document.getElementById('feedback-panel');p.style.display=p.style.display==='none'?'block':'none';}
+function submitFeedback(){
+const type=document.getElementById('feedback-type').value;
+const typeLabel={feedback:'💡 Feature Request',bug:'🐛 Bug Report',other:'💬 Other'}[type];
+const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
+const body=encodeURIComponent('**Page**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
+window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+document.getElementById('feedback-success').style.display='block';
+}
+</script>
+<!-- Related Tools (cross-recommendation) -->
+<link rel="stylesheet" href="../../related-tools.css">
+<div id="related-tools-section" class="related-tools-section">
+ <div class="related-tools-loading">Loading related tools...</div>
+</div>
+<script src="../../related-tools.js"></script>
+
+</body>
+</html>

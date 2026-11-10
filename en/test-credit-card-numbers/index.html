@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Credit Card Number Generator - ToolGuideHub</title>
+  <meta name="description" content="Generate Luhn-valid test credit card numbers for each major network in the quantity you need, for payment integration testing only.">
+  <meta property="og:title" content="Test Credit Card Number Generator - ToolGuideHub">
+  <meta property="og:description" content="Generate Luhn-valid test credit card numbers for each major network in the quantity you need, for payment integration testing only.">
+  <meta property="og:type" content="website">
+  
+  <style>:root{--sub:#94a3b8;}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column}
+    header{background:#1e293b;border-bottom:1px solid rgba(148,163,184,.1);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+    header a{color:#22d3ee;text-decoration:none;font-weight:600;font-size:18px}
+    .lang-switch a{color:var(--sub);font-size:14px;text-decoration:none;padding:4px 12px;border-radius:6px;border:1px solid rgba(148,163,184,.1)}
+    .lang-switch a:hover{color:#22d3ee;border-color:#22d3ee}
+    main{flex:1;max-width:700px;margin:0 auto;padding:40px 20px;width:100%}
+    h1{font-size:28px;margin-bottom:8px;text-align:center}
+    .subtitle{text-align:center;color:var(--sub);margin-bottom:32px}
+    .section{background:#1e293b;border-radius:12px;padding:24px;border:1px solid rgba(148,163,184,.1);margin-bottom:20px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+    .form-group select,.form-group input{width:100%;padding:12px;border:2px solid rgba(148,163,184,.1);border-radius:8px;font-size:16px;background:#0f172a}
+    .form-group select:focus,.form-group input:focus{outline:none;border-color:#22d3ee}
+    .row{display:flex;gap:12px}.row>*{flex:1}
+    .btn{width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;background:#22d3ee;color:#fff;transition:all .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result{background:#1e293b;border-radius:8px;padding:20px;margin-top:20px;border:1px solid rgba(148,163,184,.1)}
+    .card-number{font-size:24px;font-weight:700;font-family:monospace;text-align:center;letter-spacing:2px;word-break:break-all;color:#22d3ee;margin-bottom:8px}
+    .card-info{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--sub)}
+    .card-info span{background:#0f172a;padding:4px 12px;border-radius:20px;border:1px solid rgba(148,163,184,.1)}
+    .btn-copy{margin-top:12px;padding:8px 20px;border:1px solid #22d3ee;border-radius:6px;background:transparent;color:#22d3ee;cursor:pointer;font-size:14px}
+    .btn-copy:hover{background:#22d3ee;color:#fff}
+    .notice{background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.2);border-radius:8px;padding:12px;font-size:13px;color:#fbbf24;margin-top:16px;text-align:center}
+    footer{text-align:center;padding:24px;color:var(--sub);font-size:13px;border-top:1px solid rgba(148,163,184,.1)}
+    @media(max-width:600px){main{padding:20px 12px}h1{font-size:22px}.row{flex-direction:column}}
+  
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+  <meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/test-credit-card-numbers/">
+        <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://adi63586.github.io/Toolguidehub/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://adi63586.github.io/Toolguidehub/en/#tools/"},{"@type":"ListItem","position":3,"name":"Test Credit Card Number Generator","item":"https://adi63586.github.io/Toolguidehub/en/test-credit-card-numbers/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these real card numbers?","acceptedAnswer":{"@type":"Answer","text":"No. These are Luhn-valid virtual numbers for development testing only. They cannot be used for real transactions and are not linked to any bank account."}},{"@type":"Question","name":"What is the Luhn algorithm?","acceptedAnswer":{"@type":"Answer","text":"Luhn algorithm (Mod 10) is a simple checksum formula used to validate credit card numbers, IMEI numbers, and other identifiers. Most card issuers use it to prevent input errors."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All generation happens locally in your browser. No card numbers are ever stored or transmitted."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Test credit card numbersGenerate","applicationCategory":"UtilityApplication","operatingSystem":"Web","description":"Free online test credit card numbersGenerate，GenerateVirtual credit card numbers for development testing.","publisher":{"@type":"Organization","name":"ToolGuideHub"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Test credit card numbersGenerate","description":"Step-by-step guide for using Test credit card numbersGenerate","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Test credit card numbersGenerate"},"step":[{"@type":"HowToStep","position":1,"name":"Enter content","text":"Type or paste your content into the editor"},{"@type":"HowToStep","position":2,"name":"Edit and modify","text":"Use the toolbar or controls to make changes"},{"@type":"HowToStep","position":3,"name":"Preview live","text":"See real-time preview of your changes"},{"@type":"HowToStep","position":4,"name":"Export result","text":"Copy or download the edited content"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/test-credit-card-numbers/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><a href="../../">🧰 ToolGuideHub</a></header>
+<main>
+  <h1>💳 Test Credit Card Number Generator</h1>
+  <p class="subtitle">Generate Luhn-valid virtual card numbers for development testing</p>
+  <div class="section">
+    <div class="row">
+      <div class="form-group"><label>Card Network</label><select id="cardType"><option value="visa">Visa (starts with 4, 16 digits)</option><option value="mastercard">MasterCard (51-55, 16 digits)</option><option value="amex">American Express (34/37, 15 digits)</option><option value="discover">Discover (6011, 16 digits)</option></select></div>
+      <div class="form-group"><label>Quantity</label><input type="number" id="count" value="1" min="1" max="10"></div>
+    </div>
+    <button class="btn" id="btnGen">🎲 Generate Test Numbers</button>
+    <div class="result" id="result" style="display:none">
+      <div class="card-number" id="cardNum"></div>
+      <div class="card-info"><span id="cardBrand"></span><span id="cardLen"></span><span id="cardExp"></span></div>
+      <div style="text-align:center"><button class="btn-copy" id="btnCopy">📋 Copy Number</button></div>
+    </div>
+<div class="chart-wrap" style="margin-top:16px">
+<canvas id="ftChart" width="640" height="220" style="width:100%;height:220px;background:#0f172a;border:1px solid rgba(148,163,184,.1);border-radius:10px"></canvas>
+<p style="text-align:center;color:#64748b;font-size:12px;margin-top:6px">📊 Result Chart</p>
+</div>
+
+    <div class="notice">⚠️ These numbers are for testing only! Cannot be used for real transactions. Not linked to any bank account.</div>
+  </div>
+
+<div id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999"></div>
+
+<h2>What is Test Credit Card Number Generator?</h2><p>Test Credit Card Number Generator is a free online tool that runs entirely in your browser. No download or signup needed — enter Card Network and Quantity to get results instantly. All data is processed locally.</p>
+<h2>Use Cases</h2><ul><li>Verify mathematical calculations during study or teaching</li><li>Solve geometry problems quickly in engineering work</li><li>Calculate ratios and percentages in daily life</li><li>Mobile math calculations without a calculator app</li></ul>
+<h2>Key Features</h2><ul><li>Completely Free: No registration, no limits</li><li>Privacy Safe: Data never leaves your browser</li><li>Cross-Platform: Any modern browser</li><li>Zero Dependencies: Open and use</li></ul>
+</main>
+
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#374151;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="//en/sql-formatter/">🗄️ SQL Formatter & Beautifier</a><a href="//en/unicode-decode/">🔤 Unicode Decoder</a><a href="//en/kubernetes-yaml-validator/">⚙️ K8s YAML Validator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/test-credit-card-numbers/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+function showToast(msg){
+  var t=document.getElementById('toast');
+  if(!t)return;
+  t.textContent=msg;t.style.opacity='1';
+  setTimeout(function(){t.style.opacity='0';},2000);
+}
+function luhnChecksum(num){
+  var arr=num.toString().split('').reverse();
+  var sum=0;
+  for(var i=0;i<arr.length;i++){
+    var d=parseInt(arr[i]);
+    if(i%2===1){d*=2;if(d>9)d-=9}
+    sum+=d;
+  }
+  return (10-(sum%10))%10;
+}
+var prefixes={visa:['4'],mastercard:['51','52','53','54','55'],amex:['34','37'],discover:['6011']};
+var lengths={visa:16,mastercard:16,amex:15,discover:16};
+var brands={visa:'Visa',mastercard:'MasterCard',amex:'American Express',discover:'Discover'};
+function generateCard(type){
+  var pre=prefixes[type][Math.floor(Math.random()*prefixes[type].length)];
+  var len=lengths[type];
+  var num=pre;
+  while(num.length<len-1){num+=Math.floor(Math.random()*10)}
+  num+=luhnChecksum(num);
+  return num;
+}
+document.getElementById('btnGen').addEventListener('click',function(){
+  var type=document.getElementById('cardType').value;
+  var cnt=parseInt(document.getElementById('count').value)||1;
+  var cards=[];
+  for(var i=0;i<cnt;i++)cards.push(generateCard(type));
+  document.getElementById('cardNum').textContent=cards.join('\n');
+  document.getElementById('cardBrand').textContent=brands[type];
+  document.getElementById('cardLen').textContent=lengths[type]+' digits';
+  var now=new Date();
+  var mm=now.getMonth()+1;mm=mm<10?'0'+mm:mm;
+  document.getElementById('cardExp').textContent='Exp '+mm+'/'+(now.getFullYear()+3);
+  document.getElementById('result').style.display='block';
+});
+document.getElementById('btnCopy').addEventListener('click',function(){
+  var t=document.getElementById('cardNum').textContent;
+  navigator.clipboard.writeText(t).then(function(){showToast('Copied to clipboard')});
+});
+
+function ftDrawChart(){
+  var cv = document.getElementById('ftChart');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var nums = [];
+  function pushNum(t){
+    if(!t) return;
+    var m = String(t).match(/[\d,]+(?:\.\d+)?/g);
+    if(m){for(var i=0;i<m.length;i++){var v=parseFloat(m[i].replace(/,/g,''));if(v>0&&v<1e14)nums.push(v)}}
+  }
+  var scope = document.getElementById('result') || document;
+  pushNum(scope.textContent);
+  if(nums.length < 2) return;
+  nums = Array.from(new Set(nums)).sort(function(a,b){return b-a}).slice(0,6);
+  var W=cv.width,H=cv.height,padL=70,padR=10,padT=14,padB=26;
+  ctx.clearRect(0,0,W,H);
+  var maxV=Math.max.apply(null,nums);
+  ctx.fillStyle='#94a3b8';ctx.font='10px sans-serif';ctx.textAlign='right';
+  for(var g=0;g<=4;g++){
+    var y=padT+(H-padT-padB)*g/4, val=maxV*(4-g)/4;
+    ctx.strokeStyle='rgba(148,163,184,.12)';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
+    var lab=val>=1e8?(val/1e8).toFixed(1)+'M':val>=1e4?(val/1e4).toFixed(1)+'K':val.toFixed(0);
+    ctx.fillText(lab,padL-6,y+3);
+  }
+  var bw=(W-padL-padR)/nums.length*0.55;
+  var colors=['#06b6d4','#10b981','#8b5cf6','#f59e0b','#ef4444','#64748b'];
+  ctx.textAlign='center';
+  for(var i=0;i<nums.length;i++){
+    var bh=(H-padT-padB)*nums[i]/maxV;
+    var x=padL+(W-padL-padR)*(i+0.5)/nums.length;
+    var y=padT+(H-padT-padB)-bh;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(x-bw/2,y,bw,bh);
+    ctx.fillStyle='#e2e8f0';ctx.fillText(ftFmt(nums[i]),x,y-4);
+  }
+}
+function ftFmt(n){
+  if(n>=1e8)return (n/1e8).toFixed(1)+'M';
+  if(n>=1e4)return (n/1e4).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){setTimeout(ftDrawChart,180)}
+});
+
+
+document.addEventListener('click',function(e){
+  if(e.target&&e.target.closest&&e.target.closest('button')){
+    setTimeout(ftEnsureCopy,250);
+  }
+});
+function ftEnsureCopy(){
+  var res=document.getElementById('result');
+  if(!res||res.offsetParent===null)return;
+  if(res.querySelector('.ft-copy-btn'))return;
+  var langEN=/^en/i.test((document.documentElement.getAttribute('lang')||'zh'));
+  var btn=document.createElement('button');
+  btn.className='btn btn-secondary ft-copy-btn';
+  btn.textContent=langEN?'📋 Copy Result':'📋 Copy Result';
+  btn.style.cssText='margin-top:12px;display:block';
+  btn.onclick=function(){
+    var txt=(res.innerText||res.textContent||'').replace(/\s+/g,' ').trim();
+    function toast(m){
+      var t=document.getElementById('toast');
+      if(t){t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2000)}
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){toast(langEN?'Copied!':'Copy')}).catch(function(){ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')});
+    }else{ftFallbackCopy(txt);toast(langEN?'Copied!':'Copy')}
+  };
+  res.appendChild(btn);
+}
+function ftFallbackCopy(txt){
+  var ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy')}catch(err){}
+  document.body.removeChild(ta);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Free Unicode Character Lookup - Online Tool | ToolGuideHub</title>
+ <meta name="description" content="Search Unicode by code point or browse character categories to identify symbols and convert between code points and characters.">
+ <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/unicode-lookup/">
+ <meta property="og:title" content="Unicode Character Lookup - Free Online Tool">
+ <meta property="og:description" content="Search Unicode by code point or browse character categories to identify symbols and convert between code points and characters.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/unicode-lookup/">
+ <style>:root{--primary-hover:rgba(6,182,212,.3);--shadow:0 1px 3px rgba(0,0,0,.3);--card-bg:#1e293b;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 30px 0 20px; }
+        header h1 { font-size: 2rem; color: #e2e8f0; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-size: 1.05rem; }
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid rgba(148,163,184,.1); padding: 24px; margin-bottom: 20px; }
+        .section h2 { font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(148,163,184,.1); }
+        input[type="text"], select { width: 100%; padding: 12px; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; transition: border .2s; }
+        input:focus, select:focus { outline: none; border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; }
+        .btn-primary { background: #22d3ee; color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn-secondary { background: #0f172a; color: #e2e8f0; border: 1px solid rgba(148,163,184,.1); }
+        .btn-secondary:hover { background: rgba(148,163,184,.1); }
+        .faq-item { margin-bottom: 16px; }
+        .faq-item h3 { font-size: 1.05rem; color: #e2e8f0; margin-bottom: 6px; }
+        .faq-item p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+        .char-display { font-size: 6rem; text-align: center; padding: 20px; background: #0f172a; border-radius: 12px; border: 1px solid rgba(148,163,184,.1); margin-bottom: 16px; line-height: 1.2; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .info-item { background: #0f172a; border: 1px solid rgba(148,163,184,.1); border-radius: 8px; padding: 12px; }
+        .info-item .label { font-size: 12px; color: #94a3b8; margin-bottom: 4px; }
+        .info-item .value { font-size: 1rem; font-weight: 600; font-family: 'SF Mono', monospace; word-break: break-all; }
+        .char-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 4px; margin-top: 12px; max-height: 400px; overflow-y: auto; }
+        .char-cell { display: flex; flex-direction: column; align-items: center; padding: 8px 4px; border-radius: 6px; border: 1px solid rgba(148,163,184,.1); cursor: pointer; transition: all .2s; background: var(--card-bg); }
+        .char-cell:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        .char-cell .char { font-size: 1.5rem; line-height: 1.2; }
+        .char-cell .code { font-size: 9px; color: #94a3b8; font-family: monospace; }
+        .char-cell:hover .code { color: rgba(255,255,255,.7); }
+        .category-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+        .cat-tab { padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(148,163,184,.1); background: #0f172a; cursor: pointer; font-size: 13px; transition: all .2s; }
+        .cat-tab.active, .cat-tab:hover { background: #22d3ee; color: #fff; border-color: #22d3ee; }
+        footer { text-align: center; padding: 30px 0; color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: #22d3ee; text-decoration: none; }
+        @media (max-width: 768px) { .container { padding: 12px; } header h1 { font-size: 1.5rem; } .char-display { font-size: 4rem; } }
+    
+
+.faq-section{margin-top:24px}
+.faq-section h2{margin-bottom:16px}
+.faq-item{margin-bottom:12px;padding:14px 16px;border-radius:8px;background:#1e293b;border:1px solid rgba(148,163,184,.08);transition:border-color .2s}
+.faq-item:hover{border-color:rgba(6,182,212,.2)}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-item h3::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(6,182,212,.15);color:#22d3ee;font-size:.7rem;font-weight:700;flex-shrink:0}
+.faq-item p{color:#94a3b8;font-size:.88rem;line-height:1.6;padding-left:30px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:12px 24px;border-radius:8px;font-size:.9rem;border:1px solid rgba(148,163,184,.15);opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1}
+</style>
+ <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); 
+</script>
+<style>
+
+
+
+.main-grid{display:grid;gap:20px;margin-bottom:20px}
+.section{background:#1e293b;border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;margin-bottom:16px}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/unicode-lookup/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Unicode Character Lookup FAQ","mainEntity":[{"@type":"Question","name":"How does the Unicode Character Lookup check work?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste the content you want to check, then click the Check button. The tool analyzes your input and provides a detailed report with findings and suggestions. Everything runs locally: en/unicode-lookup/index.html and other values are processed on your device, never sent to a server."}},{"@type":"Question","name":"Is the Unicode Character Lookup free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: en/unicode-lookup/index.html and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"What does the Unicode Character Lookup report include?","acceptedAnswer":{"@type":"Answer","text":"The report includes a detailed analysis of your input with specific findings, severity levels, and actionable suggestions. All checks run locally in your browser for instant, private results."}}]}</script>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+ <main class="container">
+<header>
+ <h1>Unicode Character Lookup</h1>
+ <div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);justify-content:center;margin:12px 0"><a href="../../en/unicode-lookup/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a><a href="index.html" style="padding:6px 12px;border-radius:5px;font-size:.85rem;background:rgba(6,182,212,.2);color:#22d3ee">EN</a></div>
+ <p>Free online Unicode code point search and lookup - Character categories/code point conversion</p>
+</header>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://adi63586.github.io/Toolguidehub/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Unicode Character Lookup",
+      "item": "https://adi63586.github.io/Toolguidehub/en/unicode-lookup/"
+    }
+  ],
+  "name": "Unicode Character Lookup"
+}</script>
+
+ <div class="section">
+ <h2>📝 Searchcharacter</h2>
+ <div class="row">
+ <input type="text" id="search-input" placeholder="Inputcharacter、 point(such asU+4E2D)、 enter (such as20013)oraboutkeyword..." style="flex:1" oninput="searchChar()">
+ <button class="btn btn-primary" onclick="searchChar()">Search</button>
+ <button class="btn btn-secondary" onclick="fillExample()">🎲 Fill Example</button>
+ </div>
+ </div>
+
+ <div class="section" id="detail-card" style="display:none">
+ <h2>📋 character <button class="btn btn-secondary" style="float:right;padding:4px 12px;font-size:.8em" onclick="copyDetailInfo()">📋 Copy Info</button></h2>
+ <div class="char-display" id="char-display"></div>
+ <div class="info-grid" id="info-grid"></div>
+ </div>
+
+ <div class="section">
+ <h2>📂 charactercategoryBrowse</h2>
+ <div class="category-tabs" id="cat-tabs"></div>
+ <div class="char-grid" id="char-grid"></div>
+ </div>
+
+ <div class="section">
+ <h2>FAQ</h2>
+ <div class="faq-item">
+ <h3>Q1: What is a Unicode code point?</h3>
+ <p>A Unicode code point is a unique number assigned to each character in the Unicode standard, commonly shown as U+ followed by a hexadecimal number. For example, "中" has code point U+4E2D, and "A" has code point U+0041. Unicode currently defines over 140,000 characters covering all writing systems.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Q2: What is the difference between UTF-8 and Unicode?</h3>
+ <p>Unicode is a character encoding standard that defines a mapping between characters and code points. UTF-8 is a Unicode encoding scheme that uses 1-4 bytes per code point. ASCII characters (U+0000-U+007F) need only 1 byte in UTF-8, common Chinese characters typically need 3 bytes, and emoji/symbols need 4 bytes.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Q3: How do I input specific Unicode characters?</h3>
+ <p>Windows: Alt + numpad to input code points. Mac: Ctrl+Cmd+Space to open the character viewer, or use Unicode Hex Input. HTML: use &#x + code point, e.g. &#x4E2D; displays "中". This tool lets you search and copy any Unicode character directly.</p>
+ </div>
+ </div>
+
+ 
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to use Unicode Character Lookup", "step": [{"@type": "HowToStep", "position": 1, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 2, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}, {"@type": "HowToStep", "position": 3, "text": "Follow the on-screen instructions to complete the operation.", "name": "Follow the on-screen instructi"}]}</script>
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unicode Character Lookup", "description": "Free online Unicode code point search and lookup - Character categories/code point conversion, pure client-side.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "url": "https://adi63586.github.io/Toolguidehub/en/unicode-lookup/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+ <script>
+            var d=document,c=d.createElement('div');
+            
+        </script>
+ <script>
+        var categories = [
+            { name: 'commonusesymbol', start: 0x0021, end: 0x007E },
+            { name: '', start: 0x00C0, end: 0x024F },
+            { name: '', start: 0x3041, end: 0x309F },
+            { name: '', start: 0x30A1, end: 0x30FF },
+            { name: '', start: 0x4E00, end: 0x4E8F },
+            { name: '', start: 0x2500, end: 0x257F },
+            { name: '', start: 0x2580, end: 0x259F },
+            { name: '', start: 0x25A0, end: 0x25FF },
+            { name: '', start: 0x2600, end: 0x26FF },
+            { name: 'Dingbats', start: 0x2700, end: 0x27BF },
+            { name: 'CJKsymbol', start: 0x3000, end: 0x303F },
+            { name: '', start: 0x0370, end: 0x03FF },
+            { name: '', start: 0x0400, end: 0x04FF },
+            { name: '', start: 0x2190, end: 0x21FF },
+            { name: '', start: 0x2200, end: 0x22FF },
+            { name: '', start: 0x1F600, end: 0x1F64F },
+            { name: '', start: 0x1F680, end: 0x1F6FF },
+            { name: '', start: 0x1F300, end: 0x1F5FF }
+        ];
+
+        var currentCat = 0;
+
+        function initCategories() {
+            var tabs = document.getElementById('cat-tabs');
+            tabs.innerHTML = categories.map(function(cat, i) {
+                return '<div class="cat-tab' + (i === 0 ? ' active' : '') + '" onclick="showCategory(' + i + ')">' + cat.name + '</div>';
+            }).join('');
+            showCategory(0);
+        }
+
+        function showCategory(idx) {
+            currentCat = idx;
+            document.querySelectorAll('.cat-tab').forEach(function(t, i) {
+                t.classList.toggle('active', i === idx);
+            });
+            var cat = categories[idx];
+            var grid = document.getElementById('char-grid');
+            var html = '';
+            var limit = Math.min(cat.end, cat.start + 200);
+            for (var i = cat.start; i <= limit; i++) {
+                try {
+                    var ch = String.fromCodePoint(i);
+                    html += '<div class="char-cell" onclick="showDetail(' + i + ')"><div class="char">' + ch + '</div><div class="code">' + i.toString(16).toUpperCase() + '</div></div>';
+                } catch(e) {}
+            }
+            grid.innerHTML = html;
+        }
+
+        function showDetail(codePoint) {
+            var ch = String.fromCodePoint(codePoint);
+            var hex = codePoint.toString(16).toUpperCase().padStart(4, '0');
+            var utf8 = [];
+            if (codePoint < 0x80) {
+                utf8 = [codePoint];
+            } else if (codePoint < 0x800) {
+                utf8 = [0xC0 | (codePoint >> 6), 0x80 | (codePoint & 0x3F)];
+            } else if (codePoint < 0x10000) {
+                utf8 = [0xE0 | (codePoint >> 12), 0x80 | ((codePoint >> 6) & 0x3F), 0x80 | (codePoint & 0x3F)];
+            } else {
+                utf8 = [0xF0 | (codePoint >> 18), 0x80 | ((codePoint >> 12) & 0x3F), 0x80 | ((codePoint >> 6) & 0x3F), 0x80 | (codePoint & 0x3F)];
+            }
+            var utf8Hex = utf8.map(function(b) { return '0x' + b.toString(16).toUpperCase().padStart(2, '0'); }).join(' ');
+            var utf16 = '';
+            if (codePoint < 0x10000) {
+                utf16 = '0x' + hex;
+            } else {
+                var hi = Math.floor((codePoint - 0x10000) / 0x400) + 0xD800;
+                var lo = ((codePoint - 0x10000) % 0x400) + 0xDC00;
+                utf16 = '0x' + hi.toString(16).toUpperCase() + ' 0x' + lo.toString(16).toUpperCase();
+            }
+
+            var htmlEntity = '&#x' + hex + ';';
+            var cssContent = '\\\\' + hex;
+            var jsEscape = codePoint < 0x10000 ? '\\u' + hex : '\\u{' + hex + '}';
+
+            document.getElementById('char-display').textContent = ch;
+            document.getElementById('info-grid').innerHTML =
+                '<div class="info-item"><div class="label">character</div><div class="value">' + ch + '</div></div>' +
+                '' + hex + '</div></div>' +
+                '' + codePoint + '</div></div>' +
+                '<div class="info-item"><div class="label">UTF-8Encode</div><div class="value">' + utf8Hex + '</div></div>' +
+                '<div class="info-item"><div class="label">UTF-16Encode</div><div class="value">' + utf16 + '</div></div>' +
+                '<div class="info-item"><div class="label">HTMLphysicalbody</div><div class="value">' + htmlEntity + '</div></div>' +
+                '<div class="info-item"><div class="label">CSS content</div><div class="value">' + cssContent + '</div></div>' +
+                '<div class="info-item"><div class="label">JavaScript</div><div class="value">' + jsEscape + '</div></div>' +
+                '<div class="info-item"><div class="label">UTF-8bytenumber</div><div class="value">' + utf8.length + ' byte</div></div>';
+            document.getElementById('detail-card').style.display = '';
+            document.getElementById('detail-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function searchChar() {
+            var input = document.getElementById('search-input').value.trim();
+            if (!input) return;
+            var codePoint = null;
+
+            // Try U+XXXX format
+            var uMatch = input.match(/^[Uu]\+([0-9A-Fa-f]+)$/);
+            if (uMatch) {
+                codePoint = parseInt(uMatch[1], 16);
+            }
+            // Try pure hex (4+ digits)
+            else if (/^[0-9A-Fa-f]{4}$/.test(input)) {
+                codePoint = parseInt(input, 16);
+            }
+            // Try decimal
+            else if (/^\d+$/.test(input)) {
+                codePoint = parseInt(input, 10);
+            }
+            // Try 0x prefix
+            else if (/^0[xX]([0-9A-Fa-fA-F]+)$/.test(input)) {
+                codePoint = parseInt(input.replace(/^0[xX]/, ''), 16);
+            }
+            // Single character
+            else if (input.length === 1) {
+                codePoint = input.codePointAt(0);
+            }
+            // First character of string
+            else if (input.length > 1) {
+                codePoint = input.codePointAt(0);
+            }
+
+            if (codePoint !== null && codePoint >= 0 && codePoint <= 0x10FFFF) {
+                showDetail(codePoint);
+            } else {
+                showToast('');
+            }
+        }
+
+        function fillExample() {
+            var input = document.getElementById('search-input');
+            input.value = 'U+4E2D';
+            input.focus();
+            searchChar();
+        }
+
+        function copyDetailInfo() {
+            var grid = document.getElementById('info-grid');
+            if (!grid || !grid.textContent.trim()) { showToast('Nothing to copy'); return; }
+            var text = 'Unicode: ' + document.getElementById('char-display').textContent + '\n' + grid.textContent.replace(/\s{2,}/g, ' ').trim();
+            navigator.clipboard.writeText(text).then(function() { showToast('✅ Copied'); }).catch(function() {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed'; ta.style.left = '-9999px';
+                document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); showToast('✅ Copied'); } catch(e) {}
+                document.body.removeChild(ta);
+            });
+        }
+
+        initCategories();</script>
+ <div class="info-section faq-section">
+ <h2>❓ Frequently Asked Questions</h2>
+ <div class="faq-item">
+ <h3>Does Unicode Character Lookup upload my data to a server?</h3>
+ <p>No. Unicode Character Lookup uses client-side processing — everything runs in your browser. Your data never leaves your device, and the tool works even without an internet connection.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is Unicode Character Lookup free to use?</h3>
+ <p>Yes, Unicode Character Lookup is completely free to use. No registration or login required — all features are available immediately.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Do I need to install any software?</h3>
+ <p>No. Unicode Character Lookup is a web-based tool — just open it in your browser and start using it. No downloads, plugins, or extensions required.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Are there any usage limits for Unicode Character Lookup?</h3>
+ <p>Unicode Character Lookup has no usage limits — it's free and unlimited. Since processing is done client-side, speed depends on your device. For very large files, we recommend processing in batches for the best experience.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can I use Unicode Character Lookup on my phone?</h3>
+ <p>Yes. Unicode Character Lookup is fully responsive and works on phones, tablets, and desktops. The interface adapts automatically to your screen size.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Is my data safe when using Unicode Character Lookup?</h3>
+ <p>Absolutely. Everything runs locally: en/unicode-lookup/index.html and other values are processed on your device, never sent to a server. No data is sent to any server, so there's zero risk of data leaks. Your information stays completely under your control.</p>
+ </div>
+ 
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="color:#e2e8f0;font-size:18px;margin-bottom:12px">🔗 Related Tools</h2>
+<a href="../../en/unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#0f172a;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Unicode Character Finder</a>
+</section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/unicode-lookup/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+
+<div class="related-tools-section" id="related-tools-section"><div class="related-tools-loading">Loading related tools...</div></div>
+<script>
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+(function(){
+  'use strict';
+  var s = document.getElementById('related-tools-section');
+  if (!s) return;
+  var p = window.location.pathname;
+  var en = p.indexOf('/en/') !== -1;
+  p = p.replace(/\/en\//g, '/');
+  var slug = p.split('/').filter(Boolean).pop() || '';
+  if (!slug) { s.innerHTML = ''; return; }
+  var depth = en ? '../../' : '../';
+  var u = depth + 'related-tools.json';
+  fetch(u).then(function(r) {
+    if (!r.ok) throw new Error('not found');
+    return r.json();
+  }).then(function(d) {
+    var data = en ? d.en : d.cn;
+    var t = data[slug];
+    if (!t || !t.related || !t.related.length) { s.innerHTML = ''; return; }
+    var h = '<div class="related-tools-inner"><h3 class="related-tools-title">'
+      + (en ? '🔗 You May Also Like' : '🔗 RelatedToolsRecommended')
+      + '</h3><div class="related-tools-grid">';
+    t.related.forEach(function(r) {
+      var link = en ? '../../en/' + r.slug + '/' : '../' + r.slug + '/';
+      h += '<a href="' + link + '" class="related-tool-card">'
+        + '<span class="related-tool-icon">' + (r.icon || '🔧') + '</span>'
+        + '<span class="related-tool-name">' + r.name + '</span></a>';
+    });
+    h += '</div></div>';
+    s.innerHTML = h;
+  }).catch(function() { s.innerHTML = ''; });
+})();</script>
+<div class="toast" id="toast"></div>
+
+</body>
+</html>

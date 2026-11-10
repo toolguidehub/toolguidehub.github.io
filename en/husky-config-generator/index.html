@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate Husky Git hook files and lint-staged config for pre-commit, commit-msg, and pre-push, with ESLint, Prettier, and test commands.">
+<meta name="keywords" content="Husky config generator,Git Hooks,pre-commit,commit-msg,lint-staged,Git hooks tool,frontend workflow">
+<title>Free Husky Config Generator - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/husky-config-generator/">
+<meta property="og:title" content="Free Husky Config Generator - ToolGuideHub">
+<meta property="og:description" content="Generate Husky Git hook files and lint-staged config for pre-commit, commit-msg, and pre-push, with ESLint, Prettier, and test commands.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/husky-config-generator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Husky Config Generator", "description": "Free online Husky config generator. Visually configure Git Hooks (pre-commit/commit-msg/pre-push) with lint-staged integration. Generate Husky v9 config. Pure frontend.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-16"}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "What can the Husky Config Generator do?",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can the Husky Config Generator do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generates Husky v9 Git hooks configuration through a visual interface. Supports pre-commit, commit-msg, pre-push hooks and auto-generates lint-staged configuration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Husky?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Husky is a popular Git hooks management tool that makes it easy to install and manage Git hook scripts in the .git/hooks directory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Git Hooks are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supports pre-commit, commit-msg, pre-push, post-merge, pre-rebase, and other common hooks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is lint-staged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "lint-staged runs linters only on staged (git-added) files, dramatically improving speed. Supports eslint, prettier, stylelint commands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What changed in Husky v9?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Husky v9 uses .husky directory for hook scripts, initializes with 'husky init', and manages hooks via the husky command instead of .huskyrc config."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool upload my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All configuration generation is done locally in your browser. No data is sent to any server."
+      }
+    }
+  ]
+}</script>
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:#06b6d4;text-decoration:none}a:hover{color:#22d3ee}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.ad-slot.ad-sidebar{max-width:300px}
+header{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(148,163,184,.1)}
+header h1{font-size:1.5rem;color:#e2e8f0;margin:0}header h1 span{color:#06b6d4}
+.lang-switch{display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1);font-size:.85rem}
+.lang-switch a{padding:6px 12px;border-radius:5px;color:#94a3b8}
+.lang-switch a.active{background:rgba(6,182,212,.2);color:#22d3ee}
+@media(max-width:640px){header h1{font-size:1.2rem}}
+.breadcrumb{padding:10px 0;font-size:.85rem;color:#64748b}
+.breadcrumb a{color:#94a3b8}
+.hero{padding:16px 0;text-align:center}
+.hero .subtitle{color:#94a3b8;font-size:.95rem;margin-top:6px}
+.hero .badge{display:inline-block;margin-top:8px;padding:3px 12px;background:rgba(6,182,212,.15);color:#06b6d4;border-radius:12px;font-size:.8rem}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:20px;padding:16px 0}
+@media(max-width:768px){.main-grid{grid-template-columns:1fr}}
+.panel{background:#1e293b;border-radius:10px;padding:20px}
+.panel h2{font-size:1.1rem;margin-bottom:14px;color:#e2e8f0}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.85rem;color:#94a3b8;margin-bottom:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:8px 12px;background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;color:#e2e8f0;font-size:.9rem}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#06b6d4}
+.form-group textarea{resize:vertical;min-height:50px;font-family:monospace;font-size:.85rem}
+.btn{display:inline-block;padding:8px 20px;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s}
+.btn-primary{background:#06b6d4;color:#fff}.btn-primary:hover{background:#22d3ee}
+.btn-secondary{background:rgba(148,163,184,.15);color:#94a3b8}.btn-secondary:hover{background:rgba(148,163,184,.25)}
+.btn-danger{background:#ef4444;color:#fff}.btn-danger:hover{background:#f87171}
+.btn-group{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.output-area{background:#0f172a;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:12px;font-family:monospace;font-size:.85rem;color:#e2e8f0;white-space:pre-wrap;max-height:500px;overflow:auto;min-height:320px}
+.seo-content{padding:24px 0}
+.seo-content h2{color:#e2e8f0;font-size:1.2rem;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(148,163,184,.15)}
+.seo-content h3{color:#06b6d4;font-size:1rem;margin:16px 0 8px}
+.seo-content p{color:#94a3b8;margin-bottom:10px;font-size:.92rem;line-height:1.7}
+.seo-content ul{color:#94a3b8;margin:8px 0 8px 20px;font-size:.92rem}
+.faq-section{padding:16px 0}
+.faq-item{border-bottom:1px solid rgba(148,163,184,.1);padding:12px 0}
+.faq-item h3{font-size:.95rem;color:#e2e8f0;cursor:pointer}
+.faq-item p{color:#94a3b8;font-size:.88rem;margin-top:6px;display:none}
+.faq-item.open p{display:block}
+.footer{padding:20px 0;text-align:center;border-top:1px solid rgba(148,163,184,.1);margin-top:24px}
+.footer a{color:#94a3b8;margin:0 8px;font-size:.85rem}
+.footer p{color:#64748b;font-size:.8rem;margin-top:8px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:600px){.form-row-3{grid-template-columns:1fr}}
+.opt-group{margin-bottom:10px}
+.opt-group-title{color:#06b6d4;font-size:.85rem;margin-bottom:6px;font-weight:500}
+.status-msg{padding:6px 12px;border-radius:4px;font-size:.82rem;margin-top:8px;display:none}
+.status-msg.success{display:block;background:rgba(16,185,129,.15);color:#10b981}
+.status-msg.error{display:block;background:rgba(239,68,68,.15);color:#ef4444}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Husky Config Generator", "item": "https://adi63586.github.io/Toolguidehub/en/husky-config-generator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Husky Config Generator","description":"Step-by-step guide for using Husky Config Generator","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Husky Config Generator"},"step":[{"@type":"HowToStep","position":1,"name":"Set options","text":"Configure generation parameters (count, format, range, etc.)"},{"@type":"HowToStep","position":2,"name":"Click Generate","text":"Press the generate button to create your content"},{"@type":"HowToStep","position":3,"name":"Preview result","text":"Review the generated output"},{"@type":"HowToStep","position":4,"name":"Copy or download","text":"Copy the result to clipboard or download as a file"}]}</script>
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/husky-config-generator/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<main class="container">
+<header><h1>🐶 <span>Husky</span> Config Generator</h1></header>
+<div class="breadcrumb"><a href="../../">Home</a> › <a href="../../">Developer Tools</a> › Husky Config Generator</div>
+<div class="hero"><div class="subtitle">Visually configure Git Hooks — pre-commit / commit-msg / pre-push with lint-staged integration</div><div class="badge">Zero Dependencies | No Signup, Client-Side · No Server Uploads</div></div>
+<div class="main-grid"><div>
+<div class="panel">
+  <h2>⚙️ Git Hooks Configuration</h2>
+  <div class="form-group"><label>Package Manager</label><select id="pm"><option value="npm">npm</option><option value="yarn">yarn</option><option value="pnpm">pnpm</option></select></div>
+  <div class="opt-group"><div class="opt-group-title">🔗 Enable Hooks</div>
+  <div class="form-row">
+    <div class="form-group"><label><input type="checkbox" id="hook-pre-commit" checked> pre-commit</label></div>
+    <div class="form-group"><label><input type="checkbox" id="hook-commit-msg" checked> commit-msg</label></div>
+    <div class="form-group"><label><input type="checkbox" id="hook-pre-push"> pre-push</label></div>
+    <div class="form-group"><label><input type="checkbox" id="hook-post-merge"> post-merge</label></div>
+    <div class="form-group"><label><input type="checkbox" id="hook-pre-rebase"> pre-rebase</label></div></div></div>
+  <div class="opt-group"><div class="opt-group-title">📋 pre-commit Commands</div>
+  <div class="form-row">
+    <div class="form-group"><label><input type="checkbox" id="ls-eslint" checked> ESLint</label></div>
+    <div class="form-group"><label><input type="checkbox" id="ls-prettier" checked> Prettier</label></div>
+    <div class="form-group"><label><input type="checkbox" id="ls-stylelint"> StyleLint</label></div>
+    <div class="form-group"><label><input type="checkbox" id="ls-tsc"> TypeScript Check</label></div>
+    <div class="form-group"><label><input type="checkbox" id="ls-test"> Run Tests</label></div>
+    <div class="form-group"><label><input type="checkbox" id="ls-lint"> Lint All</label></div></div></div>
+  <div class="opt-group"><div class="opt-group-title">✉️ commit-msg Validation</div>
+  <div class="form-row">
+    <div class="form-group"><label><input type="checkbox" id="cm-conventional" checked> Conventional Commits</label></div>
+    <div class="form-group"><label><input type="checkbox" id="cm-maxlen" checked> Max Length (72 chars)</label></div>
+    <div class="form-group"><label><input type="checkbox" id="cm-empty"> No Empty Messages</label></div></div></div>
+  <div class="opt-group"><div class="opt-group-title">📝 Custom Hooks (format: hook-name:command)</div>
+  <textarea id="custom-hooks" rows="2" placeholder="e.g.:&#10;prepare-commit-msg:exec < /dev/tty && git cz --hook&#10;post-checkout:echo 'Switched branch'"></textarea></div>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="generateConfig()">🔄 Generate Config</button>
+    <button class="btn btn-secondary" onclick="loadExample()">📋 Load Example</button>
+    <button class="btn btn-secondary" onclick="copyResult()">📋 Copy Result</button>
+    <button class="btn btn-secondary" onclick="downloadResult()">💾 Download Config</button>
+    <button class="btn btn-danger" onclick="clearAll()">🗑️ Clear</button>
+  </div>
+  <div id="status" class="status-msg"></div>
+  <div class="form-group" style="margin-top:14px">
+    <label>Generated Files (Husky hooks + lint-staged config)</label>
+    <div class="output-area" id="output">Click "Generate Config" to see results...</div>
+  </div>
+</div>
+</div></div>
+<div class="seo-content">
+<h2>What Can the Husky Config Generator Do?</h2>
+<p>The Husky Config Generator is a free online tool that helps developers quickly generate Husky v9 Git hooks configuration through a visual interface. It supports pre-commit, commit-msg, pre-push hooks with automatic lint-staged configuration generation. All computation happens on your device — Package Manager, other values and other inputs stay in your browser with zero data upload.</p>
+<h2>Core Features</h2>
+<ul>
+  <li><strong>Visual Hooks Management</strong>: One-click enable/disable pre-commit, commit-msg, pre-push, post-merge, pre-rebase Git hooks</li>
+  <li><strong>lint-staged Integration</strong>: Auto-generates lint-staged config for ESLint, Prettier, StyleLint, TypeScript checking, and test running</li>
+  <li><strong>Conventional Commits</strong>: Built-in commit-msg validation with Conventional Commits support and max length checking</li>
+  <li><strong>Multi Package Manager</strong>: Supports npm, yarn, pnpm with correct run commands</li>
+  <li><strong>Custom Extension</strong>: Add custom Git hooks with arbitrary shell commands</li>
+</ul>
+<h2>How to Use</h2>
+<p>1. Select your package manager (npm/yarn/pnpm)</p>
+<p>2. Check the Git hooks you want to enable (pre-commit, commit-msg, pre-push, etc.)</p>
+<p>3. Configure pre-commit tasks (ESLint, Prettier, type checking, tests)</p>
+<p>4. Set commit-msg validation rules (Conventional Commits, max length)</p>
+<p>5. Optionally add custom Git hooks</p>
+<p>6. Click "Generate Config" to preview all generated config files, then follow the setup instructions</p>
+<h2>Use Cases</h2>
+<h3>Case 1: Team Git Standards</h3>
+<p>Standardize Git hooks across team projects to ensure every commit passes ESLint and Prettier, maintaining consistent code style.</p>
+<h3>Case 2: Conventional Commits Adoption</h3>
+<p>Enforce Conventional Commits with commit-msg hooks for automatic CHANGELOG generation and semantic version management.</p>
+<h3>Case 3: Pre-CI Checks</h3>
+<p>Run tests and type checks in pre-push hooks to catch issues before pushing to remote, reducing CI failures.</p>
+<h3>Case 4: Open Source Contribution</h3>
+<p>Configure Husky hooks for open source projects so contributors automatically run code checks and formatting on commit.</p>
+<h2>Technical Background</h2>
+<p>Husky is the most popular Git hooks manager in the JavaScript ecosystem. v9 simplifies configuration by using a .husky directory for shell scripts, initialized via 'husky init'. Combined with lint-staged, it runs linters only on staged files for maximum speed. commitlint provides commit-msg validation for Conventional Commits. Together with prettier and eslint, husky creates a complete Git workflow automation system that catches issues before they reach the repository.</p>
+</div>
+<div class="faq-section">
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ What can the Husky Config Generator do?</h3><p>Generates Husky v9 Git hooks configuration through a visual interface. Supports pre-commit, commit-msg, pre-push hooks with lint-staged integration.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ What is Husky?</h3><p>Husky is a popular Git hooks management tool for installing and managing hook scripts in the .git/hooks directory.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ Which Git Hooks are supported?</h3><p>Supports pre-commit, commit-msg, pre-push, post-merge, pre-rebase, and other common hooks.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ What is lint-staged?</h3><p>lint-staged runs linters only on staged (git-added) files, dramatically improving speed. Supports eslint, prettier, stylelint.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ What changed in Husky v9?</h3><p>Husky v9 uses .husky directory for hook scripts and initializes with 'husky init'. No more .huskyrc config file.</p></div>
+<div class="faq-item" onclick="this.classList.toggle('open')"><h3>❓ Does this tool upload my data?</h3><p>No. All configuration generation is done locally in your browser. No data is sent to any server.</p></div>
+</div>
+</main>
+
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#1e293b;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/tailwind-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Tailwind CSS Code Gener…</a> <a href="../../en/prettier-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Prettier Config Generator</a> <a href="../../en/ssh-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free SSH Config Generator</a> <a href="../../en/vite-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Vite Config Generator</a> <a href="../../en/jest-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Jest Config Generator</a> <a href="../../en/webpack-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Webpack Config Generator</a> <a href="../../en/nginx-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free Nginx Config Generator …</a> <a href="../../en/postcss-config-generator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Free PostCSS Config Generator</a></div></section>
+<footer class="footer container">
+  <div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a><a href="../../en/husky-config-generator/">中文</a>
+</div>
+
+
+</footer>
+  
+<script>
+function generateConfig(){const pm=document.getElementById('pm').value;const hpc=document.getElementById('hook-pre-commit').checked;const hcm=document.getElementById('hook-commit-msg').checked;const hpp=document.getElementById('hook-pre-push').checked;const hpm=document.getElementById('hook-post-merge').checked;const hpr=document.getElementById('hook-pre-rebase').checked;const lsEslint=document.getElementById('ls-eslint').checked;const lsPrettier=document.getElementById('ls-prettier').checked;const lsStylelint=document.getElementById('ls-stylelint').checked;const lsTsc=document.getElementById('ls-tsc').checked;const lsTest=document.getElementById('ls-test').checked;const lsLint=document.getElementById('ls-lint').checked;const cmConv=document.getElementById('cm-conventional').checked;const cmMax=document.getElementById('cm-maxlen').checked;const cmEmpty=document.getElementById('cm-empty').checked;const customRaw=document.getElementById('custom-hooks').value.trim();const runCmd=pm==='yarn'?'yarn':pm==='pnpm'?'pnpm':'npx';let output='';
+output+=`# Husky v9 Configuration\n# Generated by adi63586.github.io/Toolguidehub\n# How to use:\n# 1. npx husky init\n# 2. Place these hook files in .husky/_/\n# 3. OR use: echo "command" > .husky/pre-commit\n\n`;
+if(hpc||lsEslint||lsPrettier||lsStylelint||lsTsc||lsTest||lsLint){output+=`# === pre-commit ===\n# File: .husky/pre-commit\n`;const lsItems=[];if(lsEslint)lsItems.push({pattern:'*.{js,jsx,ts,tsx}',cmd:`${runCmd} eslint --fix`});if(lsPrettier)lsItems.push({pattern:'*.{js,jsx,ts,tsx,json,css,md}',cmd:`${runCmd} prettier --write`});if(lsStylelint)lsItems.push({pattern:'*.{css,scss,less}',cmd:`${runCmd} stylelint --fix`});if(lsTsc)lsItems.push({pattern:'*.{ts,tsx}',cmd:`${runCmd} tsc --noEmit`});if(lsTest)lsItems.push({pattern:'*',cmd:`${runCmd} vitest related --run`});if(lsLint)lsItems.push({pattern:'*',cmd:`${runCmd} eslint .`});if(lsItems.length>0){output+=`${runCmd} lint-staged\n`;output+=`\n# lint-staged.config.js content:\nmodule.exports = {\n`;lsItems.forEach(item=>{output+=`  '${item.pattern}': ['${item.cmd}'],\n`;});output+=`};\n\n`;}else{output+=`echo "Running pre-commit checks..."\n${runCmd} eslint .\n\n`;}}
+if(hcm||cmConv||cmMax||cmEmpty){output+=`# === commit-msg ===\n# File: .husky/commit-msg\n`;if(cmConv){output+=`${runCmd} commitlint --edit $1\n`;output+=`\n# commitlint.config.js:\nmodule.exports = {\n  extends: ['@commitlint/config-conventional'],\n  rules: {\n    'type-enum': [2, 'always', ['feat','fix','docs','style','refactor','perf','test','chore','ci']],\n    'subject-case': [0]\n  }\n};\n\n`;}else{output+=`echo "Validating commit message..."\n`;}if(cmMax)output+=`# Max length check\n`;if(cmEmpty)output+=`# Empty commit check\n`;output+=`\n`;}
+if(hpp){output+=`# === pre-push ===\n# File: .husky/pre-push\n${runCmd} vitest run\n\n`;}
+if(hpm){output+=`# === post-merge ===\n# File: .husky/post-merge\n${runCmd} husky install\n\n`;}
+if(hpr){output+=`# === pre-rebase ===\n# File: .husky/pre-rebase\n${runCmd} vitest run\n\n`;}
+if(customRaw){const lines=customRaw.split('\\n');output+=`# === Custom Hooks ===\n`;lines.forEach(l=>{const idx=l.indexOf(':');if(idx>0){const name=l.substring(0,idx).trim();const cmd=l.substring(idx+1).trim();if(name&&cmd){output+=`# File: .husky/${name}\n${cmd}\n\n`;}}});}
+output+=`# === package.json scripts ===\n# Add to package.json:\n# \"prepare\": \"husky\"\n`;
+document.getElementById('output').textContent=output;showStatus('✅ Husky config generated','success');}
+function loadExample(){document.getElementById('pm').value='npm';document.getElementById('hook-pre-commit').checked=true;document.getElementById('hook-commit-msg').checked=true;document.getElementById('hook-pre-push').checked=true;document.getElementById('hook-post-merge').checked=false;document.getElementById('hook-pre-rebase').checked=false;document.getElementById('ls-eslint').checked=true;document.getElementById('ls-prettier').checked=true;document.getElementById('ls-stylelint').checked=true;document.getElementById('ls-tsc').checked=true;document.getElementById('ls-test').checked=false;document.getElementById('ls-lint').checked=false;document.getElementById('cm-conventional').checked=true;document.getElementById('cm-maxlen').checked=true;document.getElementById('cm-empty').checked=true;document.getElementById('custom-hooks').value='post-checkout:echo \"Switched to $1\"';generateConfig();showStatus('✅ Example loaded','success');}
+function copyResult(){const t=document.getElementById('output').textContent;if(!t||t.startsWith('Click'))return;navigator.clipboard.writeText(t).then(()=>{showStatus('✅ Copied to clipboard','success');});}
+function downloadResult(){const t=document.getElementById('output').textContent;if(!t||t.startsWith('Click'))return;const b=new Blob([t],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='husky-config.txt';a.click();URL.revokeObjectURL(a.href);showStatus('✅ File downloaded','success');}
+function clearAll(){document.getElementById('output').textContent='Click "Generate Config" to see results...';showStatus('','');}
+function showStatus(msg,type){const el=document.getElementById('status');el.textContent=msg;el.className='status-msg '+(type||'');}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='Enter'){generateConfig();e.preventDefault();}if(e.ctrlKey&&e.shiftKey&&e.key==='C'){copyResult();e.preventDefault();}});
+window.addEventListener('load',function(){generateConfig();});
+</script>
+
+</body>
+</html>

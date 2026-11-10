@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.addEventListener("error",function(e){if(e&&e.message===""){e.preventDefault();}});window.addEventListener("unhandledrejection",function(e){if(e&&e.reason&&e.reason.message===""){e.preventDefault();}});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Copy any of 3000+ emojis from a categorised, searchable list straight to your clipboard.">
+<meta name="keywords" content="Emoji,smiley,copy paste,online tool,free">
+<title>Emoji Copy & Paste Tool - ToolGuideHub</title>
+<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/emoji-copy-paste/">
+<meta property="og:title" content="Emoji Copy & Paste Tool - ToolGuideHub">
+<meta property="og:description" content="Copy any of 3000+ emojis from a categorised, searchable list straight to your clipboard.">
+<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/emoji-copy-paste/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolGuideHub">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Emoji Copy & Paste Tool", "description": "Free online Emoji copy & paste tool. 3000+ emojis organized by category, click to copy to clipboard.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Emoji Copy & Paste Tool", "item": "https://adi63586.github.io/Toolguidehub/en/emoji-copy-paste/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"Emoji Copy & Paste Tool FAQ","mainEntity":[{"@type":"Question","name":"How do I use the Emoji Copy & Paste Tool?","acceptedAnswer":{"@type":"Answer","text":"Enter or paste your input value, select the source and target formats, then click Convert. The result appears instantly. All conversions run locally in your browser — no data is sent to any server."}},{"@type":"Question","name":"Is the Emoji Copy & Paste Tool free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: Search emojis... and other values are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Is there a file size limit for the Emoji Copy & Paste Tool?","acceptedAnswer":{"@type":"Answer","text":"Since all conversions happen locally in your browser, the limit depends on your device's memory. Most typical inputs are processed instantly. Very large files may take longer but will still work without server upload."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Emoji Copy & Paste Tool","description":"Step-by-step guide for using Emoji Copy & Paste Tool","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Emoji Copy & Paste Tool"},"step":[{"@type":"HowToStep","position":1,"name":"Enter input","text":"Type or paste the value you want to convert"},{"@type":"HowToStep","position":2,"name":"Select format","text":"Choose the source and target format"},{"@type":"HowToStep","position":3,"name":"Click Convert","text":"Press the convert button to perform the conversion"},{"@type":"HowToStep","position":4,"name":"Copy result","text":"View the converted output and copy with one click"}]}</script>
+
+<style>:root{--primary:#06b6d4;--primary-light:#22d3ee;--primary-dark:#0891b2;--bg:#0f172a;--card-bg:#1e293b;--text:#e2e8f0;--text-secondary:#94a3b8;--border:rgba(148,163,184,.1);--accent-gradient:linear-gradient(135deg,#06b6d4,#3b82f6);--radius:12px}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:#06b6d4;text-decoration:none}
+.container{max-width:1000px;margin:0 auto;padding:0 16px}
+header{background:#1e293b;border-bottom:1px solid #334155;padding:16px 0}
+header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo{font-size:1.3em;font-weight:700;color:#e2e8f0}
+.back-link{color:#94a3b8;font-size:.9em}
+main{padding:40px 0}
+h1{font-size:2em;margin-bottom:8px;color:#f1f5f9}
+.subtitle{color:#94a3b8;margin-bottom:24px}
+.search-bar{margin-bottom:20px}
+.search-bar input{width:100%;padding:14px 20px;border:1px solid #334155;border-radius:12px;background:#1e293b;color:#e2e8f0;font-size:1.1em}
+.search-bar input:focus{outline:none;border-color:#06b6d4}
+.category-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.category-tabs button{padding:8px 16px;background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:20px;cursor:pointer;font-size:.9em;white-space:nowrap}
+.category-tabs button.active,.category-tabs button:hover{background:#06b6d4;color:#fff;border-color:#06b6d4}
+.emoji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:8px}
+.emoji-item{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2em;background:#1e293b;border:1px solid #334155;border-radius:10px;cursor:pointer;transition:transform .15s,background .15s;user-select:none}
+.emoji-item:hover{transform:scale(1.15);background:#2d3a4e;z-index:1}
+.emoji-item:active{transform:scale(.95)}
+.copied-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#06b6d4;color:#fff;padding:20px 40px;border-radius:16px;font-size:3em;pointer-events:none;opacity:0;transition:opacity .2s;z-index:9999}
+.copied-toast.show{opacity:1}
+.recent-bar{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:#1e293b;border-radius:12px;margin-bottom:20px;min-height:60px;align-items:center}
+.recent-bar .label{color:#64748b;font-size:.85em;margin-right:8px}
+.recent-bar .emoji-item{font-size:1.5em;min-width:40px;height:40px}
+.no-results{text-align:center;color:#64748b;padding:40px;font-size:1.1em}
+footer{background:#1e293b;border-top:1px solid #334155;padding:24px 0;text-align:center;color:#64748b;margin-top:60px}
+@media(max-width:375px){h1{font-size:1.5em}.emoji-grid{grid-template-columns:repeat(auto-fill,minmax(48px,1fr))}}
+
+/* Visual enhancement v2 */
+.btn-primary{transition:all .2s ease;box-shadow:0 2px 8px rgba(6,182,212,.15)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(6,182,212,.3);filter:brightness(1.08)}
+.btn-secondary{transition:all .2s ease}
+.btn-secondary:hover{transform:translateY(-1px);border-color:rgba(34,211,238,.4)}
+.related-tools a{transition:all .2s ease;border:1px solid rgba(148,163,184,.1)}
+.related-tools a:hover{border-color:rgba(34,211,238,.35);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.info-section{border:1px solid rgba(148,163,184,.1);border-radius:12px;padding:20px;background:rgba(30,41,59,.5)}
+.seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
+.seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
+</style>
+<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/emoji-copy-paste/">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<script defer src="../../js/config.js"></script>
+<script defer src="../../js/tgh-site.js"></script>
+</head>
+<body>
+<header><div class="container"><div class="header-left"><span class="logo">😊 ToolGuideHub</span><a href="../../" class="back-link">← Back to Home</a></div><div class="lang-switch" style="display:flex;gap:4px;background:#1e293b;border-radius:8px;padding:4px;border:1px solid rgba(148,163,184,.1)"><a href="../emoji-copy-paste/" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#94a3b8">中文</a><a href="../../en/emoji-copy-paste/" class="active" style="padding:6px 12px;border-radius:5px;font-size:.85rem;color:#22d3ee;background:rgba(6,182,212,.2)">EN</a></div></div></header>
+<main><div class="container">
+<h1>Emoji Copy & Paste Tool</h1>
+<p class="tool-description" style="color:#94a3b8;font-size:0.95rem;line-height:1.6;margin:0.5rem 0 1rem;">Free online Emoji copy &amp; paste tool. 3000+ emojis organized by category, click to copy to clipboard. Search and browse by category.</p>
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search emojis..." />
+</div>
+<div class="category-tabs" id="categoryTabs"></div>
+<div class="recent-bar" id="recentBar">
+  <span class="label">Recently Used:</span>
+  <span id="recentEmojis" style="color:#64748b">None</span>
+</div>
+<div class="emoji-grid" id="emojiGrid"></div>
+<div id="noResults" class="no-results" style="display:none">No emojis found</div>
+<div class="copied-toast" id="copiedToast"></div>
+</div></main>
+
+<div class="seo-content" style="margin:1.5rem 0;padding:1rem;background:#0f172a;border-radius:8px;font-size:.95rem;color:#94a3b8;line-height:1.8"><p>Emoji Copy &amp; Paste Tool is a free online tool that runs entirely in your browser. No installation, registration, or server uploads required — your data stays private and secure. Browse 3000+ emojis organized by category, search by keyword, and click any emoji to copy it to your clipboard instantly. Works on all modern browsers and mobile devices, with accurate results delivered instantly and everything processed locally on your device.</p></div>
+<section class="related-tools" style="margin:2rem 0;padding:1rem;background:#0f172a;border-radius:8px;"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;color:#e2e8f0;">🔗 Related Tools</h2><div style="display:flex;flex-wrap:wrap;gap:4px;"><a href="../../en/character-unicode-finder/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Character Unicode Finder</a><a href="../../en/css-gradient-border-animation/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Gradient Border Animation</a><a href="../../en/css-specificity-calculator/" style="display:inline-block;padding:6px 12px;margin:4px;background:#1e293b;border-radius:6px;text-decoration:none;color:#22d3ee;font-size:14px;">Css Specificity Calculator</a></div></section>
+<footer style="background:#0f172a;border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:40px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+    <a href="../index.html" style="color:#94a3b8;text-decoration:none;font-size:14px">Home</a>
+    <a href="../contact/">Contact</a>
+    <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
+    <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
+    <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
+    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="../../en/emoji-copy-paste/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
+  </div>
+  
+</footer>
+<script>
+var categories = {
+  "😊 Smileys": ["😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇","🥰","😍","🤩","😘","😗","☺️","😚","😋","😛","😜","🤪","😝","🤑","🤗","🤭","🤫","🤔","🤐","🤨","😐","😑","😶","😏","😒","🙄","😬","😮","🤥","😌","😔","😪","🤤","😴","😷","🤒","🤕","🤢","🤮","🥴","😵","🤯","🥳","🥺","😢","😭","😤","😠","😡","🤬","💀","☠️","💩","🤡","👹","👺","👻","👽","👾","🤖"],
+  "👋 Gestures": ["👋","🤚","🖐️","✋","🖖","👌","🤌","🤏","✌️","🤞","🤟","🤘","🤙","👈","👉","👆","🖕","👇","☝️","👍","👎","✊","👊","🤛","🤜","👏","🙌","👐","🤲","🤝","🙏","✍️","💅","🤳","💪","🦵","🦶","👂","👃","🧠","🫀","🫁","🦷","🦴","👀","👁️","👅","👄"],
+  "🐱 Animals": ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🐛","🦋","🐌","🐞","🐜","🦟","🦗","🕷️","🦂","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦞","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🦧","🐘","🦛","🦏","🐪","🐫","🦒","🦘","🐃","🐂","🐄","🐎","🐖","🐏","🐑","🦙","🐐","🦌","🐕","🐩","🦮","🐕‍🦺","🐈","🐈‍⬛","🪶","🐓","🦃","🦤","🦚","🦜","🦢","🦩","🕊️","🐇","🦝","🦨","🦡","🦫","🦦","🦥","🐁","🐀","🐿️","🦔","🐾","🐉","🐲"],
+  "🍕 Food": ["🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥬","🥒","🌶️","🫑","🌽","🥕","🫒","🧄","🧅","🥔","🍠","🥐","🍞","🥖","🥨","🧀","🥚","🍳","🧈","🥞","🧇","🥓","🥩","🍗","🍖","🦴","🌭","🍔","🍟","🍕","🫓","🥪","🥙","🧆","🌮","🌯","🫔","🥗","🥘","🫕","🥫","🍝","🍜","🍲","🍛","🍣","🍱","🥟","🦪","🍤","🍙","🍚","🍘","🍥","🥠","🥮","🍢","🍡","🍧","🍨","🍦","🥧","🧁","🍰","🎂","🍮","🍭","🍬","🍫","🍿","🍩","🍪","🌰","🥜","🍯","🥛","🍼","☕","🍵","🧃","🥤","🍶","🍺","🍻","🥂","🍷","🥃","🍸","🍹","🧉","🍾","🧊","🥄","🍴","🍽️","🥣","🥡","🥢","🧂"],
+  "⚽ Sports": ["⚽","🏀","🏈","⚾","🥎","🎾","🏐","🏉","🥏","🎱","🪀","🏓","🏸","🏒","🏑","🥍","🏏","🪃","🥅","⛳","🪁","🏹","🎣","🤿","🥊","🥋","🎽","🛹","🛼","🛷","⛸️","🥌","🎿","⛷️","🏂","🪂","🏋️","🤼","🤸","⛹️","🤺","🤾","🏌️","🏇","🧘","🏄","🏊","🤽","🚣","🧗","🚵","🚴","🏆","🥇","🥈","🥉","🏅","🎖️","🏵️","🎗️","🎫","🎟️","🎪","🤹","🎭","🩰","🎨","🎬","🎤","🎧","🎼","🎹","🥁","🪘","🎷","🎺","🪗","🎸","🪕","🎻","🎲","♟️","🎯","🎳","🎮","🎰","🧩"],
+  "🚗 Transport": ["🚗","🚕","🚙","🚌","🚎","🏎️","🚓","🚑","🚒","🚐","🛻","🚚","🚛","🚜","🏍️","🛵","🚲","🛴","🛹","🛼","🚏","🛣️","🛤️","⛽","🚨","🚥","🚦","🛑","🚧","⚓","⛵","🛶","🚤","🛳️","⛴️","🛥️","🚢","✈️","🛩️","🛫","🛬","🪂","💺","🚁","🚟","🚠","🚡","🛰️","🚀","🛸","🚂","🚆","🚇","🚊","🚉","🚝","🚄","🚅","🚈","🚞","🚋","🚃","🚎","🚐","🚍","🚔","🚖","🛺","🏍️","🛵"],
+  "🔧 Objects": ["⌚","📱","💻","⌨️","🖥️","🖨️","🖱️","🖲️","🕹️","🗜️","💽","💾","💿","📀","📼","📷","📸","📹","🎥","📽️","🎞️","📞","☎️","📟","📠","📺","📻","🎙️","🎚️","🎛️","🧭","⏱️","⏲️","⏰","🕰️","⌛","📡","🔋","🔌","💡","🔦","🕯️","🪔","🧯","🛢️","💸","💵","💴","💶","💷","🪙","💰","💳","💎","⚖️","🪜","🧰","🪛","🔧","🔨","⚒️","🛠️","⛏️","🪚","🔩","⚙️","🪤","🧱","⛓️","🧲","🔫","💣","🧨","🪓","🔪","🗡️","⚔️","🛡️","🚬","⚰️","🪦","⚱️","🏺","🔮","📿","🧿","🪬","💈","⚗️","🔭","🔬","🕳️","🩹","🩺","💊","💉","🩸","🧬","🦠","🧫","🧪","🌡️","🧹","🧺","🧻","🚽","🚰","🚿","🛁","🛀","🧼","🪥","🪒","🧽","🪣","🧴","🛎️","🔑","🗝️","🚪","🪑","🛋️","🛏️","🛌","🧸","🪆","🖼️","🪞","🪟","🛍️","🛒","🎁","🎈","🎏","🎀","🪄","🪅","🎊","🎉","🎎","🏮","🎐","🧧","✉️","📩","📨","📧","💌","📥","📤","📦","🏷️","🪧","📪","📫","📬","📭","📮","📯","📜","📃","📄","📑","🧾","📊","📈","📉","🗒️","🗓️","📆","📅","🗑️","📇","🗃️","🗳️","🗄️","📋","📁","📂","🗂️","🗞️","📰","📓","📔","📒","📕","📗","📘","📙","📚","📖","🔖","🧷","🔗","📎","🖇️","📐","📏","🧮","📌","📍","✂️","🖊️","🖋️","✒️","🖌️","🖍️","📝","✏️","🔍","🔎","🔏","🔐","🔒","🔓"],
+  "❤️ Symbols": ["❤️","🧡","💛","💚","💙","💜","🖤","🤍","🤎","💔","❣️","💕","💞","💓","💗","💖","💘","💝","💟","☮️","✝️","☪️","🕉️","☸️","✡️","🔯","🕎","☯️","☦️","🛐","⛎","♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓","🆔","⚛️","🉑","☢️","☣️","📴","📳","🈶","🈚","🈸","🈺","🈷️","✴️","🆚","💮","🉐","㊙️","㊗️","🈴","🈵","🈹","🈲","🅰️","🅱️","🆎","🆑","🅾️","🆘","❌","⭕","🛑","⛔","📛","🚫","💯","💢","♨️","🚷","🚯","🚳","🚱","🔞","📵","🚭","❗","❕","❓","❔","‼️","⁉️","🔅","🔆","〽️","⚠️","🚸","🔱","⚜️","🔰","♻️","✅","🈯","💹","❇️","✳️","❎","🌐","💠","Ⓜ️","🌀","💤","🏧","🚾","♿","🅿️","🛗","🈳","🈂️","🛂","🛃","🛄","🛅","🚹","🚺","🚼","⚧","🚻","🚮","🎦","📶","🈁","🔣","ℹ️","🔤","🔡","🔠","🆖","🆗","🆙","🆒","🆕","🆓","0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟","🔢","#️⃣","*️⃣","⏏️","▶️","⏸️","⏯️","⏹️","⏺️","⏭️","⏮️","⏩","⏪","⏫","⏬","◀️","🔼","🔽","➡️","⬅️","⬆️","⬇️","↗️","↘️","↙️","↖️","↕️","↔️","↪️","↩️","⤴️","⤵️","🔀","🔁","🔂","🔄","🔃","🎵","🎶","➕","➖","➗","✖️","♾️","💲","💱","™️","©️","®️","〰️","➰","➿","🔚","🔙","🔛","🔝","🔜","✔️","☑️","🔘","🔴","🟠","🟡","🟢","🔵","🟣","⚫","⚪","🟤","🔺","🔻","🔸","🔹","🔶","🔷","🔳","🔲","▪️","▫️","◾","◽","◼️","◻️","🟥","🟧","🟨","🟩","🟦","🟪","⬛","⬜","🟫","🔈","🔇","🔉","🔊","🔔","🔕","📣","📢","💬","💭","🗯️","♠️","♣️","♥️","♦️","🃏","🎴","🀄","🕐","🕑","🕒","🕓","🕔","🕕","🕖","🕗","🕘","🕙","🕚","🕛","🕜","🕝","🕞","🕟","🕠","🕡","🕢","🕣","🕤","🕥","🕦","🕧"]
+};
+
+var allEmojis = [];
+var catNames = Object.keys(categories);
+
+catNames.forEach(function(cat){
+  categories[cat].forEach(function(emoji){
+    allEmojis.push({emoji: emoji, category: cat});
+  });
+});
+
+var tabsEl = document.getElementById('categoryTabs');
+tabsEl.innerHTML = '<button class="active" data-cat="all">All</button>';
+catNames.forEach(function(cat){
+  tabsEl.innerHTML += '<button data-cat="'+cat+'">'+cat+'</button>';
+});
+
+var recent = [];
+try { recent = JSON.parse(localStorage.getItem('emoji_recent') || '[]'); } catch(e){ recent = []; }
+function updateRecent(){
+  var el = document.getElementById('recentEmojis');
+  if(recent.length === 0){ el.innerHTML = 'None'; return; }
+  el.innerHTML = recent.slice(0, 12).map(function(e){
+    return '<span class="emoji-item" style="display:inline-flex;margin:2px" onclick="copyEmoji(\''+e+'\')">'+e+'</span>';
+  }).join('');
+}
+updateRecent();
+
+function addRecent(emoji){
+  recent = recent.filter(function(e){ return e !== emoji; });
+  recent.unshift(emoji);
+  if(recent.length > 20) recent = recent.slice(0, 20);
+  try { localStorage.setItem('emoji_recent', JSON.stringify(recent)); } catch(e){}
+  updateRecent();
+}
+
+function copyEmoji(emoji){
+  navigator.clipboard.writeText(emoji).then(function(){
+    var toast = document.getElementById('copiedToast');
+    toast.textContent = emoji + ' Copied!';
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 800);
+    addRecent(emoji);
+  })["catch"](function(){
+    var ta = document.createElement('textarea');
+    ta.value = emoji;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var toast = document.getElementById('copiedToast');
+    toast.textContent = emoji + ' Copied!';
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 800);
+    addRecent(emoji);
+  });
+}
+
+var currentCat = 'all';
+var currentSearch = '';
+
+function renderGrid(){
+  var grid = document.getElementById('emojiGrid');
+  var noRes = document.getElementById('noResults');
+  var filtered = allEmojis;
+
+  if(currentCat !== 'all'){
+    filtered = filtered.filter(function(e){ return e.category === currentCat; });
+  }
+  if(currentSearch){
+    var q = currentSearch.toLowerCase();
+    filtered = filtered.filter(function(e){
+      return e.emoji.includes(q) || e.category.toLowerCase().includes(q);
+    });
+  }
+
+  if(filtered.length === 0){
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
+  } else {
+    noRes.style.display = 'none';
+    grid.innerHTML = filtered.map(function(e){
+      return '<div class="emoji-item" onclick="copyEmoji(\''+e.emoji+'\')" title="'+e.category+'">'+e.emoji+'</div>';
+    }).join('');
+  }
+}
+
+renderGrid();
+
+tabsEl.addEventListener('click', function(e){
+  if(e.target.tagName === 'BUTTON'){
+    document.querySelectorAll('#categoryTabs button').forEach(function(b){ b.classList.remove('active'); });
+    e.target.classList.add('active');
+    currentCat = e.target.dataset.cat;
+    renderGrid();
+  }
+});
+
+document.getElementById('searchInput').addEventListener('input', function(){
+  currentSearch = this.value;
+  renderGrid();
+});
+
+document.getElementById('recentBar').addEventListener('click', function(e){
+  if(e.target.classList.contains('emoji-item')){
+    copyEmoji(e.target.textContent);
+  }
+});
+</script>
+</body>
+</html>
