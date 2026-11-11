@@ -16,15 +16,15 @@
 <meta name="description" content="Create layered SVG wave graphics with custom colours, amplitude and frequency, then copy the SVG for a section divider.">
 <meta name="keywords" content="SVG wave generator wave maker SVG background wave pattern CSS wave SVG shape generator">
 <title>Free Online SVG Wave Generator - ToolGuideHub</title>
-<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
+<link rel="canonical" href="https://toolguidehub.github.io/en/wave-generator/">
 <meta property="og:title" content="Free Online SVG Wave Generator - ToolGuideHub">
 <meta property="og:description" content="Create layered SVG wave graphics with custom colours, amplitude and frequency, then copy the SVG for a section divider.">
-<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
-<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:url" content="https://toolguidehub.github.io/en/wave-generator/">
+<meta property="og:image" content="https://toolguidehub.github.io/og-image.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free OnlineTools - No Signup Required">
 <meta name="twitter:description" content="Free online svg wave generator - toolbase tool. Fast, secure, and no registration required. Works entirely in your browser.">
-<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://toolguidehub.github.io/og-image.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ToolGuideHub">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Free Online SVG Wave Generator - Multi-layer Waves with Custom Colors", "description": "Free online SVG wave generator. Create beautiful multi-layer wave graphics with custom colors, amplitude, and frequency. One-click copy SVG code. Pure frontend local generation.", "applicationCategory": "DesignApplication", "operatingSystem": "Web", "publisher": {"@type": "Organization", "name": "ToolGuideHub"}, "author": {"@type": "Organization", "name": "ToolGuideHub"}, "dateModified": "2026-07-11", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"}}</script>
@@ -38,13 +38,13 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://adi63586.github.io/Toolguidehub/"
+      "item": "https://toolguidehub.github.io/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Tools",
-      "item": "https://adi63586.github.io/Toolguidehub/en/wave-generator/"
+      "item": "https://toolguidehub.github.io/en/wave-generator/"
     }
   ],
   "name": "Tools"
@@ -110,7 +110,7 @@ h1{font-size:1.6rem;text-align:center;margin-bottom:8px;background:linear-gradie
 
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <meta name="robots" content="index, follow">
-<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/wave-generator/">
+<link rel="alternate" hreflang="en" href="https://toolguidehub.github.io/en/wave-generator/">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"SVG Wave Generator FAQ","mainEntity":[{"@type":"Question","name":"How does the SVG Wave Generator work?","acceptedAnswer":{"@type":"Answer","text":"Configure your options (quantity, format, range, etc.), then click Generate. The tool creates your content instantly in the browser. You can preview, copy, or download the results."}},{"@type":"Question","name":"Is the SVG Wave Generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is completely free with no signup required. Everything runs locally: layernumber and Width are processed on your device, never sent to a server — your data is never uploaded to any server, ensuring complete privacy and security."}},{"@type":"Question","name":"Can I customize the output from the SVG Wave Generator?","acceptedAnswer":{"@type":"Answer","text":"Yes, the generator offers various options to customize the output including format, quantity, and style parameters. Adjust the settings before clicking Generate to get results that match your needs."}}]}</script>
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <script defer src="../../js/config.js"></script>
@@ -278,7 +278,7 @@ if(!text){showToast('PleaseInputanti-feedbackcontent');return;}
 const typeLabel={feedback:'💡 featuresuggestion',bug:'🐛 questionanti-feedback',other:''}[type];
 const title=encodeURIComponent(typeLabel+' - '+window.location.pathname);
 const body=encodeURIComponent('**pageside**: '+window.location.href+'\n**Type**: '+typeLabel+'\n\n'+text);
-window.open('https://github.com/adi63586/Toolguidehub/issues/new?title='+title+'&body='+body,'_blank');
+window.open('https://github.com/toolguidehub/toolguidehub.github.io/issues/new?title='+title+'&body='+body,'_blank');
 document.getElementById('feedback-success').style.display='block';
 }
 </script>
@@ -286,7 +286,7 @@ document.getElementById('feedback-success').style.display='block';
 <script>
 (function(){var s=document.getElementById('related-tools-section');if(!s)return;var p=window.location.pathname;var en=p.indexOf('/en/')!==-1;p=p.replace(/\/en\//g,'/');var slug=p.split('/').filter(Boolean).pop()||'';if(!slug){s.innerHTML='';return;}var depth=en?'../../':'../';fetch(depth+'related-tools.json').then(function(r){if(!r.ok)throw new Error('');return r.json();}).then(function(d){var data=en?d.en:d.cn;var t=data[slug];if(!t||!t.related||!t.related.length){s.innerHTML='';return;}var h='<div class="related-tools-inner"><h3 class="related-tools-title">'+(en?'🔗 You May Also Like':'🔗 RelatedToolsRecommended')+'</h3><div class="related-tools-grid">';t.related.forEach(function(r){var link=en?'../../en/'+r.slug+'/':'../'+r.slug+'/';h+='<a href="'+link+'" class="related-tool-card"><span class="related-tool-icon">'+(r.icon||'🔧')+'</span><span class="related-tool-name">'+r.name+'</span></a>';});h+='</div></div>';s.innerHTML=h;}).catch(function(){s.innerHTML='';});})();</script>
 
-<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a>
+<footer style="border-top:1px solid rgba(148,163,184,.1);padding:24px 0;margin-top:32px;text-align:center;color:#64748b;font-size:.85rem"><a href="../../" style="color:#64748b;margin:0 8px">Home</a> <a href="../../en/privacy/" style="color:#64748b;margin:0 8px">Privacy</a> <a href="../../en/terms/" style="color:#64748b;margin:0 8px">Terms</a><a href="https://github.com/toolguidehub/toolguidehub.github.io" target="_blank" rel="noopener">GitHub</a>
 </footer>
 </body>
 </html>

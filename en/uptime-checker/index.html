@@ -9,12 +9,12 @@
 <meta name="description" content="Check a URL for HTTP status, response time, and SSL certificate expiry to catch downtime and slow responses early. No sign-up required.">
 <meta name="keywords" content="uptime checker,website status,website monitor,online checker,HTTP status,response time,SSL check,website availability">
 <title>Uptime Checker - Website Availability & Response Time</title>
-<link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/uptime-checker/">
-<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/uptime-checker/">
-<link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/uptime-checker/">
+<link rel="canonical" href="https://toolguidehub.github.io/en/uptime-checker/">
+<link rel="alternate" hreflang="en" href="https://toolguidehub.github.io/en/uptime-checker/">
+<link rel="alternate" hreflang="en" href="https://toolguidehub.github.io/en/uptime-checker/">
 <meta property="og:title" content="Uptime Checker - Website Availability & Response Time">
 <meta property="og:description" content="Check a URL for HTTP status, response time, and SSL certificate expiry to catch downtime and slow responses early. No sign-up required.">
-<meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/uptime-checker/">
+<meta property="og:url" content="https://toolguidehub.github.io/en/uptime-checker/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ToolGuideHub">
 <script type="application/ld+json">{
@@ -81,12 +81,12 @@
 .seo-content h2{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.35rem}
 .seo-content h3{color:#22d3ee;font-size:1.1rem;margin-top:18px}
 </style>
-<meta property="og:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta property="og:image" content="https://toolguidehub.github.io/og-image.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://adi63586.github.io/Toolguidehub/og-image.svg">
+<meta name="twitter:image" content="https://toolguidehub.github.io/og-image.svg">
 
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://adi63586.github.io/Toolguidehub/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online Website Uptime Checker", "item": "https://adi63586.github.io/Toolguidehub/en/uptime-checker/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolguidehub.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toolguidehub.github.io/en/#tools/"}, {"@type": "ListItem", "position": 3, "name": "Free Online Website Uptime Checker", "item": "https://toolguidehub.github.io/en/uptime-checker/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Online Website Uptime Checker","description":"Step-by-step guide for using Online Website Uptime Checker","totalTime":"PT1M","tool":{"@type":"HowToTool","name":"Online Website Uptime Checker"},"step":[{"@type":"HowToStep","position":1,"name":"Enter data","text":"Input or paste the content you want to check"},{"@type":"HowToStep","position":2,"name":"Click Check","text":"Press the check button to start the analysis"},{"@type":"HowToStep","position":3,"name":"View report","text":"Review the check results and detailed report"},{"@type":"HowToStep","position":4,"name":"Take action","text":"Follow the suggestions or copy the report"}]}</script>
 
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
@@ -126,14 +126,14 @@
 </section>
 </main>
 <footer class="footer container"><div style="margin-bottom:12px"><a href="../../">Home</a><a href="../../">All Tools</a><a href="../contact/">Contact</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../about/">About</a>
-<a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener">GitHub</a><a href="../../en/uptime-checker/">中文</a>
+<a href="https://github.com/toolguidehub/toolguidehub.github.io" target="_blank" rel="noopener">GitHub</a><a href="../../en/uptime-checker/">中文</a>
 </div>
 
 
 </footer>
 <script>
 var resultsData=[];
-function loadExample(){document.getElementById('urlInput').value='https://google.com\nhttps://github.com\nhttps://stackoverflow.com\nhttps://adi63586.github.io/Toolguidehub\nhttps://example.com';}
+function loadExample(){document.getElementById('urlInput').value='https://google.com\nhttps://github.com\nhttps://stackoverflow.com\nhttps://toolguidehub.github.io\nhttps://example.com';}
 function clearAll(){document.getElementById('urlInput').value='';document.getElementById('results').innerHTML='';resultsData=[];}
 async function checkUrl(url){var result={url:url,status:'-',time:'-',ssl:'-',error:null};try{var start=performance.now();var controller=new AbortController();var timeout=setTimeout(function(){controller.abort();},10000);var resp=await fetch(url,{mode:'no-cors',signal:controller.signal,cache:'no-store'});clearTimeout(timeout);var end=performance.now();result.time=Math.round(end-start)+'ms';result.status=resp.type==='opaque'?'Reachable':'('+resp.status+')';result.ssl=url.startsWith('https://')?'✓ HTTPS':'✗ HTTP';result.ok=true;}catch(e){result.ok=false;if(e.name==='AbortError')result.error='Timeout(10s)';else result.error=e.message||'Unreachable';}return result;}
 async function checkAll(){var input=document.getElementById('urlInput').value.trim();if(!input){showToast('Enter at least one URL');return;}var urls=input.split('\n').map(function(u){return u.trim();}).filter(function(u){return u.length>0;});var resultsDiv=document.getElementById('results');resultsDiv.innerHTML='<div class="result-row result-header"><div>URL</div><div>Status</div><div>Time</div><div>SSL</div><div>Result</div></div>';resultsData=[];for(var i=0;i<urls.length;i++){var rowId='row-'+i;resultsDiv.innerHTML+='<div class="result-row" id="'+rowId+'"><div style="word-break:break-all">'+urls[i]+'</div><div class="status-checking">Checking</div><div>-</div><div>-</div><div>-</div></div>';}for(var i=0;i<urls.length;i++){var result=await checkUrl(urls[i]);resultsData.push(result);var row=document.getElementById('row-'+i);if(row){var sc=result.ok?'status-up':'status-down';var tc=parseInt(result.time)>3000?'status-slow':'status-up';row.innerHTML='<div style="word-break:break-all">'+result.url+'</div><div class="'+sc+'">'+(result.ok?'UP':'DOWN')+'</div><div class="'+tc+'">'+result.time+'</div><div>'+result.ssl+'</div><div class="'+sc+'">'+(result.ok?'✓ OK':'✗ '+(result.error||'Error'))+'</div>';}}}

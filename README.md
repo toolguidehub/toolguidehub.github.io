@@ -2,8 +2,8 @@
 
 A directory of **3,700 free online tools** (calculators, converters, PDF/image/text/developer utilities and more), built from an open-source tools collection and restyled with a purple, AIxploria-inspired design.
 
-- Live site: https://adi63586.github.io/Toolguidehub/
-- Repository: https://github.com/adi63586/Toolguidehub
+- Live site: https://toolguidehub.github.io/
+- Repository: https://github.com/toolguidehub/toolguidehub.github.io
 
 ## What is inside
 | Path | What |
@@ -21,7 +21,7 @@ A directory of **3,700 free online tools** (calculators, converters, PDF/image/t
 ## Publish on GitHub Pages
 1. Copy every file in this ZIP (including hidden `.github` and `.nojekyll`) to the root of the `main` branch of the repository.
 2. Repository **Settings → Pages → Source → GitHub Actions**.
-3. Push. The workflow publishes to https://adi63586.github.io/Toolguidehub/ in about a minute.
+3. Push. The workflow publishes to https://toolguidehub.github.io/ in about a minute.
 
 ## AdSense (when you are approved)
 Edit `js/config.js`:

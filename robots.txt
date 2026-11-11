@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adi63586.github.io/Toolguidehub/sitemap.xml
+Sitemap: https://toolguidehub.github.io/sitemap.xml

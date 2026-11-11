@@ -9,12 +9,12 @@
   <meta name="description" content="Take a short quiz to find your chronotype, bear, lion, wolf or dolphin, and plan your day around it.">
   <meta name="keywords" content="chronotype quiz, sleep type test, biological clock, sleep animal, bear lion wolf dolphin, circadian rhythm">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/">
-  <link rel="alternate" hreflang="en" href="https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/">
+  <link rel="canonical" href="https://toolguidehub.github.io/en/chronotype-quiz/">
+  <link rel="alternate" hreflang="en" href="https://toolguidehub.github.io/en/chronotype-quiz/">
   <!-- Open Graph -->
   <meta property="og:title" content="Chronotype Quiz - Discover Your Sleep Animal Type">
   <meta property="og:description" content="Take a short quiz to find your chronotype, bear, lion, wolf or dolphin, and plan your day around it.">
-  <meta property="og:url" content="https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/">
+  <meta property="og:url" content="https://toolguidehub.github.io/en/chronotype-quiz/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
 
@@ -35,8 +35,8 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adi63586.github.io/Toolguidehub/" },
-      { "@type": "ListItem", "position": 2, "name": "Chronotype Quiz", "item": "https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolguidehub.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Chronotype Quiz", "item": "https://toolguidehub.github.io/en/chronotype-quiz/" }
     ]
   }
   </script>
@@ -542,7 +542,7 @@
     <a href="../privacy/" style="color:#94a3b8;text-decoration:none;font-size:14px">Privacy</a>
     <a href="../terms/" style="color:#94a3b8;text-decoration:none;font-size:14px">Terms</a>
     <a href="../about/" style="color:#94a3b8;text-decoration:none;font-size:14px">About</a>
-    <a href="https://github.com/adi63586/Toolguidehub" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
+    <a href="https://github.com/toolguidehub/toolguidehub.github.io" target="_blank" rel="noopener" style="color:#94a3b8;text-decoration:none;font-size:14px">GitHub</a>
     <a href="../../en/chronotype-quiz/" style="color:#94a3b8;text-decoration:none;font-size:14px">中文</a>
   </div>
   
@@ -908,7 +908,7 @@ function shareResult() {
   var ct = chronotypes[winner];
   var text = '🧬 My chronotype is: ' + ct.name + '\n\n';
   text += ct.subtitle + '\n\n';
-  text += 'Find yours 👉 https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/';
+  text += 'Find yours 👉 https://toolguidehub.github.io/en/chronotype-quiz/';
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() {
@@ -923,7 +923,7 @@ function shareTwitter() {
   if (!quizComplete) return;
   var winner = getWinner();
   var ct = chronotypes[winner];
-  var text = '🧬 My chronotype is: ' + ct.emoji + ' ' + ct.nameEn + '!\n\nFind out yours 👉 https://adi63586.github.io/Toolguidehub/en/chronotype-quiz/\n\n#Chronotype #SleepType #SleepQuiz';
+  var text = '🧬 My chronotype is: ' + ct.emoji + ' ' + ct.nameEn + '!\n\nFind out yours 👉 https://toolguidehub.github.io/en/chronotype-quiz/\n\n#Chronotype #SleepType #SleepQuiz';
   var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
 }
