@@ -312,6 +312,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/p
 let pdfBytes=null,modifiedPdfBytes=null,pdfDoc=null,pdfJsDoc=null,currentPage=1,totalPages=0;
 const {PDFDocument,rgb,StandardFonts,degrees}=PDFLib;
 
+document.getElementById('dropZone').addEventListener('click',()=>document.getElementById('fileInput').click());
 document.getElementById('fileInput').addEventListener('change',handleFile);
 document.getElementById('dropZone').addEventListener('dragover',e=>{e.preventDefault();e.currentTarget.style.borderColor='#22d3ee'});
 document.getElementById('dropZone').addEventListener('dragleave',e=>{e.currentTarget.style.borderColor='rgba(148,163,184,.1)'});
